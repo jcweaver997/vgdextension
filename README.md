@@ -81,4 +81,18 @@ linux.debug.x86_64 = "res://<path to your built library>.so"
 linux.release.x86_64 = "res://<path to your built library>.so"
 ```
 
+If things worked, you should see something like the following in the console:
+```
+PS C:\Users\jcwea\Desktop\Godot_v4.2.1-stable_mono_win64> .\Godot_v4.2.1-stable_mono_win64.exe
+PS C:\Users\jcwea\Desktop\Godot_v4.2.1-stable_mono_win64> Godot Engine v4.2.1.stable.mono.official.b09f793f5 - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 546.65 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4080
+
+Editing project: C:/Users/jcwea/Documents/vgdextension_test
+hello_extension_entry v4.2.1
+Godot Engine v4.2.1.stable.mono.official.b09f793f5 - https://godotengine.org
+Vulkan API 1.3.260 - Forward+ - Using Vulkan Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+registering class ExampleClass...
+```
+
 Learn more about GDExtension https://docs.godotengine.org/en/stable/tutorials/scripting/gdextension/what_is_gdextension.html
