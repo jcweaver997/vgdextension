@@ -35,7 +35,7 @@ pub fn (s &StringName) to_v() string {
 pub struct GdExtensionInterfaceFunctions {
 pub:
 	gpaddr                                             fn (&i8) GDExtensionInterfaceFunctionPtr                          @[required]
-	clp                                                GDExtensionClassLibraryPtr
+	clp                                                GDExtensionClassLibraryPtr                                        @[required]
 	get_godot_version                                  GDExtensionInterfaceGetGodotVersion                               @[required]
 	mem_alloc                                          GDExtensionInterfaceMemAlloc                                      @[required]
 	mem_realloc                                        GDExtensionInterfaceMemRealloc                                    @[required]

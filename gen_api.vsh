@@ -176,16 +176,22 @@ struct ExtensionApi {
 fn main() {
 	mut ea := ExtensionApi{}
 	ea = json.decode(ExtensionApi, json_replacements(os.read_file('extension_api.json')!))!
+	
+	gen_file(ea)!
+	os.execute("v fmt -w src/gdextension_api.v")
+}
+
+fn gen_file(ea &ExtensionApi)!{
 	mut f := os.File{}
 	f = os.create('src/gdextension_api.v')!
 	defer {
 		f.close()
 	}
-	f.write_string('module gdi\n\n')!
-	gen_builtin_toplevelfunc(&ea, mut f)!
-	gen_builtin_classes(&ea, mut f)!
-	gen_global_enums(&ea, mut f)!
-	gen_utility_functions(&ea, mut f)!
+	f.write_string('module vgdextension\n\n')!
+	gen_builtin_toplevelfunc(ea, mut f)!
+	gen_builtin_classes(ea, mut f)!
+	gen_global_enums(ea, mut f)!
+	gen_utility_functions(ea, mut f)!
 }
 
 fn json_replacements(original string) string {
