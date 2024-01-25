@@ -6,7 +6,9 @@ gdextension for vlang
 `./gen_api.vsh` API binding generator<br>
 `./extension_api.json` the godot extension api json the api generator will use<br>
 `./src/gdclass.v` class and classdb related functionality<br>
-`./src/gdextension_api.v`
+`./src/gdextension_api.v` the generated godot api<br>
+`./src/gdextension_interface/v` interface file, defines the gdextension interface functions and types<br>
+`./src/gdextension.v` binds the gdextension interface functions<br>
 
 
 ### Generate Your Own Bindings
@@ -18,7 +20,7 @@ gdextension for vlang
 ### Example
 Note: You can't register classes yet, its just an example, a lot of work still needs to be done to make a valid demo<br>
 Compile with `v -shared -enable-globals -cc gcc .`
-```
+```v
 module main
 
 import vgdextension as gd
