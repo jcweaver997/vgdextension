@@ -1,0 +1,2 @@
+# vgdextension
+gdextension for vlang
