@@ -241,11 +241,12 @@ fn gen_file(ea &ExtensionApi)!{
 		f.close()
 	}
 	f.write_string('module vgdextension\n\n')!
-	gen_builtin_classes(ea, mut f)!
-	gen_global_enums(ea, mut f)!
 	gen_utility_functions(ea, mut f)!
-	gen_classes(ea, mut f)!
-	gen_native_structures(ea, mut f)!
+	gen_builtin_classes(ea)!
+	gen_global_enums(ea)!
+	
+	gen_classes(ea)!
+	gen_native_structures(ea)!
 }
 
 fn json_replacements(original string) string {
@@ -253,9 +254,13 @@ fn json_replacements(original string) string {
 		'"i32"').replace('"int"', '"i32"').replace('"match"', '"matche"').replace('"map"', '"mape"').replace('"Variant.Type"', '"VariantType"').replace('"Variant.Operator"', '"VariantOperator"')
 }
 
-fn gen_global_enums(ea &ExtensionApi, mut f os.File) ! {
+fn gen_global_enums(ea &ExtensionApi) ! {
 	for e in ea.global_enums {
 		enum_name := convert_type(e.name)
+		mut f := os.create('src/gdextension_api_${enum_name}.v')!
+		defer {
+			f.close()
+		}
 		f.write_string('pub enum ${enum_name} {\n')!
 		mut written_values := []i64{cap:e.values.len}
 		for v in e.values {
@@ -268,7 +273,7 @@ fn gen_global_enums(ea &ExtensionApi, mut f os.File) ! {
 	}
 }
 
-fn gen_builtin_classes(ea &ExtensionApi, mut f os.File) ! {
+fn gen_builtin_classes(ea &ExtensionApi) ! {
 	// {
 	// 	mut members := ea.builtin_class_member_offsets[platform_index].classes.map(it.name)
 	// 	members << ea.builtin_classes.map(it.name)
@@ -288,7 +293,11 @@ fn gen_builtin_classes(ea &ExtensionApi, mut f os.File) ! {
 			'f32', 'i32', 'bool' { continue }
 			else {}
 		}
-
+		classname := convert_type(class.name)
+		mut f := os.create('src/gdextension_api_${classname}.v')!
+		defer {
+			f.close()
+		}
 
 		// gen class enums
 		{
@@ -534,7 +543,7 @@ fn gen_utility_functions(ea &ExtensionApi, mut f os.File) ! {
 }
 
 
-fn gen_classes(ea &ExtensionApi, mut f os.File) ! {
+fn gen_classes(ea &ExtensionApi) ! {
 
 	builtin_names := ea.builtin_classes.map(it.name)
 	mut enum_defaults := map[string]string{}
@@ -555,6 +564,11 @@ fn gen_classes(ea &ExtensionApi, mut f os.File) ! {
 	}
 
 	for class in ea.classes {
+		classname := convert_type(class.name)
+		mut f := os.create('src/gdextension_api_${classname}.v')!
+		defer {
+			f.close()
+		}
 		// gen class enums
 		{
 			
@@ -651,9 +665,14 @@ fn gen_classes(ea &ExtensionApi, mut f os.File) ! {
 	}
 }
 
-fn gen_native_structures(ea &ExtensionApi, mut f os.File) ! {
+fn gen_native_structures(ea &ExtensionApi) ! {
 	for ns in ea.native_structures {
 		name := convert_type(ns.name)
+		mut f := os.create('src/gdextension_api_${name}.v')!
+		defer {
+			f.close()
+		}
+
 		f.write_string('pub struct ${name} {\n')!
 		members := ns.format.split(";")
 		f.write_string('    pub mut:\n')!

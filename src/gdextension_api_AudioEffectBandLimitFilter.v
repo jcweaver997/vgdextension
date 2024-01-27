@@ -1,0 +1,2 @@
+pub type AudioEffectBandLimitFilter = voidptr
+

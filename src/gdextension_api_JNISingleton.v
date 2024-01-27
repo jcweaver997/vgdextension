@@ -1,0 +1,2 @@
+pub type JNISingleton = voidptr
+

@@ -1,0 +1,2 @@
+pub type JavaScriptObject = voidptr
+

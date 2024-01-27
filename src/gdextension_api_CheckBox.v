@@ -1,0 +1,2 @@
+pub type CheckBox = voidptr
+
