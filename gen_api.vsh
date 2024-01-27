@@ -116,6 +116,7 @@ struct ExtensionApiBuiltinClass {
 	has_destructor bool
 	methods        []ExtensionApiClassBuiltinMethod
 	members        []ExtensionApiMember
+	enums          []ExtensionApiEnum
 }
 
 struct ExtensionApiClassMethodReturnValue {
@@ -173,6 +174,58 @@ struct ExtensionApi {
 	native_structures []ExtensionApiNativeStructure
 }
 
+const v_keywords := [
+	"as",
+"asm",
+"assert",
+"atomic",
+"bool",
+"break",
+"const",
+"continue",
+"char",
+"defer",
+"else",
+"enum",
+"false",
+"fn",
+"for",
+"go",
+"goto",
+"if",
+"import",
+"in",
+"interface",
+"is",
+"isreftype",
+"lock",
+"match",
+"module",
+"mut",
+"none",
+"or",
+"pub",
+"return",
+"rlock",
+"select",
+"shared",
+"sizeof",
+"spawn",
+"static",
+"string",
+"struct",
+"true",
+"type",
+"typeof",
+"union",
+"unsafe",
+"volatile",
+"__global",
+"__offsetof",
+"args",
+]
+
+
 fn main() {
 	mut ea := ExtensionApi{}
 	ea = json.decode(ExtensionApi, json_replacements(os.read_file('extension_api.json')!))!
@@ -188,10 +241,11 @@ fn gen_file(ea &ExtensionApi)!{
 		f.close()
 	}
 	f.write_string('module vgdextension\n\n')!
-	gen_builtin_toplevelfunc(ea, mut f)!
 	gen_builtin_classes(ea, mut f)!
 	gen_global_enums(ea, mut f)!
 	gen_utility_functions(ea, mut f)!
+	gen_classes(ea, mut f)!
+	gen_native_structures(ea, mut f)!
 }
 
 fn json_replacements(original string) string {
@@ -201,7 +255,8 @@ fn json_replacements(original string) string {
 
 fn gen_global_enums(ea &ExtensionApi, mut f os.File) ! {
 	for e in ea.global_enums {
-		f.write_string('pub enum ${e.name} {\n')!
+		enum_name := convert_type(e.name)
+		f.write_string('pub enum ${enum_name} {\n')!
 		mut written_values := []i64{cap:e.values.len}
 		for v in e.values {
 			if v.value !in written_values {
@@ -213,22 +268,19 @@ fn gen_global_enums(ea &ExtensionApi, mut f os.File) ! {
 	}
 }
 
-fn gen_builtin_toplevelfunc(ea &ExtensionApi, mut f os.File) ! {
-}
-
 fn gen_builtin_classes(ea &ExtensionApi, mut f os.File) ! {
-	{
-		mut members := ea.builtin_class_member_offsets[platform_index].classes.map(it.name)
-		members << ea.builtin_classes.map(it.name)
-		for c in ea.builtin_class_sizes[platform_index].sizes {
-			if !(c.name in members) && !(c.name in ['f32', 'i32', 'bool']) {
-				f.write_string('@[heap]\n')!
-				f.write_string('pub struct ${c.name} {\n')!
-				f.write_string('        godot_data [${c.size}]u8 // filler\n')!
-				f.write_string('}\n\n')!
-			}
-		}
-	}
+	// {
+	// 	mut members := ea.builtin_class_member_offsets[platform_index].classes.map(it.name)
+	// 	members << ea.builtin_classes.map(it.name)
+	// 	for c in ea.builtin_class_sizes[platform_index].sizes {
+	// 		if !(c.name in members) && !(c.name in ['f32', 'i32', 'bool']) {
+	// 			f.write_string('@[heap]\n')!
+	// 			f.write_string('pub struct ${c.name} {\n')!
+	// 			f.write_string('        godot_data [${c.size}]u8 // filler\n')!
+	// 			f.write_string('}\n\n')!
+	// 		}
+	// 	}
+	// }
 
 
 	for class in ea.builtin_classes {
@@ -236,6 +288,29 @@ fn gen_builtin_classes(ea &ExtensionApi, mut f os.File) ! {
 			'f32', 'i32', 'bool' { continue }
 			else {}
 		}
+
+
+		// gen class enums
+		{
+			
+			for class_enum in class.enums {
+				mut written_values := []i64{cap:class_enum.values.len}
+				f.write_string('pub enum ${class.name}${class_enum.name} {\n')!
+				for value in class_enum.values {
+					if value.value !in written_values {
+						written_values << value.value
+						f.write_string('    ${value.name.to_lower()} = ${value.value}\n')!
+					}
+				}
+				f.write_string('}\n\n')!
+			}
+		}
+
+		// gen class constants
+
+		// TODO
+
+
 		f.write_string('@[heap]\n')!
 		f.write_string('pub struct ${class.name} {\n')!
 		mut defined_size := 0
@@ -313,10 +388,7 @@ fn gen_builtin_classes(ea &ExtensionApi, mut f os.File) ! {
 				if i != 0 {
 					f.write_string(', ')!
 				}
-				mut name := arg.name
-				if name in ["char"]{
-					name = "gd${name}"
-				}
+				mut name := convert_name(arg.name)
 				f.write_string('${name} ${arg.type_name}')!
 			}
 			has_return := method.return_type != ''
@@ -326,6 +398,8 @@ fn gen_builtin_classes(ea &ExtensionApi, mut f os.File) ! {
 					f.write_string('    mut object_out := ${method.return_type}(0)\n')!
 				} else if method.return_type == "bool" {
 					f.write_string('    mut object_out := false\n')!
+				} else if method.return_type == "Object" {
+					f.write_string('    mut object_out := unsafe{nil}\n')!
 				} else {
 					f.write_string('    mut object_out := ${method.return_type}{}\n')!
 				}
@@ -339,10 +413,7 @@ fn gen_builtin_classes(ea &ExtensionApi, mut f os.File) ! {
 				if method.arguments.len > 0 {
 					f.write_string('    mut args := unsafe { [${method.arguments.len}]voidptr{} }\n')!
 					for i, a in method.arguments {
-						mut name := a.name
-						if name in ["char"]{
-							name = "gd${name}"
-						}
+						mut name := convert_name(a.name)
 						f.write_string('    args[${i}] = voidptr(&${name})\n')!
 					}
 
@@ -394,19 +465,14 @@ fn gen_builtin_classes(ea &ExtensionApi, mut f os.File) ! {
 fn gen_utility_functions(ea &ExtensionApi, mut f os.File) ! {
 	// TODO: is_vararg
 	for mut fun in &ea.utility_functions {
-		if fun.name in ["typeof"] {
-			fun.name = "gd${fun.name}"
-		}
+		fun.name = convert_name(fun.name)
 		f.write_string('pub fn ${fun.name}(')!
 
 		for i, arg in fun.arguments {
 			if i != 0 {
 				f.write_string(', ')!
 			}
-			mut name := arg.name
-			if name in ["char", "string"]{
-				name = "gd${name}"
-			}
+			mut name := convert_name(arg.name)
 			f.write_string('${name} ${arg.type_name}')!
 		}
 
@@ -417,6 +483,8 @@ fn gen_utility_functions(ea &ExtensionApi, mut f os.File) ! {
 				f.write_string('    mut object_out := ${fun.return_type}(0)\n')!
 			} else if fun.return_type == "bool" {
 				f.write_string('    mut object_out := false\n')!
+			} else if fun.return_type == "Object" {
+				f.write_string('    mut object_out := unsafe{nil}\n')!
 			} else {
 				f.write_string('    mut object_out := ${fun.return_type}{}\n')!
 			}
@@ -430,10 +498,7 @@ fn gen_utility_functions(ea &ExtensionApi, mut f os.File) ! {
 			if fun.arguments.len > 0 {
 				f.write_string('    mut args := unsafe { [${fun.arguments.len}]voidptr{} }\n')!
 				for i, a in fun.arguments {
-					mut name := a.name
-					if name in ["char", "string"]{
-						name = "gd${name}"
-					}
+					mut name := convert_name(a.name)
 					f.write_string('    args[${i}] = voidptr(&${name})\n')!
 				}
 
@@ -453,10 +518,7 @@ fn gen_utility_functions(ea &ExtensionApi, mut f os.File) ! {
 			if fun.arguments.len > 0 {
 				f.write_string('    mut args := unsafe { [${fun.arguments.len}]voidptr{} }\n')!
 				for i, a in fun.arguments {
-					mut name := a.name
-					if name in ["char", "string"]{
-						name = "gd${name}"
-					}
+					mut name := convert_name(a.name)
 					f.write_string('    args[${i}] = voidptr(&${name})\n')!
 				}
 
@@ -469,4 +531,209 @@ fn gen_utility_functions(ea &ExtensionApi, mut f os.File) ! {
 		f.write_string('}\n')!
 		
 	}
+}
+
+
+fn gen_classes(ea &ExtensionApi, mut f os.File) ! {
+
+	builtin_names := ea.builtin_classes.map(it.name)
+	mut enum_defaults := map[string]string{}
+	for e in ea.global_enums {
+		name := convert_type(e.name)
+		enum_defaults[name] = convert_name(e.values.first().name)
+	}
+
+	for class in ea.classes {
+		for class_enum in class.enums {
+			enum_defaults["${class.name}${class_enum.name}"] = convert_name(class_enum.values.first().name)
+		}
+	}
+	for class in ea.builtin_classes {
+		for class_enum in class.enums {
+			enum_defaults["${class.name}${class_enum.name}"] = convert_name(class_enum.values.first().name)
+		}
+	}
+
+	for class in ea.classes {
+		// gen class enums
+		{
+			
+			for class_enum in class.enums {
+				mut written_values := []i64{cap:class_enum.values.len}
+
+				f.write_string('pub enum ${class.name}${class_enum.name} {\n')!
+				for value in class_enum.values {
+					if value.value !in written_values {
+						written_values << value.value
+						f.write_string('    ${value.name.to_lower()} = ${value.value}\n')!
+					}
+				}
+				f.write_string('}\n\n')!
+			}
+		}
+
+		// gen class
+		f.write_string('pub type ${class.name} = voidptr\n\n')!
+
+		// gen class methods
+		for method in class.methods {
+			if method.is_vararg {
+				// TODO
+				continue
+			}
+			mut methodname := convert_name(method.name)
+
+			if method.is_static {
+				f.write_string('pub fn ${class.name}.${methodname}(')!
+			} else if method.is_const {
+				f.write_string('pub fn (r &${class.name}) ${methodname}(')!
+			} else {
+				f.write_string('pub fn (mut r ${class.name}) ${methodname}(')!
+			}
+			p_base := if method.is_static {"unsafe{nil}"} else {"voidptr(r)"}
+
+			for i, arg in method.arguments {
+				if i != 0 {
+					f.write_string(', ')!
+				}
+				
+				mut name := convert_name(arg.name)
+				f.write_string('${name} ${convert_type(arg.type_name)}')!
+			}
+			has_return := method.return_value.type_name != ''
+			if has_return {
+				ret_type := convert_type(method.return_value.type_name)
+				f.write_string(') ${ret_type} {\n')!
+				if ret_type in ['f32', 'i32'] {
+					f.write_string('    mut object_out := ${ret_type}(0)\n')!
+				} else if ret_type == "bool" {
+					f.write_string('    mut object_out := false\n')!
+				} else if ret_type == "Object" {
+					f.write_string('    mut object_out := unsafe{nil}\n')!
+				} else if method.return_value.type_name.starts_with("enum::") {
+					f.write_string('    mut object_out := ${ret_type}.${enum_defaults[ret_type]}\n')!
+				} else if ret_type in builtin_names || ret_type == "Variant" {
+					f.write_string('    mut object_out := ${ret_type}{}\n')!
+				} else {
+					f.write_string('    mut object_out := ${ret_type}(unsafe{nil})\n')!
+				}
+				f.write_string('    classname := StringName.new("${class.name}")\n')!
+				f.write_string('    defer { classname.deinit() }\n')!
+				f.write_string('    fnname := StringName.new("${method.name}")\n')!
+				f.write_string('    defer { fnname.deinit() }\n')!
+				
+				f.write_string('    mb := gdf.classdb_get_method_bind(&classname, &fnname, ${method.hash})\n')!
+				
+				if method.arguments.len > 0 {
+					f.write_string('    mut args := unsafe { [${method.arguments.len}]voidptr{} }\n')!
+					for i, a in method.arguments {
+						mut name := convert_name(a.name)
+						f.write_string('    args[${i}] = unsafe{voidptr(&${name})}\n')!
+					}
+
+					f.write_string('    gdf.object_method_bind_ptrcall(mb, ${p_base}, voidptr(&args[0]), voidptr(&object_out))\n')!
+				}else {
+					f.write_string('    gdf.object_method_bind_ptrcall(mb, ${p_base}, unsafe{nil}, voidptr(&object_out))\n')!
+				}
+				
+				f.write_string('   return object_out\n')!
+			}else {
+				f.write_string(') {\n')!
+				f.write_string('    classname := StringName.new("${class.name}")\n')!
+				f.write_string('    defer { classname.deinit() }\n')!
+				f.write_string('    fnname := StringName.new("${method.name}")\n')!
+				f.write_string('    defer { fnname.deinit() }\n')!
+				f.write_string('    mb := gdf.classdb_get_method_bind(&classname, &fnname, ${method.hash})\n')!
+				f.write_string('    gdf.object_method_bind_ptrcall(mb, ${p_base}, unsafe{nil}, unsafe{nil})\n')!
+			}
+			f.write_string('}\n')!
+		}
+	}
+}
+
+fn gen_native_structures(ea &ExtensionApi, mut f os.File) ! {
+	for ns in ea.native_structures {
+		name := convert_type(ns.name)
+		f.write_string('pub struct ${name} {\n')!
+		members := ns.format.split(";")
+		f.write_string('    pub mut:\n')!
+		for member in members {
+			segments := member.split("=")
+			parts := segments[0].trim_space().split(" ")
+
+			mut mtype := convert_type(parts[..parts.len-1].join(" "))
+			mut mname := convert_name(parts.last())
+			for mname.starts_with("*") {
+				mtype = "&${mtype}"
+				mname = mname [1..]
+			}
+
+			mut mvalue := (segments[1] or {""}).trim_space()
+
+			if mvalue.ends_with("f") {
+				mvalue = mvalue[..mvalue.len-1]
+			}
+			if mvalue.ends_with(".") {
+				mvalue = mvalue[..mvalue.len-1]
+			}
+			if segments.len > 1 && mvalue != "0" {
+				f.write_string('    ${mname} ${mtype} = ${mvalue}\n')!
+			}else {
+				f.write_string('    ${mname} ${mtype}\n')!
+			}
+			
+		}
+		f.write_string('}\n\n')!
+	}
+}
+
+fn convert_name(name string) string {
+	mut ret := name.to_lower()
+	if ret in v_keywords {
+		ret = "gd${ret}"
+	}
+	if ret.starts_with("_"){
+		ret = "u${ret[1..]}"
+	}
+	return ret
+}
+
+fn convert_type(name string) string{
+	mut ret := name
+
+	ret = ret.replace("enum::", "")
+	ret = ret.replace(".", "")
+	ret = ret.replace("bitfield::", "")
+	ret = ret.replace("const ", "")
+	ret = ret.replace("void*", "voidptr")
+	ret = ret.replace("uint8_t", "u8")
+	ret = ret.replace("int8_t", "i8")
+	ret = ret.replace("uint16_t", "u16")
+	ret = ret.replace("int16_t", "i16")
+	ret = ret.replace("uint32_t", "u32")
+	ret = ret.replace("int32_t", "i32")
+	ret = ret.replace("uint64_t", "u64")
+	ret = ret.replace("int64_t", "i64")
+	ret = ret.replace("float", "f32")
+	ret = ret.replace("double", "f64")
+	ret = ret.replace("real_t", "f64")
+
+	if ret in ["Error"] {
+		ret = "GD${ret}"
+	}
+
+
+
+	if ret.starts_with("typedarray::") {
+		ret = "Array"
+	}
+	ret = ret.replace("::", "")
+
+	for ret.ends_with("*") {
+		ret = "&${ret[..ret.len-1]}"
+	}
+
+
+
+	return ret
 }

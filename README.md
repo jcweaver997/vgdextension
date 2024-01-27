@@ -36,13 +36,13 @@ fn (e ExampleClass) test_method(){
 
 
 pub fn init_gd(v voidptr, l gd.GDExtensionInitializationLevel) {
-	if l == .gdextension_initialization_scene {
+	if l == .initialization_level_scene {
 		gd.register_class[ExampleClass]("Node")
 	}
 }
 
 pub fn deinit_gd(v voidptr, l gd.GDExtensionInitializationLevel) {
-	if l == .gdextension_initialization_scene {
+	if l == .initialization_level_scene {
 		println('deinit')
 	}
 }

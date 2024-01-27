@@ -103,7 +103,7 @@ pub struct GDExtensionCallError {
 
 pub type GDExtensionVariantFromTypeConstructorFunc = fn (GDExtensionUninitializedVariantPtr, GDExtensionTypePtr)
 
-pub type GDExtensionTypeFromVariantConstructorFunc = fn (GDExtensionUninitializedTypePtr, mut Variant)
+pub type GDExtensionTypeFromVariantConstructorFunc = fn (GDExtensionUninitializedTypePtr, &Variant)
 
 pub type GDExtensionPtrOperatorEvaluator = fn (GDExtensionConstTypePtr, GDExtensionConstTypePtr, GDExtensionTypePtr)
 
@@ -146,7 +146,7 @@ pub struct GDExtensionInstanceBindingCallbacks {
 pub type GDExtensionClassInstancePtr = voidptr
 pub type GDExtensionClassSet = fn (GDExtensionClassInstancePtr, &StringName, &Variant) GDExtensionBool
 
-pub type GDExtensionClassGet = fn (GDExtensionClassInstancePtr, &StringName, mut Variant) GDExtensionBool
+pub type GDExtensionClassGet = fn (GDExtensionClassInstancePtr, &StringName, &Variant) GDExtensionBool
 
 pub type GDExtensionClassGetRID = fn (GDExtensionClassInstancePtr) u64
 
@@ -176,11 +176,11 @@ pub type GDExtensionClassFreePropertyList = fn (GDExtensionClassInstancePtr, &GD
 
 pub type GDExtensionClassPropertyCanRevert = fn (GDExtensionClassInstancePtr, &StringName) GDExtensionBool
 
-pub type GDExtensionClassPropertyGetRevert = fn (GDExtensionClassInstancePtr, &StringName, mut Variant) GDExtensionBool
+pub type GDExtensionClassPropertyGetRevert = fn (GDExtensionClassInstancePtr, &StringName, &Variant) GDExtensionBool
 
 pub type GDExtensionClassNotification = fn (GDExtensionClassInstancePtr, int)
 
-pub type GDExtensionClassToString = fn (GDExtensionClassInstancePtr, &GDExtensionBool, mut String)
+pub type GDExtensionClassToString = fn (GDExtensionClassInstancePtr, &GDExtensionBool, &String)
 
 pub type GDExtensionClassReference = fn (GDExtensionClassInstancePtr)
 
@@ -239,9 +239,9 @@ pub enum GDExtensionClassMethodArgumentMetadata {
 	gdextension_method_argument_metadata_real_is_double
 }
 
-pub type GDExtensionClassMethodCall = fn (voidptr, GDExtensionClassInstancePtr, &&Variant, GDExtensionInt, mut Variant, &GDExtensionCallError)
+pub type GDExtensionClassMethodCall = fn (voidptr, GDExtensionClassInstancePtr, &&Variant, GDExtensionInt, &Variant, &GDExtensionCallError)
 
-pub type GDExtensionClassMethodValidatedCall = fn (voidptr, GDExtensionClassInstancePtr, &&Variant, mut Variant)
+pub type GDExtensionClassMethodValidatedCall = fn (voidptr, GDExtensionClassInstancePtr, &&Variant, &Variant)
 
 pub type GDExtensionClassMethodPtrCall = fn (voidptr, GDExtensionClassInstancePtr, &GDExtensionConstTypePtr, GDExtensionTypePtr)
 
@@ -264,7 +264,7 @@ pub struct GDExtensionClassMethodInfo {
 pub type GDExtensionScriptInstanceDataPtr = usize
 pub type GDExtensionScriptInstanceSet = fn (GDExtensionScriptInstanceDataPtr, &StringName, &Variant) GDExtensionBool
 
-pub type GDExtensionScriptInstanceGet = fn (GDExtensionScriptInstanceDataPtr, &StringName, mut Variant) GDExtensionBool
+pub type GDExtensionScriptInstanceGet = fn (GDExtensionScriptInstanceDataPtr, &StringName, &Variant) GDExtensionBool
 
 pub type GDExtensionScriptInstanceGetPropertyList = fn (GDExtensionScriptInstanceDataPtr, &u32) &GDExtensionPropertyInfo
 
@@ -274,7 +274,7 @@ pub type GDExtensionScriptInstanceGetPropertyType = fn (GDExtensionScriptInstanc
 
 pub type GDExtensionScriptInstancePropertyCanRevert = fn (GDExtensionScriptInstanceDataPtr, &StringName) GDExtensionBool
 
-pub type GDExtensionScriptInstancePropertyGetRevert = fn (GDExtensionScriptInstanceDataPtr, &StringName, mut Variant) GDExtensionBool
+pub type GDExtensionScriptInstancePropertyGetRevert = fn (GDExtensionScriptInstanceDataPtr, &StringName, &Variant) GDExtensionBool
 
 pub type GDExtensionScriptInstanceGetOwner = fn (GDExtensionScriptInstanceDataPtr) &Object
 
@@ -288,11 +288,11 @@ pub type GDExtensionScriptInstanceFreeMethodList = fn (GDExtensionScriptInstance
 
 pub type GDExtensionScriptInstanceHasMethod = fn (GDExtensionScriptInstanceDataPtr, &StringName) GDExtensionBool
 
-pub type GDExtensionScriptInstanceCall = fn (GDExtensionScriptInstanceDataPtr, &StringName, &&Variant, GDExtensionInt, mut Variant, &GDExtensionCallError)
+pub type GDExtensionScriptInstanceCall = fn (GDExtensionScriptInstanceDataPtr, &StringName, &&Variant, GDExtensionInt, &Variant, &GDExtensionCallError)
 
 pub type GDExtensionScriptInstanceNotification = fn (GDExtensionScriptInstanceDataPtr, int)
 
-pub type GDExtensionScriptInstanceToString = fn (GDExtensionScriptInstanceDataPtr, &GDExtensionBool, mut String)
+pub type GDExtensionScriptInstanceToString = fn (GDExtensionScriptInstanceDataPtr, &GDExtensionBool, &String)
 
 pub type GDExtensionScriptInstanceRefCountIncremented = fn (GDExtensionScriptInstanceDataPtr)
 
@@ -333,14 +333,6 @@ pub struct GDExtensionScriptInstanceInfo {
 	get_fallback_func         GDExtensionScriptInstanceGet = unsafe { nil }
 	get_language_func         GDExtensionScriptInstanceGetLanguage = unsafe { nil }
 	free_func                 GDExtensionScriptInstanceFree        = unsafe { nil }
-}
-
-pub enum GDExtensionInitializationLevel {
-	gdextension_initialization_core
-	gdextension_initialization_servers
-	gdextension_initialization_scene
-	gdextension_initialization_editor
-	gdextension_max_initialization_level
 }
 
 pub struct GDExtensionInitialization {
@@ -391,21 +383,21 @@ pub type GDExtensionInterfaceVariantNewCopy = fn (GDExtensionUninitializedVarian
 
 pub type GDExtensionInterfaceVariantNewNil = fn (GDExtensionUninitializedVariantPtr)
 
-pub type GDExtensionInterfaceVariantDestroy = fn (mut Variant)
+pub type GDExtensionInterfaceVariantDestroy = fn (&Variant)
 
-pub type GDExtensionInterfaceVariantCall = fn (mut Variant, &StringName, &&Variant, GDExtensionInt, GDExtensionUninitializedVariantPtr, &GDExtensionCallError)
+pub type GDExtensionInterfaceVariantCall = fn (&Variant, &StringName, &&Variant, GDExtensionInt, GDExtensionUninitializedVariantPtr, &GDExtensionCallError)
 
 pub type GDExtensionInterfaceVariantCallStatic = fn (GDExtensionVariantType, &StringName, &&Variant, GDExtensionInt, GDExtensionUninitializedVariantPtr, &GDExtensionCallError)
 
 pub type GDExtensionInterfaceVariantEvaluate = fn (GDExtensionVariantOperator, &Variant, &Variant, GDExtensionUninitializedVariantPtr, &GDExtensionBool)
 
-pub type GDExtensionInterfaceVariantSet = fn (mut Variant, &Variant, &Variant, &GDExtensionBool)
+pub type GDExtensionInterfaceVariantSet = fn (&Variant, &Variant, &Variant, &GDExtensionBool)
 
-pub type GDExtensionInterfaceVariantSetNamed = fn (mut Variant, &StringName, &Variant, &GDExtensionBool)
+pub type GDExtensionInterfaceVariantSetNamed = fn (&Variant, &StringName, &Variant, &GDExtensionBool)
 
-pub type GDExtensionInterfaceVariantSetKeyed = fn (mut Variant, &Variant, &Variant, &GDExtensionBool)
+pub type GDExtensionInterfaceVariantSetKeyed = fn (&Variant, &Variant, &Variant, &GDExtensionBool)
 
-pub type GDExtensionInterfaceVariantSetIndexed = fn (mut Variant, GDExtensionInt, &Variant, &GDExtensionBool, &GDExtensionBool)
+pub type GDExtensionInterfaceVariantSetIndexed = fn (&Variant, GDExtensionInt, &Variant, &GDExtensionBool, &GDExtensionBool)
 
 pub type GDExtensionInterfaceVariantGet = fn (&Variant, &Variant, GDExtensionUninitializedVariantPtr, &GDExtensionBool)
 
@@ -417,9 +409,9 @@ pub type GDExtensionInterfaceVariantGetIndexed = fn (&Variant, GDExtensionInt, G
 
 pub type GDExtensionInterfaceVariantIterInit = fn (&Variant, GDExtensionUninitializedVariantPtr, &GDExtensionBool) GDExtensionBool
 
-pub type GDExtensionInterfaceVariantIterNext = fn (&Variant, mut Variant, &GDExtensionBool) GDExtensionBool
+pub type GDExtensionInterfaceVariantIterNext = fn (&Variant, &Variant, &GDExtensionBool) GDExtensionBool
 
-pub type GDExtensionInterfaceVariantIterGet = fn (&Variant, mut Variant, GDExtensionUninitializedVariantPtr, &GDExtensionBool)
+pub type GDExtensionInterfaceVariantIterGet = fn (&Variant, &Variant, GDExtensionUninitializedVariantPtr, &GDExtensionBool)
 
 pub type GDExtensionInterfaceVariantHash = fn (&Variant) GDExtensionInt
 
@@ -429,9 +421,9 @@ pub type GDExtensionInterfaceVariantHashCompare = fn (&Variant, &Variant) GDExte
 
 pub type GDExtensionInterfaceVariantBooleanize = fn (&Variant) GDExtensionBool
 
-pub type GDExtensionInterfaceVariantDuplicate = fn (&Variant, mut Variant, GDExtensionBool)
+pub type GDExtensionInterfaceVariantDuplicate = fn (&Variant, &Variant, GDExtensionBool)
 
-pub type GDExtensionInterfaceVariantStringify = fn (&Variant, mut String)
+pub type GDExtensionInterfaceVariantStringify = fn (&Variant, &String)
 
 pub type GDExtensionInterfaceVariantGetType = fn (&Variant) GDExtensionVariantType
 
@@ -509,23 +501,23 @@ pub type GDExtensionInterfaceStringToUtf32Chars = fn (&String, &u32, GDExtension
 
 pub type GDExtensionInterfaceStringToWideChars = fn (&String, &u16, GDExtensionInt) GDExtensionInt
 
-pub type GDExtensionInterfaceStringOperatorIndex = fn (mut String, GDExtensionInt) &u32
+pub type GDExtensionInterfaceStringOperatorIndex = fn (&String, GDExtensionInt) &u32
 
 pub type GDExtensionInterfaceStringOperatorIndexConst = fn (&String, GDExtensionInt) &u32
 
-pub type GDExtensionInterfaceStringOperatorPlusEqString = fn (mut String, &String)
+pub type GDExtensionInterfaceStringOperatorPlusEqString = fn (&String, &String)
 
-pub type GDExtensionInterfaceStringOperatorPlusEqChar = fn (mut String, u32)
+pub type GDExtensionInterfaceStringOperatorPlusEqChar = fn (&String, u32)
 
-pub type GDExtensionInterfaceStringOperatorPlusEqCstr = fn (mut String, &i8)
+pub type GDExtensionInterfaceStringOperatorPlusEqCstr = fn (&String, &i8)
 
-pub type GDExtensionInterfaceStringOperatorPlusEqWcstr = fn (mut String, &u16)
+pub type GDExtensionInterfaceStringOperatorPlusEqWcstr = fn (&String, &u16)
 
-pub type GDExtensionInterfaceStringOperatorPlusEqC32str = fn (mut String, &u32)
+pub type GDExtensionInterfaceStringOperatorPlusEqC32str = fn (&String, &u32)
 
-pub type GDExtensionInterfaceXmlParserOpenBuffer = fn (mut Object, &u8, usize) GDExtensionInt
+pub type GDExtensionInterfaceXmlParserOpenBuffer = fn (&Object, &u8, usize) GDExtensionInt
 
-pub type GDExtensionInterfaceFileAccessStoreBuffer = fn (mut Object, &u8, u64)
+pub type GDExtensionInterfaceFileAccessStoreBuffer = fn (&Object, &u8, u64)
 
 pub type GDExtensionInterfaceFileAccessGetBuffer = fn (&Object, &u8, u64) u64
 
@@ -575,19 +567,19 @@ pub type GDExtensionInterfaceDictionaryOperatorIndex = fn (GDExtensionTypePtr, &
 
 pub type GDExtensionInterfaceDictionaryOperatorIndexConst = fn (GDExtensionConstTypePtr, &Variant) &Variant
 
-pub type GDExtensionInterfaceObjectMethodBindCall = fn (GDExtensionMethodBindPtr, mut Object, &&Variant, GDExtensionInt, GDExtensionUninitializedVariantPtr, &GDExtensionCallError)
+pub type GDExtensionInterfaceObjectMethodBindCall = fn (GDExtensionMethodBindPtr, &Object, &&Variant, GDExtensionInt, GDExtensionUninitializedVariantPtr, &GDExtensionCallError)
 
-pub type GDExtensionInterfaceObjectMethodBindPtrcall = fn (GDExtensionMethodBindPtr, mut Object, &GDExtensionConstTypePtr, GDExtensionTypePtr)
+pub type GDExtensionInterfaceObjectMethodBindPtrcall = fn (GDExtensionMethodBindPtr, &Object, &GDExtensionConstTypePtr, GDExtensionTypePtr)
 
-pub type GDExtensionInterfaceObjectDestroy = fn (mut Object)
+pub type GDExtensionInterfaceObjectDestroy = fn (&Object)
 
 pub type GDExtensionInterfaceGlobalGetSingleton = fn (&StringName) &Object
 
-pub type GDExtensionInterfaceObjectGetInstanceBinding = fn (mut Object, voidptr, &GDExtensionInstanceBindingCallbacks) voidptr
+pub type GDExtensionInterfaceObjectGetInstanceBinding = fn (&Object, voidptr, &GDExtensionInstanceBindingCallbacks) voidptr
 
-pub type GDExtensionInterfaceObjectSetInstanceBinding = fn (mut Object, voidptr, voidptr, &GDExtensionInstanceBindingCallbacks)
+pub type GDExtensionInterfaceObjectSetInstanceBinding = fn (&Object, voidptr, voidptr, &GDExtensionInstanceBindingCallbacks)
 
-pub type GDExtensionInterfaceObjectSetInstance = fn (mut Object, &StringName, GDExtensionClassInstancePtr)
+pub type GDExtensionInterfaceObjectSetInstance = fn (&Object, &StringName, GDExtensionClassInstancePtr)
 
 pub type GDExtensionInterfaceObjectGetClassName = fn (&Object, GDExtensionClassLibraryPtr, GDExtensionUninitializedStringNamePtr) GDExtensionBool
 
@@ -599,7 +591,7 @@ pub type GDExtensionInterfaceObjectGetInstanceId = fn (&Object) GDObjectInstance
 
 pub type GDExtensionInterfaceRefGetObject = fn (GDExtensionConstRefPtr) &Object
 
-pub type GDExtensionInterfaceRefSetObject = fn (GDExtensionRefPtr, mut Object)
+pub type GDExtensionInterfaceRefSetObject = fn (GDExtensionRefPtr, &Object)
 
 pub type GDExtensionInterfaceScriptInstanceCreate = fn (&GDExtensionScriptInstanceInfo, GDExtensionScriptInstanceDataPtr) GDExtensionScriptInstancePtr
 

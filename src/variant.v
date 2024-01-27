@@ -1,5 +1,10 @@
 module vgdextension
 
-pub fn (mut v Variant) deinit(){
-	gdf.variant_destroy(mut v)
+@[heap]
+pub struct Variant {
+        godot_data [24]u8 // filler
+}
+
+pub fn (v &Variant) deinit(){
+	gdf.variant_destroy(v)
 }
