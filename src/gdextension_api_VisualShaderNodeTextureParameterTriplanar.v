@@ -1,0 +1,2 @@
+pub type VisualShaderNodeTextureParameterTriplanar = voidptr
+

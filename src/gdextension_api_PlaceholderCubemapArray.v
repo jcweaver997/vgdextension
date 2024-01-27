@@ -1,0 +1,2 @@
+pub type PlaceholderCubemapArray = voidptr
+

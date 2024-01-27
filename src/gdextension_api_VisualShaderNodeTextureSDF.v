@@ -1,0 +1,2 @@
+pub type VisualShaderNodeTextureSDF = voidptr
+

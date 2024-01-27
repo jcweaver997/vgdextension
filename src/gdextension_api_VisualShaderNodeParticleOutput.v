@@ -1,0 +1,2 @@
+pub type VisualShaderNodeParticleOutput = voidptr
+
