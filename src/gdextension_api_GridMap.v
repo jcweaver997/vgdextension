@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type GridMap = voidptr
 
 pub fn (mut r GridMap) set_collision_layer(layer i32) {

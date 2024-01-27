@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum ProjectionPlanes {
     plane_near = 0
     plane_far = 1

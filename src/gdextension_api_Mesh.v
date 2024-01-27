@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum MeshPrimitiveType {
     primitive_points = 0
     primitive_lines = 1

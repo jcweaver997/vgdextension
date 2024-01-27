@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum AudioStreamPlayer3DAttenuationModel {
     attenuation_inverse_distance = 0
     attenuation_inverse_square_distance = 1

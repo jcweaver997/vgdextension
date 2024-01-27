@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type EditorResourceConversionPlugin = voidptr
 
 pub fn (r &EditorResourceConversionPlugin) uconverts_to() String {

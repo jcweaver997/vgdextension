@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum ColorPickerColorModeType {
     mode_rgb = 0
     mode_hsv = 1

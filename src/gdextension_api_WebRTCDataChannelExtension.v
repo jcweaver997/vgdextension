@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type WebRTCDataChannelExtension = voidptr
 
 pub fn (mut r WebRTCDataChannelExtension) uget_packet(r_buffer &&u8 , r_buffer_size &i32) GDError {

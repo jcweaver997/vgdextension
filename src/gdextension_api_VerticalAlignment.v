@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum VerticalAlignment {
     vertical_alignment_top = 0
     vertical_alignment_center = 1

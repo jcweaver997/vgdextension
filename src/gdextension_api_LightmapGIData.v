@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type LightmapGIData = voidptr
 
 pub fn (mut r LightmapGIData) set_light_texture(light_texture TextureLayered) {

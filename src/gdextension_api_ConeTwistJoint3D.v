@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum ConeTwistJoint3DParam {
     param_swing_span = 0
     param_twist_span = 1

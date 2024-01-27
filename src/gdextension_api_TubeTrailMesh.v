@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type TubeTrailMesh = voidptr
 
 pub fn (mut r TubeTrailMesh) set_radius(radius f32) {

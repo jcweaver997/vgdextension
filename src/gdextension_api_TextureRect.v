@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum TextureRectExpandMode {
     expand_keep_size = 0
     expand_ignore_size = 1

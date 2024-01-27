@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type NavigationLink2D = voidptr
 
 pub fn (mut r NavigationLink2D) set_enabled(enabled bool) {

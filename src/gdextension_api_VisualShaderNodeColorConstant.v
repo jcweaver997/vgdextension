@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type VisualShaderNodeColorConstant = voidptr
 
 pub fn (mut r VisualShaderNodeColorConstant) set_constant(constant Color) {

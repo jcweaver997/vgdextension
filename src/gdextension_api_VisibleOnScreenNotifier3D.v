@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type VisibleOnScreenNotifier3D = voidptr
 
 pub fn (mut r VisibleOnScreenNotifier3D) set_aabb(rect AABB) {

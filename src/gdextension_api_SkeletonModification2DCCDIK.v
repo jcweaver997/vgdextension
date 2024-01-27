@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type SkeletonModification2DCCDIK = voidptr
 
 pub fn (mut r SkeletonModification2DCCDIK) set_target_node(target_nodepath NodePath) {

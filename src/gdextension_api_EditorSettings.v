@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type EditorSettings = voidptr
 
 pub fn (r &EditorSettings) has_setting(name String) bool {

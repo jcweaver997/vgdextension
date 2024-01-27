@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum BaseMaterial3DTextureParam {
     texture_albedo = 0
     texture_metallic = 1

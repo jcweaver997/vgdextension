@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type FontVariation = voidptr
 
 pub fn (mut r FontVariation) set_base_font(font Font) {

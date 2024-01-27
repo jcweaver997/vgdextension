@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum IPResolverStatus {
     resolver_status_none = 0
     resolver_status_waiting = 1

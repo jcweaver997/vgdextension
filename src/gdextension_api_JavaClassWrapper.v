@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type JavaClassWrapper = voidptr
 
 pub fn (mut r JavaClassWrapper) wrap(name String) JavaClass {

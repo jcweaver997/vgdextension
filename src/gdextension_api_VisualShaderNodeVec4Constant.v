@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type VisualShaderNodeVec4Constant = voidptr
 
 pub fn (mut r VisualShaderNodeVec4Constant) set_constant(constant Quaternion) {

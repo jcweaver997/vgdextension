@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum KeyModifierMask {
     key_code_mask = 8388607
     key_modifier_mask = 532676608

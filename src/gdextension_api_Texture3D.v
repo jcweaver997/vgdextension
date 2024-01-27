@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type Texture3D = voidptr
 
 pub fn (r &Texture3D) uget_format() ImageFormat {

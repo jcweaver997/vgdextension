@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type AudioStreamPlayback = voidptr
 
 pub fn (mut r AudioStreamPlayback) ustart(from_pos f32) {

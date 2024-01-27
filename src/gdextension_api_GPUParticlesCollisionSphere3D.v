@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type GPUParticlesCollisionSphere3D = voidptr
 
 pub fn (mut r GPUParticlesCollisionSphere3D) set_radius(radius f32) {

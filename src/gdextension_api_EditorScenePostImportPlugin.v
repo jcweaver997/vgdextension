@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum EditorScenePostImportPluginInternalImportCategory {
     internal_import_category_node = 0
     internal_import_category_mesh_3d_node = 1

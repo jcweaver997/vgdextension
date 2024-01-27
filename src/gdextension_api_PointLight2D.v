@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type PointLight2D = voidptr
 
 pub fn (mut r PointLight2D) set_texture(texture Texture2D) {

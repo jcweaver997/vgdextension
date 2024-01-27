@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type Crypto = voidptr
 
 pub fn (mut r Crypto) generate_random_bytes(size i32) PackedByteArray {

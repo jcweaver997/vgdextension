@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type VisualShaderNodeBooleanConstant = voidptr
 
 pub fn (mut r VisualShaderNodeBooleanConstant) set_constant(constant bool) {

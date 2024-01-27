@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type BoxShape3D = voidptr
 
 pub fn (mut r BoxShape3D) set_size(size Vector3) {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type PhysicalBone2D = voidptr
 
 pub fn (r &PhysicalBone2D) get_joint() Joint2D {

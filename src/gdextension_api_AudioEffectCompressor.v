@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type AudioEffectCompressor = voidptr
 
 pub fn (mut r AudioEffectCompressor) set_threshold(threshold f32) {

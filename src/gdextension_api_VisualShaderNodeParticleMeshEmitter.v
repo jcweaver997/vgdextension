@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type VisualShaderNodeParticleMeshEmitter = voidptr
 
 pub fn (mut r VisualShaderNodeParticleMeshEmitter) set_mesh(mesh Mesh) {

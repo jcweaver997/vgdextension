@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type VisualShaderNodeInput = voidptr
 
 pub fn (mut r VisualShaderNodeInput) set_input_name(name String) {

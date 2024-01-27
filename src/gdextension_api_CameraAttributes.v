@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type CameraAttributes = voidptr
 
 pub fn (mut r CameraAttributes) set_exposure_multiplier(multiplier f32) {

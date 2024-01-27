@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type RDTextureView = voidptr
 
 pub fn (mut r RDTextureView) set_format_override(p_member RenderingDeviceDataFormat) {

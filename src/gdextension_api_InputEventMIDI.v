@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type InputEventMIDI = voidptr
 
 pub fn (mut r InputEventMIDI) set_channel(channel i32) {

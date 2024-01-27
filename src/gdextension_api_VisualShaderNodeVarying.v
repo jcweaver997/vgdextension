@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type VisualShaderNodeVarying = voidptr
 
 pub fn (mut r VisualShaderNodeVarying) set_varying_name(name String) {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type XROrigin3D = voidptr
 
 pub fn (mut r XROrigin3D) set_world_scale(world_scale f32) {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type DTLSServer = voidptr
 
 pub fn (mut r DTLSServer) setup(server_options TLSOptions) GDError {

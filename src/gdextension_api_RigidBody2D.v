@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum RigidBody2DFreezeMode {
     freeze_mode_static = 0
     freeze_mode_kinematic = 1

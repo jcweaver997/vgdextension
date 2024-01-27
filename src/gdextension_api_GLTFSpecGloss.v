@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type GLTFSpecGloss = voidptr
 
 pub fn (mut r GLTFSpecGloss) get_diffuse_img() Image {

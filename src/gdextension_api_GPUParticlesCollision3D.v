@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type GPUParticlesCollision3D = voidptr
 
 pub fn (mut r GPUParticlesCollision3D) set_cull_mask(mask i32) {

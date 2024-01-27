@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type AudioEffect = voidptr
 
 pub fn (mut r AudioEffect) uinstantiate() AudioEffectInstance {

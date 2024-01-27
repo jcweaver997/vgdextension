@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum ProgressBarFillMode {
     fill_begin_to_end = 0
     fill_end_to_begin = 1

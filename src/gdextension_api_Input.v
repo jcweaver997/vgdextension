@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum InputMouseMode {
     mouse_mode_visible = 0
     mouse_mode_hidden = 1

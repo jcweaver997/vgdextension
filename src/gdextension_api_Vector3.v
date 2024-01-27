@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum Vector3Axis {
     axis_x = 0
     axis_y = 1

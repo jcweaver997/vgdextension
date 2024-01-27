@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type AnimatedTexture = voidptr
 
 pub fn (mut r AnimatedTexture) set_frames(frames i32) {

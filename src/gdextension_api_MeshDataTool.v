@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type MeshDataTool = voidptr
 
 pub fn (mut r MeshDataTool) clear() {

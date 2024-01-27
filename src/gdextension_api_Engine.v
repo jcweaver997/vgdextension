@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type Engine = voidptr
 
 pub fn (mut r Engine) set_physics_ticks_per_second(physics_ticks_per_second i32) {

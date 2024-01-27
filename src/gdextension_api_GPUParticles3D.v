@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum GPUParticles3DDrawOrder {
     draw_order_index = 0
     draw_order_lifetime = 1

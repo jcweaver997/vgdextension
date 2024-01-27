@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum CanvasItemTextureFilter {
     texture_filter_parent_node = 0
     texture_filter_nearest = 1

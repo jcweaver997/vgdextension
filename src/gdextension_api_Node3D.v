@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum Node3DRotationEditMode {
     rotation_edit_mode_euler = 0
     rotation_edit_mode_quaternion = 1

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type CSGTorus3D = voidptr
 
 pub fn (mut r CSGTorus3D) set_inner_radius(radius f32) {

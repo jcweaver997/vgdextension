@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum ThreadPriority {
     priority_low = 0
     priority_normal = 1

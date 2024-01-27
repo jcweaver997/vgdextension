@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type WorkerThreadPool = voidptr
 
 pub fn (mut r WorkerThreadPool) add_task(action Callable, high_priority bool, description String) i32 {

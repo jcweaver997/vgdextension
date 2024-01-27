@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type CameraAttributesPhysical = voidptr
 
 pub fn (mut r CameraAttributesPhysical) set_aperture(aperture f32) {

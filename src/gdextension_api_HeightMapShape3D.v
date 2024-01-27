@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type HeightMapShape3D = voidptr
 
 pub fn (mut r HeightMapShape3D) set_map_width(width i32) {

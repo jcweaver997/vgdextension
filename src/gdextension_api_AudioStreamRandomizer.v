@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum AudioStreamRandomizerPlaybackMode {
     playback_random_no_repeats = 0
     playback_random = 1

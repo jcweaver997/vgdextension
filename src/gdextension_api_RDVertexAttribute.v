@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type RDVertexAttribute = voidptr
 
 pub fn (mut r RDVertexAttribute) set_location(p_member i32) {

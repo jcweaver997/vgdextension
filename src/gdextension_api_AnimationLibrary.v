@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type AnimationLibrary = voidptr
 
 pub fn (mut r AnimationLibrary) add_animation(name StringName, animation Animation) GDError {

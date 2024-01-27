@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type KinematicCollision3D = voidptr
 
 pub fn (r &KinematicCollision3D) get_travel() Vector3 {

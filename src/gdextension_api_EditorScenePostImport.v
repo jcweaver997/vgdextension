@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type EditorScenePostImport = voidptr
 
 pub fn (mut r EditorScenePostImport) upost_import(scene Node) Object {

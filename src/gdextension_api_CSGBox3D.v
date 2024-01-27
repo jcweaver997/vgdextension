@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type CSGBox3D = voidptr
 
 pub fn (mut r CSGBox3D) set_size(size Vector3) {

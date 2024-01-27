@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type TextServerManager = voidptr
 
 pub fn (mut r TextServerManager) add_interface(gdinterface TextServer) {

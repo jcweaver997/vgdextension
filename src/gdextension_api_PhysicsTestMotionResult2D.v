@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type PhysicsTestMotionResult2D = voidptr
 
 pub fn (r &PhysicsTestMotionResult2D) get_travel() Vector2 {

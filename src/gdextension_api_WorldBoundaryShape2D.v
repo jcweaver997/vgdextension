@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type WorldBoundaryShape2D = voidptr
 
 pub fn (mut r WorldBoundaryShape2D) set_normal(normal Vector2) {

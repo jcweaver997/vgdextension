@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type VoxelGIData = voidptr
 
 pub fn (mut r VoxelGIData) allocate(to_cell_xform Transform3D, aabb AABB, octree_size Vector3, octree_cells PackedByteArray, data_cells PackedByteArray, distance_field PackedByteArray, level_counts PackedInt32Array) {

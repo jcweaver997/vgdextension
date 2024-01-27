@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum AnimationTrackType {
     type_value = 0
     type_position_3d = 1

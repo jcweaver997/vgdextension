@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type AudioStreamPolyphonic = voidptr
 
 pub fn (mut r AudioStreamPolyphonic) set_polyphony(voices i32) {

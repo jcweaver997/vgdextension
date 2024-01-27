@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum MultiplayerPeerConnectionStatus {
     connection_disconnected = 0
     connection_connecting = 1

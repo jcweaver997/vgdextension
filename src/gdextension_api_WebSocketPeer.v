@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum WebSocketPeerWriteMode {
     write_mode_text = 0
     write_mode_binary = 1

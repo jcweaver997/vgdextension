@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum GraphEditPanningScheme {
     scroll_zooms = 0
     scroll_pans = 1

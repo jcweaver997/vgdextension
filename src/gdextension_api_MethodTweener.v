@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type MethodTweener = voidptr
 
 pub fn (mut r MethodTweener) set_delay(delay f32) MethodTweener {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type EditorScriptPicker = voidptr
 
 pub fn (mut r EditorScriptPicker) set_script_owner(owner_node Node) {

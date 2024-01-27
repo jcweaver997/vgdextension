@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum Generic6DOFJoint3DParam {
     param_linear_lower_limit = 0
     param_linear_upper_limit = 1

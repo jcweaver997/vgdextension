@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum PhysicalBone3DDampMode {
     damp_mode_combine = 0
     damp_mode_replace = 1

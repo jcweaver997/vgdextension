@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type HMACContext = voidptr
 
 pub fn (mut r HMACContext) start(hash_type HashingContextHashType, key PackedByteArray) GDError {

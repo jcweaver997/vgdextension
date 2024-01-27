@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum BoxContainerAlignmentMode {
     alignment_begin = 0
     alignment_center = 1

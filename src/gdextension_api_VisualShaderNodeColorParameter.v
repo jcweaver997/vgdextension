@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type VisualShaderNodeColorParameter = voidptr
 
 pub fn (mut r VisualShaderNodeColorParameter) set_default_value_enabled(enabled bool) {

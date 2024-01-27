@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type PolygonPathFinder = voidptr
 
 pub fn (mut r PolygonPathFinder) setup(points PackedVector2Array, connections PackedInt32Array) {

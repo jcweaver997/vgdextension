@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type SkeletonModification2DLookAt = voidptr
 
 pub fn (mut r SkeletonModification2DLookAt) set_bone2d_node(bone2d_nodepath NodePath) {

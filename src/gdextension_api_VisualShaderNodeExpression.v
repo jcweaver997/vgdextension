@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type VisualShaderNodeExpression = voidptr
 
 pub fn (mut r VisualShaderNodeExpression) set_expression(expression String) {

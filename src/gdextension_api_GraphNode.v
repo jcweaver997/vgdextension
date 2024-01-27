@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum GraphNodeOverlay {
     overlay_disabled = 0
     overlay_breakpoint = 1

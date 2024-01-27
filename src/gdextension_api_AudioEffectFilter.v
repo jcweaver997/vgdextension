@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum AudioEffectFilterFilterDB {
     filter_6db = 0
     filter_12db = 1

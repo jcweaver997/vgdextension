@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type MovieWriter = voidptr
 
 pub fn (r &MovieWriter) uget_audio_mix_rate() i32 {

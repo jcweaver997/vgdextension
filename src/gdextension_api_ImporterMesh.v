@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ImporterMesh = voidptr
 
 pub fn (mut r ImporterMesh) add_blend_shape(name String) {

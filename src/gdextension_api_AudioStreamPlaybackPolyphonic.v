@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type AudioStreamPlaybackPolyphonic = voidptr
 
 pub fn (mut r AudioStreamPlaybackPolyphonic) play_stream(stream AudioStream, from_offset f32, volume_db f32, pitch_scale f32) i32 {

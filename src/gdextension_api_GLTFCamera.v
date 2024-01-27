@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type GLTFCamera = voidptr
 
 pub fn GLTFCamera.from_node(camera_node Camera3D) GLTFCamera {

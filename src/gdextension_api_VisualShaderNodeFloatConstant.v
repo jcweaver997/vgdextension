@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type VisualShaderNodeFloatConstant = voidptr
 
 pub fn (mut r VisualShaderNodeFloatConstant) set_constant(constant f32) {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type EditorInspectorPlugin = voidptr
 
 pub fn (r &EditorInspectorPlugin) ucan_handle(object Object) bool {

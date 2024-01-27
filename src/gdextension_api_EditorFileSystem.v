@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type EditorFileSystem = voidptr
 
 pub fn (mut r EditorFileSystem) get_filesystem() EditorFileSystemDirectory {

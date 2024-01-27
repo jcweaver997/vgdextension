@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum NodeProcessMode {
     process_mode_inherit = 0
     process_mode_pausable = 1

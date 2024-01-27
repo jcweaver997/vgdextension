@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type VideoStreamPlayer = voidptr
 
 pub fn (mut r VideoStreamPlayer) set_stream(stream VideoStream) {

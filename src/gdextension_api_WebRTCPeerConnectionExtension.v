@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type WebRTCPeerConnectionExtension = voidptr
 
 pub fn (r &WebRTCPeerConnectionExtension) uget_connection_state() WebRTCPeerConnectionConnectionState {

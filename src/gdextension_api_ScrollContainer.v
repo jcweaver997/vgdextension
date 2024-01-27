@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum ScrollContainerScrollMode {
     scroll_mode_disabled = 0
     scroll_mode_auto = 1

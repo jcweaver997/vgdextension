@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type StreamPeer = voidptr
 
 pub fn (mut r StreamPeer) put_data(data PackedByteArray) GDError {

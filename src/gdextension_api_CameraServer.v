@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum CameraServerFeedImage {
     feed_rgba_image = 0
     feed_cbcr_image = 1

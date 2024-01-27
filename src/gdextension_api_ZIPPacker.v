@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum ZIPPackerZipAppend {
     append_create = 0
     append_createafter = 1

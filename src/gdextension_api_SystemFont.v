@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type SystemFont = voidptr
 
 pub fn (mut r SystemFont) set_antialiasing(antialiasing TextServerFontAntialiasing) {

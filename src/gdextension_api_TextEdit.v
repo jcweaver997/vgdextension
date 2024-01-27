@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum TextEditMenuItems {
     menu_cut = 0
     menu_copy = 1

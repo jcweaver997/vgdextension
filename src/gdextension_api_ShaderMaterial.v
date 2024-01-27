@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ShaderMaterial = voidptr
 
 pub fn (mut r ShaderMaterial) set_shader(shader Shader) {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ImporterMeshInstance3D = voidptr
 
 pub fn (mut r ImporterMeshInstance3D) set_mesh(mesh ImporterMesh) {

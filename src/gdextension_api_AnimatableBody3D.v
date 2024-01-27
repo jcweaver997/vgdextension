@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type AnimatableBody3D = voidptr
 
 pub fn (mut r AnimatableBody3D) set_sync_to_physics(enable bool) {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type InputEventWithModifiers = voidptr
 
 pub fn (mut r InputEventWithModifiers) set_command_or_control_autoremap(enable bool) {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum HashingContextHashType {
     hash_md5 = 0
     hash_sha1 = 1

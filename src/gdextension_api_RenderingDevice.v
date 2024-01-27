@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum RenderingDeviceDeviceType {
     device_type_other = 0
     device_type_integrated_gpu = 1

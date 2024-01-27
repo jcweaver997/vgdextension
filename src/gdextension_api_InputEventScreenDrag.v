@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type InputEventScreenDrag = voidptr
 
 pub fn (mut r InputEventScreenDrag) set_index(index i32) {

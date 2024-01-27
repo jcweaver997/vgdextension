@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type Translation = voidptr
 
 pub fn (r &Translation) uget_plural_message(src_message StringName, src_plural_message StringName, n i32, context StringName) StringName {

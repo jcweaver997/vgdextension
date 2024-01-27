@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type AudioStreamGeneratorPlayback = voidptr
 
 pub fn (mut r AudioStreamGeneratorPlayback) push_frame(frame Vector2) bool {

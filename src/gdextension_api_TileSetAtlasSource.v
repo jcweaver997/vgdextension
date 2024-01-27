@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type TileSetAtlasSource = voidptr
 
 pub fn (mut r TileSetAtlasSource) set_texture(texture Texture2D) {

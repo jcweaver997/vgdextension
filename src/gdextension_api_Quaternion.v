@@ -1,3 +1,5 @@
+module vgdextension
+
 @[heap]
 pub struct Quaternion {
     pub mut:

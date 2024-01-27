@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum VisualShaderNodeTextureParameterTextureType {
     type_data = 0
     type_color = 1

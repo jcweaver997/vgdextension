@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type PhysicsPointQueryParameters3D = voidptr
 
 pub fn (mut r PhysicsPointQueryParameters3D) set_position(position Vector3) {

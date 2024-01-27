@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type OpenXRActionMap = voidptr
 
 pub fn (mut r OpenXRActionMap) set_action_sets(action_sets Array) {

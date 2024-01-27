@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type SkeletonModification2DJiggle = voidptr
 
 pub fn (mut r SkeletonModification2DJiggle) set_target_node(target_nodepath NodePath) {

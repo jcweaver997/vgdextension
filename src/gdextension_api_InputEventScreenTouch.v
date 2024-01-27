@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type InputEventScreenTouch = voidptr
 
 pub fn (mut r InputEventScreenTouch) set_index(index i32) {

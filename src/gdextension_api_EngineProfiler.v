@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type EngineProfiler = voidptr
 
 pub fn (mut r EngineProfiler) utoggle(enable bool, options Array) {

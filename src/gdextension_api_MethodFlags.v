@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum MethodFlags {
     method_flag_normal = 1
     method_flag_editor = 2

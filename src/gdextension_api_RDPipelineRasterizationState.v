@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type RDPipelineRasterizationState = voidptr
 
 pub fn (mut r RDPipelineRasterizationState) set_enable_depth_clamp(p_member bool) {

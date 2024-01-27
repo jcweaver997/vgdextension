@@ -1,3 +1,5 @@
+module vgdextension
+
 @[heap]
 pub struct StringName {
         godot_data [8]u8 // filler

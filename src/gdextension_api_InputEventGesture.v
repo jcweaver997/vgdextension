@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type InputEventGesture = voidptr
 
 pub fn (mut r InputEventGesture) set_position(position Vector2) {

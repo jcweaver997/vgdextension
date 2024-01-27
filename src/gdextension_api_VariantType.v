@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum VariantType {
     type_nil = 0
     type_bool = 1

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum WebRTCDataChannelWriteMode {
     write_mode_text = 0
     write_mode_binary = 1

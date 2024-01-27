@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum ResourceSaverSaverFlags {
     flag_none = 0
     flag_relative_paths = 1

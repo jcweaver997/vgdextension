@@ -1,3 +1,5 @@
+module vgdextension
+
 @[heap]
 pub struct Transform2D {
     pub mut:

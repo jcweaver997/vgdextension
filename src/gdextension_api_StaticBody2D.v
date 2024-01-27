@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type StaticBody2D = voidptr
 
 pub fn (mut r StaticBody2D) set_constant_linear_velocity(vel Vector2) {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum ENetConnectionCompressionMode {
     compress_none = 0
     compress_range_coder = 1

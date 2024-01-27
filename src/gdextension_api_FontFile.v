@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type FontFile = voidptr
 
 pub fn (mut r FontFile) load_bitmap_font(path String) GDError {

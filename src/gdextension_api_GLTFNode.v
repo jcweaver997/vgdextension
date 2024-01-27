@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type GLTFNode = voidptr
 
 pub fn (mut r GLTFNode) get_parent() i32 {

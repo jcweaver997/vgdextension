@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type AudioStreamPlayer2D = voidptr
 
 pub fn (mut r AudioStreamPlayer2D) set_stream(stream AudioStream) {

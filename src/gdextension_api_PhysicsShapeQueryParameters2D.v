@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type PhysicsShapeQueryParameters2D = voidptr
 
 pub fn (mut r PhysicsShapeQueryParameters2D) set_shape(shape Resource) {

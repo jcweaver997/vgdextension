@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type SkinReference = voidptr
 
 pub fn (r &SkinReference) get_skeleton() RID {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum VisualShaderNodeFloatFuncFunction {
     func_sin = 0
     func_cos = 1

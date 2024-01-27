@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type SubViewportContainer = voidptr
 
 pub fn (mut r SubViewportContainer) set_stretch(enable bool) {

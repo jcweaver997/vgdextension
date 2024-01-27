@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type EditorInterface = voidptr
 
 pub fn (mut r EditorInterface) restart_editor(save bool) {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type AnimationNodeTransition = voidptr
 
 pub fn (mut r AnimationNodeTransition) set_input_count(input_count i32) {

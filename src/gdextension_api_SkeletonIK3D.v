@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type SkeletonIK3D = voidptr
 
 pub fn (mut r SkeletonIK3D) set_root_bone(root_bone StringName) {

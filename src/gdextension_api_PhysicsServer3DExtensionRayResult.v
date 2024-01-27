@@ -1,3 +1,5 @@
+module vgdextension
+
 pub struct PhysicsServer3DExtensionRayResult {
     pub mut:
     position Vector3

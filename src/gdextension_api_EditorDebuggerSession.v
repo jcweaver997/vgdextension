@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type EditorDebuggerSession = voidptr
 
 pub fn (mut r EditorDebuggerSession) send_message(message String, data Array) {

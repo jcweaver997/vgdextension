@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum TreeItemTreeCellMode {
     cell_mode_string = 0
     cell_mode_check = 1

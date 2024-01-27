@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum VisualShaderNodeTransformOpOperator {
     op_axb = 0
     op_bxa = 1

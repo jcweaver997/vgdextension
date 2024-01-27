@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type EditorInspector = voidptr
 
 pub fn (r &EditorInspector) get_selected_path() String {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type PhysicsServer3DManager = voidptr
 
 pub fn (mut r PhysicsServer3DManager) register_server(name String, create_callback Callable) {

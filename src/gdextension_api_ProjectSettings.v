@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ProjectSettings = voidptr
 
 pub fn (r &ProjectSettings) has_setting(name String) bool {

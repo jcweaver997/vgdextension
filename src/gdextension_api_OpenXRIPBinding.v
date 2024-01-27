@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type OpenXRIPBinding = voidptr
 
 pub fn (mut r OpenXRIPBinding) set_action(action OpenXRAction) {

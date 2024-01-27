@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type VideoStreamPlayback = voidptr
 
 pub fn (mut r VideoStreamPlayback) ustop() {

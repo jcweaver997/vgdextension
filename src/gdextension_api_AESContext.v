@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum AESContextMode {
     mode_ecb_encrypt = 0
     mode_ecb_decrypt = 1

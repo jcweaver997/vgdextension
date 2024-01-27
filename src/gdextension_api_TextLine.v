@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type TextLine = voidptr
 
 pub fn (mut r TextLine) clear() {

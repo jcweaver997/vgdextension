@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum UPNPDeviceIGDStatus {
     igd_status_ok = 0
     igd_status_http_error = 1

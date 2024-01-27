@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type OpenXRInteractionProfile = voidptr
 
 pub fn (mut r OpenXRInteractionProfile) set_interaction_profile_path(interaction_profile_path String) {

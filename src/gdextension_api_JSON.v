@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type JSON = voidptr
 
 pub fn JSON.stringify(data Variant, indent String, sort_keys bool, full_precision bool) String {

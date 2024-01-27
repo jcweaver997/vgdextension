@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type Font = voidptr
 
 pub fn (mut r Font) set_fallbacks(fallbacks Array) {

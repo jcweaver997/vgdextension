@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type AnimationNodeSync = voidptr
 
 pub fn (mut r AnimationNodeSync) set_use_sync(enable bool) {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type StreamPeerBuffer = voidptr
 
 pub fn (mut r StreamPeerBuffer) seek(position i32) {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type RDPipelineColorBlendStateAttachment = voidptr
 
 pub fn (mut r RDPipelineColorBlendStateAttachment) set_as_mix() {

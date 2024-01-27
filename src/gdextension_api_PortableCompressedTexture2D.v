@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum PortableCompressedTexture2DCompressionMode {
     compression_mode_lossless = 0
     compression_mode_lossy = 1

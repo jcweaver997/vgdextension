@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum VisualShaderNodeColorOpOperator {
     op_screen = 0
     op_difference = 1

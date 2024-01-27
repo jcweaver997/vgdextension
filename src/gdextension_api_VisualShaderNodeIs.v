@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum VisualShaderNodeIsFunction {
     func_is_inf = 0
     func_is_nan = 1

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum XRPositionalTrackerTrackerHand {
     tracker_hand_unknown = 0
     tracker_hand_left = 1

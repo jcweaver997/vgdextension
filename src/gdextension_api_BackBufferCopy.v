@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum BackBufferCopyCopyMode {
     copy_mode_disabled = 0
     copy_mode_rect = 1

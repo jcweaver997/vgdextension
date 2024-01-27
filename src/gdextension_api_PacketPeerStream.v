@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type PacketPeerStream = voidptr
 
 pub fn (mut r PacketPeerStream) set_stream_peer(peer StreamPeer) {

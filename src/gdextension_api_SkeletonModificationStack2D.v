@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type SkeletonModificationStack2D = voidptr
 
 pub fn (mut r SkeletonModificationStack2D) setup() {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type RectangleShape2D = voidptr
 
 pub fn (mut r RectangleShape2D) set_size(size Vector2) {

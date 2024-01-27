@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum FastNoiseLiteNoiseType {
     type_value = 5
     type_value_cubic = 4

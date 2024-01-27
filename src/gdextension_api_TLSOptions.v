@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type TLSOptions = voidptr
 
 pub fn TLSOptions.client(trusted_chain X509Certificate, common_name_override String) TLSOptions {

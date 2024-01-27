@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum AnimationNodeBlendSpace2DBlendMode {
     blend_mode_interpolated = 0
     blend_mode_discrete = 1

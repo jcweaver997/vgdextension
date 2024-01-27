@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ImageFormatLoaderExtension = voidptr
 
 pub fn (r &ImageFormatLoaderExtension) uget_recognized_extensions() PackedStringArray {

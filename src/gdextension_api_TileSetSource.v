@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type TileSetSource = voidptr
 
 pub fn (r &TileSetSource) get_tiles_count() i32 {

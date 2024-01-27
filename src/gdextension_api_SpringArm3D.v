@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type SpringArm3D = voidptr
 
 pub fn (mut r SpringArm3D) get_hit_length() f32 {

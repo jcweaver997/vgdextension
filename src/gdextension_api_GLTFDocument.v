@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type GLTFDocument = voidptr
 
 pub fn (mut r GLTFDocument) append_from_file(path String, state GLTFState, flags i32, base_path String) GDError {

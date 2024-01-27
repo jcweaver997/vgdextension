@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ShapeCast2D = voidptr
 
 pub fn (mut r ShapeCast2D) set_enabled(enabled bool) {

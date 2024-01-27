@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type VisualShaderNodeTexture2DArray = voidptr
 
 pub fn (mut r VisualShaderNodeTexture2DArray) set_texture_array(value Texture2DArray) {

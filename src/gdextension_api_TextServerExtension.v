@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type TextServerExtension = voidptr
 
 pub fn (r &TextServerExtension) uhas_feature(feature TextServerFeature) bool {

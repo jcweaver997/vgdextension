@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum VisualShaderNodeParticleAcceleratorMode {
     mode_linear = 0
     mode_radial = 1

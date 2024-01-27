@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ZIPReader = voidptr
 
 pub fn (mut r ZIPReader) open(path String) GDError {

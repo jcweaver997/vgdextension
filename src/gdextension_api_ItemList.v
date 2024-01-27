@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum ItemListIconMode {
     icon_mode_top = 0
     icon_mode_left = 1

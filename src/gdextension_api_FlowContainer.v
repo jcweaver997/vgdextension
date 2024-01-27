@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum FlowContainerAlignmentMode {
     alignment_begin = 0
     alignment_center = 1

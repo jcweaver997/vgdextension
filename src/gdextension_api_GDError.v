@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum GDError {
     ok = 0
     failed = 1

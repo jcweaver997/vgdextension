@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum SceneTreeGroupCallFlags {
     group_call_default = 0
     group_call_reverse = 1

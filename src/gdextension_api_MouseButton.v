@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum MouseButton {
     mouse_button_none = 0
     mouse_button_left = 1

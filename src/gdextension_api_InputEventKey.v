@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type InputEventKey = voidptr
 
 pub fn (mut r InputEventKey) set_pressed(pressed bool) {

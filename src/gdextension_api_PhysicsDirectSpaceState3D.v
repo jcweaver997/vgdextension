@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type PhysicsDirectSpaceState3D = voidptr
 
 pub fn (mut r PhysicsDirectSpaceState3D) intersect_point(parameters PhysicsPointQueryParameters3D, max_results i32) Array {

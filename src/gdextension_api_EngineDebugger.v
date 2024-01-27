@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type EngineDebugger = voidptr
 
 pub fn (mut r EngineDebugger) is_active() bool {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type GLTFPhysicsBody = voidptr
 
 pub fn GLTFPhysicsBody.from_node(body_node CollisionObject3D) GLTFPhysicsBody {

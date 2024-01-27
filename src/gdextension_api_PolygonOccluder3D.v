@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type PolygonOccluder3D = voidptr
 
 pub fn (mut r PolygonOccluder3D) set_polygon(polygon PackedVector2Array) {

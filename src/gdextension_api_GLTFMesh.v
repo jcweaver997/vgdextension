@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type GLTFMesh = voidptr
 
 pub fn (mut r GLTFMesh) get_mesh() ImporterMesh {

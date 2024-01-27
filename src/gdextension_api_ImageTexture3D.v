@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ImageTexture3D = voidptr
 
 pub fn (mut r ImageTexture3D) create(format ImageFormat, width i32, height i32, depth i32, use_mipmaps bool, data Array) GDError {

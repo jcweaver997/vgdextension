@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum OccluderPolygon2DCullMode {
     cull_disabled = 0
     cull_clockwise = 1

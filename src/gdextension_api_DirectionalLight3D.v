@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum DirectionalLight3DShadowMode {
     shadow_orthogonal = 0
     shadow_parallel_2_splits = 1

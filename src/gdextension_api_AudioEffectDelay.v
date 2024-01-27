@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type AudioEffectDelay = voidptr
 
 pub fn (mut r AudioEffectDelay) set_dry(amount f32) {

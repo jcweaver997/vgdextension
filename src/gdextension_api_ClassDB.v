@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ClassDB = voidptr
 
 pub fn (r &ClassDB) get_class_list() PackedStringArray {

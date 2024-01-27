@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type AcceptDialog = voidptr
 
 pub fn (mut r AcceptDialog) get_ok_button() Button {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type PackedDataContainer = voidptr
 
 pub fn (mut r PackedDataContainer) pack(value Variant) GDError {

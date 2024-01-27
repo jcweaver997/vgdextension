@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum SoftBody3DDisableMode {
     disable_mode_remove = 0
     disable_mode_keep_active = 1

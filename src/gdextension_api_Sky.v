@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum SkyRadianceSize {
     radiance_size_32 = 0
     radiance_size_64 = 1

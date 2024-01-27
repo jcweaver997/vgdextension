@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type EditorDebuggerPlugin = voidptr
 
 pub fn (mut r EditorDebuggerPlugin) usetup_session(session_id i32) {

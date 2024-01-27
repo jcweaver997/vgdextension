@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type Semaphore = voidptr
 
 pub fn (mut r Semaphore) wait() {

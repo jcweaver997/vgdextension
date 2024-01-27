@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type InputEventAction = voidptr
 
 pub fn (mut r InputEventAction) set_action(action StringName) {

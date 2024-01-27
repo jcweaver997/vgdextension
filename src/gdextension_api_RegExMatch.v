@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type RegExMatch = voidptr
 
 pub fn (r &RegExMatch) get_subject() String {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type Polygon2D = voidptr
 
 pub fn (mut r Polygon2D) set_polygon(polygon PackedVector2Array) {

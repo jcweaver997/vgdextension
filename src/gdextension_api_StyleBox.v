@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type StyleBox = voidptr
 
 pub fn (r &StyleBox) udraw(to_canvas_item RID, rect Rect2) {

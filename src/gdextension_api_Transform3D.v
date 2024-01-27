@@ -1,3 +1,5 @@
+module vgdextension
+
 @[heap]
 pub struct Transform3D {
     pub mut:

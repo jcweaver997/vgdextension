@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type PhysicsMaterial = voidptr
 
 pub fn (mut r PhysicsMaterial) set_friction(friction f32) {

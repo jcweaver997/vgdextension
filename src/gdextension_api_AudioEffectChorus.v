@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type AudioEffectChorus = voidptr
 
 pub fn (mut r AudioEffectChorus) set_voice_count(voices i32) {

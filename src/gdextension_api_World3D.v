@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type World3D = voidptr
 
 pub fn (r &World3D) get_space() RID {

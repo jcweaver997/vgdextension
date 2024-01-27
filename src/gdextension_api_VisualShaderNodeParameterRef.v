@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type VisualShaderNodeParameterRef = voidptr
 
 pub fn (mut r VisualShaderNodeParameterRef) set_parameter_name(name String) {

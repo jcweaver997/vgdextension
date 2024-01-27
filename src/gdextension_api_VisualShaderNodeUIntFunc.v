@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum VisualShaderNodeUIntFuncFunction {
     func_negate = 0
     func_bitwise_not = 1

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum TextureButtonStretchMode {
     stretch_scale = 0
     stretch_tile = 1

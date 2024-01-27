@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type PlaceholderTexture2D = voidptr
 
 pub fn (mut r PlaceholderTexture2D) set_size(size Vector2) {

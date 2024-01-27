@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type WebRTCMultiplayerPeer = voidptr
 
 pub fn (mut r WebRTCMultiplayerPeer) create_server(channels_config Array) GDError {

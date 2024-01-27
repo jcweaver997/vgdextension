@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum SkeletonProfileTailDirection {
     tail_direction_average_children = 0
     tail_direction_specific_child = 1

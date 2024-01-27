@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ViewportTexture = voidptr
 
 pub fn (mut r ViewportTexture) set_viewport_path_in_scene(path NodePath) {

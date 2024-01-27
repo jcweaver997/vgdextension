@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type PhysicsBody2D = voidptr
 
 pub fn (mut r PhysicsBody2D) move_and_collide(motion Vector2, test_only bool, safe_margin f32, recovery_as_collision bool) KinematicCollision2D {

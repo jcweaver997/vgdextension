@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum CameraFeedFeedDataType {
     feed_noimage = 0
     feed_rgb = 1

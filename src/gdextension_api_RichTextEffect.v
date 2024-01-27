@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type RichTextEffect = voidptr
 
 pub fn (r &RichTextEffect) uprocess_custom_fx(char_fx CharFXTransform) bool {

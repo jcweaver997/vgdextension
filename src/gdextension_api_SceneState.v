@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum SceneStateGenEditState {
     gen_edit_state_disabled = 0
     gen_edit_state_instance = 1

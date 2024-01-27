@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum NavigationPathQueryResult2DPathSegmentType {
     path_segment_type_region = 0
     path_segment_type_link = 1

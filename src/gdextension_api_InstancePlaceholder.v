@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type InstancePlaceholder = voidptr
 
 pub fn (mut r InstancePlaceholder) get_stored_values(with_order bool) Dictionary {

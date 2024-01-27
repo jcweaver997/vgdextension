@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum AnimationPlayerAnimationProcessCallback {
     animation_process_physics = 0
     animation_process_idle = 1

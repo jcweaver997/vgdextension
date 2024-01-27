@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type EditorResourcePreviewGenerator = voidptr
 
 pub fn (r &EditorResourcePreviewGenerator) uhandles(type_name String) bool {

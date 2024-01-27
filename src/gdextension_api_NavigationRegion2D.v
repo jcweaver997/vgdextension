@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type NavigationRegion2D = voidptr
 
 pub fn (mut r NavigationRegion2D) set_navigation_polygon(navigation_polygon NavigationPolygon) {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum ThemeDataType {
     data_type_color = 0
     data_type_constant = 1

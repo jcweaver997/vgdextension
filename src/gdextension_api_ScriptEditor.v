@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ScriptEditor = voidptr
 
 pub fn (r &ScriptEditor) get_current_editor() ScriptEditorBase {

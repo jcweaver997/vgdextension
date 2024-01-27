@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum TextureProgressBarFillMode {
     fill_left_to_right = 0
     fill_right_to_left = 1

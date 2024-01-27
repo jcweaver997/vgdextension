@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type SceneTreeTimer = voidptr
 
 pub fn (mut r SceneTreeTimer) set_time_left(time f32) {

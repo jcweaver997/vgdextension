@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type CSGCylinder3D = voidptr
 
 pub fn (mut r CSGCylinder3D) set_radius(radius f32) {

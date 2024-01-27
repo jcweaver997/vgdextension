@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type JavaScriptBridge = voidptr
 
 pub fn (mut r JavaScriptBridge) eval(code String, use_global_execution_context bool) Variant {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum CollisionPolygon2DBuildMode {
     build_solids = 0
     build_segments = 1

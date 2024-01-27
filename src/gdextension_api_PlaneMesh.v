@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum PlaneMeshOrientation {
     face_x = 0
     face_y = 1

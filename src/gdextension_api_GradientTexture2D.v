@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum GradientTexture2DFill {
     fill_linear = 0
     fill_radial = 1

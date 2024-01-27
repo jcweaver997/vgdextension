@@ -1,3 +1,5 @@
+module vgdextension
+
 pub struct PhysicsServer3DExtensionShapeRestInfo {
     pub mut:
     point Vector3

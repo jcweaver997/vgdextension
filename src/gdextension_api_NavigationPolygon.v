@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type NavigationPolygon = voidptr
 
 pub fn (mut r NavigationPolygon) set_vertices(vertices PackedVector2Array) {

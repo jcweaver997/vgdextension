@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type Cubemap = voidptr
 
 pub fn (r &Cubemap) create_placeholder() Resource {

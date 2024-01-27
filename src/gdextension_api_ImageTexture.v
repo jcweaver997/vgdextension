@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ImageTexture = voidptr
 
 pub fn ImageTexture.create_from_image(image Image) ImageTexture {

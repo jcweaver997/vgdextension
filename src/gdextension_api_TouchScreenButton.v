@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum TouchScreenButtonVisibilityMode {
     visibility_always = 0
     visibility_touchscreen_only = 1

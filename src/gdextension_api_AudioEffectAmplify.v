@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type AudioEffectAmplify = voidptr
 
 pub fn (mut r AudioEffectAmplify) set_volume_db(volume f32) {

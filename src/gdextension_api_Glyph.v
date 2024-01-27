@@ -1,3 +1,5 @@
+module vgdextension
+
 pub struct Glyph {
     pub mut:
     start int = -1

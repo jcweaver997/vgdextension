@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum AnimationNodeStateMachineStateMachineType {
     state_machine_type_root = 0
     state_machine_type_nested = 1

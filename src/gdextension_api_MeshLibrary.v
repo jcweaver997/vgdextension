@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type MeshLibrary = voidptr
 
 pub fn (mut r MeshLibrary) create_item(id i32) {

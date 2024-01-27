@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type OpenXRInterface = voidptr
 
 pub fn (r &OpenXRInterface) get_display_refresh_rate() f32 {

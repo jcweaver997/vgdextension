@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type Skeleton3D = voidptr
 
 pub fn (mut r Skeleton3D) add_bone(name String) {

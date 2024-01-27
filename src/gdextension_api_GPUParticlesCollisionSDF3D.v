@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum GPUParticlesCollisionSDF3DResolution {
     resolution_16 = 0
     resolution_32 = 1

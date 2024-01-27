@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type VehicleBody3D = voidptr
 
 pub fn (mut r VehicleBody3D) set_engine_force(engine_force f32) {

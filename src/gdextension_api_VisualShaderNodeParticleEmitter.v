@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type VisualShaderNodeParticleEmitter = voidptr
 
 pub fn (mut r VisualShaderNodeParticleEmitter) set_mode_2d(enabled bool) {

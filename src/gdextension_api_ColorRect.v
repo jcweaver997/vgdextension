@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ColorRect = voidptr
 
 pub fn (mut r ColorRect) set_color(color Color) {

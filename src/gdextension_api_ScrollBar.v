@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ScrollBar = voidptr
 
 pub fn (mut r ScrollBar) set_custom_step(step f32) {

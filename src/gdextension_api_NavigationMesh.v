@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum NavigationMeshSamplePartitionType {
     sample_partition_watershed = 0
     sample_partition_monotone = 1

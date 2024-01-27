@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type SkeletonModification2DStackHolder = voidptr
 
 pub fn (mut r SkeletonModification2DStackHolder) set_held_modification_stack(held_modification_stack SkeletonModificationStack2D) {

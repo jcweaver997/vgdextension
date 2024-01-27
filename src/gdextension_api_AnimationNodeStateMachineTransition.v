@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum AnimationNodeStateMachineTransitionSwitchMode {
     switch_mode_immediate = 0
     switch_mode_sync = 1

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type GPUParticlesAttractor3D = voidptr
 
 pub fn (mut r GPUParticlesAttractor3D) set_cull_mask(mask i32) {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum PhysicsServer2DSpaceParameter {
     space_param_contact_recycle_radius = 0
     space_param_contact_max_separation = 1

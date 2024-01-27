@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type InputEventShortcut = voidptr
 
 pub fn (mut r InputEventShortcut) set_shortcut(shortcut Shortcut) {

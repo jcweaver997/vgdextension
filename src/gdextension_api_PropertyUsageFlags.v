@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum PropertyUsageFlags {
     property_usage_none = 0
     property_usage_storage = 2

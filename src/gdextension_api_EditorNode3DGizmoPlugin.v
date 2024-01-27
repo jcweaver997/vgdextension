@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type EditorNode3DGizmoPlugin = voidptr
 
 pub fn (r &EditorNode3DGizmoPlugin) uhas_gizmo(for_node_3d Node3D) bool {

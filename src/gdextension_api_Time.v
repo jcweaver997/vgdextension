@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum TimeMonth {
     month_january = 1
     month_february = 2

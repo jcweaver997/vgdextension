@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type Sprite3D = voidptr
 
 pub fn (mut r Sprite3D) set_texture(texture Texture2D) {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum EditorFeatureProfileFeature {
     feature_3d = 0
     feature_script = 1

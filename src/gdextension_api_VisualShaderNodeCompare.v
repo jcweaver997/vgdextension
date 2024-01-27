@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum VisualShaderNodeCompareComparisonType {
     ctype_scalar = 0
     ctype_scalar_int = 1

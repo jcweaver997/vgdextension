@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type CollisionShape2D = voidptr
 
 pub fn (mut r CollisionShape2D) set_shape(shape Shape2D) {

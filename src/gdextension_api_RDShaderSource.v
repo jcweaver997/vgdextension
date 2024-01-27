@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type RDShaderSource = voidptr
 
 pub fn (mut r RDShaderSource) set_stage_source(stage RenderingDeviceShaderStage, source String) {

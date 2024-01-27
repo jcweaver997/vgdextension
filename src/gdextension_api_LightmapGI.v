@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum LightmapGIBakeQuality {
     bake_quality_low = 0
     bake_quality_medium = 1

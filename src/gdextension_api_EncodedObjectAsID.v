@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type EncodedObjectAsID = voidptr
 
 pub fn (mut r EncodedObjectAsID) set_object_id(id i32) {

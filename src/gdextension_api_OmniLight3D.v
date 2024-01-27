@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum OmniLight3DShadowMode {
     shadow_dual_paraboloid = 0
     shadow_cube = 1

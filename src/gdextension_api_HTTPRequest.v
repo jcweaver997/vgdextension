@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum HTTPRequestResult {
     result_success = 0
     result_chunked_body_size_mismatch = 1

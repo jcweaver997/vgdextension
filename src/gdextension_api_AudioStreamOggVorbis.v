@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type AudioStreamOggVorbis = voidptr
 
 pub fn (mut r AudioStreamOggVorbis) set_packet_sequence(packet_sequence OggPacketSequence) {

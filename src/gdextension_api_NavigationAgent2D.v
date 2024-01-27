@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type NavigationAgent2D = voidptr
 
 pub fn (r &NavigationAgent2D) get_rid() RID {

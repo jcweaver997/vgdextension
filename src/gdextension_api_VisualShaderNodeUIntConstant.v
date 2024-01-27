@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type VisualShaderNodeUIntConstant = voidptr
 
 pub fn (mut r VisualShaderNodeUIntConstant) set_constant(constant i32) {

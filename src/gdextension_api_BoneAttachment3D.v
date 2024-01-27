@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type BoneAttachment3D = voidptr
 
 pub fn (mut r BoneAttachment3D) set_bone_name(bone_name String) {

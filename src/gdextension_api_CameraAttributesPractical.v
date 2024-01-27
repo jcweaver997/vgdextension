@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type CameraAttributesPractical = voidptr
 
 pub fn (mut r CameraAttributesPractical) set_dof_blur_far_enabled(enabled bool) {

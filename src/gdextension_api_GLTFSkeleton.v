@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type GLTFSkeleton = voidptr
 
 pub fn (mut r GLTFSkeleton) get_joints() PackedInt32Array {

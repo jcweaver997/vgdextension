@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ConcavePolygonShape3D = voidptr
 
 pub fn (mut r ConcavePolygonShape3D) set_faces(faces PackedVector3Array) {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type XRAnchor3D = voidptr
 
 pub fn (r &XRAnchor3D) get_size() Vector3 {

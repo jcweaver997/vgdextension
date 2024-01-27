@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum NavigationServer3DProcessInfo {
     info_active_maps = 0
     info_region_count = 1

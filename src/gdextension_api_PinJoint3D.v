@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum PinJoint3DParam {
     param_bias = 0
     param_damping = 1

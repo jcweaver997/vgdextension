@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum Line2DLineJointMode {
     line_joint_sharp = 0
     line_joint_bevel = 1

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum RibbonTrailMeshShape {
     shape_flat = 0
     shape_cross = 1

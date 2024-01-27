@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum VisibleOnScreenEnabler2DEnableMode {
     enable_mode_inherit = 0
     enable_mode_always = 1

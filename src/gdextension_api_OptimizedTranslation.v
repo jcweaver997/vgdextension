@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type OptimizedTranslation = voidptr
 
 pub fn (mut r OptimizedTranslation) generate(from Translation) {

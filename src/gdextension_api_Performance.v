@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum PerformanceMonitor {
     time_fps = 0
     time_process = 1

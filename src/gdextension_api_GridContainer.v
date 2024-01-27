@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type GridContainer = voidptr
 
 pub fn (mut r GridContainer) set_columns(columns i32) {

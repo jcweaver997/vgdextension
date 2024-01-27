@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum PropertyHint {
     property_hint_none = 0
     property_hint_range = 1

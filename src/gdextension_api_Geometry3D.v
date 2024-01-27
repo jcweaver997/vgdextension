@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type Geometry3D = voidptr
 
 pub fn (mut r Geometry3D) build_box_planes(extents Vector3) Array {

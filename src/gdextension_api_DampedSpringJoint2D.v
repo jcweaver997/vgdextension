@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type DampedSpringJoint2D = voidptr
 
 pub fn (mut r DampedSpringJoint2D) set_length(length f32) {

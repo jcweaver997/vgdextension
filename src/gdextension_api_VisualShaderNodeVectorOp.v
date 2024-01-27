@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum VisualShaderNodeVectorOpOperator {
     op_add = 0
     op_sub = 1

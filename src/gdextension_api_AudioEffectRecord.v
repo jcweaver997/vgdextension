@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type AudioEffectRecord = voidptr
 
 pub fn (mut r AudioEffectRecord) set_recording_active(record bool) {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type DirectionalLight2D = voidptr
 
 pub fn (mut r DirectionalLight2D) set_max_distance(pixels f32) {

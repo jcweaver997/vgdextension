@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type World2D = voidptr
 
 pub fn (r &World2D) get_canvas() RID {

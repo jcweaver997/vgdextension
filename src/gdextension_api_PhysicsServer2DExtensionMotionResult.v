@@ -1,3 +1,5 @@
+module vgdextension
+
 pub struct PhysicsServer2DExtensionMotionResult {
     pub mut:
     travel Vector2

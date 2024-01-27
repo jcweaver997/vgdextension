@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum StreamPeerTLSStatus {
     status_disconnected = 0
     status_handshaking = 1

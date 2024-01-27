@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum GDExtensionInitializationLevel {
     initialization_level_core = 0
     initialization_level_servers = 1

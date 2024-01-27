@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type WorldBoundaryShape3D = voidptr
 
 pub fn (mut r WorldBoundaryShape3D) set_plane(plane Plane) {

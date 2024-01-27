@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ImmediateMesh = voidptr
 
 pub fn (mut r ImmediateMesh) surface_begin(primitive MeshPrimitiveType, material Material) {

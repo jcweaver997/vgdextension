@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type PrimitiveMesh = voidptr
 
 pub fn (r &PrimitiveMesh) ucreate_mesh_array() Array {

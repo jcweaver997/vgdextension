@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type Expression = voidptr
 
 pub fn (mut r Expression) parse(expression String, input_names PackedStringArray) GDError {

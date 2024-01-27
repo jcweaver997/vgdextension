@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type VisualShaderNodeVec2Parameter = voidptr
 
 pub fn (mut r VisualShaderNodeVec2Parameter) set_default_value_enabled(enabled bool) {

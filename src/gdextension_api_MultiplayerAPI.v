@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum MultiplayerAPIRPCMode {
     rpc_mode_disabled = 0
     rpc_mode_any_peer = 1

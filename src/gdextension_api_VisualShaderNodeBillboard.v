@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum VisualShaderNodeBillboardBillboardType {
     billboard_type_disabled = 0
     billboard_type_enabled = 1

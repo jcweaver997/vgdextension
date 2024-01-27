@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ArrayMesh = voidptr
 
 pub fn (mut r ArrayMesh) add_blend_shape(name StringName) {

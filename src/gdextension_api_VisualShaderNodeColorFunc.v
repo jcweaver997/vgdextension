@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum VisualShaderNodeColorFuncFunction {
     func_grayscale = 0
     func_hsv2rgb = 1

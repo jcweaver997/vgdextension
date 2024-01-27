@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type SegmentShape2D = voidptr
 
 pub fn (mut r SegmentShape2D) set_a(a Vector2) {

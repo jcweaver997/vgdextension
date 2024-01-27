@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type FileSystemDock = voidptr
 
 pub fn (mut r FileSystemDock) navigate_to_path(path String) {

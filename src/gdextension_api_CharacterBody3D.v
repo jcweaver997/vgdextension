@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum CharacterBody3DMotionMode {
     motion_mode_grounded = 0
     motion_mode_floating = 1

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type SceneMultiplayer = voidptr
 
 pub fn (mut r SceneMultiplayer) set_root_path(path NodePath) {

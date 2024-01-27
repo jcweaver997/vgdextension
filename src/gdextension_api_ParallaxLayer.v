@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ParallaxLayer = voidptr
 
 pub fn (mut r ParallaxLayer) set_motion_scale(scale Vector2) {

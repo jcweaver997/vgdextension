@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum ViewportPositionalShadowAtlasQuadrantSubdiv {
     shadow_atlas_quadrant_subdiv_disabled = 0
     shadow_atlas_quadrant_subdiv_1 = 1

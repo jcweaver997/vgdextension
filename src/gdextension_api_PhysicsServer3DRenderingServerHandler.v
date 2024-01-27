@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type PhysicsServer3DRenderingServerHandler = voidptr
 
 pub fn (mut r PhysicsServer3DRenderingServerHandler) uset_vertex(vertex_id i32, vertices voidptr) {

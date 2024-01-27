@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ProceduralSkyMaterial = voidptr
 
 pub fn (mut r ProceduralSkyMaterial) set_sky_top_color(color Color) {

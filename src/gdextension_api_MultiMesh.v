@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum MultiMeshTransformFormat {
     transform_2d = 0
     transform_3d = 1

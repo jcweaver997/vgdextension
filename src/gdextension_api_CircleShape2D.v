@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type CircleShape2D = voidptr
 
 pub fn (mut r CircleShape2D) set_radius(radius f32) {

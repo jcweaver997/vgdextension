@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type GLTFDocumentExtension = voidptr
 
 pub fn (mut r GLTFDocumentExtension) uimport_preflight(state GLTFState, extensions PackedStringArray) GDError {

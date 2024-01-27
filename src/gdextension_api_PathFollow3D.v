@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum PathFollow3DRotationMode {
     rotation_none = 0
     rotation_y = 1

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type InputEventMagnifyGesture = voidptr
 
 pub fn (mut r InputEventMagnifyGesture) set_factor(factor f32) {

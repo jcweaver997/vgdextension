@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type NavigationLink3D = voidptr
 
 pub fn (mut r NavigationLink3D) set_enabled(enabled bool) {

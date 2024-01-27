@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum RichTextLabelListType {
     list_numbers = 0
     list_letters = 1

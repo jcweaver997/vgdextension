@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type Joint2D = voidptr
 
 pub fn (mut r Joint2D) set_node_a(node NodePath) {

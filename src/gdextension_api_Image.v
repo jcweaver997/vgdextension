@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum ImageFormat {
     format_l8 = 0
     format_la8 = 1

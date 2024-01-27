@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum LinkButtonUnderlineMode {
     underline_mode_always = 0
     underline_mode_on_hover = 1

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type TileMapPattern = voidptr
 
 pub fn (mut r TileMapPattern) set_cell(coords Vector2i, source_id i32, atlas_coords Vector2i, alternative_tile i32) {

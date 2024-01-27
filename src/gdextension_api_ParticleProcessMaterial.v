@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum ParticleProcessMaterialParameter {
     param_initial_linear_velocity = 0
     param_angular_velocity = 1

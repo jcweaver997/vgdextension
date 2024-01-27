@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type AudioEffectLimiter = voidptr
 
 pub fn (mut r AudioEffectLimiter) set_ceiling_db(ceiling f32) {

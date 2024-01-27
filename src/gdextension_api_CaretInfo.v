@@ -1,3 +1,5 @@
+module vgdextension
+
 pub struct CaretInfo {
     pub mut:
     leading_caret Rect2

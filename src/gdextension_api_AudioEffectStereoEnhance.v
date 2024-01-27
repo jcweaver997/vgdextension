@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type AudioEffectStereoEnhance = voidptr
 
 pub fn (mut r AudioEffectStereoEnhance) set_pan_pullout(amount f32) {

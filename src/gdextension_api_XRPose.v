@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum XRPoseTrackingConfidence {
     xr_tracking_confidence_none = 0
     xr_tracking_confidence_low = 1

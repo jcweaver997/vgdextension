@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type RDPipelineDepthStencilState = voidptr
 
 pub fn (mut r RDPipelineDepthStencilState) set_enable_depth_test(p_member bool) {

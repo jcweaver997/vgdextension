@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type FogVolume = voidptr
 
 pub fn (mut r FogVolume) set_size(size Vector3) {

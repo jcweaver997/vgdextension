@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type MenuButton = voidptr
 
 pub fn (r &MenuButton) get_popup() PopupMenu {

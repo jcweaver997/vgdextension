@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ImageTextureLayered = voidptr
 
 pub fn (mut r ImageTextureLayered) create_from_images(images Array) GDError {

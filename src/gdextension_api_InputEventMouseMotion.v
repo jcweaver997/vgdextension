@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type InputEventMouseMotion = voidptr
 
 pub fn (mut r InputEventMouseMotion) set_tilt(tilt Vector2) {

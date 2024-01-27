@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ConvexPolygonShape2D = voidptr
 
 pub fn (mut r ConvexPolygonShape2D) set_point_cloud(point_cloud PackedVector2Array) {

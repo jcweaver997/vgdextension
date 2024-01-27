@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum EditorPluginCustomControlContainer {
     container_toolbar = 0
     container_spatial_editor_menu = 1

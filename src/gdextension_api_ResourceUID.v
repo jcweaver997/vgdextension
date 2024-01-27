@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ResourceUID = voidptr
 
 pub fn (r &ResourceUID) id_to_text(id i32) String {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type NavigationMeshSourceGeometryData3D = voidptr
 
 pub fn (mut r NavigationMeshSourceGeometryData3D) set_vertices(vertices PackedFloat32Array) {

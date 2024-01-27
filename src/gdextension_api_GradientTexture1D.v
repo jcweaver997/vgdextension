@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type GradientTexture1D = voidptr
 
 pub fn (mut r GradientTexture1D) set_gradient(gradient Gradient) {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum ResourceLoaderThreadLoadStatus {
     thread_load_invalid_resource = 0
     thread_load_in_progress = 1

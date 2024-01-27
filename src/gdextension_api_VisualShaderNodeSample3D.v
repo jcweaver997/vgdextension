@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum VisualShaderNodeSample3DSource {
     source_texture = 0
     source_port = 1

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum VisualShaderType {
     type_vertex = 0
     type_fragment = 1

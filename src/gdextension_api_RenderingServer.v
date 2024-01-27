@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum RenderingServerTextureLayeredType {
     texture_layered_2d_array = 0
     texture_layered_cubemap = 1

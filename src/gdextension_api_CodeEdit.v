@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum CodeEditCodeCompletionKind {
     kind_class = 0
     kind_function = 1

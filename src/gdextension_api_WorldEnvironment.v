@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type WorldEnvironment = voidptr
 
 pub fn (mut r WorldEnvironment) set_environment(env Environment) {

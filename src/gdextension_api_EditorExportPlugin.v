@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type EditorExportPlugin = voidptr
 
 pub fn (mut r EditorExportPlugin) uexport_file(path String, type_name String, features PackedStringArray) {

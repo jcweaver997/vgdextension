@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum NavigationPathQueryParameters3DPathfindingAlgorithm {
     pathfinding_algorithm_astar = 0
 }

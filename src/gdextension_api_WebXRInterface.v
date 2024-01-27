@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum WebXRInterfaceTargetRayMode {
     target_ray_mode_unknown = 0
     target_ray_mode_gaze = 1

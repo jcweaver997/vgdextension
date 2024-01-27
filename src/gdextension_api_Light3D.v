@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum Light3DParam {
     param_energy = 0
     param_indirect_energy = 1

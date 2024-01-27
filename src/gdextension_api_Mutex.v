@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type Mutex = voidptr
 
 pub fn (mut r Mutex) gdlock() {

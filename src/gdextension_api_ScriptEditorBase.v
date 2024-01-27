@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ScriptEditorBase = voidptr
 
 pub fn (r &ScriptEditorBase) get_base_editor() Control {

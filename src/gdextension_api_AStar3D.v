@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type AStar3D = voidptr
 
 pub fn (r &AStar3D) uestimate_cost(from_id i32, to_id i32) f32 {

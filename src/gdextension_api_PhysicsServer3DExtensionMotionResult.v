@@ -1,3 +1,5 @@
+module vgdextension
+
 pub struct PhysicsServer3DExtensionMotionResult {
     pub mut:
     travel Vector3

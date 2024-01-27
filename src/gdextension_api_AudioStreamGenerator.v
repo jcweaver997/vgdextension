@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type AudioStreamGenerator = voidptr
 
 pub fn (mut r AudioStreamGenerator) set_mix_rate(hz f32) {

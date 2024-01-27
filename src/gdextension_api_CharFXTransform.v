@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type CharFXTransform = voidptr
 
 pub fn (mut r CharFXTransform) get_range() Vector2i {

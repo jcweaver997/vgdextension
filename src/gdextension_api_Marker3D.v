@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type Marker3D = voidptr
 
 pub fn (mut r Marker3D) set_gizmo_extents(extents f32) {

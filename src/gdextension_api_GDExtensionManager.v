@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum GDExtensionManagerLoadStatus {
     load_status_ok = 0
     load_status_failed = 1

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type MainLoop = voidptr
 
 pub fn (mut r MainLoop) uinitialize() {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type CallbackTweener = voidptr
 
 pub fn (mut r CallbackTweener) set_delay(delay f32) CallbackTweener {

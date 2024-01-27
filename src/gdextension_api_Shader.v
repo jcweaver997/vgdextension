@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum ShaderMode {
     mode_spatial = 0
     mode_canvas_item = 1

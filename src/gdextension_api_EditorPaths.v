@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type EditorPaths = voidptr
 
 pub fn (r &EditorPaths) get_data_dir() String {

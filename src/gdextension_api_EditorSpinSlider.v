@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type EditorSpinSlider = voidptr
 
 pub fn (mut r EditorSpinSlider) set_label(label String) {

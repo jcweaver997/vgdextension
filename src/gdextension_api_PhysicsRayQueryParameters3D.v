@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type PhysicsRayQueryParameters3D = voidptr
 
 pub fn PhysicsRayQueryParameters3D.create(from Vector3, to Vector3, collision_mask i32, exclude Array) PhysicsRayQueryParameters3D {

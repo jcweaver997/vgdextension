@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type LabelSettings = voidptr
 
 pub fn (mut r LabelSettings) set_line_spacing(spacing f32) {

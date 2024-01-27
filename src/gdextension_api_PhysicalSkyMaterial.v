@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type PhysicalSkyMaterial = voidptr
 
 pub fn (mut r PhysicalSkyMaterial) set_rayleigh_coefficient(rayleigh f32) {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type EditorSelection = voidptr
 
 pub fn (mut r EditorSelection) clear() {

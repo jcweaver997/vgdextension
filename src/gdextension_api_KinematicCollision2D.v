@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type KinematicCollision2D = voidptr
 
 pub fn (r &KinematicCollision2D) get_position() Vector2 {

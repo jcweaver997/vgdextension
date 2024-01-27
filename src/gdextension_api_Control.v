@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum ControlFocusMode {
     focus_none = 0
     focus_click = 1

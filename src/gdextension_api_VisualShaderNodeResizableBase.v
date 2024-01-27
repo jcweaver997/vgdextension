@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type VisualShaderNodeResizableBase = voidptr
 
 pub fn (mut r VisualShaderNodeResizableBase) set_size(size Vector2) {

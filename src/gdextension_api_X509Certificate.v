@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type X509Certificate = voidptr
 
 pub fn (mut r X509Certificate) save(path String) GDError {

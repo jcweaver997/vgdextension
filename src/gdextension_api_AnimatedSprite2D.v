@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type AnimatedSprite2D = voidptr
 
 pub fn (mut r AnimatedSprite2D) set_sprite_frames(sprite_frames SpriteFrames) {

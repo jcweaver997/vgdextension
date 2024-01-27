@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum HorizontalAlignment {
     horizontal_alignment_left = 0
     horizontal_alignment_center = 1

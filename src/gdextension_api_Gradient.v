@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum GradientInterpolationMode {
     gradient_interpolate_linear = 0
     gradient_interpolate_constant = 1

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum TreeSelectMode {
     select_single = 0
     select_row = 1

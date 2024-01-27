@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type EditorTranslationParserPlugin = voidptr
 
 pub fn (mut r EditorTranslationParserPlugin) uparse_file(path String, msgids Array, msgids_context_plural Array) {

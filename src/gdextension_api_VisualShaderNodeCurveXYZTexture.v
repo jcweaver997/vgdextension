@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type VisualShaderNodeCurveXYZTexture = voidptr
 
 pub fn (mut r VisualShaderNodeCurveXYZTexture) set_texture(texture CurveXYZTexture) {

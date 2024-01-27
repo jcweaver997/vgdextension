@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type NavigationMeshGenerator = voidptr
 
 pub fn (mut r NavigationMeshGenerator) bake(navigation_mesh NavigationMesh, root_node Node) {

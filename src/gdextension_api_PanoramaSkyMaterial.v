@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type PanoramaSkyMaterial = voidptr
 
 pub fn (mut r PanoramaSkyMaterial) set_panorama(texture Texture2D) {

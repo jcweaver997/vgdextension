@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type VideoStream = voidptr
 
 pub fn (mut r VideoStream) uinstantiate_playback() VideoStreamPlayback {

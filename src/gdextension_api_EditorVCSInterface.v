@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum EditorVCSInterfaceChangeType {
     change_type_new = 0
     change_type_modified = 1

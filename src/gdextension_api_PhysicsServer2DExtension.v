@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type PhysicsServer2DExtension = voidptr
 
 pub fn (mut r PhysicsServer2DExtension) uworld_boundary_shape_create() RID {

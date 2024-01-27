@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type PopupMenu = voidptr
 
 pub fn (mut r PopupMenu) add_item(label String, id i32, accel Key) {

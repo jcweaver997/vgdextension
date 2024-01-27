@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type MultiplayerPeerExtension = voidptr
 
 pub fn (mut r MultiplayerPeerExtension) uget_packet(r_buffer &&u8 , r_buffer_size &i32) GDError {

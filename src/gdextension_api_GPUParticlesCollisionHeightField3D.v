@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum GPUParticlesCollisionHeightField3DResolution {
     resolution_256 = 0
     resolution_512 = 1

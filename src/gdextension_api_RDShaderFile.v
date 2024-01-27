@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type RDShaderFile = voidptr
 
 pub fn (mut r RDShaderFile) set_bytecode(bytecode RDShaderSPIRV, version StringName) {

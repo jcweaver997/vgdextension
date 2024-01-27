@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type PackedDataContainerRef = voidptr
 
 pub fn (r &PackedDataContainerRef) size() i32 {

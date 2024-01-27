@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type NavigationObstacle3D = voidptr
 
 pub fn (r &NavigationObstacle3D) get_rid() RID {

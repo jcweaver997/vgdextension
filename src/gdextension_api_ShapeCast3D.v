@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ShapeCast3D = voidptr
 
 pub fn (mut r ShapeCast3D) resource_changed(resource Resource) {

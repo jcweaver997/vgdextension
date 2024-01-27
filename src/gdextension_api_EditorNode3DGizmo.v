@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type EditorNode3DGizmo = voidptr
 
 pub fn (mut r EditorNode3DGizmo) uredraw() {

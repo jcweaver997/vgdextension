@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type InputEventMouseButton = voidptr
 
 pub fn (mut r InputEventMouseButton) set_factor(factor f32) {

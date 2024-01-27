@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type MeshTexture = voidptr
 
 pub fn (mut r MeshTexture) set_mesh(mesh Mesh) {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum SliderJoint3DParam {
     param_linear_limit_upper = 0
     param_linear_limit_lower = 1

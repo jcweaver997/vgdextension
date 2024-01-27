@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ShaderInclude = voidptr
 
 pub fn (mut r ShaderInclude) set_code(code String) {

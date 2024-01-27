@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type MissingResource = voidptr
 
 pub fn (mut r MissingResource) set_original_class(name String) {

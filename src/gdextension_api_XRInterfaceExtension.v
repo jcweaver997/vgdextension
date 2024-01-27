@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type XRInterfaceExtension = voidptr
 
 pub fn (r &XRInterfaceExtension) uget_name() StringName {

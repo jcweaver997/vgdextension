@@ -1,3 +1,5 @@
+module vgdextension
+
 pub struct PhysicsServer3DExtensionMotionCollision {
     pub mut:
     position Vector3

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum VisualShaderNodePortType {
     port_type_scalar = 0
     port_type_scalar_int = 1

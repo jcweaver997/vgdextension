@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type CylinderMesh = voidptr
 
 pub fn (mut r CylinderMesh) set_top_radius(radius f32) {

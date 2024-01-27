@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum TileMapVisibilityMode {
     visibility_mode_default = 0
     visibility_mode_force_hide = 2

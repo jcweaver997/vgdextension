@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type EditorFileSystemDirectory = voidptr
 
 pub fn (r &EditorFileSystemDirectory) get_subdir_count() i32 {

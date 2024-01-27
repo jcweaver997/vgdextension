@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum VisualShaderNodeIntFuncFunction {
     func_abs = 0
     func_negate = 1

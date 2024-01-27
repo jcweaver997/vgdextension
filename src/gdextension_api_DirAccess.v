@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type DirAccess = voidptr
 
 pub fn DirAccess.open(path String) DirAccess {

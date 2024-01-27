@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type PathFollow2D = voidptr
 
 pub fn (mut r PathFollow2D) set_progress(progress f32) {

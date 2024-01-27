@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type PhysicsDirectBodyState2D = voidptr
 
 pub fn (r &PhysicsDirectBodyState2D) get_total_gravity() Vector2 {

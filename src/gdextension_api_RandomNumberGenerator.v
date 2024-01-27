@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type RandomNumberGenerator = voidptr
 
 pub fn (mut r RandomNumberGenerator) set_seed(seed i32) {

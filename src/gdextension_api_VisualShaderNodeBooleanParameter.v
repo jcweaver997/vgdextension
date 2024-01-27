@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type VisualShaderNodeBooleanParameter = voidptr
 
 pub fn (mut r VisualShaderNodeBooleanParameter) set_default_value_enabled(enabled bool) {

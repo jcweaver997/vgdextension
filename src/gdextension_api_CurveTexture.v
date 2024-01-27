@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum CurveTextureTextureMode {
     texture_mode_rgb = 0
     texture_mode_red = 1

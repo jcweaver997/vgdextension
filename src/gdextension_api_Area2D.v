@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum Area2DSpaceOverride {
     space_override_disabled = 0
     space_override_combine = 1

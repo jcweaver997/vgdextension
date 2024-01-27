@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type OccluderInstance3D = voidptr
 
 pub fn (mut r OccluderInstance3D) set_bake_mask(mask i32) {

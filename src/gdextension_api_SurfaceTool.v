@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum SurfaceToolCustomFormat {
     custom_rgba8_unorm = 0
     custom_rgba8_snorm = 1

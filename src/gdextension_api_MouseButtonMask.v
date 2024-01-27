@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum MouseButtonMask {
     mouse_button_mask_left = 1
     mouse_button_mask_right = 2

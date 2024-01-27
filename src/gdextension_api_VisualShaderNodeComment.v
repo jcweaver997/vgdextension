@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type VisualShaderNodeComment = voidptr
 
 pub fn (mut r VisualShaderNodeComment) set_title(title String) {

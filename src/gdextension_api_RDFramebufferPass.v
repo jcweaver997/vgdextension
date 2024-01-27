@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type RDFramebufferPass = voidptr
 
 pub fn (mut r RDFramebufferPass) set_color_attachments(p_member PackedInt32Array) {

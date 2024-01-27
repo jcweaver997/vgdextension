@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type TCPServer = voidptr
 
 pub fn (mut r TCPServer) listen(port i32, bind_address String) GDError {

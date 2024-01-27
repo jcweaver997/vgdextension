@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum StreamPeerTCPStatus {
     status_none = 0
     status_connecting = 1

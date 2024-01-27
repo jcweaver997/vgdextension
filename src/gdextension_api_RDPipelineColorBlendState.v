@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type RDPipelineColorBlendState = voidptr
 
 pub fn (mut r RDPipelineColorBlendState) set_enable_logic_op(p_member bool) {

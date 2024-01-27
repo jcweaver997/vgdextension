@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type Container = voidptr
 
 pub fn (r &Container) uget_allowed_size_flags_horizontal() PackedInt32Array {

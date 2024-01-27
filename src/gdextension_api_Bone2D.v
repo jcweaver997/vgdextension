@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type Bone2D = voidptr
 
 pub fn (mut r Bone2D) set_rest(rest Transform2D) {

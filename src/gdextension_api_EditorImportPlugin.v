@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type EditorImportPlugin = voidptr
 
 pub fn (r &EditorImportPlugin) uget_importer_name() String {

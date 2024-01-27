@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum JoyAxis {
     joy_axis_invalid = -1
     joy_axis_left_x = 0

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type RayCast2D = voidptr
 
 pub fn (mut r RayCast2D) set_enabled(enabled bool) {

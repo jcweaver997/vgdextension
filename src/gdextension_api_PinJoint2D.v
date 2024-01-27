@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type PinJoint2D = voidptr
 
 pub fn (mut r PinJoint2D) set_softness(softness f32) {

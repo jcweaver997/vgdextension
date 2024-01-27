@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type WeakRef = voidptr
 
 pub fn (r &WeakRef) get_ref() Variant {

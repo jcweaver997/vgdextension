@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type VisualShaderNodeGroupBase = voidptr
 
 pub fn (mut r VisualShaderNodeGroupBase) set_inputs(inputs String) {

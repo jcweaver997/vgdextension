@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type RDShaderSPIRV = voidptr
 
 pub fn (mut r RDShaderSPIRV) set_stage_bytecode(stage RenderingDeviceShaderStage, bytecode PackedByteArray) {

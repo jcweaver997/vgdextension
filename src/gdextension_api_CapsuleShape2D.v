@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type CapsuleShape2D = voidptr
 
 pub fn (mut r CapsuleShape2D) set_radius(radius f32) {

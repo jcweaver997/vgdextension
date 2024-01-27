@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type CSGMesh3D = voidptr
 
 pub fn (mut r CSGMesh3D) set_mesh(mesh Mesh) {

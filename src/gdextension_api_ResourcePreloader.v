@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ResourcePreloader = voidptr
 
 pub fn (mut r ResourcePreloader) add_resource(name StringName, resource Resource) {

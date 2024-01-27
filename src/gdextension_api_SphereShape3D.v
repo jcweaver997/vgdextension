@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type SphereShape3D = voidptr
 
 pub fn (mut r SphereShape3D) set_radius(radius f32) {

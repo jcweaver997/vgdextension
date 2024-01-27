@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type StreamPeerExtension = voidptr
 
 pub fn (mut r StreamPeerExtension) uget_data(r_buffer &u8, r_bytes i32, r_received &i32) GDError {

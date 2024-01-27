@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type SpriteFrames = voidptr
 
 pub fn (mut r SpriteFrames) add_animation(anim StringName) {

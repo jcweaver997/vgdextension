@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum ReflectionProbeUpdateMode {
     update_once = 0
     update_always = 1

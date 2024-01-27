@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type EditorSyntaxHighlighter = voidptr
 
 pub fn (r &EditorSyntaxHighlighter) uget_name() String {

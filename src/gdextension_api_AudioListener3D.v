@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type AudioListener3D = voidptr
 
 pub fn (mut r AudioListener3D) make_current() {

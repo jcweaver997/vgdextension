@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum OpenXRActionActionType {
     openxr_action_bool = 0
     openxr_action_float = 1

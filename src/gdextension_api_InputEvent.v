@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type InputEvent = voidptr
 
 pub fn (mut r InputEvent) set_device(device i32) {

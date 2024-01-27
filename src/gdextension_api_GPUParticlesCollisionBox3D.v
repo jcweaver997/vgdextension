@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type GPUParticlesCollisionBox3D = voidptr
 
 pub fn (mut r GPUParticlesCollisionBox3D) set_size(size Vector3) {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type AnimationNodeStateMachinePlayback = voidptr
 
 pub fn (mut r AnimationNodeStateMachinePlayback) travel(to_node StringName, reset_on_teleport bool) {

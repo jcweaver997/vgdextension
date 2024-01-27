@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type NavigationRegion3D = voidptr
 
 pub fn (mut r NavigationRegion3D) set_navigation_mesh(navigation_mesh NavigationMesh) {

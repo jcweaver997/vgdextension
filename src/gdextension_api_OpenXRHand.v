@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum OpenXRHandHands {
     hand_left = 0
     hand_right = 1

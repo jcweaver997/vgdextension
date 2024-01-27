@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type RDUniform = voidptr
 
 pub fn (mut r RDUniform) set_uniform_type(p_member RenderingDeviceUniformType) {

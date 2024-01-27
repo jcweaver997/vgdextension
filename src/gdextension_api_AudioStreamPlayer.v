@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum AudioStreamPlayerMixTarget {
     mix_target_stereo = 0
     mix_target_surround = 1

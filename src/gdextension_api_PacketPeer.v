@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type PacketPeer = voidptr
 
 pub fn (mut r PacketPeer) get_var(allow_objects bool) Variant {

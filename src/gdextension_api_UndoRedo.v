@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum UndoRedoMergeMode {
     merge_disable = 0
     merge_ends = 1

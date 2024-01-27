@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type CenterContainer = voidptr
 
 pub fn (mut r CenterContainer) set_use_top_left(enable bool) {

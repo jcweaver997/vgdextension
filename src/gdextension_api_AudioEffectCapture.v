@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type AudioEffectCapture = voidptr
 
 pub fn (r &AudioEffectCapture) can_get_buffer(frames i32) bool {

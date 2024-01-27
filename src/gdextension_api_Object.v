@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum ObjectConnectFlags {
     connect_deferred = 1
     connect_persist = 2

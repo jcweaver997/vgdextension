@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type GLTFSkin = voidptr
 
 pub fn (mut r GLTFSkin) get_skin_root() i32 {

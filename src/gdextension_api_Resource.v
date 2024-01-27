@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type Resource = voidptr
 
 pub fn (mut r Resource) set_path(path String) {

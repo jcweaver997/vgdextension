@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type RegEx = voidptr
 
 pub fn RegEx.create_from_string(pattern String) RegEx {

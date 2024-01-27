@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum Camera2DAnchorMode {
     anchor_mode_fixed_top_left = 0
     anchor_mode_drag_center = 1

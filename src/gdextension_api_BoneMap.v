@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type BoneMap = voidptr
 
 pub fn (r &BoneMap) get_profile() SkeletonProfile {

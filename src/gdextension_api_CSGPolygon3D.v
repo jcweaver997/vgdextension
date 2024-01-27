@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum CSGPolygon3DMode {
     mode_depth = 0
     mode_spin = 1

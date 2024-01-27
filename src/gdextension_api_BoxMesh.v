@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type BoxMesh = voidptr
 
 pub fn (mut r BoxMesh) set_size(size Vector3) {

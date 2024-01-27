@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type Material = voidptr
 
 pub fn (r &Material) uget_shader_rid() RID {

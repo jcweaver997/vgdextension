@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type VisualShaderNodeTransformConstant = voidptr
 
 pub fn (mut r VisualShaderNodeTransformConstant) set_constant(constant Transform3D) {

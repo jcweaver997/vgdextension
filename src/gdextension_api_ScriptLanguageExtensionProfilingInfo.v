@@ -1,3 +1,5 @@
+module vgdextension
+
 pub struct ScriptLanguageExtensionProfilingInfo {
     pub mut:
     signature StringName

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type MultiplayerAPIExtension = voidptr
 
 pub fn (mut r MultiplayerAPIExtension) upoll() GDError {

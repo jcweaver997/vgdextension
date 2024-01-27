@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type TileData = voidptr
 
 pub fn (mut r TileData) set_flip_h(flip_h bool) {

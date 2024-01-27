@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum BaseButtonDrawMode {
     draw_normal = 0
     draw_pressed = 1

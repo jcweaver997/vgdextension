@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type AtlasTexture = voidptr
 
 pub fn (mut r AtlasTexture) set_atlas(atlas Texture2D) {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type Script = voidptr
 
 pub fn (r &Script) can_instantiate() bool {

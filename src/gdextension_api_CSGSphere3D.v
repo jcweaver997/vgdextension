@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type CSGSphere3D = voidptr
 
 pub fn (mut r CSGSphere3D) set_radius(radius f32) {

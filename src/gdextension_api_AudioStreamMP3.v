@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type AudioStreamMP3 = voidptr
 
 pub fn (mut r AudioStreamMP3) set_data(data PackedByteArray) {

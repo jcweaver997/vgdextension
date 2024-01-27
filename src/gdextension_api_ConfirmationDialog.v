@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ConfirmationDialog = voidptr
 
 pub fn (mut r ConfirmationDialog) get_cancel_button() Button {

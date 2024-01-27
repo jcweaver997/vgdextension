@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum VisualShaderNodeDerivativeFuncOpType {
     op_type_scalar = 0
     op_type_vector_2d = 1

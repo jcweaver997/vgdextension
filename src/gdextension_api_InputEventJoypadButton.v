@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type InputEventJoypadButton = voidptr
 
 pub fn (mut r InputEventJoypadButton) set_button_index(button_index JoyButton) {

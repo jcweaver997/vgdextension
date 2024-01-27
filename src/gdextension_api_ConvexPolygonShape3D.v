@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ConvexPolygonShape3D = voidptr
 
 pub fn (mut r ConvexPolygonShape3D) set_points(points PackedVector3Array) {

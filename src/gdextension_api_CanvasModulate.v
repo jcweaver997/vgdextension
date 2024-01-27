@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type CanvasModulate = voidptr
 
 pub fn (mut r CanvasModulate) set_color(color Color) {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type FogMaterial = voidptr
 
 pub fn (mut r FogMaterial) set_density(density f32) {

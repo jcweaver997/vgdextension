@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum CSGShape3DOperation {
     operation_union = 0
     operation_intersection = 1

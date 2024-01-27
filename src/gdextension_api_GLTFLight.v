@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type GLTFLight = voidptr
 
 pub fn GLTFLight.from_node(light_node Light3D) GLTFLight {

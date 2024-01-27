@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type VisualInstance3D = voidptr
 
 pub fn (r &VisualInstance3D) uget_aabb() AABB {

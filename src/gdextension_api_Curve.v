@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum CurveTangentMode {
     tangent_free = 0
     tangent_linear = 1

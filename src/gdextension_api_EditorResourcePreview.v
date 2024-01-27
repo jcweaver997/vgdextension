@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type EditorResourcePreview = voidptr
 
 pub fn (mut r EditorResourcePreview) queue_resource_preview(path String, receiver Object, receiver_func StringName, userdata Variant) {

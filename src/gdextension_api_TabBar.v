@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum TabBarAlignmentMode {
     alignment_left = 0
     alignment_center = 1

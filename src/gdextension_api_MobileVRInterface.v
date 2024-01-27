@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type MobileVRInterface = voidptr
 
 pub fn (mut r MobileVRInterface) set_eye_height(eye_height f32) {

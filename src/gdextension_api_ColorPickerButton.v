@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ColorPickerButton = voidptr
 
 pub fn (mut r ColorPickerButton) set_pick_color(color Color) {

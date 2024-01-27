@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type SpinBox = voidptr
 
 pub fn (mut r SpinBox) set_horizontal_alignment(alignment HorizontalAlignment) {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum AudioServerSpeakerMode {
     speaker_mode_stereo = 0
     speaker_surround_31 = 1

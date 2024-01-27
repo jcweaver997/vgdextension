@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type VisualShaderNodeTexture3D = voidptr
 
 pub fn (mut r VisualShaderNodeTexture3D) set_texture(value Texture3D) {

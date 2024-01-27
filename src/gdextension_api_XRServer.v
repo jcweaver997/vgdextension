@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum XRServerTrackerType {
     tracker_head = 1
     tracker_controller = 2

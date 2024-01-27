@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ScriptExtension = voidptr
 
 pub fn (mut r ScriptExtension) ueditor_can_reload_from_file() bool {

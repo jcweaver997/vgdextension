@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type RDTextureFormat = voidptr
 
 pub fn (mut r RDTextureFormat) set_format(p_member RenderingDeviceDataFormat) {

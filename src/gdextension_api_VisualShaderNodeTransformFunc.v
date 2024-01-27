@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum VisualShaderNodeTransformFuncFunction {
     func_inverse = 0
     func_transpose = 1

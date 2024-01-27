@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type CollisionPolygon3D = voidptr
 
 pub fn (mut r CollisionPolygon3D) set_depth(depth f32) {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type RemoteTransform3D = voidptr
 
 pub fn (mut r RemoteTransform3D) set_remote_node(path NodePath) {

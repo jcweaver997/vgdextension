@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type CanvasTexture = voidptr
 
 pub fn (mut r CanvasTexture) set_diffuse_texture(texture Texture2D) {

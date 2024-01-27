@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type PacketPeerExtension = voidptr
 
 pub fn (mut r PacketPeerExtension) uget_packet(r_buffer &&u8 , r_buffer_size &i32) GDError {

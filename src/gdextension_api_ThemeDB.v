@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ThemeDB = voidptr
 
 pub fn (mut r ThemeDB) get_default_theme() Theme {

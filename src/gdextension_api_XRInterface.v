@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum XRInterfaceCapabilities {
     xr_none = 0
     xr_mono = 1

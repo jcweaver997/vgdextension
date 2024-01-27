@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type GDScriptNativeClass = voidptr
 
 pub fn (mut r GDScriptNativeClass) new() Variant {

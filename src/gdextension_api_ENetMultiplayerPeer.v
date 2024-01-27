@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ENetMultiplayerPeer = voidptr
 
 pub fn (mut r ENetMultiplayerPeer) create_server(port i32, max_clients i32, max_channels i32, in_bandwidth i32, out_bandwidth i32) GDError {

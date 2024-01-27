@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type CSGPrimitive3D = voidptr
 
 pub fn (mut r CSGPrimitive3D) set_flip_faces(flip_faces bool) {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type MeshInstance2D = voidptr
 
 pub fn (mut r MeshInstance2D) set_mesh(mesh Mesh) {

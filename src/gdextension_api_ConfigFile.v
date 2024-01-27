@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ConfigFile = voidptr
 
 pub fn (mut r ConfigFile) set_value(section String, key String, value Variant) {

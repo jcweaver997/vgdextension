@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum JoyButton {
     joy_button_invalid = -1
     joy_button_a = 0

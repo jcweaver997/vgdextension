@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum CollisionObject3DDisableMode {
     disable_mode_remove = 0
     disable_mode_make_static = 1

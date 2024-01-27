@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type MultiMeshInstance3D = voidptr
 
 pub fn (mut r MultiMeshInstance3D) set_multimesh(multimesh MultiMesh) {

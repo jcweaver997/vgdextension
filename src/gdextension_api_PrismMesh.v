@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type PrismMesh = voidptr
 
 pub fn (mut r PrismMesh) set_left_to_right(left_to_right f32) {

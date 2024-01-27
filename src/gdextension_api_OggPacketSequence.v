@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type OggPacketSequence = voidptr
 
 pub fn (mut r OggPacketSequence) set_packet_data(packet_data Array) {

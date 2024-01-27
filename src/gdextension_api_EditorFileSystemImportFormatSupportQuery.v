@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type EditorFileSystemImportFormatSupportQuery = voidptr
 
 pub fn (r &EditorFileSystemImportFormatSupportQuery) uis_active() bool {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type CapsuleMesh = voidptr
 
 pub fn (mut r CapsuleMesh) set_radius(radius f32) {

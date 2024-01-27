@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type CompressedTexture3D = voidptr
 
 pub fn (mut r CompressedTexture3D) load(path String) GDError {

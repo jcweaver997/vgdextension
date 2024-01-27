@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type BitMap = voidptr
 
 pub fn (mut r BitMap) create(size Vector2i) {

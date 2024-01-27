@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type RDPipelineMultisampleState = voidptr
 
 pub fn (mut r RDPipelineMultisampleState) set_sample_count(p_member RenderingDeviceTextureSamples) {

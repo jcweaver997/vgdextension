@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type SeparationRayShape3D = voidptr
 
 pub fn (mut r SeparationRayShape3D) set_length(length f32) {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ScriptCreateDialog = voidptr
 
 pub fn (mut r ScriptCreateDialog) config(inherits String, path String, built_in_enabled bool, load_enabled bool) {

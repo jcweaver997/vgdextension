@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ButtonGroup = voidptr
 
 pub fn (mut r ButtonGroup) get_pressed_button() BaseButton {

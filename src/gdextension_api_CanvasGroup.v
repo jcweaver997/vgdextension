@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type CanvasGroup = voidptr
 
 pub fn (mut r CanvasGroup) set_fit_margin(fit_margin f32) {

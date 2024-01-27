@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type Curve2D = voidptr
 
 pub fn (r &Curve2D) get_point_count() i32 {

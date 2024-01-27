@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum HTTPClientMethod {
     method_get = 0
     method_head = 1

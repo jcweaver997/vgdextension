@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type OptionButton = voidptr
 
 pub fn (mut r OptionButton) add_item(label String, id i32) {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type SphereOccluder3D = voidptr
 
 pub fn (mut r SphereOccluder3D) set_radius(radius f32) {

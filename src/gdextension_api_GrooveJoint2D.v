@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type GrooveJoint2D = voidptr
 
 pub fn (mut r GrooveJoint2D) set_length(length f32) {

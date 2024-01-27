@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type UDPServer = voidptr
 
 pub fn (mut r UDPServer) listen(port i32, bind_address String) GDError {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type Texture2DArray = voidptr
 
 pub fn (r &Texture2DArray) create_placeholder() Resource {

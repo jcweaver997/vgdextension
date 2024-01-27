@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type TabContainer = voidptr
 
 pub fn (r &TabContainer) get_tab_count() i32 {

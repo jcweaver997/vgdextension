@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type PacketPeerUDP = voidptr
 
 pub fn (mut r PacketPeerUDP) bind(port i32, bind_address String, recv_buf_size i32) GDError {

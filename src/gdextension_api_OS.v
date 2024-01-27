@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum OSRenderingDriver {
     rendering_driver_vulkan = 0
     rendering_driver_opengl3 = 1

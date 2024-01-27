@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type Texture2D = voidptr
 
 pub fn (r &Texture2D) uget_width() i32 {

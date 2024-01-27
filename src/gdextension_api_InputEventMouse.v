@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type InputEventMouse = voidptr
 
 pub fn (mut r InputEventMouse) set_button_mask(button_mask MouseButtonMask) {

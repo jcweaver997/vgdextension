@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type AudioEffectReverb = voidptr
 
 pub fn (mut r AudioEffectReverb) set_predelay_msec(msec f32) {

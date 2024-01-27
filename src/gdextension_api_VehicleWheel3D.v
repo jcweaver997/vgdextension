@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type VehicleWheel3D = voidptr
 
 pub fn (mut r VehicleWheel3D) set_radius(length f32) {

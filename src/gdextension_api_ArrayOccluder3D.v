@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ArrayOccluder3D = voidptr
 
 pub fn (mut r ArrayOccluder3D) set_arrays(vertices PackedVector3Array, indices PackedInt32Array) {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ReferenceRect = voidptr
 
 pub fn (r &ReferenceRect) get_border_color() Color {

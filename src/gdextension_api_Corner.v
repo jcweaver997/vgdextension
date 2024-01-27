@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum Corner {
     corner_top_left = 0
     corner_top_right = 1

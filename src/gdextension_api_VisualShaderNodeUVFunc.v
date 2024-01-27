@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum VisualShaderNodeUVFuncFunction {
     func_panning = 0
     func_scaling = 1

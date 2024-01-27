@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ResourceFormatSaver = voidptr
 
 pub fn (mut r ResourceFormatSaver) usave(resource Resource, path String, flags i32) GDError {

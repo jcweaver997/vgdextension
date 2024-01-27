@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type StreamPeerGZIP = voidptr
 
 pub fn (mut r StreamPeerGZIP) start_compression(use_deflate bool, buffer_size i32) GDError {

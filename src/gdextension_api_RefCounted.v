@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type RefCounted = voidptr
 
 pub fn (mut r RefCounted) init_ref() bool {

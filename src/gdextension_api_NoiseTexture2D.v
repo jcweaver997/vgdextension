@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type NoiseTexture2D = voidptr
 
 pub fn (mut r NoiseTexture2D) set_width(width i32) {

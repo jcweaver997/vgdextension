@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type AudioEffectInstance = voidptr
 
 pub fn (mut r AudioEffectInstance) uprocess(src_buffer voidptr, dst_buffer &AudioFrame, frame_count i32) {

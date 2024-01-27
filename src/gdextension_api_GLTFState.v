@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type GLTFState = voidptr
 
 pub fn (mut r GLTFState) add_used_extension(extension_name String, required bool) {

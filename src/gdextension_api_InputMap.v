@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type InputMap = voidptr
 
 pub fn (r &InputMap) has_action(action StringName) bool {

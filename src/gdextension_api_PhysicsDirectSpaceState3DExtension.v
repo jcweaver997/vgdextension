@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type PhysicsDirectSpaceState3DExtension = voidptr
 
 pub fn (mut r PhysicsDirectSpaceState3DExtension) uintersect_ray(from Vector3, to Vector3, collision_mask i32, collide_with_bodies bool, collide_with_areas bool, hit_from_inside bool, hit_back_faces bool, pick_ray bool, result &PhysicsServer3DExtensionRayResult) bool {

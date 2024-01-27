@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum AnimationNodeFilterAction {
     filter_ignore = 0
     filter_pass = 1

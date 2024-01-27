@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ConcavePolygonShape2D = voidptr
 
 pub fn (mut r ConcavePolygonShape2D) set_segments(segments PackedVector2Array) {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type VisualShaderNodeParticleMultiplyByAxisAngle = voidptr
 
 pub fn (mut r VisualShaderNodeParticleMultiplyByAxisAngle) set_degrees_mode(enabled bool) {

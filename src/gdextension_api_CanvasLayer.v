@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type CanvasLayer = voidptr
 
 pub fn (mut r CanvasLayer) set_layer(layer i32) {

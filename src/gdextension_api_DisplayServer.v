@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum DisplayServerFeature {
     feature_global_menu = 0
     feature_subwindows = 1

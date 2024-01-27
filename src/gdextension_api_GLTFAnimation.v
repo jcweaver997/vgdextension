@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type GLTFAnimation = voidptr
 
 pub fn (r &GLTFAnimation) get_loop() bool {

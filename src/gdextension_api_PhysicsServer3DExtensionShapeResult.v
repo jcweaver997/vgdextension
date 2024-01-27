@@ -1,3 +1,5 @@
+module vgdextension
+
 pub struct PhysicsServer3DExtensionShapeResult {
     pub mut:
     rid RID

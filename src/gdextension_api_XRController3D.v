@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type XRController3D = voidptr
 
 pub fn (r &XRController3D) is_button_pressed(name StringName) bool {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type GPUParticlesAttractorSphere3D = voidptr
 
 pub fn (mut r GPUParticlesAttractorSphere3D) set_radius(radius f32) {

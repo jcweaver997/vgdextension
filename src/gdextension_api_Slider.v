@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type Slider = voidptr
 
 pub fn (mut r Slider) set_ticks(count i32) {

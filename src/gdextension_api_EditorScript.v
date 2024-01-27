@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type EditorScript = voidptr
 
 pub fn (mut r EditorScript) urun() {

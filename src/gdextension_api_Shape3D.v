@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type Shape3D = voidptr
 
 pub fn (mut r Shape3D) set_custom_solver_bias(bias f32) {

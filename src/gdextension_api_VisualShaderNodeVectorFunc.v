@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum VisualShaderNodeVectorFuncFunction {
     func_normalize = 0
     func_saturate = 1

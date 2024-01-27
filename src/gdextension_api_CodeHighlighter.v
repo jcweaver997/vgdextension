@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type CodeHighlighter = voidptr
 
 pub fn (mut r CodeHighlighter) add_keyword_color(keyword String, color Color) {

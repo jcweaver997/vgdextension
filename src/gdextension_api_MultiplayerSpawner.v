@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type MultiplayerSpawner = voidptr
 
 pub fn (mut r MultiplayerSpawner) add_spawnable_scene(path String) {

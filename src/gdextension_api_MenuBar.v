@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type MenuBar = voidptr
 
 pub fn (mut r MenuBar) set_switch_on_hover(enable bool) {

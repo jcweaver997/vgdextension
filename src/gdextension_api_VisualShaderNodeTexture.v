@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum VisualShaderNodeTextureSource {
     source_texture = 0
     source_screen = 1

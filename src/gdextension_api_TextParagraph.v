@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type TextParagraph = voidptr
 
 pub fn (mut r TextParagraph) clear() {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type AudioEffectPhaser = voidptr
 
 pub fn (mut r AudioEffectPhaser) set_range_min_hz(hz f32) {

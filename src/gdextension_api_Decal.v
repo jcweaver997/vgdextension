@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum DecalDecalTexture {
     texture_albedo = 0
     texture_normal = 1

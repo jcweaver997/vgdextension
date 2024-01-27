@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum EnvironmentBGMode {
     bg_clear_color = 0
     bg_color = 1

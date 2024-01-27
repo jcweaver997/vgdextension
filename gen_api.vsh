@@ -261,6 +261,7 @@ fn gen_global_enums(ea &ExtensionApi) ! {
 		defer {
 			f.close()
 		}
+		f.write_string('module vgdextension\n\n')!
 		f.write_string('pub enum ${enum_name} {\n')!
 		mut written_values := []i64{cap:e.values.len}
 		for v in e.values {
@@ -298,6 +299,7 @@ fn gen_builtin_classes(ea &ExtensionApi) ! {
 		defer {
 			f.close()
 		}
+		f.write_string('module vgdextension\n\n')!
 
 		// gen class enums
 		{
@@ -569,6 +571,7 @@ fn gen_classes(ea &ExtensionApi) ! {
 		defer {
 			f.close()
 		}
+		f.write_string('module vgdextension\n\n')!
 		// gen class enums
 		{
 			
@@ -672,6 +675,7 @@ fn gen_native_structures(ea &ExtensionApi) ! {
 		defer {
 			f.close()
 		}
+		f.write_string('module vgdextension\n\n')!
 
 		f.write_string('pub struct ${name} {\n')!
 		members := ns.format.split(";")

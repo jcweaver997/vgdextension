@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum Label3DDrawFlags {
     flag_shaded = 0
     flag_double_sided = 1

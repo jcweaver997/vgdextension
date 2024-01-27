@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type EditorCommandPalette = voidptr
 
 pub fn (mut r EditorCommandPalette) add_command(command_name String, key_name String, binded_callable Callable, shortcut_text String) {

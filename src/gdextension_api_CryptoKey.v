@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type CryptoKey = voidptr
 
 pub fn (mut r CryptoKey) save(path String, public_only bool) GDError {

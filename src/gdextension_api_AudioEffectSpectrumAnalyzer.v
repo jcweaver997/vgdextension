@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum AudioEffectSpectrumAnalyzerFFTSize {
     fft_size_256 = 0
     fft_size_512 = 1

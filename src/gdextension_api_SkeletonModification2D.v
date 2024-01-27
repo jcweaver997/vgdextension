@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type SkeletonModification2D = voidptr
 
 pub fn (mut r SkeletonModification2D) uexecute(delta f32) {

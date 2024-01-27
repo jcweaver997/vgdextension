@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum AudioEffectSpectrumAnalyzerInstanceMagnitudeMode {
     magnitude_average = 0
     magnitude_max = 1

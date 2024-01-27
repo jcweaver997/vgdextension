@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type SkeletonModification2DTwoBoneIK = voidptr
 
 pub fn (mut r SkeletonModification2DTwoBoneIK) set_target_node(target_nodepath NodePath) {

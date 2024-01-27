@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type PlaceholderMesh = voidptr
 
 pub fn (mut r PlaceholderMesh) set_aabb(aabb AABB) {

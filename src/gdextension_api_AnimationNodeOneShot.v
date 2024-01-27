@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum AnimationNodeOneShotOneShotRequest {
     one_shot_request_none = 0
     one_shot_request_fire = 1

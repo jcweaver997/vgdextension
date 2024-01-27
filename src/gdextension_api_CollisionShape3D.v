@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type CollisionShape3D = voidptr
 
 pub fn (mut r CollisionShape3D) resource_changed(resource Resource) {

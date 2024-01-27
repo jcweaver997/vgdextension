@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type AudioEffectEQ = voidptr
 
 pub fn (mut r AudioEffectEQ) set_band_gain_db(band_idx i32, volume_db f32) {

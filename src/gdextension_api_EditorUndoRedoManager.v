@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum EditorUndoRedoManagerSpecialHistory {
     global_history = 0
     remote_history = -9

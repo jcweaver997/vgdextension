@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum TileSetTileShape {
     tile_shape_square = 0
     tile_shape_isometric = 1

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type Skeleton2D = voidptr
 
 pub fn (r &Skeleton2D) get_bone_count() i32 {

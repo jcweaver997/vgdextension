@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type CurveXYZTexture = voidptr
 
 pub fn (mut r CurveXYZTexture) set_width(width i32) {

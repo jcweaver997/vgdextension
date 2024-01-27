@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum PhysicsServer3DJointType {
     joint_type_pin = 0
     joint_type_hinge = 1

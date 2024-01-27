@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum ImageFormatLoaderLoaderFlags {
     flag_none = 0
     flag_force_linear = 1

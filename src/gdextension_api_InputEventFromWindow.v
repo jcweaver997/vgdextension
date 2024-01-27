@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type InputEventFromWindow = voidptr
 
 pub fn (mut r InputEventFromWindow) set_window_id(id i32) {

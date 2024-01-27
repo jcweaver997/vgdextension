@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type Button = voidptr
 
 pub fn (mut r Button) set_text(text String) {

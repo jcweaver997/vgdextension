@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type GPUParticlesAttractorBox3D = voidptr
 
 pub fn (mut r GPUParticlesAttractorBox3D) set_size(size Vector3) {

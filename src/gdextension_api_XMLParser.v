@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum XMLParserNodeType {
     node_none = 0
     node_element = 1

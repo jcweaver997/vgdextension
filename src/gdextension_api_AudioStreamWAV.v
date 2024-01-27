@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum AudioStreamWAVFormat {
     format_8_bits = 0
     format_16_bits = 1

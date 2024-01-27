@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type XRNode3D = voidptr
 
 pub fn (mut r XRNode3D) set_tracker(tracker_name StringName) {

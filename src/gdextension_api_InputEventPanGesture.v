@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type InputEventPanGesture = voidptr
 
 pub fn (mut r InputEventPanGesture) set_delta(delta Vector2) {

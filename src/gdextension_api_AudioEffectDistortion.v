@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum AudioEffectDistortionMode {
     mode_clip = 0
     mode_atan = 1

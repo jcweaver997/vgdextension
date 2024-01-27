@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type AudioStream = voidptr
 
 pub fn (r &AudioStream) uinstantiate_playback() AudioStreamPlayback {

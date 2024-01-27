@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type RDAttachmentFormat = voidptr
 
 pub fn (mut r RDAttachmentFormat) set_format(p_member RenderingDeviceDataFormat) {

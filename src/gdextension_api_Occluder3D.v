@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type Occluder3D = voidptr
 
 pub fn (r &Occluder3D) get_vertices() PackedVector3Array {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type RootMotionView = voidptr
 
 pub fn (mut r RootMotionView) set_animation_path(path NodePath) {

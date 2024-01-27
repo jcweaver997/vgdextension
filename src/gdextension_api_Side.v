@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum Side {
     side_left = 0
     side_top = 1

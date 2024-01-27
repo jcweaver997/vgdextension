@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type EditorResourcePicker = voidptr
 
 pub fn (mut r EditorResourcePicker) uset_create_options(menu_node Object) {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type SphereMesh = voidptr
 
 pub fn (mut r SphereMesh) set_radius(radius f32) {

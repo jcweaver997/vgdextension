@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum VisualShaderNodeFloatParameterHint {
     hint_none = 0
     hint_range = 1

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum Light2DShadowFilter {
     shadow_filter_none = 0
     shadow_filter_pcf5 = 1

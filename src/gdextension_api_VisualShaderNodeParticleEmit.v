@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum VisualShaderNodeParticleEmitEmitFlags {
     emit_flag_position = 1
     emit_flag_rot_scale = 2

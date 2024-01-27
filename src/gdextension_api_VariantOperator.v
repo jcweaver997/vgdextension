@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum VariantOperator {
     op_equal = 0
     op_not_equal = 1

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type PCKPacker = voidptr
 
 pub fn (mut r PCKPacker) pck_start(pck_name String, alignment i32, key String, encrypt_directory bool) GDError {

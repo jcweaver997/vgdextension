@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum VisualShaderNodeParameterQualifier {
     qual_none = 0
     qual_global = 1

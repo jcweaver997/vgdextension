@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type EditorSceneFormatImporter = voidptr
 
 pub fn (r &EditorSceneFormatImporter) uget_import_flags() i32 {

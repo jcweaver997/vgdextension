@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type TileSetScenesCollectionSource = voidptr
 
 pub fn (mut r TileSetScenesCollectionSource) get_scene_tiles_count() i32 {

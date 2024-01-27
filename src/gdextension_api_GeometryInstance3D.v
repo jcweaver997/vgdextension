@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum GeometryInstance3DShadowCastingSetting {
     shadow_casting_setting_off = 0
     shadow_casting_setting_on = 1

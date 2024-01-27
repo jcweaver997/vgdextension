@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum MultiplayerSynchronizerVisibilityUpdateMode {
     visibility_process_idle = 0
     visibility_process_physics = 1

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum WindowMode {
     mode_windowed = 0
     mode_minimized = 1

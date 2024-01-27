@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum ENetPacketPeerPeerState {
     state_disconnected = 0
     state_connecting = 1

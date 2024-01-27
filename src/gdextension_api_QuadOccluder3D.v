@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type QuadOccluder3D = voidptr
 
 pub fn (mut r QuadOccluder3D) set_size(size Vector2) {

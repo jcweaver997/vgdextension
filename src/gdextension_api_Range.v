@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type Range = voidptr
 
 pub fn (mut r Range) uvalue_changed(new_value f32) {

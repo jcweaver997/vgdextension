@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum AudioEffectPitchShiftFFTSize {
     fft_size_256 = 0
     fft_size_512 = 1

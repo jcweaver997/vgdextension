@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type Marshalls = voidptr
 
 pub fn (mut r Marshalls) variant_to_base64(variant Variant, full_objects bool) String {

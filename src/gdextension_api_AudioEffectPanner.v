@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type AudioEffectPanner = voidptr
 
 pub fn (mut r AudioEffectPanner) set_pan(cpanume f32) {

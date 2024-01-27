@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type PhysicsTestMotionParameters2D = voidptr
 
 pub fn (r &PhysicsTestMotionParameters2D) get_from() Transform2D {

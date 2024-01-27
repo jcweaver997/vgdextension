@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type ParallaxBackground = voidptr
 
 pub fn (mut r ParallaxBackground) set_scroll_offset(offset Vector2) {

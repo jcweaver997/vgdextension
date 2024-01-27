@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type InputEventJoypadMotion = voidptr
 
 pub fn (mut r InputEventJoypadMotion) set_axis(axis JoyAxis) {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum AnimationNodeAnimationPlayMode {
     play_mode_forward = 0
     play_mode_backward = 1

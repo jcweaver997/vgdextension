@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type TextMesh = voidptr
 
 pub fn (mut r TextMesh) set_horizontal_alignment(alignment HorizontalAlignment) {

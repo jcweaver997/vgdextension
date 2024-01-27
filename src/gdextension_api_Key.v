@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum Key {
     key_none = 0
     key_special = 4194304

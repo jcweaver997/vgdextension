@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type EditorProperty = voidptr
 
 pub fn (mut r EditorProperty) uupdate_property() {

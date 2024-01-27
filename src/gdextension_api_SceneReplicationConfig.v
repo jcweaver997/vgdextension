@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type SceneReplicationConfig = voidptr
 
 pub fn (r &SceneReplicationConfig) get_properties() Array {

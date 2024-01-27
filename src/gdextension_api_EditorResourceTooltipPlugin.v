@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type EditorResourceTooltipPlugin = voidptr
 
 pub fn (r &EditorResourceTooltipPlugin) uhandles(type_name String) bool {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type MissingNode = voidptr
 
 pub fn (mut r MissingNode) set_original_class(name String) {

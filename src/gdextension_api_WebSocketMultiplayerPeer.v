@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type WebSocketMultiplayerPeer = voidptr
 
 pub fn (mut r WebSocketMultiplayerPeer) create_client(url String, tls_client_options TLSOptions) GDError {

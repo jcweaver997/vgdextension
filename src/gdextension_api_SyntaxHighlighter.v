@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type SyntaxHighlighter = voidptr
 
 pub fn (r &SyntaxHighlighter) uget_line_syntax_highlighting(line i32) Dictionary {

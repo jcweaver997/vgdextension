@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum VisualShaderNodeSwitchOpType {
     op_type_float = 0
     op_type_int = 1

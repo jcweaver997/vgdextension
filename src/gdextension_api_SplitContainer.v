@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum SplitContainerDraggerVisibility {
     dragger_visible = 0
     dragger_hidden = 1

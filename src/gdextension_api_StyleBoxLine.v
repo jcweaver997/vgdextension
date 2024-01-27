@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type StyleBoxLine = voidptr
 
 pub fn (mut r StyleBoxLine) set_color(color Color) {

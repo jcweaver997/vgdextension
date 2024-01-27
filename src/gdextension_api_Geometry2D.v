@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum Geometry2DPolyBooleanOperation {
     operation_union = 0
     operation_difference = 1

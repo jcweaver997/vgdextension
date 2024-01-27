@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type VisualShaderNodeTransformParameter = voidptr
 
 pub fn (mut r VisualShaderNodeTransformParameter) set_default_value_enabled(enabled bool) {

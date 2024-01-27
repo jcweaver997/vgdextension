@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum TimerTimerProcessCallback {
     timer_process_physics = 0
     timer_process_idle = 1

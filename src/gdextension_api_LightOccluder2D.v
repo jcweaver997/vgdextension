@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type LightOccluder2D = voidptr
 
 pub fn (mut r LightOccluder2D) set_occluder_polygon(polygon OccluderPolygon2D) {

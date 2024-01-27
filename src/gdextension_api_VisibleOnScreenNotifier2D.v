@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type VisibleOnScreenNotifier2D = voidptr
 
 pub fn (mut r VisibleOnScreenNotifier2D) set_rect(rect Rect2) {

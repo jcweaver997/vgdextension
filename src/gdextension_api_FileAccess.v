@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum FileAccessModeFlags {
     read = 1
     write = 2

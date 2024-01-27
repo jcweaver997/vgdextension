@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type Skin = voidptr
 
 pub fn (mut r Skin) set_bind_count(bind_count i32) {

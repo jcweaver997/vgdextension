@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum Camera3DProjectionType {
     projection_perspective = 0
     projection_orthogonal = 1

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type CameraTexture = voidptr
 
 pub fn (mut r CameraTexture) set_camera_feed_id(feed_id i32) {

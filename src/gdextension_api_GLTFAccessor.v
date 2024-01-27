@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type GLTFAccessor = voidptr
 
 pub fn (mut r GLTFAccessor) get_buffer_view() i32 {

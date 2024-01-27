@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type TranslationServer = voidptr
 
 pub fn (mut r TranslationServer) set_locale(locale String) {

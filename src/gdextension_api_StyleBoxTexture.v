@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum StyleBoxTextureAxisStretchMode {
     axis_stretch_mode_stretch = 0
     axis_stretch_mode_tile = 1

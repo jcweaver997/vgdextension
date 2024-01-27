@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum VoxelGISubdiv {
     subdiv_64 = 0
     subdiv_128 = 1

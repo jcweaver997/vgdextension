@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type VisualShaderNodeCustom = voidptr
 
 pub fn (r &VisualShaderNodeCustom) uget_name() String {

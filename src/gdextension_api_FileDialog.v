@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum FileDialogFileMode {
     file_mode_open_file = 0
     file_mode_open_files = 1

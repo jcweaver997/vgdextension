@@ -1,3 +1,5 @@
+module vgdextension
+
 @[heap]
 pub struct Rect2i {
     pub mut:

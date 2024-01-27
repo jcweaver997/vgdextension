@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum MIDIMessage {
     midi_message_none = 0
     midi_message_note_off = 8

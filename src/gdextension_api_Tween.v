@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum TweenTweenProcessMode {
     tween_process_physics = 0
     tween_process_idle = 1

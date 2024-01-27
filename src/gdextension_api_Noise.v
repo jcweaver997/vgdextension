@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type Noise = voidptr
 
 pub fn (r &Noise) get_noise_1d(x f32) f32 {

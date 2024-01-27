@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type TorusMesh = voidptr
 
 pub fn (mut r TorusMesh) set_inner_radius(radius f32) {

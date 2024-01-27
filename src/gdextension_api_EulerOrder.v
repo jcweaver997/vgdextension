@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum EulerOrder {
     euler_order_xyz = 0
     euler_order_xzy = 1

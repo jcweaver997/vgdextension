@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type RDPipelineSpecializationConstant = voidptr
 
 pub fn (mut r RDPipelineSpecializationConstant) set_value(value Variant) {

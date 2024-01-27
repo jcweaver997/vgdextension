@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum AStarGrid2DHeuristic {
     heuristic_euclidean = 0
     heuristic_manhattan = 1

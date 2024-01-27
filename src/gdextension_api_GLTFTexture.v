@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type GLTFTexture = voidptr
 
 pub fn (r &GLTFTexture) get_src_image() i32 {

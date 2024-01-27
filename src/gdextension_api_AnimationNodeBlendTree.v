@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type AnimationNodeBlendTree = voidptr
 
 pub fn (mut r AnimationNodeBlendTree) add_node(name StringName, node AnimationNode, position Vector2) {

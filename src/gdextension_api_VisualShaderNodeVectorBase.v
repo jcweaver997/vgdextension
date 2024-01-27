@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum VisualShaderNodeVectorBaseOpType {
     op_type_vector_2d = 0
     op_type_vector_3d = 1

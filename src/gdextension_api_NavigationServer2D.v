@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type NavigationServer2D = voidptr
 
 pub fn (r &NavigationServer2D) get_maps() Array {

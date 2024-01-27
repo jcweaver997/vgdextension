@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type GLTFTextureSampler = voidptr
 
 pub fn (r &GLTFTextureSampler) get_mag_filter() i32 {

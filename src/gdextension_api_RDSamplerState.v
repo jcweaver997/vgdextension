@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type RDSamplerState = voidptr
 
 pub fn (mut r RDSamplerState) set_mag_filter(p_member RenderingDeviceSamplerFilter) {

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum ResourceFormatLoaderCacheMode {
     cache_mode_ignore = 0
     cache_mode_reuse = 1

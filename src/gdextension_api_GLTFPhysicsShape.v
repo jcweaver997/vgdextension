@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type GLTFPhysicsShape = voidptr
 
 pub fn GLTFPhysicsShape.from_node(shape_node CollisionShape3D) GLTFPhysicsShape {

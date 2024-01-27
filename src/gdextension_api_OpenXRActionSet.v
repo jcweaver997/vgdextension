@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type OpenXRActionSet = voidptr
 
 pub fn (mut r OpenXRActionSet) set_localized_name(localized_name String) {

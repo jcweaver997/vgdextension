@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type Label = voidptr
 
 pub fn (mut r Label) set_horizontal_alignment(alignment HorizontalAlignment) {

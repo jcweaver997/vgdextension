@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type PropertyTweener = voidptr
 
 pub fn (mut r PropertyTweener) from(value Variant) PropertyTweener {

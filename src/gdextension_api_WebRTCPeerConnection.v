@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum WebRTCPeerConnectionConnectionState {
     state_new = 0
     state_connecting = 1

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum AspectRatioContainerStretchMode {
     stretch_width_controls_height = 0
     stretch_height_controls_width = 1

@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum InlineAlignment {
     inline_alignment_top_to = 0
     inline_alignment_center_to = 1

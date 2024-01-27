@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type Path3D = voidptr
 
 pub fn (mut r Path3D) set_curve(curve Curve3D) {

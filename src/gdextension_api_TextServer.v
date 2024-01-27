@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum TextServerFontAntialiasing {
     font_antialiasing_none = 0
     font_antialiasing_gray = 1

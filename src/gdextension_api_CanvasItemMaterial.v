@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum CanvasItemMaterialBlendMode {
     blend_mode_mix = 0
     blend_mode_add = 1

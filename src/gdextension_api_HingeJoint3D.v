@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum HingeJoint3DParam {
     param_bias = 0
     param_limit_upper = 1

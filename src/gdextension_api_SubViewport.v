@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum SubViewportClearMode {
     clear_mode_always = 0
     clear_mode_never = 1

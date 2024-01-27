@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type BoxOccluder3D = voidptr
 
 pub fn (mut r BoxOccluder3D) set_size(size Vector3) {

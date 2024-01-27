@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum SpriteBase3DDrawFlags {
     flag_transparent = 0
     flag_shaded = 1

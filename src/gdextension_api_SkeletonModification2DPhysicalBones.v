@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type SkeletonModification2DPhysicalBones = voidptr
 
 pub fn (mut r SkeletonModification2DPhysicalBones) set_physical_bone_chain_length(length i32) {

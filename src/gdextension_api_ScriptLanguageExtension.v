@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum ScriptLanguageExtensionLookupResultType {
     lookup_result_script_location = 0
     lookup_result_class = 1

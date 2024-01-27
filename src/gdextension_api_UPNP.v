@@ -1,3 +1,5 @@
+module vgdextension
+
 pub enum UPNPUPNPResult {
     upnp_result_success = 0
     upnp_result_not_authorized = 1

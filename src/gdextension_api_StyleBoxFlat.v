@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type StyleBoxFlat = voidptr
 
 pub fn (mut r StyleBoxFlat) set_bg_color(color Color) {

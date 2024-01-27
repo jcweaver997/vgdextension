@@ -1,3 +1,5 @@
+module vgdextension
+
 pub type AudioStreamPlaybackResampled = voidptr
 
 pub fn (mut r AudioStreamPlaybackResampled) umix_resampled(dst_buffer &AudioFrame, frame_count i32) i32 {
