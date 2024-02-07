@@ -10,6 +10,10 @@ pub interface IWrapped {
 	owner &Object
 }
 
+pub struct ClassInfo {
+	parent_name StringName
+}
+
 pub fn register_class[T](parent_class string) {
 	C.printf(c'registering class %s...\n', T.name.str)
 
@@ -17,7 +21,6 @@ pub fn register_class[T](parent_class string) {
 	pn := StringName.new(parent_class)
 	defer {
 		sn.deinit()
-		pn.deinit()
 	}
 	info := GDExtensionClassCreationInfo{
 		is_virtual: GDExtensionBool(false)
@@ -36,7 +39,9 @@ pub fn register_class[T](parent_class string) {
 		free_instance_func: class_free_instance[T]
 		get_virtual_func: class_get_virtual_func[T]
 		// get_rid_func GDExtensionClassGetRID = unsafe { nil }
-		// class_userdata voidptr
+		class_userdata: voidptr(&ClassInfo{
+			parent_name: pn
+		})
 	}
 
 	gdf.classdb_register_extension_class(gdf.clp, &sn, &pn, &info)
@@ -119,11 +124,12 @@ fn class_unreference[T](instance GDExtensionClassInstancePtr){
 
 @[manualfree]
 fn class_create_instance[T](user_data voidptr) &Object {
-	println("createinstance ${T.name}")
+	ud := unsafe{&ClassInfo(user_data)}
+	pn := ud.parent_name.to_v()
+	println("createinstance ${T.name} with parent ${pn}")
 	t := &T{}
 	mut w := &IWrapped(t)
-	sn := StringName.new(T.name)
-	defer {sn.deinit()}
+	w.owner = gdf.classdb_construct_object(ud.parent_name)
 	return w.owner
 }
 
