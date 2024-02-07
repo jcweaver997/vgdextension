@@ -121,11 +121,9 @@ fn class_unreference[T](instance GDExtensionClassInstancePtr){
 fn class_create_instance[T](user_data voidptr) &Object {
 	println("createinstance ${T.name}")
 	t := &T{}
-	mut w := IWrapped(t)
+	mut w := &IWrapped(t)
 	sn := StringName.new(T.name)
 	defer {sn.deinit()}
-	// how create?????????
-	w.owner = gdf.mem_alloc(sizeof[Object]())
 	return w.owner
 }
 
