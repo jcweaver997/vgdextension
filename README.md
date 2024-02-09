@@ -6,8 +6,8 @@ gdextension for vlang
 `./gen_api.vsh` API binding generator<br>
 `./extension_api.json` the godot extension api json the api generator will use<br>
 `./src/gdclass.v` class and classdb related functionality<br>
-`./src/gdextension_api.v` the generated godot api<br>
-`./src/gdextension_interface/v` interface file, defines the gdextension interface functions and types<br>
+`./src/gdextension_api*.v` the generated godot api<br>
+`./src/gdextension_interface.v` interface file, defines the gdextension interface functions and types<br>
 `./src/gdextension.v` binds the gdextension interface functions<br>
 
 
@@ -18,26 +18,49 @@ gdextension for vlang
 
 
 ### Example
-Note: You can't register classes yet, its just an example, a lot of work still needs to be done to make a valid demo<br>
+Note: This example should run, but not much testing has been done yet on other features<br>
 Compile with `v -shared -enable-globals -cc gcc .`
 ```v
 module main
 
+import log
 import vgdextension as gd
 
-struct ExampleClass {
-	pos gd.Vector3
-
+@[heap]
+pub struct ExampleClass {
+	gd.Sprite2D
+	mut:
+	rot f64
 }
 
-fn (e ExampleClass) test_method(){
-	
+fn (mut e ExampleClass) init() {
+	if gd.Engine.get_singleton().is_editor_hint() {
+		e.set_process_mode(.process_mode_disabled)
+	}
 }
 
+fn (mut e ExampleClass) deinit() {
+}
+
+fn (mut e ExampleClass) virt_ready() {
+	e.rot = e.get_rotation_degrees()
+}
+
+fn (mut e ExampleClass) virt_process(delta f64) {
+	i := gd.Input.get_singleton()
+
+	if i.is_anything_pressed() {
+		e.rot += delta * 180
+		e.set_rotation_degrees(e.rot)
+		log.info("pressed")
+	}else{
+		log.info("not")
+	}
+}
 
 pub fn init_gd(v voidptr, l gd.GDExtensionInitializationLevel) {
 	if l == .initialization_level_scene {
-		gd.register_class[ExampleClass]("Node")
+		gd.register_class[ExampleClass]('Sprite2D')
 	}
 }
 
@@ -51,20 +74,22 @@ pub fn deinit_gd(v voidptr, l gd.GDExtensionInitializationLevel) {
 pub fn hello_extension_entry(gpaddr fn (&i8) gd.GDExtensionInterfaceFunctionPtr, clp gd.GDExtensionClassLibraryPtr, mut gdnit gd.GDExtensionInitialization) gd.GDExtensionBool {
 	gd.setup_lib(gpaddr, clp)
 	ver := gd.GDExtensionGodotVersion{}
-	
+
 	gdf.get_godot_version(&ver)
 
 	// For some reason println formatting doesn't work, so use C.printf for formatting for now
 	C.printf('hello_extension_entry v%d.%d.%d\n'.str, ver.major, ver.minor, ver.patch)
-	
 
 	// setup the `initialize` function
 	gdnit.initialize = init_gd
 	// setup the `deinitialize` function
 	gdnit.deinitialize = deinit_gd
-	
+
+	// setup godot logger
+	log.set_logger(&gd.GodotLogger{})
 	return 1
 }
+
 ```
 
 You also need to tell godot to load it. Create a `gdexample.gdextension` file in your godot project folder. Inside should look something like this:
