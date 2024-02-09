@@ -366,8 +366,8 @@ pub fn (r &PackedByteArray) decode_s64(byte_offset i32) i32 {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
    return object_out
 }
-pub fn (r &PackedByteArray) decode_half(byte_offset i32) f32 {
-    mut object_out := f32(0)
+pub fn (r &PackedByteArray) decode_half(byte_offset i32) f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("decode_half")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedbytearray, voidptr(&fnname), 1401583798)
@@ -376,8 +376,8 @@ pub fn (r &PackedByteArray) decode_half(byte_offset i32) f32 {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
    return object_out
 }
-pub fn (r &PackedByteArray) decode_float(byte_offset i32) f32 {
-    mut object_out := f32(0)
+pub fn (r &PackedByteArray) decode_float(byte_offset i32) f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("decode_float")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedbytearray, voidptr(&fnname), 1401583798)
@@ -386,8 +386,8 @@ pub fn (r &PackedByteArray) decode_float(byte_offset i32) f32 {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
    return object_out
 }
-pub fn (r &PackedByteArray) decode_double(byte_offset i32) f32 {
-    mut object_out := f32(0)
+pub fn (r &PackedByteArray) decode_double(byte_offset i32) f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("decode_double")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedbytearray, voidptr(&fnname), 1401583798)
@@ -509,19 +509,19 @@ pub fn (mut r PackedByteArray) encode_s64(byte_offset i32, value i32) {
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedbytearray, voidptr(&fnname), 3638975848)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 2)
 }
-pub fn (mut r PackedByteArray) encode_half(byte_offset i32, value f32) {
+pub fn (mut r PackedByteArray) encode_half(byte_offset i32, value f64) {
     fnname := StringName.new("encode_half")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedbytearray, voidptr(&fnname), 1113000516)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 2)
 }
-pub fn (mut r PackedByteArray) encode_float(byte_offset i32, value f32) {
+pub fn (mut r PackedByteArray) encode_float(byte_offset i32, value f64) {
     fnname := StringName.new("encode_float")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedbytearray, voidptr(&fnname), 1113000516)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 2)
 }
-pub fn (mut r PackedByteArray) encode_double(byte_offset i32, value f32) {
+pub fn (mut r PackedByteArray) encode_double(byte_offset i32, value f64) {
     fnname := StringName.new("encode_double")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedbytearray, voidptr(&fnname), 1113000516)
@@ -544,6 +544,11 @@ pub fn (v &PackedByteArray) to_var() Variant {
     output := Variant{}
     to_variant(GDExtensionUninitializedVariantPtr(&output), GDExtensionTypePtr(v))
     return output
+}
+
+pub fn (mut t PackedByteArray) set_from_var(var &Variant) {
+    var_to_type := gdf.get_variant_to_type_constructor(GDExtensionVariantType.type_packedbytearray)
+    var_to_type(voidptr(&t), var)
 }
 
 pub fn (v &PackedByteArray) index(i int) i32 {

@@ -10,9 +10,9 @@ pub struct PhysicsServer2DExtensionMotionResult {
     collision_depth f64
     collision_safe_fraction f64
     collision_unsafe_fraction f64
-    collision_local_shape int
+    collision_local_shape i32
     collider_id ObjectID
     collider RID
-    collider_shape int
+    collider_shape i32
 }
 

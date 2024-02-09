@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type PlaceholderTexture2DArray = voidptr
+pub struct PlaceholderTexture2DArray {
+    PlaceholderTextureLayered
+}
 

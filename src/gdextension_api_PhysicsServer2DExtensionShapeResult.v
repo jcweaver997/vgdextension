@@ -5,6 +5,6 @@ pub struct PhysicsServer2DExtensionShapeResult {
     rid RID
     collider_id ObjectID
     collider &Object
-    shape int
+    shape i32
 }
 

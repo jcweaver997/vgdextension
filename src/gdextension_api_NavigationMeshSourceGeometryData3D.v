@@ -1,6 +1,8 @@
 module vgdextension
 
-pub type NavigationMeshSourceGeometryData3D = voidptr
+pub struct NavigationMeshSourceGeometryData3D {
+    Resource
+}
 
 pub fn (mut r NavigationMeshSourceGeometryData3D) set_vertices(vertices PackedFloat32Array) {
     classname := StringName.new("NavigationMeshSourceGeometryData3D")
@@ -8,7 +10,9 @@ pub fn (mut r NavigationMeshSourceGeometryData3D) set_vertices(vertices PackedFl
     fnname := StringName.new("set_vertices")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2899603908)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&vertices)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &NavigationMeshSourceGeometryData3D) get_vertices() PackedFloat32Array {
     mut object_out := PackedFloat32Array{}
@@ -17,7 +21,7 @@ pub fn (r &NavigationMeshSourceGeometryData3D) get_vertices() PackedFloat32Array
     fnname := StringName.new("get_vertices")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 675695659)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r NavigationMeshSourceGeometryData3D) set_indices(indices PackedInt32Array) {
@@ -26,7 +30,9 @@ pub fn (mut r NavigationMeshSourceGeometryData3D) set_indices(indices PackedInt3
     fnname := StringName.new("set_indices")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3614634198)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&indices)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &NavigationMeshSourceGeometryData3D) get_indices() PackedInt32Array {
     mut object_out := PackedInt32Array{}
@@ -35,7 +41,7 @@ pub fn (r &NavigationMeshSourceGeometryData3D) get_indices() PackedInt32Array {
     fnname := StringName.new("get_indices")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1930428628)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r NavigationMeshSourceGeometryData3D) clear() {
@@ -44,7 +50,7 @@ pub fn (mut r NavigationMeshSourceGeometryData3D) clear() {
     fnname := StringName.new("clear")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
 pub fn (mut r NavigationMeshSourceGeometryData3D) has_data() bool {
     mut object_out := false
@@ -53,7 +59,7 @@ pub fn (mut r NavigationMeshSourceGeometryData3D) has_data() bool {
     fnname := StringName.new("has_data")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2240911060)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r NavigationMeshSourceGeometryData3D) add_mesh(mesh Mesh, xform Transform3D) {
@@ -62,7 +68,10 @@ pub fn (mut r NavigationMeshSourceGeometryData3D) add_mesh(mesh Mesh, xform Tran
     fnname := StringName.new("add_mesh")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 975462459)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = mesh.ptr
+    args[1] = unsafe{voidptr(&xform)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r NavigationMeshSourceGeometryData3D) add_mesh_array(mesh_array Array, xform Transform3D) {
     classname := StringName.new("NavigationMeshSourceGeometryData3D")
@@ -70,7 +79,10 @@ pub fn (mut r NavigationMeshSourceGeometryData3D) add_mesh_array(mesh_array Arra
     fnname := StringName.new("add_mesh_array")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4235710913)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&mesh_array)}
+    args[1] = unsafe{voidptr(&xform)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r NavigationMeshSourceGeometryData3D) add_faces(faces PackedVector3Array, xform Transform3D) {
     classname := StringName.new("NavigationMeshSourceGeometryData3D")
@@ -78,5 +90,8 @@ pub fn (mut r NavigationMeshSourceGeometryData3D) add_faces(faces PackedVector3A
     fnname := StringName.new("add_faces")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1440358797)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&faces)}
+    args[1] = unsafe{voidptr(&xform)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }

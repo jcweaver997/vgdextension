@@ -24,7 +24,9 @@ pub enum WebRTCPeerConnectionSignalingState {
     signaling_state_closed = 5
 }
 
-pub type WebRTCPeerConnection = voidptr
+pub struct WebRTCPeerConnection {
+    RefCounted
+}
 
 pub fn WebRTCPeerConnection.set_default_extension(extension_class StringName) {
     classname := StringName.new("WebRTCPeerConnection")
@@ -32,7 +34,9 @@ pub fn WebRTCPeerConnection.set_default_extension(extension_class StringName) {
     fnname := StringName.new("set_default_extension")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
-    gdf.object_method_bind_ptrcall(mb, unsafe{nil}, unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&extension_class)}
+    gdf.object_method_bind_ptrcall(mb, unsafe{nil}, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r WebRTCPeerConnection) initialize(configuration Dictionary) GDError {
     mut object_out := GDError.ok
@@ -43,11 +47,11 @@ pub fn (mut r WebRTCPeerConnection) initialize(configuration Dictionary) GDError
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2625064318)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&configuration)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r WebRTCPeerConnection) create_data_channel(label String, options Dictionary) WebRTCDataChannel {
-    mut object_out := WebRTCDataChannel(unsafe{nil})
+    mut object_out := WebRTCDataChannel{}
     classname := StringName.new("WebRTCPeerConnection")
     defer { classname.deinit() }
     fnname := StringName.new("create_data_channel")
@@ -56,7 +60,7 @@ pub fn (mut r WebRTCPeerConnection) create_data_channel(label String, options Di
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&label)}
     args[1] = unsafe{voidptr(&options)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r WebRTCPeerConnection) create_offer() GDError {
@@ -66,7 +70,7 @@ pub fn (mut r WebRTCPeerConnection) create_offer() GDError {
     fnname := StringName.new("create_offer")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 166280745)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r WebRTCPeerConnection) set_local_description(type_name String, sdp String) GDError {
@@ -79,7 +83,7 @@ pub fn (mut r WebRTCPeerConnection) set_local_description(type_name String, sdp 
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&type_name)}
     args[1] = unsafe{voidptr(&sdp)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r WebRTCPeerConnection) set_remote_description(type_name String, sdp String) GDError {
@@ -92,7 +96,7 @@ pub fn (mut r WebRTCPeerConnection) set_remote_description(type_name String, sdp
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&type_name)}
     args[1] = unsafe{voidptr(&sdp)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r WebRTCPeerConnection) add_ice_candidate(media String, index i32, name String) GDError {
@@ -106,7 +110,7 @@ pub fn (mut r WebRTCPeerConnection) add_ice_candidate(media String, index i32, n
     args[0] = unsafe{voidptr(&media)}
     args[1] = unsafe{voidptr(&index)}
     args[2] = unsafe{voidptr(&name)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r WebRTCPeerConnection) poll() GDError {
@@ -116,7 +120,7 @@ pub fn (mut r WebRTCPeerConnection) poll() GDError {
     fnname := StringName.new("poll")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 166280745)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r WebRTCPeerConnection) close() {
@@ -125,7 +129,7 @@ pub fn (mut r WebRTCPeerConnection) close() {
     fnname := StringName.new("close")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
 pub fn (r &WebRTCPeerConnection) get_connection_state() WebRTCPeerConnectionConnectionState {
     mut object_out := WebRTCPeerConnectionConnectionState.state_new
@@ -134,7 +138,7 @@ pub fn (r &WebRTCPeerConnection) get_connection_state() WebRTCPeerConnectionConn
     fnname := StringName.new("get_connection_state")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2275710506)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &WebRTCPeerConnection) get_gathering_state() WebRTCPeerConnectionGatheringState {
@@ -144,7 +148,7 @@ pub fn (r &WebRTCPeerConnection) get_gathering_state() WebRTCPeerConnectionGathe
     fnname := StringName.new("get_gathering_state")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4262591401)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &WebRTCPeerConnection) get_signaling_state() WebRTCPeerConnectionSignalingState {
@@ -154,6 +158,6 @@ pub fn (r &WebRTCPeerConnection) get_signaling_state() WebRTCPeerConnectionSigna
     fnname := StringName.new("get_signaling_state")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3342956226)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

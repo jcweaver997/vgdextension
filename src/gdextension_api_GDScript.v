@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type GDScript = voidptr
+pub struct GDScript {
+    Script
+}
 

@@ -187,3 +187,8 @@ pub fn (v &Rect2i) to_var() Variant {
     return output
 }
 
+pub fn (mut t Rect2i) set_from_var(var &Variant) {
+    var_to_type := gdf.get_variant_to_type_constructor(GDExtensionVariantType.type_rect2i)
+    var_to_type(voidptr(&t), var)
+}
+

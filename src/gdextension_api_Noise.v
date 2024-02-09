@@ -1,9 +1,11 @@
 module vgdextension
 
-pub type Noise = voidptr
+pub struct Noise {
+    Resource
+}
 
-pub fn (r &Noise) get_noise_1d(x f32) f32 {
-    mut object_out := f32(0)
+pub fn (r &Noise) get_noise_1d(x f64) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("Noise")
     defer { classname.deinit() }
     fnname := StringName.new("get_noise_1d")
@@ -11,11 +13,11 @@ pub fn (r &Noise) get_noise_1d(x f32) f32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3919130443)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&x)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &Noise) get_noise_2d(x f32, y f32) f32 {
-    mut object_out := f32(0)
+pub fn (r &Noise) get_noise_2d(x f64, y f64) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("Noise")
     defer { classname.deinit() }
     fnname := StringName.new("get_noise_2d")
@@ -24,11 +26,11 @@ pub fn (r &Noise) get_noise_2d(x f32, y f32) f32 {
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&x)}
     args[1] = unsafe{voidptr(&y)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &Noise) get_noise_2dv(v Vector2) f32 {
-    mut object_out := f32(0)
+pub fn (r &Noise) get_noise_2dv(v Vector2) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("Noise")
     defer { classname.deinit() }
     fnname := StringName.new("get_noise_2dv")
@@ -36,11 +38,11 @@ pub fn (r &Noise) get_noise_2dv(v Vector2) f32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2276447920)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&v)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &Noise) get_noise_3d(x f32, y f32, z f32) f32 {
-    mut object_out := f32(0)
+pub fn (r &Noise) get_noise_3d(x f64, y f64, z f64) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("Noise")
     defer { classname.deinit() }
     fnname := StringName.new("get_noise_3d")
@@ -50,11 +52,11 @@ pub fn (r &Noise) get_noise_3d(x f32, y f32, z f32) f32 {
     args[0] = unsafe{voidptr(&x)}
     args[1] = unsafe{voidptr(&y)}
     args[2] = unsafe{voidptr(&z)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &Noise) get_noise_3dv(v Vector3) f32 {
-    mut object_out := f32(0)
+pub fn (r &Noise) get_noise_3dv(v Vector3) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("Noise")
     defer { classname.deinit() }
     fnname := StringName.new("get_noise_3dv")
@@ -62,11 +64,11 @@ pub fn (r &Noise) get_noise_3dv(v Vector3) f32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1109078154)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&v)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Noise) get_image(width i32, height i32, invert bool, in_3d_space bool, normalize bool) Image {
-    mut object_out := Image(unsafe{nil})
+    mut object_out := Image{}
     classname := StringName.new("Noise")
     defer { classname.deinit() }
     fnname := StringName.new("get_image")
@@ -78,11 +80,11 @@ pub fn (r &Noise) get_image(width i32, height i32, invert bool, in_3d_space bool
     args[2] = unsafe{voidptr(&invert)}
     args[3] = unsafe{voidptr(&in_3d_space)}
     args[4] = unsafe{voidptr(&normalize)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &Noise) get_seamless_image(width i32, height i32, invert bool, in_3d_space bool, skirt f32, normalize bool) Image {
-    mut object_out := Image(unsafe{nil})
+pub fn (r &Noise) get_seamless_image(width i32, height i32, invert bool, in_3d_space bool, skirt f64, normalize bool) Image {
+    mut object_out := Image{}
     classname := StringName.new("Noise")
     defer { classname.deinit() }
     fnname := StringName.new("get_seamless_image")
@@ -95,7 +97,7 @@ pub fn (r &Noise) get_seamless_image(width i32, height i32, invert bool, in_3d_s
     args[3] = unsafe{voidptr(&in_3d_space)}
     args[4] = unsafe{voidptr(&skirt)}
     args[5] = unsafe{voidptr(&normalize)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Noise) get_image_3d(width i32, height i32, depth i32, invert bool, normalize bool) Array {
@@ -111,10 +113,10 @@ pub fn (r &Noise) get_image_3d(width i32, height i32, depth i32, invert bool, no
     args[2] = unsafe{voidptr(&depth)}
     args[3] = unsafe{voidptr(&invert)}
     args[4] = unsafe{voidptr(&normalize)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &Noise) get_seamless_image_3d(width i32, height i32, depth i32, invert bool, skirt f32, normalize bool) Array {
+pub fn (r &Noise) get_seamless_image_3d(width i32, height i32, depth i32, invert bool, skirt f64, normalize bool) Array {
     mut object_out := Array{}
     classname := StringName.new("Noise")
     defer { classname.deinit() }
@@ -128,6 +130,6 @@ pub fn (r &Noise) get_seamless_image_3d(width i32, height i32, depth i32, invert
     args[3] = unsafe{voidptr(&invert)}
     args[4] = unsafe{voidptr(&skirt)}
     args[5] = unsafe{voidptr(&normalize)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }

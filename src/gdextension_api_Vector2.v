@@ -8,8 +8,8 @@ pub enum Vector2Axis {
 @[heap]
 pub struct Vector2 {
     pub mut:
-        x f32 // offset 0
-        y f32 // offset 4
+        x f64 // offset 0
+        y f64 // offset 4
 }
 
 pub fn Vector2.new0 () Vector2 {
@@ -37,7 +37,7 @@ pub fn Vector2.new2 (from &Vector2i) Vector2 {
     return object_out
 }
 
-pub fn Vector2.new3 (x &f32, y &f32) Vector2 {
+pub fn Vector2.new3 (x &f64, y &f64) Vector2 {
     mut object_out := Vector2{}
     constructor := gdf.variant_get_ptr_constructor(GDExtensionVariantType.type_vector2, 3)
     mut args := unsafe { [2]voidptr{} }
@@ -47,16 +47,16 @@ pub fn Vector2.new3 (x &f32, y &f32) Vector2 {
     return object_out
 }
 
-pub fn (r &Vector2) angle() f32 {
-    mut object_out := f32(0)
+pub fn (r &Vector2) angle() f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("angle")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_vector2, voidptr(&fnname), 466405837)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
    return object_out
 }
-pub fn (r &Vector2) angle_to(to Vector2) f32 {
-    mut object_out := f32(0)
+pub fn (r &Vector2) angle_to(to Vector2) f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("angle_to")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_vector2, voidptr(&fnname), 3819070308)
@@ -65,8 +65,8 @@ pub fn (r &Vector2) angle_to(to Vector2) f32 {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
    return object_out
 }
-pub fn (r &Vector2) angle_to_point(to Vector2) f32 {
-    mut object_out := f32(0)
+pub fn (r &Vector2) angle_to_point(to Vector2) f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("angle_to_point")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_vector2, voidptr(&fnname), 3819070308)
@@ -85,8 +85,8 @@ pub fn (r &Vector2) direction_to(to Vector2) Vector2 {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
    return object_out
 }
-pub fn (r &Vector2) distance_to(to Vector2) f32 {
-    mut object_out := f32(0)
+pub fn (r &Vector2) distance_to(to Vector2) f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("distance_to")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_vector2, voidptr(&fnname), 3819070308)
@@ -95,8 +95,8 @@ pub fn (r &Vector2) distance_to(to Vector2) f32 {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
    return object_out
 }
-pub fn (r &Vector2) distance_squared_to(to Vector2) f32 {
-    mut object_out := f32(0)
+pub fn (r &Vector2) distance_squared_to(to Vector2) f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("distance_squared_to")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_vector2, voidptr(&fnname), 3819070308)
@@ -105,23 +105,23 @@ pub fn (r &Vector2) distance_squared_to(to Vector2) f32 {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
    return object_out
 }
-pub fn (r &Vector2) length() f32 {
-    mut object_out := f32(0)
+pub fn (r &Vector2) length() f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("length")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_vector2, voidptr(&fnname), 466405837)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
    return object_out
 }
-pub fn (r &Vector2) length_squared() f32 {
-    mut object_out := f32(0)
+pub fn (r &Vector2) length_squared() f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("length_squared")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_vector2, voidptr(&fnname), 466405837)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
    return object_out
 }
-pub fn (r &Vector2) limit_length(length f32) Vector2 {
+pub fn (r &Vector2) limit_length(length f64) Vector2 {
     mut object_out := Vector2{}
     fnname := StringName.new("limit_length")
     defer { fnname.deinit() }
@@ -173,7 +173,7 @@ pub fn (r &Vector2) is_finite() bool {
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
    return object_out
 }
-pub fn (r &Vector2) posmod(mod f32) Vector2 {
+pub fn (r &Vector2) posmod(mod f64) Vector2 {
     mut object_out := Vector2{}
     fnname := StringName.new("posmod")
     defer { fnname.deinit() }
@@ -203,7 +203,7 @@ pub fn (r &Vector2) project(b Vector2) Vector2 {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
    return object_out
 }
-pub fn (r &Vector2) lerp(to Vector2, weight f32) Vector2 {
+pub fn (r &Vector2) lerp(to Vector2, weight f64) Vector2 {
     mut object_out := Vector2{}
     fnname := StringName.new("lerp")
     defer { fnname.deinit() }
@@ -214,7 +214,7 @@ pub fn (r &Vector2) lerp(to Vector2, weight f32) Vector2 {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 2)
    return object_out
 }
-pub fn (r &Vector2) slerp(to Vector2, weight f32) Vector2 {
+pub fn (r &Vector2) slerp(to Vector2, weight f64) Vector2 {
     mut object_out := Vector2{}
     fnname := StringName.new("slerp")
     defer { fnname.deinit() }
@@ -225,7 +225,7 @@ pub fn (r &Vector2) slerp(to Vector2, weight f32) Vector2 {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 2)
    return object_out
 }
-pub fn (r &Vector2) cubic_interpolate(b Vector2, pre_a Vector2, post_b Vector2, weight f32) Vector2 {
+pub fn (r &Vector2) cubic_interpolate(b Vector2, pre_a Vector2, post_b Vector2, weight f64) Vector2 {
     mut object_out := Vector2{}
     fnname := StringName.new("cubic_interpolate")
     defer { fnname.deinit() }
@@ -238,7 +238,7 @@ pub fn (r &Vector2) cubic_interpolate(b Vector2, pre_a Vector2, post_b Vector2, 
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 4)
    return object_out
 }
-pub fn (r &Vector2) cubic_interpolate_in_time(b Vector2, pre_a Vector2, post_b Vector2, weight f32, b_t f32, pre_a_t f32, post_b_t f32) Vector2 {
+pub fn (r &Vector2) cubic_interpolate_in_time(b Vector2, pre_a Vector2, post_b Vector2, weight f64, b_t f64, pre_a_t f64, post_b_t f64) Vector2 {
     mut object_out := Vector2{}
     fnname := StringName.new("cubic_interpolate_in_time")
     defer { fnname.deinit() }
@@ -254,7 +254,7 @@ pub fn (r &Vector2) cubic_interpolate_in_time(b Vector2, pre_a Vector2, post_b V
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 7)
    return object_out
 }
-pub fn (r &Vector2) bezier_interpolate(control_1 Vector2, control_2 Vector2, end Vector2, t f32) Vector2 {
+pub fn (r &Vector2) bezier_interpolate(control_1 Vector2, control_2 Vector2, end Vector2, t f64) Vector2 {
     mut object_out := Vector2{}
     fnname := StringName.new("bezier_interpolate")
     defer { fnname.deinit() }
@@ -267,7 +267,7 @@ pub fn (r &Vector2) bezier_interpolate(control_1 Vector2, control_2 Vector2, end
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 4)
    return object_out
 }
-pub fn (r &Vector2) bezier_derivative(control_1 Vector2, control_2 Vector2, end Vector2, t f32) Vector2 {
+pub fn (r &Vector2) bezier_derivative(control_1 Vector2, control_2 Vector2, end Vector2, t f64) Vector2 {
     mut object_out := Vector2{}
     fnname := StringName.new("bezier_derivative")
     defer { fnname.deinit() }
@@ -296,7 +296,7 @@ pub fn (r &Vector2) min_axis_index() i32 {
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
    return object_out
 }
-pub fn (r &Vector2) move_toward(to Vector2, delta f32) Vector2 {
+pub fn (r &Vector2) move_toward(to Vector2, delta f64) Vector2 {
     mut object_out := Vector2{}
     fnname := StringName.new("move_toward")
     defer { fnname.deinit() }
@@ -307,7 +307,7 @@ pub fn (r &Vector2) move_toward(to Vector2, delta f32) Vector2 {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 2)
    return object_out
 }
-pub fn (r &Vector2) rotated(angle f32) Vector2 {
+pub fn (r &Vector2) rotated(angle f64) Vector2 {
     mut object_out := Vector2{}
     fnname := StringName.new("rotated")
     defer { fnname.deinit() }
@@ -349,16 +349,16 @@ pub fn (r &Vector2) round() Vector2 {
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
    return object_out
 }
-pub fn (r &Vector2) aspect() f32 {
-    mut object_out := f32(0)
+pub fn (r &Vector2) aspect() f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("aspect")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_vector2, voidptr(&fnname), 466405837)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
    return object_out
 }
-pub fn (r &Vector2) dot(with Vector2) f32 {
-    mut object_out := f32(0)
+pub fn (r &Vector2) dot(with Vector2) f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("dot")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_vector2, voidptr(&fnname), 3819070308)
@@ -397,8 +397,8 @@ pub fn (r &Vector2) reflect(n Vector2) Vector2 {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
    return object_out
 }
-pub fn (r &Vector2) cross(with Vector2) f32 {
-    mut object_out := f32(0)
+pub fn (r &Vector2) cross(with Vector2) f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("cross")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_vector2, voidptr(&fnname), 3819070308)
@@ -444,7 +444,7 @@ pub fn (r &Vector2) snapped(step Vector2) Vector2 {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
    return object_out
 }
-pub fn Vector2.from_angle(angle f32) Vector2 {
+pub fn Vector2.from_angle(angle f64) Vector2 {
     mut object_out := Vector2{}
     fnname := StringName.new("from_angle")
     defer { fnname.deinit() }
@@ -461,9 +461,14 @@ pub fn (v &Vector2) to_var() Variant {
     return output
 }
 
-pub fn (v &Vector2) index(i int) f32 {
+pub fn (mut t Vector2) set_from_var(var &Variant) {
+    var_to_type := gdf.get_variant_to_type_constructor(GDExtensionVariantType.type_vector2)
+    var_to_type(voidptr(&t), var)
+}
+
+pub fn (v &Vector2) index(i int) f64 {
     index_fn := gdf.variant_get_ptr_indexed_getter(GDExtensionVariantType.type_vector2)
-    mut output := f32(0)
+    mut output := f64(0)
     index_fn(GDExtensionConstTypePtr(v), GDExtensionInt(i), GDExtensionTypePtr(&output))
     return output}
 

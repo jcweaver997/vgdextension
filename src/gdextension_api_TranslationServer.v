@@ -1,6 +1,17 @@
 module vgdextension
 
-pub type TranslationServer = voidptr
+pub struct TranslationServer {
+    Object
+}
+
+pub fn TranslationServer.get_singleton() TranslationServer {
+    sn := StringName.new("TranslationServer")
+    defer {sn.deinit()}
+    o := TranslationServer{
+        ptr: gdf.global_get_singleton(sn)
+    }
+    return o
+}
 
 pub fn (mut r TranslationServer) set_locale(locale String) {
     classname := StringName.new("TranslationServer")
@@ -8,7 +19,9 @@ pub fn (mut r TranslationServer) set_locale(locale String) {
     fnname := StringName.new("set_locale")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&locale)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TranslationServer) get_locale() String {
     mut object_out := String{}
@@ -17,7 +30,7 @@ pub fn (r &TranslationServer) get_locale() String {
     fnname := StringName.new("get_locale")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 201670096)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TranslationServer) get_tool_locale() String {
@@ -27,7 +40,7 @@ pub fn (mut r TranslationServer) get_tool_locale() String {
     fnname := StringName.new("get_tool_locale")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2841200299)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &TranslationServer) compare_locales(locale_a String, locale_b String) i32 {
@@ -40,7 +53,7 @@ pub fn (r &TranslationServer) compare_locales(locale_a String, locale_b String) 
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&locale_a)}
     args[1] = unsafe{voidptr(&locale_b)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TranslationServer) standardize_locale(locale String) String {
@@ -52,7 +65,7 @@ pub fn (r &TranslationServer) standardize_locale(locale String) String {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3135753539)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&locale)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TranslationServer) get_all_languages() PackedStringArray {
@@ -62,7 +75,7 @@ pub fn (r &TranslationServer) get_all_languages() PackedStringArray {
     fnname := StringName.new("get_all_languages")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1139954409)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &TranslationServer) get_language_name(language String) String {
@@ -74,7 +87,7 @@ pub fn (r &TranslationServer) get_language_name(language String) String {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3135753539)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&language)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TranslationServer) get_all_scripts() PackedStringArray {
@@ -84,7 +97,7 @@ pub fn (r &TranslationServer) get_all_scripts() PackedStringArray {
     fnname := StringName.new("get_all_scripts")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1139954409)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &TranslationServer) get_script_name(script String) String {
@@ -96,7 +109,7 @@ pub fn (r &TranslationServer) get_script_name(script String) String {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3135753539)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&script)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TranslationServer) get_all_countries() PackedStringArray {
@@ -106,7 +119,7 @@ pub fn (r &TranslationServer) get_all_countries() PackedStringArray {
     fnname := StringName.new("get_all_countries")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1139954409)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &TranslationServer) get_country_name(country String) String {
@@ -118,7 +131,7 @@ pub fn (r &TranslationServer) get_country_name(country String) String {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3135753539)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&country)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TranslationServer) get_locale_name(locale String) String {
@@ -130,7 +143,7 @@ pub fn (r &TranslationServer) get_locale_name(locale String) String {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3135753539)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&locale)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TranslationServer) translate(message StringName, context StringName) StringName {
@@ -143,7 +156,7 @@ pub fn (r &TranslationServer) translate(message StringName, context StringName) 
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&message)}
     args[1] = unsafe{voidptr(&context)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TranslationServer) translate_plural(message StringName, plural_message StringName, n i32, context StringName) StringName {
@@ -158,7 +171,7 @@ pub fn (r &TranslationServer) translate_plural(message StringName, plural_messag
     args[1] = unsafe{voidptr(&plural_message)}
     args[2] = unsafe{voidptr(&n)}
     args[3] = unsafe{voidptr(&context)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TranslationServer) add_translation(translation Translation) {
@@ -167,7 +180,9 @@ pub fn (mut r TranslationServer) add_translation(translation Translation) {
     fnname := StringName.new("add_translation")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1466479800)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = translation.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r TranslationServer) remove_translation(translation Translation) {
     classname := StringName.new("TranslationServer")
@@ -175,10 +190,12 @@ pub fn (mut r TranslationServer) remove_translation(translation Translation) {
     fnname := StringName.new("remove_translation")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1466479800)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = translation.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r TranslationServer) get_translation_object(locale String) Translation {
-    mut object_out := Translation(unsafe{nil})
+    mut object_out := Translation{}
     classname := StringName.new("TranslationServer")
     defer { classname.deinit() }
     fnname := StringName.new("get_translation_object")
@@ -186,7 +203,7 @@ pub fn (mut r TranslationServer) get_translation_object(locale String) Translati
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2065240175)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&locale)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TranslationServer) clear() {
@@ -195,7 +212,7 @@ pub fn (mut r TranslationServer) clear() {
     fnname := StringName.new("clear")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
 pub fn (r &TranslationServer) get_loaded_locales() PackedStringArray {
     mut object_out := PackedStringArray{}
@@ -204,7 +221,7 @@ pub fn (r &TranslationServer) get_loaded_locales() PackedStringArray {
     fnname := StringName.new("get_loaded_locales")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1139954409)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &TranslationServer) is_pseudolocalization_enabled() bool {
@@ -214,7 +231,7 @@ pub fn (r &TranslationServer) is_pseudolocalization_enabled() bool {
     fnname := StringName.new("is_pseudolocalization_enabled")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TranslationServer) set_pseudolocalization_enabled(enabled bool) {
@@ -223,7 +240,9 @@ pub fn (mut r TranslationServer) set_pseudolocalization_enabled(enabled bool) {
     fnname := StringName.new("set_pseudolocalization_enabled")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enabled)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r TranslationServer) reload_pseudolocalization() {
     classname := StringName.new("TranslationServer")
@@ -231,7 +250,7 @@ pub fn (mut r TranslationServer) reload_pseudolocalization() {
     fnname := StringName.new("reload_pseudolocalization")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
 pub fn (r &TranslationServer) pseudolocalize(message StringName) StringName {
     mut object_out := StringName{}
@@ -242,6 +261,6 @@ pub fn (r &TranslationServer) pseudolocalize(message StringName) StringName {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1965194235)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&message)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }

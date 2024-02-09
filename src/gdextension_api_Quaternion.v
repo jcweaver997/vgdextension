@@ -3,10 +3,10 @@ module vgdextension
 @[heap]
 pub struct Quaternion {
     pub mut:
-        x f32 // offset 0
-        y f32 // offset 4
-        z f32 // offset 8
-        w f32 // offset 12
+        x f64 // offset 0
+        y f64 // offset 4
+        z f64 // offset 8
+        w f64 // offset 12
 }
 
 pub fn Quaternion.new0 () Quaternion {
@@ -34,7 +34,7 @@ pub fn Quaternion.new2 (from &Basis) Quaternion {
     return object_out
 }
 
-pub fn Quaternion.new3 (axis &Vector3, angle &f32) Quaternion {
+pub fn Quaternion.new3 (axis &Vector3, angle &f64) Quaternion {
     mut object_out := Quaternion{}
     constructor := gdf.variant_get_ptr_constructor(GDExtensionVariantType.type_quaternion, 3)
     mut args := unsafe { [2]voidptr{} }
@@ -54,7 +54,7 @@ pub fn Quaternion.new4 (arc_from &Vector3, arc_to &Vector3) Quaternion {
     return object_out
 }
 
-pub fn Quaternion.new5 (x &f32, y &f32, z &f32, w &f32) Quaternion {
+pub fn Quaternion.new5 (x &f64, y &f64, z &f64, w &f64) Quaternion {
     mut object_out := Quaternion{}
     constructor := gdf.variant_get_ptr_constructor(GDExtensionVariantType.type_quaternion, 5)
     mut args := unsafe { [4]voidptr{} }
@@ -66,16 +66,16 @@ pub fn Quaternion.new5 (x &f32, y &f32, z &f32, w &f32) Quaternion {
     return object_out
 }
 
-pub fn (r &Quaternion) length() f32 {
-    mut object_out := f32(0)
+pub fn (r &Quaternion) length() f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("length")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_quaternion, voidptr(&fnname), 466405837)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
    return object_out
 }
-pub fn (r &Quaternion) length_squared() f32 {
-    mut object_out := f32(0)
+pub fn (r &Quaternion) length_squared() f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("length_squared")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_quaternion, voidptr(&fnname), 466405837)
@@ -140,8 +140,8 @@ pub fn (r &Quaternion) exp() Quaternion {
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
    return object_out
 }
-pub fn (r &Quaternion) angle_to(to Quaternion) f32 {
-    mut object_out := f32(0)
+pub fn (r &Quaternion) angle_to(to Quaternion) f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("angle_to")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_quaternion, voidptr(&fnname), 3244682419)
@@ -150,8 +150,8 @@ pub fn (r &Quaternion) angle_to(to Quaternion) f32 {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
    return object_out
 }
-pub fn (r &Quaternion) dot(with Quaternion) f32 {
-    mut object_out := f32(0)
+pub fn (r &Quaternion) dot(with Quaternion) f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("dot")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_quaternion, voidptr(&fnname), 3244682419)
@@ -160,7 +160,7 @@ pub fn (r &Quaternion) dot(with Quaternion) f32 {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
    return object_out
 }
-pub fn (r &Quaternion) slerp(to Quaternion, weight f32) Quaternion {
+pub fn (r &Quaternion) slerp(to Quaternion, weight f64) Quaternion {
     mut object_out := Quaternion{}
     fnname := StringName.new("slerp")
     defer { fnname.deinit() }
@@ -171,7 +171,7 @@ pub fn (r &Quaternion) slerp(to Quaternion, weight f32) Quaternion {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 2)
    return object_out
 }
-pub fn (r &Quaternion) slerpni(to Quaternion, weight f32) Quaternion {
+pub fn (r &Quaternion) slerpni(to Quaternion, weight f64) Quaternion {
     mut object_out := Quaternion{}
     fnname := StringName.new("slerpni")
     defer { fnname.deinit() }
@@ -182,7 +182,7 @@ pub fn (r &Quaternion) slerpni(to Quaternion, weight f32) Quaternion {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 2)
    return object_out
 }
-pub fn (r &Quaternion) spherical_cubic_interpolate(b Quaternion, pre_a Quaternion, post_b Quaternion, weight f32) Quaternion {
+pub fn (r &Quaternion) spherical_cubic_interpolate(b Quaternion, pre_a Quaternion, post_b Quaternion, weight f64) Quaternion {
     mut object_out := Quaternion{}
     fnname := StringName.new("spherical_cubic_interpolate")
     defer { fnname.deinit() }
@@ -195,7 +195,7 @@ pub fn (r &Quaternion) spherical_cubic_interpolate(b Quaternion, pre_a Quaternio
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 4)
    return object_out
 }
-pub fn (r &Quaternion) spherical_cubic_interpolate_in_time(b Quaternion, pre_a Quaternion, post_b Quaternion, weight f32, b_t f32, pre_a_t f32, post_b_t f32) Quaternion {
+pub fn (r &Quaternion) spherical_cubic_interpolate_in_time(b Quaternion, pre_a Quaternion, post_b Quaternion, weight f64, b_t f64, pre_a_t f64, post_b_t f64) Quaternion {
     mut object_out := Quaternion{}
     fnname := StringName.new("spherical_cubic_interpolate_in_time")
     defer { fnname.deinit() }
@@ -239,8 +239,8 @@ pub fn (r &Quaternion) get_axis() Vector3 {
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
    return object_out
 }
-pub fn (r &Quaternion) get_angle() f32 {
-    mut object_out := f32(0)
+pub fn (r &Quaternion) get_angle() f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("get_angle")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_quaternion, voidptr(&fnname), 466405837)
@@ -254,9 +254,14 @@ pub fn (v &Quaternion) to_var() Variant {
     return output
 }
 
-pub fn (v &Quaternion) index(i int) f32 {
+pub fn (mut t Quaternion) set_from_var(var &Variant) {
+    var_to_type := gdf.get_variant_to_type_constructor(GDExtensionVariantType.type_quaternion)
+    var_to_type(voidptr(&t), var)
+}
+
+pub fn (v &Quaternion) index(i int) f64 {
     index_fn := gdf.variant_get_ptr_indexed_getter(GDExtensionVariantType.type_quaternion)
-    mut output := f32(0)
+    mut output := f64(0)
     index_fn(GDExtensionConstTypePtr(v), GDExtensionInt(i), GDExtensionTypePtr(&output))
     return output}
 

@@ -12,7 +12,9 @@ pub enum MultiplayerPeerTransferMode {
     transfer_mode_reliable = 2
 }
 
-pub type MultiplayerPeer = voidptr
+pub struct MultiplayerPeer {
+    PacketPeer
+}
 
 pub fn (mut r MultiplayerPeer) set_transfer_channel(channel i32) {
     classname := StringName.new("MultiplayerPeer")
@@ -20,7 +22,9 @@ pub fn (mut r MultiplayerPeer) set_transfer_channel(channel i32) {
     fnname := StringName.new("set_transfer_channel")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&channel)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &MultiplayerPeer) get_transfer_channel() i32 {
     mut object_out := i32(0)
@@ -29,7 +33,7 @@ pub fn (r &MultiplayerPeer) get_transfer_channel() i32 {
     fnname := StringName.new("get_transfer_channel")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r MultiplayerPeer) set_transfer_mode(mode MultiplayerPeerTransferMode) {
@@ -38,7 +42,9 @@ pub fn (mut r MultiplayerPeer) set_transfer_mode(mode MultiplayerPeerTransferMod
     fnname := StringName.new("set_transfer_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 950411049)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&mode)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &MultiplayerPeer) get_transfer_mode() MultiplayerPeerTransferMode {
     mut object_out := MultiplayerPeerTransferMode.transfer_mode_unreliable
@@ -47,7 +53,7 @@ pub fn (r &MultiplayerPeer) get_transfer_mode() MultiplayerPeerTransferMode {
     fnname := StringName.new("get_transfer_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3369852622)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r MultiplayerPeer) set_target_peer(id i32) {
@@ -56,7 +62,9 @@ pub fn (mut r MultiplayerPeer) set_target_peer(id i32) {
     fnname := StringName.new("set_target_peer")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&id)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &MultiplayerPeer) get_packet_peer() i32 {
     mut object_out := i32(0)
@@ -65,7 +73,7 @@ pub fn (r &MultiplayerPeer) get_packet_peer() i32 {
     fnname := StringName.new("get_packet_peer")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &MultiplayerPeer) get_packet_channel() i32 {
@@ -75,7 +83,7 @@ pub fn (r &MultiplayerPeer) get_packet_channel() i32 {
     fnname := StringName.new("get_packet_channel")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &MultiplayerPeer) get_packet_mode() MultiplayerPeerTransferMode {
@@ -85,7 +93,7 @@ pub fn (r &MultiplayerPeer) get_packet_mode() MultiplayerPeerTransferMode {
     fnname := StringName.new("get_packet_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3369852622)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r MultiplayerPeer) poll() {
@@ -94,7 +102,7 @@ pub fn (mut r MultiplayerPeer) poll() {
     fnname := StringName.new("poll")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
 pub fn (mut r MultiplayerPeer) close() {
     classname := StringName.new("MultiplayerPeer")
@@ -102,7 +110,7 @@ pub fn (mut r MultiplayerPeer) close() {
     fnname := StringName.new("close")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
 pub fn (mut r MultiplayerPeer) disconnect_peer(peer i32, force bool) {
     classname := StringName.new("MultiplayerPeer")
@@ -110,7 +118,10 @@ pub fn (mut r MultiplayerPeer) disconnect_peer(peer i32, force bool) {
     fnname := StringName.new("disconnect_peer")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4023243586)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&peer)}
+    args[1] = unsafe{voidptr(&force)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &MultiplayerPeer) get_connection_status() MultiplayerPeerConnectionStatus {
     mut object_out := MultiplayerPeerConnectionStatus.connection_disconnected
@@ -119,7 +130,7 @@ pub fn (r &MultiplayerPeer) get_connection_status() MultiplayerPeerConnectionSta
     fnname := StringName.new("get_connection_status")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2147374275)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &MultiplayerPeer) get_unique_id() i32 {
@@ -129,17 +140,17 @@ pub fn (r &MultiplayerPeer) get_unique_id() i32 {
     fnname := StringName.new("get_unique_id")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (r &MultiplayerPeer) generate_unique_id() i32 {
-    mut object_out := i32(0)
+pub fn (r &MultiplayerPeer) generate_unique_id() u32 {
+    mut object_out := u32(0)
     classname := StringName.new("MultiplayerPeer")
     defer { classname.deinit() }
     fnname := StringName.new("generate_unique_id")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r MultiplayerPeer) set_refuse_new_connections(enable bool) {
@@ -148,7 +159,9 @@ pub fn (mut r MultiplayerPeer) set_refuse_new_connections(enable bool) {
     fnname := StringName.new("set_refuse_new_connections")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &MultiplayerPeer) is_refusing_new_connections() bool {
     mut object_out := false
@@ -157,7 +170,7 @@ pub fn (r &MultiplayerPeer) is_refusing_new_connections() bool {
     fnname := StringName.new("is_refusing_new_connections")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &MultiplayerPeer) is_server_relay_supported() bool {
@@ -167,6 +180,6 @@ pub fn (r &MultiplayerPeer) is_server_relay_supported() bool {
     fnname := StringName.new("is_server_relay_supported")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

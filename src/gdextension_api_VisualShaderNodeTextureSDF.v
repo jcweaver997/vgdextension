@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type VisualShaderNodeTextureSDF = voidptr
+pub struct VisualShaderNodeTextureSDF {
+    VisualShaderNode
+}
 

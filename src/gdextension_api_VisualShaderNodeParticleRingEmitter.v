@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type VisualShaderNodeParticleRingEmitter = voidptr
+pub struct VisualShaderNodeParticleRingEmitter {
+    VisualShaderNodeParticleEmitter
+}
 

@@ -34,7 +34,9 @@ pub enum LightmapGIEnvironmentMode {
     environment_mode_custom_color = 3
 }
 
-pub type LightmapGI = voidptr
+pub struct LightmapGI {
+    VisualInstance3D
+}
 
 pub fn (mut r LightmapGI) set_light_data(data LightmapGIData) {
     classname := StringName.new("LightmapGI")
@@ -42,16 +44,18 @@ pub fn (mut r LightmapGI) set_light_data(data LightmapGIData) {
     fnname := StringName.new("set_light_data")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1790597277)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = data.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &LightmapGI) get_light_data() LightmapGIData {
-    mut object_out := LightmapGIData(unsafe{nil})
+    mut object_out := LightmapGIData{}
     classname := StringName.new("LightmapGI")
     defer { classname.deinit() }
     fnname := StringName.new("get_light_data")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 290354153)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r LightmapGI) set_bake_quality(bake_quality LightmapGIBakeQuality) {
@@ -60,7 +64,9 @@ pub fn (mut r LightmapGI) set_bake_quality(bake_quality LightmapGIBakeQuality) {
     fnname := StringName.new("set_bake_quality")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1192215803)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&bake_quality)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &LightmapGI) get_bake_quality() LightmapGIBakeQuality {
     mut object_out := LightmapGIBakeQuality.bake_quality_low
@@ -69,7 +75,7 @@ pub fn (r &LightmapGI) get_bake_quality() LightmapGIBakeQuality {
     fnname := StringName.new("get_bake_quality")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 688832735)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r LightmapGI) set_bounces(bounces i32) {
@@ -78,7 +84,9 @@ pub fn (mut r LightmapGI) set_bounces(bounces i32) {
     fnname := StringName.new("set_bounces")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&bounces)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &LightmapGI) get_bounces() i32 {
     mut object_out := i32(0)
@@ -87,7 +95,7 @@ pub fn (r &LightmapGI) get_bounces() i32 {
     fnname := StringName.new("get_bounces")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r LightmapGI) set_generate_probes(subdivision LightmapGIGenerateProbes) {
@@ -96,7 +104,9 @@ pub fn (mut r LightmapGI) set_generate_probes(subdivision LightmapGIGenerateProb
     fnname := StringName.new("set_generate_probes")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 549981046)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&subdivision)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &LightmapGI) get_generate_probes() LightmapGIGenerateProbes {
     mut object_out := LightmapGIGenerateProbes.generate_probes_disabled
@@ -105,25 +115,27 @@ pub fn (r &LightmapGI) get_generate_probes() LightmapGIGenerateProbes {
     fnname := StringName.new("get_generate_probes")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3930596226)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r LightmapGI) set_bias(bias f32) {
+pub fn (mut r LightmapGI) set_bias(bias f64) {
     classname := StringName.new("LightmapGI")
     defer { classname.deinit() }
     fnname := StringName.new("set_bias")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&bias)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &LightmapGI) get_bias() f32 {
-    mut object_out := f32(0)
+pub fn (r &LightmapGI) get_bias() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("LightmapGI")
     defer { classname.deinit() }
     fnname := StringName.new("get_bias")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r LightmapGI) set_environment_mode(mode LightmapGIEnvironmentMode) {
@@ -132,7 +144,9 @@ pub fn (mut r LightmapGI) set_environment_mode(mode LightmapGIEnvironmentMode) {
     fnname := StringName.new("set_environment_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2282650285)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&mode)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &LightmapGI) get_environment_mode() LightmapGIEnvironmentMode {
     mut object_out := LightmapGIEnvironmentMode.environment_mode_disabled
@@ -141,7 +155,7 @@ pub fn (r &LightmapGI) get_environment_mode() LightmapGIEnvironmentMode {
     fnname := StringName.new("get_environment_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4128646479)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r LightmapGI) set_environment_custom_sky(sky Sky) {
@@ -150,16 +164,18 @@ pub fn (mut r LightmapGI) set_environment_custom_sky(sky Sky) {
     fnname := StringName.new("set_environment_custom_sky")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3336722921)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = sky.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &LightmapGI) get_environment_custom_sky() Sky {
-    mut object_out := Sky(unsafe{nil})
+    mut object_out := Sky{}
     classname := StringName.new("LightmapGI")
     defer { classname.deinit() }
     fnname := StringName.new("get_environment_custom_sky")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1177136966)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r LightmapGI) set_environment_custom_color(color Color) {
@@ -168,7 +184,9 @@ pub fn (mut r LightmapGI) set_environment_custom_color(color Color) {
     fnname := StringName.new("set_environment_custom_color")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&color)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &LightmapGI) get_environment_custom_color() Color {
     mut object_out := Color{}
@@ -177,25 +195,27 @@ pub fn (r &LightmapGI) get_environment_custom_color() Color {
     fnname := StringName.new("get_environment_custom_color")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3444240500)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r LightmapGI) set_environment_custom_energy(energy f32) {
+pub fn (mut r LightmapGI) set_environment_custom_energy(energy f64) {
     classname := StringName.new("LightmapGI")
     defer { classname.deinit() }
     fnname := StringName.new("set_environment_custom_energy")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&energy)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &LightmapGI) get_environment_custom_energy() f32 {
-    mut object_out := f32(0)
+pub fn (r &LightmapGI) get_environment_custom_energy() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("LightmapGI")
     defer { classname.deinit() }
     fnname := StringName.new("get_environment_custom_energy")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r LightmapGI) set_max_texture_size(max_texture_size i32) {
@@ -204,7 +224,9 @@ pub fn (mut r LightmapGI) set_max_texture_size(max_texture_size i32) {
     fnname := StringName.new("set_max_texture_size")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&max_texture_size)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &LightmapGI) get_max_texture_size() i32 {
     mut object_out := i32(0)
@@ -213,7 +235,7 @@ pub fn (r &LightmapGI) get_max_texture_size() i32 {
     fnname := StringName.new("get_max_texture_size")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r LightmapGI) set_use_denoiser(use_denoiser bool) {
@@ -222,7 +244,9 @@ pub fn (mut r LightmapGI) set_use_denoiser(use_denoiser bool) {
     fnname := StringName.new("set_use_denoiser")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&use_denoiser)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &LightmapGI) is_using_denoiser() bool {
     mut object_out := false
@@ -231,7 +255,7 @@ pub fn (r &LightmapGI) is_using_denoiser() bool {
     fnname := StringName.new("is_using_denoiser")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r LightmapGI) set_interior(enable bool) {
@@ -240,7 +264,9 @@ pub fn (mut r LightmapGI) set_interior(enable bool) {
     fnname := StringName.new("set_interior")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &LightmapGI) is_interior() bool {
     mut object_out := false
@@ -249,7 +275,7 @@ pub fn (r &LightmapGI) is_interior() bool {
     fnname := StringName.new("is_interior")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r LightmapGI) set_directional(directional bool) {
@@ -258,7 +284,9 @@ pub fn (mut r LightmapGI) set_directional(directional bool) {
     fnname := StringName.new("set_directional")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&directional)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &LightmapGI) is_directional() bool {
     mut object_out := false
@@ -267,7 +295,7 @@ pub fn (r &LightmapGI) is_directional() bool {
     fnname := StringName.new("is_directional")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r LightmapGI) set_camera_attributes(camera_attributes CameraAttributes) {
@@ -276,15 +304,17 @@ pub fn (mut r LightmapGI) set_camera_attributes(camera_attributes CameraAttribut
     fnname := StringName.new("set_camera_attributes")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2817810567)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = camera_attributes.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &LightmapGI) get_camera_attributes() CameraAttributes {
-    mut object_out := CameraAttributes(unsafe{nil})
+    mut object_out := CameraAttributes{}
     classname := StringName.new("LightmapGI")
     defer { classname.deinit() }
     fnname := StringName.new("get_camera_attributes")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3921283215)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

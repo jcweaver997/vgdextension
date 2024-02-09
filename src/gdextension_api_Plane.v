@@ -4,7 +4,7 @@ module vgdextension
 pub struct Plane {
     pub mut:
         normal Vector3 // offset 0
-        d f32 // offset 12
+        d f64 // offset 12
 }
 
 pub fn Plane.new0 () Plane {
@@ -32,7 +32,7 @@ pub fn Plane.new2 (normal &Vector3) Plane {
     return object_out
 }
 
-pub fn Plane.new3 (normal &Vector3, d &f32) Plane {
+pub fn Plane.new3 (normal &Vector3, d &f64) Plane {
     mut object_out := Plane{}
     constructor := gdf.variant_get_ptr_constructor(GDExtensionVariantType.type_plane, 3)
     mut args := unsafe { [2]voidptr{} }
@@ -63,7 +63,7 @@ pub fn Plane.new5 (point1 &Vector3, point2 &Vector3, point3 &Vector3) Plane {
     return object_out
 }
 
-pub fn Plane.new6 (a &f32, b &f32, c &f32, d &f32) Plane {
+pub fn Plane.new6 (a &f64, b &f64, c &f64, d &f64) Plane {
     mut object_out := Plane{}
     constructor := gdf.variant_get_ptr_constructor(GDExtensionVariantType.type_plane, 6)
     mut args := unsafe { [4]voidptr{} }
@@ -119,8 +119,8 @@ pub fn (r &Plane) is_point_over(point Vector3) bool {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
    return object_out
 }
-pub fn (r &Plane) distance_to(point Vector3) f32 {
-    mut object_out := f32(0)
+pub fn (r &Plane) distance_to(point Vector3) f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("distance_to")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_plane, voidptr(&fnname), 1047977935)
@@ -129,7 +129,7 @@ pub fn (r &Plane) distance_to(point Vector3) f32 {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
    return object_out
 }
-pub fn (r &Plane) has_point(point Vector3, tolerance f32) bool {
+pub fn (r &Plane) has_point(point Vector3, tolerance f64) bool {
     mut object_out := false
     fnname := StringName.new("has_point")
     defer { fnname.deinit() }
@@ -188,5 +188,10 @@ pub fn (v &Plane) to_var() Variant {
     output := Variant{}
     to_variant(GDExtensionUninitializedVariantPtr(&output), GDExtensionTypePtr(v))
     return output
+}
+
+pub fn (mut t Plane) set_from_var(var &Variant) {
+    var_to_type := gdf.get_variant_to_type_constructor(GDExtensionVariantType.type_plane)
+    var_to_type(voidptr(&t), var)
 }
 

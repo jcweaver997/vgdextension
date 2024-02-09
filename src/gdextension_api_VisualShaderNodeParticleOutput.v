@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type VisualShaderNodeParticleOutput = voidptr
+pub struct VisualShaderNodeParticleOutput {
+    VisualShaderNodeOutput
+}
 

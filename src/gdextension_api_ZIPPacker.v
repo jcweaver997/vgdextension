@@ -6,7 +6,9 @@ pub enum ZIPPackerZipAppend {
     append_addinzip = 2
 }
 
-pub type ZIPPacker = voidptr
+pub struct ZIPPacker {
+    RefCounted
+}
 
 pub fn (mut r ZIPPacker) open(path String, append ZIPPackerZipAppend) GDError {
     mut object_out := GDError.ok
@@ -18,7 +20,7 @@ pub fn (mut r ZIPPacker) open(path String, append ZIPPackerZipAppend) GDError {
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&path)}
     args[1] = unsafe{voidptr(&append)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ZIPPacker) start_file(path String) GDError {
@@ -30,7 +32,7 @@ pub fn (mut r ZIPPacker) start_file(path String) GDError {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 166001499)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&path)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ZIPPacker) write_file(data PackedByteArray) GDError {
@@ -42,7 +44,7 @@ pub fn (mut r ZIPPacker) write_file(data PackedByteArray) GDError {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 680677267)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&data)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ZIPPacker) close_file() GDError {
@@ -52,7 +54,7 @@ pub fn (mut r ZIPPacker) close_file() GDError {
     fnname := StringName.new("close_file")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 166280745)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ZIPPacker) close() GDError {
@@ -62,6 +64,6 @@ pub fn (mut r ZIPPacker) close() GDError {
     fnname := StringName.new("close")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 166280745)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

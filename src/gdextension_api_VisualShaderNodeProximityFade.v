@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type VisualShaderNodeProximityFade = voidptr
+pub struct VisualShaderNodeProximityFade {
+    VisualShaderNode
+}
 

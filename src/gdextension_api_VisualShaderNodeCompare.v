@@ -28,7 +28,9 @@ pub enum VisualShaderNodeCompareCondition {
     cond_max = 2
 }
 
-pub type VisualShaderNodeCompare = voidptr
+pub struct VisualShaderNodeCompare {
+    VisualShaderNode
+}
 
 pub fn (mut r VisualShaderNodeCompare) set_comparison_type(type_name VisualShaderNodeCompareComparisonType) {
     classname := StringName.new("VisualShaderNodeCompare")
@@ -36,7 +38,9 @@ pub fn (mut r VisualShaderNodeCompare) set_comparison_type(type_name VisualShade
     fnname := StringName.new("set_comparison_type")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 516558320)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&type_name)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &VisualShaderNodeCompare) get_comparison_type() VisualShaderNodeCompareComparisonType {
     mut object_out := VisualShaderNodeCompareComparisonType.ctype_scalar
@@ -45,7 +49,7 @@ pub fn (r &VisualShaderNodeCompare) get_comparison_type() VisualShaderNodeCompar
     fnname := StringName.new("get_comparison_type")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3495315961)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r VisualShaderNodeCompare) set_function(func VisualShaderNodeCompareFunction) {
@@ -54,7 +58,9 @@ pub fn (mut r VisualShaderNodeCompare) set_function(func VisualShaderNodeCompare
     fnname := StringName.new("set_function")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2370951349)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&func)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &VisualShaderNodeCompare) get_function() VisualShaderNodeCompareFunction {
     mut object_out := VisualShaderNodeCompareFunction.func_equal
@@ -63,7 +69,7 @@ pub fn (r &VisualShaderNodeCompare) get_function() VisualShaderNodeCompareFuncti
     fnname := StringName.new("get_function")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4089164265)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r VisualShaderNodeCompare) set_condition(condition VisualShaderNodeCompareCondition) {
@@ -72,7 +78,9 @@ pub fn (mut r VisualShaderNodeCompare) set_condition(condition VisualShaderNodeC
     fnname := StringName.new("set_condition")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 918742392)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&condition)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &VisualShaderNodeCompare) get_condition() VisualShaderNodeCompareCondition {
     mut object_out := VisualShaderNodeCompareCondition.cond_all
@@ -81,6 +89,6 @@ pub fn (r &VisualShaderNodeCompare) get_condition() VisualShaderNodeCompareCondi
     fnname := StringName.new("get_condition")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3281078941)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

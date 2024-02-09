@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type AudioEffectLowShelfFilter = voidptr
+pub struct AudioEffectLowShelfFilter {
+    AudioEffectFilter
+}
 

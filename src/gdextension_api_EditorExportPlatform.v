@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type EditorExportPlatform = voidptr
+pub struct EditorExportPlatform {
+    RefCounted
+}
 

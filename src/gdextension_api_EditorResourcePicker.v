@@ -1,6 +1,13 @@
 module vgdextension
 
-pub type EditorResourcePicker = voidptr
+pub struct EditorResourcePicker {
+    HBoxContainer
+}
+
+pub interface IEditorResourcePickerSetCreateOptions {
+    mut:
+    virt_set_create_options(menu_node Object)
+}
 
 pub fn (mut r EditorResourcePicker) uset_create_options(menu_node Object) {
     classname := StringName.new("EditorResourcePicker")
@@ -8,8 +15,15 @@ pub fn (mut r EditorResourcePicker) uset_create_options(menu_node Object) {
     fnname := StringName.new("_set_create_options")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = menu_node.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
+pub interface IEditorResourcePickerHandleMenuSelected {
+    mut:
+    virt_handle_menu_selected(id i32) bool
+}
+
 pub fn (mut r EditorResourcePicker) uhandle_menu_selected(id i32) bool {
     mut object_out := false
     classname := StringName.new("EditorResourcePicker")
@@ -19,7 +33,7 @@ pub fn (mut r EditorResourcePicker) uhandle_menu_selected(id i32) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&id)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r EditorResourcePicker) set_base_type(base_type String) {
@@ -28,7 +42,9 @@ pub fn (mut r EditorResourcePicker) set_base_type(base_type String) {
     fnname := StringName.new("set_base_type")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&base_type)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &EditorResourcePicker) get_base_type() String {
     mut object_out := String{}
@@ -37,7 +53,7 @@ pub fn (r &EditorResourcePicker) get_base_type() String {
     fnname := StringName.new("get_base_type")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 201670096)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &EditorResourcePicker) get_allowed_types() PackedStringArray {
@@ -47,7 +63,7 @@ pub fn (r &EditorResourcePicker) get_allowed_types() PackedStringArray {
     fnname := StringName.new("get_allowed_types")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1139954409)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r EditorResourcePicker) set_edited_resource(resource Resource) {
@@ -56,16 +72,18 @@ pub fn (mut r EditorResourcePicker) set_edited_resource(resource Resource) {
     fnname := StringName.new("set_edited_resource")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 968641751)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = resource.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r EditorResourcePicker) get_edited_resource() Resource {
-    mut object_out := Resource(unsafe{nil})
+    mut object_out := Resource{}
     classname := StringName.new("EditorResourcePicker")
     defer { classname.deinit() }
     fnname := StringName.new("get_edited_resource")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2674603643)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r EditorResourcePicker) set_toggle_mode(enable bool) {
@@ -74,7 +92,9 @@ pub fn (mut r EditorResourcePicker) set_toggle_mode(enable bool) {
     fnname := StringName.new("set_toggle_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &EditorResourcePicker) is_toggle_mode() bool {
     mut object_out := false
@@ -83,7 +103,7 @@ pub fn (r &EditorResourcePicker) is_toggle_mode() bool {
     fnname := StringName.new("is_toggle_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r EditorResourcePicker) set_toggle_pressed(pressed bool) {
@@ -92,7 +112,9 @@ pub fn (mut r EditorResourcePicker) set_toggle_pressed(pressed bool) {
     fnname := StringName.new("set_toggle_pressed")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&pressed)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r EditorResourcePicker) set_editable(enable bool) {
     classname := StringName.new("EditorResourcePicker")
@@ -100,7 +122,9 @@ pub fn (mut r EditorResourcePicker) set_editable(enable bool) {
     fnname := StringName.new("set_editable")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &EditorResourcePicker) is_editable() bool {
     mut object_out := false
@@ -109,6 +133,6 @@ pub fn (r &EditorResourcePicker) is_editable() bool {
     fnname := StringName.new("is_editable")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

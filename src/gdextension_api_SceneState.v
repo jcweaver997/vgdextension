@@ -7,7 +7,9 @@ pub enum SceneStateGenEditState {
     gen_edit_state_main_inherited = 3
 }
 
-pub type SceneState = voidptr
+pub struct SceneState {
+    RefCounted
+}
 
 pub fn (r &SceneState) get_node_count() i32 {
     mut object_out := i32(0)
@@ -16,7 +18,7 @@ pub fn (r &SceneState) get_node_count() i32 {
     fnname := StringName.new("get_node_count")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &SceneState) get_node_type(idx i32) StringName {
@@ -28,7 +30,7 @@ pub fn (r &SceneState) get_node_type(idx i32) StringName {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 659327637)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &SceneState) get_node_name(idx i32) StringName {
@@ -40,7 +42,7 @@ pub fn (r &SceneState) get_node_name(idx i32) StringName {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 659327637)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &SceneState) get_node_path(idx i32, for_parent bool) NodePath {
@@ -53,7 +55,7 @@ pub fn (r &SceneState) get_node_path(idx i32, for_parent bool) NodePath {
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
     args[1] = unsafe{voidptr(&for_parent)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &SceneState) get_node_owner_path(idx i32) NodePath {
@@ -65,7 +67,7 @@ pub fn (r &SceneState) get_node_owner_path(idx i32) NodePath {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 408788394)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &SceneState) is_node_instance_placeholder(idx i32) bool {
@@ -77,7 +79,7 @@ pub fn (r &SceneState) is_node_instance_placeholder(idx i32) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1116898809)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &SceneState) get_node_instance_placeholder(idx i32) String {
@@ -89,11 +91,11 @@ pub fn (r &SceneState) get_node_instance_placeholder(idx i32) String {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 844755477)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &SceneState) get_node_instance(idx i32) PackedScene {
-    mut object_out := PackedScene(unsafe{nil})
+    mut object_out := PackedScene{}
     classname := StringName.new("SceneState")
     defer { classname.deinit() }
     fnname := StringName.new("get_node_instance")
@@ -101,7 +103,7 @@ pub fn (r &SceneState) get_node_instance(idx i32) PackedScene {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 511017218)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &SceneState) get_node_groups(idx i32) PackedStringArray {
@@ -113,7 +115,7 @@ pub fn (r &SceneState) get_node_groups(idx i32) PackedStringArray {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 647634434)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &SceneState) get_node_index(idx i32) i32 {
@@ -125,7 +127,7 @@ pub fn (r &SceneState) get_node_index(idx i32) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 923996154)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &SceneState) get_node_property_count(idx i32) i32 {
@@ -137,7 +139,7 @@ pub fn (r &SceneState) get_node_property_count(idx i32) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 923996154)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &SceneState) get_node_property_name(idx i32, prop_idx i32) StringName {
@@ -150,7 +152,7 @@ pub fn (r &SceneState) get_node_property_name(idx i32, prop_idx i32) StringName 
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
     args[1] = unsafe{voidptr(&prop_idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &SceneState) get_node_property_value(idx i32, prop_idx i32) Variant {
@@ -163,7 +165,7 @@ pub fn (r &SceneState) get_node_property_value(idx i32, prop_idx i32) Variant {
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
     args[1] = unsafe{voidptr(&prop_idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &SceneState) get_connection_count() i32 {
@@ -173,7 +175,7 @@ pub fn (r &SceneState) get_connection_count() i32 {
     fnname := StringName.new("get_connection_count")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &SceneState) get_connection_source(idx i32) NodePath {
@@ -185,7 +187,7 @@ pub fn (r &SceneState) get_connection_source(idx i32) NodePath {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 408788394)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &SceneState) get_connection_signal(idx i32) StringName {
@@ -197,7 +199,7 @@ pub fn (r &SceneState) get_connection_signal(idx i32) StringName {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 659327637)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &SceneState) get_connection_target(idx i32) NodePath {
@@ -209,7 +211,7 @@ pub fn (r &SceneState) get_connection_target(idx i32) NodePath {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 408788394)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &SceneState) get_connection_method(idx i32) StringName {
@@ -221,7 +223,7 @@ pub fn (r &SceneState) get_connection_method(idx i32) StringName {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 659327637)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &SceneState) get_connection_flags(idx i32) i32 {
@@ -233,7 +235,7 @@ pub fn (r &SceneState) get_connection_flags(idx i32) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 923996154)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &SceneState) get_connection_binds(idx i32) Array {
@@ -245,7 +247,7 @@ pub fn (r &SceneState) get_connection_binds(idx i32) Array {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 663333327)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &SceneState) get_connection_unbinds(idx i32) i32 {
@@ -257,6 +259,6 @@ pub fn (r &SceneState) get_connection_unbinds(idx i32) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 923996154)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }

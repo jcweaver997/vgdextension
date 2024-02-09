@@ -1,6 +1,13 @@
 module vgdextension
 
-pub type RichTextEffect = voidptr
+pub struct RichTextEffect {
+    Resource
+}
+
+pub interface IRichTextEffectProcessCustomFx {
+    mut:
+    virt_process_custom_fx(char_fx CharFXTransform) bool
+}
 
 pub fn (r &RichTextEffect) uprocess_custom_fx(char_fx CharFXTransform) bool {
     mut object_out := false
@@ -10,7 +17,7 @@ pub fn (r &RichTextEffect) uprocess_custom_fx(char_fx CharFXTransform) bool {
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&char_fx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    args[0] = char_fx.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }

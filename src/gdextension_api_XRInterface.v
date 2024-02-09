@@ -32,7 +32,9 @@ pub enum XRInterfaceEnvironmentBlendMode {
     xr_env_blend_mode_alpha_blend = 2
 }
 
-pub type XRInterface = voidptr
+pub struct XRInterface {
+    RefCounted
+}
 
 pub fn (r &XRInterface) get_name() StringName {
     mut object_out := StringName{}
@@ -41,17 +43,17 @@ pub fn (r &XRInterface) get_name() StringName {
     fnname := StringName.new("get_name")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2002593661)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (r &XRInterface) get_capabilities() i32 {
-    mut object_out := i32(0)
+pub fn (r &XRInterface) get_capabilities() u32 {
+    mut object_out := u32(0)
     classname := StringName.new("XRInterface")
     defer { classname.deinit() }
     fnname := StringName.new("get_capabilities")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r XRInterface) is_primary() bool {
@@ -61,7 +63,7 @@ pub fn (mut r XRInterface) is_primary() bool {
     fnname := StringName.new("is_primary")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2240911060)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r XRInterface) set_primary(primary bool) {
@@ -70,7 +72,9 @@ pub fn (mut r XRInterface) set_primary(primary bool) {
     fnname := StringName.new("set_primary")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&primary)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &XRInterface) is_initialized() bool {
     mut object_out := false
@@ -79,7 +83,7 @@ pub fn (r &XRInterface) is_initialized() bool {
     fnname := StringName.new("is_initialized")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r XRInterface) initialize() bool {
@@ -89,7 +93,7 @@ pub fn (mut r XRInterface) initialize() bool {
     fnname := StringName.new("initialize")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2240911060)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r XRInterface) uninitialize() {
@@ -98,7 +102,7 @@ pub fn (mut r XRInterface) uninitialize() {
     fnname := StringName.new("uninitialize")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
 pub fn (mut r XRInterface) get_system_info() Dictionary {
     mut object_out := Dictionary{}
@@ -107,7 +111,7 @@ pub fn (mut r XRInterface) get_system_info() Dictionary {
     fnname := StringName.new("get_system_info")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2382534195)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &XRInterface) get_tracking_status() XRInterfaceTrackingStatus {
@@ -117,7 +121,7 @@ pub fn (r &XRInterface) get_tracking_status() XRInterfaceTrackingStatus {
     fnname := StringName.new("get_tracking_status")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 167423259)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r XRInterface) get_render_target_size() Vector2 {
@@ -127,26 +131,33 @@ pub fn (mut r XRInterface) get_render_target_size() Vector2 {
     fnname := StringName.new("get_render_target_size")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1497962370)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r XRInterface) get_view_count() i32 {
-    mut object_out := i32(0)
+pub fn (mut r XRInterface) get_view_count() u32 {
+    mut object_out := u32(0)
     classname := StringName.new("XRInterface")
     defer { classname.deinit() }
     fnname := StringName.new("get_view_count")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2455072627)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r XRInterface) trigger_haptic_pulse(action_name String, tracker_name StringName, frequency f32, amplitude f32, duration_sec f32, delay_sec f32) {
+pub fn (mut r XRInterface) trigger_haptic_pulse(action_name String, tracker_name StringName, frequency f64, amplitude f64, duration_sec f64, delay_sec f64) {
     classname := StringName.new("XRInterface")
     defer { classname.deinit() }
     fnname := StringName.new("trigger_haptic_pulse")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3752640163)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [6]voidptr{} }
+    args[0] = unsafe{voidptr(&action_name)}
+    args[1] = unsafe{voidptr(&tracker_name)}
+    args[2] = unsafe{voidptr(&frequency)}
+    args[3] = unsafe{voidptr(&amplitude)}
+    args[4] = unsafe{voidptr(&duration_sec)}
+    args[5] = unsafe{voidptr(&delay_sec)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r XRInterface) supports_play_area_mode(mode XRInterfacePlayAreaMode) bool {
     mut object_out := false
@@ -157,7 +168,7 @@ pub fn (mut r XRInterface) supports_play_area_mode(mode XRInterfacePlayAreaMode)
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3429955281)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&mode)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &XRInterface) get_play_area_mode() XRInterfacePlayAreaMode {
@@ -167,7 +178,7 @@ pub fn (r &XRInterface) get_play_area_mode() XRInterfacePlayAreaMode {
     fnname := StringName.new("get_play_area_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1615132885)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r XRInterface) set_play_area_mode(mode XRInterfacePlayAreaMode) bool {
@@ -179,7 +190,7 @@ pub fn (mut r XRInterface) set_play_area_mode(mode XRInterfacePlayAreaMode) bool
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3429955281)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&mode)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &XRInterface) get_play_area() PackedVector3Array {
@@ -189,7 +200,7 @@ pub fn (r &XRInterface) get_play_area() PackedVector3Array {
     fnname := StringName.new("get_play_area")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 497664490)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &XRInterface) get_anchor_detection_is_enabled() bool {
@@ -199,7 +210,7 @@ pub fn (r &XRInterface) get_anchor_detection_is_enabled() bool {
     fnname := StringName.new("get_anchor_detection_is_enabled")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r XRInterface) set_anchor_detection_is_enabled(enable bool) {
@@ -208,7 +219,9 @@ pub fn (mut r XRInterface) set_anchor_detection_is_enabled(enable bool) {
     fnname := StringName.new("set_anchor_detection_is_enabled")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r XRInterface) get_camera_feed_id() i32 {
     mut object_out := i32(0)
@@ -217,7 +230,7 @@ pub fn (mut r XRInterface) get_camera_feed_id() i32 {
     fnname := StringName.new("get_camera_feed_id")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2455072627)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r XRInterface) is_passthrough_supported() bool {
@@ -227,7 +240,7 @@ pub fn (mut r XRInterface) is_passthrough_supported() bool {
     fnname := StringName.new("is_passthrough_supported")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2240911060)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r XRInterface) is_passthrough_enabled() bool {
@@ -237,7 +250,7 @@ pub fn (mut r XRInterface) is_passthrough_enabled() bool {
     fnname := StringName.new("is_passthrough_enabled")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2240911060)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r XRInterface) start_passthrough() bool {
@@ -247,7 +260,7 @@ pub fn (mut r XRInterface) start_passthrough() bool {
     fnname := StringName.new("start_passthrough")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2240911060)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r XRInterface) stop_passthrough() {
@@ -256,9 +269,9 @@ pub fn (mut r XRInterface) stop_passthrough() {
     fnname := StringName.new("stop_passthrough")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
-pub fn (mut r XRInterface) get_transform_for_view(view i32, cam_transform Transform3D) Transform3D {
+pub fn (mut r XRInterface) get_transform_for_view(view u32, cam_transform Transform3D) Transform3D {
     mut object_out := Transform3D{}
     classname := StringName.new("XRInterface")
     defer { classname.deinit() }
@@ -268,10 +281,10 @@ pub fn (mut r XRInterface) get_transform_for_view(view i32, cam_transform Transf
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&view)}
     args[1] = unsafe{voidptr(&cam_transform)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r XRInterface) get_projection_for_view(view i32, aspect f32, near f32, far f32) Projection {
+pub fn (mut r XRInterface) get_projection_for_view(view u32, aspect f64, near f64, far f64) Projection {
     mut object_out := Projection{}
     classname := StringName.new("XRInterface")
     defer { classname.deinit() }
@@ -283,7 +296,7 @@ pub fn (mut r XRInterface) get_projection_for_view(view i32, aspect f32, near f3
     args[1] = unsafe{voidptr(&aspect)}
     args[2] = unsafe{voidptr(&near)}
     args[3] = unsafe{voidptr(&far)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r XRInterface) get_supported_environment_blend_modes() Array {
@@ -293,7 +306,7 @@ pub fn (mut r XRInterface) get_supported_environment_blend_modes() Array {
     fnname := StringName.new("get_supported_environment_blend_modes")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2915620761)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r XRInterface) set_environment_blend_mode(mode XRInterfaceEnvironmentBlendMode) bool {
@@ -305,6 +318,6 @@ pub fn (mut r XRInterface) set_environment_blend_mode(mode XRInterfaceEnvironmen
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 551152418)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&mode)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }

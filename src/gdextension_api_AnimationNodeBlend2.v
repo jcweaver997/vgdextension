@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type AnimationNodeBlend2 = voidptr
+pub struct AnimationNodeBlend2 {
+    AnimationNodeSync
+}
 

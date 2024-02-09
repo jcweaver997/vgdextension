@@ -75,7 +75,7 @@ pub fn Projection.create_light_atlas_rect(rect Rect2) Projection {
     f(unsafe{nil}, voidptr(&args[0]), voidptr(&object_out), 1)
    return object_out
 }
-pub fn Projection.create_perspective(fovy f32, aspect f32, z_near f32, z_far f32, flip_fov bool) Projection {
+pub fn Projection.create_perspective(fovy f64, aspect f64, z_near f64, z_far f64, flip_fov bool) Projection {
     mut object_out := Projection{}
     fnname := StringName.new("create_perspective")
     defer { fnname.deinit() }
@@ -89,7 +89,7 @@ pub fn Projection.create_perspective(fovy f32, aspect f32, z_near f32, z_far f32
     f(unsafe{nil}, voidptr(&args[0]), voidptr(&object_out), 5)
    return object_out
 }
-pub fn Projection.create_perspective_hmd(fovy f32, aspect f32, z_near f32, z_far f32, flip_fov bool, eye i32, intraocular_dist f32, convergence_dist f32) Projection {
+pub fn Projection.create_perspective_hmd(fovy f64, aspect f64, z_near f64, z_far f64, flip_fov bool, eye i32, intraocular_dist f64, convergence_dist f64) Projection {
     mut object_out := Projection{}
     fnname := StringName.new("create_perspective_hmd")
     defer { fnname.deinit() }
@@ -106,7 +106,7 @@ pub fn Projection.create_perspective_hmd(fovy f32, aspect f32, z_near f32, z_far
     f(unsafe{nil}, voidptr(&args[0]), voidptr(&object_out), 8)
    return object_out
 }
-pub fn Projection.create_for_hmd(eye i32, aspect f32, intraocular_dist f32, display_width f32, display_to_lens f32, oversample f32, z_near f32, z_far f32) Projection {
+pub fn Projection.create_for_hmd(eye i32, aspect f64, intraocular_dist f64, display_width f64, display_to_lens f64, oversample f64, z_near f64, z_far f64) Projection {
     mut object_out := Projection{}
     fnname := StringName.new("create_for_hmd")
     defer { fnname.deinit() }
@@ -123,7 +123,7 @@ pub fn Projection.create_for_hmd(eye i32, aspect f32, intraocular_dist f32, disp
     f(unsafe{nil}, voidptr(&args[0]), voidptr(&object_out), 8)
    return object_out
 }
-pub fn Projection.create_orthogonal(left f32, right f32, bottom f32, top f32, z_near f32, z_far f32) Projection {
+pub fn Projection.create_orthogonal(left f64, right f64, bottom f64, top f64, z_near f64, z_far f64) Projection {
     mut object_out := Projection{}
     fnname := StringName.new("create_orthogonal")
     defer { fnname.deinit() }
@@ -138,7 +138,7 @@ pub fn Projection.create_orthogonal(left f32, right f32, bottom f32, top f32, z_
     f(unsafe{nil}, voidptr(&args[0]), voidptr(&object_out), 6)
    return object_out
 }
-pub fn Projection.create_orthogonal_aspect(size f32, aspect f32, z_near f32, z_far f32, flip_fov bool) Projection {
+pub fn Projection.create_orthogonal_aspect(size f64, aspect f64, z_near f64, z_far f64, flip_fov bool) Projection {
     mut object_out := Projection{}
     fnname := StringName.new("create_orthogonal_aspect")
     defer { fnname.deinit() }
@@ -152,7 +152,7 @@ pub fn Projection.create_orthogonal_aspect(size f32, aspect f32, z_near f32, z_f
     f(unsafe{nil}, voidptr(&args[0]), voidptr(&object_out), 5)
    return object_out
 }
-pub fn Projection.create_frustum(left f32, right f32, bottom f32, top f32, z_near f32, z_far f32) Projection {
+pub fn Projection.create_frustum(left f64, right f64, bottom f64, top f64, z_near f64, z_far f64) Projection {
     mut object_out := Projection{}
     fnname := StringName.new("create_frustum")
     defer { fnname.deinit() }
@@ -167,7 +167,7 @@ pub fn Projection.create_frustum(left f32, right f32, bottom f32, top f32, z_nea
     f(unsafe{nil}, voidptr(&args[0]), voidptr(&object_out), 6)
    return object_out
 }
-pub fn Projection.create_frustum_aspect(size f32, aspect f32, offset Vector2, z_near f32, z_far f32, flip_fov bool) Projection {
+pub fn Projection.create_frustum_aspect(size f64, aspect f64, offset Vector2, z_near f64, z_far f64, flip_fov bool) Projection {
     mut object_out := Projection{}
     fnname := StringName.new("create_frustum_aspect")
     defer { fnname.deinit() }
@@ -192,15 +192,15 @@ pub fn Projection.create_fit_aabb(aabb AABB) Projection {
     f(unsafe{nil}, voidptr(&args[0]), voidptr(&object_out), 1)
    return object_out
 }
-pub fn (r &Projection) determinant() f32 {
-    mut object_out := f32(0)
+pub fn (r &Projection) determinant() f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("determinant")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_projection, voidptr(&fnname), 466405837)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
    return object_out
 }
-pub fn (r &Projection) perspective_znear_adjusted(new_znear f32) Projection {
+pub fn (r &Projection) perspective_znear_adjusted(new_znear f64) Projection {
     mut object_out := Projection{}
     fnname := StringName.new("perspective_znear_adjusted")
     defer { fnname.deinit() }
@@ -238,8 +238,8 @@ pub fn (r &Projection) jitter_offseted(offset Vector2) Projection {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
    return object_out
 }
-pub fn Projection.get_fovy(fovx f32, aspect f32) f32 {
-    mut object_out := f32(0)
+pub fn Projection.get_fovy(fovx f64, aspect f64) f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("get_fovy")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_projection, voidptr(&fnname), 3514207532)
@@ -249,32 +249,32 @@ pub fn Projection.get_fovy(fovx f32, aspect f32) f32 {
     f(unsafe{nil}, voidptr(&args[0]), voidptr(&object_out), 2)
    return object_out
 }
-pub fn (r &Projection) get_z_far() f32 {
-    mut object_out := f32(0)
+pub fn (r &Projection) get_z_far() f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("get_z_far")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_projection, voidptr(&fnname), 466405837)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
    return object_out
 }
-pub fn (r &Projection) get_z_near() f32 {
-    mut object_out := f32(0)
+pub fn (r &Projection) get_z_near() f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("get_z_near")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_projection, voidptr(&fnname), 466405837)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
    return object_out
 }
-pub fn (r &Projection) get_aspect() f32 {
-    mut object_out := f32(0)
+pub fn (r &Projection) get_aspect() f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("get_aspect")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_projection, voidptr(&fnname), 466405837)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
    return object_out
 }
-pub fn (r &Projection) get_fov() f32 {
-    mut object_out := f32(0)
+pub fn (r &Projection) get_fov() f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("get_fov")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_projection, voidptr(&fnname), 466405837)
@@ -323,8 +323,8 @@ pub fn (r &Projection) get_pixels_per_meter(for_pixel_width i32) i32 {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
    return object_out
 }
-pub fn (r &Projection) get_lod_multiplier() f32 {
-    mut object_out := f32(0)
+pub fn (r &Projection) get_lod_multiplier() f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("get_lod_multiplier")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_projection, voidptr(&fnname), 466405837)
@@ -336,6 +336,11 @@ pub fn (v &Projection) to_var() Variant {
     output := Variant{}
     to_variant(GDExtensionUninitializedVariantPtr(&output), GDExtensionTypePtr(v))
     return output
+}
+
+pub fn (mut t Projection) set_from_var(var &Variant) {
+    var_to_type := gdf.get_variant_to_type_constructor(GDExtensionVariantType.type_projection)
+    var_to_type(voidptr(&t), var)
 }
 
 pub fn (v &Projection) index(i int) Vector4 {

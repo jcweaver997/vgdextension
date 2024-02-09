@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type VisualShaderNodeRandomRange = voidptr
+pub struct VisualShaderNodeRandomRange {
+    VisualShaderNode
+}
 

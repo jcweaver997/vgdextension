@@ -5,7 +5,9 @@ pub enum OmniLight3DShadowMode {
     shadow_cube = 1
 }
 
-pub type OmniLight3D = voidptr
+pub struct OmniLight3D {
+    Light3D
+}
 
 pub fn (mut r OmniLight3D) set_shadow_mode(mode OmniLight3DShadowMode) {
     classname := StringName.new("OmniLight3D")
@@ -13,7 +15,9 @@ pub fn (mut r OmniLight3D) set_shadow_mode(mode OmniLight3DShadowMode) {
     fnname := StringName.new("set_shadow_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 121862228)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&mode)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &OmniLight3D) get_shadow_mode() OmniLight3DShadowMode {
     mut object_out := OmniLight3DShadowMode.shadow_dual_paraboloid
@@ -22,6 +26,6 @@ pub fn (r &OmniLight3D) get_shadow_mode() OmniLight3DShadowMode {
     fnname := StringName.new("get_shadow_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4181586331)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

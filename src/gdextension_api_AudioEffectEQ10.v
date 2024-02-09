@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type AudioEffectEQ10 = voidptr
+pub struct AudioEffectEQ10 {
+    AudioEffectEQ
+}
 

@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type StandardMaterial3D = voidptr
+pub struct StandardMaterial3D {
+    BaseMaterial3D
+}
 

@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type VisualShaderNodeTextureParameterTriplanar = voidptr
+pub struct VisualShaderNodeTextureParameterTriplanar {
+    VisualShaderNodeTextureParameter
+}
 

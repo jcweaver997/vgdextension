@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type MovieWriterPNGWAV = voidptr
+pub struct MovieWriterPNGWAV {
+    MovieWriter
+}
 

@@ -6,7 +6,9 @@ pub enum SplitContainerDraggerVisibility {
     dragger_hidden_collapsed = 2
 }
 
-pub type SplitContainer = voidptr
+pub struct SplitContainer {
+    Container
+}
 
 pub fn (mut r SplitContainer) set_split_offset(offset i32) {
     classname := StringName.new("SplitContainer")
@@ -14,7 +16,9 @@ pub fn (mut r SplitContainer) set_split_offset(offset i32) {
     fnname := StringName.new("set_split_offset")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&offset)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SplitContainer) get_split_offset() i32 {
     mut object_out := i32(0)
@@ -23,7 +27,7 @@ pub fn (r &SplitContainer) get_split_offset() i32 {
     fnname := StringName.new("get_split_offset")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SplitContainer) clamp_split_offset() {
@@ -32,7 +36,7 @@ pub fn (mut r SplitContainer) clamp_split_offset() {
     fnname := StringName.new("clamp_split_offset")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
 pub fn (mut r SplitContainer) set_collapsed(collapsed bool) {
     classname := StringName.new("SplitContainer")
@@ -40,7 +44,9 @@ pub fn (mut r SplitContainer) set_collapsed(collapsed bool) {
     fnname := StringName.new("set_collapsed")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&collapsed)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SplitContainer) is_collapsed() bool {
     mut object_out := false
@@ -49,7 +55,7 @@ pub fn (r &SplitContainer) is_collapsed() bool {
     fnname := StringName.new("is_collapsed")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SplitContainer) set_dragger_visibility(mode SplitContainerDraggerVisibility) {
@@ -58,7 +64,9 @@ pub fn (mut r SplitContainer) set_dragger_visibility(mode SplitContainerDraggerV
     fnname := StringName.new("set_dragger_visibility")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1168273952)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&mode)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SplitContainer) get_dragger_visibility() SplitContainerDraggerVisibility {
     mut object_out := SplitContainerDraggerVisibility.dragger_visible
@@ -67,7 +75,7 @@ pub fn (r &SplitContainer) get_dragger_visibility() SplitContainerDraggerVisibil
     fnname := StringName.new("get_dragger_visibility")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 967297479)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SplitContainer) set_vertical(vertical bool) {
@@ -76,7 +84,9 @@ pub fn (mut r SplitContainer) set_vertical(vertical bool) {
     fnname := StringName.new("set_vertical")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&vertical)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SplitContainer) is_vertical() bool {
     mut object_out := false
@@ -85,6 +95,6 @@ pub fn (r &SplitContainer) is_vertical() bool {
     fnname := StringName.new("is_vertical")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

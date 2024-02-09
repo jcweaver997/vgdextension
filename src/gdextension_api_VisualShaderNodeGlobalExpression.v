@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type VisualShaderNodeGlobalExpression = voidptr
+pub struct VisualShaderNodeGlobalExpression {
+    VisualShaderNodeExpression
+}
 

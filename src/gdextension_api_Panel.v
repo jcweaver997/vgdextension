@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type Panel = voidptr
+pub struct Panel {
+    Control
+}
 

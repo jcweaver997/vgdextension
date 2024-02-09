@@ -1,6 +1,8 @@
 module vgdextension
 
-pub type VisibleOnScreenNotifier3D = voidptr
+pub struct VisibleOnScreenNotifier3D {
+    VisualInstance3D
+}
 
 pub fn (mut r VisibleOnScreenNotifier3D) set_aabb(rect AABB) {
     classname := StringName.new("VisibleOnScreenNotifier3D")
@@ -8,7 +10,9 @@ pub fn (mut r VisibleOnScreenNotifier3D) set_aabb(rect AABB) {
     fnname := StringName.new("set_aabb")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 259215842)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&rect)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &VisibleOnScreenNotifier3D) is_on_screen() bool {
     mut object_out := false
@@ -17,6 +21,6 @@ pub fn (r &VisibleOnScreenNotifier3D) is_on_screen() bool {
     fnname := StringName.new("is_on_screen")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

@@ -2,7 +2,7 @@ module vgdextension
 
 pub struct AudioFrame {
     pub mut:
-    left f32
-    right f32
+    left f64
+    right f64
 }
 

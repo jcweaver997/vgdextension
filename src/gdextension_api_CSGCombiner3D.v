@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type CSGCombiner3D = voidptr
+pub struct CSGCombiner3D {
+    CSGShape3D
+}
 

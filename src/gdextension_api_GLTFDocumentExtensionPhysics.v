@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type GLTFDocumentExtensionPhysics = voidptr
+pub struct GLTFDocumentExtensionPhysics {
+    GLTFDocumentExtension
+}
 

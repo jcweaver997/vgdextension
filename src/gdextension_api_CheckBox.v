@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type CheckBox = voidptr
+pub struct CheckBox {
+    Button
+}
 

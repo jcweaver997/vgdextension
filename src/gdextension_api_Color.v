@@ -3,10 +3,10 @@ module vgdextension
 @[heap]
 pub struct Color {
     pub mut:
-        r f32 // offset 0
-        g f32 // offset 4
-        b f32 // offset 8
-        a f32 // offset 12
+        r f64 // offset 0
+        g f64 // offset 4
+        b f64 // offset 8
+        a f64 // offset 12
 }
 
 pub fn Color.new0 () Color {
@@ -25,7 +25,7 @@ pub fn Color.new1 (from &Color) Color {
     return object_out
 }
 
-pub fn Color.new2 (from &Color, alpha &f32) Color {
+pub fn Color.new2 (from &Color, alpha &f64) Color {
     mut object_out := Color{}
     constructor := gdf.variant_get_ptr_constructor(GDExtensionVariantType.type_color, 2)
     mut args := unsafe { [2]voidptr{} }
@@ -35,7 +35,7 @@ pub fn Color.new2 (from &Color, alpha &f32) Color {
     return object_out
 }
 
-pub fn Color.new3 (r &f32, g &f32, b &f32) Color {
+pub fn Color.new3 (r &f64, g &f64, b &f64) Color {
     mut object_out := Color{}
     constructor := gdf.variant_get_ptr_constructor(GDExtensionVariantType.type_color, 3)
     mut args := unsafe { [3]voidptr{} }
@@ -46,7 +46,7 @@ pub fn Color.new3 (r &f32, g &f32, b &f32) Color {
     return object_out
 }
 
-pub fn Color.new4 (r &f32, g &f32, b &f32, a &f32) Color {
+pub fn Color.new4 (r &f64, g &f64, b &f64, a &f64) Color {
     mut object_out := Color{}
     constructor := gdf.variant_get_ptr_constructor(GDExtensionVariantType.type_color, 4)
     mut args := unsafe { [4]voidptr{} }
@@ -67,7 +67,7 @@ pub fn Color.new5 (code &String) Color {
     return object_out
 }
 
-pub fn Color.new6 (code &String, alpha &f32) Color {
+pub fn Color.new6 (code &String, alpha &f64) Color {
     mut object_out := Color{}
     constructor := gdf.variant_get_ptr_constructor(GDExtensionVariantType.type_color, 6)
     mut args := unsafe { [2]voidptr{} }
@@ -154,7 +154,7 @@ pub fn (r &Color) inverted() Color {
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
    return object_out
 }
-pub fn (r &Color) lerp(to Color, weight f32) Color {
+pub fn (r &Color) lerp(to Color, weight f64) Color {
     mut object_out := Color{}
     fnname := StringName.new("lerp")
     defer { fnname.deinit() }
@@ -165,7 +165,7 @@ pub fn (r &Color) lerp(to Color, weight f32) Color {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 2)
    return object_out
 }
-pub fn (r &Color) lightened(amount f32) Color {
+pub fn (r &Color) lightened(amount f64) Color {
     mut object_out := Color{}
     fnname := StringName.new("lightened")
     defer { fnname.deinit() }
@@ -175,7 +175,7 @@ pub fn (r &Color) lightened(amount f32) Color {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
    return object_out
 }
-pub fn (r &Color) darkened(amount f32) Color {
+pub fn (r &Color) darkened(amount f64) Color {
     mut object_out := Color{}
     fnname := StringName.new("darkened")
     defer { fnname.deinit() }
@@ -195,8 +195,8 @@ pub fn (r &Color) blend(over Color) Color {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
    return object_out
 }
-pub fn (r &Color) get_luminance() f32 {
-    mut object_out := f32(0)
+pub fn (r &Color) get_luminance() f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("get_luminance")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_color, voidptr(&fnname), 466405837)
@@ -280,7 +280,7 @@ pub fn Color.from_string(str String, default Color) Color {
     f(unsafe{nil}, voidptr(&args[0]), voidptr(&object_out), 2)
    return object_out
 }
-pub fn Color.from_hsv(h f32, s f32, v f32, alpha f32) Color {
+pub fn Color.from_hsv(h f64, s f64, v f64, alpha f64) Color {
     mut object_out := Color{}
     fnname := StringName.new("from_hsv")
     defer { fnname.deinit() }
@@ -293,7 +293,7 @@ pub fn Color.from_hsv(h f32, s f32, v f32, alpha f32) Color {
     f(unsafe{nil}, voidptr(&args[0]), voidptr(&object_out), 4)
    return object_out
 }
-pub fn Color.from_ok_hsl(h f32, s f32, l f32, alpha f32) Color {
+pub fn Color.from_ok_hsl(h f64, s f64, l f64, alpha f64) Color {
     mut object_out := Color{}
     fnname := StringName.new("from_ok_hsl")
     defer { fnname.deinit() }
@@ -323,9 +323,14 @@ pub fn (v &Color) to_var() Variant {
     return output
 }
 
-pub fn (v &Color) index(i int) f32 {
+pub fn (mut t Color) set_from_var(var &Variant) {
+    var_to_type := gdf.get_variant_to_type_constructor(GDExtensionVariantType.type_color)
+    var_to_type(voidptr(&t), var)
+}
+
+pub fn (v &Color) index(i int) f64 {
     index_fn := gdf.variant_get_ptr_indexed_getter(GDExtensionVariantType.type_color)
-    mut output := f32(0)
+    mut output := f64(0)
     index_fn(GDExtensionConstTypePtr(v), GDExtensionInt(i), GDExtensionTypePtr(&output))
     return output}
 

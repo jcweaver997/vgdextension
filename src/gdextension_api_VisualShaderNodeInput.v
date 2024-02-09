@@ -1,6 +1,8 @@
 module vgdextension
 
-pub type VisualShaderNodeInput = voidptr
+pub struct VisualShaderNodeInput {
+    VisualShaderNode
+}
 
 pub fn (mut r VisualShaderNodeInput) set_input_name(name String) {
     classname := StringName.new("VisualShaderNodeInput")
@@ -8,7 +10,9 @@ pub fn (mut r VisualShaderNodeInput) set_input_name(name String) {
     fnname := StringName.new("set_input_name")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&name)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &VisualShaderNodeInput) get_input_name() String {
     mut object_out := String{}
@@ -17,7 +21,7 @@ pub fn (r &VisualShaderNodeInput) get_input_name() String {
     fnname := StringName.new("get_input_name")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 201670096)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &VisualShaderNodeInput) get_input_real_name() String {
@@ -27,6 +31,6 @@ pub fn (r &VisualShaderNodeInput) get_input_real_name() String {
     fnname := StringName.new("get_input_real_name")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 201670096)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

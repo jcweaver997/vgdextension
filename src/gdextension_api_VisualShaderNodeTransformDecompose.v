@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type VisualShaderNodeTransformDecompose = voidptr
+pub struct VisualShaderNodeTransformDecompose {
+    VisualShaderNode
+}
 

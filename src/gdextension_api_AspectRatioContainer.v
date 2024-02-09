@@ -13,24 +13,28 @@ pub enum AspectRatioContainerAlignmentMode {
     alignment_end = 2
 }
 
-pub type AspectRatioContainer = voidptr
+pub struct AspectRatioContainer {
+    Container
+}
 
-pub fn (mut r AspectRatioContainer) set_ratio(ratio f32) {
+pub fn (mut r AspectRatioContainer) set_ratio(ratio f64) {
     classname := StringName.new("AspectRatioContainer")
     defer { classname.deinit() }
     fnname := StringName.new("set_ratio")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&ratio)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &AspectRatioContainer) get_ratio() f32 {
-    mut object_out := f32(0)
+pub fn (r &AspectRatioContainer) get_ratio() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("AspectRatioContainer")
     defer { classname.deinit() }
     fnname := StringName.new("get_ratio")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r AspectRatioContainer) set_stretch_mode(stretch_mode AspectRatioContainerStretchMode) {
@@ -39,7 +43,9 @@ pub fn (mut r AspectRatioContainer) set_stretch_mode(stretch_mode AspectRatioCon
     fnname := StringName.new("set_stretch_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1876743467)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&stretch_mode)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &AspectRatioContainer) get_stretch_mode() AspectRatioContainerStretchMode {
     mut object_out := AspectRatioContainerStretchMode.stretch_width_controls_height
@@ -48,7 +54,7 @@ pub fn (r &AspectRatioContainer) get_stretch_mode() AspectRatioContainerStretchM
     fnname := StringName.new("get_stretch_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3416449033)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r AspectRatioContainer) set_alignment_horizontal(alignment_horizontal AspectRatioContainerAlignmentMode) {
@@ -57,7 +63,9 @@ pub fn (mut r AspectRatioContainer) set_alignment_horizontal(alignment_horizonta
     fnname := StringName.new("set_alignment_horizontal")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2147829016)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&alignment_horizontal)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &AspectRatioContainer) get_alignment_horizontal() AspectRatioContainerAlignmentMode {
     mut object_out := AspectRatioContainerAlignmentMode.alignment_begin
@@ -66,7 +74,7 @@ pub fn (r &AspectRatioContainer) get_alignment_horizontal() AspectRatioContainer
     fnname := StringName.new("get_alignment_horizontal")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3838875429)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r AspectRatioContainer) set_alignment_vertical(alignment_vertical AspectRatioContainerAlignmentMode) {
@@ -75,7 +83,9 @@ pub fn (mut r AspectRatioContainer) set_alignment_vertical(alignment_vertical As
     fnname := StringName.new("set_alignment_vertical")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2147829016)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&alignment_vertical)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &AspectRatioContainer) get_alignment_vertical() AspectRatioContainerAlignmentMode {
     mut object_out := AspectRatioContainerAlignmentMode.alignment_begin
@@ -84,6 +94,6 @@ pub fn (r &AspectRatioContainer) get_alignment_vertical() AspectRatioContainerAl
     fnname := StringName.new("get_alignment_vertical")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3838875429)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

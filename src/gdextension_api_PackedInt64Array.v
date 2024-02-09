@@ -221,6 +221,11 @@ pub fn (v &PackedInt64Array) to_var() Variant {
     return output
 }
 
+pub fn (mut t PackedInt64Array) set_from_var(var &Variant) {
+    var_to_type := gdf.get_variant_to_type_constructor(GDExtensionVariantType.type_packedint64array)
+    var_to_type(voidptr(&t), var)
+}
+
 pub fn (v &PackedInt64Array) index(i int) i32 {
     index_fn := gdf.variant_get_ptr_indexed_getter(GDExtensionVariantType.type_packedint64array)
     mut output := i32(0)

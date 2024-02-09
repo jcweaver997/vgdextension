@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type VisualShaderNodeLinearSceneDepth = voidptr
+pub struct VisualShaderNodeLinearSceneDepth {
+    VisualShaderNode
+}
 

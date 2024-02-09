@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type JavaClass = voidptr
+pub struct JavaClass {
+    RefCounted
+}
 

@@ -5,5 +5,7 @@ pub enum ResourceImporterImportOrder {
     import_order_scene = 100
 }
 
-pub type ResourceImporter = voidptr
+pub struct ResourceImporter {
+    RefCounted
+}
 

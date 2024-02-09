@@ -7,16 +7,18 @@ pub enum SceneTreeGroupCallFlags {
     group_call_unique = 4
 }
 
-pub type SceneTree = voidptr
+pub struct SceneTree {
+    MainLoop
+}
 
 pub fn (r &SceneTree) get_root() Window {
-    mut object_out := Window(unsafe{nil})
+    mut object_out := Window{}
     classname := StringName.new("SceneTree")
     defer { classname.deinit() }
     fnname := StringName.new("get_root")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1757182445)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &SceneTree) has_group(name StringName) bool {
@@ -28,7 +30,7 @@ pub fn (r &SceneTree) has_group(name StringName) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2619796661)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&name)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &SceneTree) is_auto_accept_quit() bool {
@@ -38,7 +40,7 @@ pub fn (r &SceneTree) is_auto_accept_quit() bool {
     fnname := StringName.new("is_auto_accept_quit")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SceneTree) set_auto_accept_quit(enabled bool) {
@@ -47,7 +49,9 @@ pub fn (mut r SceneTree) set_auto_accept_quit(enabled bool) {
     fnname := StringName.new("set_auto_accept_quit")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enabled)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SceneTree) is_quit_on_go_back() bool {
     mut object_out := false
@@ -56,7 +60,7 @@ pub fn (r &SceneTree) is_quit_on_go_back() bool {
     fnname := StringName.new("is_quit_on_go_back")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SceneTree) set_quit_on_go_back(enabled bool) {
@@ -65,7 +69,9 @@ pub fn (mut r SceneTree) set_quit_on_go_back(enabled bool) {
     fnname := StringName.new("set_quit_on_go_back")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enabled)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r SceneTree) set_debug_collisions_hint(enable bool) {
     classname := StringName.new("SceneTree")
@@ -73,7 +79,9 @@ pub fn (mut r SceneTree) set_debug_collisions_hint(enable bool) {
     fnname := StringName.new("set_debug_collisions_hint")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SceneTree) is_debugging_collisions_hint() bool {
     mut object_out := false
@@ -82,7 +90,7 @@ pub fn (r &SceneTree) is_debugging_collisions_hint() bool {
     fnname := StringName.new("is_debugging_collisions_hint")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SceneTree) set_debug_paths_hint(enable bool) {
@@ -91,7 +99,9 @@ pub fn (mut r SceneTree) set_debug_paths_hint(enable bool) {
     fnname := StringName.new("set_debug_paths_hint")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SceneTree) is_debugging_paths_hint() bool {
     mut object_out := false
@@ -100,7 +110,7 @@ pub fn (r &SceneTree) is_debugging_paths_hint() bool {
     fnname := StringName.new("is_debugging_paths_hint")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SceneTree) set_debug_navigation_hint(enable bool) {
@@ -109,7 +119,9 @@ pub fn (mut r SceneTree) set_debug_navigation_hint(enable bool) {
     fnname := StringName.new("set_debug_navigation_hint")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SceneTree) is_debugging_navigation_hint() bool {
     mut object_out := false
@@ -118,7 +130,7 @@ pub fn (r &SceneTree) is_debugging_navigation_hint() bool {
     fnname := StringName.new("is_debugging_navigation_hint")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SceneTree) set_edited_scene_root(scene Node) {
@@ -127,16 +139,18 @@ pub fn (mut r SceneTree) set_edited_scene_root(scene Node) {
     fnname := StringName.new("set_edited_scene_root")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = scene.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SceneTree) get_edited_scene_root() Node {
-    mut object_out := Node(unsafe{nil})
+    mut object_out := Node{}
     classname := StringName.new("SceneTree")
     defer { classname.deinit() }
     fnname := StringName.new("get_edited_scene_root")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3160264692)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SceneTree) set_pause(enable bool) {
@@ -145,7 +159,9 @@ pub fn (mut r SceneTree) set_pause(enable bool) {
     fnname := StringName.new("set_pause")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SceneTree) is_paused() bool {
     mut object_out := false
@@ -154,11 +170,11 @@ pub fn (r &SceneTree) is_paused() bool {
     fnname := StringName.new("is_paused")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r SceneTree) create_timer(time_sec f32, process_always bool, process_in_physics bool, ignore_time_scale bool) SceneTreeTimer {
-    mut object_out := SceneTreeTimer(unsafe{nil})
+pub fn (mut r SceneTree) create_timer(time_sec f64, process_always bool, process_in_physics bool, ignore_time_scale bool) SceneTreeTimer {
+    mut object_out := SceneTreeTimer{}
     classname := StringName.new("SceneTree")
     defer { classname.deinit() }
     fnname := StringName.new("create_timer")
@@ -169,17 +185,17 @@ pub fn (mut r SceneTree) create_timer(time_sec f32, process_always bool, process
     args[1] = unsafe{voidptr(&process_always)}
     args[2] = unsafe{voidptr(&process_in_physics)}
     args[3] = unsafe{voidptr(&ignore_time_scale)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SceneTree) create_tween() Tween {
-    mut object_out := Tween(unsafe{nil})
+    mut object_out := Tween{}
     classname := StringName.new("SceneTree")
     defer { classname.deinit() }
     fnname := StringName.new("create_tween")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3426978995)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SceneTree) get_processed_tweens() Array {
@@ -189,7 +205,7 @@ pub fn (mut r SceneTree) get_processed_tweens() Array {
     fnname := StringName.new("get_processed_tweens")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2915620761)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &SceneTree) get_node_count() i32 {
@@ -199,17 +215,17 @@ pub fn (r &SceneTree) get_node_count() i32 {
     fnname := StringName.new("get_node_count")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (r &SceneTree) get_frame() i32 {
-    mut object_out := i32(0)
+pub fn (r &SceneTree) get_frame() i64 {
+    mut object_out := i64(0)
     classname := StringName.new("SceneTree")
     defer { classname.deinit() }
     fnname := StringName.new("get_frame")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SceneTree) quit(exit_code i32) {
@@ -218,7 +234,9 @@ pub fn (mut r SceneTree) quit(exit_code i32) {
     fnname := StringName.new("quit")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1995695955)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&exit_code)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r SceneTree) queue_delete(obj Object) {
     classname := StringName.new("SceneTree")
@@ -226,23 +244,34 @@ pub fn (mut r SceneTree) queue_delete(obj Object) {
     fnname := StringName.new("queue_delete")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3975164845)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = obj.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r SceneTree) notify_group_flags(call_flags i32, group StringName, notification i32) {
+pub fn (mut r SceneTree) notify_group_flags(call_flags u32, group StringName, notification i32) {
     classname := StringName.new("SceneTree")
     defer { classname.deinit() }
     fnname := StringName.new("notify_group_flags")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1245489420)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&call_flags)}
+    args[1] = unsafe{voidptr(&group)}
+    args[2] = unsafe{voidptr(&notification)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r SceneTree) set_group_flags(call_flags i32, group StringName, property String, value Variant) {
+pub fn (mut r SceneTree) set_group_flags(call_flags u32, group StringName, property String, value Variant) {
     classname := StringName.new("SceneTree")
     defer { classname.deinit() }
     fnname := StringName.new("set_group_flags")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3497599527)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [4]voidptr{} }
+    args[0] = unsafe{voidptr(&call_flags)}
+    args[1] = unsafe{voidptr(&group)}
+    args[2] = unsafe{voidptr(&property)}
+    args[3] = unsafe{voidptr(&value)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r SceneTree) notify_group(group StringName, notification i32) {
     classname := StringName.new("SceneTree")
@@ -250,7 +279,10 @@ pub fn (mut r SceneTree) notify_group(group StringName, notification i32) {
     fnname := StringName.new("notify_group")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2415702435)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&group)}
+    args[1] = unsafe{voidptr(&notification)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r SceneTree) set_group(group StringName, property String, value Variant) {
     classname := StringName.new("SceneTree")
@@ -258,7 +290,11 @@ pub fn (mut r SceneTree) set_group(group StringName, property String, value Vari
     fnname := StringName.new("set_group")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1279312029)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&group)}
+    args[1] = unsafe{voidptr(&property)}
+    args[2] = unsafe{voidptr(&value)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r SceneTree) get_nodes_in_group(group StringName) Array {
     mut object_out := Array{}
@@ -269,11 +305,11 @@ pub fn (mut r SceneTree) get_nodes_in_group(group StringName) Array {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 689397652)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&group)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SceneTree) get_first_node_in_group(group StringName) Node {
-    mut object_out := Node(unsafe{nil})
+    mut object_out := Node{}
     classname := StringName.new("SceneTree")
     defer { classname.deinit() }
     fnname := StringName.new("get_first_node_in_group")
@@ -281,7 +317,7 @@ pub fn (mut r SceneTree) get_first_node_in_group(group StringName) Node {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4071044623)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&group)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SceneTree) set_current_scene(child_node Node) {
@@ -290,16 +326,18 @@ pub fn (mut r SceneTree) set_current_scene(child_node Node) {
     fnname := StringName.new("set_current_scene")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = child_node.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SceneTree) get_current_scene() Node {
-    mut object_out := Node(unsafe{nil})
+    mut object_out := Node{}
     classname := StringName.new("SceneTree")
     defer { classname.deinit() }
     fnname := StringName.new("get_current_scene")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3160264692)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SceneTree) change_scene_to_file(path String) GDError {
@@ -311,7 +349,7 @@ pub fn (mut r SceneTree) change_scene_to_file(path String) GDError {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 166001499)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&path)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SceneTree) change_scene_to_packed(packed_scene PackedScene) GDError {
@@ -322,8 +360,8 @@ pub fn (mut r SceneTree) change_scene_to_packed(packed_scene PackedScene) GDErro
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 107349098)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&packed_scene)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    args[0] = packed_scene.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SceneTree) reload_current_scene() GDError {
@@ -333,7 +371,7 @@ pub fn (mut r SceneTree) reload_current_scene() GDError {
     fnname := StringName.new("reload_current_scene")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 166280745)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SceneTree) unload_current_scene() {
@@ -342,7 +380,7 @@ pub fn (mut r SceneTree) unload_current_scene() {
     fnname := StringName.new("unload_current_scene")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
 pub fn (mut r SceneTree) set_multiplayer(multiplayer MultiplayerAPI, root_path NodePath) {
     classname := StringName.new("SceneTree")
@@ -350,10 +388,13 @@ pub fn (mut r SceneTree) set_multiplayer(multiplayer MultiplayerAPI, root_path N
     fnname := StringName.new("set_multiplayer")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2385607013)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = multiplayer.ptr
+    args[1] = unsafe{voidptr(&root_path)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SceneTree) get_multiplayer(for_path NodePath) MultiplayerAPI {
-    mut object_out := MultiplayerAPI(unsafe{nil})
+    mut object_out := MultiplayerAPI{}
     classname := StringName.new("SceneTree")
     defer { classname.deinit() }
     fnname := StringName.new("get_multiplayer")
@@ -361,7 +402,7 @@ pub fn (r &SceneTree) get_multiplayer(for_path NodePath) MultiplayerAPI {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3453401404)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&for_path)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SceneTree) set_multiplayer_poll_enabled(enabled bool) {
@@ -370,7 +411,9 @@ pub fn (mut r SceneTree) set_multiplayer_poll_enabled(enabled bool) {
     fnname := StringName.new("set_multiplayer_poll_enabled")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enabled)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SceneTree) is_multiplayer_poll_enabled() bool {
     mut object_out := false
@@ -379,6 +422,6 @@ pub fn (r &SceneTree) is_multiplayer_poll_enabled() bool {
     fnname := StringName.new("is_multiplayer_poll_enabled")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

@@ -1,6 +1,13 @@
 module vgdextension
 
-pub type Translation = voidptr
+pub struct Translation {
+    Resource
+}
+
+pub interface ITranslationGetPluralMessage {
+    mut:
+    virt_get_plural_message(src_message StringName, src_plural_message StringName, n i32, context StringName) StringName
+}
 
 pub fn (r &Translation) uget_plural_message(src_message StringName, src_plural_message StringName, n i32, context StringName) StringName {
     mut object_out := StringName{}
@@ -14,9 +21,14 @@ pub fn (r &Translation) uget_plural_message(src_message StringName, src_plural_m
     args[1] = unsafe{voidptr(&src_plural_message)}
     args[2] = unsafe{voidptr(&n)}
     args[3] = unsafe{voidptr(&context)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
+pub interface ITranslationGetMessage {
+    mut:
+    virt_get_message(src_message StringName, context StringName) StringName
+}
+
 pub fn (r &Translation) uget_message(src_message StringName, context StringName) StringName {
     mut object_out := StringName{}
     classname := StringName.new("Translation")
@@ -27,7 +39,7 @@ pub fn (r &Translation) uget_message(src_message StringName, context StringName)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&src_message)}
     args[1] = unsafe{voidptr(&context)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Translation) set_locale(locale String) {
@@ -36,7 +48,9 @@ pub fn (mut r Translation) set_locale(locale String) {
     fnname := StringName.new("set_locale")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&locale)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Translation) get_locale() String {
     mut object_out := String{}
@@ -45,7 +59,7 @@ pub fn (r &Translation) get_locale() String {
     fnname := StringName.new("get_locale")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 201670096)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Translation) add_message(src_message StringName, xlated_message StringName, context StringName) {
@@ -54,7 +68,11 @@ pub fn (mut r Translation) add_message(src_message StringName, xlated_message St
     fnname := StringName.new("add_message")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 971803314)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&src_message)}
+    args[1] = unsafe{voidptr(&xlated_message)}
+    args[2] = unsafe{voidptr(&context)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r Translation) add_plural_message(src_message StringName, xlated_messages PackedStringArray, context StringName) {
     classname := StringName.new("Translation")
@@ -62,7 +80,11 @@ pub fn (mut r Translation) add_plural_message(src_message StringName, xlated_mes
     fnname := StringName.new("add_plural_message")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 360316719)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&src_message)}
+    args[1] = unsafe{voidptr(&xlated_messages)}
+    args[2] = unsafe{voidptr(&context)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Translation) get_message(src_message StringName, context StringName) StringName {
     mut object_out := StringName{}
@@ -74,7 +96,7 @@ pub fn (r &Translation) get_message(src_message StringName, context StringName) 
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&src_message)}
     args[1] = unsafe{voidptr(&context)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Translation) get_plural_message(src_message StringName, src_plural_message StringName, n i32, context StringName) StringName {
@@ -89,7 +111,7 @@ pub fn (r &Translation) get_plural_message(src_message StringName, src_plural_me
     args[1] = unsafe{voidptr(&src_plural_message)}
     args[2] = unsafe{voidptr(&n)}
     args[3] = unsafe{voidptr(&context)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Translation) erase_message(src_message StringName, context StringName) {
@@ -98,7 +120,10 @@ pub fn (mut r Translation) erase_message(src_message StringName, context StringN
     fnname := StringName.new("erase_message")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3919944288)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&src_message)}
+    args[1] = unsafe{voidptr(&context)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Translation) get_message_list() PackedStringArray {
     mut object_out := PackedStringArray{}
@@ -107,7 +132,7 @@ pub fn (r &Translation) get_message_list() PackedStringArray {
     fnname := StringName.new("get_message_list")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1139954409)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &Translation) get_translated_message_list() PackedStringArray {
@@ -117,7 +142,7 @@ pub fn (r &Translation) get_translated_message_list() PackedStringArray {
     fnname := StringName.new("get_translated_message_list")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1139954409)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &Translation) get_message_count() i32 {
@@ -127,6 +152,6 @@ pub fn (r &Translation) get_message_count() i32 {
     fnname := StringName.new("get_message_count")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

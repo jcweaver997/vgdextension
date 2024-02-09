@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type VisualShaderNodeFresnel = voidptr
+pub struct VisualShaderNodeFresnel {
+    VisualShaderNode
+}
 

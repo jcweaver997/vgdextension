@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type QuadMesh = voidptr
+pub struct QuadMesh {
+    PlaneMesh
+}
 

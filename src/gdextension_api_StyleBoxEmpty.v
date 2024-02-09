@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type StyleBoxEmpty = voidptr
+pub struct StyleBoxEmpty {
+    StyleBox
+}
 

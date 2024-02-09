@@ -1,6 +1,8 @@
 module vgdextension
 
-pub type PhysicsDirectSpaceState2D = voidptr
+pub struct PhysicsDirectSpaceState2D {
+    Object
+}
 
 pub fn (mut r PhysicsDirectSpaceState2D) intersect_point(parameters PhysicsPointQueryParameters2D, max_results i32) Array {
     mut object_out := Array{}
@@ -10,9 +12,9 @@ pub fn (mut r PhysicsDirectSpaceState2D) intersect_point(parameters PhysicsPoint
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3278207904)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&parameters)}
+    args[0] = parameters.ptr
     args[1] = unsafe{voidptr(&max_results)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r PhysicsDirectSpaceState2D) intersect_ray(parameters PhysicsRayQueryParameters2D) Dictionary {
@@ -23,8 +25,8 @@ pub fn (mut r PhysicsDirectSpaceState2D) intersect_ray(parameters PhysicsRayQuer
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1590275562)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&parameters)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    args[0] = parameters.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r PhysicsDirectSpaceState2D) intersect_shape(parameters PhysicsShapeQueryParameters2D, max_results i32) Array {
@@ -35,9 +37,9 @@ pub fn (mut r PhysicsDirectSpaceState2D) intersect_shape(parameters PhysicsShape
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3803848594)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&parameters)}
+    args[0] = parameters.ptr
     args[1] = unsafe{voidptr(&max_results)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r PhysicsDirectSpaceState2D) cast_motion(parameters PhysicsShapeQueryParameters2D) PackedFloat32Array {
@@ -48,8 +50,8 @@ pub fn (mut r PhysicsDirectSpaceState2D) cast_motion(parameters PhysicsShapeQuer
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 711275086)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&parameters)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    args[0] = parameters.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r PhysicsDirectSpaceState2D) collide_shape(parameters PhysicsShapeQueryParameters2D, max_results i32) Array {
@@ -60,9 +62,9 @@ pub fn (mut r PhysicsDirectSpaceState2D) collide_shape(parameters PhysicsShapeQu
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3803848594)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&parameters)}
+    args[0] = parameters.ptr
     args[1] = unsafe{voidptr(&max_results)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r PhysicsDirectSpaceState2D) get_rest_info(parameters PhysicsShapeQueryParameters2D) Dictionary {
@@ -73,7 +75,7 @@ pub fn (mut r PhysicsDirectSpaceState2D) get_rest_info(parameters PhysicsShapeQu
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2803666496)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&parameters)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    args[0] = parameters.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }

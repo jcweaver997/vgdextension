@@ -1,6 +1,8 @@
 module vgdextension
 
-pub type SystemFont = voidptr
+pub struct SystemFont {
+    Font
+}
 
 pub fn (mut r SystemFont) set_antialiasing(antialiasing TextServerFontAntialiasing) {
     classname := StringName.new("SystemFont")
@@ -8,7 +10,9 @@ pub fn (mut r SystemFont) set_antialiasing(antialiasing TextServerFontAntialiasi
     fnname := StringName.new("set_antialiasing")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1669900)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&antialiasing)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SystemFont) get_antialiasing() TextServerFontAntialiasing {
     mut object_out := TextServerFontAntialiasing.font_antialiasing_none
@@ -17,7 +21,7 @@ pub fn (r &SystemFont) get_antialiasing() TextServerFontAntialiasing {
     fnname := StringName.new("get_antialiasing")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4262718649)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SystemFont) set_generate_mipmaps(generate_mipmaps bool) {
@@ -26,7 +30,9 @@ pub fn (mut r SystemFont) set_generate_mipmaps(generate_mipmaps bool) {
     fnname := StringName.new("set_generate_mipmaps")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&generate_mipmaps)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SystemFont) get_generate_mipmaps() bool {
     mut object_out := false
@@ -35,7 +41,7 @@ pub fn (r &SystemFont) get_generate_mipmaps() bool {
     fnname := StringName.new("get_generate_mipmaps")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SystemFont) set_allow_system_fallback(allow_system_fallback bool) {
@@ -44,7 +50,9 @@ pub fn (mut r SystemFont) set_allow_system_fallback(allow_system_fallback bool) 
     fnname := StringName.new("set_allow_system_fallback")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&allow_system_fallback)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SystemFont) is_allow_system_fallback() bool {
     mut object_out := false
@@ -53,7 +61,7 @@ pub fn (r &SystemFont) is_allow_system_fallback() bool {
     fnname := StringName.new("is_allow_system_fallback")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SystemFont) set_force_autohinter(force_autohinter bool) {
@@ -62,7 +70,9 @@ pub fn (mut r SystemFont) set_force_autohinter(force_autohinter bool) {
     fnname := StringName.new("set_force_autohinter")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&force_autohinter)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SystemFont) is_force_autohinter() bool {
     mut object_out := false
@@ -71,7 +81,7 @@ pub fn (r &SystemFont) is_force_autohinter() bool {
     fnname := StringName.new("is_force_autohinter")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SystemFont) set_hinting(hinting TextServerHinting) {
@@ -80,7 +90,9 @@ pub fn (mut r SystemFont) set_hinting(hinting TextServerHinting) {
     fnname := StringName.new("set_hinting")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1827459492)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&hinting)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SystemFont) get_hinting() TextServerHinting {
     mut object_out := TextServerHinting.hinting_none
@@ -89,7 +101,7 @@ pub fn (r &SystemFont) get_hinting() TextServerHinting {
     fnname := StringName.new("get_hinting")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3683214614)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SystemFont) set_subpixel_positioning(subpixel_positioning TextServerSubpixelPositioning) {
@@ -98,7 +110,9 @@ pub fn (mut r SystemFont) set_subpixel_positioning(subpixel_positioning TextServ
     fnname := StringName.new("set_subpixel_positioning")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4225742182)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&subpixel_positioning)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SystemFont) get_subpixel_positioning() TextServerSubpixelPositioning {
     mut object_out := TextServerSubpixelPositioning.subpixel_positioning_disabled
@@ -107,7 +121,7 @@ pub fn (r &SystemFont) get_subpixel_positioning() TextServerSubpixelPositioning 
     fnname := StringName.new("get_subpixel_positioning")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1069238588)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SystemFont) set_multichannel_signed_distance_field(msdf bool) {
@@ -116,7 +130,9 @@ pub fn (mut r SystemFont) set_multichannel_signed_distance_field(msdf bool) {
     fnname := StringName.new("set_multichannel_signed_distance_field")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&msdf)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SystemFont) is_multichannel_signed_distance_field() bool {
     mut object_out := false
@@ -125,7 +141,7 @@ pub fn (r &SystemFont) is_multichannel_signed_distance_field() bool {
     fnname := StringName.new("is_multichannel_signed_distance_field")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SystemFont) set_msdf_pixel_range(msdf_pixel_range i32) {
@@ -134,7 +150,9 @@ pub fn (mut r SystemFont) set_msdf_pixel_range(msdf_pixel_range i32) {
     fnname := StringName.new("set_msdf_pixel_range")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&msdf_pixel_range)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SystemFont) get_msdf_pixel_range() i32 {
     mut object_out := i32(0)
@@ -143,7 +161,7 @@ pub fn (r &SystemFont) get_msdf_pixel_range() i32 {
     fnname := StringName.new("get_msdf_pixel_range")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SystemFont) set_msdf_size(msdf_size i32) {
@@ -152,7 +170,9 @@ pub fn (mut r SystemFont) set_msdf_size(msdf_size i32) {
     fnname := StringName.new("set_msdf_size")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&msdf_size)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SystemFont) get_msdf_size() i32 {
     mut object_out := i32(0)
@@ -161,25 +181,27 @@ pub fn (r &SystemFont) get_msdf_size() i32 {
     fnname := StringName.new("get_msdf_size")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r SystemFont) set_oversampling(oversampling f32) {
+pub fn (mut r SystemFont) set_oversampling(oversampling f64) {
     classname := StringName.new("SystemFont")
     defer { classname.deinit() }
     fnname := StringName.new("set_oversampling")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&oversampling)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &SystemFont) get_oversampling() f32 {
-    mut object_out := f32(0)
+pub fn (r &SystemFont) get_oversampling() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("SystemFont")
     defer { classname.deinit() }
     fnname := StringName.new("get_oversampling")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &SystemFont) get_font_names() PackedStringArray {
@@ -189,7 +211,7 @@ pub fn (r &SystemFont) get_font_names() PackedStringArray {
     fnname := StringName.new("get_font_names")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1139954409)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SystemFont) set_font_names(names PackedStringArray) {
@@ -198,7 +220,9 @@ pub fn (mut r SystemFont) set_font_names(names PackedStringArray) {
     fnname := StringName.new("set_font_names")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4015028928)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&names)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SystemFont) get_font_italic() bool {
     mut object_out := false
@@ -207,7 +231,7 @@ pub fn (r &SystemFont) get_font_italic() bool {
     fnname := StringName.new("get_font_italic")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SystemFont) set_font_italic(italic bool) {
@@ -216,7 +240,9 @@ pub fn (mut r SystemFont) set_font_italic(italic bool) {
     fnname := StringName.new("set_font_italic")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&italic)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r SystemFont) set_font_weight(weight i32) {
     classname := StringName.new("SystemFont")
@@ -224,7 +250,9 @@ pub fn (mut r SystemFont) set_font_weight(weight i32) {
     fnname := StringName.new("set_font_weight")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&weight)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r SystemFont) set_font_stretch(stretch i32) {
     classname := StringName.new("SystemFont")
@@ -232,5 +260,7 @@ pub fn (mut r SystemFont) set_font_stretch(stretch i32) {
     fnname := StringName.new("set_font_stretch")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&stretch)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }

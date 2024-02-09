@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type EditorExportPlatformMacOS = voidptr
+pub struct EditorExportPlatformMacOS {
+    EditorExportPlatform
+}
 

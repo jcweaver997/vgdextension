@@ -90,7 +90,9 @@ pub enum HTTPClientResponseCode {
     response_network_auth_required = 511
 }
 
-pub type HTTPClient = voidptr
+pub struct HTTPClient {
+    RefCounted
+}
 
 pub fn (mut r HTTPClient) connect_to_host(host String, port i32, tls_options TLSOptions) GDError {
     mut object_out := GDError.ok
@@ -102,8 +104,8 @@ pub fn (mut r HTTPClient) connect_to_host(host String, port i32, tls_options TLS
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&host)}
     args[1] = unsafe{voidptr(&port)}
-    args[2] = unsafe{voidptr(&tls_options)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    args[2] = tls_options.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r HTTPClient) set_connection(connection StreamPeer) {
@@ -112,16 +114,18 @@ pub fn (mut r HTTPClient) set_connection(connection StreamPeer) {
     fnname := StringName.new("set_connection")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3281897016)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = connection.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &HTTPClient) get_connection() StreamPeer {
-    mut object_out := StreamPeer(unsafe{nil})
+    mut object_out := StreamPeer{}
     classname := StringName.new("HTTPClient")
     defer { classname.deinit() }
     fnname := StringName.new("get_connection")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2741655269)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r HTTPClient) request_raw(method HTTPClientMethod, url String, headers PackedStringArray, body PackedByteArray) GDError {
@@ -136,7 +140,7 @@ pub fn (mut r HTTPClient) request_raw(method HTTPClientMethod, url String, heade
     args[1] = unsafe{voidptr(&url)}
     args[2] = unsafe{voidptr(&headers)}
     args[3] = unsafe{voidptr(&body)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r HTTPClient) request(method HTTPClientMethod, url String, headers PackedStringArray, body String) GDError {
@@ -151,7 +155,7 @@ pub fn (mut r HTTPClient) request(method HTTPClientMethod, url String, headers P
     args[1] = unsafe{voidptr(&url)}
     args[2] = unsafe{voidptr(&headers)}
     args[3] = unsafe{voidptr(&body)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r HTTPClient) close() {
@@ -160,7 +164,7 @@ pub fn (mut r HTTPClient) close() {
     fnname := StringName.new("close")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
 pub fn (r &HTTPClient) has_response() bool {
     mut object_out := false
@@ -169,7 +173,7 @@ pub fn (r &HTTPClient) has_response() bool {
     fnname := StringName.new("has_response")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &HTTPClient) is_response_chunked() bool {
@@ -179,7 +183,7 @@ pub fn (r &HTTPClient) is_response_chunked() bool {
     fnname := StringName.new("is_response_chunked")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &HTTPClient) get_response_code() i32 {
@@ -189,7 +193,7 @@ pub fn (r &HTTPClient) get_response_code() i32 {
     fnname := StringName.new("get_response_code")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r HTTPClient) get_response_headers() PackedStringArray {
@@ -199,7 +203,7 @@ pub fn (mut r HTTPClient) get_response_headers() PackedStringArray {
     fnname := StringName.new("get_response_headers")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2981934095)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r HTTPClient) get_response_headers_as_dictionary() Dictionary {
@@ -209,17 +213,17 @@ pub fn (mut r HTTPClient) get_response_headers_as_dictionary() Dictionary {
     fnname := StringName.new("get_response_headers_as_dictionary")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2382534195)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (r &HTTPClient) get_response_body_length() i32 {
-    mut object_out := i32(0)
+pub fn (r &HTTPClient) get_response_body_length() i64 {
+    mut object_out := i64(0)
     classname := StringName.new("HTTPClient")
     defer { classname.deinit() }
     fnname := StringName.new("get_response_body_length")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r HTTPClient) read_response_body_chunk() PackedByteArray {
@@ -229,7 +233,7 @@ pub fn (mut r HTTPClient) read_response_body_chunk() PackedByteArray {
     fnname := StringName.new("read_response_body_chunk")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2115431945)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r HTTPClient) set_read_chunk_size(bytes i32) {
@@ -238,7 +242,9 @@ pub fn (mut r HTTPClient) set_read_chunk_size(bytes i32) {
     fnname := StringName.new("set_read_chunk_size")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&bytes)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &HTTPClient) get_read_chunk_size() i32 {
     mut object_out := i32(0)
@@ -247,7 +253,7 @@ pub fn (r &HTTPClient) get_read_chunk_size() i32 {
     fnname := StringName.new("get_read_chunk_size")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r HTTPClient) set_blocking_mode(enabled bool) {
@@ -256,7 +262,9 @@ pub fn (mut r HTTPClient) set_blocking_mode(enabled bool) {
     fnname := StringName.new("set_blocking_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enabled)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &HTTPClient) is_blocking_mode_enabled() bool {
     mut object_out := false
@@ -265,7 +273,7 @@ pub fn (r &HTTPClient) is_blocking_mode_enabled() bool {
     fnname := StringName.new("is_blocking_mode_enabled")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &HTTPClient) get_status() HTTPClientStatus {
@@ -275,7 +283,7 @@ pub fn (r &HTTPClient) get_status() HTTPClientStatus {
     fnname := StringName.new("get_status")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1426656811)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r HTTPClient) poll() GDError {
@@ -285,7 +293,7 @@ pub fn (mut r HTTPClient) poll() GDError {
     fnname := StringName.new("poll")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 166280745)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r HTTPClient) set_http_proxy(host String, port i32) {
@@ -294,7 +302,10 @@ pub fn (mut r HTTPClient) set_http_proxy(host String, port i32) {
     fnname := StringName.new("set_http_proxy")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2956805083)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&host)}
+    args[1] = unsafe{voidptr(&port)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r HTTPClient) set_https_proxy(host String, port i32) {
     classname := StringName.new("HTTPClient")
@@ -302,7 +313,10 @@ pub fn (mut r HTTPClient) set_https_proxy(host String, port i32) {
     fnname := StringName.new("set_https_proxy")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2956805083)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&host)}
+    args[1] = unsafe{voidptr(&port)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r HTTPClient) query_string_from_dict(fields Dictionary) String {
     mut object_out := String{}
@@ -313,6 +327,6 @@ pub fn (mut r HTTPClient) query_string_from_dict(fields Dictionary) String {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2538086567)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&fields)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }

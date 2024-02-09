@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type EditorSceneFormatImporterBlend = voidptr
+pub struct EditorSceneFormatImporterBlend {
+    EditorSceneFormatImporter
+}
 

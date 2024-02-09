@@ -271,8 +271,8 @@ pub fn (r &String) bigrams() PackedStringArray {
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
    return object_out
 }
-pub fn (r &String) similarity(text String) f32 {
-    mut object_out := f32(0)
+pub fn (r &String) similarity(text String) f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("similarity")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_string, voidptr(&fnname), 2697460964)
@@ -806,8 +806,8 @@ pub fn (r &String) to_int() i32 {
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
    return object_out
 }
-pub fn (r &String) to_float() f32 {
-    mut object_out := f32(0)
+pub fn (r &String) to_float() f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("to_float")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_string, voidptr(&fnname), 466405837)
@@ -940,7 +940,7 @@ pub fn (r &String) to_wchar_buffer() PackedByteArray {
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
    return object_out
 }
-pub fn String.num_scientific(number f32) String {
+pub fn String.num_scientific(number f64) String {
     mut object_out := String{}
     fnname := StringName.new("num_scientific")
     defer { fnname.deinit() }
@@ -950,7 +950,7 @@ pub fn String.num_scientific(number f32) String {
     f(unsafe{nil}, voidptr(&args[0]), voidptr(&object_out), 1)
    return object_out
 }
-pub fn String.num(number f32, decimals i32) String {
+pub fn String.num(number f64, decimals i32) String {
     mut object_out := String{}
     fnname := StringName.new("num")
     defer { fnname.deinit() }
@@ -1010,6 +1010,11 @@ pub fn (v &String) to_var() Variant {
     output := Variant{}
     to_variant(GDExtensionUninitializedVariantPtr(&output), GDExtensionTypePtr(v))
     return output
+}
+
+pub fn (mut t String) set_from_var(var &Variant) {
+    var_to_type := gdf.get_variant_to_type_constructor(GDExtensionVariantType.type_string)
+    var_to_type(voidptr(&t), var)
 }
 
 pub fn (v &String) index(i int) String {

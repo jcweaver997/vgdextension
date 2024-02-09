@@ -1,23 +1,27 @@
 module vgdextension
 
-pub type TubeTrailMesh = voidptr
+pub struct TubeTrailMesh {
+    PrimitiveMesh
+}
 
-pub fn (mut r TubeTrailMesh) set_radius(radius f32) {
+pub fn (mut r TubeTrailMesh) set_radius(radius f64) {
     classname := StringName.new("TubeTrailMesh")
     defer { classname.deinit() }
     fnname := StringName.new("set_radius")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&radius)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &TubeTrailMesh) get_radius() f32 {
-    mut object_out := f32(0)
+pub fn (r &TubeTrailMesh) get_radius() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("TubeTrailMesh")
     defer { classname.deinit() }
     fnname := StringName.new("get_radius")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TubeTrailMesh) set_radial_steps(radial_steps i32) {
@@ -26,7 +30,9 @@ pub fn (mut r TubeTrailMesh) set_radial_steps(radial_steps i32) {
     fnname := StringName.new("set_radial_steps")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&radial_steps)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TubeTrailMesh) get_radial_steps() i32 {
     mut object_out := i32(0)
@@ -35,7 +41,7 @@ pub fn (r &TubeTrailMesh) get_radial_steps() i32 {
     fnname := StringName.new("get_radial_steps")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TubeTrailMesh) set_sections(sections i32) {
@@ -44,7 +50,9 @@ pub fn (mut r TubeTrailMesh) set_sections(sections i32) {
     fnname := StringName.new("set_sections")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&sections)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TubeTrailMesh) get_sections() i32 {
     mut object_out := i32(0)
@@ -53,25 +61,27 @@ pub fn (r &TubeTrailMesh) get_sections() i32 {
     fnname := StringName.new("get_sections")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r TubeTrailMesh) set_section_length(section_length f32) {
+pub fn (mut r TubeTrailMesh) set_section_length(section_length f64) {
     classname := StringName.new("TubeTrailMesh")
     defer { classname.deinit() }
     fnname := StringName.new("set_section_length")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&section_length)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &TubeTrailMesh) get_section_length() f32 {
-    mut object_out := f32(0)
+pub fn (r &TubeTrailMesh) get_section_length() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("TubeTrailMesh")
     defer { classname.deinit() }
     fnname := StringName.new("get_section_length")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TubeTrailMesh) set_section_rings(section_rings i32) {
@@ -80,7 +90,9 @@ pub fn (mut r TubeTrailMesh) set_section_rings(section_rings i32) {
     fnname := StringName.new("set_section_rings")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&section_rings)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TubeTrailMesh) get_section_rings() i32 {
     mut object_out := i32(0)
@@ -89,7 +101,7 @@ pub fn (r &TubeTrailMesh) get_section_rings() i32 {
     fnname := StringName.new("get_section_rings")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TubeTrailMesh) set_cap_top(cap_top bool) {
@@ -98,7 +110,9 @@ pub fn (mut r TubeTrailMesh) set_cap_top(cap_top bool) {
     fnname := StringName.new("set_cap_top")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&cap_top)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TubeTrailMesh) is_cap_top() bool {
     mut object_out := false
@@ -107,7 +121,7 @@ pub fn (r &TubeTrailMesh) is_cap_top() bool {
     fnname := StringName.new("is_cap_top")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TubeTrailMesh) set_cap_bottom(cap_bottom bool) {
@@ -116,7 +130,9 @@ pub fn (mut r TubeTrailMesh) set_cap_bottom(cap_bottom bool) {
     fnname := StringName.new("set_cap_bottom")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&cap_bottom)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TubeTrailMesh) is_cap_bottom() bool {
     mut object_out := false
@@ -125,7 +141,7 @@ pub fn (r &TubeTrailMesh) is_cap_bottom() bool {
     fnname := StringName.new("is_cap_bottom")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TubeTrailMesh) set_curve(curve Curve) {
@@ -134,15 +150,17 @@ pub fn (mut r TubeTrailMesh) set_curve(curve Curve) {
     fnname := StringName.new("set_curve")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 270443179)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = curve.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TubeTrailMesh) get_curve() Curve {
-    mut object_out := Curve(unsafe{nil})
+    mut object_out := Curve{}
     classname := StringName.new("TubeTrailMesh")
     defer { classname.deinit() }
     fnname := StringName.new("get_curve")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2460114913)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

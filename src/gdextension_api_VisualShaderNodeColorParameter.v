@@ -1,6 +1,8 @@
 module vgdextension
 
-pub type VisualShaderNodeColorParameter = voidptr
+pub struct VisualShaderNodeColorParameter {
+    VisualShaderNodeParameter
+}
 
 pub fn (mut r VisualShaderNodeColorParameter) set_default_value_enabled(enabled bool) {
     classname := StringName.new("VisualShaderNodeColorParameter")
@@ -8,7 +10,9 @@ pub fn (mut r VisualShaderNodeColorParameter) set_default_value_enabled(enabled 
     fnname := StringName.new("set_default_value_enabled")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enabled)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &VisualShaderNodeColorParameter) is_default_value_enabled() bool {
     mut object_out := false
@@ -17,7 +21,7 @@ pub fn (r &VisualShaderNodeColorParameter) is_default_value_enabled() bool {
     fnname := StringName.new("is_default_value_enabled")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r VisualShaderNodeColorParameter) set_default_value(value Color) {
@@ -26,7 +30,9 @@ pub fn (mut r VisualShaderNodeColorParameter) set_default_value(value Color) {
     fnname := StringName.new("set_default_value")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&value)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &VisualShaderNodeColorParameter) get_default_value() Color {
     mut object_out := Color{}
@@ -35,6 +41,6 @@ pub fn (r &VisualShaderNodeColorParameter) get_default_value() Color {
     fnname := StringName.new("get_default_value")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3444240500)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

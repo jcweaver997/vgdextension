@@ -13,7 +13,9 @@ pub enum VisualShaderNodePortType {
     port_type_max = 9
 }
 
-pub type VisualShaderNode = voidptr
+pub struct VisualShaderNode {
+    Resource
+}
 
 pub fn (mut r VisualShaderNode) set_output_port_for_preview(port i32) {
     classname := StringName.new("VisualShaderNode")
@@ -21,7 +23,9 @@ pub fn (mut r VisualShaderNode) set_output_port_for_preview(port i32) {
     fnname := StringName.new("set_output_port_for_preview")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&port)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &VisualShaderNode) get_output_port_for_preview() i32 {
     mut object_out := i32(0)
@@ -30,7 +34,7 @@ pub fn (r &VisualShaderNode) get_output_port_for_preview() i32 {
     fnname := StringName.new("get_output_port_for_preview")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r VisualShaderNode) set_input_port_default_value(port i32, value Variant, prev_value Variant) {
@@ -39,7 +43,11 @@ pub fn (mut r VisualShaderNode) set_input_port_default_value(port i32, value Var
     fnname := StringName.new("set_input_port_default_value")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 150923387)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&port)}
+    args[1] = unsafe{voidptr(&value)}
+    args[2] = unsafe{voidptr(&prev_value)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &VisualShaderNode) get_input_port_default_value(port i32) Variant {
     mut object_out := Variant{}
@@ -50,7 +58,7 @@ pub fn (r &VisualShaderNode) get_input_port_default_value(port i32) Variant {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4227898402)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&port)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r VisualShaderNode) remove_input_port_default_value(port i32) {
@@ -59,7 +67,9 @@ pub fn (mut r VisualShaderNode) remove_input_port_default_value(port i32) {
     fnname := StringName.new("remove_input_port_default_value")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&port)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r VisualShaderNode) clear_default_input_values() {
     classname := StringName.new("VisualShaderNode")
@@ -67,7 +77,7 @@ pub fn (mut r VisualShaderNode) clear_default_input_values() {
     fnname := StringName.new("clear_default_input_values")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
 pub fn (mut r VisualShaderNode) set_default_input_values(values Array) {
     classname := StringName.new("VisualShaderNode")
@@ -75,7 +85,9 @@ pub fn (mut r VisualShaderNode) set_default_input_values(values Array) {
     fnname := StringName.new("set_default_input_values")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&values)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &VisualShaderNode) get_default_input_values() Array {
     mut object_out := Array{}
@@ -84,6 +96,6 @@ pub fn (r &VisualShaderNode) get_default_input_values() Array {
     fnname := StringName.new("get_default_input_values")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3995934104)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

@@ -37,10 +37,21 @@ pub enum PerformanceMonitor {
     monitor_max = 33
 }
 
-pub type Performance = voidptr
+pub struct Performance {
+    Object
+}
 
-pub fn (r &Performance) get_monitor(monitor PerformanceMonitor) f32 {
-    mut object_out := f32(0)
+pub fn Performance.get_singleton() Performance {
+    sn := StringName.new("Performance")
+    defer {sn.deinit()}
+    o := Performance{
+        ptr: gdf.global_get_singleton(sn)
+    }
+    return o
+}
+
+pub fn (r &Performance) get_monitor(monitor PerformanceMonitor) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("Performance")
     defer { classname.deinit() }
     fnname := StringName.new("get_monitor")
@@ -48,7 +59,7 @@ pub fn (r &Performance) get_monitor(monitor PerformanceMonitor) f32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1943275655)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&monitor)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Performance) add_custom_monitor(id StringName, callable Callable, arguments Array) {
@@ -57,7 +68,11 @@ pub fn (mut r Performance) add_custom_monitor(id StringName, callable Callable, 
     fnname := StringName.new("add_custom_monitor")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2865980031)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&id)}
+    args[1] = unsafe{voidptr(&callable)}
+    args[2] = unsafe{voidptr(&arguments)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r Performance) remove_custom_monitor(id StringName) {
     classname := StringName.new("Performance")
@@ -65,7 +80,9 @@ pub fn (mut r Performance) remove_custom_monitor(id StringName) {
     fnname := StringName.new("remove_custom_monitor")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&id)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r Performance) has_custom_monitor(id StringName) bool {
     mut object_out := false
@@ -76,7 +93,7 @@ pub fn (mut r Performance) has_custom_monitor(id StringName) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2041966384)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&id)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Performance) get_custom_monitor(id StringName) Variant {
@@ -88,17 +105,17 @@ pub fn (mut r Performance) get_custom_monitor(id StringName) Variant {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2138907829)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&id)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r Performance) get_monitor_modification_time() i32 {
-    mut object_out := i32(0)
+pub fn (mut r Performance) get_monitor_modification_time() u64 {
+    mut object_out := u64(0)
     classname := StringName.new("Performance")
     defer { classname.deinit() }
     fnname := StringName.new("get_monitor_modification_time")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2455072627)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Performance) get_custom_monitor_names() Array {
@@ -108,6 +125,6 @@ pub fn (mut r Performance) get_custom_monitor_names() Array {
     fnname := StringName.new("get_custom_monitor_names")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2915620761)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

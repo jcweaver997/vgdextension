@@ -7,7 +7,14 @@ pub enum AnimationNodeFilterAction {
     filter_blend = 3
 }
 
-pub type AnimationNode = voidptr
+pub struct AnimationNode {
+    Resource
+}
+
+pub interface IAnimationNodeGetChildNodes {
+    mut:
+    virt_get_child_nodes() Dictionary
+}
 
 pub fn (r &AnimationNode) uget_child_nodes() Dictionary {
     mut object_out := Dictionary{}
@@ -16,9 +23,14 @@ pub fn (r &AnimationNode) uget_child_nodes() Dictionary {
     fnname := StringName.new("_get_child_nodes")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
+pub interface IAnimationNodeGetParameterList {
+    mut:
+    virt_get_parameter_list() Array
+}
+
 pub fn (r &AnimationNode) uget_parameter_list() Array {
     mut object_out := Array{}
     classname := StringName.new("AnimationNode")
@@ -26,11 +38,16 @@ pub fn (r &AnimationNode) uget_parameter_list() Array {
     fnname := StringName.new("_get_parameter_list")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
+pub interface IAnimationNodeGetChildByName {
+    mut:
+    virt_get_child_by_name(name StringName) AnimationNode
+}
+
 pub fn (r &AnimationNode) uget_child_by_name(name StringName) AnimationNode {
-    mut object_out := AnimationNode(unsafe{nil})
+    mut object_out := AnimationNode{}
     classname := StringName.new("AnimationNode")
     defer { classname.deinit() }
     fnname := StringName.new("_get_child_by_name")
@@ -38,9 +55,14 @@ pub fn (r &AnimationNode) uget_child_by_name(name StringName) AnimationNode {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&name)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
+pub interface IAnimationNodeGetParameterDefaultValue {
+    mut:
+    virt_get_parameter_default_value(parameter StringName) Variant
+}
+
 pub fn (r &AnimationNode) uget_parameter_default_value(parameter StringName) Variant {
     mut object_out := Variant{}
     classname := StringName.new("AnimationNode")
@@ -50,9 +72,14 @@ pub fn (r &AnimationNode) uget_parameter_default_value(parameter StringName) Var
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&parameter)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
+pub interface IAnimationNodeIsParameterReadOnly {
+    mut:
+    virt_is_parameter_read_only(parameter StringName) bool
+}
+
 pub fn (r &AnimationNode) uis_parameter_read_only(parameter StringName) bool {
     mut object_out := false
     classname := StringName.new("AnimationNode")
@@ -62,11 +89,16 @@ pub fn (r &AnimationNode) uis_parameter_read_only(parameter StringName) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&parameter)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &AnimationNode) uprocess(time f32, seek bool, is_external_seeking bool, test_only bool) f32 {
-    mut object_out := f32(0)
+pub interface IAnimationNodeProcess {
+    mut:
+    virt_process(time f64, seek bool, is_external_seeking bool, test_only bool) f64
+}
+
+pub fn (r &AnimationNode) uprocess(time f64, seek bool, is_external_seeking bool, test_only bool) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("AnimationNode")
     defer { classname.deinit() }
     fnname := StringName.new("_process")
@@ -77,9 +109,14 @@ pub fn (r &AnimationNode) uprocess(time f32, seek bool, is_external_seeking bool
     args[1] = unsafe{voidptr(&seek)}
     args[2] = unsafe{voidptr(&is_external_seeking)}
     args[3] = unsafe{voidptr(&test_only)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
+pub interface IAnimationNodeGetCaption {
+    mut:
+    virt_get_caption() String
+}
+
 pub fn (r &AnimationNode) uget_caption() String {
     mut object_out := String{}
     classname := StringName.new("AnimationNode")
@@ -87,9 +124,14 @@ pub fn (r &AnimationNode) uget_caption() String {
     fnname := StringName.new("_get_caption")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
+pub interface IAnimationNodeHasFilter {
+    mut:
+    virt_has_filter() bool
+}
+
 pub fn (r &AnimationNode) uhas_filter() bool {
     mut object_out := false
     classname := StringName.new("AnimationNode")
@@ -97,7 +139,7 @@ pub fn (r &AnimationNode) uhas_filter() bool {
     fnname := StringName.new("_has_filter")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r AnimationNode) add_input(name String) bool {
@@ -109,7 +151,7 @@ pub fn (mut r AnimationNode) add_input(name String) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2323990056)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&name)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r AnimationNode) remove_input(index i32) {
@@ -118,7 +160,9 @@ pub fn (mut r AnimationNode) remove_input(index i32) {
     fnname := StringName.new("remove_input")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&index)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r AnimationNode) set_input_name(input i32, name String) bool {
     mut object_out := false
@@ -130,7 +174,7 @@ pub fn (mut r AnimationNode) set_input_name(input i32, name String) bool {
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&input)}
     args[1] = unsafe{voidptr(&name)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &AnimationNode) get_input_name(input i32) String {
@@ -142,7 +186,7 @@ pub fn (r &AnimationNode) get_input_name(input i32) String {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 844755477)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&input)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &AnimationNode) get_input_count() i32 {
@@ -152,7 +196,7 @@ pub fn (r &AnimationNode) get_input_count() i32 {
     fnname := StringName.new("get_input_count")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &AnimationNode) find_input(name String) i32 {
@@ -164,7 +208,7 @@ pub fn (r &AnimationNode) find_input(name String) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1321353865)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&name)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r AnimationNode) set_filter_path(path NodePath, enable bool) {
@@ -173,7 +217,10 @@ pub fn (mut r AnimationNode) set_filter_path(path NodePath, enable bool) {
     fnname := StringName.new("set_filter_path")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3868023870)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&path)}
+    args[1] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &AnimationNode) is_path_filtered(path NodePath) bool {
     mut object_out := false
@@ -184,7 +231,7 @@ pub fn (r &AnimationNode) is_path_filtered(path NodePath) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 861721659)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&path)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r AnimationNode) set_filter_enabled(enable bool) {
@@ -193,7 +240,9 @@ pub fn (mut r AnimationNode) set_filter_enabled(enable bool) {
     fnname := StringName.new("set_filter_enabled")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &AnimationNode) is_filter_enabled() bool {
     mut object_out := false
@@ -202,19 +251,27 @@ pub fn (r &AnimationNode) is_filter_enabled() bool {
     fnname := StringName.new("is_filter_enabled")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r AnimationNode) blend_animation(animation StringName, time f32, delta f32, seeked bool, is_external_seeking bool, blend f32, looped_flag AnimationLoopedFlag) {
+pub fn (mut r AnimationNode) blend_animation(animation StringName, time f64, delta f64, seeked bool, is_external_seeking bool, blend f64, looped_flag AnimationLoopedFlag) {
     classname := StringName.new("AnimationNode")
     defer { classname.deinit() }
     fnname := StringName.new("blend_animation")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 11797022)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [7]voidptr{} }
+    args[0] = unsafe{voidptr(&animation)}
+    args[1] = unsafe{voidptr(&time)}
+    args[2] = unsafe{voidptr(&delta)}
+    args[3] = unsafe{voidptr(&seeked)}
+    args[4] = unsafe{voidptr(&is_external_seeking)}
+    args[5] = unsafe{voidptr(&blend)}
+    args[6] = unsafe{voidptr(&looped_flag)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r AnimationNode) blend_node(name StringName, node AnimationNode, time f32, seek bool, is_external_seeking bool, blend f32, filter AnimationNodeFilterAction, sync bool, test_only bool) f32 {
-    mut object_out := f32(0)
+pub fn (mut r AnimationNode) blend_node(name StringName, node AnimationNode, time f64, seek bool, is_external_seeking bool, blend f64, filter AnimationNodeFilterAction, sync bool, test_only bool) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("AnimationNode")
     defer { classname.deinit() }
     fnname := StringName.new("blend_node")
@@ -222,7 +279,7 @@ pub fn (mut r AnimationNode) blend_node(name StringName, node AnimationNode, tim
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 263389446)
     mut args := unsafe { [9]voidptr{} }
     args[0] = unsafe{voidptr(&name)}
-    args[1] = unsafe{voidptr(&node)}
+    args[1] = node.ptr
     args[2] = unsafe{voidptr(&time)}
     args[3] = unsafe{voidptr(&seek)}
     args[4] = unsafe{voidptr(&is_external_seeking)}
@@ -230,11 +287,11 @@ pub fn (mut r AnimationNode) blend_node(name StringName, node AnimationNode, tim
     args[6] = unsafe{voidptr(&filter)}
     args[7] = unsafe{voidptr(&sync)}
     args[8] = unsafe{voidptr(&test_only)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r AnimationNode) blend_input(input_index i32, time f32, seek bool, is_external_seeking bool, blend f32, filter AnimationNodeFilterAction, sync bool, test_only bool) f32 {
-    mut object_out := f32(0)
+pub fn (mut r AnimationNode) blend_input(input_index i32, time f64, seek bool, is_external_seeking bool, blend f64, filter AnimationNodeFilterAction, sync bool, test_only bool) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("AnimationNode")
     defer { classname.deinit() }
     fnname := StringName.new("blend_input")
@@ -249,7 +306,7 @@ pub fn (mut r AnimationNode) blend_input(input_index i32, time f32, seek bool, i
     args[5] = unsafe{voidptr(&filter)}
     args[6] = unsafe{voidptr(&sync)}
     args[7] = unsafe{voidptr(&test_only)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r AnimationNode) set_parameter(name StringName, value Variant) {
@@ -258,7 +315,10 @@ pub fn (mut r AnimationNode) set_parameter(name StringName, value Variant) {
     fnname := StringName.new("set_parameter")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3776071444)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&name)}
+    args[1] = unsafe{voidptr(&value)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &AnimationNode) get_parameter(name StringName) Variant {
     mut object_out := Variant{}
@@ -269,6 +329,6 @@ pub fn (r &AnimationNode) get_parameter(name StringName) Variant {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2760726917)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&name)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }

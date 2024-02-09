@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type GDScriptEditorTranslationParserPlugin = voidptr
+pub struct GDScriptEditorTranslationParserPlugin {
+    EditorTranslationParserPlugin
+}
 

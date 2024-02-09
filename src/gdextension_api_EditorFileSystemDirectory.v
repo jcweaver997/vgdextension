@@ -1,6 +1,8 @@
 module vgdextension
 
-pub type EditorFileSystemDirectory = voidptr
+pub struct EditorFileSystemDirectory {
+    Object
+}
 
 pub fn (r &EditorFileSystemDirectory) get_subdir_count() i32 {
     mut object_out := i32(0)
@@ -9,11 +11,11 @@ pub fn (r &EditorFileSystemDirectory) get_subdir_count() i32 {
     fnname := StringName.new("get_subdir_count")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r EditorFileSystemDirectory) get_subdir(idx i32) EditorFileSystemDirectory {
-    mut object_out := EditorFileSystemDirectory(unsafe{nil})
+    mut object_out := EditorFileSystemDirectory{}
     classname := StringName.new("EditorFileSystemDirectory")
     defer { classname.deinit() }
     fnname := StringName.new("get_subdir")
@@ -21,7 +23,7 @@ pub fn (mut r EditorFileSystemDirectory) get_subdir(idx i32) EditorFileSystemDir
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2330964164)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &EditorFileSystemDirectory) get_file_count() i32 {
@@ -31,7 +33,7 @@ pub fn (r &EditorFileSystemDirectory) get_file_count() i32 {
     fnname := StringName.new("get_file_count")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &EditorFileSystemDirectory) get_file(idx i32) String {
@@ -43,7 +45,7 @@ pub fn (r &EditorFileSystemDirectory) get_file(idx i32) String {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 844755477)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &EditorFileSystemDirectory) get_file_path(idx i32) String {
@@ -55,7 +57,7 @@ pub fn (r &EditorFileSystemDirectory) get_file_path(idx i32) String {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 844755477)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &EditorFileSystemDirectory) get_file_type(idx i32) StringName {
@@ -67,7 +69,7 @@ pub fn (r &EditorFileSystemDirectory) get_file_type(idx i32) StringName {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 659327637)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &EditorFileSystemDirectory) get_file_script_class_name(idx i32) String {
@@ -79,7 +81,7 @@ pub fn (r &EditorFileSystemDirectory) get_file_script_class_name(idx i32) String
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 844755477)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &EditorFileSystemDirectory) get_file_script_class_extends(idx i32) String {
@@ -91,7 +93,7 @@ pub fn (r &EditorFileSystemDirectory) get_file_script_class_extends(idx i32) Str
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 844755477)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &EditorFileSystemDirectory) get_file_import_is_valid(idx i32) bool {
@@ -103,7 +105,7 @@ pub fn (r &EditorFileSystemDirectory) get_file_import_is_valid(idx i32) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1116898809)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r EditorFileSystemDirectory) get_name() String {
@@ -113,7 +115,7 @@ pub fn (mut r EditorFileSystemDirectory) get_name() String {
     fnname := StringName.new("get_name")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2841200299)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &EditorFileSystemDirectory) get_path() String {
@@ -123,17 +125,17 @@ pub fn (r &EditorFileSystemDirectory) get_path() String {
     fnname := StringName.new("get_path")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 201670096)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r EditorFileSystemDirectory) get_parent() EditorFileSystemDirectory {
-    mut object_out := EditorFileSystemDirectory(unsafe{nil})
+    mut object_out := EditorFileSystemDirectory{}
     classname := StringName.new("EditorFileSystemDirectory")
     defer { classname.deinit() }
     fnname := StringName.new("get_parent")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 842323275)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &EditorFileSystemDirectory) find_file_index(name String) i32 {
@@ -145,7 +147,7 @@ pub fn (r &EditorFileSystemDirectory) find_file_index(name String) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1321353865)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&name)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &EditorFileSystemDirectory) find_dir_index(name String) i32 {
@@ -157,6 +159,6 @@ pub fn (r &EditorFileSystemDirectory) find_dir_index(name String) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1321353865)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&name)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }

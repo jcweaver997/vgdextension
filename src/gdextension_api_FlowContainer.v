@@ -6,7 +6,9 @@ pub enum FlowContainerAlignmentMode {
     alignment_end = 2
 }
 
-pub type FlowContainer = voidptr
+pub struct FlowContainer {
+    Container
+}
 
 pub fn (r &FlowContainer) get_line_count() i32 {
     mut object_out := i32(0)
@@ -15,7 +17,7 @@ pub fn (r &FlowContainer) get_line_count() i32 {
     fnname := StringName.new("get_line_count")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r FlowContainer) set_alignment(alignment FlowContainerAlignmentMode) {
@@ -24,7 +26,9 @@ pub fn (mut r FlowContainer) set_alignment(alignment FlowContainerAlignmentMode)
     fnname := StringName.new("set_alignment")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 575250951)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&alignment)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &FlowContainer) get_alignment() FlowContainerAlignmentMode {
     mut object_out := FlowContainerAlignmentMode.alignment_begin
@@ -33,7 +37,7 @@ pub fn (r &FlowContainer) get_alignment() FlowContainerAlignmentMode {
     fnname := StringName.new("get_alignment")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3749743559)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r FlowContainer) set_vertical(vertical bool) {
@@ -42,7 +46,9 @@ pub fn (mut r FlowContainer) set_vertical(vertical bool) {
     fnname := StringName.new("set_vertical")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&vertical)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &FlowContainer) is_vertical() bool {
     mut object_out := false
@@ -51,6 +57,6 @@ pub fn (r &FlowContainer) is_vertical() bool {
     fnname := StringName.new("is_vertical")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

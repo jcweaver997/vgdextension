@@ -28,7 +28,18 @@ pub enum InputCursorShape {
     cursor_help = 16
 }
 
-pub type Input = voidptr
+pub struct Input {
+    Object
+}
+
+pub fn Input.get_singleton() Input {
+    sn := StringName.new("Input")
+    defer {sn.deinit()}
+    o := Input{
+        ptr: gdf.global_get_singleton(sn)
+    }
+    return o
+}
 
 pub fn (r &Input) is_anything_pressed() bool {
     mut object_out := false
@@ -37,7 +48,7 @@ pub fn (r &Input) is_anything_pressed() bool {
     fnname := StringName.new("is_anything_pressed")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &Input) is_key_pressed(keycode Key) bool {
@@ -49,7 +60,7 @@ pub fn (r &Input) is_key_pressed(keycode Key) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1938909964)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&keycode)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Input) is_physical_key_pressed(keycode Key) bool {
@@ -61,7 +72,7 @@ pub fn (r &Input) is_physical_key_pressed(keycode Key) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1938909964)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&keycode)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Input) is_key_label_pressed(keycode Key) bool {
@@ -73,7 +84,7 @@ pub fn (r &Input) is_key_label_pressed(keycode Key) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1938909964)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&keycode)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Input) is_mouse_button_pressed(button MouseButton) bool {
@@ -85,7 +96,7 @@ pub fn (r &Input) is_mouse_button_pressed(button MouseButton) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1821097125)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&button)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Input) is_joy_button_pressed(device i32, button JoyButton) bool {
@@ -98,7 +109,7 @@ pub fn (r &Input) is_joy_button_pressed(device i32, button JoyButton) bool {
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&device)}
     args[1] = unsafe{voidptr(&button)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Input) is_action_pressed(action StringName, exact_match bool) bool {
@@ -111,7 +122,7 @@ pub fn (r &Input) is_action_pressed(action StringName, exact_match bool) bool {
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&action)}
     args[1] = unsafe{voidptr(&exact_match)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Input) is_action_just_pressed(action StringName, exact_match bool) bool {
@@ -124,7 +135,7 @@ pub fn (r &Input) is_action_just_pressed(action StringName, exact_match bool) bo
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&action)}
     args[1] = unsafe{voidptr(&exact_match)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Input) is_action_just_released(action StringName, exact_match bool) bool {
@@ -137,11 +148,11 @@ pub fn (r &Input) is_action_just_released(action StringName, exact_match bool) b
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&action)}
     args[1] = unsafe{voidptr(&exact_match)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &Input) get_action_strength(action StringName, exact_match bool) f32 {
-    mut object_out := f32(0)
+pub fn (r &Input) get_action_strength(action StringName, exact_match bool) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("Input")
     defer { classname.deinit() }
     fnname := StringName.new("get_action_strength")
@@ -150,11 +161,11 @@ pub fn (r &Input) get_action_strength(action StringName, exact_match bool) f32 {
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&action)}
     args[1] = unsafe{voidptr(&exact_match)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &Input) get_action_raw_strength(action StringName, exact_match bool) f32 {
-    mut object_out := f32(0)
+pub fn (r &Input) get_action_raw_strength(action StringName, exact_match bool) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("Input")
     defer { classname.deinit() }
     fnname := StringName.new("get_action_raw_strength")
@@ -163,11 +174,11 @@ pub fn (r &Input) get_action_raw_strength(action StringName, exact_match bool) f
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&action)}
     args[1] = unsafe{voidptr(&exact_match)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &Input) get_axis(negative_action StringName, positive_action StringName) f32 {
-    mut object_out := f32(0)
+pub fn (r &Input) get_axis(negative_action StringName, positive_action StringName) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("Input")
     defer { classname.deinit() }
     fnname := StringName.new("get_axis")
@@ -176,10 +187,10 @@ pub fn (r &Input) get_axis(negative_action StringName, positive_action StringNam
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&negative_action)}
     args[1] = unsafe{voidptr(&positive_action)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &Input) get_vector(negative_x StringName, positive_x StringName, negative_y StringName, positive_y StringName, deadzone f32) Vector2 {
+pub fn (r &Input) get_vector(negative_x StringName, positive_x StringName, negative_y StringName, positive_y StringName, deadzone f64) Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("Input")
     defer { classname.deinit() }
@@ -192,7 +203,7 @@ pub fn (r &Input) get_vector(negative_x StringName, positive_x StringName, negat
     args[2] = unsafe{voidptr(&negative_y)}
     args[3] = unsafe{voidptr(&positive_y)}
     args[4] = unsafe{voidptr(&deadzone)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Input) add_joy_mapping(mapping String, update_existing bool) {
@@ -201,7 +212,10 @@ pub fn (mut r Input) add_joy_mapping(mapping String, update_existing bool) {
     fnname := StringName.new("add_joy_mapping")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1168363258)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&mapping)}
+    args[1] = unsafe{voidptr(&update_existing)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r Input) remove_joy_mapping(guid String) {
     classname := StringName.new("Input")
@@ -209,7 +223,9 @@ pub fn (mut r Input) remove_joy_mapping(guid String) {
     fnname := StringName.new("remove_joy_mapping")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&guid)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r Input) is_joy_known(device i32) bool {
     mut object_out := false
@@ -220,11 +236,11 @@ pub fn (mut r Input) is_joy_known(device i32) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3067735520)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&device)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &Input) get_joy_axis(device i32, axis JoyAxis) f32 {
-    mut object_out := f32(0)
+pub fn (r &Input) get_joy_axis(device i32, axis JoyAxis) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("Input")
     defer { classname.deinit() }
     fnname := StringName.new("get_joy_axis")
@@ -233,7 +249,7 @@ pub fn (r &Input) get_joy_axis(device i32, axis JoyAxis) f32 {
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&device)}
     args[1] = unsafe{voidptr(&axis)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Input) get_joy_name(device i32) String {
@@ -245,7 +261,7 @@ pub fn (mut r Input) get_joy_name(device i32) String {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 990163283)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&device)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Input) get_joy_guid(device i32) String {
@@ -257,7 +273,7 @@ pub fn (r &Input) get_joy_guid(device i32) String {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 844755477)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&device)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Input) get_connected_joypads() Array {
@@ -267,7 +283,7 @@ pub fn (mut r Input) get_connected_joypads() Array {
     fnname := StringName.new("get_connected_joypads")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2915620761)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Input) get_joy_vibration_strength(device i32) Vector2 {
@@ -279,11 +295,11 @@ pub fn (mut r Input) get_joy_vibration_strength(device i32) Vector2 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3114997196)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&device)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r Input) get_joy_vibration_duration(device i32) f32 {
-    mut object_out := f32(0)
+pub fn (mut r Input) get_joy_vibration_duration(device i32) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("Input")
     defer { classname.deinit() }
     fnname := StringName.new("get_joy_vibration_duration")
@@ -291,16 +307,21 @@ pub fn (mut r Input) get_joy_vibration_duration(device i32) f32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4025615559)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&device)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r Input) start_joy_vibration(device i32, weak_magnitude f32, strong_magnitude f32, duration f32) {
+pub fn (mut r Input) start_joy_vibration(device i32, weak_magnitude f64, strong_magnitude f64, duration f64) {
     classname := StringName.new("Input")
     defer { classname.deinit() }
     fnname := StringName.new("start_joy_vibration")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1890603622)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [4]voidptr{} }
+    args[0] = unsafe{voidptr(&device)}
+    args[1] = unsafe{voidptr(&weak_magnitude)}
+    args[2] = unsafe{voidptr(&strong_magnitude)}
+    args[3] = unsafe{voidptr(&duration)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r Input) stop_joy_vibration(device i32) {
     classname := StringName.new("Input")
@@ -308,7 +329,9 @@ pub fn (mut r Input) stop_joy_vibration(device i32) {
     fnname := StringName.new("stop_joy_vibration")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&device)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r Input) vibrate_handheld(duration_ms i32) {
     classname := StringName.new("Input")
@@ -316,7 +339,9 @@ pub fn (mut r Input) vibrate_handheld(duration_ms i32) {
     fnname := StringName.new("vibrate_handheld")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 955504365)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&duration_ms)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Input) get_gravity() Vector3 {
     mut object_out := Vector3{}
@@ -325,7 +350,7 @@ pub fn (r &Input) get_gravity() Vector3 {
     fnname := StringName.new("get_gravity")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3360562783)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &Input) get_accelerometer() Vector3 {
@@ -335,7 +360,7 @@ pub fn (r &Input) get_accelerometer() Vector3 {
     fnname := StringName.new("get_accelerometer")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3360562783)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &Input) get_magnetometer() Vector3 {
@@ -345,7 +370,7 @@ pub fn (r &Input) get_magnetometer() Vector3 {
     fnname := StringName.new("get_magnetometer")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3360562783)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &Input) get_gyroscope() Vector3 {
@@ -355,7 +380,7 @@ pub fn (r &Input) get_gyroscope() Vector3 {
     fnname := StringName.new("get_gyroscope")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3360562783)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Input) set_gravity(value Vector3) {
@@ -364,7 +389,9 @@ pub fn (mut r Input) set_gravity(value Vector3) {
     fnname := StringName.new("set_gravity")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&value)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r Input) set_accelerometer(value Vector3) {
     classname := StringName.new("Input")
@@ -372,7 +399,9 @@ pub fn (mut r Input) set_accelerometer(value Vector3) {
     fnname := StringName.new("set_accelerometer")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&value)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r Input) set_magnetometer(value Vector3) {
     classname := StringName.new("Input")
@@ -380,7 +409,9 @@ pub fn (mut r Input) set_magnetometer(value Vector3) {
     fnname := StringName.new("set_magnetometer")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&value)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r Input) set_gyroscope(value Vector3) {
     classname := StringName.new("Input")
@@ -388,7 +419,9 @@ pub fn (mut r Input) set_gyroscope(value Vector3) {
     fnname := StringName.new("set_gyroscope")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&value)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r Input) get_last_mouse_velocity() Vector2 {
     mut object_out := Vector2{}
@@ -397,17 +430,17 @@ pub fn (mut r Input) get_last_mouse_velocity() Vector2 {
     fnname := StringName.new("get_last_mouse_velocity")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1497962370)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &Input) get_mouse_button_mask() MouseButtonMask {
-    mut object_out := MouseButtonMask(unsafe{nil})
+    mut object_out := MouseButtonMask.mouse_button_mask_left
     classname := StringName.new("Input")
     defer { classname.deinit() }
     fnname := StringName.new("get_mouse_button_mask")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2512161324)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Input) set_mouse_mode(mode InputMouseMode) {
@@ -416,7 +449,9 @@ pub fn (mut r Input) set_mouse_mode(mode InputMouseMode) {
     fnname := StringName.new("set_mouse_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2228490894)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&mode)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Input) get_mouse_mode() InputMouseMode {
     mut object_out := InputMouseMode.mouse_mode_visible
@@ -425,7 +460,7 @@ pub fn (r &Input) get_mouse_mode() InputMouseMode {
     fnname := StringName.new("get_mouse_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 965286182)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Input) warp_mouse(position Vector2) {
@@ -434,15 +469,20 @@ pub fn (mut r Input) warp_mouse(position Vector2) {
     fnname := StringName.new("warp_mouse")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&position)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r Input) action_press(action StringName, strength f32) {
+pub fn (mut r Input) action_press(action StringName, strength f64) {
     classname := StringName.new("Input")
     defer { classname.deinit() }
     fnname := StringName.new("action_press")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 573731101)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&action)}
+    args[1] = unsafe{voidptr(&strength)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r Input) action_release(action StringName) {
     classname := StringName.new("Input")
@@ -450,7 +490,9 @@ pub fn (mut r Input) action_release(action StringName) {
     fnname := StringName.new("action_release")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&action)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r Input) set_default_cursor_shape(shape InputCursorShape) {
     classname := StringName.new("Input")
@@ -458,7 +500,9 @@ pub fn (mut r Input) set_default_cursor_shape(shape InputCursorShape) {
     fnname := StringName.new("set_default_cursor_shape")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2124816902)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&shape)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Input) get_current_cursor_shape() InputCursorShape {
     mut object_out := InputCursorShape.cursor_arrow
@@ -467,7 +511,7 @@ pub fn (r &Input) get_current_cursor_shape() InputCursorShape {
     fnname := StringName.new("get_current_cursor_shape")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3455658929)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Input) set_custom_mouse_cursor(image Resource, shape InputCursorShape, hotspot Vector2) {
@@ -476,7 +520,11 @@ pub fn (mut r Input) set_custom_mouse_cursor(image Resource, shape InputCursorSh
     fnname := StringName.new("set_custom_mouse_cursor")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3489634142)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = image.ptr
+    args[1] = unsafe{voidptr(&shape)}
+    args[2] = unsafe{voidptr(&hotspot)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r Input) parse_input_event(event InputEvent) {
     classname := StringName.new("Input")
@@ -484,7 +532,9 @@ pub fn (mut r Input) parse_input_event(event InputEvent) {
     fnname := StringName.new("parse_input_event")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3754044979)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = event.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r Input) set_use_accumulated_input(enable bool) {
     classname := StringName.new("Input")
@@ -492,7 +542,9 @@ pub fn (mut r Input) set_use_accumulated_input(enable bool) {
     fnname := StringName.new("set_use_accumulated_input")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r Input) is_using_accumulated_input() bool {
     mut object_out := false
@@ -501,7 +553,7 @@ pub fn (mut r Input) is_using_accumulated_input() bool {
     fnname := StringName.new("is_using_accumulated_input")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2240911060)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Input) flush_buffered_events() {
@@ -510,5 +562,5 @@ pub fn (mut r Input) flush_buffered_events() {
     fnname := StringName.new("flush_buffered_events")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }

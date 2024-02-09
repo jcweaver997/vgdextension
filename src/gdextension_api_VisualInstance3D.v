@@ -1,6 +1,13 @@
 module vgdextension
 
-pub type VisualInstance3D = voidptr
+pub struct VisualInstance3D {
+    Node3D
+}
+
+pub interface IVisualInstance3DGetAabb {
+    mut:
+    virt_get_aabb() AABB
+}
 
 pub fn (r &VisualInstance3D) uget_aabb() AABB {
     mut object_out := AABB{}
@@ -9,7 +16,7 @@ pub fn (r &VisualInstance3D) uget_aabb() AABB {
     fnname := StringName.new("_get_aabb")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r VisualInstance3D) set_base(base RID) {
@@ -18,7 +25,9 @@ pub fn (mut r VisualInstance3D) set_base(base RID) {
     fnname := StringName.new("set_base")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&base)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &VisualInstance3D) get_base() RID {
     mut object_out := RID{}
@@ -27,7 +36,7 @@ pub fn (r &VisualInstance3D) get_base() RID {
     fnname := StringName.new("get_base")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2944877500)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &VisualInstance3D) get_instance() RID {
@@ -37,25 +46,27 @@ pub fn (r &VisualInstance3D) get_instance() RID {
     fnname := StringName.new("get_instance")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2944877500)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r VisualInstance3D) set_layer_mask(mask i32) {
+pub fn (mut r VisualInstance3D) set_layer_mask(mask u32) {
     classname := StringName.new("VisualInstance3D")
     defer { classname.deinit() }
     fnname := StringName.new("set_layer_mask")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&mask)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &VisualInstance3D) get_layer_mask() i32 {
-    mut object_out := i32(0)
+pub fn (r &VisualInstance3D) get_layer_mask() u32 {
+    mut object_out := u32(0)
     classname := StringName.new("VisualInstance3D")
     defer { classname.deinit() }
     fnname := StringName.new("get_layer_mask")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r VisualInstance3D) set_layer_mask_value(layer_number i32, value bool) {
@@ -64,7 +75,10 @@ pub fn (mut r VisualInstance3D) set_layer_mask_value(layer_number i32, value boo
     fnname := StringName.new("set_layer_mask_value")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&layer_number)}
+    args[1] = unsafe{voidptr(&value)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &VisualInstance3D) get_layer_mask_value(layer_number i32) bool {
     mut object_out := false
@@ -75,25 +89,27 @@ pub fn (r &VisualInstance3D) get_layer_mask_value(layer_number i32) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1116898809)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&layer_number)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r VisualInstance3D) set_sorting_offset(offset f32) {
+pub fn (mut r VisualInstance3D) set_sorting_offset(offset f64) {
     classname := StringName.new("VisualInstance3D")
     defer { classname.deinit() }
     fnname := StringName.new("set_sorting_offset")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&offset)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &VisualInstance3D) get_sorting_offset() f32 {
-    mut object_out := f32(0)
+pub fn (r &VisualInstance3D) get_sorting_offset() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("VisualInstance3D")
     defer { classname.deinit() }
     fnname := StringName.new("get_sorting_offset")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r VisualInstance3D) set_sorting_use_aabb_center(enabled bool) {
@@ -102,7 +118,9 @@ pub fn (mut r VisualInstance3D) set_sorting_use_aabb_center(enabled bool) {
     fnname := StringName.new("set_sorting_use_aabb_center")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enabled)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &VisualInstance3D) is_sorting_use_aabb_center() bool {
     mut object_out := false
@@ -111,7 +129,7 @@ pub fn (r &VisualInstance3D) is_sorting_use_aabb_center() bool {
     fnname := StringName.new("is_sorting_use_aabb_center")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &VisualInstance3D) get_aabb() AABB {
@@ -121,6 +139,6 @@ pub fn (r &VisualInstance3D) get_aabb() AABB {
     fnname := StringName.new("get_aabb")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1068685055)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

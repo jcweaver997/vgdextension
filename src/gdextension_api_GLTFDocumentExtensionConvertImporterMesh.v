@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type GLTFDocumentExtensionConvertImporterMesh = voidptr
+pub struct GLTFDocumentExtensionConvertImporterMesh {
+    GLTFDocumentExtension
+}
 

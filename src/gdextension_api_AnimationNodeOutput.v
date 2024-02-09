@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type AnimationNodeOutput = voidptr
+pub struct AnimationNodeOutput {
+    AnimationNode
+}
 

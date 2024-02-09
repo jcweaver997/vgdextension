@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type MovieWriterMJPEG = voidptr
+pub struct MovieWriterMJPEG {
+    MovieWriter
+}
 

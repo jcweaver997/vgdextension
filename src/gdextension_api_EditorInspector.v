@@ -1,6 +1,8 @@
 module vgdextension
 
-pub type EditorInspector = voidptr
+pub struct EditorInspector {
+    ScrollContainer
+}
 
 pub fn (r &EditorInspector) get_selected_path() String {
     mut object_out := String{}
@@ -9,6 +11,6 @@ pub fn (r &EditorInspector) get_selected_path() String {
     fnname := StringName.new("get_selected_path")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 201670096)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

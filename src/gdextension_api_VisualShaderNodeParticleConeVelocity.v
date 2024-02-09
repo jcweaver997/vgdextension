@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type VisualShaderNodeParticleConeVelocity = voidptr
+pub struct VisualShaderNodeParticleConeVelocity {
+    VisualShaderNode
+}
 

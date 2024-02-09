@@ -1,6 +1,8 @@
 module vgdextension
 
-pub type WebSocketMultiplayerPeer = voidptr
+pub struct WebSocketMultiplayerPeer {
+    MultiplayerPeer
+}
 
 pub fn (mut r WebSocketMultiplayerPeer) create_client(url String, tls_client_options TLSOptions) GDError {
     mut object_out := GDError.ok
@@ -11,8 +13,8 @@ pub fn (mut r WebSocketMultiplayerPeer) create_client(url String, tls_client_opt
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3097527179)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&url)}
-    args[1] = unsafe{voidptr(&tls_client_options)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    args[1] = tls_client_options.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r WebSocketMultiplayerPeer) create_server(port i32, bind_address String, tls_server_options TLSOptions) GDError {
@@ -25,12 +27,12 @@ pub fn (mut r WebSocketMultiplayerPeer) create_server(port i32, bind_address Str
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&port)}
     args[1] = unsafe{voidptr(&bind_address)}
-    args[2] = unsafe{voidptr(&tls_server_options)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    args[2] = tls_server_options.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &WebSocketMultiplayerPeer) get_peer(peer_id i32) WebSocketPeer {
-    mut object_out := WebSocketPeer(unsafe{nil})
+    mut object_out := WebSocketPeer{}
     classname := StringName.new("WebSocketMultiplayerPeer")
     defer { classname.deinit() }
     fnname := StringName.new("get_peer")
@@ -38,7 +40,7 @@ pub fn (r &WebSocketMultiplayerPeer) get_peer(peer_id i32) WebSocketPeer {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1381378851)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&peer_id)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &WebSocketMultiplayerPeer) get_peer_address(id i32) String {
@@ -50,7 +52,7 @@ pub fn (r &WebSocketMultiplayerPeer) get_peer_address(id i32) String {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 844755477)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&id)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &WebSocketMultiplayerPeer) get_peer_port(id i32) i32 {
@@ -62,7 +64,7 @@ pub fn (r &WebSocketMultiplayerPeer) get_peer_port(id i32) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 923996154)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&id)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &WebSocketMultiplayerPeer) get_supported_protocols() PackedStringArray {
@@ -72,7 +74,7 @@ pub fn (r &WebSocketMultiplayerPeer) get_supported_protocols() PackedStringArray
     fnname := StringName.new("get_supported_protocols")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1139954409)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r WebSocketMultiplayerPeer) set_supported_protocols(protocols PackedStringArray) {
@@ -81,7 +83,9 @@ pub fn (mut r WebSocketMultiplayerPeer) set_supported_protocols(protocols Packed
     fnname := StringName.new("set_supported_protocols")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4015028928)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&protocols)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &WebSocketMultiplayerPeer) get_handshake_headers() PackedStringArray {
     mut object_out := PackedStringArray{}
@@ -90,7 +94,7 @@ pub fn (r &WebSocketMultiplayerPeer) get_handshake_headers() PackedStringArray {
     fnname := StringName.new("get_handshake_headers")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1139954409)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r WebSocketMultiplayerPeer) set_handshake_headers(protocols PackedStringArray) {
@@ -99,7 +103,9 @@ pub fn (mut r WebSocketMultiplayerPeer) set_handshake_headers(protocols PackedSt
     fnname := StringName.new("set_handshake_headers")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4015028928)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&protocols)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &WebSocketMultiplayerPeer) get_inbound_buffer_size() i32 {
     mut object_out := i32(0)
@@ -108,7 +114,7 @@ pub fn (r &WebSocketMultiplayerPeer) get_inbound_buffer_size() i32 {
     fnname := StringName.new("get_inbound_buffer_size")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r WebSocketMultiplayerPeer) set_inbound_buffer_size(buffer_size i32) {
@@ -117,7 +123,9 @@ pub fn (mut r WebSocketMultiplayerPeer) set_inbound_buffer_size(buffer_size i32)
     fnname := StringName.new("set_inbound_buffer_size")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&buffer_size)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &WebSocketMultiplayerPeer) get_outbound_buffer_size() i32 {
     mut object_out := i32(0)
@@ -126,7 +134,7 @@ pub fn (r &WebSocketMultiplayerPeer) get_outbound_buffer_size() i32 {
     fnname := StringName.new("get_outbound_buffer_size")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r WebSocketMultiplayerPeer) set_outbound_buffer_size(buffer_size i32) {
@@ -135,25 +143,29 @@ pub fn (mut r WebSocketMultiplayerPeer) set_outbound_buffer_size(buffer_size i32
     fnname := StringName.new("set_outbound_buffer_size")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&buffer_size)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &WebSocketMultiplayerPeer) get_handshake_timeout() f32 {
-    mut object_out := f32(0)
+pub fn (r &WebSocketMultiplayerPeer) get_handshake_timeout() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("WebSocketMultiplayerPeer")
     defer { classname.deinit() }
     fnname := StringName.new("get_handshake_timeout")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r WebSocketMultiplayerPeer) set_handshake_timeout(timeout f32) {
+pub fn (mut r WebSocketMultiplayerPeer) set_handshake_timeout(timeout f64) {
     classname := StringName.new("WebSocketMultiplayerPeer")
     defer { classname.deinit() }
     fnname := StringName.new("set_handshake_timeout")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&timeout)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r WebSocketMultiplayerPeer) set_max_queued_packets(max_queued_packets i32) {
     classname := StringName.new("WebSocketMultiplayerPeer")
@@ -161,7 +173,9 @@ pub fn (mut r WebSocketMultiplayerPeer) set_max_queued_packets(max_queued_packet
     fnname := StringName.new("set_max_queued_packets")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&max_queued_packets)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &WebSocketMultiplayerPeer) get_max_queued_packets() i32 {
     mut object_out := i32(0)
@@ -170,6 +184,6 @@ pub fn (r &WebSocketMultiplayerPeer) get_max_queued_packets() i32 {
     fnname := StringName.new("get_max_queued_packets")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

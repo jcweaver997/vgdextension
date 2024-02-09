@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type PlaceholderCubemap = voidptr
+pub struct PlaceholderCubemap {
+    PlaceholderTextureLayered
+}
 

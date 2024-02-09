@@ -19,7 +19,9 @@ pub enum TextureRectStretchMode {
     stretch_keep_aspect_covered = 6
 }
 
-pub type TextureRect = voidptr
+pub struct TextureRect {
+    Control
+}
 
 pub fn (mut r TextureRect) set_texture(texture Texture2D) {
     classname := StringName.new("TextureRect")
@@ -27,16 +29,18 @@ pub fn (mut r TextureRect) set_texture(texture Texture2D) {
     fnname := StringName.new("set_texture")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = texture.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextureRect) get_texture() Texture2D {
-    mut object_out := Texture2D(unsafe{nil})
+    mut object_out := Texture2D{}
     classname := StringName.new("TextureRect")
     defer { classname.deinit() }
     fnname := StringName.new("get_texture")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3635182373)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextureRect) set_expand_mode(expand_mode TextureRectExpandMode) {
@@ -45,7 +49,9 @@ pub fn (mut r TextureRect) set_expand_mode(expand_mode TextureRectExpandMode) {
     fnname := StringName.new("set_expand_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1870766882)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&expand_mode)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextureRect) get_expand_mode() TextureRectExpandMode {
     mut object_out := TextureRectExpandMode.expand_keep_size
@@ -54,7 +60,7 @@ pub fn (r &TextureRect) get_expand_mode() TextureRectExpandMode {
     fnname := StringName.new("get_expand_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3863824733)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextureRect) set_flip_h(enable bool) {
@@ -63,7 +69,9 @@ pub fn (mut r TextureRect) set_flip_h(enable bool) {
     fnname := StringName.new("set_flip_h")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextureRect) is_flipped_h() bool {
     mut object_out := false
@@ -72,7 +80,7 @@ pub fn (r &TextureRect) is_flipped_h() bool {
     fnname := StringName.new("is_flipped_h")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextureRect) set_flip_v(enable bool) {
@@ -81,7 +89,9 @@ pub fn (mut r TextureRect) set_flip_v(enable bool) {
     fnname := StringName.new("set_flip_v")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextureRect) is_flipped_v() bool {
     mut object_out := false
@@ -90,7 +100,7 @@ pub fn (r &TextureRect) is_flipped_v() bool {
     fnname := StringName.new("is_flipped_v")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextureRect) set_stretch_mode(stretch_mode TextureRectStretchMode) {
@@ -99,7 +109,9 @@ pub fn (mut r TextureRect) set_stretch_mode(stretch_mode TextureRectStretchMode)
     fnname := StringName.new("set_stretch_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 58788729)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&stretch_mode)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextureRect) get_stretch_mode() TextureRectStretchMode {
     mut object_out := TextureRectStretchMode.stretch_scale
@@ -108,6 +120,6 @@ pub fn (r &TextureRect) get_stretch_mode() TextureRectStretchMode {
     fnname := StringName.new("get_stretch_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 346396079)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

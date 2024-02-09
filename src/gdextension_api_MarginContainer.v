@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type MarginContainer = voidptr
+pub struct MarginContainer {
+    Container
+}
 

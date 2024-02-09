@@ -160,6 +160,11 @@ pub fn (v &Dictionary) to_var() Variant {
     return output
 }
 
+pub fn (mut t Dictionary) set_from_var(var &Variant) {
+    var_to_type := gdf.get_variant_to_type_constructor(GDExtensionVariantType.type_dictionary)
+    var_to_type(voidptr(&t), var)
+}
+
 pub fn (v &Dictionary) index(i int) Variant {
     index_fn := gdf.variant_get_ptr_indexed_getter(GDExtensionVariantType.type_dictionary)
     mut output := Variant{}

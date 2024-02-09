@@ -1,6 +1,13 @@
 module vgdextension
 
-pub type MainLoop = voidptr
+pub struct MainLoop {
+    Object
+}
+
+pub interface IMainLoopInitialize {
+    mut:
+    virt_initialize()
+}
 
 pub fn (mut r MainLoop) uinitialize() {
     classname := StringName.new("MainLoop")
@@ -8,9 +15,14 @@ pub fn (mut r MainLoop) uinitialize() {
     fnname := StringName.new("_initialize")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
-pub fn (mut r MainLoop) uphysics_process(delta f32) bool {
+pub interface IMainLoopPhysicsProcess {
+    mut:
+    virt_physics_process(delta f64) bool
+}
+
+pub fn (mut r MainLoop) uphysics_process(delta f64) bool {
     mut object_out := false
     classname := StringName.new("MainLoop")
     defer { classname.deinit() }
@@ -19,10 +31,15 @@ pub fn (mut r MainLoop) uphysics_process(delta f32) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&delta)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r MainLoop) uprocess(delta f32) bool {
+pub interface IMainLoopProcess {
+    mut:
+    virt_process(delta f64) bool
+}
+
+pub fn (mut r MainLoop) uprocess(delta f64) bool {
     mut object_out := false
     classname := StringName.new("MainLoop")
     defer { classname.deinit() }
@@ -31,14 +48,19 @@ pub fn (mut r MainLoop) uprocess(delta f32) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&delta)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
+pub interface IMainLoopFinalize {
+    mut:
+    virt_finalize()
+}
+
 pub fn (mut r MainLoop) ufinalize() {
     classname := StringName.new("MainLoop")
     defer { classname.deinit() }
     fnname := StringName.new("_finalize")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }

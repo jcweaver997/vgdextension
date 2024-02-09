@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type EditorExportPlatformIOS = voidptr
+pub struct EditorExportPlatformIOS {
+    EditorExportPlatform
+}
 

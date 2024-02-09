@@ -45,7 +45,9 @@ pub enum FastNoiseLiteDomainWarpFractalType {
     domain_warp_fractal_independent = 2
 }
 
-pub type FastNoiseLite = voidptr
+pub struct FastNoiseLite {
+    Noise
+}
 
 pub fn (mut r FastNoiseLite) set_noise_type(type_name FastNoiseLiteNoiseType) {
     classname := StringName.new("FastNoiseLite")
@@ -53,7 +55,9 @@ pub fn (mut r FastNoiseLite) set_noise_type(type_name FastNoiseLiteNoiseType) {
     fnname := StringName.new("set_noise_type")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2624461392)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&type_name)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &FastNoiseLite) get_noise_type() FastNoiseLiteNoiseType {
     mut object_out := FastNoiseLiteNoiseType.type_value
@@ -62,7 +66,7 @@ pub fn (r &FastNoiseLite) get_noise_type() FastNoiseLiteNoiseType {
     fnname := StringName.new("get_noise_type")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1458108610)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r FastNoiseLite) set_seed(seed i32) {
@@ -71,7 +75,9 @@ pub fn (mut r FastNoiseLite) set_seed(seed i32) {
     fnname := StringName.new("set_seed")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&seed)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &FastNoiseLite) get_seed() i32 {
     mut object_out := i32(0)
@@ -80,25 +86,27 @@ pub fn (r &FastNoiseLite) get_seed() i32 {
     fnname := StringName.new("get_seed")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r FastNoiseLite) set_frequency(freq f32) {
+pub fn (mut r FastNoiseLite) set_frequency(freq f64) {
     classname := StringName.new("FastNoiseLite")
     defer { classname.deinit() }
     fnname := StringName.new("set_frequency")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&freq)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &FastNoiseLite) get_frequency() f32 {
-    mut object_out := f32(0)
+pub fn (r &FastNoiseLite) get_frequency() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("FastNoiseLite")
     defer { classname.deinit() }
     fnname := StringName.new("get_frequency")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r FastNoiseLite) set_offset(offset Vector3) {
@@ -107,7 +115,9 @@ pub fn (mut r FastNoiseLite) set_offset(offset Vector3) {
     fnname := StringName.new("set_offset")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&offset)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &FastNoiseLite) get_offset() Vector3 {
     mut object_out := Vector3{}
@@ -116,7 +126,7 @@ pub fn (r &FastNoiseLite) get_offset() Vector3 {
     fnname := StringName.new("get_offset")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3360562783)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r FastNoiseLite) set_fractal_type(type_name FastNoiseLiteFractalType) {
@@ -125,7 +135,9 @@ pub fn (mut r FastNoiseLite) set_fractal_type(type_name FastNoiseLiteFractalType
     fnname := StringName.new("set_fractal_type")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4132731174)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&type_name)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &FastNoiseLite) get_fractal_type() FastNoiseLiteFractalType {
     mut object_out := FastNoiseLiteFractalType.fractal_none
@@ -134,7 +146,7 @@ pub fn (r &FastNoiseLite) get_fractal_type() FastNoiseLiteFractalType {
     fnname := StringName.new("get_fractal_type")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1036889279)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r FastNoiseLite) set_fractal_octaves(octave_count i32) {
@@ -143,7 +155,9 @@ pub fn (mut r FastNoiseLite) set_fractal_octaves(octave_count i32) {
     fnname := StringName.new("set_fractal_octaves")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&octave_count)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &FastNoiseLite) get_fractal_octaves() i32 {
     mut object_out := i32(0)
@@ -152,79 +166,87 @@ pub fn (r &FastNoiseLite) get_fractal_octaves() i32 {
     fnname := StringName.new("get_fractal_octaves")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r FastNoiseLite) set_fractal_lacunarity(lacunarity f32) {
+pub fn (mut r FastNoiseLite) set_fractal_lacunarity(lacunarity f64) {
     classname := StringName.new("FastNoiseLite")
     defer { classname.deinit() }
     fnname := StringName.new("set_fractal_lacunarity")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&lacunarity)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &FastNoiseLite) get_fractal_lacunarity() f32 {
-    mut object_out := f32(0)
+pub fn (r &FastNoiseLite) get_fractal_lacunarity() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("FastNoiseLite")
     defer { classname.deinit() }
     fnname := StringName.new("get_fractal_lacunarity")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r FastNoiseLite) set_fractal_gain(gain f32) {
+pub fn (mut r FastNoiseLite) set_fractal_gain(gain f64) {
     classname := StringName.new("FastNoiseLite")
     defer { classname.deinit() }
     fnname := StringName.new("set_fractal_gain")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&gain)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &FastNoiseLite) get_fractal_gain() f32 {
-    mut object_out := f32(0)
+pub fn (r &FastNoiseLite) get_fractal_gain() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("FastNoiseLite")
     defer { classname.deinit() }
     fnname := StringName.new("get_fractal_gain")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r FastNoiseLite) set_fractal_weighted_strength(weighted_strength f32) {
+pub fn (mut r FastNoiseLite) set_fractal_weighted_strength(weighted_strength f64) {
     classname := StringName.new("FastNoiseLite")
     defer { classname.deinit() }
     fnname := StringName.new("set_fractal_weighted_strength")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&weighted_strength)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &FastNoiseLite) get_fractal_weighted_strength() f32 {
-    mut object_out := f32(0)
+pub fn (r &FastNoiseLite) get_fractal_weighted_strength() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("FastNoiseLite")
     defer { classname.deinit() }
     fnname := StringName.new("get_fractal_weighted_strength")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r FastNoiseLite) set_fractal_ping_pong_strength(ping_pong_strength f32) {
+pub fn (mut r FastNoiseLite) set_fractal_ping_pong_strength(ping_pong_strength f64) {
     classname := StringName.new("FastNoiseLite")
     defer { classname.deinit() }
     fnname := StringName.new("set_fractal_ping_pong_strength")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&ping_pong_strength)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &FastNoiseLite) get_fractal_ping_pong_strength() f32 {
-    mut object_out := f32(0)
+pub fn (r &FastNoiseLite) get_fractal_ping_pong_strength() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("FastNoiseLite")
     defer { classname.deinit() }
     fnname := StringName.new("get_fractal_ping_pong_strength")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r FastNoiseLite) set_cellular_distance_function(func FastNoiseLiteCellularDistanceFunction) {
@@ -233,7 +255,9 @@ pub fn (mut r FastNoiseLite) set_cellular_distance_function(func FastNoiseLiteCe
     fnname := StringName.new("set_cellular_distance_function")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1006013267)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&func)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &FastNoiseLite) get_cellular_distance_function() FastNoiseLiteCellularDistanceFunction {
     mut object_out := FastNoiseLiteCellularDistanceFunction.distance_euclidean
@@ -242,25 +266,27 @@ pub fn (r &FastNoiseLite) get_cellular_distance_function() FastNoiseLiteCellular
     fnname := StringName.new("get_cellular_distance_function")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2021274088)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r FastNoiseLite) set_cellular_jitter(jitter f32) {
+pub fn (mut r FastNoiseLite) set_cellular_jitter(jitter f64) {
     classname := StringName.new("FastNoiseLite")
     defer { classname.deinit() }
     fnname := StringName.new("set_cellular_jitter")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&jitter)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &FastNoiseLite) get_cellular_jitter() f32 {
-    mut object_out := f32(0)
+pub fn (r &FastNoiseLite) get_cellular_jitter() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("FastNoiseLite")
     defer { classname.deinit() }
     fnname := StringName.new("get_cellular_jitter")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r FastNoiseLite) set_cellular_return_type(ret FastNoiseLiteCellularReturnType) {
@@ -269,7 +295,9 @@ pub fn (mut r FastNoiseLite) set_cellular_return_type(ret FastNoiseLiteCellularR
     fnname := StringName.new("set_cellular_return_type")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2654169698)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&ret)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &FastNoiseLite) get_cellular_return_type() FastNoiseLiteCellularReturnType {
     mut object_out := FastNoiseLiteCellularReturnType.return_cell_value
@@ -278,7 +306,7 @@ pub fn (r &FastNoiseLite) get_cellular_return_type() FastNoiseLiteCellularReturn
     fnname := StringName.new("get_cellular_return_type")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3699796343)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r FastNoiseLite) set_domain_warp_enabled(domain_warp_enabled bool) {
@@ -287,7 +315,9 @@ pub fn (mut r FastNoiseLite) set_domain_warp_enabled(domain_warp_enabled bool) {
     fnname := StringName.new("set_domain_warp_enabled")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&domain_warp_enabled)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &FastNoiseLite) is_domain_warp_enabled() bool {
     mut object_out := false
@@ -296,7 +326,7 @@ pub fn (r &FastNoiseLite) is_domain_warp_enabled() bool {
     fnname := StringName.new("is_domain_warp_enabled")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r FastNoiseLite) set_domain_warp_type(domain_warp_type FastNoiseLiteDomainWarpType) {
@@ -305,7 +335,9 @@ pub fn (mut r FastNoiseLite) set_domain_warp_type(domain_warp_type FastNoiseLite
     fnname := StringName.new("set_domain_warp_type")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3629692980)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&domain_warp_type)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &FastNoiseLite) get_domain_warp_type() FastNoiseLiteDomainWarpType {
     mut object_out := FastNoiseLiteDomainWarpType.domain_warp_simplex
@@ -314,43 +346,47 @@ pub fn (r &FastNoiseLite) get_domain_warp_type() FastNoiseLiteDomainWarpType {
     fnname := StringName.new("get_domain_warp_type")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2980162020)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r FastNoiseLite) set_domain_warp_amplitude(domain_warp_amplitude f32) {
+pub fn (mut r FastNoiseLite) set_domain_warp_amplitude(domain_warp_amplitude f64) {
     classname := StringName.new("FastNoiseLite")
     defer { classname.deinit() }
     fnname := StringName.new("set_domain_warp_amplitude")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&domain_warp_amplitude)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &FastNoiseLite) get_domain_warp_amplitude() f32 {
-    mut object_out := f32(0)
+pub fn (r &FastNoiseLite) get_domain_warp_amplitude() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("FastNoiseLite")
     defer { classname.deinit() }
     fnname := StringName.new("get_domain_warp_amplitude")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r FastNoiseLite) set_domain_warp_frequency(domain_warp_frequency f32) {
+pub fn (mut r FastNoiseLite) set_domain_warp_frequency(domain_warp_frequency f64) {
     classname := StringName.new("FastNoiseLite")
     defer { classname.deinit() }
     fnname := StringName.new("set_domain_warp_frequency")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&domain_warp_frequency)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &FastNoiseLite) get_domain_warp_frequency() f32 {
-    mut object_out := f32(0)
+pub fn (r &FastNoiseLite) get_domain_warp_frequency() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("FastNoiseLite")
     defer { classname.deinit() }
     fnname := StringName.new("get_domain_warp_frequency")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r FastNoiseLite) set_domain_warp_fractal_type(domain_warp_fractal_type FastNoiseLiteDomainWarpFractalType) {
@@ -359,7 +395,9 @@ pub fn (mut r FastNoiseLite) set_domain_warp_fractal_type(domain_warp_fractal_ty
     fnname := StringName.new("set_domain_warp_fractal_type")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3999408287)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&domain_warp_fractal_type)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &FastNoiseLite) get_domain_warp_fractal_type() FastNoiseLiteDomainWarpFractalType {
     mut object_out := FastNoiseLiteDomainWarpFractalType.domain_warp_fractal_none
@@ -368,7 +406,7 @@ pub fn (r &FastNoiseLite) get_domain_warp_fractal_type() FastNoiseLiteDomainWarp
     fnname := StringName.new("get_domain_warp_fractal_type")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 407716934)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r FastNoiseLite) set_domain_warp_fractal_octaves(domain_warp_octave_count i32) {
@@ -377,7 +415,9 @@ pub fn (mut r FastNoiseLite) set_domain_warp_fractal_octaves(domain_warp_octave_
     fnname := StringName.new("set_domain_warp_fractal_octaves")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&domain_warp_octave_count)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &FastNoiseLite) get_domain_warp_fractal_octaves() i32 {
     mut object_out := i32(0)
@@ -386,42 +426,46 @@ pub fn (r &FastNoiseLite) get_domain_warp_fractal_octaves() i32 {
     fnname := StringName.new("get_domain_warp_fractal_octaves")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r FastNoiseLite) set_domain_warp_fractal_lacunarity(domain_warp_lacunarity f32) {
+pub fn (mut r FastNoiseLite) set_domain_warp_fractal_lacunarity(domain_warp_lacunarity f64) {
     classname := StringName.new("FastNoiseLite")
     defer { classname.deinit() }
     fnname := StringName.new("set_domain_warp_fractal_lacunarity")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&domain_warp_lacunarity)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &FastNoiseLite) get_domain_warp_fractal_lacunarity() f32 {
-    mut object_out := f32(0)
+pub fn (r &FastNoiseLite) get_domain_warp_fractal_lacunarity() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("FastNoiseLite")
     defer { classname.deinit() }
     fnname := StringName.new("get_domain_warp_fractal_lacunarity")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r FastNoiseLite) set_domain_warp_fractal_gain(domain_warp_gain f32) {
+pub fn (mut r FastNoiseLite) set_domain_warp_fractal_gain(domain_warp_gain f64) {
     classname := StringName.new("FastNoiseLite")
     defer { classname.deinit() }
     fnname := StringName.new("set_domain_warp_fractal_gain")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&domain_warp_gain)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &FastNoiseLite) get_domain_warp_fractal_gain() f32 {
-    mut object_out := f32(0)
+pub fn (r &FastNoiseLite) get_domain_warp_fractal_gain() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("FastNoiseLite")
     defer { classname.deinit() }
     fnname := StringName.new("get_domain_warp_fractal_gain")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

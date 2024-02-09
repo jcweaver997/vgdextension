@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type LightmapperRD = voidptr
+pub struct LightmapperRD {
+    Lightmapper
+}
 

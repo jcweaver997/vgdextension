@@ -1,6 +1,8 @@
 module vgdextension
 
-pub type PacketPeer = voidptr
+pub struct PacketPeer {
+    RefCounted
+}
 
 pub fn (mut r PacketPeer) get_var(allow_objects bool) Variant {
     mut object_out := Variant{}
@@ -11,7 +13,7 @@ pub fn (mut r PacketPeer) get_var(allow_objects bool) Variant {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3442865206)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&allow_objects)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r PacketPeer) put_var(var Variant, full_objects bool) GDError {
@@ -24,7 +26,7 @@ pub fn (mut r PacketPeer) put_var(var Variant, full_objects bool) GDError {
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&var)}
     args[1] = unsafe{voidptr(&full_objects)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r PacketPeer) get_packet() PackedByteArray {
@@ -34,7 +36,7 @@ pub fn (mut r PacketPeer) get_packet() PackedByteArray {
     fnname := StringName.new("get_packet")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2115431945)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r PacketPeer) put_packet(buffer PackedByteArray) GDError {
@@ -46,7 +48,7 @@ pub fn (mut r PacketPeer) put_packet(buffer PackedByteArray) GDError {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 680677267)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&buffer)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &PacketPeer) get_packet_error() GDError {
@@ -56,7 +58,7 @@ pub fn (r &PacketPeer) get_packet_error() GDError {
     fnname := StringName.new("get_packet_error")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3185525595)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &PacketPeer) get_available_packet_count() i32 {
@@ -66,7 +68,7 @@ pub fn (r &PacketPeer) get_available_packet_count() i32 {
     fnname := StringName.new("get_available_packet_count")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &PacketPeer) get_encode_buffer_max_size() i32 {
@@ -76,7 +78,7 @@ pub fn (r &PacketPeer) get_encode_buffer_max_size() i32 {
     fnname := StringName.new("get_encode_buffer_max_size")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r PacketPeer) set_encode_buffer_max_size(max_size i32) {
@@ -85,5 +87,7 @@ pub fn (mut r PacketPeer) set_encode_buffer_max_size(max_size i32) {
     fnname := StringName.new("set_encode_buffer_max_size")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&max_size)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }

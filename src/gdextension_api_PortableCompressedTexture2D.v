@@ -9,15 +9,22 @@ pub enum PortableCompressedTexture2DCompressionMode {
     compression_mode_bptc = 5
 }
 
-pub type PortableCompressedTexture2D = voidptr
+pub struct PortableCompressedTexture2D {
+    Texture2D
+}
 
-pub fn (mut r PortableCompressedTexture2D) create_from_image(image Image, compression_mode PortableCompressedTexture2DCompressionMode, normal_map bool, lossy_quality f32) {
+pub fn (mut r PortableCompressedTexture2D) create_from_image(image Image, compression_mode PortableCompressedTexture2DCompressionMode, normal_map bool, lossy_quality f64) {
     classname := StringName.new("PortableCompressedTexture2D")
     defer { classname.deinit() }
     fnname := StringName.new("create_from_image")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 97251393)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [4]voidptr{} }
+    args[0] = image.ptr
+    args[1] = unsafe{voidptr(&compression_mode)}
+    args[2] = unsafe{voidptr(&normal_map)}
+    args[3] = unsafe{voidptr(&lossy_quality)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &PortableCompressedTexture2D) get_format() ImageFormat {
     mut object_out := ImageFormat.format_l8
@@ -26,7 +33,7 @@ pub fn (r &PortableCompressedTexture2D) get_format() ImageFormat {
     fnname := StringName.new("get_format")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3847873762)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &PortableCompressedTexture2D) get_compression_mode() PortableCompressedTexture2DCompressionMode {
@@ -36,7 +43,7 @@ pub fn (r &PortableCompressedTexture2D) get_compression_mode() PortableCompresse
     fnname := StringName.new("get_compression_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3265612739)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r PortableCompressedTexture2D) set_size_override(size Vector2) {
@@ -45,7 +52,9 @@ pub fn (mut r PortableCompressedTexture2D) set_size_override(size Vector2) {
     fnname := StringName.new("set_size_override")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&size)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &PortableCompressedTexture2D) get_size_override() Vector2 {
     mut object_out := Vector2{}
@@ -54,7 +63,7 @@ pub fn (r &PortableCompressedTexture2D) get_size_override() Vector2 {
     fnname := StringName.new("get_size_override")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3341600327)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r PortableCompressedTexture2D) set_keep_compressed_buffer(keep bool) {
@@ -63,7 +72,9 @@ pub fn (mut r PortableCompressedTexture2D) set_keep_compressed_buffer(keep bool)
     fnname := StringName.new("set_keep_compressed_buffer")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&keep)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &PortableCompressedTexture2D) is_keeping_compressed_buffer() bool {
     mut object_out := false
@@ -72,7 +83,7 @@ pub fn (r &PortableCompressedTexture2D) is_keeping_compressed_buffer() bool {
     fnname := StringName.new("is_keeping_compressed_buffer")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn PortableCompressedTexture2D.set_keep_all_compressed_buffers(keep bool) {
@@ -81,7 +92,9 @@ pub fn PortableCompressedTexture2D.set_keep_all_compressed_buffers(keep bool) {
     fnname := StringName.new("set_keep_all_compressed_buffers")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, unsafe{nil}, unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&keep)}
+    gdf.object_method_bind_ptrcall(mb, unsafe{nil}, voidptr(&args[0]), unsafe{nil})
 }
 pub fn PortableCompressedTexture2D.is_keeping_all_compressed_buffers() bool {
     mut object_out := false

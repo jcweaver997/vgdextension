@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type VisualShaderNodeTexture2DArrayParameter = voidptr
+pub struct VisualShaderNodeTexture2DArrayParameter {
+    VisualShaderNodeTextureParameter
+}
 

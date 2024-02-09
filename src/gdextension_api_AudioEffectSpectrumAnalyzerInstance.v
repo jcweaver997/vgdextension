@@ -5,9 +5,11 @@ pub enum AudioEffectSpectrumAnalyzerInstanceMagnitudeMode {
     magnitude_max = 1
 }
 
-pub type AudioEffectSpectrumAnalyzerInstance = voidptr
+pub struct AudioEffectSpectrumAnalyzerInstance {
+    AudioEffectInstance
+}
 
-pub fn (r &AudioEffectSpectrumAnalyzerInstance) get_magnitude_for_frequency_range(from_hz f32, to_hz f32, mode AudioEffectSpectrumAnalyzerInstanceMagnitudeMode) Vector2 {
+pub fn (r &AudioEffectSpectrumAnalyzerInstance) get_magnitude_for_frequency_range(from_hz f64, to_hz f64, mode AudioEffectSpectrumAnalyzerInstanceMagnitudeMode) Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("AudioEffectSpectrumAnalyzerInstance")
     defer { classname.deinit() }
@@ -18,6 +20,6 @@ pub fn (r &AudioEffectSpectrumAnalyzerInstance) get_magnitude_for_frequency_rang
     args[0] = unsafe{voidptr(&from_hz)}
     args[1] = unsafe{voidptr(&to_hz)}
     args[2] = unsafe{voidptr(&mode)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }

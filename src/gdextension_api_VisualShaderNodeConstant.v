@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type VisualShaderNodeConstant = voidptr
+pub struct VisualShaderNodeConstant {
+    VisualShaderNode
+}
 

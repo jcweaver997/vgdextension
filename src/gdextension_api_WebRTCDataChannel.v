@@ -12,7 +12,9 @@ pub enum WebRTCDataChannelChannelState {
     state_closed = 3
 }
 
-pub type WebRTCDataChannel = voidptr
+pub struct WebRTCDataChannel {
+    PacketPeer
+}
 
 pub fn (mut r WebRTCDataChannel) poll() GDError {
     mut object_out := GDError.ok
@@ -21,7 +23,7 @@ pub fn (mut r WebRTCDataChannel) poll() GDError {
     fnname := StringName.new("poll")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 166280745)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r WebRTCDataChannel) close() {
@@ -30,7 +32,7 @@ pub fn (mut r WebRTCDataChannel) close() {
     fnname := StringName.new("close")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
 pub fn (r &WebRTCDataChannel) was_string_packet() bool {
     mut object_out := false
@@ -39,7 +41,7 @@ pub fn (r &WebRTCDataChannel) was_string_packet() bool {
     fnname := StringName.new("was_string_packet")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r WebRTCDataChannel) set_write_mode(write_mode WebRTCDataChannelWriteMode) {
@@ -48,7 +50,9 @@ pub fn (mut r WebRTCDataChannel) set_write_mode(write_mode WebRTCDataChannelWrit
     fnname := StringName.new("set_write_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1999768052)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&write_mode)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &WebRTCDataChannel) get_write_mode() WebRTCDataChannelWriteMode {
     mut object_out := WebRTCDataChannelWriteMode.write_mode_text
@@ -57,7 +61,7 @@ pub fn (r &WebRTCDataChannel) get_write_mode() WebRTCDataChannelWriteMode {
     fnname := StringName.new("get_write_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2848495172)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &WebRTCDataChannel) get_ready_state() WebRTCDataChannelChannelState {
@@ -67,7 +71,7 @@ pub fn (r &WebRTCDataChannel) get_ready_state() WebRTCDataChannelChannelState {
     fnname := StringName.new("get_ready_state")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3501143017)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &WebRTCDataChannel) get_label() String {
@@ -77,7 +81,7 @@ pub fn (r &WebRTCDataChannel) get_label() String {
     fnname := StringName.new("get_label")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 201670096)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &WebRTCDataChannel) is_ordered() bool {
@@ -87,7 +91,7 @@ pub fn (r &WebRTCDataChannel) is_ordered() bool {
     fnname := StringName.new("is_ordered")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &WebRTCDataChannel) get_id() i32 {
@@ -97,7 +101,7 @@ pub fn (r &WebRTCDataChannel) get_id() i32 {
     fnname := StringName.new("get_id")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &WebRTCDataChannel) get_max_packet_life_time() i32 {
@@ -107,7 +111,7 @@ pub fn (r &WebRTCDataChannel) get_max_packet_life_time() i32 {
     fnname := StringName.new("get_max_packet_life_time")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &WebRTCDataChannel) get_max_retransmits() i32 {
@@ -117,7 +121,7 @@ pub fn (r &WebRTCDataChannel) get_max_retransmits() i32 {
     fnname := StringName.new("get_max_retransmits")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &WebRTCDataChannel) get_protocol() String {
@@ -127,7 +131,7 @@ pub fn (r &WebRTCDataChannel) get_protocol() String {
     fnname := StringName.new("get_protocol")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 201670096)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &WebRTCDataChannel) is_negotiated() bool {
@@ -137,7 +141,7 @@ pub fn (r &WebRTCDataChannel) is_negotiated() bool {
     fnname := StringName.new("is_negotiated")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &WebRTCDataChannel) get_buffered_amount() i32 {
@@ -147,6 +151,6 @@ pub fn (r &WebRTCDataChannel) get_buffered_amount() i32 {
     fnname := StringName.new("get_buffered_amount")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

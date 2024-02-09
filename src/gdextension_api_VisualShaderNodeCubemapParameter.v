@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type VisualShaderNodeCubemapParameter = voidptr
+pub struct VisualShaderNodeCubemapParameter {
+    VisualShaderNodeTextureParameter
+}
 

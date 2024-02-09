@@ -8,7 +8,9 @@ pub enum AESContextMode {
     mode_max = 4
 }
 
-pub type AESContext = voidptr
+pub struct AESContext {
+    RefCounted
+}
 
 pub fn (mut r AESContext) start(mode AESContextMode, key PackedByteArray, iv PackedByteArray) GDError {
     mut object_out := GDError.ok
@@ -21,7 +23,7 @@ pub fn (mut r AESContext) start(mode AESContextMode, key PackedByteArray, iv Pac
     args[0] = unsafe{voidptr(&mode)}
     args[1] = unsafe{voidptr(&key)}
     args[2] = unsafe{voidptr(&iv)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r AESContext) update(src PackedByteArray) PackedByteArray {
@@ -33,7 +35,7 @@ pub fn (mut r AESContext) update(src PackedByteArray) PackedByteArray {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 527836100)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&src)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r AESContext) get_iv_state() PackedByteArray {
@@ -43,7 +45,7 @@ pub fn (mut r AESContext) get_iv_state() PackedByteArray {
     fnname := StringName.new("get_iv_state")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2115431945)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r AESContext) finish() {
@@ -52,5 +54,5 @@ pub fn (mut r AESContext) finish() {
     fnname := StringName.new("finish")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }

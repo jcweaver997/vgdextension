@@ -1,6 +1,8 @@
 module vgdextension
 
-pub type Shortcut = voidptr
+pub struct Shortcut {
+    Resource
+}
 
 pub fn (mut r Shortcut) set_events(events Array) {
     classname := StringName.new("Shortcut")
@@ -8,7 +10,9 @@ pub fn (mut r Shortcut) set_events(events Array) {
     fnname := StringName.new("set_events")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&events)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Shortcut) get_events() Array {
     mut object_out := Array{}
@@ -17,7 +21,7 @@ pub fn (r &Shortcut) get_events() Array {
     fnname := StringName.new("get_events")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3995934104)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &Shortcut) has_valid_event() bool {
@@ -27,7 +31,7 @@ pub fn (r &Shortcut) has_valid_event() bool {
     fnname := StringName.new("has_valid_event")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &Shortcut) matches_event(event InputEvent) bool {
@@ -38,8 +42,8 @@ pub fn (r &Shortcut) matches_event(event InputEvent) bool {
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3738334489)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&event)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    args[0] = event.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Shortcut) get_as_text() String {
@@ -49,6 +53,6 @@ pub fn (r &Shortcut) get_as_text() String {
     fnname := StringName.new("get_as_text")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 201670096)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

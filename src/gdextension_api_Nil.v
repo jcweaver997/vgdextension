@@ -27,3 +27,8 @@ pub fn (v &Nil) to_var() Variant {
     return output
 }
 
+pub fn (mut t Nil) set_from_var(var &Variant) {
+    var_to_type := gdf.get_variant_to_type_constructor(GDExtensionVariantType.type_nil)
+    var_to_type(voidptr(&t), var)
+}
+

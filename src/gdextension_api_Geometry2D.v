@@ -21,9 +21,20 @@ pub enum Geometry2DPolyEndType {
     end_round = 4
 }
 
-pub type Geometry2D = voidptr
+pub struct Geometry2D {
+    Object
+}
 
-pub fn (mut r Geometry2D) is_point_in_circle(point Vector2, circle_position Vector2, circle_radius f32) bool {
+pub fn Geometry2D.get_singleton() Geometry2D {
+    sn := StringName.new("Geometry2D")
+    defer {sn.deinit()}
+    o := Geometry2D{
+        ptr: gdf.global_get_singleton(sn)
+    }
+    return o
+}
+
+pub fn (mut r Geometry2D) is_point_in_circle(point Vector2, circle_position Vector2, circle_radius f64) bool {
     mut object_out := false
     classname := StringName.new("Geometry2D")
     defer { classname.deinit() }
@@ -34,11 +45,11 @@ pub fn (mut r Geometry2D) is_point_in_circle(point Vector2, circle_position Vect
     args[0] = unsafe{voidptr(&point)}
     args[1] = unsafe{voidptr(&circle_position)}
     args[2] = unsafe{voidptr(&circle_radius)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r Geometry2D) segment_intersects_circle(segment_from Vector2, segment_to Vector2, circle_position Vector2, circle_radius f32) f32 {
-    mut object_out := f32(0)
+pub fn (mut r Geometry2D) segment_intersects_circle(segment_from Vector2, segment_to Vector2, circle_position Vector2, circle_radius f64) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("Geometry2D")
     defer { classname.deinit() }
     fnname := StringName.new("segment_intersects_circle")
@@ -49,7 +60,7 @@ pub fn (mut r Geometry2D) segment_intersects_circle(segment_from Vector2, segmen
     args[1] = unsafe{voidptr(&segment_to)}
     args[2] = unsafe{voidptr(&circle_position)}
     args[3] = unsafe{voidptr(&circle_radius)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Geometry2D) segment_intersects_segment(from_a Vector2, to_a Vector2, from_b Vector2, to_b Vector2) Variant {
@@ -64,7 +75,7 @@ pub fn (mut r Geometry2D) segment_intersects_segment(from_a Vector2, to_a Vector
     args[1] = unsafe{voidptr(&to_a)}
     args[2] = unsafe{voidptr(&from_b)}
     args[3] = unsafe{voidptr(&to_b)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Geometry2D) line_intersects_line(from_a Vector2, dir_a Vector2, from_b Vector2, dir_b Vector2) Variant {
@@ -79,7 +90,7 @@ pub fn (mut r Geometry2D) line_intersects_line(from_a Vector2, dir_a Vector2, fr
     args[1] = unsafe{voidptr(&dir_a)}
     args[2] = unsafe{voidptr(&from_b)}
     args[3] = unsafe{voidptr(&dir_b)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Geometry2D) get_closest_points_between_segments(p1 Vector2, q1 Vector2, p2 Vector2, q2 Vector2) PackedVector2Array {
@@ -94,7 +105,7 @@ pub fn (mut r Geometry2D) get_closest_points_between_segments(p1 Vector2, q1 Vec
     args[1] = unsafe{voidptr(&q1)}
     args[2] = unsafe{voidptr(&p2)}
     args[3] = unsafe{voidptr(&q2)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Geometry2D) get_closest_point_to_segment(point Vector2, s1 Vector2, s2 Vector2) Vector2 {
@@ -108,7 +119,7 @@ pub fn (mut r Geometry2D) get_closest_point_to_segment(point Vector2, s1 Vector2
     args[0] = unsafe{voidptr(&point)}
     args[1] = unsafe{voidptr(&s1)}
     args[2] = unsafe{voidptr(&s2)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Geometry2D) get_closest_point_to_segment_uncapped(point Vector2, s1 Vector2, s2 Vector2) Vector2 {
@@ -122,7 +133,7 @@ pub fn (mut r Geometry2D) get_closest_point_to_segment_uncapped(point Vector2, s
     args[0] = unsafe{voidptr(&point)}
     args[1] = unsafe{voidptr(&s1)}
     args[2] = unsafe{voidptr(&s2)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Geometry2D) point_is_inside_triangle(point Vector2, a Vector2, b Vector2, c Vector2) bool {
@@ -137,7 +148,7 @@ pub fn (r &Geometry2D) point_is_inside_triangle(point Vector2, a Vector2, b Vect
     args[1] = unsafe{voidptr(&a)}
     args[2] = unsafe{voidptr(&b)}
     args[3] = unsafe{voidptr(&c)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Geometry2D) is_polygon_clockwise(polygon PackedVector2Array) bool {
@@ -149,7 +160,7 @@ pub fn (mut r Geometry2D) is_polygon_clockwise(polygon PackedVector2Array) bool 
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1361156557)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&polygon)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Geometry2D) is_point_in_polygon(point Vector2, polygon PackedVector2Array) bool {
@@ -162,7 +173,7 @@ pub fn (mut r Geometry2D) is_point_in_polygon(point Vector2, polygon PackedVecto
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&point)}
     args[1] = unsafe{voidptr(&polygon)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Geometry2D) triangulate_polygon(polygon PackedVector2Array) PackedInt32Array {
@@ -174,7 +185,7 @@ pub fn (mut r Geometry2D) triangulate_polygon(polygon PackedVector2Array) Packed
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1389921771)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&polygon)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Geometry2D) triangulate_delaunay(points PackedVector2Array) PackedInt32Array {
@@ -186,7 +197,7 @@ pub fn (mut r Geometry2D) triangulate_delaunay(points PackedVector2Array) Packed
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1389921771)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&points)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Geometry2D) convex_hull(points PackedVector2Array) PackedVector2Array {
@@ -198,7 +209,7 @@ pub fn (mut r Geometry2D) convex_hull(points PackedVector2Array) PackedVector2Ar
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2004331998)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&points)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Geometry2D) decompose_polygon_in_convex(polygon PackedVector2Array) Array {
@@ -210,7 +221,7 @@ pub fn (mut r Geometry2D) decompose_polygon_in_convex(polygon PackedVector2Array
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3982393695)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&polygon)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Geometry2D) merge_polygons(polygon_a PackedVector2Array, polygon_b PackedVector2Array) Array {
@@ -223,7 +234,7 @@ pub fn (mut r Geometry2D) merge_polygons(polygon_a PackedVector2Array, polygon_b
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&polygon_a)}
     args[1] = unsafe{voidptr(&polygon_b)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Geometry2D) clip_polygons(polygon_a PackedVector2Array, polygon_b PackedVector2Array) Array {
@@ -236,7 +247,7 @@ pub fn (mut r Geometry2D) clip_polygons(polygon_a PackedVector2Array, polygon_b 
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&polygon_a)}
     args[1] = unsafe{voidptr(&polygon_b)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Geometry2D) intersect_polygons(polygon_a PackedVector2Array, polygon_b PackedVector2Array) Array {
@@ -249,7 +260,7 @@ pub fn (mut r Geometry2D) intersect_polygons(polygon_a PackedVector2Array, polyg
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&polygon_a)}
     args[1] = unsafe{voidptr(&polygon_b)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Geometry2D) exclude_polygons(polygon_a PackedVector2Array, polygon_b PackedVector2Array) Array {
@@ -262,7 +273,7 @@ pub fn (mut r Geometry2D) exclude_polygons(polygon_a PackedVector2Array, polygon
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&polygon_a)}
     args[1] = unsafe{voidptr(&polygon_b)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Geometry2D) clip_polyline_with_polygon(polyline PackedVector2Array, polygon PackedVector2Array) Array {
@@ -275,7 +286,7 @@ pub fn (mut r Geometry2D) clip_polyline_with_polygon(polyline PackedVector2Array
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&polyline)}
     args[1] = unsafe{voidptr(&polygon)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Geometry2D) intersect_polyline_with_polygon(polyline PackedVector2Array, polygon PackedVector2Array) Array {
@@ -288,10 +299,10 @@ pub fn (mut r Geometry2D) intersect_polyline_with_polygon(polyline PackedVector2
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&polyline)}
     args[1] = unsafe{voidptr(&polygon)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r Geometry2D) offset_polygon(polygon PackedVector2Array, delta f32, join_type Geometry2DPolyJoinType) Array {
+pub fn (mut r Geometry2D) offset_polygon(polygon PackedVector2Array, delta f64, join_type Geometry2DPolyJoinType) Array {
     mut object_out := Array{}
     classname := StringName.new("Geometry2D")
     defer { classname.deinit() }
@@ -302,10 +313,10 @@ pub fn (mut r Geometry2D) offset_polygon(polygon PackedVector2Array, delta f32, 
     args[0] = unsafe{voidptr(&polygon)}
     args[1] = unsafe{voidptr(&delta)}
     args[2] = unsafe{voidptr(&join_type)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r Geometry2D) offset_polyline(polyline PackedVector2Array, delta f32, join_type Geometry2DPolyJoinType, end_type Geometry2DPolyEndType) Array {
+pub fn (mut r Geometry2D) offset_polyline(polyline PackedVector2Array, delta f64, join_type Geometry2DPolyJoinType, end_type Geometry2DPolyEndType) Array {
     mut object_out := Array{}
     classname := StringName.new("Geometry2D")
     defer { classname.deinit() }
@@ -317,7 +328,7 @@ pub fn (mut r Geometry2D) offset_polyline(polyline PackedVector2Array, delta f32
     args[1] = unsafe{voidptr(&delta)}
     args[2] = unsafe{voidptr(&join_type)}
     args[3] = unsafe{voidptr(&end_type)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Geometry2D) make_atlas(sizes PackedVector2Array) Dictionary {
@@ -329,6 +340,6 @@ pub fn (mut r Geometry2D) make_atlas(sizes PackedVector2Array) Dictionary {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1337682371)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&sizes)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }

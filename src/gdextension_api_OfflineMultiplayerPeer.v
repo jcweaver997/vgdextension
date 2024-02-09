@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type OfflineMultiplayerPeer = voidptr
+pub struct OfflineMultiplayerPeer {
+    MultiplayerPeer
+}
 

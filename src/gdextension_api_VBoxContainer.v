@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type VBoxContainer = voidptr
+pub struct VBoxContainer {
+    BoxContainer
+}
 

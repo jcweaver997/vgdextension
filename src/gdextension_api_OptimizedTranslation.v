@@ -1,6 +1,8 @@
 module vgdextension
 
-pub type OptimizedTranslation = voidptr
+pub struct OptimizedTranslation {
+    Translation
+}
 
 pub fn (mut r OptimizedTranslation) generate(from Translation) {
     classname := StringName.new("OptimizedTranslation")
@@ -8,5 +10,7 @@ pub fn (mut r OptimizedTranslation) generate(from Translation) {
     fnname := StringName.new("generate")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1466479800)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = from.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }

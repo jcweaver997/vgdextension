@@ -8,7 +8,9 @@ pub enum VisualShaderNodeTransformVecMultOperator {
     op_max = 4
 }
 
-pub type VisualShaderNodeTransformVecMult = voidptr
+pub struct VisualShaderNodeTransformVecMult {
+    VisualShaderNode
+}
 
 pub fn (mut r VisualShaderNodeTransformVecMult) set_operator(op VisualShaderNodeTransformVecMultOperator) {
     classname := StringName.new("VisualShaderNodeTransformVecMult")
@@ -16,7 +18,9 @@ pub fn (mut r VisualShaderNodeTransformVecMult) set_operator(op VisualShaderNode
     fnname := StringName.new("set_operator")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1785665912)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&op)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &VisualShaderNodeTransformVecMult) get_operator() VisualShaderNodeTransformVecMultOperator {
     mut object_out := VisualShaderNodeTransformVecMultOperator.op_axb
@@ -25,6 +29,6 @@ pub fn (r &VisualShaderNodeTransformVecMult) get_operator() VisualShaderNodeTran
     fnname := StringName.new("get_operator")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1622088722)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
