@@ -41,7 +41,9 @@ pub enum VisualShaderNodeTextureParameterTextureSource {
     source_max = 4
 }
 
-pub type VisualShaderNodeTextureParameter = voidptr
+pub struct VisualShaderNodeTextureParameter {
+    VisualShaderNodeParameter
+}
 
 pub fn (mut r VisualShaderNodeTextureParameter) set_texture_type(type_name VisualShaderNodeTextureParameterTextureType) {
     classname := StringName.new("VisualShaderNodeTextureParameter")
@@ -49,7 +51,9 @@ pub fn (mut r VisualShaderNodeTextureParameter) set_texture_type(type_name Visua
     fnname := StringName.new("set_texture_type")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2227296876)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&type_name)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &VisualShaderNodeTextureParameter) get_texture_type() VisualShaderNodeTextureParameterTextureType {
     mut object_out := VisualShaderNodeTextureParameterTextureType.type_data
@@ -58,7 +62,7 @@ pub fn (r &VisualShaderNodeTextureParameter) get_texture_type() VisualShaderNode
     fnname := StringName.new("get_texture_type")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 367922070)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r VisualShaderNodeTextureParameter) set_color_default(color VisualShaderNodeTextureParameterColorDefault) {
@@ -67,7 +71,9 @@ pub fn (mut r VisualShaderNodeTextureParameter) set_color_default(color VisualSh
     fnname := StringName.new("set_color_default")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4217624432)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&color)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &VisualShaderNodeTextureParameter) get_color_default() VisualShaderNodeTextureParameterColorDefault {
     mut object_out := VisualShaderNodeTextureParameterColorDefault.color_default_white
@@ -76,7 +82,7 @@ pub fn (r &VisualShaderNodeTextureParameter) get_color_default() VisualShaderNod
     fnname := StringName.new("get_color_default")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3837060134)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r VisualShaderNodeTextureParameter) set_texture_filter(filter VisualShaderNodeTextureParameterTextureFilter) {
@@ -85,7 +91,9 @@ pub fn (mut r VisualShaderNodeTextureParameter) set_texture_filter(filter Visual
     fnname := StringName.new("set_texture_filter")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2147684752)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&filter)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &VisualShaderNodeTextureParameter) get_texture_filter() VisualShaderNodeTextureParameterTextureFilter {
     mut object_out := VisualShaderNodeTextureParameterTextureFilter.filter_default
@@ -94,7 +102,7 @@ pub fn (r &VisualShaderNodeTextureParameter) get_texture_filter() VisualShaderNo
     fnname := StringName.new("get_texture_filter")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4184490817)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r VisualShaderNodeTextureParameter) set_texture_repeat(repeat VisualShaderNodeTextureParameterTextureRepeat) {
@@ -103,7 +111,9 @@ pub fn (mut r VisualShaderNodeTextureParameter) set_texture_repeat(repeat Visual
     fnname := StringName.new("set_texture_repeat")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2036143070)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&repeat)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &VisualShaderNodeTextureParameter) get_texture_repeat() VisualShaderNodeTextureParameterTextureRepeat {
     mut object_out := VisualShaderNodeTextureParameterTextureRepeat.repeat_default
@@ -112,7 +122,7 @@ pub fn (r &VisualShaderNodeTextureParameter) get_texture_repeat() VisualShaderNo
     fnname := StringName.new("get_texture_repeat")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1690132794)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r VisualShaderNodeTextureParameter) set_texture_source(source VisualShaderNodeTextureParameterTextureSource) {
@@ -121,7 +131,9 @@ pub fn (mut r VisualShaderNodeTextureParameter) set_texture_source(source Visual
     fnname := StringName.new("set_texture_source")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1212687372)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&source)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &VisualShaderNodeTextureParameter) get_texture_source() VisualShaderNodeTextureParameterTextureSource {
     mut object_out := VisualShaderNodeTextureParameterTextureSource.source_none
@@ -130,6 +142,6 @@ pub fn (r &VisualShaderNodeTextureParameter) get_texture_source() VisualShaderNo
     fnname := StringName.new("get_texture_source")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2039092262)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

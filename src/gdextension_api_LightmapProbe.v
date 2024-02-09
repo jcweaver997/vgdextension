@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type LightmapProbe = voidptr
+pub struct LightmapProbe {
+    Node3D
+}
 

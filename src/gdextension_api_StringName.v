@@ -262,8 +262,8 @@ pub fn (r &StringName) bigrams() PackedStringArray {
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
    return object_out
 }
-pub fn (r &StringName) similarity(text String) f32 {
-    mut object_out := f32(0)
+pub fn (r &StringName) similarity(text String) f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("similarity")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_stringname, voidptr(&fnname), 2697460964)
@@ -789,8 +789,8 @@ pub fn (r &StringName) to_int() i32 {
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
    return object_out
 }
-pub fn (r &StringName) to_float() f32 {
-    mut object_out := f32(0)
+pub fn (r &StringName) to_float() f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("to_float")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_stringname, voidptr(&fnname), 466405837)
@@ -936,5 +936,10 @@ pub fn (v &StringName) to_var() Variant {
     output := Variant{}
     to_variant(GDExtensionUninitializedVariantPtr(&output), GDExtensionTypePtr(v))
     return output
+}
+
+pub fn (mut t StringName) set_from_var(var &Variant) {
+    var_to_type := gdf.get_variant_to_type_constructor(GDExtensionVariantType.type_stringname)
+    var_to_type(voidptr(&t), var)
 }
 

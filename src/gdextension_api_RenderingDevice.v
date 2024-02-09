@@ -556,7 +556,9 @@ pub enum RenderingDeviceMemoryType {
     memory_total = 2
 }
 
-pub type RenderingDevice = voidptr
+pub struct RenderingDevice {
+    Object
+}
 
 pub fn (mut r RenderingDevice) texture_create(format RDTextureFormat, view RDTextureView, data Array) RID {
     mut object_out := RID{}
@@ -566,10 +568,10 @@ pub fn (mut r RenderingDevice) texture_create(format RDTextureFormat, view RDTex
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3011278298)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&format)}
-    args[1] = unsafe{voidptr(&view)}
+    args[0] = format.ptr
+    args[1] = view.ptr
     args[2] = unsafe{voidptr(&data)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r RenderingDevice) texture_create_shared(view RDTextureView, with_texture RID) RID {
@@ -580,12 +582,12 @@ pub fn (mut r RenderingDevice) texture_create_shared(view RDTextureView, with_te
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3178156134)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&view)}
+    args[0] = view.ptr
     args[1] = unsafe{voidptr(&with_texture)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r RenderingDevice) texture_create_shared_from_slice(view RDTextureView, with_texture RID, layer i32, mipmap i32, mipmaps i32, slice_type RenderingDeviceTextureSliceType) RID {
+pub fn (mut r RenderingDevice) texture_create_shared_from_slice(view RDTextureView, with_texture RID, layer u32, mipmap u32, mipmaps u32, slice_type RenderingDeviceTextureSliceType) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
@@ -593,16 +595,16 @@ pub fn (mut r RenderingDevice) texture_create_shared_from_slice(view RDTextureVi
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 864132525)
     mut args := unsafe { [6]voidptr{} }
-    args[0] = unsafe{voidptr(&view)}
+    args[0] = view.ptr
     args[1] = unsafe{voidptr(&with_texture)}
     args[2] = unsafe{voidptr(&layer)}
     args[3] = unsafe{voidptr(&mipmap)}
     args[4] = unsafe{voidptr(&mipmaps)}
     args[5] = unsafe{voidptr(&slice_type)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r RenderingDevice) texture_update(texture RID, layer i32, data PackedByteArray, post_barrier RenderingDeviceBarrierMask) GDError {
+pub fn (mut r RenderingDevice) texture_update(texture RID, layer u32, data PackedByteArray, post_barrier RenderingDeviceBarrierMask) GDError {
     mut object_out := GDError.ok
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
@@ -614,10 +616,10 @@ pub fn (mut r RenderingDevice) texture_update(texture RID, layer i32, data Packe
     args[1] = unsafe{voidptr(&layer)}
     args[2] = unsafe{voidptr(&data)}
     args[3] = unsafe{voidptr(&post_barrier)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r RenderingDevice) texture_get_data(texture RID, layer i32) PackedByteArray {
+pub fn (mut r RenderingDevice) texture_get_data(texture RID, layer u32) PackedByteArray {
     mut object_out := PackedByteArray{}
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
@@ -627,7 +629,7 @@ pub fn (mut r RenderingDevice) texture_get_data(texture RID, layer i32) PackedBy
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&texture)}
     args[1] = unsafe{voidptr(&layer)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &RenderingDevice) texture_is_format_supported_for_usage(format RenderingDeviceDataFormat, usage_flags RenderingDeviceTextureUsageBits) bool {
@@ -640,7 +642,7 @@ pub fn (r &RenderingDevice) texture_is_format_supported_for_usage(format Renderi
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&format)}
     args[1] = unsafe{voidptr(&usage_flags)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r RenderingDevice) texture_is_shared(texture RID) bool {
@@ -652,7 +654,7 @@ pub fn (mut r RenderingDevice) texture_is_shared(texture RID) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3521089500)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&texture)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r RenderingDevice) texture_is_valid(texture RID) bool {
@@ -664,10 +666,10 @@ pub fn (mut r RenderingDevice) texture_is_valid(texture RID) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3521089500)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&texture)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r RenderingDevice) texture_copy(from_texture RID, to_texture RID, from_pos Vector3, to_pos Vector3, size Vector3, src_mipmap i32, dst_mipmap i32, src_layer i32, dst_layer i32, post_barrier RenderingDeviceBarrierMask) GDError {
+pub fn (mut r RenderingDevice) texture_copy(from_texture RID, to_texture RID, from_pos Vector3, to_pos Vector3, size Vector3, src_mipmap u32, dst_mipmap u32, src_layer u32, dst_layer u32, post_barrier RenderingDeviceBarrierMask) GDError {
     mut object_out := GDError.ok
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
@@ -685,10 +687,10 @@ pub fn (mut r RenderingDevice) texture_copy(from_texture RID, to_texture RID, fr
     args[7] = unsafe{voidptr(&src_layer)}
     args[8] = unsafe{voidptr(&dst_layer)}
     args[9] = unsafe{voidptr(&post_barrier)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r RenderingDevice) texture_clear(texture RID, color Color, base_mipmap i32, mipmap_count i32, base_layer i32, layer_count i32, post_barrier RenderingDeviceBarrierMask) GDError {
+pub fn (mut r RenderingDevice) texture_clear(texture RID, color Color, base_mipmap u32, mipmap_count u32, base_layer u32, layer_count u32, post_barrier RenderingDeviceBarrierMask) GDError {
     mut object_out := GDError.ok
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
@@ -703,7 +705,7 @@ pub fn (mut r RenderingDevice) texture_clear(texture RID, color Color, base_mipm
     args[4] = unsafe{voidptr(&base_layer)}
     args[5] = unsafe{voidptr(&layer_count)}
     args[6] = unsafe{voidptr(&post_barrier)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r RenderingDevice) texture_resolve_multisample(from_texture RID, to_texture RID, post_barrier RenderingDeviceBarrierMask) GDError {
@@ -717,11 +719,11 @@ pub fn (mut r RenderingDevice) texture_resolve_multisample(from_texture RID, to_
     args[0] = unsafe{voidptr(&from_texture)}
     args[1] = unsafe{voidptr(&to_texture)}
     args[2] = unsafe{voidptr(&post_barrier)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r RenderingDevice) texture_get_native_handle(texture RID) i32 {
-    mut object_out := i32(0)
+pub fn (mut r RenderingDevice) texture_get_native_handle(texture RID) u64 {
+    mut object_out := u64(0)
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
     fnname := StringName.new("texture_get_native_handle")
@@ -729,11 +731,11 @@ pub fn (mut r RenderingDevice) texture_get_native_handle(texture RID) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3917799429)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&texture)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r RenderingDevice) framebuffer_format_create(attachments Array, view_count i32) i32 {
-    mut object_out := i32(0)
+pub fn (mut r RenderingDevice) framebuffer_format_create(attachments Array, view_count u32) i64 {
+    mut object_out := i64(0)
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
     fnname := StringName.new("framebuffer_format_create")
@@ -742,11 +744,11 @@ pub fn (mut r RenderingDevice) framebuffer_format_create(attachments Array, view
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&attachments)}
     args[1] = unsafe{voidptr(&view_count)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r RenderingDevice) framebuffer_format_create_multipass(attachments Array, passes Array, view_count i32) i32 {
-    mut object_out := i32(0)
+pub fn (mut r RenderingDevice) framebuffer_format_create_multipass(attachments Array, passes Array, view_count u32) i64 {
+    mut object_out := i64(0)
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
     fnname := StringName.new("framebuffer_format_create_multipass")
@@ -756,11 +758,11 @@ pub fn (mut r RenderingDevice) framebuffer_format_create_multipass(attachments A
     args[0] = unsafe{voidptr(&attachments)}
     args[1] = unsafe{voidptr(&passes)}
     args[2] = unsafe{voidptr(&view_count)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r RenderingDevice) framebuffer_format_create_empty(samples RenderingDeviceTextureSamples) i32 {
-    mut object_out := i32(0)
+pub fn (mut r RenderingDevice) framebuffer_format_create_empty(samples RenderingDeviceTextureSamples) i64 {
+    mut object_out := i64(0)
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
     fnname := StringName.new("framebuffer_format_create_empty")
@@ -768,10 +770,10 @@ pub fn (mut r RenderingDevice) framebuffer_format_create_empty(samples Rendering
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 555930169)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&samples)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r RenderingDevice) framebuffer_format_get_texture_samples(format i32, render_pass i32) RenderingDeviceTextureSamples {
+pub fn (mut r RenderingDevice) framebuffer_format_get_texture_samples(format i64, render_pass u32) RenderingDeviceTextureSamples {
     mut object_out := RenderingDeviceTextureSamples.texture_samples_1
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
@@ -781,10 +783,10 @@ pub fn (mut r RenderingDevice) framebuffer_format_get_texture_samples(format i32
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&format)}
     args[1] = unsafe{voidptr(&render_pass)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r RenderingDevice) framebuffer_create(textures Array, validate_with_format i32, view_count i32) RID {
+pub fn (mut r RenderingDevice) framebuffer_create(textures Array, validate_with_format i64, view_count u32) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
@@ -795,10 +797,10 @@ pub fn (mut r RenderingDevice) framebuffer_create(textures Array, validate_with_
     args[0] = unsafe{voidptr(&textures)}
     args[1] = unsafe{voidptr(&validate_with_format)}
     args[2] = unsafe{voidptr(&view_count)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r RenderingDevice) framebuffer_create_multipass(textures Array, passes Array, validate_with_format i32, view_count i32) RID {
+pub fn (mut r RenderingDevice) framebuffer_create_multipass(textures Array, passes Array, validate_with_format i64, view_count u32) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
@@ -810,10 +812,10 @@ pub fn (mut r RenderingDevice) framebuffer_create_multipass(textures Array, pass
     args[1] = unsafe{voidptr(&passes)}
     args[2] = unsafe{voidptr(&validate_with_format)}
     args[3] = unsafe{voidptr(&view_count)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r RenderingDevice) framebuffer_create_empty(size Vector2i, samples RenderingDeviceTextureSamples, validate_with_format i32) RID {
+pub fn (mut r RenderingDevice) framebuffer_create_empty(size Vector2i, samples RenderingDeviceTextureSamples, validate_with_format i64) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
@@ -824,11 +826,11 @@ pub fn (mut r RenderingDevice) framebuffer_create_empty(size Vector2i, samples R
     args[0] = unsafe{voidptr(&size)}
     args[1] = unsafe{voidptr(&samples)}
     args[2] = unsafe{voidptr(&validate_with_format)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r RenderingDevice) framebuffer_get_format(framebuffer RID) i32 {
-    mut object_out := i32(0)
+pub fn (mut r RenderingDevice) framebuffer_get_format(framebuffer RID) i64 {
+    mut object_out := i64(0)
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
     fnname := StringName.new("framebuffer_get_format")
@@ -836,7 +838,7 @@ pub fn (mut r RenderingDevice) framebuffer_get_format(framebuffer RID) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3917799429)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&framebuffer)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &RenderingDevice) framebuffer_is_valid(framebuffer RID) bool {
@@ -848,7 +850,7 @@ pub fn (r &RenderingDevice) framebuffer_is_valid(framebuffer RID) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4155700596)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&framebuffer)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r RenderingDevice) sampler_create(state RDSamplerState) RID {
@@ -859,8 +861,8 @@ pub fn (mut r RenderingDevice) sampler_create(state RDSamplerState) RID {
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2327892535)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&state)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    args[0] = state.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &RenderingDevice) sampler_is_format_supported_for_filter(format RenderingDeviceDataFormat, sampler_filter RenderingDeviceSamplerFilter) bool {
@@ -873,10 +875,10 @@ pub fn (r &RenderingDevice) sampler_is_format_supported_for_filter(format Render
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&format)}
     args[1] = unsafe{voidptr(&sampler_filter)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r RenderingDevice) vertex_buffer_create(size_bytes i32, data PackedByteArray, use_as_storage bool) RID {
+pub fn (mut r RenderingDevice) vertex_buffer_create(size_bytes u32, data PackedByteArray, use_as_storage bool) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
@@ -887,11 +889,11 @@ pub fn (mut r RenderingDevice) vertex_buffer_create(size_bytes i32, data PackedB
     args[0] = unsafe{voidptr(&size_bytes)}
     args[1] = unsafe{voidptr(&data)}
     args[2] = unsafe{voidptr(&use_as_storage)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r RenderingDevice) vertex_format_create(vertex_descriptions Array) i32 {
-    mut object_out := i32(0)
+pub fn (mut r RenderingDevice) vertex_format_create(vertex_descriptions Array) i64 {
+    mut object_out := i64(0)
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
     fnname := StringName.new("vertex_format_create")
@@ -899,10 +901,10 @@ pub fn (mut r RenderingDevice) vertex_format_create(vertex_descriptions Array) i
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1242678479)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&vertex_descriptions)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r RenderingDevice) vertex_array_create(vertex_count i32, vertex_format i32, src_buffers Array, offsets PackedInt64Array) RID {
+pub fn (mut r RenderingDevice) vertex_array_create(vertex_count u32, vertex_format i64, src_buffers Array, offsets PackedInt64Array) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
@@ -914,10 +916,10 @@ pub fn (mut r RenderingDevice) vertex_array_create(vertex_count i32, vertex_form
     args[1] = unsafe{voidptr(&vertex_format)}
     args[2] = unsafe{voidptr(&src_buffers)}
     args[3] = unsafe{voidptr(&offsets)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r RenderingDevice) index_buffer_create(size_indices i32, format RenderingDeviceIndexBufferFormat, data PackedByteArray, use_restart_indices bool) RID {
+pub fn (mut r RenderingDevice) index_buffer_create(size_indices u32, format RenderingDeviceIndexBufferFormat, data PackedByteArray, use_restart_indices bool) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
@@ -929,10 +931,10 @@ pub fn (mut r RenderingDevice) index_buffer_create(size_indices i32, format Rend
     args[1] = unsafe{voidptr(&format)}
     args[2] = unsafe{voidptr(&data)}
     args[3] = unsafe{voidptr(&use_restart_indices)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r RenderingDevice) index_array_create(index_buffer RID, index_offset i32, index_count i32) RID {
+pub fn (mut r RenderingDevice) index_array_create(index_buffer RID, index_offset u32, index_count u32) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
@@ -943,20 +945,20 @@ pub fn (mut r RenderingDevice) index_array_create(index_buffer RID, index_offset
     args[0] = unsafe{voidptr(&index_buffer)}
     args[1] = unsafe{voidptr(&index_offset)}
     args[2] = unsafe{voidptr(&index_count)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r RenderingDevice) shader_compile_spirv_from_source(shader_source RDShaderSource, allow_cache bool) RDShaderSPIRV {
-    mut object_out := RDShaderSPIRV(unsafe{nil})
+    mut object_out := RDShaderSPIRV{}
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
     fnname := StringName.new("shader_compile_spirv_from_source")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3459523685)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&shader_source)}
+    args[0] = shader_source.ptr
     args[1] = unsafe{voidptr(&allow_cache)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r RenderingDevice) shader_compile_binary_from_spirv(spirv_data RDShaderSPIRV, name String) PackedByteArray {
@@ -967,9 +969,9 @@ pub fn (mut r RenderingDevice) shader_compile_binary_from_spirv(spirv_data RDSha
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1395027180)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&spirv_data)}
+    args[0] = spirv_data.ptr
     args[1] = unsafe{voidptr(&name)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r RenderingDevice) shader_create_from_spirv(spirv_data RDShaderSPIRV, name String) RID {
@@ -980,9 +982,9 @@ pub fn (mut r RenderingDevice) shader_create_from_spirv(spirv_data RDShaderSPIRV
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3297482566)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&spirv_data)}
+    args[0] = spirv_data.ptr
     args[1] = unsafe{voidptr(&name)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r RenderingDevice) shader_create_from_bytecode(binary_data PackedByteArray) RID {
@@ -994,11 +996,11 @@ pub fn (mut r RenderingDevice) shader_create_from_bytecode(binary_data PackedByt
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3049171473)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&binary_data)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r RenderingDevice) shader_get_vertex_input_attribute_mask(shader RID) i32 {
-    mut object_out := i32(0)
+pub fn (mut r RenderingDevice) shader_get_vertex_input_attribute_mask(shader RID) u32 {
+    mut object_out := u32(0)
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
     fnname := StringName.new("shader_get_vertex_input_attribute_mask")
@@ -1006,10 +1008,10 @@ pub fn (mut r RenderingDevice) shader_get_vertex_input_attribute_mask(shader RID
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3917799429)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&shader)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r RenderingDevice) uniform_buffer_create(size_bytes i32, data PackedByteArray) RID {
+pub fn (mut r RenderingDevice) uniform_buffer_create(size_bytes u32, data PackedByteArray) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
@@ -1019,10 +1021,10 @@ pub fn (mut r RenderingDevice) uniform_buffer_create(size_bytes i32, data Packed
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&size_bytes)}
     args[1] = unsafe{voidptr(&data)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r RenderingDevice) storage_buffer_create(size_bytes i32, data PackedByteArray, usage RenderingDeviceStorageBufferUsage) RID {
+pub fn (mut r RenderingDevice) storage_buffer_create(size_bytes u32, data PackedByteArray, usage RenderingDeviceStorageBufferUsage) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
@@ -1033,10 +1035,10 @@ pub fn (mut r RenderingDevice) storage_buffer_create(size_bytes i32, data Packed
     args[0] = unsafe{voidptr(&size_bytes)}
     args[1] = unsafe{voidptr(&data)}
     args[2] = unsafe{voidptr(&usage)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r RenderingDevice) texture_buffer_create(size_bytes i32, format RenderingDeviceDataFormat, data PackedByteArray) RID {
+pub fn (mut r RenderingDevice) texture_buffer_create(size_bytes u32, format RenderingDeviceDataFormat, data PackedByteArray) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
@@ -1047,10 +1049,10 @@ pub fn (mut r RenderingDevice) texture_buffer_create(size_bytes i32, format Rend
     args[0] = unsafe{voidptr(&size_bytes)}
     args[1] = unsafe{voidptr(&format)}
     args[2] = unsafe{voidptr(&data)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r RenderingDevice) uniform_set_create(uniforms Array, shader RID, shader_set i32) RID {
+pub fn (mut r RenderingDevice) uniform_set_create(uniforms Array, shader RID, shader_set u32) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
@@ -1061,7 +1063,7 @@ pub fn (mut r RenderingDevice) uniform_set_create(uniforms Array, shader RID, sh
     args[0] = unsafe{voidptr(&uniforms)}
     args[1] = unsafe{voidptr(&shader)}
     args[2] = unsafe{voidptr(&shader_set)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r RenderingDevice) uniform_set_is_valid(uniform_set RID) bool {
@@ -1073,10 +1075,10 @@ pub fn (mut r RenderingDevice) uniform_set_is_valid(uniform_set RID) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3521089500)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&uniform_set)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r RenderingDevice) buffer_update(buffer RID, offset i32, size_bytes i32, data PackedByteArray, post_barrier RenderingDeviceBarrierMask) GDError {
+pub fn (mut r RenderingDevice) buffer_update(buffer RID, offset u32, size_bytes u32, data PackedByteArray, post_barrier RenderingDeviceBarrierMask) GDError {
     mut object_out := GDError.ok
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
@@ -1089,10 +1091,10 @@ pub fn (mut r RenderingDevice) buffer_update(buffer RID, offset i32, size_bytes 
     args[2] = unsafe{voidptr(&size_bytes)}
     args[3] = unsafe{voidptr(&data)}
     args[4] = unsafe{voidptr(&post_barrier)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r RenderingDevice) buffer_clear(buffer RID, offset i32, size_bytes i32, post_barrier RenderingDeviceBarrierMask) GDError {
+pub fn (mut r RenderingDevice) buffer_clear(buffer RID, offset u32, size_bytes u32, post_barrier RenderingDeviceBarrierMask) GDError {
     mut object_out := GDError.ok
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
@@ -1104,10 +1106,10 @@ pub fn (mut r RenderingDevice) buffer_clear(buffer RID, offset i32, size_bytes i
     args[1] = unsafe{voidptr(&offset)}
     args[2] = unsafe{voidptr(&size_bytes)}
     args[3] = unsafe{voidptr(&post_barrier)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r RenderingDevice) buffer_get_data(buffer RID, offset_bytes i32, size_bytes i32) PackedByteArray {
+pub fn (mut r RenderingDevice) buffer_get_data(buffer RID, offset_bytes u32, size_bytes u32) PackedByteArray {
     mut object_out := PackedByteArray{}
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
@@ -1118,10 +1120,10 @@ pub fn (mut r RenderingDevice) buffer_get_data(buffer RID, offset_bytes i32, siz
     args[0] = unsafe{voidptr(&buffer)}
     args[1] = unsafe{voidptr(&offset_bytes)}
     args[2] = unsafe{voidptr(&size_bytes)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r RenderingDevice) render_pipeline_create(shader RID, framebuffer_format i32, vertex_format i32, primitive RenderingDeviceRenderPrimitive, rasterization_state RDPipelineRasterizationState, multisample_state RDPipelineMultisampleState, stencil_state RDPipelineDepthStencilState, color_blend_state RDPipelineColorBlendState, dynamic_state_flags RenderingDevicePipelineDynamicStateFlags, for_render_pass i32, specialization_constants Array) RID {
+pub fn (mut r RenderingDevice) render_pipeline_create(shader RID, framebuffer_format i64, vertex_format i64, primitive RenderingDeviceRenderPrimitive, rasterization_state RDPipelineRasterizationState, multisample_state RDPipelineMultisampleState, stencil_state RDPipelineDepthStencilState, color_blend_state RDPipelineColorBlendState, dynamic_state_flags RenderingDevicePipelineDynamicStateFlags, for_render_pass u32, specialization_constants Array) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
@@ -1133,14 +1135,14 @@ pub fn (mut r RenderingDevice) render_pipeline_create(shader RID, framebuffer_fo
     args[1] = unsafe{voidptr(&framebuffer_format)}
     args[2] = unsafe{voidptr(&vertex_format)}
     args[3] = unsafe{voidptr(&primitive)}
-    args[4] = unsafe{voidptr(&rasterization_state)}
-    args[5] = unsafe{voidptr(&multisample_state)}
-    args[6] = unsafe{voidptr(&stencil_state)}
-    args[7] = unsafe{voidptr(&color_blend_state)}
+    args[4] = rasterization_state.ptr
+    args[5] = multisample_state.ptr
+    args[6] = stencil_state.ptr
+    args[7] = color_blend_state.ptr
     args[8] = unsafe{voidptr(&dynamic_state_flags)}
     args[9] = unsafe{voidptr(&for_render_pass)}
     args[10] = unsafe{voidptr(&specialization_constants)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r RenderingDevice) render_pipeline_is_valid(render_pipeline RID) bool {
@@ -1152,7 +1154,7 @@ pub fn (mut r RenderingDevice) render_pipeline_is_valid(render_pipeline RID) boo
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3521089500)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&render_pipeline)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r RenderingDevice) compute_pipeline_create(shader RID, specialization_constants Array) RID {
@@ -1165,7 +1167,7 @@ pub fn (mut r RenderingDevice) compute_pipeline_create(shader RID, specializatio
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&shader)}
     args[1] = unsafe{voidptr(&specialization_constants)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r RenderingDevice) compute_pipeline_is_valid(compute_pipeline RID) bool {
@@ -1177,7 +1179,7 @@ pub fn (mut r RenderingDevice) compute_pipeline_is_valid(compute_pipeline RID) b
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3521089500)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&compute_pipeline)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &RenderingDevice) screen_get_width(screen i32) i32 {
@@ -1189,7 +1191,7 @@ pub fn (r &RenderingDevice) screen_get_width(screen i32) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1591665591)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&screen)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &RenderingDevice) screen_get_height(screen i32) i32 {
@@ -1201,21 +1203,21 @@ pub fn (r &RenderingDevice) screen_get_height(screen i32) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1591665591)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&screen)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &RenderingDevice) screen_get_framebuffer_format() i32 {
-    mut object_out := i32(0)
+pub fn (r &RenderingDevice) screen_get_framebuffer_format() i64 {
+    mut object_out := i64(0)
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
     fnname := StringName.new("screen_get_framebuffer_format")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r RenderingDevice) draw_list_begin_for_screen(screen i32, clear_color Color) i32 {
-    mut object_out := i32(0)
+pub fn (mut r RenderingDevice) draw_list_begin_for_screen(screen i32, clear_color Color) i64 {
+    mut object_out := i64(0)
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
     fnname := StringName.new("draw_list_begin_for_screen")
@@ -1224,11 +1226,11 @@ pub fn (mut r RenderingDevice) draw_list_begin_for_screen(screen i32, clear_colo
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&screen)}
     args[1] = unsafe{voidptr(&clear_color)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r RenderingDevice) draw_list_begin(framebuffer RID, initial_color_action RenderingDeviceInitialAction, final_color_action RenderingDeviceFinalAction, initial_depth_action RenderingDeviceInitialAction, final_depth_action RenderingDeviceFinalAction, clear_color_values PackedColorArray, clear_depth f32, clear_stencil i32, region Rect2, storage_textures Array) i32 {
-    mut object_out := i32(0)
+pub fn (mut r RenderingDevice) draw_list_begin(framebuffer RID, initial_color_action RenderingDeviceInitialAction, final_color_action RenderingDeviceFinalAction, initial_depth_action RenderingDeviceInitialAction, final_depth_action RenderingDeviceFinalAction, clear_color_values PackedColorArray, clear_depth f64, clear_stencil u32, region Rect2, storage_textures Array) i64 {
+    mut object_out := i64(0)
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
     fnname := StringName.new("draw_list_begin")
@@ -1245,10 +1247,10 @@ pub fn (mut r RenderingDevice) draw_list_begin(framebuffer RID, initial_color_ac
     args[7] = unsafe{voidptr(&clear_stencil)}
     args[8] = unsafe{voidptr(&region)}
     args[9] = unsafe{voidptr(&storage_textures)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r RenderingDevice) draw_list_begin_split(framebuffer RID, splits i32, initial_color_action RenderingDeviceInitialAction, final_color_action RenderingDeviceFinalAction, initial_depth_action RenderingDeviceInitialAction, final_depth_action RenderingDeviceFinalAction, clear_color_values PackedColorArray, clear_depth f32, clear_stencil i32, region Rect2, storage_textures Array) PackedInt64Array {
+pub fn (mut r RenderingDevice) draw_list_begin_split(framebuffer RID, splits u32, initial_color_action RenderingDeviceInitialAction, final_color_action RenderingDeviceFinalAction, initial_depth_action RenderingDeviceInitialAction, final_depth_action RenderingDeviceFinalAction, clear_color_values PackedColorArray, clear_depth f64, clear_stencil u32, region Rect2, storage_textures Array) PackedInt64Array {
     mut object_out := PackedInt64Array{}
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
@@ -1267,92 +1269,122 @@ pub fn (mut r RenderingDevice) draw_list_begin_split(framebuffer RID, splits i32
     args[8] = unsafe{voidptr(&clear_stencil)}
     args[9] = unsafe{voidptr(&region)}
     args[10] = unsafe{voidptr(&storage_textures)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r RenderingDevice) draw_list_set_blend_constants(draw_list i32, color Color) {
+pub fn (mut r RenderingDevice) draw_list_set_blend_constants(draw_list i64, color Color) {
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
     fnname := StringName.new("draw_list_set_blend_constants")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2878471219)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&draw_list)}
+    args[1] = unsafe{voidptr(&color)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r RenderingDevice) draw_list_bind_render_pipeline(draw_list i32, render_pipeline RID) {
+pub fn (mut r RenderingDevice) draw_list_bind_render_pipeline(draw_list i64, render_pipeline RID) {
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
     fnname := StringName.new("draw_list_bind_render_pipeline")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4040184819)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&draw_list)}
+    args[1] = unsafe{voidptr(&render_pipeline)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r RenderingDevice) draw_list_bind_uniform_set(draw_list i32, uniform_set RID, set_index i32) {
+pub fn (mut r RenderingDevice) draw_list_bind_uniform_set(draw_list i64, uniform_set RID, set_index u32) {
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
     fnname := StringName.new("draw_list_bind_uniform_set")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 749655778)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&draw_list)}
+    args[1] = unsafe{voidptr(&uniform_set)}
+    args[2] = unsafe{voidptr(&set_index)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r RenderingDevice) draw_list_bind_vertex_array(draw_list i32, vertex_array RID) {
+pub fn (mut r RenderingDevice) draw_list_bind_vertex_array(draw_list i64, vertex_array RID) {
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
     fnname := StringName.new("draw_list_bind_vertex_array")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4040184819)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&draw_list)}
+    args[1] = unsafe{voidptr(&vertex_array)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r RenderingDevice) draw_list_bind_index_array(draw_list i32, index_array RID) {
+pub fn (mut r RenderingDevice) draw_list_bind_index_array(draw_list i64, index_array RID) {
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
     fnname := StringName.new("draw_list_bind_index_array")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4040184819)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&draw_list)}
+    args[1] = unsafe{voidptr(&index_array)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r RenderingDevice) draw_list_set_push_constant(draw_list i32, buffer PackedByteArray, size_bytes i32) {
+pub fn (mut r RenderingDevice) draw_list_set_push_constant(draw_list i64, buffer PackedByteArray, size_bytes u32) {
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
     fnname := StringName.new("draw_list_set_push_constant")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2772371345)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&draw_list)}
+    args[1] = unsafe{voidptr(&buffer)}
+    args[2] = unsafe{voidptr(&size_bytes)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r RenderingDevice) draw_list_draw(draw_list i32, use_indices bool, instances i32, procedural_vertex_count i32) {
+pub fn (mut r RenderingDevice) draw_list_draw(draw_list i64, use_indices bool, instances u32, procedural_vertex_count u32) {
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
     fnname := StringName.new("draw_list_draw")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3710874499)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [4]voidptr{} }
+    args[0] = unsafe{voidptr(&draw_list)}
+    args[1] = unsafe{voidptr(&use_indices)}
+    args[2] = unsafe{voidptr(&instances)}
+    args[3] = unsafe{voidptr(&procedural_vertex_count)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r RenderingDevice) draw_list_enable_scissor(draw_list i32, rect Rect2) {
+pub fn (mut r RenderingDevice) draw_list_enable_scissor(draw_list i64, rect Rect2) {
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
     fnname := StringName.new("draw_list_enable_scissor")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 338791288)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&draw_list)}
+    args[1] = unsafe{voidptr(&rect)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r RenderingDevice) draw_list_disable_scissor(draw_list i32) {
+pub fn (mut r RenderingDevice) draw_list_disable_scissor(draw_list i64) {
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
     fnname := StringName.new("draw_list_disable_scissor")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&draw_list)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r RenderingDevice) draw_list_switch_to_next_pass() i32 {
-    mut object_out := i32(0)
+pub fn (mut r RenderingDevice) draw_list_switch_to_next_pass() i64 {
+    mut object_out := i64(0)
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
     fnname := StringName.new("draw_list_switch_to_next_pass")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2455072627)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r RenderingDevice) draw_list_switch_to_next_pass_split(splits i32) PackedInt64Array {
+pub fn (mut r RenderingDevice) draw_list_switch_to_next_pass_split(splits u32) PackedInt64Array {
     mut object_out := PackedInt64Array{}
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
@@ -1361,7 +1393,7 @@ pub fn (mut r RenderingDevice) draw_list_switch_to_next_pass_split(splits i32) P
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2865087369)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&splits)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r RenderingDevice) draw_list_end(post_barrier RenderingDeviceBarrierMask) {
@@ -1370,10 +1402,12 @@ pub fn (mut r RenderingDevice) draw_list_end(post_barrier RenderingDeviceBarrier
     fnname := StringName.new("draw_list_end")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 422991495)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&post_barrier)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r RenderingDevice) compute_list_begin(allow_draw_overlap bool) i32 {
-    mut object_out := i32(0)
+pub fn (mut r RenderingDevice) compute_list_begin(allow_draw_overlap bool) i64 {
+    mut object_out := i64(0)
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
     fnname := StringName.new("compute_list_begin")
@@ -1381,48 +1415,66 @@ pub fn (mut r RenderingDevice) compute_list_begin(allow_draw_overlap bool) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 968564752)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&allow_draw_overlap)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r RenderingDevice) compute_list_bind_compute_pipeline(compute_list i32, compute_pipeline RID) {
+pub fn (mut r RenderingDevice) compute_list_bind_compute_pipeline(compute_list i64, compute_pipeline RID) {
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
     fnname := StringName.new("compute_list_bind_compute_pipeline")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4040184819)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&compute_list)}
+    args[1] = unsafe{voidptr(&compute_pipeline)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r RenderingDevice) compute_list_set_push_constant(compute_list i32, buffer PackedByteArray, size_bytes i32) {
+pub fn (mut r RenderingDevice) compute_list_set_push_constant(compute_list i64, buffer PackedByteArray, size_bytes u32) {
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
     fnname := StringName.new("compute_list_set_push_constant")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2772371345)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&compute_list)}
+    args[1] = unsafe{voidptr(&buffer)}
+    args[2] = unsafe{voidptr(&size_bytes)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r RenderingDevice) compute_list_bind_uniform_set(compute_list i32, uniform_set RID, set_index i32) {
+pub fn (mut r RenderingDevice) compute_list_bind_uniform_set(compute_list i64, uniform_set RID, set_index u32) {
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
     fnname := StringName.new("compute_list_bind_uniform_set")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 749655778)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&compute_list)}
+    args[1] = unsafe{voidptr(&uniform_set)}
+    args[2] = unsafe{voidptr(&set_index)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r RenderingDevice) compute_list_dispatch(compute_list i32, x_groups i32, y_groups i32, z_groups i32) {
+pub fn (mut r RenderingDevice) compute_list_dispatch(compute_list i64, x_groups u32, y_groups u32, z_groups u32) {
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
     fnname := StringName.new("compute_list_dispatch")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4275841770)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [4]voidptr{} }
+    args[0] = unsafe{voidptr(&compute_list)}
+    args[1] = unsafe{voidptr(&x_groups)}
+    args[2] = unsafe{voidptr(&y_groups)}
+    args[3] = unsafe{voidptr(&z_groups)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r RenderingDevice) compute_list_add_barrier(compute_list i32) {
+pub fn (mut r RenderingDevice) compute_list_add_barrier(compute_list i64) {
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
     fnname := StringName.new("compute_list_add_barrier")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&compute_list)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r RenderingDevice) compute_list_end(post_barrier RenderingDeviceBarrierMask) {
     classname := StringName.new("RenderingDevice")
@@ -1430,7 +1482,9 @@ pub fn (mut r RenderingDevice) compute_list_end(post_barrier RenderingDeviceBarr
     fnname := StringName.new("compute_list_end")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 422991495)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&post_barrier)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r RenderingDevice) free_rid(rid RID) {
     classname := StringName.new("RenderingDevice")
@@ -1438,7 +1492,9 @@ pub fn (mut r RenderingDevice) free_rid(rid RID) {
     fnname := StringName.new("free_rid")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&rid)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r RenderingDevice) capture_timestamp(name String) {
     classname := StringName.new("RenderingDevice")
@@ -1446,30 +1502,32 @@ pub fn (mut r RenderingDevice) capture_timestamp(name String) {
     fnname := StringName.new("capture_timestamp")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&name)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &RenderingDevice) get_captured_timestamps_count() i32 {
-    mut object_out := i32(0)
+pub fn (r &RenderingDevice) get_captured_timestamps_count() u32 {
+    mut object_out := u32(0)
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
     fnname := StringName.new("get_captured_timestamps_count")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (r &RenderingDevice) get_captured_timestamps_frame() i32 {
-    mut object_out := i32(0)
+pub fn (r &RenderingDevice) get_captured_timestamps_frame() u64 {
+    mut object_out := u64(0)
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
     fnname := StringName.new("get_captured_timestamps_frame")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (r &RenderingDevice) get_captured_timestamp_gpu_time(index i32) i32 {
-    mut object_out := i32(0)
+pub fn (r &RenderingDevice) get_captured_timestamp_gpu_time(index u32) u64 {
+    mut object_out := u64(0)
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
     fnname := StringName.new("get_captured_timestamp_gpu_time")
@@ -1477,11 +1535,11 @@ pub fn (r &RenderingDevice) get_captured_timestamp_gpu_time(index i32) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 923996154)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&index)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &RenderingDevice) get_captured_timestamp_cpu_time(index i32) i32 {
-    mut object_out := i32(0)
+pub fn (r &RenderingDevice) get_captured_timestamp_cpu_time(index u32) u64 {
+    mut object_out := u64(0)
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
     fnname := StringName.new("get_captured_timestamp_cpu_time")
@@ -1489,10 +1547,10 @@ pub fn (r &RenderingDevice) get_captured_timestamp_cpu_time(index i32) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 923996154)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&index)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &RenderingDevice) get_captured_timestamp_name(index i32) String {
+pub fn (r &RenderingDevice) get_captured_timestamp_name(index u32) String {
     mut object_out := String{}
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
@@ -1501,11 +1559,11 @@ pub fn (r &RenderingDevice) get_captured_timestamp_name(index i32) String {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 844755477)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&index)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &RenderingDevice) limit_get(limit RenderingDeviceLimit) i32 {
-    mut object_out := i32(0)
+pub fn (r &RenderingDevice) limit_get(limit RenderingDeviceLimit) u64 {
+    mut object_out := u64(0)
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
     fnname := StringName.new("limit_get")
@@ -1513,17 +1571,17 @@ pub fn (r &RenderingDevice) limit_get(limit RenderingDeviceLimit) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1559202131)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&limit)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &RenderingDevice) get_frame_delay() i32 {
-    mut object_out := i32(0)
+pub fn (r &RenderingDevice) get_frame_delay() u32 {
+    mut object_out := u32(0)
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
     fnname := StringName.new("get_frame_delay")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r RenderingDevice) submit() {
@@ -1532,7 +1590,7 @@ pub fn (mut r RenderingDevice) submit() {
     fnname := StringName.new("submit")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
 pub fn (mut r RenderingDevice) sync() {
     classname := StringName.new("RenderingDevice")
@@ -1540,7 +1598,7 @@ pub fn (mut r RenderingDevice) sync() {
     fnname := StringName.new("sync")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
 pub fn (mut r RenderingDevice) barrier(from RenderingDeviceBarrierMask, to RenderingDeviceBarrierMask) {
     classname := StringName.new("RenderingDevice")
@@ -1548,7 +1606,10 @@ pub fn (mut r RenderingDevice) barrier(from RenderingDeviceBarrierMask, to Rende
     fnname := StringName.new("barrier")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 266666049)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&from)}
+    args[1] = unsafe{voidptr(&to)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r RenderingDevice) full_barrier() {
     classname := StringName.new("RenderingDevice")
@@ -1556,16 +1617,16 @@ pub fn (mut r RenderingDevice) full_barrier() {
     fnname := StringName.new("full_barrier")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
 pub fn (mut r RenderingDevice) create_local_device() RenderingDevice {
-    mut object_out := RenderingDevice(unsafe{nil})
+    mut object_out := RenderingDevice{}
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
     fnname := StringName.new("create_local_device")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2846302423)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r RenderingDevice) set_resource_name(id RID, name String) {
@@ -1574,7 +1635,10 @@ pub fn (mut r RenderingDevice) set_resource_name(id RID, name String) {
     fnname := StringName.new("set_resource_name")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2726140452)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&id)}
+    args[1] = unsafe{voidptr(&name)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r RenderingDevice) draw_command_begin_label(name String, color Color) {
     classname := StringName.new("RenderingDevice")
@@ -1582,7 +1646,10 @@ pub fn (mut r RenderingDevice) draw_command_begin_label(name String, color Color
     fnname := StringName.new("draw_command_begin_label")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1636512886)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&name)}
+    args[1] = unsafe{voidptr(&color)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r RenderingDevice) draw_command_insert_label(name String, color Color) {
     classname := StringName.new("RenderingDevice")
@@ -1590,7 +1657,10 @@ pub fn (mut r RenderingDevice) draw_command_insert_label(name String, color Colo
     fnname := StringName.new("draw_command_insert_label")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1636512886)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&name)}
+    args[1] = unsafe{voidptr(&color)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r RenderingDevice) draw_command_end_label() {
     classname := StringName.new("RenderingDevice")
@@ -1598,7 +1668,7 @@ pub fn (mut r RenderingDevice) draw_command_end_label() {
     fnname := StringName.new("draw_command_end_label")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
 pub fn (r &RenderingDevice) get_device_vendor_name() String {
     mut object_out := String{}
@@ -1607,7 +1677,7 @@ pub fn (r &RenderingDevice) get_device_vendor_name() String {
     fnname := StringName.new("get_device_vendor_name")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 201670096)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &RenderingDevice) get_device_name() String {
@@ -1617,7 +1687,7 @@ pub fn (r &RenderingDevice) get_device_name() String {
     fnname := StringName.new("get_device_name")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 201670096)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &RenderingDevice) get_device_pipeline_cache_uuid() String {
@@ -1627,11 +1697,11 @@ pub fn (r &RenderingDevice) get_device_pipeline_cache_uuid() String {
     fnname := StringName.new("get_device_pipeline_cache_uuid")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 201670096)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (r &RenderingDevice) get_memory_usage(type_name RenderingDeviceMemoryType) i32 {
-    mut object_out := i32(0)
+pub fn (r &RenderingDevice) get_memory_usage(type_name RenderingDeviceMemoryType) u64 {
+    mut object_out := u64(0)
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
     fnname := StringName.new("get_memory_usage")
@@ -1639,11 +1709,11 @@ pub fn (r &RenderingDevice) get_memory_usage(type_name RenderingDeviceMemoryType
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 251690689)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&type_name)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r RenderingDevice) get_driver_resource(resource RenderingDeviceDriverResource, rid RID, index i32) i32 {
-    mut object_out := i32(0)
+pub fn (mut r RenderingDevice) get_driver_resource(resource RenderingDeviceDriverResource, rid RID, index u64) u64 {
+    mut object_out := u64(0)
     classname := StringName.new("RenderingDevice")
     defer { classname.deinit() }
     fnname := StringName.new("get_driver_resource")
@@ -1653,6 +1723,6 @@ pub fn (mut r RenderingDevice) get_driver_resource(resource RenderingDeviceDrive
     args[0] = unsafe{voidptr(&resource)}
     args[1] = unsafe{voidptr(&rid)}
     args[2] = unsafe{voidptr(&index)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }

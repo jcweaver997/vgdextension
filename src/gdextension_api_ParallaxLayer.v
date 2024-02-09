@@ -1,6 +1,8 @@
 module vgdextension
 
-pub type ParallaxLayer = voidptr
+pub struct ParallaxLayer {
+    Node2D
+}
 
 pub fn (mut r ParallaxLayer) set_motion_scale(scale Vector2) {
     classname := StringName.new("ParallaxLayer")
@@ -8,7 +10,9 @@ pub fn (mut r ParallaxLayer) set_motion_scale(scale Vector2) {
     fnname := StringName.new("set_motion_scale")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&scale)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &ParallaxLayer) get_motion_scale() Vector2 {
     mut object_out := Vector2{}
@@ -17,7 +21,7 @@ pub fn (r &ParallaxLayer) get_motion_scale() Vector2 {
     fnname := StringName.new("get_motion_scale")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3341600327)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ParallaxLayer) set_motion_offset(offset Vector2) {
@@ -26,7 +30,9 @@ pub fn (mut r ParallaxLayer) set_motion_offset(offset Vector2) {
     fnname := StringName.new("set_motion_offset")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&offset)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &ParallaxLayer) get_motion_offset() Vector2 {
     mut object_out := Vector2{}
@@ -35,7 +41,7 @@ pub fn (r &ParallaxLayer) get_motion_offset() Vector2 {
     fnname := StringName.new("get_motion_offset")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3341600327)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ParallaxLayer) set_mirroring(mirror Vector2) {
@@ -44,7 +50,9 @@ pub fn (mut r ParallaxLayer) set_mirroring(mirror Vector2) {
     fnname := StringName.new("set_mirroring")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&mirror)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &ParallaxLayer) get_mirroring() Vector2 {
     mut object_out := Vector2{}
@@ -53,6 +61,6 @@ pub fn (r &ParallaxLayer) get_mirroring() Vector2 {
     fnname := StringName.new("get_mirroring")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3341600327)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

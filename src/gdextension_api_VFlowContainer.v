@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type VFlowContainer = voidptr
+pub struct VFlowContainer {
+    FlowContainer
+}
 

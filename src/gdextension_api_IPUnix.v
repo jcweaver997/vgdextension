@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type IPUnix = voidptr
+pub struct IPUnix {
+    IP
+}
 

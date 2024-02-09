@@ -13,7 +13,9 @@ pub enum AudioStreamWAVLoopMode {
     loop_backward = 3
 }
 
-pub type AudioStreamWAV = voidptr
+pub struct AudioStreamWAV {
+    AudioStream
+}
 
 pub fn (mut r AudioStreamWAV) set_data(data PackedByteArray) {
     classname := StringName.new("AudioStreamWAV")
@@ -21,7 +23,9 @@ pub fn (mut r AudioStreamWAV) set_data(data PackedByteArray) {
     fnname := StringName.new("set_data")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2971499966)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&data)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &AudioStreamWAV) get_data() PackedByteArray {
     mut object_out := PackedByteArray{}
@@ -30,7 +34,7 @@ pub fn (r &AudioStreamWAV) get_data() PackedByteArray {
     fnname := StringName.new("get_data")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2362200018)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r AudioStreamWAV) set_format(format AudioStreamWAVFormat) {
@@ -39,7 +43,9 @@ pub fn (mut r AudioStreamWAV) set_format(format AudioStreamWAVFormat) {
     fnname := StringName.new("set_format")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 60648488)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&format)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &AudioStreamWAV) get_format() AudioStreamWAVFormat {
     mut object_out := AudioStreamWAVFormat.format_8_bits
@@ -48,7 +54,7 @@ pub fn (r &AudioStreamWAV) get_format() AudioStreamWAVFormat {
     fnname := StringName.new("get_format")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3151724922)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r AudioStreamWAV) set_loop_mode(loop_mode AudioStreamWAVLoopMode) {
@@ -57,7 +63,9 @@ pub fn (mut r AudioStreamWAV) set_loop_mode(loop_mode AudioStreamWAVLoopMode) {
     fnname := StringName.new("set_loop_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2444882972)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&loop_mode)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &AudioStreamWAV) get_loop_mode() AudioStreamWAVLoopMode {
     mut object_out := AudioStreamWAVLoopMode.loop_disabled
@@ -66,7 +74,7 @@ pub fn (r &AudioStreamWAV) get_loop_mode() AudioStreamWAVLoopMode {
     fnname := StringName.new("get_loop_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 393560655)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r AudioStreamWAV) set_loop_begin(loop_begin i32) {
@@ -75,7 +83,9 @@ pub fn (mut r AudioStreamWAV) set_loop_begin(loop_begin i32) {
     fnname := StringName.new("set_loop_begin")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&loop_begin)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &AudioStreamWAV) get_loop_begin() i32 {
     mut object_out := i32(0)
@@ -84,7 +94,7 @@ pub fn (r &AudioStreamWAV) get_loop_begin() i32 {
     fnname := StringName.new("get_loop_begin")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r AudioStreamWAV) set_loop_end(loop_end i32) {
@@ -93,7 +103,9 @@ pub fn (mut r AudioStreamWAV) set_loop_end(loop_end i32) {
     fnname := StringName.new("set_loop_end")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&loop_end)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &AudioStreamWAV) get_loop_end() i32 {
     mut object_out := i32(0)
@@ -102,7 +114,7 @@ pub fn (r &AudioStreamWAV) get_loop_end() i32 {
     fnname := StringName.new("get_loop_end")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r AudioStreamWAV) set_mix_rate(mix_rate i32) {
@@ -111,7 +123,9 @@ pub fn (mut r AudioStreamWAV) set_mix_rate(mix_rate i32) {
     fnname := StringName.new("set_mix_rate")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&mix_rate)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &AudioStreamWAV) get_mix_rate() i32 {
     mut object_out := i32(0)
@@ -120,7 +134,7 @@ pub fn (r &AudioStreamWAV) get_mix_rate() i32 {
     fnname := StringName.new("get_mix_rate")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r AudioStreamWAV) set_stereo(stereo bool) {
@@ -129,7 +143,9 @@ pub fn (mut r AudioStreamWAV) set_stereo(stereo bool) {
     fnname := StringName.new("set_stereo")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&stereo)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &AudioStreamWAV) is_stereo() bool {
     mut object_out := false
@@ -138,7 +154,7 @@ pub fn (r &AudioStreamWAV) is_stereo() bool {
     fnname := StringName.new("is_stereo")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r AudioStreamWAV) save_to_wav(path String) GDError {
@@ -150,6 +166,6 @@ pub fn (mut r AudioStreamWAV) save_to_wav(path String) GDError {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 166001499)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&path)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }

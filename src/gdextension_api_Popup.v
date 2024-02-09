@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type Popup = voidptr
+pub struct Popup {
+    Window
+}
 

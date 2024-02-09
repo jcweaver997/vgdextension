@@ -51,13 +51,13 @@ pub fn (r &PackedFloat64Array) is_empty() bool {
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
    return object_out
 }
-pub fn (mut r PackedFloat64Array) set(index i32, value f32) {
+pub fn (mut r PackedFloat64Array) set(index i32, value f64) {
     fnname := StringName.new("set")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedfloat64array, voidptr(&fnname), 1113000516)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 2)
 }
-pub fn (mut r PackedFloat64Array) push_back(value f32) bool {
+pub fn (mut r PackedFloat64Array) push_back(value f64) bool {
     mut object_out := false
     fnname := StringName.new("push_back")
     defer { fnname.deinit() }
@@ -67,7 +67,7 @@ pub fn (mut r PackedFloat64Array) push_back(value f32) bool {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
    return object_out
 }
-pub fn (mut r PackedFloat64Array) append(value f32) bool {
+pub fn (mut r PackedFloat64Array) append(value f64) bool {
     mut object_out := false
     fnname := StringName.new("append")
     defer { fnname.deinit() }
@@ -89,7 +89,7 @@ pub fn (mut r PackedFloat64Array) remove_at(index i32) {
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedfloat64array, voidptr(&fnname), 2823966027)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 1)
 }
-pub fn (mut r PackedFloat64Array) insert(at_index i32, value f32) i32 {
+pub fn (mut r PackedFloat64Array) insert(at_index i32, value f64) i32 {
     mut object_out := i32(0)
     fnname := StringName.new("insert")
     defer { fnname.deinit() }
@@ -100,7 +100,7 @@ pub fn (mut r PackedFloat64Array) insert(at_index i32, value f32) i32 {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 2)
    return object_out
 }
-pub fn (mut r PackedFloat64Array) fill(value f32) {
+pub fn (mut r PackedFloat64Array) fill(value f64) {
     fnname := StringName.new("fill")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedfloat64array, voidptr(&fnname), 833936903)
@@ -122,7 +122,7 @@ pub fn (mut r PackedFloat64Array) clear() {
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedfloat64array, voidptr(&fnname), 3218959716)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 0)
 }
-pub fn (r &PackedFloat64Array) has(value f32) bool {
+pub fn (r &PackedFloat64Array) has(value f64) bool {
     mut object_out := false
     fnname := StringName.new("has")
     defer { fnname.deinit() }
@@ -163,7 +163,7 @@ pub fn (mut r PackedFloat64Array) sort() {
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedfloat64array, voidptr(&fnname), 3218959716)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 0)
 }
-pub fn (mut r PackedFloat64Array) bsearch(value f32, before bool) i32 {
+pub fn (mut r PackedFloat64Array) bsearch(value f64, before bool) i32 {
     mut object_out := i32(0)
     fnname := StringName.new("bsearch")
     defer { fnname.deinit() }
@@ -182,7 +182,7 @@ pub fn (mut r PackedFloat64Array) duplicate() PackedFloat64Array {
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
    return object_out
 }
-pub fn (r &PackedFloat64Array) find(value f32, from i32) i32 {
+pub fn (r &PackedFloat64Array) find(value f64, from i32) i32 {
     mut object_out := i32(0)
     fnname := StringName.new("find")
     defer { fnname.deinit() }
@@ -193,7 +193,7 @@ pub fn (r &PackedFloat64Array) find(value f32, from i32) i32 {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 2)
    return object_out
 }
-pub fn (r &PackedFloat64Array) rfind(value f32, from i32) i32 {
+pub fn (r &PackedFloat64Array) rfind(value f64, from i32) i32 {
     mut object_out := i32(0)
     fnname := StringName.new("rfind")
     defer { fnname.deinit() }
@@ -204,7 +204,7 @@ pub fn (r &PackedFloat64Array) rfind(value f32, from i32) i32 {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 2)
    return object_out
 }
-pub fn (r &PackedFloat64Array) count(value f32) i32 {
+pub fn (r &PackedFloat64Array) count(value f64) i32 {
     mut object_out := i32(0)
     fnname := StringName.new("count")
     defer { fnname.deinit() }
@@ -221,9 +221,14 @@ pub fn (v &PackedFloat64Array) to_var() Variant {
     return output
 }
 
-pub fn (v &PackedFloat64Array) index(i int) f32 {
+pub fn (mut t PackedFloat64Array) set_from_var(var &Variant) {
+    var_to_type := gdf.get_variant_to_type_constructor(GDExtensionVariantType.type_packedfloat64array)
+    var_to_type(voidptr(&t), var)
+}
+
+pub fn (v &PackedFloat64Array) index(i int) f64 {
     index_fn := gdf.variant_get_ptr_indexed_getter(GDExtensionVariantType.type_packedfloat64array)
-    mut output := f32(0)
+    mut output := f64(0)
     index_fn(GDExtensionConstTypePtr(v), GDExtensionInt(i), GDExtensionTypePtr(&output))
     return output}
 

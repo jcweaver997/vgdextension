@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type AnimationNodeTimeSeek = voidptr
+pub struct AnimationNodeTimeSeek {
+    AnimationNode
+}
 

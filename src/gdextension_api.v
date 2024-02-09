@@ -1,7 +1,7 @@
 module vgdextension
 
-pub fn sin(angle_rad f32) f32 {
-	mut object_out := f32(0)
+pub fn sin(angle_rad f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('sin')
 	defer {
 		fnname.deinit()
@@ -13,8 +13,8 @@ pub fn sin(angle_rad f32) f32 {
 	return object_out
 }
 
-pub fn cos(angle_rad f32) f32 {
-	mut object_out := f32(0)
+pub fn cos(angle_rad f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('cos')
 	defer {
 		fnname.deinit()
@@ -26,8 +26,8 @@ pub fn cos(angle_rad f32) f32 {
 	return object_out
 }
 
-pub fn tan(angle_rad f32) f32 {
-	mut object_out := f32(0)
+pub fn tan(angle_rad f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('tan')
 	defer {
 		fnname.deinit()
@@ -39,8 +39,8 @@ pub fn tan(angle_rad f32) f32 {
 	return object_out
 }
 
-pub fn sinh(x f32) f32 {
-	mut object_out := f32(0)
+pub fn sinh(x f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('sinh')
 	defer {
 		fnname.deinit()
@@ -52,8 +52,8 @@ pub fn sinh(x f32) f32 {
 	return object_out
 }
 
-pub fn cosh(x f32) f32 {
-	mut object_out := f32(0)
+pub fn cosh(x f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('cosh')
 	defer {
 		fnname.deinit()
@@ -65,8 +65,8 @@ pub fn cosh(x f32) f32 {
 	return object_out
 }
 
-pub fn tanh(x f32) f32 {
-	mut object_out := f32(0)
+pub fn tanh(x f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('tanh')
 	defer {
 		fnname.deinit()
@@ -78,8 +78,8 @@ pub fn tanh(x f32) f32 {
 	return object_out
 }
 
-pub fn asin(x f32) f32 {
-	mut object_out := f32(0)
+pub fn asin(x f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('asin')
 	defer {
 		fnname.deinit()
@@ -91,8 +91,8 @@ pub fn asin(x f32) f32 {
 	return object_out
 }
 
-pub fn acos(x f32) f32 {
-	mut object_out := f32(0)
+pub fn acos(x f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('acos')
 	defer {
 		fnname.deinit()
@@ -104,8 +104,8 @@ pub fn acos(x f32) f32 {
 	return object_out
 }
 
-pub fn atan(x f32) f32 {
-	mut object_out := f32(0)
+pub fn atan(x f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('atan')
 	defer {
 		fnname.deinit()
@@ -117,8 +117,8 @@ pub fn atan(x f32) f32 {
 	return object_out
 }
 
-pub fn atan2(y f32, x f32) f32 {
-	mut object_out := f32(0)
+pub fn atan2(y f64, x f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('atan2')
 	defer {
 		fnname.deinit()
@@ -131,8 +131,8 @@ pub fn atan2(y f32, x f32) f32 {
 	return object_out
 }
 
-pub fn sqrt(x f32) f32 {
-	mut object_out := f32(0)
+pub fn sqrt(x f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('sqrt')
 	defer {
 		fnname.deinit()
@@ -144,8 +144,8 @@ pub fn sqrt(x f32) f32 {
 	return object_out
 }
 
-pub fn fmod(x f32, y f32) f32 {
-	mut object_out := f32(0)
+pub fn fmod(x f64, y f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('fmod')
 	defer {
 		fnname.deinit()
@@ -158,8 +158,8 @@ pub fn fmod(x f32, y f32) f32 {
 	return object_out
 }
 
-pub fn fposmod(x f32, y f32) f32 {
-	mut object_out := f32(0)
+pub fn fposmod(x f64, y f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('fposmod')
 	defer {
 		fnname.deinit()
@@ -199,8 +199,8 @@ pub fn floor(x Variant) Variant {
 	return object_out
 }
 
-pub fn floorf(x f32) f32 {
-	mut object_out := f32(0)
+pub fn floorf(x f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('floorf')
 	defer {
 		fnname.deinit()
@@ -212,7 +212,7 @@ pub fn floorf(x f32) f32 {
 	return object_out
 }
 
-pub fn floori(x f32) i32 {
+pub fn floori(x f64) i32 {
 	mut object_out := i32(0)
 	fnname := StringName.new('floori')
 	defer {
@@ -238,8 +238,8 @@ pub fn ceil(x Variant) Variant {
 	return object_out
 }
 
-pub fn ceilf(x f32) f32 {
-	mut object_out := f32(0)
+pub fn ceilf(x f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('ceilf')
 	defer {
 		fnname.deinit()
@@ -251,7 +251,7 @@ pub fn ceilf(x f32) f32 {
 	return object_out
 }
 
-pub fn ceili(x f32) i32 {
+pub fn ceili(x f64) i32 {
 	mut object_out := i32(0)
 	fnname := StringName.new('ceili')
 	defer {
@@ -277,8 +277,8 @@ pub fn round(x Variant) Variant {
 	return object_out
 }
 
-pub fn roundf(x f32) f32 {
-	mut object_out := f32(0)
+pub fn roundf(x f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('roundf')
 	defer {
 		fnname.deinit()
@@ -290,7 +290,7 @@ pub fn roundf(x f32) f32 {
 	return object_out
 }
 
-pub fn roundi(x f32) i32 {
+pub fn roundi(x f64) i32 {
 	mut object_out := i32(0)
 	fnname := StringName.new('roundi')
 	defer {
@@ -316,8 +316,8 @@ pub fn abs(x Variant) Variant {
 	return object_out
 }
 
-pub fn absf(x f32) f32 {
-	mut object_out := f32(0)
+pub fn absf(x f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('absf')
 	defer {
 		fnname.deinit()
@@ -355,8 +355,8 @@ pub fn sign(x Variant) Variant {
 	return object_out
 }
 
-pub fn signf(x f32) f32 {
-	mut object_out := f32(0)
+pub fn signf(x f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('signf')
 	defer {
 		fnname.deinit()
@@ -395,8 +395,8 @@ pub fn snapped(x Variant, step Variant) Variant {
 	return object_out
 }
 
-pub fn snappedf(x f32, step f32) f32 {
-	mut object_out := f32(0)
+pub fn snappedf(x f64, step f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('snappedf')
 	defer {
 		fnname.deinit()
@@ -409,7 +409,7 @@ pub fn snappedf(x f32, step f32) f32 {
 	return object_out
 }
 
-pub fn snappedi(x f32, step i32) i32 {
+pub fn snappedi(x f64, step i32) i32 {
 	mut object_out := i32(0)
 	fnname := StringName.new('snappedi')
 	defer {
@@ -423,8 +423,8 @@ pub fn snappedi(x f32, step i32) i32 {
 	return object_out
 }
 
-pub fn pow(base f32, exp f32) f32 {
-	mut object_out := f32(0)
+pub fn pow(base f64, exp f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('pow')
 	defer {
 		fnname.deinit()
@@ -437,8 +437,8 @@ pub fn pow(base f32, exp f32) f32 {
 	return object_out
 }
 
-pub fn log(x f32) f32 {
-	mut object_out := f32(0)
+pub fn log(x f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('log')
 	defer {
 		fnname.deinit()
@@ -450,8 +450,8 @@ pub fn log(x f32) f32 {
 	return object_out
 }
 
-pub fn exp(x f32) f32 {
-	mut object_out := f32(0)
+pub fn exp(x f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('exp')
 	defer {
 		fnname.deinit()
@@ -463,7 +463,7 @@ pub fn exp(x f32) f32 {
 	return object_out
 }
 
-pub fn is_nan(x f32) bool {
+pub fn is_nan(x f64) bool {
 	mut object_out := false
 	fnname := StringName.new('is_nan')
 	defer {
@@ -476,7 +476,7 @@ pub fn is_nan(x f32) bool {
 	return object_out
 }
 
-pub fn is_inf(x f32) bool {
+pub fn is_inf(x f64) bool {
 	mut object_out := false
 	fnname := StringName.new('is_inf')
 	defer {
@@ -489,7 +489,7 @@ pub fn is_inf(x f32) bool {
 	return object_out
 }
 
-pub fn is_equal_approx(a f32, b f32) bool {
+pub fn is_equal_approx(a f64, b f64) bool {
 	mut object_out := false
 	fnname := StringName.new('is_equal_approx')
 	defer {
@@ -503,7 +503,7 @@ pub fn is_equal_approx(a f32, b f32) bool {
 	return object_out
 }
 
-pub fn is_zero_approx(x f32) bool {
+pub fn is_zero_approx(x f64) bool {
 	mut object_out := false
 	fnname := StringName.new('is_zero_approx')
 	defer {
@@ -516,7 +516,7 @@ pub fn is_zero_approx(x f32) bool {
 	return object_out
 }
 
-pub fn is_finite(x f32) bool {
+pub fn is_finite(x f64) bool {
 	mut object_out := false
 	fnname := StringName.new('is_finite')
 	defer {
@@ -529,8 +529,8 @@ pub fn is_finite(x f32) bool {
 	return object_out
 }
 
-pub fn ease(x f32, curve f32) f32 {
-	mut object_out := f32(0)
+pub fn ease(x f64, curve f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('ease')
 	defer {
 		fnname.deinit()
@@ -543,7 +543,7 @@ pub fn ease(x f32, curve f32) f32 {
 	return object_out
 }
 
-pub fn step_decimals(x f32) i32 {
+pub fn step_decimals(x f64) i32 {
 	mut object_out := i32(0)
 	fnname := StringName.new('step_decimals')
 	defer {
@@ -571,8 +571,8 @@ pub fn lerp(from Variant, to Variant, weight Variant) Variant {
 	return object_out
 }
 
-pub fn lerpf(from f32, to f32, weight f32) f32 {
-	mut object_out := f32(0)
+pub fn lerpf(from f64, to f64, weight f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('lerpf')
 	defer {
 		fnname.deinit()
@@ -586,8 +586,8 @@ pub fn lerpf(from f32, to f32, weight f32) f32 {
 	return object_out
 }
 
-pub fn cubic_interpolate(from f32, to f32, pre f32, post f32, weight f32) f32 {
-	mut object_out := f32(0)
+pub fn cubic_interpolate(from f64, to f64, pre f64, post f64, weight f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('cubic_interpolate')
 	defer {
 		fnname.deinit()
@@ -603,8 +603,8 @@ pub fn cubic_interpolate(from f32, to f32, pre f32, post f32, weight f32) f32 {
 	return object_out
 }
 
-pub fn cubic_interpolate_angle(from f32, to f32, pre f32, post f32, weight f32) f32 {
-	mut object_out := f32(0)
+pub fn cubic_interpolate_angle(from f64, to f64, pre f64, post f64, weight f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('cubic_interpolate_angle')
 	defer {
 		fnname.deinit()
@@ -620,8 +620,8 @@ pub fn cubic_interpolate_angle(from f32, to f32, pre f32, post f32, weight f32) 
 	return object_out
 }
 
-pub fn cubic_interpolate_in_time(from f32, to f32, pre f32, post f32, weight f32, to_t f32, pre_t f32, post_t f32) f32 {
-	mut object_out := f32(0)
+pub fn cubic_interpolate_in_time(from f64, to f64, pre f64, post f64, weight f64, to_t f64, pre_t f64, post_t f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('cubic_interpolate_in_time')
 	defer {
 		fnname.deinit()
@@ -640,8 +640,8 @@ pub fn cubic_interpolate_in_time(from f32, to f32, pre f32, post f32, weight f32
 	return object_out
 }
 
-pub fn cubic_interpolate_angle_in_time(from f32, to f32, pre f32, post f32, weight f32, to_t f32, pre_t f32, post_t f32) f32 {
-	mut object_out := f32(0)
+pub fn cubic_interpolate_angle_in_time(from f64, to f64, pre f64, post f64, weight f64, to_t f64, pre_t f64, post_t f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('cubic_interpolate_angle_in_time')
 	defer {
 		fnname.deinit()
@@ -660,8 +660,8 @@ pub fn cubic_interpolate_angle_in_time(from f32, to f32, pre f32, post f32, weig
 	return object_out
 }
 
-pub fn bezier_interpolate(start f32, control_1 f32, control_2 f32, end f32, t f32) f32 {
-	mut object_out := f32(0)
+pub fn bezier_interpolate(start f64, control_1 f64, control_2 f64, end f64, t f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('bezier_interpolate')
 	defer {
 		fnname.deinit()
@@ -677,8 +677,8 @@ pub fn bezier_interpolate(start f32, control_1 f32, control_2 f32, end f32, t f3
 	return object_out
 }
 
-pub fn bezier_derivative(start f32, control_1 f32, control_2 f32, end f32, t f32) f32 {
-	mut object_out := f32(0)
+pub fn bezier_derivative(start f64, control_1 f64, control_2 f64, end f64, t f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('bezier_derivative')
 	defer {
 		fnname.deinit()
@@ -694,8 +694,8 @@ pub fn bezier_derivative(start f32, control_1 f32, control_2 f32, end f32, t f32
 	return object_out
 }
 
-pub fn lerp_angle(from f32, to f32, weight f32) f32 {
-	mut object_out := f32(0)
+pub fn lerp_angle(from f64, to f64, weight f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('lerp_angle')
 	defer {
 		fnname.deinit()
@@ -709,8 +709,8 @@ pub fn lerp_angle(from f32, to f32, weight f32) f32 {
 	return object_out
 }
 
-pub fn inverse_lerp(from f32, to f32, weight f32) f32 {
-	mut object_out := f32(0)
+pub fn inverse_lerp(from f64, to f64, weight f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('inverse_lerp')
 	defer {
 		fnname.deinit()
@@ -724,8 +724,8 @@ pub fn inverse_lerp(from f32, to f32, weight f32) f32 {
 	return object_out
 }
 
-pub fn remap(value f32, istart f32, istop f32, ostart f32, ostop f32) f32 {
-	mut object_out := f32(0)
+pub fn remap(value f64, istart f64, istop f64, ostart f64, ostop f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('remap')
 	defer {
 		fnname.deinit()
@@ -741,8 +741,8 @@ pub fn remap(value f32, istart f32, istop f32, ostart f32, ostop f32) f32 {
 	return object_out
 }
 
-pub fn smoothstep(from f32, to f32, x f32) f32 {
-	mut object_out := f32(0)
+pub fn smoothstep(from f64, to f64, x f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('smoothstep')
 	defer {
 		fnname.deinit()
@@ -756,8 +756,8 @@ pub fn smoothstep(from f32, to f32, x f32) f32 {
 	return object_out
 }
 
-pub fn move_toward(from f32, to f32, delta f32) f32 {
-	mut object_out := f32(0)
+pub fn move_toward(from f64, to f64, delta f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('move_toward')
 	defer {
 		fnname.deinit()
@@ -771,8 +771,8 @@ pub fn move_toward(from f32, to f32, delta f32) f32 {
 	return object_out
 }
 
-pub fn deg_to_rad(deg f32) f32 {
-	mut object_out := f32(0)
+pub fn deg_to_rad(deg f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('deg_to_rad')
 	defer {
 		fnname.deinit()
@@ -784,8 +784,8 @@ pub fn deg_to_rad(deg f32) f32 {
 	return object_out
 }
 
-pub fn rad_to_deg(rad f32) f32 {
-	mut object_out := f32(0)
+pub fn rad_to_deg(rad f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('rad_to_deg')
 	defer {
 		fnname.deinit()
@@ -797,8 +797,8 @@ pub fn rad_to_deg(rad f32) f32 {
 	return object_out
 }
 
-pub fn linear_to_db(lin f32) f32 {
-	mut object_out := f32(0)
+pub fn linear_to_db(lin f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('linear_to_db')
 	defer {
 		fnname.deinit()
@@ -810,8 +810,8 @@ pub fn linear_to_db(lin f32) f32 {
 	return object_out
 }
 
-pub fn db_to_linear(db f32) f32 {
-	mut object_out := f32(0)
+pub fn db_to_linear(db f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('db_to_linear')
 	defer {
 		fnname.deinit()
@@ -853,8 +853,8 @@ pub fn wrapi(value i32, min i32, max i32) i32 {
 	return object_out
 }
 
-pub fn wrapf(value f32, min f32, max f32) f32 {
-	mut object_out := f32(0)
+pub fn wrapf(value f64, min f64, max f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('wrapf')
 	defer {
 		fnname.deinit()
@@ -896,8 +896,8 @@ pub fn maxi(a i32, b i32) i32 {
 	return object_out
 }
 
-pub fn maxf(a f32, b f32) f32 {
-	mut object_out := f32(0)
+pub fn maxf(a f64, b f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('maxf')
 	defer {
 		fnname.deinit()
@@ -938,8 +938,8 @@ pub fn mini(a i32, b i32) i32 {
 	return object_out
 }
 
-pub fn minf(a f32, b f32) f32 {
-	mut object_out := f32(0)
+pub fn minf(a f64, b f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('minf')
 	defer {
 		fnname.deinit()
@@ -982,8 +982,8 @@ pub fn clampi(value i32, min i32, max i32) i32 {
 	return object_out
 }
 
-pub fn clampf(value f32, min f32, max f32) f32 {
-	mut object_out := f32(0)
+pub fn clampf(value f64, min f64, max f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('clampf')
 	defer {
 		fnname.deinit()
@@ -1010,8 +1010,8 @@ pub fn nearest_po2(value i32) i32 {
 	return object_out
 }
 
-pub fn pingpong(value f32, length f32) f32 {
-	mut object_out := f32(0)
+pub fn pingpong(value f64, length f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('pingpong')
 	defer {
 		fnname.deinit()
@@ -1044,8 +1044,8 @@ pub fn randi() i32 {
 	return object_out
 }
 
-pub fn randf() f32 {
-	mut object_out := f32(0)
+pub fn randf() f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('randf')
 	defer {
 		fnname.deinit()
@@ -1069,8 +1069,8 @@ pub fn randi_range(from i32, to i32) i32 {
 	return object_out
 }
 
-pub fn randf_range(from f32, to f32) f32 {
-	mut object_out := f32(0)
+pub fn randf_range(from f64, to f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('randf_range')
 	defer {
 		fnname.deinit()
@@ -1083,8 +1083,8 @@ pub fn randf_range(from f32, to f32) f32 {
 	return object_out
 }
 
-pub fn randfn(mean f32, deviation f32) f32 {
-	mut object_out := f32(0)
+pub fn randfn(mean f64, deviation f64) f64 {
+	mut object_out := f64(0)
 	fnname := StringName.new('randfn')
 	defer {
 		fnname.deinit()
@@ -1364,7 +1364,7 @@ pub fn hash(variable Variant) i32 {
 }
 
 pub fn instance_from_id(instance_id i32) Object {
-	mut object_out := unsafe { nil }
+	mut object_out := Object{}
 	fnname := StringName.new('instance_from_id')
 	defer {
 		fnname.deinit()

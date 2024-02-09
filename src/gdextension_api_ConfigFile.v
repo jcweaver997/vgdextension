@@ -1,6 +1,8 @@
 module vgdextension
 
-pub type ConfigFile = voidptr
+pub struct ConfigFile {
+    RefCounted
+}
 
 pub fn (mut r ConfigFile) set_value(section String, key String, value Variant) {
     classname := StringName.new("ConfigFile")
@@ -8,7 +10,11 @@ pub fn (mut r ConfigFile) set_value(section String, key String, value Variant) {
     fnname := StringName.new("set_value")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2504492430)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&section)}
+    args[1] = unsafe{voidptr(&key)}
+    args[2] = unsafe{voidptr(&value)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &ConfigFile) get_value(section String, key String, default Variant) Variant {
     mut object_out := Variant{}
@@ -21,7 +27,7 @@ pub fn (r &ConfigFile) get_value(section String, key String, default Variant) Va
     args[0] = unsafe{voidptr(&section)}
     args[1] = unsafe{voidptr(&key)}
     args[2] = unsafe{voidptr(&default)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &ConfigFile) has_section(section String) bool {
@@ -33,7 +39,7 @@ pub fn (r &ConfigFile) has_section(section String) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3927539163)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&section)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &ConfigFile) has_section_key(section String, key String) bool {
@@ -46,7 +52,7 @@ pub fn (r &ConfigFile) has_section_key(section String, key String) bool {
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&section)}
     args[1] = unsafe{voidptr(&key)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &ConfigFile) get_sections() PackedStringArray {
@@ -56,7 +62,7 @@ pub fn (r &ConfigFile) get_sections() PackedStringArray {
     fnname := StringName.new("get_sections")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1139954409)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &ConfigFile) get_section_keys(section String) PackedStringArray {
@@ -68,7 +74,7 @@ pub fn (r &ConfigFile) get_section_keys(section String) PackedStringArray {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4291131558)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&section)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ConfigFile) erase_section(section String) {
@@ -77,7 +83,9 @@ pub fn (mut r ConfigFile) erase_section(section String) {
     fnname := StringName.new("erase_section")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&section)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r ConfigFile) erase_section_key(section String, key String) {
     classname := StringName.new("ConfigFile")
@@ -85,7 +93,10 @@ pub fn (mut r ConfigFile) erase_section_key(section String, key String) {
     fnname := StringName.new("erase_section_key")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3186203200)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&section)}
+    args[1] = unsafe{voidptr(&key)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r ConfigFile) load(path String) GDError {
     mut object_out := GDError.ok
@@ -96,7 +107,7 @@ pub fn (mut r ConfigFile) load(path String) GDError {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 166001499)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&path)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ConfigFile) parse(data String) GDError {
@@ -108,7 +119,7 @@ pub fn (mut r ConfigFile) parse(data String) GDError {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 166001499)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&data)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ConfigFile) save(path String) GDError {
@@ -120,7 +131,7 @@ pub fn (mut r ConfigFile) save(path String) GDError {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 166001499)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&path)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &ConfigFile) encode_to_text() String {
@@ -130,7 +141,7 @@ pub fn (r &ConfigFile) encode_to_text() String {
     fnname := StringName.new("encode_to_text")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 201670096)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ConfigFile) load_encrypted(path String, key PackedByteArray) GDError {
@@ -143,7 +154,7 @@ pub fn (mut r ConfigFile) load_encrypted(path String, key PackedByteArray) GDErr
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&path)}
     args[1] = unsafe{voidptr(&key)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ConfigFile) load_encrypted_pass(path String, password String) GDError {
@@ -156,7 +167,7 @@ pub fn (mut r ConfigFile) load_encrypted_pass(path String, password String) GDEr
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&path)}
     args[1] = unsafe{voidptr(&password)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ConfigFile) save_encrypted(path String, key PackedByteArray) GDError {
@@ -169,7 +180,7 @@ pub fn (mut r ConfigFile) save_encrypted(path String, key PackedByteArray) GDErr
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&path)}
     args[1] = unsafe{voidptr(&key)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ConfigFile) save_encrypted_pass(path String, password String) GDError {
@@ -182,7 +193,7 @@ pub fn (mut r ConfigFile) save_encrypted_pass(path String, password String) GDEr
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&path)}
     args[1] = unsafe{voidptr(&password)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ConfigFile) clear() {
@@ -191,5 +202,5 @@ pub fn (mut r ConfigFile) clear() {
     fnname := StringName.new("clear")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }

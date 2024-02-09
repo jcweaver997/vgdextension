@@ -25,9 +25,20 @@ pub enum TimeWeekday {
     weekday_saturday = 6
 }
 
-pub type Time = voidptr
+pub struct Time {
+    Object
+}
 
-pub fn (r &Time) get_datetime_dict_from_unix_time(unix_time_val i32) Dictionary {
+pub fn Time.get_singleton() Time {
+    sn := StringName.new("Time")
+    defer {sn.deinit()}
+    o := Time{
+        ptr: gdf.global_get_singleton(sn)
+    }
+    return o
+}
+
+pub fn (r &Time) get_datetime_dict_from_unix_time(unix_time_val i64) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("Time")
     defer { classname.deinit() }
@@ -36,10 +47,10 @@ pub fn (r &Time) get_datetime_dict_from_unix_time(unix_time_val i32) Dictionary 
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3485342025)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&unix_time_val)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &Time) get_date_dict_from_unix_time(unix_time_val i32) Dictionary {
+pub fn (r &Time) get_date_dict_from_unix_time(unix_time_val i64) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("Time")
     defer { classname.deinit() }
@@ -48,10 +59,10 @@ pub fn (r &Time) get_date_dict_from_unix_time(unix_time_val i32) Dictionary {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3485342025)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&unix_time_val)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &Time) get_time_dict_from_unix_time(unix_time_val i32) Dictionary {
+pub fn (r &Time) get_time_dict_from_unix_time(unix_time_val i64) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("Time")
     defer { classname.deinit() }
@@ -60,10 +71,10 @@ pub fn (r &Time) get_time_dict_from_unix_time(unix_time_val i32) Dictionary {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3485342025)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&unix_time_val)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &Time) get_datetime_string_from_unix_time(unix_time_val i32, use_space bool) String {
+pub fn (r &Time) get_datetime_string_from_unix_time(unix_time_val i64, use_space bool) String {
     mut object_out := String{}
     classname := StringName.new("Time")
     defer { classname.deinit() }
@@ -73,10 +84,10 @@ pub fn (r &Time) get_datetime_string_from_unix_time(unix_time_val i32, use_space
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&unix_time_val)}
     args[1] = unsafe{voidptr(&use_space)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &Time) get_date_string_from_unix_time(unix_time_val i32) String {
+pub fn (r &Time) get_date_string_from_unix_time(unix_time_val i64) String {
     mut object_out := String{}
     classname := StringName.new("Time")
     defer { classname.deinit() }
@@ -85,10 +96,10 @@ pub fn (r &Time) get_date_string_from_unix_time(unix_time_val i32) String {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 844755477)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&unix_time_val)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &Time) get_time_string_from_unix_time(unix_time_val i32) String {
+pub fn (r &Time) get_time_string_from_unix_time(unix_time_val i64) String {
     mut object_out := String{}
     classname := StringName.new("Time")
     defer { classname.deinit() }
@@ -97,7 +108,7 @@ pub fn (r &Time) get_time_string_from_unix_time(unix_time_val i32) String {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 844755477)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&unix_time_val)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Time) get_datetime_dict_from_datetime_string(datetime String, weekday bool) Dictionary {
@@ -110,7 +121,7 @@ pub fn (r &Time) get_datetime_dict_from_datetime_string(datetime String, weekday
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&datetime)}
     args[1] = unsafe{voidptr(&weekday)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Time) get_datetime_string_from_datetime_dict(datetime Dictionary, use_space bool) String {
@@ -123,11 +134,11 @@ pub fn (r &Time) get_datetime_string_from_datetime_dict(datetime Dictionary, use
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&datetime)}
     args[1] = unsafe{voidptr(&use_space)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &Time) get_unix_time_from_datetime_dict(datetime Dictionary) i32 {
-    mut object_out := i32(0)
+pub fn (r &Time) get_unix_time_from_datetime_dict(datetime Dictionary) i64 {
+    mut object_out := i64(0)
     classname := StringName.new("Time")
     defer { classname.deinit() }
     fnname := StringName.new("get_unix_time_from_datetime_dict")
@@ -135,11 +146,11 @@ pub fn (r &Time) get_unix_time_from_datetime_dict(datetime Dictionary) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3021115443)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&datetime)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &Time) get_unix_time_from_datetime_string(datetime String) i32 {
-    mut object_out := i32(0)
+pub fn (r &Time) get_unix_time_from_datetime_string(datetime String) i64 {
+    mut object_out := i64(0)
     classname := StringName.new("Time")
     defer { classname.deinit() }
     fnname := StringName.new("get_unix_time_from_datetime_string")
@@ -147,10 +158,10 @@ pub fn (r &Time) get_unix_time_from_datetime_string(datetime String) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1321353865)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&datetime)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &Time) get_offset_string_from_offset_minutes(offset_minutes i32) String {
+pub fn (r &Time) get_offset_string_from_offset_minutes(offset_minutes i64) String {
     mut object_out := String{}
     classname := StringName.new("Time")
     defer { classname.deinit() }
@@ -159,7 +170,7 @@ pub fn (r &Time) get_offset_string_from_offset_minutes(offset_minutes i32) Strin
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 844755477)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&offset_minutes)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Time) get_datetime_dict_from_system(utc bool) Dictionary {
@@ -171,7 +182,7 @@ pub fn (r &Time) get_datetime_dict_from_system(utc bool) Dictionary {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 205769976)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&utc)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Time) get_date_dict_from_system(utc bool) Dictionary {
@@ -183,7 +194,7 @@ pub fn (r &Time) get_date_dict_from_system(utc bool) Dictionary {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 205769976)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&utc)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Time) get_time_dict_from_system(utc bool) Dictionary {
@@ -195,7 +206,7 @@ pub fn (r &Time) get_time_dict_from_system(utc bool) Dictionary {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 205769976)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&utc)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Time) get_datetime_string_from_system(utc bool, use_space bool) String {
@@ -208,7 +219,7 @@ pub fn (r &Time) get_datetime_string_from_system(utc bool, use_space bool) Strin
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&utc)}
     args[1] = unsafe{voidptr(&use_space)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Time) get_date_string_from_system(utc bool) String {
@@ -220,7 +231,7 @@ pub fn (r &Time) get_date_string_from_system(utc bool) String {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1162154673)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&utc)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Time) get_time_string_from_system(utc bool) String {
@@ -232,7 +243,7 @@ pub fn (r &Time) get_time_string_from_system(utc bool) String {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1162154673)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&utc)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Time) get_time_zone_from_system() Dictionary {
@@ -242,36 +253,36 @@ pub fn (r &Time) get_time_zone_from_system() Dictionary {
     fnname := StringName.new("get_time_zone_from_system")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3102165223)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (r &Time) get_unix_time_from_system() f32 {
-    mut object_out := f32(0)
+pub fn (r &Time) get_unix_time_from_system() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("Time")
     defer { classname.deinit() }
     fnname := StringName.new("get_unix_time_from_system")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (r &Time) get_ticks_msec() i32 {
-    mut object_out := i32(0)
+pub fn (r &Time) get_ticks_msec() u64 {
+    mut object_out := u64(0)
     classname := StringName.new("Time")
     defer { classname.deinit() }
     fnname := StringName.new("get_ticks_msec")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (r &Time) get_ticks_usec() i32 {
-    mut object_out := i32(0)
+pub fn (r &Time) get_ticks_usec() u64 {
+    mut object_out := u64(0)
     classname := StringName.new("Time")
     defer { classname.deinit() }
     fnname := StringName.new("get_ticks_usec")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

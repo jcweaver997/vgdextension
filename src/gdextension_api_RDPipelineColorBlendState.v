@@ -1,6 +1,8 @@
 module vgdextension
 
-pub type RDPipelineColorBlendState = voidptr
+pub struct RDPipelineColorBlendState {
+    RefCounted
+}
 
 pub fn (mut r RDPipelineColorBlendState) set_enable_logic_op(p_member bool) {
     classname := StringName.new("RDPipelineColorBlendState")
@@ -8,7 +10,9 @@ pub fn (mut r RDPipelineColorBlendState) set_enable_logic_op(p_member bool) {
     fnname := StringName.new("set_enable_logic_op")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&p_member)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &RDPipelineColorBlendState) get_enable_logic_op() bool {
     mut object_out := false
@@ -17,7 +21,7 @@ pub fn (r &RDPipelineColorBlendState) get_enable_logic_op() bool {
     fnname := StringName.new("get_enable_logic_op")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r RDPipelineColorBlendState) set_logic_op(p_member RenderingDeviceLogicOperation) {
@@ -26,7 +30,9 @@ pub fn (mut r RDPipelineColorBlendState) set_logic_op(p_member RenderingDeviceLo
     fnname := StringName.new("set_logic_op")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3610841058)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&p_member)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &RDPipelineColorBlendState) get_logic_op() RenderingDeviceLogicOperation {
     mut object_out := RenderingDeviceLogicOperation.logic_op_clear
@@ -35,7 +41,7 @@ pub fn (r &RDPipelineColorBlendState) get_logic_op() RenderingDeviceLogicOperati
     fnname := StringName.new("get_logic_op")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 988254690)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r RDPipelineColorBlendState) set_blend_constant(p_member Color) {
@@ -44,7 +50,9 @@ pub fn (mut r RDPipelineColorBlendState) set_blend_constant(p_member Color) {
     fnname := StringName.new("set_blend_constant")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&p_member)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &RDPipelineColorBlendState) get_blend_constant() Color {
     mut object_out := Color{}
@@ -53,7 +61,7 @@ pub fn (r &RDPipelineColorBlendState) get_blend_constant() Color {
     fnname := StringName.new("get_blend_constant")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3444240500)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r RDPipelineColorBlendState) set_attachments(attachments Array) {
@@ -62,7 +70,9 @@ pub fn (mut r RDPipelineColorBlendState) set_attachments(attachments Array) {
     fnname := StringName.new("set_attachments")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&attachments)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &RDPipelineColorBlendState) get_attachments() Array {
     mut object_out := Array{}
@@ -71,6 +81,6 @@ pub fn (r &RDPipelineColorBlendState) get_attachments() Array {
     fnname := StringName.new("get_attachments")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3995934104)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

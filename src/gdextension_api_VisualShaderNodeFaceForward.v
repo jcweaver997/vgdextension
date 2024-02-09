@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type VisualShaderNodeFaceForward = voidptr
+pub struct VisualShaderNodeFaceForward {
+    VisualShaderNodeVectorBase
+}
 

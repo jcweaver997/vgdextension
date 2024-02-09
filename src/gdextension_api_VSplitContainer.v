@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type VSplitContainer = voidptr
+pub struct VSplitContainer {
+    SplitContainer
+}
 

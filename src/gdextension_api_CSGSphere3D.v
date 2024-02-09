@@ -1,23 +1,27 @@
 module vgdextension
 
-pub type CSGSphere3D = voidptr
+pub struct CSGSphere3D {
+    CSGPrimitive3D
+}
 
-pub fn (mut r CSGSphere3D) set_radius(radius f32) {
+pub fn (mut r CSGSphere3D) set_radius(radius f64) {
     classname := StringName.new("CSGSphere3D")
     defer { classname.deinit() }
     fnname := StringName.new("set_radius")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&radius)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &CSGSphere3D) get_radius() f32 {
-    mut object_out := f32(0)
+pub fn (r &CSGSphere3D) get_radius() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("CSGSphere3D")
     defer { classname.deinit() }
     fnname := StringName.new("get_radius")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r CSGSphere3D) set_radial_segments(radial_segments i32) {
@@ -26,7 +30,9 @@ pub fn (mut r CSGSphere3D) set_radial_segments(radial_segments i32) {
     fnname := StringName.new("set_radial_segments")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&radial_segments)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &CSGSphere3D) get_radial_segments() i32 {
     mut object_out := i32(0)
@@ -35,7 +41,7 @@ pub fn (r &CSGSphere3D) get_radial_segments() i32 {
     fnname := StringName.new("get_radial_segments")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r CSGSphere3D) set_rings(rings i32) {
@@ -44,7 +50,9 @@ pub fn (mut r CSGSphere3D) set_rings(rings i32) {
     fnname := StringName.new("set_rings")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&rings)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &CSGSphere3D) get_rings() i32 {
     mut object_out := i32(0)
@@ -53,7 +61,7 @@ pub fn (r &CSGSphere3D) get_rings() i32 {
     fnname := StringName.new("get_rings")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r CSGSphere3D) set_smooth_faces(smooth_faces bool) {
@@ -62,7 +70,9 @@ pub fn (mut r CSGSphere3D) set_smooth_faces(smooth_faces bool) {
     fnname := StringName.new("set_smooth_faces")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&smooth_faces)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &CSGSphere3D) get_smooth_faces() bool {
     mut object_out := false
@@ -71,7 +81,7 @@ pub fn (r &CSGSphere3D) get_smooth_faces() bool {
     fnname := StringName.new("get_smooth_faces")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r CSGSphere3D) set_material(material Material) {
@@ -80,15 +90,17 @@ pub fn (mut r CSGSphere3D) set_material(material Material) {
     fnname := StringName.new("set_material")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2757459619)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = material.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &CSGSphere3D) get_material() Material {
-    mut object_out := Material(unsafe{nil})
+    mut object_out := Material{}
     classname := StringName.new("CSGSphere3D")
     defer { classname.deinit() }
     fnname := StringName.new("get_material")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 5934680)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

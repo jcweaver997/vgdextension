@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type AudioStreamMicrophone = voidptr
+pub struct AudioStreamMicrophone {
+    AudioStream
+}
 

@@ -1,6 +1,8 @@
 module vgdextension
 
-pub type RegExMatch = voidptr
+pub struct RegExMatch {
+    RefCounted
+}
 
 pub fn (r &RegExMatch) get_subject() String {
     mut object_out := String{}
@@ -9,7 +11,7 @@ pub fn (r &RegExMatch) get_subject() String {
     fnname := StringName.new("get_subject")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 201670096)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &RegExMatch) get_group_count() i32 {
@@ -19,7 +21,7 @@ pub fn (r &RegExMatch) get_group_count() i32 {
     fnname := StringName.new("get_group_count")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &RegExMatch) get_names() Dictionary {
@@ -29,7 +31,7 @@ pub fn (r &RegExMatch) get_names() Dictionary {
     fnname := StringName.new("get_names")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3102165223)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &RegExMatch) get_strings() PackedStringArray {
@@ -39,7 +41,7 @@ pub fn (r &RegExMatch) get_strings() PackedStringArray {
     fnname := StringName.new("get_strings")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1139954409)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &RegExMatch) get_string(name Variant) String {
@@ -51,7 +53,7 @@ pub fn (r &RegExMatch) get_string(name Variant) String {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 687115856)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&name)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &RegExMatch) get_start(name Variant) i32 {
@@ -63,7 +65,7 @@ pub fn (r &RegExMatch) get_start(name Variant) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 490464691)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&name)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &RegExMatch) get_end(name Variant) i32 {
@@ -75,6 +77,6 @@ pub fn (r &RegExMatch) get_end(name Variant) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 490464691)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&name)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }

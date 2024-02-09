@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type VisualShaderNodeVectorDistance = voidptr
+pub struct VisualShaderNodeVectorDistance {
+    VisualShaderNodeVectorBase
+}
 

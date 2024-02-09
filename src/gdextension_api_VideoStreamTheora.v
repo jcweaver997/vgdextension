@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type VideoStreamTheora = voidptr
+pub struct VideoStreamTheora {
+    VideoStream
+}
 

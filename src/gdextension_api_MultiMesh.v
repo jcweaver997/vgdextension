@@ -5,7 +5,9 @@ pub enum MultiMeshTransformFormat {
     transform_3d = 1
 }
 
-pub type MultiMesh = voidptr
+pub struct MultiMesh {
+    Resource
+}
 
 pub fn (mut r MultiMesh) set_mesh(mesh Mesh) {
     classname := StringName.new("MultiMesh")
@@ -13,16 +15,18 @@ pub fn (mut r MultiMesh) set_mesh(mesh Mesh) {
     fnname := StringName.new("set_mesh")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 194775623)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = mesh.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &MultiMesh) get_mesh() Mesh {
-    mut object_out := Mesh(unsafe{nil})
+    mut object_out := Mesh{}
     classname := StringName.new("MultiMesh")
     defer { classname.deinit() }
     fnname := StringName.new("get_mesh")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1808005922)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r MultiMesh) set_use_colors(enable bool) {
@@ -31,7 +35,9 @@ pub fn (mut r MultiMesh) set_use_colors(enable bool) {
     fnname := StringName.new("set_use_colors")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &MultiMesh) is_using_colors() bool {
     mut object_out := false
@@ -40,7 +46,7 @@ pub fn (r &MultiMesh) is_using_colors() bool {
     fnname := StringName.new("is_using_colors")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r MultiMesh) set_use_custom_data(enable bool) {
@@ -49,7 +55,9 @@ pub fn (mut r MultiMesh) set_use_custom_data(enable bool) {
     fnname := StringName.new("set_use_custom_data")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &MultiMesh) is_using_custom_data() bool {
     mut object_out := false
@@ -58,7 +66,7 @@ pub fn (r &MultiMesh) is_using_custom_data() bool {
     fnname := StringName.new("is_using_custom_data")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r MultiMesh) set_transform_format(format MultiMeshTransformFormat) {
@@ -67,7 +75,9 @@ pub fn (mut r MultiMesh) set_transform_format(format MultiMeshTransformFormat) {
     fnname := StringName.new("set_transform_format")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2404750322)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&format)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &MultiMesh) get_transform_format() MultiMeshTransformFormat {
     mut object_out := MultiMeshTransformFormat.transform_2d
@@ -76,7 +86,7 @@ pub fn (r &MultiMesh) get_transform_format() MultiMeshTransformFormat {
     fnname := StringName.new("get_transform_format")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2444156481)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r MultiMesh) set_instance_count(count i32) {
@@ -85,7 +95,9 @@ pub fn (mut r MultiMesh) set_instance_count(count i32) {
     fnname := StringName.new("set_instance_count")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&count)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &MultiMesh) get_instance_count() i32 {
     mut object_out := i32(0)
@@ -94,7 +106,7 @@ pub fn (r &MultiMesh) get_instance_count() i32 {
     fnname := StringName.new("get_instance_count")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r MultiMesh) set_visible_instance_count(count i32) {
@@ -103,7 +115,9 @@ pub fn (mut r MultiMesh) set_visible_instance_count(count i32) {
     fnname := StringName.new("set_visible_instance_count")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&count)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &MultiMesh) get_visible_instance_count() i32 {
     mut object_out := i32(0)
@@ -112,7 +126,7 @@ pub fn (r &MultiMesh) get_visible_instance_count() i32 {
     fnname := StringName.new("get_visible_instance_count")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r MultiMesh) set_instance_transform(instance i32, transform Transform3D) {
@@ -121,7 +135,10 @@ pub fn (mut r MultiMesh) set_instance_transform(instance i32, transform Transfor
     fnname := StringName.new("set_instance_transform")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3616898986)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&instance)}
+    args[1] = unsafe{voidptr(&transform)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r MultiMesh) set_instance_transform_2d(instance i32, transform Transform2D) {
     classname := StringName.new("MultiMesh")
@@ -129,7 +146,10 @@ pub fn (mut r MultiMesh) set_instance_transform_2d(instance i32, transform Trans
     fnname := StringName.new("set_instance_transform_2d")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 30160968)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&instance)}
+    args[1] = unsafe{voidptr(&transform)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &MultiMesh) get_instance_transform(instance i32) Transform3D {
     mut object_out := Transform3D{}
@@ -140,7 +160,7 @@ pub fn (r &MultiMesh) get_instance_transform(instance i32) Transform3D {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1965739696)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&instance)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &MultiMesh) get_instance_transform_2d(instance i32) Transform2D {
@@ -152,7 +172,7 @@ pub fn (r &MultiMesh) get_instance_transform_2d(instance i32) Transform2D {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3836996910)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&instance)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r MultiMesh) set_instance_color(instance i32, color Color) {
@@ -161,7 +181,10 @@ pub fn (mut r MultiMesh) set_instance_color(instance i32, color Color) {
     fnname := StringName.new("set_instance_color")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2878471219)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&instance)}
+    args[1] = unsafe{voidptr(&color)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &MultiMesh) get_instance_color(instance i32) Color {
     mut object_out := Color{}
@@ -172,7 +195,7 @@ pub fn (r &MultiMesh) get_instance_color(instance i32) Color {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3457211756)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&instance)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r MultiMesh) set_instance_custom_data(instance i32, custom_data Color) {
@@ -181,7 +204,10 @@ pub fn (mut r MultiMesh) set_instance_custom_data(instance i32, custom_data Colo
     fnname := StringName.new("set_instance_custom_data")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2878471219)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&instance)}
+    args[1] = unsafe{voidptr(&custom_data)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &MultiMesh) get_instance_custom_data(instance i32) Color {
     mut object_out := Color{}
@@ -192,7 +218,7 @@ pub fn (r &MultiMesh) get_instance_custom_data(instance i32) Color {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3457211756)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&instance)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &MultiMesh) get_aabb() AABB {
@@ -202,7 +228,7 @@ pub fn (r &MultiMesh) get_aabb() AABB {
     fnname := StringName.new("get_aabb")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1068685055)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &MultiMesh) get_buffer() PackedFloat32Array {
@@ -212,7 +238,7 @@ pub fn (r &MultiMesh) get_buffer() PackedFloat32Array {
     fnname := StringName.new("get_buffer")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 675695659)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r MultiMesh) set_buffer(buffer PackedFloat32Array) {
@@ -221,5 +247,7 @@ pub fn (mut r MultiMesh) set_buffer(buffer PackedFloat32Array) {
     fnname := StringName.new("set_buffer")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2899603908)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&buffer)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }

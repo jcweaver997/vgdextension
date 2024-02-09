@@ -221,6 +221,11 @@ pub fn (v &PackedVector2Array) to_var() Variant {
     return output
 }
 
+pub fn (mut t PackedVector2Array) set_from_var(var &Variant) {
+    var_to_type := gdf.get_variant_to_type_constructor(GDExtensionVariantType.type_packedvector2array)
+    var_to_type(voidptr(&t), var)
+}
+
 pub fn (v &PackedVector2Array) index(i int) Vector2 {
     index_fn := gdf.variant_get_ptr_indexed_getter(GDExtensionVariantType.type_packedvector2array)
     mut output := Vector2{}

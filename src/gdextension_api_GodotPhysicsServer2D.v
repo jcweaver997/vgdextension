@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type GodotPhysicsServer2D = voidptr
+pub struct GodotPhysicsServer2D {
+    PhysicsServer2D
+}
 

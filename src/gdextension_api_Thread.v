@@ -6,7 +6,9 @@ pub enum ThreadPriority {
     priority_high = 2
 }
 
-pub type Thread = voidptr
+pub struct Thread {
+    RefCounted
+}
 
 pub fn (mut r Thread) start(callable Callable, priority ThreadPriority) GDError {
     mut object_out := GDError.ok
@@ -18,7 +20,7 @@ pub fn (mut r Thread) start(callable Callable, priority ThreadPriority) GDError 
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&callable)}
     args[1] = unsafe{voidptr(&priority)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Thread) get_id() String {
@@ -28,7 +30,7 @@ pub fn (r &Thread) get_id() String {
     fnname := StringName.new("get_id")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 201670096)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &Thread) is_started() bool {
@@ -38,7 +40,7 @@ pub fn (r &Thread) is_started() bool {
     fnname := StringName.new("is_started")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &Thread) is_alive() bool {
@@ -48,7 +50,7 @@ pub fn (r &Thread) is_alive() bool {
     fnname := StringName.new("is_alive")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Thread) wait_to_finish() Variant {
@@ -58,7 +60,7 @@ pub fn (mut r Thread) wait_to_finish() Variant {
     fnname := StringName.new("wait_to_finish")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1460262497)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn Thread.set_thread_safety_checks_enabled(enabled bool) {
@@ -67,5 +69,7 @@ pub fn Thread.set_thread_safety_checks_enabled(enabled bool) {
     fnname := StringName.new("set_thread_safety_checks_enabled")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, unsafe{nil}, unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enabled)}
+    gdf.object_method_bind_ptrcall(mb, unsafe{nil}, voidptr(&args[0]), unsafe{nil})
 }

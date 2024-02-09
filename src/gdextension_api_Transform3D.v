@@ -78,7 +78,7 @@ pub fn (r &Transform3D) orthonormalized() Transform3D {
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
    return object_out
 }
-pub fn (r &Transform3D) rotated(axis Vector3, angle f32) Transform3D {
+pub fn (r &Transform3D) rotated(axis Vector3, angle f64) Transform3D {
     mut object_out := Transform3D{}
     fnname := StringName.new("rotated")
     defer { fnname.deinit() }
@@ -89,7 +89,7 @@ pub fn (r &Transform3D) rotated(axis Vector3, angle f32) Transform3D {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 2)
    return object_out
 }
-pub fn (r &Transform3D) rotated_local(axis Vector3, angle f32) Transform3D {
+pub fn (r &Transform3D) rotated_local(axis Vector3, angle f64) Transform3D {
     mut object_out := Transform3D{}
     fnname := StringName.new("rotated_local")
     defer { fnname.deinit() }
@@ -152,7 +152,7 @@ pub fn (r &Transform3D) looking_at(target Vector3, up Vector3, use_model_front b
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 3)
    return object_out
 }
-pub fn (r &Transform3D) interpolate_with(xform Transform3D, weight f32) Transform3D {
+pub fn (r &Transform3D) interpolate_with(xform Transform3D, weight f64) Transform3D {
     mut object_out := Transform3D{}
     fnname := StringName.new("interpolate_with")
     defer { fnname.deinit() }
@@ -186,5 +186,10 @@ pub fn (v &Transform3D) to_var() Variant {
     output := Variant{}
     to_variant(GDExtensionUninitializedVariantPtr(&output), GDExtensionTypePtr(v))
     return output
+}
+
+pub fn (mut t Transform3D) set_from_var(var &Variant) {
+    var_to_type := gdf.get_variant_to_type_constructor(GDExtensionVariantType.type_transform3d)
+    var_to_type(voidptr(&t), var)
 }
 

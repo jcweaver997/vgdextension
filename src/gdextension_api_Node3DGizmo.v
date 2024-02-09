@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type Node3DGizmo = voidptr
+pub struct Node3DGizmo {
+    RefCounted
+}
 

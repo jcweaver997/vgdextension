@@ -44,7 +44,9 @@ pub enum AnimationFindMode {
     find_mode_exact = 2
 }
 
-pub type Animation = voidptr
+pub struct Animation {
+    Resource
+}
 
 pub fn (mut r Animation) add_track(type_name AnimationTrackType, at_position i32) i32 {
     mut object_out := i32(0)
@@ -56,7 +58,7 @@ pub fn (mut r Animation) add_track(type_name AnimationTrackType, at_position i32
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&type_name)}
     args[1] = unsafe{voidptr(&at_position)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Animation) remove_track(track_idx i32) {
@@ -65,7 +67,9 @@ pub fn (mut r Animation) remove_track(track_idx i32) {
     fnname := StringName.new("remove_track")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&track_idx)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Animation) get_track_count() i32 {
     mut object_out := i32(0)
@@ -74,7 +78,7 @@ pub fn (r &Animation) get_track_count() i32 {
     fnname := StringName.new("get_track_count")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &Animation) track_get_type(track_idx i32) AnimationTrackType {
@@ -86,7 +90,7 @@ pub fn (r &Animation) track_get_type(track_idx i32) AnimationTrackType {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3445944217)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&track_idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Animation) track_get_path(track_idx i32) NodePath {
@@ -98,7 +102,7 @@ pub fn (r &Animation) track_get_path(track_idx i32) NodePath {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 408788394)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&track_idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Animation) track_set_path(track_idx i32, path NodePath) {
@@ -107,7 +111,10 @@ pub fn (mut r Animation) track_set_path(track_idx i32, path NodePath) {
     fnname := StringName.new("track_set_path")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2761262315)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&track_idx)}
+    args[1] = unsafe{voidptr(&path)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Animation) find_track(path NodePath, type_name AnimationTrackType) i32 {
     mut object_out := i32(0)
@@ -119,7 +126,7 @@ pub fn (r &Animation) find_track(path NodePath, type_name AnimationTrackType) i3
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&path)}
     args[1] = unsafe{voidptr(&type_name)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Animation) track_move_up(track_idx i32) {
@@ -128,7 +135,9 @@ pub fn (mut r Animation) track_move_up(track_idx i32) {
     fnname := StringName.new("track_move_up")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&track_idx)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r Animation) track_move_down(track_idx i32) {
     classname := StringName.new("Animation")
@@ -136,7 +145,9 @@ pub fn (mut r Animation) track_move_down(track_idx i32) {
     fnname := StringName.new("track_move_down")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&track_idx)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r Animation) track_move_to(track_idx i32, to_idx i32) {
     classname := StringName.new("Animation")
@@ -144,7 +155,10 @@ pub fn (mut r Animation) track_move_to(track_idx i32, to_idx i32) {
     fnname := StringName.new("track_move_to")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&track_idx)}
+    args[1] = unsafe{voidptr(&to_idx)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r Animation) track_swap(track_idx i32, with_idx i32) {
     classname := StringName.new("Animation")
@@ -152,7 +166,10 @@ pub fn (mut r Animation) track_swap(track_idx i32, with_idx i32) {
     fnname := StringName.new("track_swap")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&track_idx)}
+    args[1] = unsafe{voidptr(&with_idx)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r Animation) track_set_imported(track_idx i32, imported bool) {
     classname := StringName.new("Animation")
@@ -160,7 +177,10 @@ pub fn (mut r Animation) track_set_imported(track_idx i32, imported bool) {
     fnname := StringName.new("track_set_imported")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&track_idx)}
+    args[1] = unsafe{voidptr(&imported)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Animation) track_is_imported(track_idx i32) bool {
     mut object_out := false
@@ -171,7 +191,7 @@ pub fn (r &Animation) track_is_imported(track_idx i32) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1116898809)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&track_idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Animation) track_set_enabled(track_idx i32, enabled bool) {
@@ -180,7 +200,10 @@ pub fn (mut r Animation) track_set_enabled(track_idx i32, enabled bool) {
     fnname := StringName.new("track_set_enabled")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&track_idx)}
+    args[1] = unsafe{voidptr(&enabled)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Animation) track_is_enabled(track_idx i32) bool {
     mut object_out := false
@@ -191,10 +214,10 @@ pub fn (r &Animation) track_is_enabled(track_idx i32) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1116898809)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&track_idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r Animation) position_track_insert_key(track_idx i32, time f32, position Vector3) i32 {
+pub fn (mut r Animation) position_track_insert_key(track_idx i32, time f64, position Vector3) i32 {
     mut object_out := i32(0)
     classname := StringName.new("Animation")
     defer { classname.deinit() }
@@ -205,10 +228,10 @@ pub fn (mut r Animation) position_track_insert_key(track_idx i32, time f32, posi
     args[0] = unsafe{voidptr(&track_idx)}
     args[1] = unsafe{voidptr(&time)}
     args[2] = unsafe{voidptr(&position)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r Animation) rotation_track_insert_key(track_idx i32, time f32, rotation Quaternion) i32 {
+pub fn (mut r Animation) rotation_track_insert_key(track_idx i32, time f64, rotation Quaternion) i32 {
     mut object_out := i32(0)
     classname := StringName.new("Animation")
     defer { classname.deinit() }
@@ -219,10 +242,10 @@ pub fn (mut r Animation) rotation_track_insert_key(track_idx i32, time f32, rota
     args[0] = unsafe{voidptr(&track_idx)}
     args[1] = unsafe{voidptr(&time)}
     args[2] = unsafe{voidptr(&rotation)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r Animation) scale_track_insert_key(track_idx i32, time f32, scale Vector3) i32 {
+pub fn (mut r Animation) scale_track_insert_key(track_idx i32, time f64, scale Vector3) i32 {
     mut object_out := i32(0)
     classname := StringName.new("Animation")
     defer { classname.deinit() }
@@ -233,10 +256,10 @@ pub fn (mut r Animation) scale_track_insert_key(track_idx i32, time f32, scale V
     args[0] = unsafe{voidptr(&track_idx)}
     args[1] = unsafe{voidptr(&time)}
     args[2] = unsafe{voidptr(&scale)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r Animation) blend_shape_track_insert_key(track_idx i32, time f32, amount f32) i32 {
+pub fn (mut r Animation) blend_shape_track_insert_key(track_idx i32, time f64, amount f64) i32 {
     mut object_out := i32(0)
     classname := StringName.new("Animation")
     defer { classname.deinit() }
@@ -247,10 +270,10 @@ pub fn (mut r Animation) blend_shape_track_insert_key(track_idx i32, time f32, a
     args[0] = unsafe{voidptr(&track_idx)}
     args[1] = unsafe{voidptr(&time)}
     args[2] = unsafe{voidptr(&amount)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &Animation) position_track_interpolate(track_idx i32, time_sec f32) Vector3 {
+pub fn (r &Animation) position_track_interpolate(track_idx i32, time_sec f64) Vector3 {
     mut object_out := Vector3{}
     classname := StringName.new("Animation")
     defer { classname.deinit() }
@@ -260,10 +283,10 @@ pub fn (r &Animation) position_track_interpolate(track_idx i32, time_sec f32) Ve
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&track_idx)}
     args[1] = unsafe{voidptr(&time_sec)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &Animation) rotation_track_interpolate(track_idx i32, time_sec f32) Quaternion {
+pub fn (r &Animation) rotation_track_interpolate(track_idx i32, time_sec f64) Quaternion {
     mut object_out := Quaternion{}
     classname := StringName.new("Animation")
     defer { classname.deinit() }
@@ -273,10 +296,10 @@ pub fn (r &Animation) rotation_track_interpolate(track_idx i32, time_sec f32) Qu
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&track_idx)}
     args[1] = unsafe{voidptr(&time_sec)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &Animation) scale_track_interpolate(track_idx i32, time_sec f32) Vector3 {
+pub fn (r &Animation) scale_track_interpolate(track_idx i32, time_sec f64) Vector3 {
     mut object_out := Vector3{}
     classname := StringName.new("Animation")
     defer { classname.deinit() }
@@ -286,11 +309,11 @@ pub fn (r &Animation) scale_track_interpolate(track_idx i32, time_sec f32) Vecto
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&track_idx)}
     args[1] = unsafe{voidptr(&time_sec)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &Animation) blend_shape_track_interpolate(track_idx i32, time_sec f32) f32 {
-    mut object_out := f32(0)
+pub fn (r &Animation) blend_shape_track_interpolate(track_idx i32, time_sec f64) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("Animation")
     defer { classname.deinit() }
     fnname := StringName.new("blend_shape_track_interpolate")
@@ -299,10 +322,10 @@ pub fn (r &Animation) blend_shape_track_interpolate(track_idx i32, time_sec f32)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&track_idx)}
     args[1] = unsafe{voidptr(&time_sec)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r Animation) track_insert_key(track_idx i32, time f32, key Variant, transition f32) i32 {
+pub fn (mut r Animation) track_insert_key(track_idx i32, time f64, key Variant, transition f64) i32 {
     mut object_out := i32(0)
     classname := StringName.new("Animation")
     defer { classname.deinit() }
@@ -314,7 +337,7 @@ pub fn (mut r Animation) track_insert_key(track_idx i32, time f32, key Variant, 
     args[1] = unsafe{voidptr(&time)}
     args[2] = unsafe{voidptr(&key)}
     args[3] = unsafe{voidptr(&transition)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Animation) track_remove_key(track_idx i32, key_idx i32) {
@@ -323,15 +346,21 @@ pub fn (mut r Animation) track_remove_key(track_idx i32, key_idx i32) {
     fnname := StringName.new("track_remove_key")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&track_idx)}
+    args[1] = unsafe{voidptr(&key_idx)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r Animation) track_remove_key_at_time(track_idx i32, time f32) {
+pub fn (mut r Animation) track_remove_key_at_time(track_idx i32, time f64) {
     classname := StringName.new("Animation")
     defer { classname.deinit() }
     fnname := StringName.new("track_remove_key_at_time")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1602489585)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&track_idx)}
+    args[1] = unsafe{voidptr(&time)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r Animation) track_set_key_value(track_idx i32, key i32, value Variant) {
     classname := StringName.new("Animation")
@@ -339,26 +368,38 @@ pub fn (mut r Animation) track_set_key_value(track_idx i32, key i32, value Varia
     fnname := StringName.new("track_set_key_value")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2060538656)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&track_idx)}
+    args[1] = unsafe{voidptr(&key)}
+    args[2] = unsafe{voidptr(&value)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r Animation) track_set_key_transition(track_idx i32, key_idx i32, transition f32) {
+pub fn (mut r Animation) track_set_key_transition(track_idx i32, key_idx i32, transition f64) {
     classname := StringName.new("Animation")
     defer { classname.deinit() }
     fnname := StringName.new("track_set_key_transition")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3506521499)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&track_idx)}
+    args[1] = unsafe{voidptr(&key_idx)}
+    args[2] = unsafe{voidptr(&transition)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r Animation) track_set_key_time(track_idx i32, key_idx i32, time f32) {
+pub fn (mut r Animation) track_set_key_time(track_idx i32, key_idx i32, time f64) {
     classname := StringName.new("Animation")
     defer { classname.deinit() }
     fnname := StringName.new("track_set_key_time")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3506521499)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&track_idx)}
+    args[1] = unsafe{voidptr(&key_idx)}
+    args[2] = unsafe{voidptr(&time)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &Animation) track_get_key_transition(track_idx i32, key_idx i32) f32 {
-    mut object_out := f32(0)
+pub fn (r &Animation) track_get_key_transition(track_idx i32, key_idx i32) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("Animation")
     defer { classname.deinit() }
     fnname := StringName.new("track_get_key_transition")
@@ -367,7 +408,7 @@ pub fn (r &Animation) track_get_key_transition(track_idx i32, key_idx i32) f32 {
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&track_idx)}
     args[1] = unsafe{voidptr(&key_idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Animation) track_get_key_count(track_idx i32) i32 {
@@ -379,7 +420,7 @@ pub fn (r &Animation) track_get_key_count(track_idx i32) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 923996154)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&track_idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Animation) track_get_key_value(track_idx i32, key_idx i32) Variant {
@@ -392,11 +433,11 @@ pub fn (r &Animation) track_get_key_value(track_idx i32, key_idx i32) Variant {
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&track_idx)}
     args[1] = unsafe{voidptr(&key_idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &Animation) track_get_key_time(track_idx i32, key_idx i32) f32 {
-    mut object_out := f32(0)
+pub fn (r &Animation) track_get_key_time(track_idx i32, key_idx i32) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("Animation")
     defer { classname.deinit() }
     fnname := StringName.new("track_get_key_time")
@@ -405,10 +446,10 @@ pub fn (r &Animation) track_get_key_time(track_idx i32, key_idx i32) f32 {
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&track_idx)}
     args[1] = unsafe{voidptr(&key_idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &Animation) track_find_key(track_idx i32, time f32, find_mode AnimationFindMode) i32 {
+pub fn (r &Animation) track_find_key(track_idx i32, time f64, find_mode AnimationFindMode) i32 {
     mut object_out := i32(0)
     classname := StringName.new("Animation")
     defer { classname.deinit() }
@@ -419,7 +460,7 @@ pub fn (r &Animation) track_find_key(track_idx i32, time f32, find_mode Animatio
     args[0] = unsafe{voidptr(&track_idx)}
     args[1] = unsafe{voidptr(&time)}
     args[2] = unsafe{voidptr(&find_mode)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Animation) track_set_interpolation_type(track_idx i32, interpolation AnimationInterpolationType) {
@@ -428,7 +469,10 @@ pub fn (mut r Animation) track_set_interpolation_type(track_idx i32, interpolati
     fnname := StringName.new("track_set_interpolation_type")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4112932513)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&track_idx)}
+    args[1] = unsafe{voidptr(&interpolation)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Animation) track_get_interpolation_type(track_idx i32) AnimationInterpolationType {
     mut object_out := AnimationInterpolationType.interpolation_nearest
@@ -439,7 +483,7 @@ pub fn (r &Animation) track_get_interpolation_type(track_idx i32) AnimationInter
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1530756894)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&track_idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Animation) track_set_interpolation_loop_wrap(track_idx i32, interpolation bool) {
@@ -448,7 +492,10 @@ pub fn (mut r Animation) track_set_interpolation_loop_wrap(track_idx i32, interp
     fnname := StringName.new("track_set_interpolation_loop_wrap")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&track_idx)}
+    args[1] = unsafe{voidptr(&interpolation)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Animation) track_get_interpolation_loop_wrap(track_idx i32) bool {
     mut object_out := false
@@ -459,7 +506,7 @@ pub fn (r &Animation) track_get_interpolation_loop_wrap(track_idx i32) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1116898809)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&track_idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Animation) track_is_compressed(track_idx i32) bool {
@@ -471,7 +518,7 @@ pub fn (r &Animation) track_is_compressed(track_idx i32) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1116898809)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&track_idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Animation) value_track_set_update_mode(track_idx i32, mode AnimationUpdateMode) {
@@ -480,7 +527,10 @@ pub fn (mut r Animation) value_track_set_update_mode(track_idx i32, mode Animati
     fnname := StringName.new("value_track_set_update_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2854058312)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&track_idx)}
+    args[1] = unsafe{voidptr(&mode)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Animation) value_track_get_update_mode(track_idx i32) AnimationUpdateMode {
     mut object_out := AnimationUpdateMode.update_continuous
@@ -491,10 +541,10 @@ pub fn (r &Animation) value_track_get_update_mode(track_idx i32) AnimationUpdate
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1440326473)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&track_idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &Animation) value_track_interpolate(track_idx i32, time_sec f32) Variant {
+pub fn (r &Animation) value_track_interpolate(track_idx i32, time_sec f64) Variant {
     mut object_out := Variant{}
     classname := StringName.new("Animation")
     defer { classname.deinit() }
@@ -504,7 +554,7 @@ pub fn (r &Animation) value_track_interpolate(track_idx i32, time_sec f32) Varia
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&track_idx)}
     args[1] = unsafe{voidptr(&time_sec)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Animation) method_track_get_name(track_idx i32, key_idx i32) StringName {
@@ -517,7 +567,7 @@ pub fn (r &Animation) method_track_get_name(track_idx i32, key_idx i32) StringNa
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&track_idx)}
     args[1] = unsafe{voidptr(&key_idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Animation) method_track_get_params(track_idx i32, key_idx i32) Array {
@@ -530,10 +580,10 @@ pub fn (r &Animation) method_track_get_params(track_idx i32, key_idx i32) Array 
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&track_idx)}
     args[1] = unsafe{voidptr(&key_idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r Animation) bezier_track_insert_key(track_idx i32, time f32, value f32, in_handle Vector2, out_handle Vector2) i32 {
+pub fn (mut r Animation) bezier_track_insert_key(track_idx i32, time f64, value f64, in_handle Vector2, out_handle Vector2) i32 {
     mut object_out := i32(0)
     classname := StringName.new("Animation")
     defer { classname.deinit() }
@@ -546,35 +596,49 @@ pub fn (mut r Animation) bezier_track_insert_key(track_idx i32, time f32, value 
     args[2] = unsafe{voidptr(&value)}
     args[3] = unsafe{voidptr(&in_handle)}
     args[4] = unsafe{voidptr(&out_handle)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r Animation) bezier_track_set_key_value(track_idx i32, key_idx i32, value f32) {
+pub fn (mut r Animation) bezier_track_set_key_value(track_idx i32, key_idx i32, value f64) {
     classname := StringName.new("Animation")
     defer { classname.deinit() }
     fnname := StringName.new("bezier_track_set_key_value")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3506521499)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&track_idx)}
+    args[1] = unsafe{voidptr(&key_idx)}
+    args[2] = unsafe{voidptr(&value)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r Animation) bezier_track_set_key_in_handle(track_idx i32, key_idx i32, in_handle Vector2, balanced_value_time_ratio f32) {
+pub fn (mut r Animation) bezier_track_set_key_in_handle(track_idx i32, key_idx i32, in_handle Vector2, balanced_value_time_ratio f64) {
     classname := StringName.new("Animation")
     defer { classname.deinit() }
     fnname := StringName.new("bezier_track_set_key_in_handle")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1028302688)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [4]voidptr{} }
+    args[0] = unsafe{voidptr(&track_idx)}
+    args[1] = unsafe{voidptr(&key_idx)}
+    args[2] = unsafe{voidptr(&in_handle)}
+    args[3] = unsafe{voidptr(&balanced_value_time_ratio)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r Animation) bezier_track_set_key_out_handle(track_idx i32, key_idx i32, out_handle Vector2, balanced_value_time_ratio f32) {
+pub fn (mut r Animation) bezier_track_set_key_out_handle(track_idx i32, key_idx i32, out_handle Vector2, balanced_value_time_ratio f64) {
     classname := StringName.new("Animation")
     defer { classname.deinit() }
     fnname := StringName.new("bezier_track_set_key_out_handle")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1028302688)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [4]voidptr{} }
+    args[0] = unsafe{voidptr(&track_idx)}
+    args[1] = unsafe{voidptr(&key_idx)}
+    args[2] = unsafe{voidptr(&out_handle)}
+    args[3] = unsafe{voidptr(&balanced_value_time_ratio)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &Animation) bezier_track_get_key_value(track_idx i32, key_idx i32) f32 {
-    mut object_out := f32(0)
+pub fn (r &Animation) bezier_track_get_key_value(track_idx i32, key_idx i32) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("Animation")
     defer { classname.deinit() }
     fnname := StringName.new("bezier_track_get_key_value")
@@ -583,7 +647,7 @@ pub fn (r &Animation) bezier_track_get_key_value(track_idx i32, key_idx i32) f32
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&track_idx)}
     args[1] = unsafe{voidptr(&key_idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Animation) bezier_track_get_key_in_handle(track_idx i32, key_idx i32) Vector2 {
@@ -596,7 +660,7 @@ pub fn (r &Animation) bezier_track_get_key_in_handle(track_idx i32, key_idx i32)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&track_idx)}
     args[1] = unsafe{voidptr(&key_idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Animation) bezier_track_get_key_out_handle(track_idx i32, key_idx i32) Vector2 {
@@ -609,11 +673,11 @@ pub fn (r &Animation) bezier_track_get_key_out_handle(track_idx i32, key_idx i32
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&track_idx)}
     args[1] = unsafe{voidptr(&key_idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &Animation) bezier_track_interpolate(track_idx i32, time f32) f32 {
-    mut object_out := f32(0)
+pub fn (r &Animation) bezier_track_interpolate(track_idx i32, time f64) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("Animation")
     defer { classname.deinit() }
     fnname := StringName.new("bezier_track_interpolate")
@@ -622,10 +686,10 @@ pub fn (r &Animation) bezier_track_interpolate(track_idx i32, time f32) f32 {
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&track_idx)}
     args[1] = unsafe{voidptr(&time)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r Animation) audio_track_insert_key(track_idx i32, time f32, stream Resource, start_offset f32, end_offset f32) i32 {
+pub fn (mut r Animation) audio_track_insert_key(track_idx i32, time f64, stream Resource, start_offset f64, end_offset f64) i32 {
     mut object_out := i32(0)
     classname := StringName.new("Animation")
     defer { classname.deinit() }
@@ -635,10 +699,10 @@ pub fn (mut r Animation) audio_track_insert_key(track_idx i32, time f32, stream 
     mut args := unsafe { [5]voidptr{} }
     args[0] = unsafe{voidptr(&track_idx)}
     args[1] = unsafe{voidptr(&time)}
-    args[2] = unsafe{voidptr(&stream)}
+    args[2] = stream.ptr
     args[3] = unsafe{voidptr(&start_offset)}
     args[4] = unsafe{voidptr(&end_offset)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Animation) audio_track_set_key_stream(track_idx i32, key_idx i32, stream Resource) {
@@ -647,26 +711,38 @@ pub fn (mut r Animation) audio_track_set_key_stream(track_idx i32, key_idx i32, 
     fnname := StringName.new("audio_track_set_key_stream")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3886397084)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&track_idx)}
+    args[1] = unsafe{voidptr(&key_idx)}
+    args[2] = stream.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r Animation) audio_track_set_key_start_offset(track_idx i32, key_idx i32, offset f32) {
+pub fn (mut r Animation) audio_track_set_key_start_offset(track_idx i32, key_idx i32, offset f64) {
     classname := StringName.new("Animation")
     defer { classname.deinit() }
     fnname := StringName.new("audio_track_set_key_start_offset")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3506521499)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&track_idx)}
+    args[1] = unsafe{voidptr(&key_idx)}
+    args[2] = unsafe{voidptr(&offset)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r Animation) audio_track_set_key_end_offset(track_idx i32, key_idx i32, offset f32) {
+pub fn (mut r Animation) audio_track_set_key_end_offset(track_idx i32, key_idx i32, offset f64) {
     classname := StringName.new("Animation")
     defer { classname.deinit() }
     fnname := StringName.new("audio_track_set_key_end_offset")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3506521499)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&track_idx)}
+    args[1] = unsafe{voidptr(&key_idx)}
+    args[2] = unsafe{voidptr(&offset)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Animation) audio_track_get_key_stream(track_idx i32, key_idx i32) Resource {
-    mut object_out := Resource(unsafe{nil})
+    mut object_out := Resource{}
     classname := StringName.new("Animation")
     defer { classname.deinit() }
     fnname := StringName.new("audio_track_get_key_stream")
@@ -675,11 +751,11 @@ pub fn (r &Animation) audio_track_get_key_stream(track_idx i32, key_idx i32) Res
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&track_idx)}
     args[1] = unsafe{voidptr(&key_idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &Animation) audio_track_get_key_start_offset(track_idx i32, key_idx i32) f32 {
-    mut object_out := f32(0)
+pub fn (r &Animation) audio_track_get_key_start_offset(track_idx i32, key_idx i32) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("Animation")
     defer { classname.deinit() }
     fnname := StringName.new("audio_track_get_key_start_offset")
@@ -688,11 +764,11 @@ pub fn (r &Animation) audio_track_get_key_start_offset(track_idx i32, key_idx i3
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&track_idx)}
     args[1] = unsafe{voidptr(&key_idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &Animation) audio_track_get_key_end_offset(track_idx i32, key_idx i32) f32 {
-    mut object_out := f32(0)
+pub fn (r &Animation) audio_track_get_key_end_offset(track_idx i32, key_idx i32) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("Animation")
     defer { classname.deinit() }
     fnname := StringName.new("audio_track_get_key_end_offset")
@@ -701,7 +777,7 @@ pub fn (r &Animation) audio_track_get_key_end_offset(track_idx i32, key_idx i32)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&track_idx)}
     args[1] = unsafe{voidptr(&key_idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Animation) audio_track_set_use_blend(track_idx i32, enable bool) {
@@ -710,7 +786,10 @@ pub fn (mut r Animation) audio_track_set_use_blend(track_idx i32, enable bool) {
     fnname := StringName.new("audio_track_set_use_blend")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&track_idx)}
+    args[1] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Animation) audio_track_is_use_blend(track_idx i32) bool {
     mut object_out := false
@@ -721,10 +800,10 @@ pub fn (r &Animation) audio_track_is_use_blend(track_idx i32) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1116898809)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&track_idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r Animation) animation_track_insert_key(track_idx i32, time f32, animation StringName) i32 {
+pub fn (mut r Animation) animation_track_insert_key(track_idx i32, time f64, animation StringName) i32 {
     mut object_out := i32(0)
     classname := StringName.new("Animation")
     defer { classname.deinit() }
@@ -735,7 +814,7 @@ pub fn (mut r Animation) animation_track_insert_key(track_idx i32, time f32, ani
     args[0] = unsafe{voidptr(&track_idx)}
     args[1] = unsafe{voidptr(&time)}
     args[2] = unsafe{voidptr(&animation)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Animation) animation_track_set_key_animation(track_idx i32, key_idx i32, animation StringName) {
@@ -744,7 +823,11 @@ pub fn (mut r Animation) animation_track_set_key_animation(track_idx i32, key_id
     fnname := StringName.new("animation_track_set_key_animation")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 117615382)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&track_idx)}
+    args[1] = unsafe{voidptr(&key_idx)}
+    args[2] = unsafe{voidptr(&animation)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Animation) animation_track_get_key_animation(track_idx i32, key_idx i32) StringName {
     mut object_out := StringName{}
@@ -756,25 +839,27 @@ pub fn (r &Animation) animation_track_get_key_animation(track_idx i32, key_idx i
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&track_idx)}
     args[1] = unsafe{voidptr(&key_idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r Animation) set_length(time_sec f32) {
+pub fn (mut r Animation) set_length(time_sec f64) {
     classname := StringName.new("Animation")
     defer { classname.deinit() }
     fnname := StringName.new("set_length")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&time_sec)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &Animation) get_length() f32 {
-    mut object_out := f32(0)
+pub fn (r &Animation) get_length() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("Animation")
     defer { classname.deinit() }
     fnname := StringName.new("get_length")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Animation) set_loop_mode(loop_mode AnimationLoopMode) {
@@ -783,7 +868,9 @@ pub fn (mut r Animation) set_loop_mode(loop_mode AnimationLoopMode) {
     fnname := StringName.new("set_loop_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3155355575)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&loop_mode)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Animation) get_loop_mode() AnimationLoopMode {
     mut object_out := AnimationLoopMode.loop_none
@@ -792,25 +879,27 @@ pub fn (r &Animation) get_loop_mode() AnimationLoopMode {
     fnname := StringName.new("get_loop_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1988889481)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r Animation) set_step(size_sec f32) {
+pub fn (mut r Animation) set_step(size_sec f64) {
     classname := StringName.new("Animation")
     defer { classname.deinit() }
     fnname := StringName.new("set_step")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&size_sec)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &Animation) get_step() f32 {
-    mut object_out := f32(0)
+pub fn (r &Animation) get_step() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("Animation")
     defer { classname.deinit() }
     fnname := StringName.new("get_step")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Animation) clear() {
@@ -819,7 +908,7 @@ pub fn (mut r Animation) clear() {
     fnname := StringName.new("clear")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
 pub fn (mut r Animation) copy_track(track_idx i32, to_animation Animation) {
     classname := StringName.new("Animation")
@@ -827,13 +916,20 @@ pub fn (mut r Animation) copy_track(track_idx i32, to_animation Animation) {
     fnname := StringName.new("copy_track")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 148001024)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&track_idx)}
+    args[1] = to_animation.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r Animation) compress(page_size i32, fps i32, split_tolerance f32) {
+pub fn (mut r Animation) compress(page_size u32, fps u32, split_tolerance f64) {
     classname := StringName.new("Animation")
     defer { classname.deinit() }
     fnname := StringName.new("compress")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3608408117)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&page_size)}
+    args[1] = unsafe{voidptr(&fps)}
+    args[2] = unsafe{voidptr(&split_tolerance)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }

@@ -1,6 +1,17 @@
 module vgdextension
 
-pub type InputMap = voidptr
+pub struct InputMap {
+    Object
+}
+
+pub fn InputMap.get_singleton() InputMap {
+    sn := StringName.new("InputMap")
+    defer {sn.deinit()}
+    o := InputMap{
+        ptr: gdf.global_get_singleton(sn)
+    }
+    return o
+}
 
 pub fn (r &InputMap) has_action(action StringName) bool {
     mut object_out := false
@@ -11,7 +22,7 @@ pub fn (r &InputMap) has_action(action StringName) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2619796661)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&action)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r InputMap) get_actions() Array {
@@ -21,16 +32,19 @@ pub fn (mut r InputMap) get_actions() Array {
     fnname := StringName.new("get_actions")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2915620761)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r InputMap) add_action(action StringName, deadzone f32) {
+pub fn (mut r InputMap) add_action(action StringName, deadzone f64) {
     classname := StringName.new("InputMap")
     defer { classname.deinit() }
     fnname := StringName.new("add_action")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 573731101)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&action)}
+    args[1] = unsafe{voidptr(&deadzone)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r InputMap) erase_action(action StringName) {
     classname := StringName.new("InputMap")
@@ -38,18 +52,23 @@ pub fn (mut r InputMap) erase_action(action StringName) {
     fnname := StringName.new("erase_action")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&action)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r InputMap) action_set_deadzone(action StringName, deadzone f32) {
+pub fn (mut r InputMap) action_set_deadzone(action StringName, deadzone f64) {
     classname := StringName.new("InputMap")
     defer { classname.deinit() }
     fnname := StringName.new("action_set_deadzone")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4135858297)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&action)}
+    args[1] = unsafe{voidptr(&deadzone)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r InputMap) action_get_deadzone(action StringName) f32 {
-    mut object_out := f32(0)
+pub fn (mut r InputMap) action_get_deadzone(action StringName) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("InputMap")
     defer { classname.deinit() }
     fnname := StringName.new("action_get_deadzone")
@@ -57,7 +76,7 @@ pub fn (mut r InputMap) action_get_deadzone(action StringName) f32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1391627649)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&action)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r InputMap) action_add_event(action StringName, event InputEvent) {
@@ -66,7 +85,10 @@ pub fn (mut r InputMap) action_add_event(action StringName, event InputEvent) {
     fnname := StringName.new("action_add_event")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 518302593)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&action)}
+    args[1] = event.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r InputMap) action_has_event(action StringName, event InputEvent) bool {
     mut object_out := false
@@ -77,8 +99,8 @@ pub fn (mut r InputMap) action_has_event(action StringName, event InputEvent) bo
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1185871985)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&action)}
-    args[1] = unsafe{voidptr(&event)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    args[1] = event.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r InputMap) action_erase_event(action StringName, event InputEvent) {
@@ -87,7 +109,10 @@ pub fn (mut r InputMap) action_erase_event(action StringName, event InputEvent) 
     fnname := StringName.new("action_erase_event")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 518302593)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&action)}
+    args[1] = event.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r InputMap) action_erase_events(action StringName) {
     classname := StringName.new("InputMap")
@@ -95,7 +120,9 @@ pub fn (mut r InputMap) action_erase_events(action StringName) {
     fnname := StringName.new("action_erase_events")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&action)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r InputMap) action_get_events(action StringName) Array {
     mut object_out := Array{}
@@ -106,7 +133,7 @@ pub fn (mut r InputMap) action_get_events(action StringName) Array {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 689397652)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&action)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &InputMap) event_is_action(event InputEvent, action StringName, exact_match bool) bool {
@@ -117,10 +144,10 @@ pub fn (r &InputMap) event_is_action(event InputEvent, action StringName, exact_
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3193353650)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&event)}
+    args[0] = event.ptr
     args[1] = unsafe{voidptr(&action)}
     args[2] = unsafe{voidptr(&exact_match)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r InputMap) load_from_project_settings() {
@@ -129,5 +156,5 @@ pub fn (mut r InputMap) load_from_project_settings() {
     fnname := StringName.new("load_from_project_settings")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }

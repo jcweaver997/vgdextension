@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type TriangleMesh = voidptr
+pub struct TriangleMesh {
+    RefCounted
+}
 

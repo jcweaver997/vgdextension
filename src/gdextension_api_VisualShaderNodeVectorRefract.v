@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type VisualShaderNodeVectorRefract = voidptr
+pub struct VisualShaderNodeVectorRefract {
+    VisualShaderNodeVectorBase
+}
 

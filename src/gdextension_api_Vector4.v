@@ -10,10 +10,10 @@ pub enum Vector4Axis {
 @[heap]
 pub struct Vector4 {
     pub mut:
-        x f32 // offset 0
-        y f32 // offset 4
-        z f32 // offset 8
-        w f32 // offset 12
+        x f64 // offset 0
+        y f64 // offset 4
+        z f64 // offset 8
+        w f64 // offset 12
 }
 
 pub fn Vector4.new0 () Vector4 {
@@ -41,7 +41,7 @@ pub fn Vector4.new2 (from &Vector4i) Vector4 {
     return object_out
 }
 
-pub fn Vector4.new3 (x &f32, y &f32, z &f32, w &f32) Vector4 {
+pub fn Vector4.new3 (x &f64, y &f64, z &f64, w &f64) Vector4 {
     mut object_out := Vector4{}
     constructor := gdf.variant_get_ptr_constructor(GDExtensionVariantType.type_vector4, 3)
     mut args := unsafe { [4]voidptr{} }
@@ -69,16 +69,16 @@ pub fn (r &Vector4) max_axis_index() i32 {
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
    return object_out
 }
-pub fn (r &Vector4) length() f32 {
-    mut object_out := f32(0)
+pub fn (r &Vector4) length() f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("length")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_vector4, voidptr(&fnname), 466405837)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
    return object_out
 }
-pub fn (r &Vector4) length_squared() f32 {
-    mut object_out := f32(0)
+pub fn (r &Vector4) length_squared() f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("length_squared")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_vector4, voidptr(&fnname), 466405837)
@@ -125,7 +125,7 @@ pub fn (r &Vector4) round() Vector4 {
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
    return object_out
 }
-pub fn (r &Vector4) lerp(to Vector4, weight f32) Vector4 {
+pub fn (r &Vector4) lerp(to Vector4, weight f64) Vector4 {
     mut object_out := Vector4{}
     fnname := StringName.new("lerp")
     defer { fnname.deinit() }
@@ -136,7 +136,7 @@ pub fn (r &Vector4) lerp(to Vector4, weight f32) Vector4 {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 2)
    return object_out
 }
-pub fn (r &Vector4) cubic_interpolate(b Vector4, pre_a Vector4, post_b Vector4, weight f32) Vector4 {
+pub fn (r &Vector4) cubic_interpolate(b Vector4, pre_a Vector4, post_b Vector4, weight f64) Vector4 {
     mut object_out := Vector4{}
     fnname := StringName.new("cubic_interpolate")
     defer { fnname.deinit() }
@@ -149,7 +149,7 @@ pub fn (r &Vector4) cubic_interpolate(b Vector4, pre_a Vector4, post_b Vector4, 
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 4)
    return object_out
 }
-pub fn (r &Vector4) cubic_interpolate_in_time(b Vector4, pre_a Vector4, post_b Vector4, weight f32, b_t f32, pre_a_t f32, post_b_t f32) Vector4 {
+pub fn (r &Vector4) cubic_interpolate_in_time(b Vector4, pre_a Vector4, post_b Vector4, weight f64, b_t f64, pre_a_t f64, post_b_t f64) Vector4 {
     mut object_out := Vector4{}
     fnname := StringName.new("cubic_interpolate_in_time")
     defer { fnname.deinit() }
@@ -165,7 +165,7 @@ pub fn (r &Vector4) cubic_interpolate_in_time(b Vector4, pre_a Vector4, post_b V
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 7)
    return object_out
 }
-pub fn (r &Vector4) posmod(mod f32) Vector4 {
+pub fn (r &Vector4) posmod(mod f64) Vector4 {
     mut object_out := Vector4{}
     fnname := StringName.new("posmod")
     defer { fnname.deinit() }
@@ -232,8 +232,8 @@ pub fn (r &Vector4) direction_to(to Vector4) Vector4 {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
    return object_out
 }
-pub fn (r &Vector4) distance_to(to Vector4) f32 {
-    mut object_out := f32(0)
+pub fn (r &Vector4) distance_to(to Vector4) f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("distance_to")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_vector4, voidptr(&fnname), 3770801042)
@@ -242,8 +242,8 @@ pub fn (r &Vector4) distance_to(to Vector4) f32 {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
    return object_out
 }
-pub fn (r &Vector4) distance_squared_to(to Vector4) f32 {
-    mut object_out := f32(0)
+pub fn (r &Vector4) distance_squared_to(to Vector4) f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("distance_squared_to")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_vector4, voidptr(&fnname), 3770801042)
@@ -252,8 +252,8 @@ pub fn (r &Vector4) distance_squared_to(to Vector4) f32 {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
    return object_out
 }
-pub fn (r &Vector4) dot(with Vector4) f32 {
-    mut object_out := f32(0)
+pub fn (r &Vector4) dot(with Vector4) f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("dot")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_vector4, voidptr(&fnname), 3770801042)
@@ -303,9 +303,14 @@ pub fn (v &Vector4) to_var() Variant {
     return output
 }
 
-pub fn (v &Vector4) index(i int) f32 {
+pub fn (mut t Vector4) set_from_var(var &Variant) {
+    var_to_type := gdf.get_variant_to_type_constructor(GDExtensionVariantType.type_vector4)
+    var_to_type(voidptr(&t), var)
+}
+
+pub fn (v &Vector4) index(i int) f64 {
     index_fn := gdf.variant_get_ptr_indexed_getter(GDExtensionVariantType.type_vector4)
-    mut output := f32(0)
+    mut output := f64(0)
     index_fn(GDExtensionConstTypePtr(v), GDExtensionInt(i), GDExtensionTypePtr(&output))
     return output}
 

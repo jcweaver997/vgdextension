@@ -79,7 +79,7 @@ pub fn (r &Callable) is_valid() bool {
    return object_out
 }
 pub fn (r &Callable) get_object() Object {
-    mut object_out := unsafe{nil}
+    mut object_out := Object{}
     fnname := StringName.new("get_object")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_callable, voidptr(&fnname), 4008621732)
@@ -185,5 +185,10 @@ pub fn (v &Callable) to_var() Variant {
     output := Variant{}
     to_variant(GDExtensionUninitializedVariantPtr(&output), GDExtensionTypePtr(v))
     return output
+}
+
+pub fn (mut t Callable) set_from_var(var &Variant) {
+    var_to_type := gdf.get_variant_to_type_constructor(GDExtensionVariantType.type_callable)
+    var_to_type(voidptr(&t), var)
 }
 

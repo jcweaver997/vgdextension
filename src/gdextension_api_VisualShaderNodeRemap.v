@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type VisualShaderNodeRemap = voidptr
+pub struct VisualShaderNodeRemap {
+    VisualShaderNode
+}
 

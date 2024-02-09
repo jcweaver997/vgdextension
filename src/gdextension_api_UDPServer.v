@@ -1,8 +1,10 @@
 module vgdextension
 
-pub type UDPServer = voidptr
+pub struct UDPServer {
+    RefCounted
+}
 
-pub fn (mut r UDPServer) listen(port i32, bind_address String) GDError {
+pub fn (mut r UDPServer) listen(port u16, bind_address String) GDError {
     mut object_out := GDError.ok
     classname := StringName.new("UDPServer")
     defer { classname.deinit() }
@@ -12,7 +14,7 @@ pub fn (mut r UDPServer) listen(port i32, bind_address String) GDError {
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&port)}
     args[1] = unsafe{voidptr(&bind_address)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r UDPServer) poll() GDError {
@@ -22,7 +24,7 @@ pub fn (mut r UDPServer) poll() GDError {
     fnname := StringName.new("poll")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 166280745)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &UDPServer) is_connection_available() bool {
@@ -32,7 +34,7 @@ pub fn (r &UDPServer) is_connection_available() bool {
     fnname := StringName.new("is_connection_available")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &UDPServer) get_local_port() i32 {
@@ -42,7 +44,7 @@ pub fn (r &UDPServer) get_local_port() i32 {
     fnname := StringName.new("get_local_port")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &UDPServer) is_listening() bool {
@@ -52,17 +54,17 @@ pub fn (r &UDPServer) is_listening() bool {
     fnname := StringName.new("is_listening")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r UDPServer) take_connection() PacketPeerUDP {
-    mut object_out := PacketPeerUDP(unsafe{nil})
+    mut object_out := PacketPeerUDP{}
     classname := StringName.new("UDPServer")
     defer { classname.deinit() }
     fnname := StringName.new("take_connection")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 808734560)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r UDPServer) stop() {
@@ -71,7 +73,7 @@ pub fn (mut r UDPServer) stop() {
     fnname := StringName.new("stop")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
 pub fn (mut r UDPServer) set_max_pending_connections(max_pending_connections i32) {
     classname := StringName.new("UDPServer")
@@ -79,7 +81,9 @@ pub fn (mut r UDPServer) set_max_pending_connections(max_pending_connections i32
     fnname := StringName.new("set_max_pending_connections")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&max_pending_connections)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &UDPServer) get_max_pending_connections() i32 {
     mut object_out := i32(0)
@@ -88,6 +92,6 @@ pub fn (r &UDPServer) get_max_pending_connections() i32 {
     fnname := StringName.new("get_max_pending_connections")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

@@ -510,6 +510,11 @@ pub fn (v &Array) to_var() Variant {
     return output
 }
 
+pub fn (mut t Array) set_from_var(var &Variant) {
+    var_to_type := gdf.get_variant_to_type_constructor(GDExtensionVariantType.type_array)
+    var_to_type(voidptr(&t), var)
+}
+
 pub fn (v &Array) index(i int) Variant {
     index_fn := gdf.variant_get_ptr_indexed_getter(GDExtensionVariantType.type_array)
     mut output := Variant{}

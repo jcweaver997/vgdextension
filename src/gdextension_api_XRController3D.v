@@ -1,6 +1,8 @@
 module vgdextension
 
-pub type XRController3D = voidptr
+pub struct XRController3D {
+    XRNode3D
+}
 
 pub fn (r &XRController3D) is_button_pressed(name StringName) bool {
     mut object_out := false
@@ -11,7 +13,7 @@ pub fn (r &XRController3D) is_button_pressed(name StringName) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2619796661)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&name)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &XRController3D) get_input(name StringName) Variant {
@@ -23,11 +25,11 @@ pub fn (r &XRController3D) get_input(name StringName) Variant {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2760726917)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&name)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &XRController3D) get_float(name StringName) f32 {
-    mut object_out := f32(0)
+pub fn (r &XRController3D) get_float(name StringName) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("XRController3D")
     defer { classname.deinit() }
     fnname := StringName.new("get_float")
@@ -35,7 +37,7 @@ pub fn (r &XRController3D) get_float(name StringName) f32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2349060816)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&name)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &XRController3D) get_vector2(name StringName) Vector2 {
@@ -47,7 +49,7 @@ pub fn (r &XRController3D) get_vector2(name StringName) Vector2 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3100822709)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&name)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &XRController3D) get_tracker_hand() XRPositionalTrackerTrackerHand {
@@ -57,6 +59,6 @@ pub fn (r &XRController3D) get_tracker_hand() XRPositionalTrackerTrackerHand {
     fnname := StringName.new("get_tracker_hand")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4181770860)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

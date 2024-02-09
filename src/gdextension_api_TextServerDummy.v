@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type TextServerDummy = voidptr
+pub struct TextServerDummy {
+    TextServerExtension
+}
 

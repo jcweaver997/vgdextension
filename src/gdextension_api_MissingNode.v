@@ -1,6 +1,8 @@
 module vgdextension
 
-pub type MissingNode = voidptr
+pub struct MissingNode {
+    Node
+}
 
 pub fn (mut r MissingNode) set_original_class(name String) {
     classname := StringName.new("MissingNode")
@@ -8,7 +10,9 @@ pub fn (mut r MissingNode) set_original_class(name String) {
     fnname := StringName.new("set_original_class")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&name)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &MissingNode) get_original_class() String {
     mut object_out := String{}
@@ -17,7 +21,7 @@ pub fn (r &MissingNode) get_original_class() String {
     fnname := StringName.new("get_original_class")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 201670096)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r MissingNode) set_recording_properties(enable bool) {
@@ -26,7 +30,9 @@ pub fn (mut r MissingNode) set_recording_properties(enable bool) {
     fnname := StringName.new("set_recording_properties")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &MissingNode) is_recording_properties() bool {
     mut object_out := false
@@ -35,6 +41,6 @@ pub fn (r &MissingNode) is_recording_properties() bool {
     fnname := StringName.new("is_recording_properties")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

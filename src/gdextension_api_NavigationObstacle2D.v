@@ -1,6 +1,8 @@
 module vgdextension
 
-pub type NavigationObstacle2D = voidptr
+pub struct NavigationObstacle2D {
+    Node2D
+}
 
 pub fn (r &NavigationObstacle2D) get_rid() RID {
     mut object_out := RID{}
@@ -9,7 +11,7 @@ pub fn (r &NavigationObstacle2D) get_rid() RID {
     fnname := StringName.new("get_rid")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2944877500)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r NavigationObstacle2D) set_avoidance_enabled(enabled bool) {
@@ -18,7 +20,9 @@ pub fn (mut r NavigationObstacle2D) set_avoidance_enabled(enabled bool) {
     fnname := StringName.new("set_avoidance_enabled")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enabled)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &NavigationObstacle2D) get_avoidance_enabled() bool {
     mut object_out := false
@@ -27,7 +31,7 @@ pub fn (r &NavigationObstacle2D) get_avoidance_enabled() bool {
     fnname := StringName.new("get_avoidance_enabled")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r NavigationObstacle2D) set_navigation_map(navigation_map RID) {
@@ -36,7 +40,9 @@ pub fn (mut r NavigationObstacle2D) set_navigation_map(navigation_map RID) {
     fnname := StringName.new("set_navigation_map")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&navigation_map)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &NavigationObstacle2D) get_navigation_map() RID {
     mut object_out := RID{}
@@ -45,25 +51,27 @@ pub fn (r &NavigationObstacle2D) get_navigation_map() RID {
     fnname := StringName.new("get_navigation_map")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2944877500)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r NavigationObstacle2D) set_radius(radius f32) {
+pub fn (mut r NavigationObstacle2D) set_radius(radius f64) {
     classname := StringName.new("NavigationObstacle2D")
     defer { classname.deinit() }
     fnname := StringName.new("set_radius")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&radius)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &NavigationObstacle2D) get_radius() f32 {
-    mut object_out := f32(0)
+pub fn (r &NavigationObstacle2D) get_radius() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("NavigationObstacle2D")
     defer { classname.deinit() }
     fnname := StringName.new("get_radius")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r NavigationObstacle2D) set_velocity(velocity Vector2) {
@@ -72,7 +80,9 @@ pub fn (mut r NavigationObstacle2D) set_velocity(velocity Vector2) {
     fnname := StringName.new("set_velocity")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&velocity)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &NavigationObstacle2D) get_velocity() Vector2 {
     mut object_out := Vector2{}
@@ -81,7 +91,7 @@ pub fn (r &NavigationObstacle2D) get_velocity() Vector2 {
     fnname := StringName.new("get_velocity")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3341600327)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r NavigationObstacle2D) set_vertices(vertices PackedVector2Array) {
@@ -90,7 +100,9 @@ pub fn (mut r NavigationObstacle2D) set_vertices(vertices PackedVector2Array) {
     fnname := StringName.new("set_vertices")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1509147220)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&vertices)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &NavigationObstacle2D) get_vertices() PackedVector2Array {
     mut object_out := PackedVector2Array{}
@@ -99,25 +111,27 @@ pub fn (r &NavigationObstacle2D) get_vertices() PackedVector2Array {
     fnname := StringName.new("get_vertices")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2961356807)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r NavigationObstacle2D) set_avoidance_layers(layers i32) {
+pub fn (mut r NavigationObstacle2D) set_avoidance_layers(layers u32) {
     classname := StringName.new("NavigationObstacle2D")
     defer { classname.deinit() }
     fnname := StringName.new("set_avoidance_layers")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&layers)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &NavigationObstacle2D) get_avoidance_layers() i32 {
-    mut object_out := i32(0)
+pub fn (r &NavigationObstacle2D) get_avoidance_layers() u32 {
+    mut object_out := u32(0)
     classname := StringName.new("NavigationObstacle2D")
     defer { classname.deinit() }
     fnname := StringName.new("get_avoidance_layers")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r NavigationObstacle2D) set_avoidance_layer_value(layer_number i32, value bool) {
@@ -126,7 +140,10 @@ pub fn (mut r NavigationObstacle2D) set_avoidance_layer_value(layer_number i32, 
     fnname := StringName.new("set_avoidance_layer_value")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&layer_number)}
+    args[1] = unsafe{voidptr(&value)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &NavigationObstacle2D) get_avoidance_layer_value(layer_number i32) bool {
     mut object_out := false
@@ -137,6 +154,6 @@ pub fn (r &NavigationObstacle2D) get_avoidance_layer_value(layer_number i32) boo
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1116898809)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&layer_number)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }

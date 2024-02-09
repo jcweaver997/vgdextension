@@ -1,6 +1,8 @@
 module vgdextension
 
-pub type StreamPeerGZIP = voidptr
+pub struct StreamPeerGZIP {
+    StreamPeer
+}
 
 pub fn (mut r StreamPeerGZIP) start_compression(use_deflate bool, buffer_size i32) GDError {
     mut object_out := GDError.ok
@@ -12,7 +14,7 @@ pub fn (mut r StreamPeerGZIP) start_compression(use_deflate bool, buffer_size i3
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&use_deflate)}
     args[1] = unsafe{voidptr(&buffer_size)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r StreamPeerGZIP) start_decompression(use_deflate bool, buffer_size i32) GDError {
@@ -25,7 +27,7 @@ pub fn (mut r StreamPeerGZIP) start_decompression(use_deflate bool, buffer_size 
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&use_deflate)}
     args[1] = unsafe{voidptr(&buffer_size)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r StreamPeerGZIP) finish() GDError {
@@ -35,7 +37,7 @@ pub fn (mut r StreamPeerGZIP) finish() GDError {
     fnname := StringName.new("finish")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 166280745)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r StreamPeerGZIP) clear() {
@@ -44,5 +46,5 @@ pub fn (mut r StreamPeerGZIP) clear() {
     fnname := StringName.new("clear")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }

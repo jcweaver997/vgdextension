@@ -16,7 +16,9 @@ pub enum SpriteBase3DAlphaCutMode {
     alpha_cut_hash = 3
 }
 
-pub type SpriteBase3D = voidptr
+pub struct SpriteBase3D {
+    GeometryInstance3D
+}
 
 pub fn (mut r SpriteBase3D) set_centered(centered bool) {
     classname := StringName.new("SpriteBase3D")
@@ -24,7 +26,9 @@ pub fn (mut r SpriteBase3D) set_centered(centered bool) {
     fnname := StringName.new("set_centered")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&centered)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SpriteBase3D) is_centered() bool {
     mut object_out := false
@@ -33,7 +37,7 @@ pub fn (r &SpriteBase3D) is_centered() bool {
     fnname := StringName.new("is_centered")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SpriteBase3D) set_offset(offset Vector2) {
@@ -42,7 +46,9 @@ pub fn (mut r SpriteBase3D) set_offset(offset Vector2) {
     fnname := StringName.new("set_offset")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&offset)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SpriteBase3D) get_offset() Vector2 {
     mut object_out := Vector2{}
@@ -51,7 +57,7 @@ pub fn (r &SpriteBase3D) get_offset() Vector2 {
     fnname := StringName.new("get_offset")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3341600327)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SpriteBase3D) set_flip_h(flip_h bool) {
@@ -60,7 +66,9 @@ pub fn (mut r SpriteBase3D) set_flip_h(flip_h bool) {
     fnname := StringName.new("set_flip_h")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&flip_h)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SpriteBase3D) is_flipped_h() bool {
     mut object_out := false
@@ -69,7 +77,7 @@ pub fn (r &SpriteBase3D) is_flipped_h() bool {
     fnname := StringName.new("is_flipped_h")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SpriteBase3D) set_flip_v(flip_v bool) {
@@ -78,7 +86,9 @@ pub fn (mut r SpriteBase3D) set_flip_v(flip_v bool) {
     fnname := StringName.new("set_flip_v")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&flip_v)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SpriteBase3D) is_flipped_v() bool {
     mut object_out := false
@@ -87,7 +97,7 @@ pub fn (r &SpriteBase3D) is_flipped_v() bool {
     fnname := StringName.new("is_flipped_v")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SpriteBase3D) set_modulate(modulate Color) {
@@ -96,7 +106,9 @@ pub fn (mut r SpriteBase3D) set_modulate(modulate Color) {
     fnname := StringName.new("set_modulate")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&modulate)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SpriteBase3D) get_modulate() Color {
     mut object_out := Color{}
@@ -105,7 +117,7 @@ pub fn (r &SpriteBase3D) get_modulate() Color {
     fnname := StringName.new("get_modulate")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3444240500)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SpriteBase3D) set_render_priority(priority i32) {
@@ -114,7 +126,9 @@ pub fn (mut r SpriteBase3D) set_render_priority(priority i32) {
     fnname := StringName.new("set_render_priority")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&priority)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SpriteBase3D) get_render_priority() i32 {
     mut object_out := i32(0)
@@ -123,25 +137,27 @@ pub fn (r &SpriteBase3D) get_render_priority() i32 {
     fnname := StringName.new("get_render_priority")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r SpriteBase3D) set_pixel_size(pixel_size f32) {
+pub fn (mut r SpriteBase3D) set_pixel_size(pixel_size f64) {
     classname := StringName.new("SpriteBase3D")
     defer { classname.deinit() }
     fnname := StringName.new("set_pixel_size")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&pixel_size)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &SpriteBase3D) get_pixel_size() f32 {
-    mut object_out := f32(0)
+pub fn (r &SpriteBase3D) get_pixel_size() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("SpriteBase3D")
     defer { classname.deinit() }
     fnname := StringName.new("get_pixel_size")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SpriteBase3D) set_axis(axis Vector3Axis) {
@@ -150,7 +166,9 @@ pub fn (mut r SpriteBase3D) set_axis(axis Vector3Axis) {
     fnname := StringName.new("set_axis")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1144690656)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&axis)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SpriteBase3D) get_axis() Vector3Axis {
     mut object_out := Vector3Axis.axis_x
@@ -159,7 +177,7 @@ pub fn (r &SpriteBase3D) get_axis() Vector3Axis {
     fnname := StringName.new("get_axis")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3050976882)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SpriteBase3D) set_draw_flag(flag SpriteBase3DDrawFlags, enabled bool) {
@@ -168,7 +186,10 @@ pub fn (mut r SpriteBase3D) set_draw_flag(flag SpriteBase3DDrawFlags, enabled bo
     fnname := StringName.new("set_draw_flag")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1135633219)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&flag)}
+    args[1] = unsafe{voidptr(&enabled)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SpriteBase3D) get_draw_flag(flag SpriteBase3DDrawFlags) bool {
     mut object_out := false
@@ -179,7 +200,7 @@ pub fn (r &SpriteBase3D) get_draw_flag(flag SpriteBase3DDrawFlags) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1733036628)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&flag)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SpriteBase3D) set_alpha_cut_mode(mode SpriteBase3DAlphaCutMode) {
@@ -188,7 +209,9 @@ pub fn (mut r SpriteBase3D) set_alpha_cut_mode(mode SpriteBase3DAlphaCutMode) {
     fnname := StringName.new("set_alpha_cut_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 227561226)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&mode)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SpriteBase3D) get_alpha_cut_mode() SpriteBase3DAlphaCutMode {
     mut object_out := SpriteBase3DAlphaCutMode.alpha_cut_disabled
@@ -197,43 +220,47 @@ pub fn (r &SpriteBase3D) get_alpha_cut_mode() SpriteBase3DAlphaCutMode {
     fnname := StringName.new("get_alpha_cut_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 336003791)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r SpriteBase3D) set_alpha_scissor_threshold(threshold f32) {
+pub fn (mut r SpriteBase3D) set_alpha_scissor_threshold(threshold f64) {
     classname := StringName.new("SpriteBase3D")
     defer { classname.deinit() }
     fnname := StringName.new("set_alpha_scissor_threshold")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&threshold)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &SpriteBase3D) get_alpha_scissor_threshold() f32 {
-    mut object_out := f32(0)
+pub fn (r &SpriteBase3D) get_alpha_scissor_threshold() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("SpriteBase3D")
     defer { classname.deinit() }
     fnname := StringName.new("get_alpha_scissor_threshold")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r SpriteBase3D) set_alpha_hash_scale(threshold f32) {
+pub fn (mut r SpriteBase3D) set_alpha_hash_scale(threshold f64) {
     classname := StringName.new("SpriteBase3D")
     defer { classname.deinit() }
     fnname := StringName.new("set_alpha_hash_scale")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&threshold)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &SpriteBase3D) get_alpha_hash_scale() f32 {
-    mut object_out := f32(0)
+pub fn (r &SpriteBase3D) get_alpha_hash_scale() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("SpriteBase3D")
     defer { classname.deinit() }
     fnname := StringName.new("get_alpha_hash_scale")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SpriteBase3D) set_alpha_antialiasing(alpha_aa BaseMaterial3DAlphaAntiAliasing) {
@@ -242,7 +269,9 @@ pub fn (mut r SpriteBase3D) set_alpha_antialiasing(alpha_aa BaseMaterial3DAlphaA
     fnname := StringName.new("set_alpha_antialiasing")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3212649852)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&alpha_aa)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SpriteBase3D) get_alpha_antialiasing() BaseMaterial3DAlphaAntiAliasing {
     mut object_out := BaseMaterial3DAlphaAntiAliasing.alpha_antialiasing_off
@@ -251,25 +280,27 @@ pub fn (r &SpriteBase3D) get_alpha_antialiasing() BaseMaterial3DAlphaAntiAliasin
     fnname := StringName.new("get_alpha_antialiasing")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2889939400)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r SpriteBase3D) set_alpha_antialiasing_edge(edge f32) {
+pub fn (mut r SpriteBase3D) set_alpha_antialiasing_edge(edge f64) {
     classname := StringName.new("SpriteBase3D")
     defer { classname.deinit() }
     fnname := StringName.new("set_alpha_antialiasing_edge")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&edge)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &SpriteBase3D) get_alpha_antialiasing_edge() f32 {
-    mut object_out := f32(0)
+pub fn (r &SpriteBase3D) get_alpha_antialiasing_edge() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("SpriteBase3D")
     defer { classname.deinit() }
     fnname := StringName.new("get_alpha_antialiasing_edge")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SpriteBase3D) set_billboard_mode(mode BaseMaterial3DBillboardMode) {
@@ -278,7 +309,9 @@ pub fn (mut r SpriteBase3D) set_billboard_mode(mode BaseMaterial3DBillboardMode)
     fnname := StringName.new("set_billboard_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4202036497)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&mode)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SpriteBase3D) get_billboard_mode() BaseMaterial3DBillboardMode {
     mut object_out := BaseMaterial3DBillboardMode.billboard_disabled
@@ -287,7 +320,7 @@ pub fn (r &SpriteBase3D) get_billboard_mode() BaseMaterial3DBillboardMode {
     fnname := StringName.new("get_billboard_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1283840139)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SpriteBase3D) set_texture_filter(mode BaseMaterial3DTextureFilter) {
@@ -296,7 +329,9 @@ pub fn (mut r SpriteBase3D) set_texture_filter(mode BaseMaterial3DTextureFilter)
     fnname := StringName.new("set_texture_filter")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 22904437)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&mode)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SpriteBase3D) get_texture_filter() BaseMaterial3DTextureFilter {
     mut object_out := BaseMaterial3DTextureFilter.texture_filter_nearest
@@ -305,7 +340,7 @@ pub fn (r &SpriteBase3D) get_texture_filter() BaseMaterial3DTextureFilter {
     fnname := StringName.new("get_texture_filter")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3289213076)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &SpriteBase3D) get_item_rect() Rect2 {
@@ -315,16 +350,16 @@ pub fn (r &SpriteBase3D) get_item_rect() Rect2 {
     fnname := StringName.new("get_item_rect")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1639390495)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &SpriteBase3D) generate_triangle_mesh() TriangleMesh {
-    mut object_out := TriangleMesh(unsafe{nil})
+    mut object_out := TriangleMesh{}
     classname := StringName.new("SpriteBase3D")
     defer { classname.deinit() }
     fnname := StringName.new("generate_triangle_mesh")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3476533166)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

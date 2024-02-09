@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type VSlider = voidptr
+pub struct VSlider {
+    Slider
+}
 

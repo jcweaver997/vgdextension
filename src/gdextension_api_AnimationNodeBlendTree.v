@@ -1,6 +1,8 @@
 module vgdextension
 
-pub type AnimationNodeBlendTree = voidptr
+pub struct AnimationNodeBlendTree {
+    AnimationRootNode
+}
 
 pub fn (mut r AnimationNodeBlendTree) add_node(name StringName, node AnimationNode, position Vector2) {
     classname := StringName.new("AnimationNodeBlendTree")
@@ -8,10 +10,14 @@ pub fn (mut r AnimationNodeBlendTree) add_node(name StringName, node AnimationNo
     fnname := StringName.new("add_node")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2055804584)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&name)}
+    args[1] = node.ptr
+    args[2] = unsafe{voidptr(&position)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &AnimationNodeBlendTree) get_node(name StringName) AnimationNode {
-    mut object_out := AnimationNode(unsafe{nil})
+    mut object_out := AnimationNode{}
     classname := StringName.new("AnimationNodeBlendTree")
     defer { classname.deinit() }
     fnname := StringName.new("get_node")
@@ -19,7 +25,7 @@ pub fn (r &AnimationNodeBlendTree) get_node(name StringName) AnimationNode {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 625644256)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&name)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r AnimationNodeBlendTree) remove_node(name StringName) {
@@ -28,7 +34,9 @@ pub fn (mut r AnimationNodeBlendTree) remove_node(name StringName) {
     fnname := StringName.new("remove_node")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&name)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r AnimationNodeBlendTree) rename_node(name StringName, new_name StringName) {
     classname := StringName.new("AnimationNodeBlendTree")
@@ -36,7 +44,10 @@ pub fn (mut r AnimationNodeBlendTree) rename_node(name StringName, new_name Stri
     fnname := StringName.new("rename_node")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3740211285)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&name)}
+    args[1] = unsafe{voidptr(&new_name)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &AnimationNodeBlendTree) has_node(name StringName) bool {
     mut object_out := false
@@ -47,7 +58,7 @@ pub fn (r &AnimationNodeBlendTree) has_node(name StringName) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2619796661)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&name)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r AnimationNodeBlendTree) connect_node(input_node StringName, input_index i32, output_node StringName) {
@@ -56,7 +67,11 @@ pub fn (mut r AnimationNodeBlendTree) connect_node(input_node StringName, input_
     fnname := StringName.new("connect_node")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2168001410)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&input_node)}
+    args[1] = unsafe{voidptr(&input_index)}
+    args[2] = unsafe{voidptr(&output_node)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r AnimationNodeBlendTree) disconnect_node(input_node StringName, input_index i32) {
     classname := StringName.new("AnimationNodeBlendTree")
@@ -64,7 +79,10 @@ pub fn (mut r AnimationNodeBlendTree) disconnect_node(input_node StringName, inp
     fnname := StringName.new("disconnect_node")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2415702435)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&input_node)}
+    args[1] = unsafe{voidptr(&input_index)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r AnimationNodeBlendTree) set_node_position(name StringName, position Vector2) {
     classname := StringName.new("AnimationNodeBlendTree")
@@ -72,7 +90,10 @@ pub fn (mut r AnimationNodeBlendTree) set_node_position(name StringName, positio
     fnname := StringName.new("set_node_position")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1999414630)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&name)}
+    args[1] = unsafe{voidptr(&position)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &AnimationNodeBlendTree) get_node_position(name StringName) Vector2 {
     mut object_out := Vector2{}
@@ -83,7 +104,7 @@ pub fn (r &AnimationNodeBlendTree) get_node_position(name StringName) Vector2 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3100822709)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&name)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r AnimationNodeBlendTree) set_graph_offset(offset Vector2) {
@@ -92,7 +113,9 @@ pub fn (mut r AnimationNodeBlendTree) set_graph_offset(offset Vector2) {
     fnname := StringName.new("set_graph_offset")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&offset)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &AnimationNodeBlendTree) get_graph_offset() Vector2 {
     mut object_out := Vector2{}
@@ -101,6 +124,6 @@ pub fn (r &AnimationNodeBlendTree) get_graph_offset() Vector2 {
     fnname := StringName.new("get_graph_offset")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3341600327)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

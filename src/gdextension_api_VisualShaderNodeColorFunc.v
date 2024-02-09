@@ -8,7 +8,9 @@ pub enum VisualShaderNodeColorFuncFunction {
     func_max = 4
 }
 
-pub type VisualShaderNodeColorFunc = voidptr
+pub struct VisualShaderNodeColorFunc {
+    VisualShaderNode
+}
 
 pub fn (mut r VisualShaderNodeColorFunc) set_function(func VisualShaderNodeColorFuncFunction) {
     classname := StringName.new("VisualShaderNodeColorFunc")
@@ -16,7 +18,9 @@ pub fn (mut r VisualShaderNodeColorFunc) set_function(func VisualShaderNodeColor
     fnname := StringName.new("set_function")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3973396138)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&func)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &VisualShaderNodeColorFunc) get_function() VisualShaderNodeColorFuncFunction {
     mut object_out := VisualShaderNodeColorFuncFunction.func_grayscale
@@ -25,6 +29,6 @@ pub fn (r &VisualShaderNodeColorFunc) get_function() VisualShaderNodeColorFuncFu
     fnname := StringName.new("get_function")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 554863321)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

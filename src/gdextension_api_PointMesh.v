@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type PointMesh = voidptr
+pub struct PointMesh {
+    PrimitiveMesh
+}
 

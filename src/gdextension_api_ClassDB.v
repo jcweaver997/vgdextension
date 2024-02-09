@@ -1,6 +1,17 @@
 module vgdextension
 
-pub type ClassDB = voidptr
+pub struct ClassDB {
+    Object
+}
+
+pub fn ClassDB.get_singleton() ClassDB {
+    sn := StringName.new("ClassDB")
+    defer {sn.deinit()}
+    o := ClassDB{
+        ptr: gdf.global_get_singleton(sn)
+    }
+    return o
+}
 
 pub fn (r &ClassDB) get_class_list() PackedStringArray {
     mut object_out := PackedStringArray{}
@@ -9,7 +20,7 @@ pub fn (r &ClassDB) get_class_list() PackedStringArray {
     fnname := StringName.new("get_class_list")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1139954409)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &ClassDB) get_inheriters_from_class(class StringName) PackedStringArray {
@@ -21,7 +32,7 @@ pub fn (r &ClassDB) get_inheriters_from_class(class StringName) PackedStringArra
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1761182771)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&class)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &ClassDB) get_parent_class(class StringName) StringName {
@@ -33,7 +44,7 @@ pub fn (r &ClassDB) get_parent_class(class StringName) StringName {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1965194235)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&class)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &ClassDB) class_exists(class StringName) bool {
@@ -45,7 +56,7 @@ pub fn (r &ClassDB) class_exists(class StringName) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2619796661)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&class)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &ClassDB) is_parent_class(class StringName, inherits StringName) bool {
@@ -58,7 +69,7 @@ pub fn (r &ClassDB) is_parent_class(class StringName, inherits StringName) bool 
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&class)}
     args[1] = unsafe{voidptr(&inherits)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &ClassDB) can_instantiate(class StringName) bool {
@@ -70,7 +81,7 @@ pub fn (r &ClassDB) can_instantiate(class StringName) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2619796661)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&class)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &ClassDB) instantiate(class StringName) Variant {
@@ -82,7 +93,7 @@ pub fn (r &ClassDB) instantiate(class StringName) Variant {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2760726917)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&class)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &ClassDB) class_has_signal(class StringName, signal StringName) bool {
@@ -95,7 +106,7 @@ pub fn (r &ClassDB) class_has_signal(class StringName, signal StringName) bool {
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&class)}
     args[1] = unsafe{voidptr(&signal)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &ClassDB) class_get_signal(class StringName, signal StringName) Dictionary {
@@ -108,7 +119,7 @@ pub fn (r &ClassDB) class_get_signal(class StringName, signal StringName) Dictio
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&class)}
     args[1] = unsafe{voidptr(&signal)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &ClassDB) class_get_signal_list(class StringName, no_inheritance bool) Array {
@@ -121,7 +132,7 @@ pub fn (r &ClassDB) class_get_signal_list(class StringName, no_inheritance bool)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&class)}
     args[1] = unsafe{voidptr(&no_inheritance)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &ClassDB) class_get_property_list(class StringName, no_inheritance bool) Array {
@@ -134,7 +145,7 @@ pub fn (r &ClassDB) class_get_property_list(class StringName, no_inheritance boo
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&class)}
     args[1] = unsafe{voidptr(&no_inheritance)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &ClassDB) class_get_property(object Object, property StringName) Variant {
@@ -145,9 +156,9 @@ pub fn (r &ClassDB) class_get_property(object Object, property StringName) Varia
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2498641674)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&object)}
+    args[0] = object.ptr
     args[1] = unsafe{voidptr(&property)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &ClassDB) class_set_property(object Object, property StringName, value Variant) GDError {
@@ -158,10 +169,10 @@ pub fn (r &ClassDB) class_set_property(object Object, property StringName, value
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1690314931)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&object)}
+    args[0] = object.ptr
     args[1] = unsafe{voidptr(&property)}
     args[2] = unsafe{voidptr(&value)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &ClassDB) class_has_method(class StringName, method StringName, no_inheritance bool) bool {
@@ -175,7 +186,7 @@ pub fn (r &ClassDB) class_has_method(class StringName, method StringName, no_inh
     args[0] = unsafe{voidptr(&class)}
     args[1] = unsafe{voidptr(&method)}
     args[2] = unsafe{voidptr(&no_inheritance)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &ClassDB) class_get_method_list(class StringName, no_inheritance bool) Array {
@@ -188,7 +199,7 @@ pub fn (r &ClassDB) class_get_method_list(class StringName, no_inheritance bool)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&class)}
     args[1] = unsafe{voidptr(&no_inheritance)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &ClassDB) class_get_integer_constant_list(class StringName, no_inheritance bool) PackedStringArray {
@@ -201,7 +212,7 @@ pub fn (r &ClassDB) class_get_integer_constant_list(class StringName, no_inherit
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&class)}
     args[1] = unsafe{voidptr(&no_inheritance)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &ClassDB) class_has_integer_constant(class StringName, name StringName) bool {
@@ -214,11 +225,11 @@ pub fn (r &ClassDB) class_has_integer_constant(class StringName, name StringName
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&class)}
     args[1] = unsafe{voidptr(&name)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &ClassDB) class_get_integer_constant(class StringName, name StringName) i32 {
-    mut object_out := i32(0)
+pub fn (r &ClassDB) class_get_integer_constant(class StringName, name StringName) i64 {
+    mut object_out := i64(0)
     classname := StringName.new("ClassDB")
     defer { classname.deinit() }
     fnname := StringName.new("class_get_integer_constant")
@@ -227,7 +238,7 @@ pub fn (r &ClassDB) class_get_integer_constant(class StringName, name StringName
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&class)}
     args[1] = unsafe{voidptr(&name)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &ClassDB) class_has_enum(class StringName, name StringName, no_inheritance bool) bool {
@@ -241,7 +252,7 @@ pub fn (r &ClassDB) class_has_enum(class StringName, name StringName, no_inherit
     args[0] = unsafe{voidptr(&class)}
     args[1] = unsafe{voidptr(&name)}
     args[2] = unsafe{voidptr(&no_inheritance)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &ClassDB) class_get_enum_list(class StringName, no_inheritance bool) PackedStringArray {
@@ -254,7 +265,7 @@ pub fn (r &ClassDB) class_get_enum_list(class StringName, no_inheritance bool) P
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&class)}
     args[1] = unsafe{voidptr(&no_inheritance)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &ClassDB) class_get_enum_constants(class StringName, gdenum StringName, no_inheritance bool) PackedStringArray {
@@ -268,7 +279,7 @@ pub fn (r &ClassDB) class_get_enum_constants(class StringName, gdenum StringName
     args[0] = unsafe{voidptr(&class)}
     args[1] = unsafe{voidptr(&gdenum)}
     args[2] = unsafe{voidptr(&no_inheritance)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &ClassDB) class_get_integer_constant_enum(class StringName, name StringName, no_inheritance bool) StringName {
@@ -282,7 +293,7 @@ pub fn (r &ClassDB) class_get_integer_constant_enum(class StringName, name Strin
     args[0] = unsafe{voidptr(&class)}
     args[1] = unsafe{voidptr(&name)}
     args[2] = unsafe{voidptr(&no_inheritance)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &ClassDB) is_class_enabled(class StringName) bool {
@@ -294,6 +305,6 @@ pub fn (r &ClassDB) is_class_enabled(class StringName) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2619796661)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&class)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }

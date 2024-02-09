@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type EditorExportPlatformLinuxBSD = voidptr
+pub struct EditorExportPlatformLinuxBSD {
+    EditorExportPlatformPC
+}
 

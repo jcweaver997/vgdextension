@@ -5,7 +5,9 @@ pub enum AnimationNodeAnimationPlayMode {
     play_mode_backward = 1
 }
 
-pub type AnimationNodeAnimation = voidptr
+pub struct AnimationNodeAnimation {
+    AnimationRootNode
+}
 
 pub fn (mut r AnimationNodeAnimation) set_animation(name StringName) {
     classname := StringName.new("AnimationNodeAnimation")
@@ -13,7 +15,9 @@ pub fn (mut r AnimationNodeAnimation) set_animation(name StringName) {
     fnname := StringName.new("set_animation")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&name)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &AnimationNodeAnimation) get_animation() StringName {
     mut object_out := StringName{}
@@ -22,7 +26,7 @@ pub fn (r &AnimationNodeAnimation) get_animation() StringName {
     fnname := StringName.new("get_animation")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2002593661)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r AnimationNodeAnimation) set_play_mode(mode AnimationNodeAnimationPlayMode) {
@@ -31,7 +35,9 @@ pub fn (mut r AnimationNodeAnimation) set_play_mode(mode AnimationNodeAnimationP
     fnname := StringName.new("set_play_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3347718873)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&mode)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &AnimationNodeAnimation) get_play_mode() AnimationNodeAnimationPlayMode {
     mut object_out := AnimationNodeAnimationPlayMode.play_mode_forward
@@ -40,6 +46,6 @@ pub fn (r &AnimationNodeAnimation) get_play_mode() AnimationNodeAnimationPlayMod
     fnname := StringName.new("get_play_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2061244637)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

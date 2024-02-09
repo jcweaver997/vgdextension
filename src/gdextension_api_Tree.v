@@ -12,7 +12,9 @@ pub enum TreeDropModeFlags {
     drop_mode_inbetween = 2
 }
 
-pub type Tree = voidptr
+pub struct Tree {
+    Control
+}
 
 pub fn (mut r Tree) clear() {
     classname := StringName.new("Tree")
@@ -20,29 +22,29 @@ pub fn (mut r Tree) clear() {
     fnname := StringName.new("clear")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
 pub fn (mut r Tree) create_item(parent TreeItem, index i32) TreeItem {
-    mut object_out := TreeItem(unsafe{nil})
+    mut object_out := TreeItem{}
     classname := StringName.new("Tree")
     defer { classname.deinit() }
     fnname := StringName.new("create_item")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 528467046)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&parent)}
+    args[0] = parent.ptr
     args[1] = unsafe{voidptr(&index)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Tree) get_root() TreeItem {
-    mut object_out := TreeItem(unsafe{nil})
+    mut object_out := TreeItem{}
     classname := StringName.new("Tree")
     defer { classname.deinit() }
     fnname := StringName.new("get_root")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1514277247)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Tree) set_column_custom_minimum_width(column i32, min_width i32) {
@@ -51,7 +53,10 @@ pub fn (mut r Tree) set_column_custom_minimum_width(column i32, min_width i32) {
     fnname := StringName.new("set_column_custom_minimum_width")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&column)}
+    args[1] = unsafe{voidptr(&min_width)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r Tree) set_column_expand(column i32, expand bool) {
     classname := StringName.new("Tree")
@@ -59,7 +64,10 @@ pub fn (mut r Tree) set_column_expand(column i32, expand bool) {
     fnname := StringName.new("set_column_expand")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&column)}
+    args[1] = unsafe{voidptr(&expand)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r Tree) set_column_expand_ratio(column i32, ratio i32) {
     classname := StringName.new("Tree")
@@ -67,7 +75,10 @@ pub fn (mut r Tree) set_column_expand_ratio(column i32, ratio i32) {
     fnname := StringName.new("set_column_expand_ratio")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&column)}
+    args[1] = unsafe{voidptr(&ratio)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r Tree) set_column_clip_content(column i32, enable bool) {
     classname := StringName.new("Tree")
@@ -75,7 +86,10 @@ pub fn (mut r Tree) set_column_clip_content(column i32, enable bool) {
     fnname := StringName.new("set_column_clip_content")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&column)}
+    args[1] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Tree) is_column_expanding(column i32) bool {
     mut object_out := false
@@ -86,7 +100,7 @@ pub fn (r &Tree) is_column_expanding(column i32) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1116898809)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&column)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Tree) is_column_clipping_content(column i32) bool {
@@ -98,7 +112,7 @@ pub fn (r &Tree) is_column_clipping_content(column i32) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1116898809)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&column)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Tree) get_column_expand_ratio(column i32) i32 {
@@ -110,7 +124,7 @@ pub fn (r &Tree) get_column_expand_ratio(column i32) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 923996154)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&column)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Tree) get_column_width(column i32) i32 {
@@ -122,7 +136,7 @@ pub fn (r &Tree) get_column_width(column i32) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 923996154)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&column)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Tree) set_hide_root(enable bool) {
@@ -131,7 +145,9 @@ pub fn (mut r Tree) set_hide_root(enable bool) {
     fnname := StringName.new("set_hide_root")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Tree) is_root_hidden() bool {
     mut object_out := false
@@ -140,29 +156,29 @@ pub fn (r &Tree) is_root_hidden() bool {
     fnname := StringName.new("is_root_hidden")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Tree) get_next_selected(from TreeItem) TreeItem {
-    mut object_out := TreeItem(unsafe{nil})
+    mut object_out := TreeItem{}
     classname := StringName.new("Tree")
     defer { classname.deinit() }
     fnname := StringName.new("get_next_selected")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 873446299)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&from)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    args[0] = from.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Tree) get_selected() TreeItem {
-    mut object_out := TreeItem(unsafe{nil})
+    mut object_out := TreeItem{}
     classname := StringName.new("Tree")
     defer { classname.deinit() }
     fnname := StringName.new("get_selected")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1514277247)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Tree) set_selected(item TreeItem, column i32) {
@@ -171,7 +187,10 @@ pub fn (mut r Tree) set_selected(item TreeItem, column i32) {
     fnname := StringName.new("set_selected")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2662547442)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = item.ptr
+    args[1] = unsafe{voidptr(&column)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Tree) get_selected_column() i32 {
     mut object_out := i32(0)
@@ -180,7 +199,7 @@ pub fn (r &Tree) get_selected_column() i32 {
     fnname := StringName.new("get_selected_column")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &Tree) get_pressed_button() i32 {
@@ -190,7 +209,7 @@ pub fn (r &Tree) get_pressed_button() i32 {
     fnname := StringName.new("get_pressed_button")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Tree) set_select_mode(mode TreeSelectMode) {
@@ -199,7 +218,9 @@ pub fn (mut r Tree) set_select_mode(mode TreeSelectMode) {
     fnname := StringName.new("set_select_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3223887270)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&mode)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Tree) get_select_mode() TreeSelectMode {
     mut object_out := TreeSelectMode.select_single
@@ -208,7 +229,7 @@ pub fn (r &Tree) get_select_mode() TreeSelectMode {
     fnname := StringName.new("get_select_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 100748571)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Tree) deselect_all() {
@@ -217,7 +238,7 @@ pub fn (mut r Tree) deselect_all() {
     fnname := StringName.new("deselect_all")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
 pub fn (mut r Tree) set_columns(amount i32) {
     classname := StringName.new("Tree")
@@ -225,7 +246,9 @@ pub fn (mut r Tree) set_columns(amount i32) {
     fnname := StringName.new("set_columns")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&amount)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Tree) get_columns() i32 {
     mut object_out := i32(0)
@@ -234,17 +257,17 @@ pub fn (r &Tree) get_columns() i32 {
     fnname := StringName.new("get_columns")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &Tree) get_edited() TreeItem {
-    mut object_out := TreeItem(unsafe{nil})
+    mut object_out := TreeItem{}
     classname := StringName.new("Tree")
     defer { classname.deinit() }
     fnname := StringName.new("get_edited")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1514277247)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &Tree) get_edited_column() i32 {
@@ -254,7 +277,7 @@ pub fn (r &Tree) get_edited_column() i32 {
     fnname := StringName.new("get_edited_column")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Tree) edit_selected(force_edit bool) bool {
@@ -266,7 +289,7 @@ pub fn (mut r Tree) edit_selected(force_edit bool) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2595650253)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&force_edit)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Tree) get_custom_popup_rect() Rect2 {
@@ -276,7 +299,7 @@ pub fn (r &Tree) get_custom_popup_rect() Rect2 {
     fnname := StringName.new("get_custom_popup_rect")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1639390495)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &Tree) get_item_area_rect(item TreeItem, column i32, button_index i32) Rect2 {
@@ -287,14 +310,14 @@ pub fn (r &Tree) get_item_area_rect(item TreeItem, column i32, button_index i32)
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1235226180)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&item)}
+    args[0] = item.ptr
     args[1] = unsafe{voidptr(&column)}
     args[2] = unsafe{voidptr(&button_index)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Tree) get_item_at_position(position Vector2) TreeItem {
-    mut object_out := TreeItem(unsafe{nil})
+    mut object_out := TreeItem{}
     classname := StringName.new("Tree")
     defer { classname.deinit() }
     fnname := StringName.new("get_item_at_position")
@@ -302,7 +325,7 @@ pub fn (r &Tree) get_item_at_position(position Vector2) TreeItem {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4193340126)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&position)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Tree) get_column_at_position(position Vector2) i32 {
@@ -314,7 +337,7 @@ pub fn (r &Tree) get_column_at_position(position Vector2) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3820158470)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&position)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Tree) get_drop_section_at_position(position Vector2) i32 {
@@ -326,7 +349,7 @@ pub fn (r &Tree) get_drop_section_at_position(position Vector2) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3820158470)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&position)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Tree) get_button_id_at_position(position Vector2) i32 {
@@ -338,7 +361,7 @@ pub fn (r &Tree) get_button_id_at_position(position Vector2) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3820158470)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&position)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Tree) ensure_cursor_is_visible() {
@@ -347,7 +370,7 @@ pub fn (mut r Tree) ensure_cursor_is_visible() {
     fnname := StringName.new("ensure_cursor_is_visible")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
 pub fn (mut r Tree) set_column_titles_visible(visible bool) {
     classname := StringName.new("Tree")
@@ -355,7 +378,9 @@ pub fn (mut r Tree) set_column_titles_visible(visible bool) {
     fnname := StringName.new("set_column_titles_visible")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&visible)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Tree) are_column_titles_visible() bool {
     mut object_out := false
@@ -364,7 +389,7 @@ pub fn (r &Tree) are_column_titles_visible() bool {
     fnname := StringName.new("are_column_titles_visible")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Tree) set_column_title(column i32, title String) {
@@ -373,7 +398,10 @@ pub fn (mut r Tree) set_column_title(column i32, title String) {
     fnname := StringName.new("set_column_title")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&column)}
+    args[1] = unsafe{voidptr(&title)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Tree) get_column_title(column i32) String {
     mut object_out := String{}
@@ -384,7 +412,7 @@ pub fn (r &Tree) get_column_title(column i32) String {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 844755477)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&column)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Tree) set_column_title_alignment(column i32, title_alignment HorizontalAlignment) {
@@ -393,7 +421,10 @@ pub fn (mut r Tree) set_column_title_alignment(column i32, title_alignment Horiz
     fnname := StringName.new("set_column_title_alignment")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3276431499)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&column)}
+    args[1] = unsafe{voidptr(&title_alignment)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Tree) get_column_title_alignment(column i32) HorizontalAlignment {
     mut object_out := HorizontalAlignment.horizontal_alignment_left
@@ -404,7 +435,7 @@ pub fn (r &Tree) get_column_title_alignment(column i32) HorizontalAlignment {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4171562184)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&column)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Tree) set_column_title_direction(column i32, direction ControlTextDirection) {
@@ -413,7 +444,10 @@ pub fn (mut r Tree) set_column_title_direction(column i32, direction ControlText
     fnname := StringName.new("set_column_title_direction")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1707680378)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&column)}
+    args[1] = unsafe{voidptr(&direction)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Tree) get_column_title_direction(column i32) ControlTextDirection {
     mut object_out := ControlTextDirection.text_direction_inherited
@@ -424,7 +458,7 @@ pub fn (r &Tree) get_column_title_direction(column i32) ControlTextDirection {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4235602388)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&column)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Tree) set_column_title_language(column i32, language String) {
@@ -433,7 +467,10 @@ pub fn (mut r Tree) set_column_title_language(column i32, language String) {
     fnname := StringName.new("set_column_title_language")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&column)}
+    args[1] = unsafe{voidptr(&language)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Tree) get_column_title_language(column i32) String {
     mut object_out := String{}
@@ -444,7 +481,7 @@ pub fn (r &Tree) get_column_title_language(column i32) String {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 844755477)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&column)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Tree) get_scroll() Vector2 {
@@ -454,7 +491,7 @@ pub fn (r &Tree) get_scroll() Vector2 {
     fnname := StringName.new("get_scroll")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3341600327)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Tree) scroll_to_item(item TreeItem, center_on_item bool) {
@@ -463,7 +500,10 @@ pub fn (mut r Tree) scroll_to_item(item TreeItem, center_on_item bool) {
     fnname := StringName.new("scroll_to_item")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1314737213)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = item.ptr
+    args[1] = unsafe{voidptr(&center_on_item)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r Tree) set_h_scroll_enabled(h_scroll bool) {
     classname := StringName.new("Tree")
@@ -471,7 +511,9 @@ pub fn (mut r Tree) set_h_scroll_enabled(h_scroll bool) {
     fnname := StringName.new("set_h_scroll_enabled")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&h_scroll)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Tree) is_h_scroll_enabled() bool {
     mut object_out := false
@@ -480,7 +522,7 @@ pub fn (r &Tree) is_h_scroll_enabled() bool {
     fnname := StringName.new("is_h_scroll_enabled")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Tree) set_v_scroll_enabled(h_scroll bool) {
@@ -489,7 +531,9 @@ pub fn (mut r Tree) set_v_scroll_enabled(h_scroll bool) {
     fnname := StringName.new("set_v_scroll_enabled")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&h_scroll)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Tree) is_v_scroll_enabled() bool {
     mut object_out := false
@@ -498,7 +542,7 @@ pub fn (r &Tree) is_v_scroll_enabled() bool {
     fnname := StringName.new("is_v_scroll_enabled")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Tree) set_hide_folding(hide bool) {
@@ -507,7 +551,9 @@ pub fn (mut r Tree) set_hide_folding(hide bool) {
     fnname := StringName.new("set_hide_folding")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&hide)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Tree) is_folding_hidden() bool {
     mut object_out := false
@@ -516,7 +562,7 @@ pub fn (r &Tree) is_folding_hidden() bool {
     fnname := StringName.new("is_folding_hidden")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Tree) set_enable_recursive_folding(enable bool) {
@@ -525,7 +571,9 @@ pub fn (mut r Tree) set_enable_recursive_folding(enable bool) {
     fnname := StringName.new("set_enable_recursive_folding")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Tree) is_recursive_folding_enabled() bool {
     mut object_out := false
@@ -534,7 +582,7 @@ pub fn (r &Tree) is_recursive_folding_enabled() bool {
     fnname := StringName.new("is_recursive_folding_enabled")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Tree) set_drop_mode_flags(flags i32) {
@@ -543,7 +591,9 @@ pub fn (mut r Tree) set_drop_mode_flags(flags i32) {
     fnname := StringName.new("set_drop_mode_flags")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&flags)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Tree) get_drop_mode_flags() i32 {
     mut object_out := i32(0)
@@ -552,7 +602,7 @@ pub fn (r &Tree) get_drop_mode_flags() i32 {
     fnname := StringName.new("get_drop_mode_flags")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Tree) set_allow_rmb_select(allow bool) {
@@ -561,7 +611,9 @@ pub fn (mut r Tree) set_allow_rmb_select(allow bool) {
     fnname := StringName.new("set_allow_rmb_select")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&allow)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Tree) get_allow_rmb_select() bool {
     mut object_out := false
@@ -570,7 +622,7 @@ pub fn (r &Tree) get_allow_rmb_select() bool {
     fnname := StringName.new("get_allow_rmb_select")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Tree) set_allow_reselect(allow bool) {
@@ -579,7 +631,9 @@ pub fn (mut r Tree) set_allow_reselect(allow bool) {
     fnname := StringName.new("set_allow_reselect")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&allow)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Tree) get_allow_reselect() bool {
     mut object_out := false
@@ -588,7 +642,7 @@ pub fn (r &Tree) get_allow_reselect() bool {
     fnname := StringName.new("get_allow_reselect")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Tree) set_allow_search(allow bool) {
@@ -597,7 +651,9 @@ pub fn (mut r Tree) set_allow_search(allow bool) {
     fnname := StringName.new("set_allow_search")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&allow)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Tree) get_allow_search() bool {
     mut object_out := false
@@ -606,6 +662,6 @@ pub fn (r &Tree) get_allow_search() bool {
     fnname := StringName.new("get_allow_search")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

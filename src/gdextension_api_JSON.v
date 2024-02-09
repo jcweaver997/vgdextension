@@ -1,6 +1,8 @@
 module vgdextension
 
-pub type JSON = voidptr
+pub struct JSON {
+    Resource
+}
 
 pub fn JSON.stringify(data Variant, indent String, sort_keys bool, full_precision bool) String {
     mut object_out := String{}
@@ -39,7 +41,7 @@ pub fn (mut r JSON) parse(json_text String, keep_text bool) GDError {
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&json_text)}
     args[1] = unsafe{voidptr(&keep_text)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &JSON) get_data() Variant {
@@ -49,7 +51,7 @@ pub fn (r &JSON) get_data() Variant {
     fnname := StringName.new("get_data")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1214101251)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r JSON) set_data(data Variant) {
@@ -58,7 +60,9 @@ pub fn (mut r JSON) set_data(data Variant) {
     fnname := StringName.new("set_data")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1114965689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&data)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &JSON) get_parsed_text() String {
     mut object_out := String{}
@@ -67,7 +71,7 @@ pub fn (r &JSON) get_parsed_text() String {
     fnname := StringName.new("get_parsed_text")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 201670096)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &JSON) get_error_line() i32 {
@@ -77,7 +81,7 @@ pub fn (r &JSON) get_error_line() i32 {
     fnname := StringName.new("get_error_line")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &JSON) get_error_message() String {
@@ -87,6 +91,6 @@ pub fn (r &JSON) get_error_message() String {
     fnname := StringName.new("get_error_message")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 201670096)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

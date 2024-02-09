@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type VisualShaderNodeIf = voidptr
+pub struct VisualShaderNodeIf {
+    VisualShaderNode
+}
 

@@ -8,7 +8,9 @@ pub enum ShaderMode {
     mode_fog = 4
 }
 
-pub type Shader = voidptr
+pub struct Shader {
+    Resource
+}
 
 pub fn (r &Shader) get_mode() ShaderMode {
     mut object_out := ShaderMode.mode_spatial
@@ -17,7 +19,7 @@ pub fn (r &Shader) get_mode() ShaderMode {
     fnname := StringName.new("get_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3392948163)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Shader) set_code(code String) {
@@ -26,7 +28,9 @@ pub fn (mut r Shader) set_code(code String) {
     fnname := StringName.new("set_code")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&code)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Shader) get_code() String {
     mut object_out := String{}
@@ -35,7 +39,7 @@ pub fn (r &Shader) get_code() String {
     fnname := StringName.new("get_code")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 201670096)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Shader) set_default_texture_parameter(name StringName, texture Texture2D, index i32) {
@@ -44,10 +48,14 @@ pub fn (mut r Shader) set_default_texture_parameter(name StringName, texture Tex
     fnname := StringName.new("set_default_texture_parameter")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1628453603)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&name)}
+    args[1] = texture.ptr
+    args[2] = unsafe{voidptr(&index)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Shader) get_default_texture_parameter(name StringName, index i32) Texture2D {
-    mut object_out := Texture2D(unsafe{nil})
+    mut object_out := Texture2D{}
     classname := StringName.new("Shader")
     defer { classname.deinit() }
     fnname := StringName.new("get_default_texture_parameter")
@@ -56,7 +64,7 @@ pub fn (r &Shader) get_default_texture_parameter(name StringName, index i32) Tex
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&name)}
     args[1] = unsafe{voidptr(&index)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Shader) get_shader_uniform_list(get_groups bool) Array {
@@ -68,6 +76,6 @@ pub fn (mut r Shader) get_shader_uniform_list(get_groups bool) Array {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1230511656)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&get_groups)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }

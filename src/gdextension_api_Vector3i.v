@@ -66,8 +66,8 @@ pub fn (r &Vector3i) max_axis_index() i32 {
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
    return object_out
 }
-pub fn (r &Vector3i) length() f32 {
-    mut object_out := f32(0)
+pub fn (r &Vector3i) length() f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("length")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_vector3i, voidptr(&fnname), 466405837)
@@ -124,6 +124,11 @@ pub fn (v &Vector3i) to_var() Variant {
     output := Variant{}
     to_variant(GDExtensionUninitializedVariantPtr(&output), GDExtensionTypePtr(v))
     return output
+}
+
+pub fn (mut t Vector3i) set_from_var(var &Variant) {
+    var_to_type := gdf.get_variant_to_type_constructor(GDExtensionVariantType.type_vector3i)
+    var_to_type(voidptr(&t), var)
 }
 
 pub fn (v &Vector3i) index(i int) i32 {

@@ -14,7 +14,9 @@ pub enum SubViewportUpdateMode {
     update_always = 4
 }
 
-pub type SubViewport = voidptr
+pub struct SubViewport {
+    Viewport
+}
 
 pub fn (mut r SubViewport) set_size(size Vector2i) {
     classname := StringName.new("SubViewport")
@@ -22,7 +24,9 @@ pub fn (mut r SubViewport) set_size(size Vector2i) {
     fnname := StringName.new("set_size")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1130785943)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&size)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SubViewport) get_size() Vector2i {
     mut object_out := Vector2i{}
@@ -31,7 +35,7 @@ pub fn (r &SubViewport) get_size() Vector2i {
     fnname := StringName.new("get_size")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3690982128)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SubViewport) set_size_2d_override(size Vector2i) {
@@ -40,7 +44,9 @@ pub fn (mut r SubViewport) set_size_2d_override(size Vector2i) {
     fnname := StringName.new("set_size_2d_override")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1130785943)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&size)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SubViewport) get_size_2d_override() Vector2i {
     mut object_out := Vector2i{}
@@ -49,7 +55,7 @@ pub fn (r &SubViewport) get_size_2d_override() Vector2i {
     fnname := StringName.new("get_size_2d_override")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3690982128)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SubViewport) set_size_2d_override_stretch(enable bool) {
@@ -58,7 +64,9 @@ pub fn (mut r SubViewport) set_size_2d_override_stretch(enable bool) {
     fnname := StringName.new("set_size_2d_override_stretch")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SubViewport) is_size_2d_override_stretch_enabled() bool {
     mut object_out := false
@@ -67,7 +75,7 @@ pub fn (r &SubViewport) is_size_2d_override_stretch_enabled() bool {
     fnname := StringName.new("is_size_2d_override_stretch_enabled")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SubViewport) set_update_mode(mode SubViewportUpdateMode) {
@@ -76,7 +84,9 @@ pub fn (mut r SubViewport) set_update_mode(mode SubViewportUpdateMode) {
     fnname := StringName.new("set_update_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1295690030)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&mode)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SubViewport) get_update_mode() SubViewportUpdateMode {
     mut object_out := SubViewportUpdateMode.update_disabled
@@ -85,7 +95,7 @@ pub fn (r &SubViewport) get_update_mode() SubViewportUpdateMode {
     fnname := StringName.new("get_update_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2980171553)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SubViewport) set_clear_mode(mode SubViewportClearMode) {
@@ -94,7 +104,9 @@ pub fn (mut r SubViewport) set_clear_mode(mode SubViewportClearMode) {
     fnname := StringName.new("set_clear_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2834454712)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&mode)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SubViewport) get_clear_mode() SubViewportClearMode {
     mut object_out := SubViewportClearMode.clear_mode_always
@@ -103,6 +115,6 @@ pub fn (r &SubViewport) get_clear_mode() SubViewportClearMode {
     fnname := StringName.new("get_clear_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 331324495)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

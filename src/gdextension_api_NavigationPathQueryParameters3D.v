@@ -17,7 +17,9 @@ pub enum NavigationPathQueryParameters3DPathMetadataFlags {
     path_metadata_include_all = 7
 }
 
-pub type NavigationPathQueryParameters3D = voidptr
+pub struct NavigationPathQueryParameters3D {
+    RefCounted
+}
 
 pub fn (mut r NavigationPathQueryParameters3D) set_pathfinding_algorithm(pathfinding_algorithm NavigationPathQueryParameters3DPathfindingAlgorithm) {
     classname := StringName.new("NavigationPathQueryParameters3D")
@@ -25,7 +27,9 @@ pub fn (mut r NavigationPathQueryParameters3D) set_pathfinding_algorithm(pathfin
     fnname := StringName.new("set_pathfinding_algorithm")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 394560454)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&pathfinding_algorithm)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &NavigationPathQueryParameters3D) get_pathfinding_algorithm() NavigationPathQueryParameters3DPathfindingAlgorithm {
     mut object_out := NavigationPathQueryParameters3DPathfindingAlgorithm.pathfinding_algorithm_astar
@@ -34,7 +38,7 @@ pub fn (r &NavigationPathQueryParameters3D) get_pathfinding_algorithm() Navigati
     fnname := StringName.new("get_pathfinding_algorithm")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3398491350)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r NavigationPathQueryParameters3D) set_path_postprocessing(path_postprocessing NavigationPathQueryParameters3DPathPostProcessing) {
@@ -43,7 +47,9 @@ pub fn (mut r NavigationPathQueryParameters3D) set_path_postprocessing(path_post
     fnname := StringName.new("set_path_postprocessing")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2267362344)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&path_postprocessing)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &NavigationPathQueryParameters3D) get_path_postprocessing() NavigationPathQueryParameters3DPathPostProcessing {
     mut object_out := NavigationPathQueryParameters3DPathPostProcessing.path_postprocessing_corridorfunnel
@@ -52,7 +58,7 @@ pub fn (r &NavigationPathQueryParameters3D) get_path_postprocessing() Navigation
     fnname := StringName.new("get_path_postprocessing")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3883858360)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r NavigationPathQueryParameters3D) set_map(mape RID) {
@@ -61,7 +67,9 @@ pub fn (mut r NavigationPathQueryParameters3D) set_map(mape RID) {
     fnname := StringName.new("set_map")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&mape)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &NavigationPathQueryParameters3D) get_map() RID {
     mut object_out := RID{}
@@ -70,7 +78,7 @@ pub fn (r &NavigationPathQueryParameters3D) get_map() RID {
     fnname := StringName.new("get_map")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2944877500)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r NavigationPathQueryParameters3D) set_start_position(start_position Vector3) {
@@ -79,7 +87,9 @@ pub fn (mut r NavigationPathQueryParameters3D) set_start_position(start_position
     fnname := StringName.new("set_start_position")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&start_position)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &NavigationPathQueryParameters3D) get_start_position() Vector3 {
     mut object_out := Vector3{}
@@ -88,7 +98,7 @@ pub fn (r &NavigationPathQueryParameters3D) get_start_position() Vector3 {
     fnname := StringName.new("get_start_position")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3360562783)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r NavigationPathQueryParameters3D) set_target_position(target_position Vector3) {
@@ -97,7 +107,9 @@ pub fn (mut r NavigationPathQueryParameters3D) set_target_position(target_positi
     fnname := StringName.new("set_target_position")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&target_position)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &NavigationPathQueryParameters3D) get_target_position() Vector3 {
     mut object_out := Vector3{}
@@ -106,25 +118,27 @@ pub fn (r &NavigationPathQueryParameters3D) get_target_position() Vector3 {
     fnname := StringName.new("get_target_position")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3360562783)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r NavigationPathQueryParameters3D) set_navigation_layers(navigation_layers i32) {
+pub fn (mut r NavigationPathQueryParameters3D) set_navigation_layers(navigation_layers u32) {
     classname := StringName.new("NavigationPathQueryParameters3D")
     defer { classname.deinit() }
     fnname := StringName.new("set_navigation_layers")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&navigation_layers)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &NavigationPathQueryParameters3D) get_navigation_layers() i32 {
-    mut object_out := i32(0)
+pub fn (r &NavigationPathQueryParameters3D) get_navigation_layers() u32 {
+    mut object_out := u32(0)
     classname := StringName.new("NavigationPathQueryParameters3D")
     defer { classname.deinit() }
     fnname := StringName.new("get_navigation_layers")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r NavigationPathQueryParameters3D) set_metadata_flags(flags NavigationPathQueryParameters3DPathMetadataFlags) {
@@ -133,15 +147,17 @@ pub fn (mut r NavigationPathQueryParameters3D) set_metadata_flags(flags Navigati
     fnname := StringName.new("set_metadata_flags")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2713846708)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&flags)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &NavigationPathQueryParameters3D) get_metadata_flags() NavigationPathQueryParameters3DPathMetadataFlags {
-    mut object_out := NavigationPathQueryParameters3DPathMetadataFlags(unsafe{nil})
+    mut object_out := NavigationPathQueryParameters3DPathMetadataFlags.path_metadata_include_none
     classname := StringName.new("NavigationPathQueryParameters3D")
     defer { classname.deinit() }
     fnname := StringName.new("get_metadata_flags")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1582332802)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

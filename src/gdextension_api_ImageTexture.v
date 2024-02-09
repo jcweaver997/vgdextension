@@ -1,16 +1,18 @@
 module vgdextension
 
-pub type ImageTexture = voidptr
+pub struct ImageTexture {
+    Texture2D
+}
 
 pub fn ImageTexture.create_from_image(image Image) ImageTexture {
-    mut object_out := ImageTexture(unsafe{nil})
+    mut object_out := ImageTexture{}
     classname := StringName.new("ImageTexture")
     defer { classname.deinit() }
     fnname := StringName.new("create_from_image")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2775144163)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&image)}
+    args[0] = image.ptr
     gdf.object_method_bind_ptrcall(mb, unsafe{nil}, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
@@ -21,7 +23,7 @@ pub fn (r &ImageTexture) get_format() ImageFormat {
     fnname := StringName.new("get_format")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3847873762)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ImageTexture) set_image(image Image) {
@@ -30,7 +32,9 @@ pub fn (mut r ImageTexture) set_image(image Image) {
     fnname := StringName.new("set_image")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 532598488)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = image.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r ImageTexture) update(image Image) {
     classname := StringName.new("ImageTexture")
@@ -38,7 +42,9 @@ pub fn (mut r ImageTexture) update(image Image) {
     fnname := StringName.new("update")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 532598488)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = image.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r ImageTexture) set_size_override(size Vector2i) {
     classname := StringName.new("ImageTexture")
@@ -46,5 +52,7 @@ pub fn (mut r ImageTexture) set_size_override(size Vector2i) {
     fnname := StringName.new("set_size_override")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1130785943)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&size)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }

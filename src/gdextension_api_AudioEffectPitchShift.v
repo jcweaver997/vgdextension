@@ -9,24 +9,28 @@ pub enum AudioEffectPitchShiftFFTSize {
     fft_size_max = 5
 }
 
-pub type AudioEffectPitchShift = voidptr
+pub struct AudioEffectPitchShift {
+    AudioEffect
+}
 
-pub fn (mut r AudioEffectPitchShift) set_pitch_scale(rate f32) {
+pub fn (mut r AudioEffectPitchShift) set_pitch_scale(rate f64) {
     classname := StringName.new("AudioEffectPitchShift")
     defer { classname.deinit() }
     fnname := StringName.new("set_pitch_scale")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&rate)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &AudioEffectPitchShift) get_pitch_scale() f32 {
-    mut object_out := f32(0)
+pub fn (r &AudioEffectPitchShift) get_pitch_scale() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("AudioEffectPitchShift")
     defer { classname.deinit() }
     fnname := StringName.new("get_pitch_scale")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r AudioEffectPitchShift) set_oversampling(amount i32) {
@@ -35,7 +39,9 @@ pub fn (mut r AudioEffectPitchShift) set_oversampling(amount i32) {
     fnname := StringName.new("set_oversampling")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&amount)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &AudioEffectPitchShift) get_oversampling() i32 {
     mut object_out := i32(0)
@@ -44,7 +50,7 @@ pub fn (r &AudioEffectPitchShift) get_oversampling() i32 {
     fnname := StringName.new("get_oversampling")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r AudioEffectPitchShift) set_fft_size(size AudioEffectPitchShiftFFTSize) {
@@ -53,7 +59,9 @@ pub fn (mut r AudioEffectPitchShift) set_fft_size(size AudioEffectPitchShiftFFTS
     fnname := StringName.new("set_fft_size")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2323518741)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&size)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &AudioEffectPitchShift) get_fft_size() AudioEffectPitchShiftFFTSize {
     mut object_out := AudioEffectPitchShiftFFTSize.fft_size_256
@@ -62,6 +70,6 @@ pub fn (r &AudioEffectPitchShift) get_fft_size() AudioEffectPitchShiftFFTSize {
     fnname := StringName.new("get_fft_size")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2361246789)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type VisualShaderNodeUVPolarCoord = voidptr
+pub struct VisualShaderNodeUVPolarCoord {
+    VisualShaderNode
+}
 

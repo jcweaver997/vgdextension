@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type VSeparator = voidptr
+pub struct VSeparator {
+    Separator
+}
 

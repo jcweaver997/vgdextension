@@ -10,7 +10,9 @@ pub enum VisualShaderNodeClampOpType {
     op_type_max = 6
 }
 
-pub type VisualShaderNodeClamp = voidptr
+pub struct VisualShaderNodeClamp {
+    VisualShaderNode
+}
 
 pub fn (mut r VisualShaderNodeClamp) set_op_type(op_type VisualShaderNodeClampOpType) {
     classname := StringName.new("VisualShaderNodeClamp")
@@ -18,7 +20,9 @@ pub fn (mut r VisualShaderNodeClamp) set_op_type(op_type VisualShaderNodeClampOp
     fnname := StringName.new("set_op_type")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 405010749)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&op_type)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &VisualShaderNodeClamp) get_op_type() VisualShaderNodeClampOpType {
     mut object_out := VisualShaderNodeClampOpType.op_type_float
@@ -27,6 +31,6 @@ pub fn (r &VisualShaderNodeClamp) get_op_type() VisualShaderNodeClampOpType {
     fnname := StringName.new("get_op_type")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 233276050)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

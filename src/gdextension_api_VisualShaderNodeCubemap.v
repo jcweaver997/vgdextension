@@ -13,7 +13,9 @@ pub enum VisualShaderNodeCubemapTextureType {
     type_max = 3
 }
 
-pub type VisualShaderNodeCubemap = voidptr
+pub struct VisualShaderNodeCubemap {
+    VisualShaderNode
+}
 
 pub fn (mut r VisualShaderNodeCubemap) set_source(value VisualShaderNodeCubemapSource) {
     classname := StringName.new("VisualShaderNodeCubemap")
@@ -21,7 +23,9 @@ pub fn (mut r VisualShaderNodeCubemap) set_source(value VisualShaderNodeCubemapS
     fnname := StringName.new("set_source")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1625400621)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&value)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &VisualShaderNodeCubemap) get_source() VisualShaderNodeCubemapSource {
     mut object_out := VisualShaderNodeCubemapSource.source_texture
@@ -30,7 +34,7 @@ pub fn (r &VisualShaderNodeCubemap) get_source() VisualShaderNodeCubemapSource {
     fnname := StringName.new("get_source")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2222048781)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r VisualShaderNodeCubemap) set_cube_map(value Cubemap) {
@@ -39,16 +43,18 @@ pub fn (mut r VisualShaderNodeCubemap) set_cube_map(value Cubemap) {
     fnname := StringName.new("set_cube_map")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2219800736)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = value.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &VisualShaderNodeCubemap) get_cube_map() Cubemap {
-    mut object_out := Cubemap(unsafe{nil})
+    mut object_out := Cubemap{}
     classname := StringName.new("VisualShaderNodeCubemap")
     defer { classname.deinit() }
     fnname := StringName.new("get_cube_map")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1772111058)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r VisualShaderNodeCubemap) set_texture_type(value VisualShaderNodeCubemapTextureType) {
@@ -57,7 +63,9 @@ pub fn (mut r VisualShaderNodeCubemap) set_texture_type(value VisualShaderNodeCu
     fnname := StringName.new("set_texture_type")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1899718876)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&value)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &VisualShaderNodeCubemap) get_texture_type() VisualShaderNodeCubemapTextureType {
     mut object_out := VisualShaderNodeCubemapTextureType.type_data
@@ -66,6 +74,6 @@ pub fn (r &VisualShaderNodeCubemap) get_texture_type() VisualShaderNodeCubemapTe
     fnname := StringName.new("get_texture_type")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3356498888)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

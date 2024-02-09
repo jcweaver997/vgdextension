@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type AudioStreamPlaybackOggVorbis = voidptr
+pub struct AudioStreamPlaybackOggVorbis {
+    AudioStreamPlaybackResampled
+}
 

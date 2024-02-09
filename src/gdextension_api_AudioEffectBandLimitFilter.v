@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type AudioEffectBandLimitFilter = voidptr
+pub struct AudioEffectBandLimitFilter {
+    AudioEffectFilter
+}
 

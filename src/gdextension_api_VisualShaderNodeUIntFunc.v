@@ -6,7 +6,9 @@ pub enum VisualShaderNodeUIntFuncFunction {
     func_max = 2
 }
 
-pub type VisualShaderNodeUIntFunc = voidptr
+pub struct VisualShaderNodeUIntFunc {
+    VisualShaderNode
+}
 
 pub fn (mut r VisualShaderNodeUIntFunc) set_function(func VisualShaderNodeUIntFuncFunction) {
     classname := StringName.new("VisualShaderNodeUIntFunc")
@@ -14,7 +16,9 @@ pub fn (mut r VisualShaderNodeUIntFunc) set_function(func VisualShaderNodeUIntFu
     fnname := StringName.new("set_function")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2273148961)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&func)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &VisualShaderNodeUIntFunc) get_function() VisualShaderNodeUIntFuncFunction {
     mut object_out := VisualShaderNodeUIntFuncFunction.func_negate
@@ -23,6 +27,6 @@ pub fn (r &VisualShaderNodeUIntFunc) get_function() VisualShaderNodeUIntFuncFunc
     fnname := StringName.new("get_function")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4187123296)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

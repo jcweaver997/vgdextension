@@ -1,6 +1,13 @@
 module vgdextension
 
-pub type MultiplayerPeerExtension = voidptr
+pub struct MultiplayerPeerExtension {
+    MultiplayerPeer
+}
+
+pub interface IMultiplayerPeerExtensionGetPacket {
+    mut:
+    virt_get_packet(r_buffer &&u8 , r_buffer_size &i32) GDError
+}
 
 pub fn (mut r MultiplayerPeerExtension) uget_packet(r_buffer &&u8 , r_buffer_size &i32) GDError {
     mut object_out := GDError.ok
@@ -12,9 +19,14 @@ pub fn (mut r MultiplayerPeerExtension) uget_packet(r_buffer &&u8 , r_buffer_siz
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&r_buffer)}
     args[1] = unsafe{voidptr(&r_buffer_size)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
+pub interface IMultiplayerPeerExtensionPutPacket {
+    mut:
+    virt_put_packet(p_buffer &u8, p_buffer_size i32) GDError
+}
+
 pub fn (mut r MultiplayerPeerExtension) uput_packet(p_buffer &u8, p_buffer_size i32) GDError {
     mut object_out := GDError.ok
     classname := StringName.new("MultiplayerPeerExtension")
@@ -25,9 +37,14 @@ pub fn (mut r MultiplayerPeerExtension) uput_packet(p_buffer &u8, p_buffer_size 
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&p_buffer)}
     args[1] = unsafe{voidptr(&p_buffer_size)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
+pub interface IMultiplayerPeerExtensionGetAvailablePacketCount {
+    mut:
+    virt_get_available_packet_count() i32
+}
+
 pub fn (r &MultiplayerPeerExtension) uget_available_packet_count() i32 {
     mut object_out := i32(0)
     classname := StringName.new("MultiplayerPeerExtension")
@@ -35,9 +52,14 @@ pub fn (r &MultiplayerPeerExtension) uget_available_packet_count() i32 {
     fnname := StringName.new("_get_available_packet_count")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
+pub interface IMultiplayerPeerExtensionGetMaxPacketSize {
+    mut:
+    virt_get_max_packet_size() i32
+}
+
 pub fn (r &MultiplayerPeerExtension) uget_max_packet_size() i32 {
     mut object_out := i32(0)
     classname := StringName.new("MultiplayerPeerExtension")
@@ -45,9 +67,14 @@ pub fn (r &MultiplayerPeerExtension) uget_max_packet_size() i32 {
     fnname := StringName.new("_get_max_packet_size")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
+pub interface IMultiplayerPeerExtensionGetPacketScript {
+    mut:
+    virt_get_packet_script() PackedByteArray
+}
+
 pub fn (mut r MultiplayerPeerExtension) uget_packet_script() PackedByteArray {
     mut object_out := PackedByteArray{}
     classname := StringName.new("MultiplayerPeerExtension")
@@ -55,9 +82,14 @@ pub fn (mut r MultiplayerPeerExtension) uget_packet_script() PackedByteArray {
     fnname := StringName.new("_get_packet_script")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
+pub interface IMultiplayerPeerExtensionPutPacketScript {
+    mut:
+    virt_put_packet_script(p_buffer PackedByteArray) GDError
+}
+
 pub fn (mut r MultiplayerPeerExtension) uput_packet_script(p_buffer PackedByteArray) GDError {
     mut object_out := GDError.ok
     classname := StringName.new("MultiplayerPeerExtension")
@@ -67,9 +99,14 @@ pub fn (mut r MultiplayerPeerExtension) uput_packet_script(p_buffer PackedByteAr
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&p_buffer)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
+pub interface IMultiplayerPeerExtensionGetPacketChannel {
+    mut:
+    virt_get_packet_channel() i32
+}
+
 pub fn (r &MultiplayerPeerExtension) uget_packet_channel() i32 {
     mut object_out := i32(0)
     classname := StringName.new("MultiplayerPeerExtension")
@@ -77,9 +114,14 @@ pub fn (r &MultiplayerPeerExtension) uget_packet_channel() i32 {
     fnname := StringName.new("_get_packet_channel")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
+pub interface IMultiplayerPeerExtensionGetPacketMode {
+    mut:
+    virt_get_packet_mode() MultiplayerPeerTransferMode
+}
+
 pub fn (r &MultiplayerPeerExtension) uget_packet_mode() MultiplayerPeerTransferMode {
     mut object_out := MultiplayerPeerTransferMode.transfer_mode_unreliable
     classname := StringName.new("MultiplayerPeerExtension")
@@ -87,17 +129,29 @@ pub fn (r &MultiplayerPeerExtension) uget_packet_mode() MultiplayerPeerTransferM
     fnname := StringName.new("_get_packet_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
+pub interface IMultiplayerPeerExtensionSetTransferChannel {
+    mut:
+    virt_set_transfer_channel(p_channel i32)
+}
+
 pub fn (mut r MultiplayerPeerExtension) uset_transfer_channel(p_channel i32) {
     classname := StringName.new("MultiplayerPeerExtension")
     defer { classname.deinit() }
     fnname := StringName.new("_set_transfer_channel")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&p_channel)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
+pub interface IMultiplayerPeerExtensionGetTransferChannel {
+    mut:
+    virt_get_transfer_channel() i32
+}
+
 pub fn (r &MultiplayerPeerExtension) uget_transfer_channel() i32 {
     mut object_out := i32(0)
     classname := StringName.new("MultiplayerPeerExtension")
@@ -105,17 +159,29 @@ pub fn (r &MultiplayerPeerExtension) uget_transfer_channel() i32 {
     fnname := StringName.new("_get_transfer_channel")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
+pub interface IMultiplayerPeerExtensionSetTransferMode {
+    mut:
+    virt_set_transfer_mode(p_mode MultiplayerPeerTransferMode)
+}
+
 pub fn (mut r MultiplayerPeerExtension) uset_transfer_mode(p_mode MultiplayerPeerTransferMode) {
     classname := StringName.new("MultiplayerPeerExtension")
     defer { classname.deinit() }
     fnname := StringName.new("_set_transfer_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&p_mode)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
+pub interface IMultiplayerPeerExtensionGetTransferMode {
+    mut:
+    virt_get_transfer_mode() MultiplayerPeerTransferMode
+}
+
 pub fn (r &MultiplayerPeerExtension) uget_transfer_mode() MultiplayerPeerTransferMode {
     mut object_out := MultiplayerPeerTransferMode.transfer_mode_unreliable
     classname := StringName.new("MultiplayerPeerExtension")
@@ -123,17 +189,29 @@ pub fn (r &MultiplayerPeerExtension) uget_transfer_mode() MultiplayerPeerTransfe
     fnname := StringName.new("_get_transfer_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
+pub interface IMultiplayerPeerExtensionSetTargetPeer {
+    mut:
+    virt_set_target_peer(p_peer i32)
+}
+
 pub fn (mut r MultiplayerPeerExtension) uset_target_peer(p_peer i32) {
     classname := StringName.new("MultiplayerPeerExtension")
     defer { classname.deinit() }
     fnname := StringName.new("_set_target_peer")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&p_peer)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
+pub interface IMultiplayerPeerExtensionGetPacketPeer {
+    mut:
+    virt_get_packet_peer() i32
+}
+
 pub fn (r &MultiplayerPeerExtension) uget_packet_peer() i32 {
     mut object_out := i32(0)
     classname := StringName.new("MultiplayerPeerExtension")
@@ -141,9 +219,14 @@ pub fn (r &MultiplayerPeerExtension) uget_packet_peer() i32 {
     fnname := StringName.new("_get_packet_peer")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
+pub interface IMultiplayerPeerExtensionIsServer {
+    mut:
+    virt_is_server() bool
+}
+
 pub fn (r &MultiplayerPeerExtension) uis_server() bool {
     mut object_out := false
     classname := StringName.new("MultiplayerPeerExtension")
@@ -151,33 +234,56 @@ pub fn (r &MultiplayerPeerExtension) uis_server() bool {
     fnname := StringName.new("_is_server")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
+pub interface IMultiplayerPeerExtensionPoll {
+    mut:
+    virt_poll()
+}
+
 pub fn (mut r MultiplayerPeerExtension) upoll() {
     classname := StringName.new("MultiplayerPeerExtension")
     defer { classname.deinit() }
     fnname := StringName.new("_poll")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
+pub interface IMultiplayerPeerExtensionClose {
+    mut:
+    virt_close()
+}
+
 pub fn (mut r MultiplayerPeerExtension) uclose() {
     classname := StringName.new("MultiplayerPeerExtension")
     defer { classname.deinit() }
     fnname := StringName.new("_close")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
+pub interface IMultiplayerPeerExtensionDisconnectPeer {
+    mut:
+    virt_disconnect_peer(p_peer i32, p_force bool)
+}
+
 pub fn (mut r MultiplayerPeerExtension) udisconnect_peer(p_peer i32, p_force bool) {
     classname := StringName.new("MultiplayerPeerExtension")
     defer { classname.deinit() }
     fnname := StringName.new("_disconnect_peer")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&p_peer)}
+    args[1] = unsafe{voidptr(&p_force)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
+pub interface IMultiplayerPeerExtensionGetUniqueId {
+    mut:
+    virt_get_unique_id() i32
+}
+
 pub fn (r &MultiplayerPeerExtension) uget_unique_id() i32 {
     mut object_out := i32(0)
     classname := StringName.new("MultiplayerPeerExtension")
@@ -185,17 +291,29 @@ pub fn (r &MultiplayerPeerExtension) uget_unique_id() i32 {
     fnname := StringName.new("_get_unique_id")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
+pub interface IMultiplayerPeerExtensionSetRefuseNewConnections {
+    mut:
+    virt_set_refuse_new_connections(p_enable bool)
+}
+
 pub fn (mut r MultiplayerPeerExtension) uset_refuse_new_connections(p_enable bool) {
     classname := StringName.new("MultiplayerPeerExtension")
     defer { classname.deinit() }
     fnname := StringName.new("_set_refuse_new_connections")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&p_enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
+pub interface IMultiplayerPeerExtensionIsRefusingNewConnections {
+    mut:
+    virt_is_refusing_new_connections() bool
+}
+
 pub fn (r &MultiplayerPeerExtension) uis_refusing_new_connections() bool {
     mut object_out := false
     classname := StringName.new("MultiplayerPeerExtension")
@@ -203,9 +321,14 @@ pub fn (r &MultiplayerPeerExtension) uis_refusing_new_connections() bool {
     fnname := StringName.new("_is_refusing_new_connections")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
+pub interface IMultiplayerPeerExtensionIsServerRelaySupported {
+    mut:
+    virt_is_server_relay_supported() bool
+}
+
 pub fn (r &MultiplayerPeerExtension) uis_server_relay_supported() bool {
     mut object_out := false
     classname := StringName.new("MultiplayerPeerExtension")
@@ -213,9 +336,14 @@ pub fn (r &MultiplayerPeerExtension) uis_server_relay_supported() bool {
     fnname := StringName.new("_is_server_relay_supported")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
+pub interface IMultiplayerPeerExtensionGetConnectionStatus {
+    mut:
+    virt_get_connection_status() MultiplayerPeerConnectionStatus
+}
+
 pub fn (r &MultiplayerPeerExtension) uget_connection_status() MultiplayerPeerConnectionStatus {
     mut object_out := MultiplayerPeerConnectionStatus.connection_disconnected
     classname := StringName.new("MultiplayerPeerExtension")
@@ -223,6 +351,6 @@ pub fn (r &MultiplayerPeerExtension) uget_connection_status() MultiplayerPeerCon
     fnname := StringName.new("_get_connection_status")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

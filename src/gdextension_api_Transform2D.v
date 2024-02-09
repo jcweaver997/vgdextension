@@ -24,7 +24,7 @@ pub fn Transform2D.new1 (from &Transform2D) Transform2D {
     return object_out
 }
 
-pub fn Transform2D.new2 (rotation &f32, position &Vector2) Transform2D {
+pub fn Transform2D.new2 (rotation &f64, position &Vector2) Transform2D {
     mut object_out := Transform2D{}
     constructor := gdf.variant_get_ptr_constructor(GDExtensionVariantType.type_transform2d, 2)
     mut args := unsafe { [2]voidptr{} }
@@ -34,7 +34,7 @@ pub fn Transform2D.new2 (rotation &f32, position &Vector2) Transform2D {
     return object_out
 }
 
-pub fn Transform2D.new3 (rotation &f32, scale &Vector2, skew &f32, position &Vector2) Transform2D {
+pub fn Transform2D.new3 (rotation &f64, scale &Vector2, skew &f64, position &Vector2) Transform2D {
     mut object_out := Transform2D{}
     constructor := gdf.variant_get_ptr_constructor(GDExtensionVariantType.type_transform2d, 3)
     mut args := unsafe { [4]voidptr{} }
@@ -73,8 +73,8 @@ pub fn (r &Transform2D) affine_inverse() Transform2D {
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
    return object_out
 }
-pub fn (r &Transform2D) get_rotation() f32 {
-    mut object_out := f32(0)
+pub fn (r &Transform2D) get_rotation() f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("get_rotation")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_transform2d, voidptr(&fnname), 466405837)
@@ -97,8 +97,8 @@ pub fn (r &Transform2D) get_scale() Vector2 {
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
    return object_out
 }
-pub fn (r &Transform2D) get_skew() f32 {
-    mut object_out := f32(0)
+pub fn (r &Transform2D) get_skew() f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("get_skew")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_transform2d, voidptr(&fnname), 466405837)
@@ -113,7 +113,7 @@ pub fn (r &Transform2D) orthonormalized() Transform2D {
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
    return object_out
 }
-pub fn (r &Transform2D) rotated(angle f32) Transform2D {
+pub fn (r &Transform2D) rotated(angle f64) Transform2D {
     mut object_out := Transform2D{}
     fnname := StringName.new("rotated")
     defer { fnname.deinit() }
@@ -123,7 +123,7 @@ pub fn (r &Transform2D) rotated(angle f32) Transform2D {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
    return object_out
 }
-pub fn (r &Transform2D) rotated_local(angle f32) Transform2D {
+pub fn (r &Transform2D) rotated_local(angle f64) Transform2D {
     mut object_out := Transform2D{}
     fnname := StringName.new("rotated_local")
     defer { fnname.deinit() }
@@ -173,8 +173,8 @@ pub fn (r &Transform2D) translated_local(offset Vector2) Transform2D {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
    return object_out
 }
-pub fn (r &Transform2D) determinant() f32 {
-    mut object_out := f32(0)
+pub fn (r &Transform2D) determinant() f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("determinant")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_transform2d, voidptr(&fnname), 466405837)
@@ -201,7 +201,7 @@ pub fn (r &Transform2D) basis_xform_inv(v Vector2) Vector2 {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
    return object_out
 }
-pub fn (r &Transform2D) interpolate_with(xform Transform2D, weight f32) Transform2D {
+pub fn (r &Transform2D) interpolate_with(xform Transform2D, weight f64) Transform2D {
     mut object_out := Transform2D{}
     fnname := StringName.new("interpolate_with")
     defer { fnname.deinit() }
@@ -245,6 +245,11 @@ pub fn (v &Transform2D) to_var() Variant {
     output := Variant{}
     to_variant(GDExtensionUninitializedVariantPtr(&output), GDExtensionTypePtr(v))
     return output
+}
+
+pub fn (mut t Transform2D) set_from_var(var &Variant) {
+    var_to_type := gdf.get_variant_to_type_constructor(GDExtensionVariantType.type_transform2d)
+    var_to_type(voidptr(&t), var)
 }
 
 pub fn (v &Transform2D) index(i int) Vector2 {

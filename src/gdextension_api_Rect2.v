@@ -42,7 +42,7 @@ pub fn Rect2.new3 (position &Vector2, size &Vector2) Rect2 {
     return object_out
 }
 
-pub fn Rect2.new4 (x &f32, y &f32, width &f32, height &f32) Rect2 {
+pub fn Rect2.new4 (x &f64, y &f64, width &f64, height &f64) Rect2 {
     mut object_out := Rect2{}
     constructor := gdf.variant_get_ptr_constructor(GDExtensionVariantType.type_rect2, 4)
     mut args := unsafe { [4]voidptr{} }
@@ -62,8 +62,8 @@ pub fn (r &Rect2) get_center() Vector2 {
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
    return object_out
 }
-pub fn (r &Rect2) get_area() f32 {
-    mut object_out := f32(0)
+pub fn (r &Rect2) get_area() f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("get_area")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_rect2, voidptr(&fnname), 466405837)
@@ -157,7 +157,7 @@ pub fn (r &Rect2) expand(to Vector2) Rect2 {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
    return object_out
 }
-pub fn (r &Rect2) grow(amount f32) Rect2 {
+pub fn (r &Rect2) grow(amount f64) Rect2 {
     mut object_out := Rect2{}
     fnname := StringName.new("grow")
     defer { fnname.deinit() }
@@ -167,7 +167,7 @@ pub fn (r &Rect2) grow(amount f32) Rect2 {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
    return object_out
 }
-pub fn (r &Rect2) grow_side(side i32, amount f32) Rect2 {
+pub fn (r &Rect2) grow_side(side i32, amount f64) Rect2 {
     mut object_out := Rect2{}
     fnname := StringName.new("grow_side")
     defer { fnname.deinit() }
@@ -178,7 +178,7 @@ pub fn (r &Rect2) grow_side(side i32, amount f32) Rect2 {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 2)
    return object_out
 }
-pub fn (r &Rect2) grow_individual(left f32, top f32, right f32, bottom f32) Rect2 {
+pub fn (r &Rect2) grow_individual(left f64, top f64, right f64, bottom f64) Rect2 {
     mut object_out := Rect2{}
     fnname := StringName.new("grow_individual")
     defer { fnname.deinit() }
@@ -204,5 +204,10 @@ pub fn (v &Rect2) to_var() Variant {
     output := Variant{}
     to_variant(GDExtensionUninitializedVariantPtr(&output), GDExtensionTypePtr(v))
     return output
+}
+
+pub fn (mut t Rect2) set_from_var(var &Variant) {
+    var_to_type := gdf.get_variant_to_type_constructor(GDExtensionVariantType.type_rect2)
+    var_to_type(voidptr(&t), var)
 }
 

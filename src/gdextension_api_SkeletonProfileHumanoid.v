@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type SkeletonProfileHumanoid = voidptr
+pub struct SkeletonProfileHumanoid {
+    SkeletonProfile
+}
 

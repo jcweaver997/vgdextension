@@ -1,6 +1,8 @@
 module vgdextension
 
-pub type TextParagraph = voidptr
+pub struct TextParagraph {
+    RefCounted
+}
 
 pub fn (mut r TextParagraph) clear() {
     classname := StringName.new("TextParagraph")
@@ -8,7 +10,7 @@ pub fn (mut r TextParagraph) clear() {
     fnname := StringName.new("clear")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
 pub fn (mut r TextParagraph) set_direction(direction TextServerDirection) {
     classname := StringName.new("TextParagraph")
@@ -16,7 +18,9 @@ pub fn (mut r TextParagraph) set_direction(direction TextServerDirection) {
     fnname := StringName.new("set_direction")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1418190634)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&direction)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextParagraph) get_direction() TextServerDirection {
     mut object_out := TextServerDirection.direction_auto
@@ -25,7 +29,7 @@ pub fn (r &TextParagraph) get_direction() TextServerDirection {
     fnname := StringName.new("get_direction")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2516697328)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextParagraph) set_custom_punctuation(custom_punctuation String) {
@@ -34,7 +38,9 @@ pub fn (mut r TextParagraph) set_custom_punctuation(custom_punctuation String) {
     fnname := StringName.new("set_custom_punctuation")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&custom_punctuation)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextParagraph) get_custom_punctuation() String {
     mut object_out := String{}
@@ -43,7 +49,7 @@ pub fn (r &TextParagraph) get_custom_punctuation() String {
     fnname := StringName.new("get_custom_punctuation")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 201670096)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextParagraph) set_orientation(orientation TextServerOrientation) {
@@ -52,7 +58,9 @@ pub fn (mut r TextParagraph) set_orientation(orientation TextServerOrientation) 
     fnname := StringName.new("set_orientation")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 42823726)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&orientation)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextParagraph) get_orientation() TextServerOrientation {
     mut object_out := TextServerOrientation.orientation_horizontal
@@ -61,7 +69,7 @@ pub fn (r &TextParagraph) get_orientation() TextServerOrientation {
     fnname := StringName.new("get_orientation")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 175768116)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextParagraph) set_preserve_invalid(enabled bool) {
@@ -70,7 +78,9 @@ pub fn (mut r TextParagraph) set_preserve_invalid(enabled bool) {
     fnname := StringName.new("set_preserve_invalid")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enabled)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextParagraph) get_preserve_invalid() bool {
     mut object_out := false
@@ -79,7 +89,7 @@ pub fn (r &TextParagraph) get_preserve_invalid() bool {
     fnname := StringName.new("get_preserve_invalid")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextParagraph) set_preserve_control(enabled bool) {
@@ -88,7 +98,9 @@ pub fn (mut r TextParagraph) set_preserve_control(enabled bool) {
     fnname := StringName.new("set_preserve_control")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enabled)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextParagraph) get_preserve_control() bool {
     mut object_out := false
@@ -97,7 +109,7 @@ pub fn (r &TextParagraph) get_preserve_control() bool {
     fnname := StringName.new("get_preserve_control")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextParagraph) set_bidi_override(override Array) {
@@ -106,7 +118,9 @@ pub fn (mut r TextParagraph) set_bidi_override(override Array) {
     fnname := StringName.new("set_bidi_override")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&override)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r TextParagraph) set_dropcap(text String, font Font, font_size i32, dropcap_margins Rect2, language String) bool {
     mut object_out := false
@@ -117,11 +131,11 @@ pub fn (mut r TextParagraph) set_dropcap(text String, font Font, font_size i32, 
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2613124475)
     mut args := unsafe { [5]voidptr{} }
     args[0] = unsafe{voidptr(&text)}
-    args[1] = unsafe{voidptr(&font)}
+    args[1] = font.ptr
     args[2] = unsafe{voidptr(&font_size)}
     args[3] = unsafe{voidptr(&dropcap_margins)}
     args[4] = unsafe{voidptr(&language)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextParagraph) clear_dropcap() {
@@ -130,7 +144,7 @@ pub fn (mut r TextParagraph) clear_dropcap() {
     fnname := StringName.new("clear_dropcap")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
 pub fn (mut r TextParagraph) add_string(text String, font Font, font_size i32, language String, meta Variant) bool {
     mut object_out := false
@@ -141,14 +155,14 @@ pub fn (mut r TextParagraph) add_string(text String, font Font, font_size i32, l
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 867188035)
     mut args := unsafe { [5]voidptr{} }
     args[0] = unsafe{voidptr(&text)}
-    args[1] = unsafe{voidptr(&font)}
+    args[1] = font.ptr
     args[2] = unsafe{voidptr(&font_size)}
     args[3] = unsafe{voidptr(&language)}
     args[4] = unsafe{voidptr(&meta)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r TextParagraph) add_object(key Variant, size Vector2, inline_align InlineAlignment, length i32, baseline f32) bool {
+pub fn (mut r TextParagraph) add_object(key Variant, size Vector2, inline_align InlineAlignment, length i32, baseline f64) bool {
     mut object_out := false
     classname := StringName.new("TextParagraph")
     defer { classname.deinit() }
@@ -161,10 +175,10 @@ pub fn (mut r TextParagraph) add_object(key Variant, size Vector2, inline_align 
     args[2] = unsafe{voidptr(&inline_align)}
     args[3] = unsafe{voidptr(&length)}
     args[4] = unsafe{voidptr(&baseline)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r TextParagraph) resize_object(key Variant, size Vector2, inline_align InlineAlignment, baseline f32) bool {
+pub fn (mut r TextParagraph) resize_object(key Variant, size Vector2, inline_align InlineAlignment, baseline f64) bool {
     mut object_out := false
     classname := StringName.new("TextParagraph")
     defer { classname.deinit() }
@@ -176,7 +190,7 @@ pub fn (mut r TextParagraph) resize_object(key Variant, size Vector2, inline_ali
     args[1] = unsafe{voidptr(&size)}
     args[2] = unsafe{voidptr(&inline_align)}
     args[3] = unsafe{voidptr(&baseline)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextParagraph) set_alignment(alignment HorizontalAlignment) {
@@ -185,7 +199,9 @@ pub fn (mut r TextParagraph) set_alignment(alignment HorizontalAlignment) {
     fnname := StringName.new("set_alignment")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2312603777)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&alignment)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextParagraph) get_alignment() HorizontalAlignment {
     mut object_out := HorizontalAlignment.horizontal_alignment_left
@@ -194,7 +210,7 @@ pub fn (r &TextParagraph) get_alignment() HorizontalAlignment {
     fnname := StringName.new("get_alignment")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 341400642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextParagraph) tab_align(tab_stops PackedFloat32Array) {
@@ -203,7 +219,9 @@ pub fn (mut r TextParagraph) tab_align(tab_stops PackedFloat32Array) {
     fnname := StringName.new("tab_align")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2899603908)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&tab_stops)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r TextParagraph) set_break_flags(flags TextServerLineBreakFlag) {
     classname := StringName.new("TextParagraph")
@@ -211,16 +229,18 @@ pub fn (mut r TextParagraph) set_break_flags(flags TextServerLineBreakFlag) {
     fnname := StringName.new("set_break_flags")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2809697122)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&flags)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextParagraph) get_break_flags() TextServerLineBreakFlag {
-    mut object_out := TextServerLineBreakFlag(unsafe{nil})
+    mut object_out := TextServerLineBreakFlag.break_none
     classname := StringName.new("TextParagraph")
     defer { classname.deinit() }
     fnname := StringName.new("get_break_flags")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2340632602)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextParagraph) set_justification_flags(flags TextServerJustificationFlag) {
@@ -229,16 +249,18 @@ pub fn (mut r TextParagraph) set_justification_flags(flags TextServerJustificati
     fnname := StringName.new("set_justification_flags")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2877345813)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&flags)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextParagraph) get_justification_flags() TextServerJustificationFlag {
-    mut object_out := TextServerJustificationFlag(unsafe{nil})
+    mut object_out := TextServerJustificationFlag.justification_none
     classname := StringName.new("TextParagraph")
     defer { classname.deinit() }
     fnname := StringName.new("get_justification_flags")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1583363614)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextParagraph) set_text_overrun_behavior(overrun_behavior TextServerOverrunBehavior) {
@@ -247,7 +269,9 @@ pub fn (mut r TextParagraph) set_text_overrun_behavior(overrun_behavior TextServ
     fnname := StringName.new("set_text_overrun_behavior")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1008890932)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&overrun_behavior)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextParagraph) get_text_overrun_behavior() TextServerOverrunBehavior {
     mut object_out := TextServerOverrunBehavior.overrun_no_trimming
@@ -256,25 +280,27 @@ pub fn (r &TextParagraph) get_text_overrun_behavior() TextServerOverrunBehavior 
     fnname := StringName.new("get_text_overrun_behavior")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3779142101)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r TextParagraph) set_width(width f32) {
+pub fn (mut r TextParagraph) set_width(width f64) {
     classname := StringName.new("TextParagraph")
     defer { classname.deinit() }
     fnname := StringName.new("set_width")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&width)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &TextParagraph) get_width() f32 {
-    mut object_out := f32(0)
+pub fn (r &TextParagraph) get_width() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("TextParagraph")
     defer { classname.deinit() }
     fnname := StringName.new("get_width")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextParagraph) get_non_wrapped_size() Vector2 {
@@ -284,7 +310,7 @@ pub fn (r &TextParagraph) get_non_wrapped_size() Vector2 {
     fnname := StringName.new("get_non_wrapped_size")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3341600327)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextParagraph) get_size() Vector2 {
@@ -294,7 +320,7 @@ pub fn (r &TextParagraph) get_size() Vector2 {
     fnname := StringName.new("get_size")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3341600327)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextParagraph) get_rid() RID {
@@ -304,7 +330,7 @@ pub fn (r &TextParagraph) get_rid() RID {
     fnname := StringName.new("get_rid")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2944877500)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextParagraph) get_line_rid(line i32) RID {
@@ -316,7 +342,7 @@ pub fn (r &TextParagraph) get_line_rid(line i32) RID {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 495598643)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&line)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextParagraph) get_dropcap_rid() RID {
@@ -326,7 +352,7 @@ pub fn (r &TextParagraph) get_dropcap_rid() RID {
     fnname := StringName.new("get_dropcap_rid")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2944877500)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextParagraph) get_line_count() i32 {
@@ -336,7 +362,7 @@ pub fn (r &TextParagraph) get_line_count() i32 {
     fnname := StringName.new("get_line_count")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextParagraph) set_max_lines_visible(max_lines_visible i32) {
@@ -345,7 +371,9 @@ pub fn (mut r TextParagraph) set_max_lines_visible(max_lines_visible i32) {
     fnname := StringName.new("set_max_lines_visible")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&max_lines_visible)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextParagraph) get_max_lines_visible() i32 {
     mut object_out := i32(0)
@@ -354,7 +382,7 @@ pub fn (r &TextParagraph) get_max_lines_visible() i32 {
     fnname := StringName.new("get_max_lines_visible")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextParagraph) get_line_objects(line i32) Array {
@@ -366,7 +394,7 @@ pub fn (r &TextParagraph) get_line_objects(line i32) Array {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 663333327)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&line)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextParagraph) get_line_object_rect(line i32, key Variant) Rect2 {
@@ -379,7 +407,7 @@ pub fn (r &TextParagraph) get_line_object_rect(line i32, key Variant) Rect2 {
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&line)}
     args[1] = unsafe{voidptr(&key)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextParagraph) get_line_size(line i32) Vector2 {
@@ -391,7 +419,7 @@ pub fn (r &TextParagraph) get_line_size(line i32) Vector2 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2299179447)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&line)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextParagraph) get_line_range(line i32) Vector2i {
@@ -403,11 +431,11 @@ pub fn (r &TextParagraph) get_line_range(line i32) Vector2i {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 880721226)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&line)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextParagraph) get_line_ascent(line i32) f32 {
-    mut object_out := f32(0)
+pub fn (r &TextParagraph) get_line_ascent(line i32) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("TextParagraph")
     defer { classname.deinit() }
     fnname := StringName.new("get_line_ascent")
@@ -415,11 +443,11 @@ pub fn (r &TextParagraph) get_line_ascent(line i32) f32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2339986948)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&line)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextParagraph) get_line_descent(line i32) f32 {
-    mut object_out := f32(0)
+pub fn (r &TextParagraph) get_line_descent(line i32) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("TextParagraph")
     defer { classname.deinit() }
     fnname := StringName.new("get_line_descent")
@@ -427,11 +455,11 @@ pub fn (r &TextParagraph) get_line_descent(line i32) f32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2339986948)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&line)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextParagraph) get_line_width(line i32) f32 {
-    mut object_out := f32(0)
+pub fn (r &TextParagraph) get_line_width(line i32) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("TextParagraph")
     defer { classname.deinit() }
     fnname := StringName.new("get_line_width")
@@ -439,11 +467,11 @@ pub fn (r &TextParagraph) get_line_width(line i32) f32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2339986948)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&line)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextParagraph) get_line_underline_position(line i32) f32 {
-    mut object_out := f32(0)
+pub fn (r &TextParagraph) get_line_underline_position(line i32) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("TextParagraph")
     defer { classname.deinit() }
     fnname := StringName.new("get_line_underline_position")
@@ -451,11 +479,11 @@ pub fn (r &TextParagraph) get_line_underline_position(line i32) f32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2339986948)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&line)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextParagraph) get_line_underline_thickness(line i32) f32 {
-    mut object_out := f32(0)
+pub fn (r &TextParagraph) get_line_underline_thickness(line i32) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("TextParagraph")
     defer { classname.deinit() }
     fnname := StringName.new("get_line_underline_thickness")
@@ -463,7 +491,7 @@ pub fn (r &TextParagraph) get_line_underline_thickness(line i32) f32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2339986948)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&line)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextParagraph) get_dropcap_size() Vector2 {
@@ -473,7 +501,7 @@ pub fn (r &TextParagraph) get_dropcap_size() Vector2 {
     fnname := StringName.new("get_dropcap_size")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3341600327)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextParagraph) get_dropcap_lines() i32 {
@@ -483,7 +511,7 @@ pub fn (r &TextParagraph) get_dropcap_lines() i32 {
     fnname := StringName.new("get_dropcap_lines")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextParagraph) draw(canvas RID, pos Vector2, color Color, dc_color Color) {
@@ -492,7 +520,12 @@ pub fn (r &TextParagraph) draw(canvas RID, pos Vector2, color Color, dc_color Co
     fnname := StringName.new("draw")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 367324453)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [4]voidptr{} }
+    args[0] = unsafe{voidptr(&canvas)}
+    args[1] = unsafe{voidptr(&pos)}
+    args[2] = unsafe{voidptr(&color)}
+    args[3] = unsafe{voidptr(&dc_color)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextParagraph) draw_outline(canvas RID, pos Vector2, outline_size i32, color Color, dc_color Color) {
     classname := StringName.new("TextParagraph")
@@ -500,7 +533,13 @@ pub fn (r &TextParagraph) draw_outline(canvas RID, pos Vector2, outline_size i32
     fnname := StringName.new("draw_outline")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2159523405)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [5]voidptr{} }
+    args[0] = unsafe{voidptr(&canvas)}
+    args[1] = unsafe{voidptr(&pos)}
+    args[2] = unsafe{voidptr(&outline_size)}
+    args[3] = unsafe{voidptr(&color)}
+    args[4] = unsafe{voidptr(&dc_color)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextParagraph) draw_line(canvas RID, pos Vector2, line i32, color Color) {
     classname := StringName.new("TextParagraph")
@@ -508,7 +547,12 @@ pub fn (r &TextParagraph) draw_line(canvas RID, pos Vector2, line i32, color Col
     fnname := StringName.new("draw_line")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3963848920)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [4]voidptr{} }
+    args[0] = unsafe{voidptr(&canvas)}
+    args[1] = unsafe{voidptr(&pos)}
+    args[2] = unsafe{voidptr(&line)}
+    args[3] = unsafe{voidptr(&color)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextParagraph) draw_line_outline(canvas RID, pos Vector2, line i32, outline_size i32, color Color) {
     classname := StringName.new("TextParagraph")
@@ -516,7 +560,13 @@ pub fn (r &TextParagraph) draw_line_outline(canvas RID, pos Vector2, line i32, o
     fnname := StringName.new("draw_line_outline")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1814903311)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [5]voidptr{} }
+    args[0] = unsafe{voidptr(&canvas)}
+    args[1] = unsafe{voidptr(&pos)}
+    args[2] = unsafe{voidptr(&line)}
+    args[3] = unsafe{voidptr(&outline_size)}
+    args[4] = unsafe{voidptr(&color)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextParagraph) draw_dropcap(canvas RID, pos Vector2, color Color) {
     classname := StringName.new("TextParagraph")
@@ -524,7 +574,11 @@ pub fn (r &TextParagraph) draw_dropcap(canvas RID, pos Vector2, color Color) {
     fnname := StringName.new("draw_dropcap")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1164457837)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&canvas)}
+    args[1] = unsafe{voidptr(&pos)}
+    args[2] = unsafe{voidptr(&color)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextParagraph) draw_dropcap_outline(canvas RID, pos Vector2, outline_size i32, color Color) {
     classname := StringName.new("TextParagraph")
@@ -532,7 +586,12 @@ pub fn (r &TextParagraph) draw_dropcap_outline(canvas RID, pos Vector2, outline_
     fnname := StringName.new("draw_dropcap_outline")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1364491366)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [4]voidptr{} }
+    args[0] = unsafe{voidptr(&canvas)}
+    args[1] = unsafe{voidptr(&pos)}
+    args[2] = unsafe{voidptr(&outline_size)}
+    args[3] = unsafe{voidptr(&color)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextParagraph) hit_test(coords Vector2) i32 {
     mut object_out := i32(0)
@@ -543,6 +602,6 @@ pub fn (r &TextParagraph) hit_test(coords Vector2) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3820158470)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&coords)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }

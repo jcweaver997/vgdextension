@@ -13,7 +13,18 @@ pub enum ResourceLoaderCacheMode {
     cache_mode_replace = 2
 }
 
-pub type ResourceLoader = voidptr
+pub struct ResourceLoader {
+    Object
+}
+
+pub fn ResourceLoader.get_singleton() ResourceLoader {
+    sn := StringName.new("ResourceLoader")
+    defer {sn.deinit()}
+    o := ResourceLoader{
+        ptr: gdf.global_get_singleton(sn)
+    }
+    return o
+}
 
 pub fn (mut r ResourceLoader) load_threaded_request(path String, type_hint String, use_sub_threads bool, cache_mode ResourceLoaderCacheMode) GDError {
     mut object_out := GDError.ok
@@ -27,7 +38,7 @@ pub fn (mut r ResourceLoader) load_threaded_request(path String, type_hint Strin
     args[1] = unsafe{voidptr(&type_hint)}
     args[2] = unsafe{voidptr(&use_sub_threads)}
     args[3] = unsafe{voidptr(&cache_mode)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ResourceLoader) load_threaded_get_status(path String, progress Array) ResourceLoaderThreadLoadStatus {
@@ -40,11 +51,11 @@ pub fn (mut r ResourceLoader) load_threaded_get_status(path String, progress Arr
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&path)}
     args[1] = unsafe{voidptr(&progress)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ResourceLoader) load_threaded_get(path String) Resource {
-    mut object_out := Resource(unsafe{nil})
+    mut object_out := Resource{}
     classname := StringName.new("ResourceLoader")
     defer { classname.deinit() }
     fnname := StringName.new("load_threaded_get")
@@ -52,11 +63,11 @@ pub fn (mut r ResourceLoader) load_threaded_get(path String) Resource {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1748875256)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&path)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ResourceLoader) load(path String, type_hint String, cache_mode ResourceLoaderCacheMode) Resource {
-    mut object_out := Resource(unsafe{nil})
+    mut object_out := Resource{}
     classname := StringName.new("ResourceLoader")
     defer { classname.deinit() }
     fnname := StringName.new("load")
@@ -66,7 +77,7 @@ pub fn (mut r ResourceLoader) load(path String, type_hint String, cache_mode Res
     args[0] = unsafe{voidptr(&path)}
     args[1] = unsafe{voidptr(&type_hint)}
     args[2] = unsafe{voidptr(&cache_mode)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ResourceLoader) get_recognized_extensions_for_type(type_name String) PackedStringArray {
@@ -78,7 +89,7 @@ pub fn (mut r ResourceLoader) get_recognized_extensions_for_type(type_name Strin
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3538744774)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&type_name)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ResourceLoader) add_resource_format_loader(format_loader ResourceFormatLoader, at_front bool) {
@@ -87,7 +98,10 @@ pub fn (mut r ResourceLoader) add_resource_format_loader(format_loader ResourceF
     fnname := StringName.new("add_resource_format_loader")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2896595483)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = format_loader.ptr
+    args[1] = unsafe{voidptr(&at_front)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r ResourceLoader) remove_resource_format_loader(format_loader ResourceFormatLoader) {
     classname := StringName.new("ResourceLoader")
@@ -95,7 +109,9 @@ pub fn (mut r ResourceLoader) remove_resource_format_loader(format_loader Resour
     fnname := StringName.new("remove_resource_format_loader")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 405397102)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = format_loader.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r ResourceLoader) set_abort_on_missing_resources(abort bool) {
     classname := StringName.new("ResourceLoader")
@@ -103,7 +119,9 @@ pub fn (mut r ResourceLoader) set_abort_on_missing_resources(abort bool) {
     fnname := StringName.new("set_abort_on_missing_resources")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&abort)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r ResourceLoader) get_dependencies(path String) PackedStringArray {
     mut object_out := PackedStringArray{}
@@ -114,7 +132,7 @@ pub fn (mut r ResourceLoader) get_dependencies(path String) PackedStringArray {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3538744774)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&path)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ResourceLoader) has_cached(path String) bool {
@@ -126,7 +144,7 @@ pub fn (mut r ResourceLoader) has_cached(path String) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2323990056)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&path)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ResourceLoader) exists(path String, type_hint String) bool {
@@ -139,11 +157,11 @@ pub fn (mut r ResourceLoader) exists(path String, type_hint String) bool {
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&path)}
     args[1] = unsafe{voidptr(&type_hint)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r ResourceLoader) get_resource_uid(path String) i32 {
-    mut object_out := i32(0)
+pub fn (mut r ResourceLoader) get_resource_uid(path String) i64 {
+    mut object_out := i64(0)
     classname := StringName.new("ResourceLoader")
     defer { classname.deinit() }
     fnname := StringName.new("get_resource_uid")
@@ -151,6 +169,6 @@ pub fn (mut r ResourceLoader) get_resource_uid(path String) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1597066294)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&path)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }

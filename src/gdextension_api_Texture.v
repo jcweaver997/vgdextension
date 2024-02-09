@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type Texture = voidptr
+pub struct Texture {
+    Resource
+}
 

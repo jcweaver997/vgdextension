@@ -49,8 +49,8 @@ pub fn (r &AABB) get_center() Vector3 {
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
    return object_out
 }
-pub fn (r &AABB) get_volume() f32 {
-    mut object_out := f32(0)
+pub fn (r &AABB) get_volume() f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("get_volume")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_aabb, voidptr(&fnname), 466405837)
@@ -161,7 +161,7 @@ pub fn (r &AABB) expand(to_point Vector3) AABB {
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
    return object_out
 }
-pub fn (r &AABB) grow(by f32) AABB {
+pub fn (r &AABB) grow(by f64) AABB {
     mut object_out := AABB{}
     fnname := StringName.new("grow")
     defer { fnname.deinit() }
@@ -197,8 +197,8 @@ pub fn (r &AABB) get_longest_axis_index() i32 {
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
    return object_out
 }
-pub fn (r &AABB) get_longest_axis_size() f32 {
-    mut object_out := f32(0)
+pub fn (r &AABB) get_longest_axis_size() f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("get_longest_axis_size")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_aabb, voidptr(&fnname), 466405837)
@@ -221,8 +221,8 @@ pub fn (r &AABB) get_shortest_axis_index() i32 {
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
    return object_out
 }
-pub fn (r &AABB) get_shortest_axis_size() f32 {
-    mut object_out := f32(0)
+pub fn (r &AABB) get_shortest_axis_size() f64 {
+    mut object_out := f64(0)
     fnname := StringName.new("get_shortest_axis_size")
     defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_aabb, voidptr(&fnname), 466405837)
@@ -266,5 +266,10 @@ pub fn (v &AABB) to_var() Variant {
     output := Variant{}
     to_variant(GDExtensionUninitializedVariantPtr(&output), GDExtensionTypePtr(v))
     return output
+}
+
+pub fn (mut t AABB) set_from_var(var &Variant) {
+    var_to_type := gdf.get_variant_to_type_constructor(GDExtensionVariantType.type_aabb)
+    var_to_type(voidptr(&t), var)
 }
 

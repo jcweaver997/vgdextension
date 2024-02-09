@@ -38,7 +38,9 @@ pub enum CPUParticles2DEmissionShape {
     emission_shape_max = 6
 }
 
-pub type CPUParticles2D = voidptr
+pub struct CPUParticles2D {
+    Node2D
+}
 
 pub fn (mut r CPUParticles2D) set_emitting(emitting bool) {
     classname := StringName.new("CPUParticles2D")
@@ -46,7 +48,9 @@ pub fn (mut r CPUParticles2D) set_emitting(emitting bool) {
     fnname := StringName.new("set_emitting")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&emitting)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r CPUParticles2D) set_amount(amount i32) {
     classname := StringName.new("CPUParticles2D")
@@ -54,15 +58,19 @@ pub fn (mut r CPUParticles2D) set_amount(amount i32) {
     fnname := StringName.new("set_amount")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&amount)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r CPUParticles2D) set_lifetime(secs f32) {
+pub fn (mut r CPUParticles2D) set_lifetime(secs f64) {
     classname := StringName.new("CPUParticles2D")
     defer { classname.deinit() }
     fnname := StringName.new("set_lifetime")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&secs)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r CPUParticles2D) set_one_shot(enable bool) {
     classname := StringName.new("CPUParticles2D")
@@ -70,39 +78,49 @@ pub fn (mut r CPUParticles2D) set_one_shot(enable bool) {
     fnname := StringName.new("set_one_shot")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r CPUParticles2D) set_pre_process_time(secs f32) {
+pub fn (mut r CPUParticles2D) set_pre_process_time(secs f64) {
     classname := StringName.new("CPUParticles2D")
     defer { classname.deinit() }
     fnname := StringName.new("set_pre_process_time")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&secs)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r CPUParticles2D) set_explosiveness_ratio(ratio f32) {
+pub fn (mut r CPUParticles2D) set_explosiveness_ratio(ratio f64) {
     classname := StringName.new("CPUParticles2D")
     defer { classname.deinit() }
     fnname := StringName.new("set_explosiveness_ratio")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&ratio)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r CPUParticles2D) set_randomness_ratio(ratio f32) {
+pub fn (mut r CPUParticles2D) set_randomness_ratio(ratio f64) {
     classname := StringName.new("CPUParticles2D")
     defer { classname.deinit() }
     fnname := StringName.new("set_randomness_ratio")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&ratio)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r CPUParticles2D) set_lifetime_randomness(random f32) {
+pub fn (mut r CPUParticles2D) set_lifetime_randomness(random f64) {
     classname := StringName.new("CPUParticles2D")
     defer { classname.deinit() }
     fnname := StringName.new("set_lifetime_randomness")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&random)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r CPUParticles2D) set_use_local_coordinates(enable bool) {
     classname := StringName.new("CPUParticles2D")
@@ -110,7 +128,9 @@ pub fn (mut r CPUParticles2D) set_use_local_coordinates(enable bool) {
     fnname := StringName.new("set_use_local_coordinates")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r CPUParticles2D) set_fixed_fps(fps i32) {
     classname := StringName.new("CPUParticles2D")
@@ -118,7 +138,9 @@ pub fn (mut r CPUParticles2D) set_fixed_fps(fps i32) {
     fnname := StringName.new("set_fixed_fps")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&fps)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r CPUParticles2D) set_fractional_delta(enable bool) {
     classname := StringName.new("CPUParticles2D")
@@ -126,15 +148,19 @@ pub fn (mut r CPUParticles2D) set_fractional_delta(enable bool) {
     fnname := StringName.new("set_fractional_delta")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r CPUParticles2D) set_speed_scale(scale f32) {
+pub fn (mut r CPUParticles2D) set_speed_scale(scale f64) {
     classname := StringName.new("CPUParticles2D")
     defer { classname.deinit() }
     fnname := StringName.new("set_speed_scale")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&scale)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &CPUParticles2D) is_emitting() bool {
     mut object_out := false
@@ -143,7 +169,7 @@ pub fn (r &CPUParticles2D) is_emitting() bool {
     fnname := StringName.new("is_emitting")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &CPUParticles2D) get_amount() i32 {
@@ -153,17 +179,17 @@ pub fn (r &CPUParticles2D) get_amount() i32 {
     fnname := StringName.new("get_amount")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (r &CPUParticles2D) get_lifetime() f32 {
-    mut object_out := f32(0)
+pub fn (r &CPUParticles2D) get_lifetime() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("CPUParticles2D")
     defer { classname.deinit() }
     fnname := StringName.new("get_lifetime")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &CPUParticles2D) get_one_shot() bool {
@@ -173,47 +199,47 @@ pub fn (r &CPUParticles2D) get_one_shot() bool {
     fnname := StringName.new("get_one_shot")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (r &CPUParticles2D) get_pre_process_time() f32 {
-    mut object_out := f32(0)
+pub fn (r &CPUParticles2D) get_pre_process_time() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("CPUParticles2D")
     defer { classname.deinit() }
     fnname := StringName.new("get_pre_process_time")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (r &CPUParticles2D) get_explosiveness_ratio() f32 {
-    mut object_out := f32(0)
+pub fn (r &CPUParticles2D) get_explosiveness_ratio() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("CPUParticles2D")
     defer { classname.deinit() }
     fnname := StringName.new("get_explosiveness_ratio")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (r &CPUParticles2D) get_randomness_ratio() f32 {
-    mut object_out := f32(0)
+pub fn (r &CPUParticles2D) get_randomness_ratio() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("CPUParticles2D")
     defer { classname.deinit() }
     fnname := StringName.new("get_randomness_ratio")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (r &CPUParticles2D) get_lifetime_randomness() f32 {
-    mut object_out := f32(0)
+pub fn (r &CPUParticles2D) get_lifetime_randomness() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("CPUParticles2D")
     defer { classname.deinit() }
     fnname := StringName.new("get_lifetime_randomness")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &CPUParticles2D) get_use_local_coordinates() bool {
@@ -223,7 +249,7 @@ pub fn (r &CPUParticles2D) get_use_local_coordinates() bool {
     fnname := StringName.new("get_use_local_coordinates")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &CPUParticles2D) get_fixed_fps() i32 {
@@ -233,7 +259,7 @@ pub fn (r &CPUParticles2D) get_fixed_fps() i32 {
     fnname := StringName.new("get_fixed_fps")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &CPUParticles2D) get_fractional_delta() bool {
@@ -243,17 +269,17 @@ pub fn (r &CPUParticles2D) get_fractional_delta() bool {
     fnname := StringName.new("get_fractional_delta")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (r &CPUParticles2D) get_speed_scale() f32 {
-    mut object_out := f32(0)
+pub fn (r &CPUParticles2D) get_speed_scale() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("CPUParticles2D")
     defer { classname.deinit() }
     fnname := StringName.new("get_speed_scale")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r CPUParticles2D) set_draw_order(order CPUParticles2DDrawOrder) {
@@ -262,7 +288,9 @@ pub fn (mut r CPUParticles2D) set_draw_order(order CPUParticles2DDrawOrder) {
     fnname := StringName.new("set_draw_order")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4183193490)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&order)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &CPUParticles2D) get_draw_order() CPUParticles2DDrawOrder {
     mut object_out := CPUParticles2DDrawOrder.draw_order_index
@@ -271,7 +299,7 @@ pub fn (r &CPUParticles2D) get_draw_order() CPUParticles2DDrawOrder {
     fnname := StringName.new("get_draw_order")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1668655735)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r CPUParticles2D) set_texture(texture Texture2D) {
@@ -280,16 +308,18 @@ pub fn (mut r CPUParticles2D) set_texture(texture Texture2D) {
     fnname := StringName.new("set_texture")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = texture.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &CPUParticles2D) get_texture() Texture2D {
-    mut object_out := Texture2D(unsafe{nil})
+    mut object_out := Texture2D{}
     classname := StringName.new("CPUParticles2D")
     defer { classname.deinit() }
     fnname := StringName.new("get_texture")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3635182373)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r CPUParticles2D) restart() {
@@ -298,7 +328,7 @@ pub fn (mut r CPUParticles2D) restart() {
     fnname := StringName.new("restart")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
 pub fn (mut r CPUParticles2D) set_direction(direction Vector2) {
     classname := StringName.new("CPUParticles2D")
@@ -306,7 +336,9 @@ pub fn (mut r CPUParticles2D) set_direction(direction Vector2) {
     fnname := StringName.new("set_direction")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&direction)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &CPUParticles2D) get_direction() Vector2 {
     mut object_out := Vector2{}
@@ -315,37 +347,42 @@ pub fn (r &CPUParticles2D) get_direction() Vector2 {
     fnname := StringName.new("get_direction")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3341600327)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r CPUParticles2D) set_spread(spread f32) {
+pub fn (mut r CPUParticles2D) set_spread(spread f64) {
     classname := StringName.new("CPUParticles2D")
     defer { classname.deinit() }
     fnname := StringName.new("set_spread")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&spread)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &CPUParticles2D) get_spread() f32 {
-    mut object_out := f32(0)
+pub fn (r &CPUParticles2D) get_spread() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("CPUParticles2D")
     defer { classname.deinit() }
     fnname := StringName.new("get_spread")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r CPUParticles2D) set_param_min(param CPUParticles2DParameter, value f32) {
+pub fn (mut r CPUParticles2D) set_param_min(param CPUParticles2DParameter, value f64) {
     classname := StringName.new("CPUParticles2D")
     defer { classname.deinit() }
     fnname := StringName.new("set_param_min")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3320615296)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&param)}
+    args[1] = unsafe{voidptr(&value)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &CPUParticles2D) get_param_min(param CPUParticles2DParameter) f32 {
-    mut object_out := f32(0)
+pub fn (r &CPUParticles2D) get_param_min(param CPUParticles2DParameter) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("CPUParticles2D")
     defer { classname.deinit() }
     fnname := StringName.new("get_param_min")
@@ -353,19 +390,22 @@ pub fn (r &CPUParticles2D) get_param_min(param CPUParticles2DParameter) f32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2038050600)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&param)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r CPUParticles2D) set_param_max(param CPUParticles2DParameter, value f32) {
+pub fn (mut r CPUParticles2D) set_param_max(param CPUParticles2DParameter, value f64) {
     classname := StringName.new("CPUParticles2D")
     defer { classname.deinit() }
     fnname := StringName.new("set_param_max")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3320615296)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&param)}
+    args[1] = unsafe{voidptr(&value)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &CPUParticles2D) get_param_max(param CPUParticles2DParameter) f32 {
-    mut object_out := f32(0)
+pub fn (r &CPUParticles2D) get_param_max(param CPUParticles2DParameter) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("CPUParticles2D")
     defer { classname.deinit() }
     fnname := StringName.new("get_param_max")
@@ -373,7 +413,7 @@ pub fn (r &CPUParticles2D) get_param_max(param CPUParticles2DParameter) f32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2038050600)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&param)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r CPUParticles2D) set_param_curve(param CPUParticles2DParameter, curve Curve) {
@@ -382,10 +422,13 @@ pub fn (mut r CPUParticles2D) set_param_curve(param CPUParticles2DParameter, cur
     fnname := StringName.new("set_param_curve")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2959350143)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&param)}
+    args[1] = curve.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &CPUParticles2D) get_param_curve(param CPUParticles2DParameter) Curve {
-    mut object_out := Curve(unsafe{nil})
+    mut object_out := Curve{}
     classname := StringName.new("CPUParticles2D")
     defer { classname.deinit() }
     fnname := StringName.new("get_param_curve")
@@ -393,7 +436,7 @@ pub fn (r &CPUParticles2D) get_param_curve(param CPUParticles2DParameter) Curve 
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2603158474)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&param)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r CPUParticles2D) set_color(color Color) {
@@ -402,7 +445,9 @@ pub fn (mut r CPUParticles2D) set_color(color Color) {
     fnname := StringName.new("set_color")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&color)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &CPUParticles2D) get_color() Color {
     mut object_out := Color{}
@@ -411,7 +456,7 @@ pub fn (r &CPUParticles2D) get_color() Color {
     fnname := StringName.new("get_color")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3444240500)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r CPUParticles2D) set_color_ramp(ramp Gradient) {
@@ -420,16 +465,18 @@ pub fn (mut r CPUParticles2D) set_color_ramp(ramp Gradient) {
     fnname := StringName.new("set_color_ramp")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2756054477)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = ramp.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &CPUParticles2D) get_color_ramp() Gradient {
-    mut object_out := Gradient(unsafe{nil})
+    mut object_out := Gradient{}
     classname := StringName.new("CPUParticles2D")
     defer { classname.deinit() }
     fnname := StringName.new("get_color_ramp")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 132272999)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r CPUParticles2D) set_color_initial_ramp(ramp Gradient) {
@@ -438,16 +485,18 @@ pub fn (mut r CPUParticles2D) set_color_initial_ramp(ramp Gradient) {
     fnname := StringName.new("set_color_initial_ramp")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2756054477)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = ramp.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &CPUParticles2D) get_color_initial_ramp() Gradient {
-    mut object_out := Gradient(unsafe{nil})
+    mut object_out := Gradient{}
     classname := StringName.new("CPUParticles2D")
     defer { classname.deinit() }
     fnname := StringName.new("get_color_initial_ramp")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 132272999)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r CPUParticles2D) set_particle_flag(particle_flag CPUParticles2DParticleFlags, enable bool) {
@@ -456,7 +505,10 @@ pub fn (mut r CPUParticles2D) set_particle_flag(particle_flag CPUParticles2DPart
     fnname := StringName.new("set_particle_flag")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4178137949)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&particle_flag)}
+    args[1] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &CPUParticles2D) get_particle_flag(particle_flag CPUParticles2DParticleFlags) bool {
     mut object_out := false
@@ -467,7 +519,7 @@ pub fn (r &CPUParticles2D) get_particle_flag(particle_flag CPUParticles2DParticl
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2829976507)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&particle_flag)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r CPUParticles2D) set_emission_shape(shape CPUParticles2DEmissionShape) {
@@ -476,7 +528,9 @@ pub fn (mut r CPUParticles2D) set_emission_shape(shape CPUParticles2DEmissionSha
     fnname := StringName.new("set_emission_shape")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 393763892)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&shape)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &CPUParticles2D) get_emission_shape() CPUParticles2DEmissionShape {
     mut object_out := CPUParticles2DEmissionShape.emission_shape_point
@@ -485,25 +539,27 @@ pub fn (r &CPUParticles2D) get_emission_shape() CPUParticles2DEmissionShape {
     fnname := StringName.new("get_emission_shape")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740246024)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r CPUParticles2D) set_emission_sphere_radius(radius f32) {
+pub fn (mut r CPUParticles2D) set_emission_sphere_radius(radius f64) {
     classname := StringName.new("CPUParticles2D")
     defer { classname.deinit() }
     fnname := StringName.new("set_emission_sphere_radius")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&radius)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &CPUParticles2D) get_emission_sphere_radius() f32 {
-    mut object_out := f32(0)
+pub fn (r &CPUParticles2D) get_emission_sphere_radius() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("CPUParticles2D")
     defer { classname.deinit() }
     fnname := StringName.new("get_emission_sphere_radius")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r CPUParticles2D) set_emission_rect_extents(extents Vector2) {
@@ -512,7 +568,9 @@ pub fn (mut r CPUParticles2D) set_emission_rect_extents(extents Vector2) {
     fnname := StringName.new("set_emission_rect_extents")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&extents)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &CPUParticles2D) get_emission_rect_extents() Vector2 {
     mut object_out := Vector2{}
@@ -521,7 +579,7 @@ pub fn (r &CPUParticles2D) get_emission_rect_extents() Vector2 {
     fnname := StringName.new("get_emission_rect_extents")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3341600327)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r CPUParticles2D) set_emission_points(array PackedVector2Array) {
@@ -530,7 +588,9 @@ pub fn (mut r CPUParticles2D) set_emission_points(array PackedVector2Array) {
     fnname := StringName.new("set_emission_points")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1509147220)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&array)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &CPUParticles2D) get_emission_points() PackedVector2Array {
     mut object_out := PackedVector2Array{}
@@ -539,7 +599,7 @@ pub fn (r &CPUParticles2D) get_emission_points() PackedVector2Array {
     fnname := StringName.new("get_emission_points")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2961356807)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r CPUParticles2D) set_emission_normals(array PackedVector2Array) {
@@ -548,7 +608,9 @@ pub fn (mut r CPUParticles2D) set_emission_normals(array PackedVector2Array) {
     fnname := StringName.new("set_emission_normals")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1509147220)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&array)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &CPUParticles2D) get_emission_normals() PackedVector2Array {
     mut object_out := PackedVector2Array{}
@@ -557,7 +619,7 @@ pub fn (r &CPUParticles2D) get_emission_normals() PackedVector2Array {
     fnname := StringName.new("get_emission_normals")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2961356807)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r CPUParticles2D) set_emission_colors(array PackedColorArray) {
@@ -566,7 +628,9 @@ pub fn (mut r CPUParticles2D) set_emission_colors(array PackedColorArray) {
     fnname := StringName.new("set_emission_colors")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3546319833)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&array)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &CPUParticles2D) get_emission_colors() PackedColorArray {
     mut object_out := PackedColorArray{}
@@ -575,7 +639,7 @@ pub fn (r &CPUParticles2D) get_emission_colors() PackedColorArray {
     fnname := StringName.new("get_emission_colors")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1392750486)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &CPUParticles2D) get_gravity() Vector2 {
@@ -585,7 +649,7 @@ pub fn (r &CPUParticles2D) get_gravity() Vector2 {
     fnname := StringName.new("get_gravity")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3341600327)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r CPUParticles2D) set_gravity(accel_vec Vector2) {
@@ -594,7 +658,9 @@ pub fn (mut r CPUParticles2D) set_gravity(accel_vec Vector2) {
     fnname := StringName.new("set_gravity")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&accel_vec)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r CPUParticles2D) get_split_scale() bool {
     mut object_out := false
@@ -603,7 +669,7 @@ pub fn (mut r CPUParticles2D) get_split_scale() bool {
     fnname := StringName.new("get_split_scale")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2240911060)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r CPUParticles2D) set_split_scale(split_scale bool) {
@@ -612,16 +678,18 @@ pub fn (mut r CPUParticles2D) set_split_scale(split_scale bool) {
     fnname := StringName.new("set_split_scale")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&split_scale)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &CPUParticles2D) get_scale_curve_x() Curve {
-    mut object_out := Curve(unsafe{nil})
+    mut object_out := Curve{}
     classname := StringName.new("CPUParticles2D")
     defer { classname.deinit() }
     fnname := StringName.new("get_scale_curve_x")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2460114913)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r CPUParticles2D) set_scale_curve_x(scale_curve Curve) {
@@ -630,16 +698,18 @@ pub fn (mut r CPUParticles2D) set_scale_curve_x(scale_curve Curve) {
     fnname := StringName.new("set_scale_curve_x")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 270443179)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = scale_curve.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &CPUParticles2D) get_scale_curve_y() Curve {
-    mut object_out := Curve(unsafe{nil})
+    mut object_out := Curve{}
     classname := StringName.new("CPUParticles2D")
     defer { classname.deinit() }
     fnname := StringName.new("get_scale_curve_y")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2460114913)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r CPUParticles2D) set_scale_curve_y(scale_curve Curve) {
@@ -648,7 +718,9 @@ pub fn (mut r CPUParticles2D) set_scale_curve_y(scale_curve Curve) {
     fnname := StringName.new("set_scale_curve_y")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 270443179)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = scale_curve.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r CPUParticles2D) convert_from_particles(particles Node) {
     classname := StringName.new("CPUParticles2D")
@@ -656,5 +728,7 @@ pub fn (mut r CPUParticles2D) convert_from_particles(particles Node) {
     fnname := StringName.new("convert_from_particles")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = particles.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }

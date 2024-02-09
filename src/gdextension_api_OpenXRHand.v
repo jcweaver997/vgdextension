@@ -12,7 +12,9 @@ pub enum OpenXRHandMotionRange {
     motion_range_max = 2
 }
 
-pub type OpenXRHand = voidptr
+pub struct OpenXRHand {
+    Node3D
+}
 
 pub fn (mut r OpenXRHand) set_hand(hand OpenXRHandHands) {
     classname := StringName.new("OpenXRHand")
@@ -20,7 +22,9 @@ pub fn (mut r OpenXRHand) set_hand(hand OpenXRHandHands) {
     fnname := StringName.new("set_hand")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1849328560)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&hand)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &OpenXRHand) get_hand() OpenXRHandHands {
     mut object_out := OpenXRHandHands.hand_left
@@ -29,7 +33,7 @@ pub fn (r &OpenXRHand) get_hand() OpenXRHandHands {
     fnname := StringName.new("get_hand")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2850644561)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r OpenXRHand) set_hand_skeleton(hand_skeleton NodePath) {
@@ -38,7 +42,9 @@ pub fn (mut r OpenXRHand) set_hand_skeleton(hand_skeleton NodePath) {
     fnname := StringName.new("set_hand_skeleton")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1348162250)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&hand_skeleton)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &OpenXRHand) get_hand_skeleton() NodePath {
     mut object_out := NodePath{}
@@ -47,7 +53,7 @@ pub fn (r &OpenXRHand) get_hand_skeleton() NodePath {
     fnname := StringName.new("get_hand_skeleton")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4075236667)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r OpenXRHand) set_motion_range(motion_range OpenXRHandMotionRange) {
@@ -56,7 +62,9 @@ pub fn (mut r OpenXRHand) set_motion_range(motion_range OpenXRHandMotionRange) {
     fnname := StringName.new("set_motion_range")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3326516003)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&motion_range)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &OpenXRHand) get_motion_range() OpenXRHandMotionRange {
     mut object_out := OpenXRHandMotionRange.motion_range_unobstructed
@@ -65,6 +73,6 @@ pub fn (r &OpenXRHand) get_motion_range() OpenXRHandMotionRange {
     fnname := StringName.new("get_motion_range")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2191822314)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

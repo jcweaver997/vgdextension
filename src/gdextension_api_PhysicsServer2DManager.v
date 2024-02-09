@@ -1,6 +1,17 @@
 module vgdextension
 
-pub type PhysicsServer2DManager = voidptr
+pub struct PhysicsServer2DManager {
+    Object
+}
+
+pub fn PhysicsServer2DManager.get_singleton() PhysicsServer2DManager {
+    sn := StringName.new("PhysicsServer2DManager")
+    defer {sn.deinit()}
+    o := PhysicsServer2DManager{
+        ptr: gdf.global_get_singleton(sn)
+    }
+    return o
+}
 
 pub fn (mut r PhysicsServer2DManager) register_server(name String, create_callback Callable) {
     classname := StringName.new("PhysicsServer2DManager")
@@ -8,7 +19,10 @@ pub fn (mut r PhysicsServer2DManager) register_server(name String, create_callba
     fnname := StringName.new("register_server")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2137474292)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&name)}
+    args[1] = unsafe{voidptr(&create_callback)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r PhysicsServer2DManager) set_default_server(name String, priority i32) {
     classname := StringName.new("PhysicsServer2DManager")
@@ -16,5 +30,8 @@ pub fn (mut r PhysicsServer2DManager) set_default_server(name String, priority i
     fnname := StringName.new("set_default_server")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2956805083)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&name)}
+    args[1] = unsafe{voidptr(&priority)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }

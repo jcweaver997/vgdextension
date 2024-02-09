@@ -159,7 +159,9 @@ pub enum TextServerStructuredTextParser {
     structured_text_custom = 6
 }
 
-pub type TextServer = voidptr
+pub struct TextServer {
+    RefCounted
+}
 
 pub fn (r &TextServer) has_feature(feature TextServerFeature) bool {
     mut object_out := false
@@ -170,7 +172,7 @@ pub fn (r &TextServer) has_feature(feature TextServerFeature) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3967367083)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&feature)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextServer) get_name() String {
@@ -180,17 +182,17 @@ pub fn (r &TextServer) get_name() String {
     fnname := StringName.new("get_name")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 201670096)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextServer) get_features() i32 {
-    mut object_out := i32(0)
+pub fn (r &TextServer) get_features() i64 {
+    mut object_out := i64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("get_features")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextServer) load_support_data(filename String) bool {
@@ -202,7 +204,7 @@ pub fn (mut r TextServer) load_support_data(filename String) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2323990056)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&filename)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextServer) get_support_data_filename() String {
@@ -212,7 +214,7 @@ pub fn (r &TextServer) get_support_data_filename() String {
     fnname := StringName.new("get_support_data_filename")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 201670096)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextServer) get_support_data_info() String {
@@ -222,7 +224,7 @@ pub fn (r &TextServer) get_support_data_info() String {
     fnname := StringName.new("get_support_data_info")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 201670096)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextServer) save_support_data(filename String) bool {
@@ -234,7 +236,7 @@ pub fn (r &TextServer) save_support_data(filename String) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3927539163)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&filename)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextServer) is_locale_right_to_left(locale String) bool {
@@ -246,11 +248,11 @@ pub fn (r &TextServer) is_locale_right_to_left(locale String) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3927539163)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&locale)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextServer) name_to_tag(name String) i32 {
-    mut object_out := i32(0)
+pub fn (r &TextServer) name_to_tag(name String) i64 {
+    mut object_out := i64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("name_to_tag")
@@ -258,10 +260,10 @@ pub fn (r &TextServer) name_to_tag(name String) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1321353865)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&name)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextServer) tag_to_name(tag i32) String {
+pub fn (r &TextServer) tag_to_name(tag i64) String {
     mut object_out := String{}
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
@@ -270,7 +272,7 @@ pub fn (r &TextServer) tag_to_name(tag i32) String {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 844755477)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&tag)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextServer) has(rid RID) bool {
@@ -282,7 +284,7 @@ pub fn (mut r TextServer) has(rid RID) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3521089500)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&rid)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextServer) free_rid(rid RID) {
@@ -291,7 +293,9 @@ pub fn (mut r TextServer) free_rid(rid RID) {
     fnname := StringName.new("free_rid")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&rid)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r TextServer) create_font() RID {
     mut object_out := RID{}
@@ -300,7 +304,7 @@ pub fn (mut r TextServer) create_font() RID {
     fnname := StringName.new("create_font")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 529393457)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextServer) font_set_data(font_rid RID, data PackedByteArray) {
@@ -309,18 +313,24 @@ pub fn (mut r TextServer) font_set_data(font_rid RID, data PackedByteArray) {
     fnname := StringName.new("font_set_data")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1355495400)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&data)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r TextServer) font_set_face_index(font_rid RID, face_index i32) {
+pub fn (mut r TextServer) font_set_face_index(font_rid RID, face_index i64) {
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_set_face_index")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&face_index)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &TextServer) font_get_face_index(font_rid RID) i32 {
-    mut object_out := i32(0)
+pub fn (r &TextServer) font_get_face_index(font_rid RID) i64 {
+    mut object_out := i64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_get_face_index")
@@ -328,11 +338,11 @@ pub fn (r &TextServer) font_get_face_index(font_rid RID) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2198884583)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextServer) font_get_face_count(font_rid RID) i32 {
-    mut object_out := i32(0)
+pub fn (r &TextServer) font_get_face_count(font_rid RID) i64 {
+    mut object_out := i64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_get_face_count")
@@ -340,7 +350,7 @@ pub fn (r &TextServer) font_get_face_count(font_rid RID) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2198884583)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextServer) font_set_style(font_rid RID, style TextServerFontStyle) {
@@ -349,10 +359,13 @@ pub fn (mut r TextServer) font_set_style(font_rid RID, style TextServerFontStyle
     fnname := StringName.new("font_set_style")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 898466325)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&style)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextServer) font_get_style(font_rid RID) TextServerFontStyle {
-    mut object_out := TextServerFontStyle(unsafe{nil})
+    mut object_out := TextServerFontStyle.font_bold
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_get_style")
@@ -360,7 +373,7 @@ pub fn (r &TextServer) font_get_style(font_rid RID) TextServerFontStyle {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3082502592)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextServer) font_set_name(font_rid RID, name String) {
@@ -369,7 +382,10 @@ pub fn (mut r TextServer) font_set_name(font_rid RID, name String) {
     fnname := StringName.new("font_set_name")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2726140452)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&name)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextServer) font_get_name(font_rid RID) String {
     mut object_out := String{}
@@ -380,7 +396,7 @@ pub fn (r &TextServer) font_get_name(font_rid RID) String {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 642473191)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextServer) font_get_ot_name_strings(font_rid RID) Dictionary {
@@ -392,7 +408,7 @@ pub fn (r &TextServer) font_get_ot_name_strings(font_rid RID) Dictionary {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1882737106)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextServer) font_set_style_name(font_rid RID, name String) {
@@ -401,7 +417,10 @@ pub fn (mut r TextServer) font_set_style_name(font_rid RID, name String) {
     fnname := StringName.new("font_set_style_name")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2726140452)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&name)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextServer) font_get_style_name(font_rid RID) String {
     mut object_out := String{}
@@ -412,19 +431,22 @@ pub fn (r &TextServer) font_get_style_name(font_rid RID) String {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 642473191)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r TextServer) font_set_weight(font_rid RID, weight i32) {
+pub fn (mut r TextServer) font_set_weight(font_rid RID, weight i64) {
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_set_weight")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&weight)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &TextServer) font_get_weight(font_rid RID) i32 {
-    mut object_out := i32(0)
+pub fn (r &TextServer) font_get_weight(font_rid RID) i64 {
+    mut object_out := i64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_get_weight")
@@ -432,19 +454,22 @@ pub fn (r &TextServer) font_get_weight(font_rid RID) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2198884583)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r TextServer) font_set_stretch(font_rid RID, weight i32) {
+pub fn (mut r TextServer) font_set_stretch(font_rid RID, weight i64) {
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_set_stretch")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&weight)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &TextServer) font_get_stretch(font_rid RID) i32 {
-    mut object_out := i32(0)
+pub fn (r &TextServer) font_get_stretch(font_rid RID) i64 {
+    mut object_out := i64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_get_stretch")
@@ -452,7 +477,7 @@ pub fn (r &TextServer) font_get_stretch(font_rid RID) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2198884583)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextServer) font_set_antialiasing(font_rid RID, antialiasing TextServerFontAntialiasing) {
@@ -461,7 +486,10 @@ pub fn (mut r TextServer) font_set_antialiasing(font_rid RID, antialiasing TextS
     fnname := StringName.new("font_set_antialiasing")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 958337235)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&antialiasing)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextServer) font_get_antialiasing(font_rid RID) TextServerFontAntialiasing {
     mut object_out := TextServerFontAntialiasing.font_antialiasing_none
@@ -472,7 +500,7 @@ pub fn (r &TextServer) font_get_antialiasing(font_rid RID) TextServerFontAntiali
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3389420495)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextServer) font_set_generate_mipmaps(font_rid RID, generate_mipmaps bool) {
@@ -481,7 +509,10 @@ pub fn (mut r TextServer) font_set_generate_mipmaps(font_rid RID, generate_mipma
     fnname := StringName.new("font_set_generate_mipmaps")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&generate_mipmaps)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextServer) font_get_generate_mipmaps(font_rid RID) bool {
     mut object_out := false
@@ -492,7 +523,7 @@ pub fn (r &TextServer) font_get_generate_mipmaps(font_rid RID) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4155700596)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextServer) font_set_multichannel_signed_distance_field(font_rid RID, msdf bool) {
@@ -501,7 +532,10 @@ pub fn (mut r TextServer) font_set_multichannel_signed_distance_field(font_rid R
     fnname := StringName.new("font_set_multichannel_signed_distance_field")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&msdf)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextServer) font_is_multichannel_signed_distance_field(font_rid RID) bool {
     mut object_out := false
@@ -512,19 +546,22 @@ pub fn (r &TextServer) font_is_multichannel_signed_distance_field(font_rid RID) 
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4155700596)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r TextServer) font_set_msdf_pixel_range(font_rid RID, msdf_pixel_range i32) {
+pub fn (mut r TextServer) font_set_msdf_pixel_range(font_rid RID, msdf_pixel_range i64) {
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_set_msdf_pixel_range")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&msdf_pixel_range)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &TextServer) font_get_msdf_pixel_range(font_rid RID) i32 {
-    mut object_out := i32(0)
+pub fn (r &TextServer) font_get_msdf_pixel_range(font_rid RID) i64 {
+    mut object_out := i64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_get_msdf_pixel_range")
@@ -532,19 +569,22 @@ pub fn (r &TextServer) font_get_msdf_pixel_range(font_rid RID) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2198884583)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r TextServer) font_set_msdf_size(font_rid RID, msdf_size i32) {
+pub fn (mut r TextServer) font_set_msdf_size(font_rid RID, msdf_size i64) {
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_set_msdf_size")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&msdf_size)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &TextServer) font_get_msdf_size(font_rid RID) i32 {
-    mut object_out := i32(0)
+pub fn (r &TextServer) font_get_msdf_size(font_rid RID) i64 {
+    mut object_out := i64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_get_msdf_size")
@@ -552,19 +592,22 @@ pub fn (r &TextServer) font_get_msdf_size(font_rid RID) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2198884583)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r TextServer) font_set_fixed_size(font_rid RID, fixed_size i32) {
+pub fn (mut r TextServer) font_set_fixed_size(font_rid RID, fixed_size i64) {
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_set_fixed_size")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&fixed_size)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &TextServer) font_get_fixed_size(font_rid RID) i32 {
-    mut object_out := i32(0)
+pub fn (r &TextServer) font_get_fixed_size(font_rid RID) i64 {
+    mut object_out := i64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_get_fixed_size")
@@ -572,7 +615,7 @@ pub fn (r &TextServer) font_get_fixed_size(font_rid RID) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2198884583)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextServer) font_set_allow_system_fallback(font_rid RID, allow_system_fallback bool) {
@@ -581,7 +624,10 @@ pub fn (mut r TextServer) font_set_allow_system_fallback(font_rid RID, allow_sys
     fnname := StringName.new("font_set_allow_system_fallback")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&allow_system_fallback)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextServer) font_is_allow_system_fallback(font_rid RID) bool {
     mut object_out := false
@@ -592,7 +638,7 @@ pub fn (r &TextServer) font_is_allow_system_fallback(font_rid RID) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4155700596)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextServer) font_set_force_autohinter(font_rid RID, force_autohinter bool) {
@@ -601,7 +647,10 @@ pub fn (mut r TextServer) font_set_force_autohinter(font_rid RID, force_autohint
     fnname := StringName.new("font_set_force_autohinter")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&force_autohinter)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextServer) font_is_force_autohinter(font_rid RID) bool {
     mut object_out := false
@@ -612,7 +661,7 @@ pub fn (r &TextServer) font_is_force_autohinter(font_rid RID) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4155700596)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextServer) font_set_hinting(font_rid RID, hinting TextServerHinting) {
@@ -621,7 +670,10 @@ pub fn (mut r TextServer) font_set_hinting(font_rid RID, hinting TextServerHinti
     fnname := StringName.new("font_set_hinting")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1520010864)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&hinting)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextServer) font_get_hinting(font_rid RID) TextServerHinting {
     mut object_out := TextServerHinting.hinting_none
@@ -632,7 +684,7 @@ pub fn (r &TextServer) font_get_hinting(font_rid RID) TextServerHinting {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3971592737)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextServer) font_set_subpixel_positioning(font_rid RID, subpixel_positioning TextServerSubpixelPositioning) {
@@ -641,7 +693,10 @@ pub fn (mut r TextServer) font_set_subpixel_positioning(font_rid RID, subpixel_p
     fnname := StringName.new("font_set_subpixel_positioning")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3830459669)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&subpixel_positioning)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextServer) font_get_subpixel_positioning(font_rid RID) TextServerSubpixelPositioning {
     mut object_out := TextServerSubpixelPositioning.subpixel_positioning_disabled
@@ -652,19 +707,22 @@ pub fn (r &TextServer) font_get_subpixel_positioning(font_rid RID) TextServerSub
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2752233671)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r TextServer) font_set_embolden(font_rid RID, strength f32) {
+pub fn (mut r TextServer) font_set_embolden(font_rid RID, strength f64) {
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_set_embolden")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&strength)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &TextServer) font_get_embolden(font_rid RID) f32 {
-    mut object_out := f32(0)
+pub fn (r &TextServer) font_get_embolden(font_rid RID) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_get_embolden")
@@ -672,7 +730,7 @@ pub fn (r &TextServer) font_get_embolden(font_rid RID) f32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 866169185)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextServer) font_set_transform(font_rid RID, transform Transform2D) {
@@ -681,7 +739,10 @@ pub fn (mut r TextServer) font_set_transform(font_rid RID, transform Transform2D
     fnname := StringName.new("font_set_transform")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1246044741)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&transform)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextServer) font_get_transform(font_rid RID) Transform2D {
     mut object_out := Transform2D{}
@@ -692,7 +753,7 @@ pub fn (r &TextServer) font_get_transform(font_rid RID) Transform2D {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 213527486)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextServer) font_set_variation_coordinates(font_rid RID, variation_coordinates Dictionary) {
@@ -701,7 +762,10 @@ pub fn (mut r TextServer) font_set_variation_coordinates(font_rid RID, variation
     fnname := StringName.new("font_set_variation_coordinates")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1217542888)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&variation_coordinates)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextServer) font_get_variation_coordinates(font_rid RID) Dictionary {
     mut object_out := Dictionary{}
@@ -712,19 +776,22 @@ pub fn (r &TextServer) font_get_variation_coordinates(font_rid RID) Dictionary {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1882737106)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r TextServer) font_set_oversampling(font_rid RID, oversampling f32) {
+pub fn (mut r TextServer) font_set_oversampling(font_rid RID, oversampling f64) {
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_set_oversampling")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&oversampling)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &TextServer) font_get_oversampling(font_rid RID) f32 {
-    mut object_out := f32(0)
+pub fn (r &TextServer) font_get_oversampling(font_rid RID) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_get_oversampling")
@@ -732,7 +799,7 @@ pub fn (r &TextServer) font_get_oversampling(font_rid RID) f32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 866169185)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextServer) font_get_size_cache_list(font_rid RID) Array {
@@ -744,7 +811,7 @@ pub fn (r &TextServer) font_get_size_cache_list(font_rid RID) Array {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2684255073)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextServer) font_clear_size_cache(font_rid RID) {
@@ -753,7 +820,9 @@ pub fn (mut r TextServer) font_clear_size_cache(font_rid RID) {
     fnname := StringName.new("font_clear_size_cache")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r TextServer) font_remove_size_cache(font_rid RID, size Vector2i) {
     classname := StringName.new("TextServer")
@@ -761,18 +830,25 @@ pub fn (mut r TextServer) font_remove_size_cache(font_rid RID, size Vector2i) {
     fnname := StringName.new("font_remove_size_cache")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2450610377)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&size)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r TextServer) font_set_ascent(font_rid RID, size i32, ascent f32) {
+pub fn (mut r TextServer) font_set_ascent(font_rid RID, size i64, ascent f64) {
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_set_ascent")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1892459533)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&size)}
+    args[2] = unsafe{voidptr(&ascent)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &TextServer) font_get_ascent(font_rid RID, size i32) f32 {
-    mut object_out := f32(0)
+pub fn (r &TextServer) font_get_ascent(font_rid RID, size i64) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_get_ascent")
@@ -781,19 +857,23 @@ pub fn (r &TextServer) font_get_ascent(font_rid RID, size i32) f32 {
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
     args[1] = unsafe{voidptr(&size)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r TextServer) font_set_descent(font_rid RID, size i32, descent f32) {
+pub fn (mut r TextServer) font_set_descent(font_rid RID, size i64, descent f64) {
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_set_descent")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1892459533)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&size)}
+    args[2] = unsafe{voidptr(&descent)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &TextServer) font_get_descent(font_rid RID, size i32) f32 {
-    mut object_out := f32(0)
+pub fn (r &TextServer) font_get_descent(font_rid RID, size i64) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_get_descent")
@@ -802,19 +882,23 @@ pub fn (r &TextServer) font_get_descent(font_rid RID, size i32) f32 {
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
     args[1] = unsafe{voidptr(&size)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r TextServer) font_set_underline_position(font_rid RID, size i32, underline_position f32) {
+pub fn (mut r TextServer) font_set_underline_position(font_rid RID, size i64, underline_position f64) {
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_set_underline_position")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1892459533)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&size)}
+    args[2] = unsafe{voidptr(&underline_position)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &TextServer) font_get_underline_position(font_rid RID, size i32) f32 {
-    mut object_out := f32(0)
+pub fn (r &TextServer) font_get_underline_position(font_rid RID, size i64) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_get_underline_position")
@@ -823,19 +907,23 @@ pub fn (r &TextServer) font_get_underline_position(font_rid RID, size i32) f32 {
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
     args[1] = unsafe{voidptr(&size)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r TextServer) font_set_underline_thickness(font_rid RID, size i32, underline_thickness f32) {
+pub fn (mut r TextServer) font_set_underline_thickness(font_rid RID, size i64, underline_thickness f64) {
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_set_underline_thickness")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1892459533)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&size)}
+    args[2] = unsafe{voidptr(&underline_thickness)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &TextServer) font_get_underline_thickness(font_rid RID, size i32) f32 {
-    mut object_out := f32(0)
+pub fn (r &TextServer) font_get_underline_thickness(font_rid RID, size i64) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_get_underline_thickness")
@@ -844,19 +932,23 @@ pub fn (r &TextServer) font_get_underline_thickness(font_rid RID, size i32) f32 
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
     args[1] = unsafe{voidptr(&size)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r TextServer) font_set_scale(font_rid RID, size i32, scale f32) {
+pub fn (mut r TextServer) font_set_scale(font_rid RID, size i64, scale f64) {
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_set_scale")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1892459533)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&size)}
+    args[2] = unsafe{voidptr(&scale)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &TextServer) font_get_scale(font_rid RID, size i32) f32 {
-    mut object_out := f32(0)
+pub fn (r &TextServer) font_get_scale(font_rid RID, size i64) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_get_scale")
@@ -865,11 +957,11 @@ pub fn (r &TextServer) font_get_scale(font_rid RID, size i32) f32 {
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
     args[1] = unsafe{voidptr(&size)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextServer) font_get_texture_count(font_rid RID, size Vector2i) i32 {
-    mut object_out := i32(0)
+pub fn (r &TextServer) font_get_texture_count(font_rid RID, size Vector2i) i64 {
+    mut object_out := i64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_get_texture_count")
@@ -878,7 +970,7 @@ pub fn (r &TextServer) font_get_texture_count(font_rid RID, size Vector2i) i32 {
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
     args[1] = unsafe{voidptr(&size)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextServer) font_clear_textures(font_rid RID, size Vector2i) {
@@ -887,26 +979,38 @@ pub fn (mut r TextServer) font_clear_textures(font_rid RID, size Vector2i) {
     fnname := StringName.new("font_clear_textures")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2450610377)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&size)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r TextServer) font_remove_texture(font_rid RID, size Vector2i, texture_index i32) {
+pub fn (mut r TextServer) font_remove_texture(font_rid RID, size Vector2i, texture_index i64) {
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_remove_texture")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3810512262)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&size)}
+    args[2] = unsafe{voidptr(&texture_index)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r TextServer) font_set_texture_image(font_rid RID, size Vector2i, texture_index i32, image Image) {
+pub fn (mut r TextServer) font_set_texture_image(font_rid RID, size Vector2i, texture_index i64, image Image) {
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_set_texture_image")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2354485091)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [4]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&size)}
+    args[2] = unsafe{voidptr(&texture_index)}
+    args[3] = image.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &TextServer) font_get_texture_image(font_rid RID, size Vector2i, texture_index i32) Image {
-    mut object_out := Image(unsafe{nil})
+pub fn (r &TextServer) font_get_texture_image(font_rid RID, size Vector2i, texture_index i64) Image {
+    mut object_out := Image{}
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_get_texture_image")
@@ -916,18 +1020,23 @@ pub fn (r &TextServer) font_get_texture_image(font_rid RID, size Vector2i, textu
     args[0] = unsafe{voidptr(&font_rid)}
     args[1] = unsafe{voidptr(&size)}
     args[2] = unsafe{voidptr(&texture_index)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r TextServer) font_set_texture_offsets(font_rid RID, size Vector2i, texture_index i32, offset PackedInt32Array) {
+pub fn (mut r TextServer) font_set_texture_offsets(font_rid RID, size Vector2i, texture_index i64, offset PackedInt32Array) {
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_set_texture_offsets")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3005398047)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [4]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&size)}
+    args[2] = unsafe{voidptr(&texture_index)}
+    args[3] = unsafe{voidptr(&offset)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &TextServer) font_get_texture_offsets(font_rid RID, size Vector2i, texture_index i32) PackedInt32Array {
+pub fn (r &TextServer) font_get_texture_offsets(font_rid RID, size Vector2i, texture_index i64) PackedInt32Array {
     mut object_out := PackedInt32Array{}
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
@@ -938,7 +1047,7 @@ pub fn (r &TextServer) font_get_texture_offsets(font_rid RID, size Vector2i, tex
     args[0] = unsafe{voidptr(&font_rid)}
     args[1] = unsafe{voidptr(&size)}
     args[2] = unsafe{voidptr(&texture_index)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextServer) font_get_glyph_list(font_rid RID, size Vector2i) PackedInt32Array {
@@ -951,7 +1060,7 @@ pub fn (r &TextServer) font_get_glyph_list(font_rid RID, size Vector2i) PackedIn
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
     args[1] = unsafe{voidptr(&size)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextServer) font_clear_glyphs(font_rid RID, size Vector2i) {
@@ -960,17 +1069,24 @@ pub fn (mut r TextServer) font_clear_glyphs(font_rid RID, size Vector2i) {
     fnname := StringName.new("font_clear_glyphs")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2450610377)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&size)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r TextServer) font_remove_glyph(font_rid RID, size Vector2i, glyph i32) {
+pub fn (mut r TextServer) font_remove_glyph(font_rid RID, size Vector2i, glyph i64) {
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_remove_glyph")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3810512262)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&size)}
+    args[2] = unsafe{voidptr(&glyph)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &TextServer) font_get_glyph_advance(font_rid RID, size i32, glyph i32) Vector2 {
+pub fn (r &TextServer) font_get_glyph_advance(font_rid RID, size i64, glyph i64) Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
@@ -981,18 +1097,23 @@ pub fn (r &TextServer) font_get_glyph_advance(font_rid RID, size i32, glyph i32)
     args[0] = unsafe{voidptr(&font_rid)}
     args[1] = unsafe{voidptr(&size)}
     args[2] = unsafe{voidptr(&glyph)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r TextServer) font_set_glyph_advance(font_rid RID, size i32, glyph i32, advance Vector2) {
+pub fn (mut r TextServer) font_set_glyph_advance(font_rid RID, size i64, glyph i64, advance Vector2) {
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_set_glyph_advance")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3219397315)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [4]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&size)}
+    args[2] = unsafe{voidptr(&glyph)}
+    args[3] = unsafe{voidptr(&advance)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &TextServer) font_get_glyph_offset(font_rid RID, size Vector2i, glyph i32) Vector2 {
+pub fn (r &TextServer) font_get_glyph_offset(font_rid RID, size Vector2i, glyph i64) Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
@@ -1003,18 +1124,23 @@ pub fn (r &TextServer) font_get_glyph_offset(font_rid RID, size Vector2i, glyph 
     args[0] = unsafe{voidptr(&font_rid)}
     args[1] = unsafe{voidptr(&size)}
     args[2] = unsafe{voidptr(&glyph)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r TextServer) font_set_glyph_offset(font_rid RID, size Vector2i, glyph i32, offset Vector2) {
+pub fn (mut r TextServer) font_set_glyph_offset(font_rid RID, size Vector2i, glyph i64, offset Vector2) {
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_set_glyph_offset")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1812632090)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [4]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&size)}
+    args[2] = unsafe{voidptr(&glyph)}
+    args[3] = unsafe{voidptr(&offset)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &TextServer) font_get_glyph_size(font_rid RID, size Vector2i, glyph i32) Vector2 {
+pub fn (r &TextServer) font_get_glyph_size(font_rid RID, size Vector2i, glyph i64) Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
@@ -1025,18 +1151,23 @@ pub fn (r &TextServer) font_get_glyph_size(font_rid RID, size Vector2i, glyph i3
     args[0] = unsafe{voidptr(&font_rid)}
     args[1] = unsafe{voidptr(&size)}
     args[2] = unsafe{voidptr(&glyph)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r TextServer) font_set_glyph_size(font_rid RID, size Vector2i, glyph i32, gl_size Vector2) {
+pub fn (mut r TextServer) font_set_glyph_size(font_rid RID, size Vector2i, glyph i64, gl_size Vector2) {
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_set_glyph_size")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1812632090)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [4]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&size)}
+    args[2] = unsafe{voidptr(&glyph)}
+    args[3] = unsafe{voidptr(&gl_size)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &TextServer) font_get_glyph_uv_rect(font_rid RID, size Vector2i, glyph i32) Rect2 {
+pub fn (r &TextServer) font_get_glyph_uv_rect(font_rid RID, size Vector2i, glyph i64) Rect2 {
     mut object_out := Rect2{}
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
@@ -1047,19 +1178,24 @@ pub fn (r &TextServer) font_get_glyph_uv_rect(font_rid RID, size Vector2i, glyph
     args[0] = unsafe{voidptr(&font_rid)}
     args[1] = unsafe{voidptr(&size)}
     args[2] = unsafe{voidptr(&glyph)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r TextServer) font_set_glyph_uv_rect(font_rid RID, size Vector2i, glyph i32, uv_rect Rect2) {
+pub fn (mut r TextServer) font_set_glyph_uv_rect(font_rid RID, size Vector2i, glyph i64, uv_rect Rect2) {
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_set_glyph_uv_rect")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1973324081)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [4]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&size)}
+    args[2] = unsafe{voidptr(&glyph)}
+    args[3] = unsafe{voidptr(&uv_rect)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &TextServer) font_get_glyph_texture_idx(font_rid RID, size Vector2i, glyph i32) i32 {
-    mut object_out := i32(0)
+pub fn (r &TextServer) font_get_glyph_texture_idx(font_rid RID, size Vector2i, glyph i64) i64 {
+    mut object_out := i64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_get_glyph_texture_idx")
@@ -1069,18 +1205,23 @@ pub fn (r &TextServer) font_get_glyph_texture_idx(font_rid RID, size Vector2i, g
     args[0] = unsafe{voidptr(&font_rid)}
     args[1] = unsafe{voidptr(&size)}
     args[2] = unsafe{voidptr(&glyph)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r TextServer) font_set_glyph_texture_idx(font_rid RID, size Vector2i, glyph i32, texture_idx i32) {
+pub fn (mut r TextServer) font_set_glyph_texture_idx(font_rid RID, size Vector2i, glyph i64, texture_idx i64) {
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_set_glyph_texture_idx")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4254580980)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [4]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&size)}
+    args[2] = unsafe{voidptr(&glyph)}
+    args[3] = unsafe{voidptr(&texture_idx)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &TextServer) font_get_glyph_texture_rid(font_rid RID, size Vector2i, glyph i32) RID {
+pub fn (r &TextServer) font_get_glyph_texture_rid(font_rid RID, size Vector2i, glyph i64) RID {
     mut object_out := RID{}
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
@@ -1091,10 +1232,10 @@ pub fn (r &TextServer) font_get_glyph_texture_rid(font_rid RID, size Vector2i, g
     args[0] = unsafe{voidptr(&font_rid)}
     args[1] = unsafe{voidptr(&size)}
     args[2] = unsafe{voidptr(&glyph)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextServer) font_get_glyph_texture_size(font_rid RID, size Vector2i, glyph i32) Vector2 {
+pub fn (r &TextServer) font_get_glyph_texture_size(font_rid RID, size Vector2i, glyph i64) Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
@@ -1105,10 +1246,10 @@ pub fn (r &TextServer) font_get_glyph_texture_size(font_rid RID, size Vector2i, 
     args[0] = unsafe{voidptr(&font_rid)}
     args[1] = unsafe{voidptr(&size)}
     args[2] = unsafe{voidptr(&glyph)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextServer) font_get_glyph_contours(font RID, size i32, index i32) Dictionary {
+pub fn (r &TextServer) font_get_glyph_contours(font RID, size i64, index i64) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
@@ -1119,10 +1260,10 @@ pub fn (r &TextServer) font_get_glyph_contours(font RID, size i32, index i32) Di
     args[0] = unsafe{voidptr(&font)}
     args[1] = unsafe{voidptr(&size)}
     args[2] = unsafe{voidptr(&index)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextServer) font_get_kerning_list(font_rid RID, size i32) Array {
+pub fn (r &TextServer) font_get_kerning_list(font_rid RID, size i64) Array {
     mut object_out := Array{}
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
@@ -1132,34 +1273,46 @@ pub fn (r &TextServer) font_get_kerning_list(font_rid RID, size i32) Array {
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
     args[1] = unsafe{voidptr(&size)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r TextServer) font_clear_kerning_map(font_rid RID, size i32) {
+pub fn (mut r TextServer) font_clear_kerning_map(font_rid RID, size i64) {
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_clear_kerning_map")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&size)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r TextServer) font_remove_kerning(font_rid RID, size i32, glyph_pair Vector2i) {
+pub fn (mut r TextServer) font_remove_kerning(font_rid RID, size i64, glyph_pair Vector2i) {
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_remove_kerning")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2141860016)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&size)}
+    args[2] = unsafe{voidptr(&glyph_pair)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r TextServer) font_set_kerning(font_rid RID, size i32, glyph_pair Vector2i, kerning Vector2) {
+pub fn (mut r TextServer) font_set_kerning(font_rid RID, size i64, glyph_pair Vector2i, kerning Vector2) {
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_set_kerning")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3630965883)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [4]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&size)}
+    args[2] = unsafe{voidptr(&glyph_pair)}
+    args[3] = unsafe{voidptr(&kerning)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &TextServer) font_get_kerning(font_rid RID, size i32, glyph_pair Vector2i) Vector2 {
+pub fn (r &TextServer) font_get_kerning(font_rid RID, size i64, glyph_pair Vector2i) Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
@@ -1170,11 +1323,11 @@ pub fn (r &TextServer) font_get_kerning(font_rid RID, size i32, glyph_pair Vecto
     args[0] = unsafe{voidptr(&font_rid)}
     args[1] = unsafe{voidptr(&size)}
     args[2] = unsafe{voidptr(&glyph_pair)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextServer) font_get_glyph_index(font_rid RID, size i32, gdchar i32, variation_selector i32) i32 {
-    mut object_out := i32(0)
+pub fn (r &TextServer) font_get_glyph_index(font_rid RID, size i64, gdchar i64, variation_selector i64) i64 {
+    mut object_out := i64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_get_glyph_index")
@@ -1185,11 +1338,11 @@ pub fn (r &TextServer) font_get_glyph_index(font_rid RID, size i32, gdchar i32, 
     args[1] = unsafe{voidptr(&size)}
     args[2] = unsafe{voidptr(&gdchar)}
     args[3] = unsafe{voidptr(&variation_selector)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextServer) font_get_char_from_glyph_index(font_rid RID, size i32, glyph_index i32) i32 {
-    mut object_out := i32(0)
+pub fn (r &TextServer) font_get_char_from_glyph_index(font_rid RID, size i64, glyph_index i64) i64 {
+    mut object_out := i64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_get_char_from_glyph_index")
@@ -1199,10 +1352,10 @@ pub fn (r &TextServer) font_get_char_from_glyph_index(font_rid RID, size i32, gl
     args[0] = unsafe{voidptr(&font_rid)}
     args[1] = unsafe{voidptr(&size)}
     args[2] = unsafe{voidptr(&glyph_index)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextServer) font_has_char(font_rid RID, gdchar i32) bool {
+pub fn (r &TextServer) font_has_char(font_rid RID, gdchar i64) bool {
     mut object_out := false
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
@@ -1212,7 +1365,7 @@ pub fn (r &TextServer) font_has_char(font_rid RID, gdchar i32) bool {
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
     args[1] = unsafe{voidptr(&gdchar)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextServer) font_get_supported_chars(font_rid RID) String {
@@ -1224,40 +1377,64 @@ pub fn (r &TextServer) font_get_supported_chars(font_rid RID) String {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 642473191)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r TextServer) font_render_range(font_rid RID, size Vector2i, start i32, end i32) {
+pub fn (mut r TextServer) font_render_range(font_rid RID, size Vector2i, start i64, end i64) {
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_render_range")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4254580980)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [4]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&size)}
+    args[2] = unsafe{voidptr(&start)}
+    args[3] = unsafe{voidptr(&end)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (mut r TextServer) font_render_glyph(font_rid RID, size Vector2i, index i32) {
+pub fn (mut r TextServer) font_render_glyph(font_rid RID, size Vector2i, index i64) {
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_render_glyph")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3810512262)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&size)}
+    args[2] = unsafe{voidptr(&index)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &TextServer) font_draw_glyph(font_rid RID, canvas RID, size i32, pos Vector2, index i32, color Color) {
+pub fn (r &TextServer) font_draw_glyph(font_rid RID, canvas RID, size i64, pos Vector2, index i64, color Color) {
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_draw_glyph")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1821196351)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [6]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&canvas)}
+    args[2] = unsafe{voidptr(&size)}
+    args[3] = unsafe{voidptr(&pos)}
+    args[4] = unsafe{voidptr(&index)}
+    args[5] = unsafe{voidptr(&color)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &TextServer) font_draw_glyph_outline(font_rid RID, canvas RID, size i32, outline_size i32, pos Vector2, index i32, color Color) {
+pub fn (r &TextServer) font_draw_glyph_outline(font_rid RID, canvas RID, size i64, outline_size i64, pos Vector2, index i64, color Color) {
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_draw_glyph_outline")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1124898203)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [7]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&canvas)}
+    args[2] = unsafe{voidptr(&size)}
+    args[3] = unsafe{voidptr(&outline_size)}
+    args[4] = unsafe{voidptr(&pos)}
+    args[5] = unsafe{voidptr(&index)}
+    args[6] = unsafe{voidptr(&color)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextServer) font_is_language_supported(font_rid RID, language String) bool {
     mut object_out := false
@@ -1269,7 +1446,7 @@ pub fn (r &TextServer) font_is_language_supported(font_rid RID, language String)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
     args[1] = unsafe{voidptr(&language)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextServer) font_set_language_support_override(font_rid RID, language String, supported bool) {
@@ -1278,7 +1455,11 @@ pub fn (mut r TextServer) font_set_language_support_override(font_rid RID, langu
     fnname := StringName.new("font_set_language_support_override")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2313957094)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&language)}
+    args[2] = unsafe{voidptr(&supported)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r TextServer) font_get_language_support_override(font_rid RID, language String) bool {
     mut object_out := false
@@ -1290,7 +1471,7 @@ pub fn (mut r TextServer) font_get_language_support_override(font_rid RID, langu
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
     args[1] = unsafe{voidptr(&language)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextServer) font_remove_language_support_override(font_rid RID, language String) {
@@ -1299,7 +1480,10 @@ pub fn (mut r TextServer) font_remove_language_support_override(font_rid RID, la
     fnname := StringName.new("font_remove_language_support_override")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2726140452)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&language)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r TextServer) font_get_language_support_overrides(font_rid RID) PackedStringArray {
     mut object_out := PackedStringArray{}
@@ -1310,7 +1494,7 @@ pub fn (mut r TextServer) font_get_language_support_overrides(font_rid RID) Pack
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2801473409)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextServer) font_is_script_supported(font_rid RID, script String) bool {
@@ -1323,7 +1507,7 @@ pub fn (r &TextServer) font_is_script_supported(font_rid RID, script String) boo
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
     args[1] = unsafe{voidptr(&script)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextServer) font_set_script_support_override(font_rid RID, script String, supported bool) {
@@ -1332,7 +1516,11 @@ pub fn (mut r TextServer) font_set_script_support_override(font_rid RID, script 
     fnname := StringName.new("font_set_script_support_override")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2313957094)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&script)}
+    args[2] = unsafe{voidptr(&supported)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r TextServer) font_get_script_support_override(font_rid RID, script String) bool {
     mut object_out := false
@@ -1344,7 +1532,7 @@ pub fn (mut r TextServer) font_get_script_support_override(font_rid RID, script 
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
     args[1] = unsafe{voidptr(&script)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextServer) font_remove_script_support_override(font_rid RID, script String) {
@@ -1353,7 +1541,10 @@ pub fn (mut r TextServer) font_remove_script_support_override(font_rid RID, scri
     fnname := StringName.new("font_remove_script_support_override")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2726140452)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&script)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r TextServer) font_get_script_support_overrides(font_rid RID) PackedStringArray {
     mut object_out := PackedStringArray{}
@@ -1364,7 +1555,7 @@ pub fn (mut r TextServer) font_get_script_support_overrides(font_rid RID) Packed
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2801473409)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextServer) font_set_opentype_feature_overrides(font_rid RID, overrides Dictionary) {
@@ -1373,7 +1564,10 @@ pub fn (mut r TextServer) font_set_opentype_feature_overrides(font_rid RID, over
     fnname := StringName.new("font_set_opentype_feature_overrides")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1217542888)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&font_rid)}
+    args[1] = unsafe{voidptr(&overrides)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextServer) font_get_opentype_feature_overrides(font_rid RID) Dictionary {
     mut object_out := Dictionary{}
@@ -1384,7 +1578,7 @@ pub fn (r &TextServer) font_get_opentype_feature_overrides(font_rid RID) Diction
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1882737106)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextServer) font_supported_feature_list(font_rid RID) Dictionary {
@@ -1396,7 +1590,7 @@ pub fn (r &TextServer) font_supported_feature_list(font_rid RID) Dictionary {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1882737106)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextServer) font_supported_variation_list(font_rid RID) Dictionary {
@@ -1408,28 +1602,30 @@ pub fn (r &TextServer) font_supported_variation_list(font_rid RID) Dictionary {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1882737106)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextServer) font_get_global_oversampling() f32 {
-    mut object_out := f32(0)
+pub fn (r &TextServer) font_get_global_oversampling() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_get_global_oversampling")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r TextServer) font_set_global_oversampling(oversampling f32) {
+pub fn (mut r TextServer) font_set_global_oversampling(oversampling f64) {
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("font_set_global_oversampling")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&oversampling)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &TextServer) get_hex_code_box_size(size i32, index i32) Vector2 {
+pub fn (r &TextServer) get_hex_code_box_size(size i64, index i64) Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
@@ -1439,16 +1635,22 @@ pub fn (r &TextServer) get_hex_code_box_size(size i32, index i32) Vector2 {
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&size)}
     args[1] = unsafe{voidptr(&index)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextServer) draw_hex_code_box(canvas RID, size i32, pos Vector2, index i32, color Color) {
+pub fn (r &TextServer) draw_hex_code_box(canvas RID, size i64, pos Vector2, index i64, color Color) {
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("draw_hex_code_box")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1602046441)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [5]voidptr{} }
+    args[0] = unsafe{voidptr(&canvas)}
+    args[1] = unsafe{voidptr(&size)}
+    args[2] = unsafe{voidptr(&pos)}
+    args[3] = unsafe{voidptr(&index)}
+    args[4] = unsafe{voidptr(&color)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r TextServer) create_shaped_text(direction TextServerDirection, orientation TextServerOrientation) RID {
     mut object_out := RID{}
@@ -1460,7 +1662,7 @@ pub fn (mut r TextServer) create_shaped_text(direction TextServerDirection, orie
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&direction)}
     args[1] = unsafe{voidptr(&orientation)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextServer) shaped_text_clear(rid RID) {
@@ -1469,7 +1671,9 @@ pub fn (mut r TextServer) shaped_text_clear(rid RID) {
     fnname := StringName.new("shaped_text_clear")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&rid)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r TextServer) shaped_text_set_direction(shaped RID, direction TextServerDirection) {
     classname := StringName.new("TextServer")
@@ -1477,7 +1681,10 @@ pub fn (mut r TextServer) shaped_text_set_direction(shaped RID, direction TextSe
     fnname := StringName.new("shaped_text_set_direction")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2616949700)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&shaped)}
+    args[1] = unsafe{voidptr(&direction)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextServer) shaped_text_get_direction(shaped RID) TextServerDirection {
     mut object_out := TextServerDirection.direction_auto
@@ -1488,7 +1695,7 @@ pub fn (r &TextServer) shaped_text_get_direction(shaped RID) TextServerDirection
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3065904362)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextServer) shaped_text_get_inferred_direction(shaped RID) TextServerDirection {
@@ -1500,7 +1707,7 @@ pub fn (r &TextServer) shaped_text_get_inferred_direction(shaped RID) TextServer
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3065904362)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextServer) shaped_text_set_bidi_override(shaped RID, override Array) {
@@ -1509,7 +1716,10 @@ pub fn (mut r TextServer) shaped_text_set_bidi_override(shaped RID, override Arr
     fnname := StringName.new("shaped_text_set_bidi_override")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 684822712)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&shaped)}
+    args[1] = unsafe{voidptr(&override)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r TextServer) shaped_text_set_custom_punctuation(shaped RID, punct String) {
     classname := StringName.new("TextServer")
@@ -1517,7 +1727,10 @@ pub fn (mut r TextServer) shaped_text_set_custom_punctuation(shaped RID, punct S
     fnname := StringName.new("shaped_text_set_custom_punctuation")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2726140452)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&shaped)}
+    args[1] = unsafe{voidptr(&punct)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextServer) shaped_text_get_custom_punctuation(shaped RID) String {
     mut object_out := String{}
@@ -1528,7 +1741,7 @@ pub fn (r &TextServer) shaped_text_get_custom_punctuation(shaped RID) String {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 642473191)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextServer) shaped_text_set_orientation(shaped RID, orientation TextServerOrientation) {
@@ -1537,7 +1750,10 @@ pub fn (mut r TextServer) shaped_text_set_orientation(shaped RID, orientation Te
     fnname := StringName.new("shaped_text_set_orientation")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 104095128)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&shaped)}
+    args[1] = unsafe{voidptr(&orientation)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextServer) shaped_text_get_orientation(shaped RID) TextServerOrientation {
     mut object_out := TextServerOrientation.orientation_horizontal
@@ -1548,7 +1764,7 @@ pub fn (r &TextServer) shaped_text_get_orientation(shaped RID) TextServerOrienta
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3142708106)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextServer) shaped_text_set_preserve_invalid(shaped RID, enabled bool) {
@@ -1557,7 +1773,10 @@ pub fn (mut r TextServer) shaped_text_set_preserve_invalid(shaped RID, enabled b
     fnname := StringName.new("shaped_text_set_preserve_invalid")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&shaped)}
+    args[1] = unsafe{voidptr(&enabled)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextServer) shaped_text_get_preserve_invalid(shaped RID) bool {
     mut object_out := false
@@ -1568,7 +1787,7 @@ pub fn (r &TextServer) shaped_text_get_preserve_invalid(shaped RID) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4155700596)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextServer) shaped_text_set_preserve_control(shaped RID, enabled bool) {
@@ -1577,7 +1796,10 @@ pub fn (mut r TextServer) shaped_text_set_preserve_control(shaped RID, enabled b
     fnname := StringName.new("shaped_text_set_preserve_control")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&shaped)}
+    args[1] = unsafe{voidptr(&enabled)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextServer) shaped_text_get_preserve_control(shaped RID) bool {
     mut object_out := false
@@ -1588,19 +1810,23 @@ pub fn (r &TextServer) shaped_text_get_preserve_control(shaped RID) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4155700596)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r TextServer) shaped_text_set_spacing(shaped RID, spacing TextServerSpacingType, value i32) {
+pub fn (mut r TextServer) shaped_text_set_spacing(shaped RID, spacing TextServerSpacingType, value i64) {
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("shaped_text_set_spacing")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1307259930)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&shaped)}
+    args[1] = unsafe{voidptr(&spacing)}
+    args[2] = unsafe{voidptr(&value)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &TextServer) shaped_text_get_spacing(shaped RID, spacing TextServerSpacingType) i32 {
-    mut object_out := i32(0)
+pub fn (r &TextServer) shaped_text_get_spacing(shaped RID, spacing TextServerSpacingType) i64 {
+    mut object_out := i64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("shaped_text_get_spacing")
@@ -1609,10 +1835,10 @@ pub fn (r &TextServer) shaped_text_get_spacing(shaped RID, spacing TextServerSpa
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
     args[1] = unsafe{voidptr(&spacing)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r TextServer) shaped_text_add_string(shaped RID, text String, fonts Array, size i32, opentype_features Dictionary, language String, meta Variant) bool {
+pub fn (mut r TextServer) shaped_text_add_string(shaped RID, text String, fonts Array, size i64, opentype_features Dictionary, language String, meta Variant) bool {
     mut object_out := false
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
@@ -1627,10 +1853,10 @@ pub fn (mut r TextServer) shaped_text_add_string(shaped RID, text String, fonts 
     args[4] = unsafe{voidptr(&opentype_features)}
     args[5] = unsafe{voidptr(&language)}
     args[6] = unsafe{voidptr(&meta)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r TextServer) shaped_text_add_object(shaped RID, key Variant, size Vector2, inline_align InlineAlignment, length i32, baseline f32) bool {
+pub fn (mut r TextServer) shaped_text_add_object(shaped RID, key Variant, size Vector2, inline_align InlineAlignment, length i64, baseline f64) bool {
     mut object_out := false
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
@@ -1644,10 +1870,10 @@ pub fn (mut r TextServer) shaped_text_add_object(shaped RID, key Variant, size V
     args[3] = unsafe{voidptr(&inline_align)}
     args[4] = unsafe{voidptr(&length)}
     args[5] = unsafe{voidptr(&baseline)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r TextServer) shaped_text_resize_object(shaped RID, key Variant, size Vector2, inline_align InlineAlignment, baseline f32) bool {
+pub fn (mut r TextServer) shaped_text_resize_object(shaped RID, key Variant, size Vector2, inline_align InlineAlignment, baseline f64) bool {
     mut object_out := false
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
@@ -1660,11 +1886,11 @@ pub fn (mut r TextServer) shaped_text_resize_object(shaped RID, key Variant, siz
     args[2] = unsafe{voidptr(&size)}
     args[3] = unsafe{voidptr(&inline_align)}
     args[4] = unsafe{voidptr(&baseline)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextServer) shaped_get_span_count(shaped RID) i32 {
-    mut object_out := i32(0)
+pub fn (r &TextServer) shaped_get_span_count(shaped RID) i64 {
+    mut object_out := i64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("shaped_get_span_count")
@@ -1672,10 +1898,10 @@ pub fn (r &TextServer) shaped_get_span_count(shaped RID) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2198884583)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextServer) shaped_get_span_meta(shaped RID, index i32) Variant {
+pub fn (r &TextServer) shaped_get_span_meta(shaped RID, index i64) Variant {
     mut object_out := Variant{}
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
@@ -1685,18 +1911,24 @@ pub fn (r &TextServer) shaped_get_span_meta(shaped RID, index i32) Variant {
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
     args[1] = unsafe{voidptr(&index)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r TextServer) shaped_set_span_update_font(shaped RID, index i32, fonts Array, size i32, opentype_features Dictionary) {
+pub fn (mut r TextServer) shaped_set_span_update_font(shaped RID, index i64, fonts Array, size i64, opentype_features Dictionary) {
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("shaped_set_span_update_font")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1578983057)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [5]voidptr{} }
+    args[0] = unsafe{voidptr(&shaped)}
+    args[1] = unsafe{voidptr(&index)}
+    args[2] = unsafe{voidptr(&fonts)}
+    args[3] = unsafe{voidptr(&size)}
+    args[4] = unsafe{voidptr(&opentype_features)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &TextServer) shaped_text_substr(shaped RID, start i32, length i32) RID {
+pub fn (r &TextServer) shaped_text_substr(shaped RID, start i64, length i64) RID {
     mut object_out := RID{}
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
@@ -1707,7 +1939,7 @@ pub fn (r &TextServer) shaped_text_substr(shaped RID, start i32, length i32) RID
     args[0] = unsafe{voidptr(&shaped)}
     args[1] = unsafe{voidptr(&start)}
     args[2] = unsafe{voidptr(&length)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextServer) shaped_text_get_parent(shaped RID) RID {
@@ -1719,11 +1951,11 @@ pub fn (r &TextServer) shaped_text_get_parent(shaped RID) RID {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3814569979)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r TextServer) shaped_text_fit_to_width(shaped RID, width f32, justification_flags TextServerJustificationFlag) f32 {
-    mut object_out := f32(0)
+pub fn (mut r TextServer) shaped_text_fit_to_width(shaped RID, width f64, justification_flags TextServerJustificationFlag) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("shaped_text_fit_to_width")
@@ -1733,11 +1965,11 @@ pub fn (mut r TextServer) shaped_text_fit_to_width(shaped RID, width f32, justif
     args[0] = unsafe{voidptr(&shaped)}
     args[1] = unsafe{voidptr(&width)}
     args[2] = unsafe{voidptr(&justification_flags)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r TextServer) shaped_text_tab_align(shaped RID, tab_stops PackedFloat32Array) f32 {
-    mut object_out := f32(0)
+pub fn (mut r TextServer) shaped_text_tab_align(shaped RID, tab_stops PackedFloat32Array) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("shaped_text_tab_align")
@@ -1746,7 +1978,7 @@ pub fn (mut r TextServer) shaped_text_tab_align(shaped RID, tab_stops PackedFloa
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
     args[1] = unsafe{voidptr(&tab_stops)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextServer) shaped_text_shape(shaped RID) bool {
@@ -1758,7 +1990,7 @@ pub fn (mut r TextServer) shaped_text_shape(shaped RID) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3521089500)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextServer) shaped_text_is_ready(shaped RID) bool {
@@ -1770,7 +2002,7 @@ pub fn (r &TextServer) shaped_text_is_ready(shaped RID) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4155700596)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextServer) shaped_text_has_visible_chars(shaped RID) bool {
@@ -1782,7 +2014,7 @@ pub fn (r &TextServer) shaped_text_has_visible_chars(shaped RID) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4155700596)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextServer) shaped_text_get_glyphs(shaped RID) Array {
@@ -1794,7 +2026,7 @@ pub fn (r &TextServer) shaped_text_get_glyphs(shaped RID) Array {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2684255073)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r TextServer) shaped_text_sort_logical(shaped RID) Array {
@@ -1806,11 +2038,11 @@ pub fn (mut r TextServer) shaped_text_sort_logical(shaped RID) Array {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2670461153)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextServer) shaped_text_get_glyph_count(shaped RID) i32 {
-    mut object_out := i32(0)
+pub fn (r &TextServer) shaped_text_get_glyph_count(shaped RID) i64 {
+    mut object_out := i64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("shaped_text_get_glyph_count")
@@ -1818,7 +2050,7 @@ pub fn (r &TextServer) shaped_text_get_glyph_count(shaped RID) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2198884583)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextServer) shaped_text_get_range(shaped RID) Vector2i {
@@ -1830,10 +2062,10 @@ pub fn (r &TextServer) shaped_text_get_range(shaped RID) Vector2i {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 733700038)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextServer) shaped_text_get_line_breaks_adv(shaped RID, width PackedFloat32Array, start i32, once bool, break_flags TextServerLineBreakFlag) PackedInt32Array {
+pub fn (r &TextServer) shaped_text_get_line_breaks_adv(shaped RID, width PackedFloat32Array, start i64, once bool, break_flags TextServerLineBreakFlag) PackedInt32Array {
     mut object_out := PackedInt32Array{}
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
@@ -1846,10 +2078,10 @@ pub fn (r &TextServer) shaped_text_get_line_breaks_adv(shaped RID, width PackedF
     args[2] = unsafe{voidptr(&start)}
     args[3] = unsafe{voidptr(&once)}
     args[4] = unsafe{voidptr(&break_flags)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextServer) shaped_text_get_line_breaks(shaped RID, width f32, start i32, break_flags TextServerLineBreakFlag) PackedInt32Array {
+pub fn (r &TextServer) shaped_text_get_line_breaks(shaped RID, width f64, start i64, break_flags TextServerLineBreakFlag) PackedInt32Array {
     mut object_out := PackedInt32Array{}
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
@@ -1861,7 +2093,7 @@ pub fn (r &TextServer) shaped_text_get_line_breaks(shaped RID, width f32, start 
     args[1] = unsafe{voidptr(&width)}
     args[2] = unsafe{voidptr(&start)}
     args[3] = unsafe{voidptr(&break_flags)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextServer) shaped_text_get_word_breaks(shaped RID, grapheme_flags TextServerGraphemeFlag) PackedInt32Array {
@@ -1874,11 +2106,11 @@ pub fn (r &TextServer) shaped_text_get_word_breaks(shaped RID, grapheme_flags Te
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
     args[1] = unsafe{voidptr(&grapheme_flags)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextServer) shaped_text_get_trim_pos(shaped RID) i32 {
-    mut object_out := i32(0)
+pub fn (r &TextServer) shaped_text_get_trim_pos(shaped RID) i64 {
+    mut object_out := i64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("shaped_text_get_trim_pos")
@@ -1886,11 +2118,11 @@ pub fn (r &TextServer) shaped_text_get_trim_pos(shaped RID) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2198884583)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextServer) shaped_text_get_ellipsis_pos(shaped RID) i32 {
-    mut object_out := i32(0)
+pub fn (r &TextServer) shaped_text_get_ellipsis_pos(shaped RID) i64 {
+    mut object_out := i64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("shaped_text_get_ellipsis_pos")
@@ -1898,7 +2130,7 @@ pub fn (r &TextServer) shaped_text_get_ellipsis_pos(shaped RID) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2198884583)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextServer) shaped_text_get_ellipsis_glyphs(shaped RID) Array {
@@ -1910,11 +2142,11 @@ pub fn (r &TextServer) shaped_text_get_ellipsis_glyphs(shaped RID) Array {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2684255073)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextServer) shaped_text_get_ellipsis_glyph_count(shaped RID) i32 {
-    mut object_out := i32(0)
+pub fn (r &TextServer) shaped_text_get_ellipsis_glyph_count(shaped RID) i64 {
+    mut object_out := i64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("shaped_text_get_ellipsis_glyph_count")
@@ -1922,16 +2154,20 @@ pub fn (r &TextServer) shaped_text_get_ellipsis_glyph_count(shaped RID) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2198884583)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r TextServer) shaped_text_overrun_trim_to_width(shaped RID, width f32, overrun_trim_flags TextServerTextOverrunFlag) {
+pub fn (mut r TextServer) shaped_text_overrun_trim_to_width(shaped RID, width f64, overrun_trim_flags TextServerTextOverrunFlag) {
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("shaped_text_overrun_trim_to_width")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1572579718)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&shaped)}
+    args[1] = unsafe{voidptr(&width)}
+    args[2] = unsafe{voidptr(&overrun_trim_flags)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &TextServer) shaped_text_get_objects(shaped RID) Array {
     mut object_out := Array{}
@@ -1942,7 +2178,7 @@ pub fn (r &TextServer) shaped_text_get_objects(shaped RID) Array {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2684255073)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextServer) shaped_text_get_object_rect(shaped RID, key Variant) Rect2 {
@@ -1955,7 +2191,7 @@ pub fn (r &TextServer) shaped_text_get_object_rect(shaped RID, key Variant) Rect
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
     args[1] = unsafe{voidptr(&key)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextServer) shaped_text_get_size(shaped RID) Vector2 {
@@ -1967,11 +2203,11 @@ pub fn (r &TextServer) shaped_text_get_size(shaped RID) Vector2 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2440833711)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextServer) shaped_text_get_ascent(shaped RID) f32 {
-    mut object_out := f32(0)
+pub fn (r &TextServer) shaped_text_get_ascent(shaped RID) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("shaped_text_get_ascent")
@@ -1979,11 +2215,11 @@ pub fn (r &TextServer) shaped_text_get_ascent(shaped RID) f32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 866169185)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextServer) shaped_text_get_descent(shaped RID) f32 {
-    mut object_out := f32(0)
+pub fn (r &TextServer) shaped_text_get_descent(shaped RID) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("shaped_text_get_descent")
@@ -1991,11 +2227,11 @@ pub fn (r &TextServer) shaped_text_get_descent(shaped RID) f32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 866169185)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextServer) shaped_text_get_width(shaped RID) f32 {
-    mut object_out := f32(0)
+pub fn (r &TextServer) shaped_text_get_width(shaped RID) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("shaped_text_get_width")
@@ -2003,11 +2239,11 @@ pub fn (r &TextServer) shaped_text_get_width(shaped RID) f32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 866169185)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextServer) shaped_text_get_underline_position(shaped RID) f32 {
-    mut object_out := f32(0)
+pub fn (r &TextServer) shaped_text_get_underline_position(shaped RID) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("shaped_text_get_underline_position")
@@ -2015,11 +2251,11 @@ pub fn (r &TextServer) shaped_text_get_underline_position(shaped RID) f32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 866169185)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextServer) shaped_text_get_underline_thickness(shaped RID) f32 {
-    mut object_out := f32(0)
+pub fn (r &TextServer) shaped_text_get_underline_thickness(shaped RID) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("shaped_text_get_underline_thickness")
@@ -2027,10 +2263,10 @@ pub fn (r &TextServer) shaped_text_get_underline_thickness(shaped RID) f32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 866169185)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextServer) shaped_text_get_carets(shaped RID, position i32) Dictionary {
+pub fn (r &TextServer) shaped_text_get_carets(shaped RID, position i64) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
@@ -2040,10 +2276,10 @@ pub fn (r &TextServer) shaped_text_get_carets(shaped RID, position i32) Dictiona
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
     args[1] = unsafe{voidptr(&position)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextServer) shaped_text_get_selection(shaped RID, start i32, end i32) PackedVector2Array {
+pub fn (r &TextServer) shaped_text_get_selection(shaped RID, start i64, end i64) PackedVector2Array {
     mut object_out := PackedVector2Array{}
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
@@ -2054,11 +2290,11 @@ pub fn (r &TextServer) shaped_text_get_selection(shaped RID, start i32, end i32)
     args[0] = unsafe{voidptr(&shaped)}
     args[1] = unsafe{voidptr(&start)}
     args[2] = unsafe{voidptr(&end)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextServer) shaped_text_hit_test_grapheme(shaped RID, coords f32) i32 {
-    mut object_out := i32(0)
+pub fn (r &TextServer) shaped_text_hit_test_grapheme(shaped RID, coords f64) i64 {
+    mut object_out := i64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("shaped_text_hit_test_grapheme")
@@ -2067,11 +2303,11 @@ pub fn (r &TextServer) shaped_text_hit_test_grapheme(shaped RID, coords f32) i32
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
     args[1] = unsafe{voidptr(&coords)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextServer) shaped_text_hit_test_position(shaped RID, coords f32) i32 {
-    mut object_out := i32(0)
+pub fn (r &TextServer) shaped_text_hit_test_position(shaped RID, coords f64) i64 {
+    mut object_out := i64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("shaped_text_hit_test_position")
@@ -2080,10 +2316,10 @@ pub fn (r &TextServer) shaped_text_hit_test_position(shaped RID, coords f32) i32
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
     args[1] = unsafe{voidptr(&coords)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextServer) shaped_text_get_grapheme_bounds(shaped RID, pos i32) Vector2 {
+pub fn (r &TextServer) shaped_text_get_grapheme_bounds(shaped RID, pos i64) Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
@@ -2093,11 +2329,11 @@ pub fn (r &TextServer) shaped_text_get_grapheme_bounds(shaped RID, pos i32) Vect
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
     args[1] = unsafe{voidptr(&pos)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextServer) shaped_text_next_grapheme_pos(shaped RID, pos i32) i32 {
-    mut object_out := i32(0)
+pub fn (r &TextServer) shaped_text_next_grapheme_pos(shaped RID, pos i64) i64 {
+    mut object_out := i64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("shaped_text_next_grapheme_pos")
@@ -2106,11 +2342,11 @@ pub fn (r &TextServer) shaped_text_next_grapheme_pos(shaped RID, pos i32) i32 {
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
     args[1] = unsafe{voidptr(&pos)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextServer) shaped_text_prev_grapheme_pos(shaped RID, pos i32) i32 {
-    mut object_out := i32(0)
+pub fn (r &TextServer) shaped_text_prev_grapheme_pos(shaped RID, pos i64) i64 {
+    mut object_out := i64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("shaped_text_prev_grapheme_pos")
@@ -2119,26 +2355,41 @@ pub fn (r &TextServer) shaped_text_prev_grapheme_pos(shaped RID, pos i32) i32 {
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
     args[1] = unsafe{voidptr(&pos)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextServer) shaped_text_draw(shaped RID, canvas RID, pos Vector2, clip_l f32, clip_r f32, color Color) {
+pub fn (r &TextServer) shaped_text_draw(shaped RID, canvas RID, pos Vector2, clip_l f64, clip_r f64, color Color) {
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("shaped_text_draw")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 70679950)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [6]voidptr{} }
+    args[0] = unsafe{voidptr(&shaped)}
+    args[1] = unsafe{voidptr(&canvas)}
+    args[2] = unsafe{voidptr(&pos)}
+    args[3] = unsafe{voidptr(&clip_l)}
+    args[4] = unsafe{voidptr(&clip_r)}
+    args[5] = unsafe{voidptr(&color)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &TextServer) shaped_text_draw_outline(shaped RID, canvas RID, pos Vector2, clip_l f32, clip_r f32, outline_size i32, color Color) {
+pub fn (r &TextServer) shaped_text_draw_outline(shaped RID, canvas RID, pos Vector2, clip_l f64, clip_r f64, outline_size i64, color Color) {
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("shaped_text_draw_outline")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2673671346)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [7]voidptr{} }
+    args[0] = unsafe{voidptr(&shaped)}
+    args[1] = unsafe{voidptr(&canvas)}
+    args[2] = unsafe{voidptr(&pos)}
+    args[3] = unsafe{voidptr(&clip_l)}
+    args[4] = unsafe{voidptr(&clip_r)}
+    args[5] = unsafe{voidptr(&outline_size)}
+    args[6] = unsafe{voidptr(&color)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &TextServer) shaped_text_get_dominant_direction_in_range(shaped RID, start i32, end i32) TextServerDirection {
+pub fn (r &TextServer) shaped_text_get_dominant_direction_in_range(shaped RID, start i64, end i64) TextServerDirection {
     mut object_out := TextServerDirection.direction_auto
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
@@ -2149,7 +2400,7 @@ pub fn (r &TextServer) shaped_text_get_dominant_direction_in_range(shaped RID, s
     args[0] = unsafe{voidptr(&shaped)}
     args[1] = unsafe{voidptr(&start)}
     args[2] = unsafe{voidptr(&end)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextServer) format_number(number String, language String) String {
@@ -2162,7 +2413,7 @@ pub fn (r &TextServer) format_number(number String, language String) String {
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&number)}
     args[1] = unsafe{voidptr(&language)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextServer) parse_number(number String, language String) String {
@@ -2175,7 +2426,7 @@ pub fn (r &TextServer) parse_number(number String, language String) String {
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&number)}
     args[1] = unsafe{voidptr(&language)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextServer) percent_sign(language String) String {
@@ -2187,10 +2438,10 @@ pub fn (r &TextServer) percent_sign(language String) String {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 993269549)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&language)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextServer) string_get_word_breaks(gdstring String, language String, chars_per_line i32) PackedInt32Array {
+pub fn (r &TextServer) string_get_word_breaks(gdstring String, language String, chars_per_line i64) PackedInt32Array {
     mut object_out := PackedInt32Array{}
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
@@ -2201,11 +2452,11 @@ pub fn (r &TextServer) string_get_word_breaks(gdstring String, language String, 
     args[0] = unsafe{voidptr(&gdstring)}
     args[1] = unsafe{voidptr(&language)}
     args[2] = unsafe{voidptr(&chars_per_line)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &TextServer) is_confusable(gdstring String, dict PackedStringArray) i32 {
-    mut object_out := i32(0)
+pub fn (r &TextServer) is_confusable(gdstring String, dict PackedStringArray) i64 {
+    mut object_out := i64(0)
     classname := StringName.new("TextServer")
     defer { classname.deinit() }
     fnname := StringName.new("is_confusable")
@@ -2214,7 +2465,7 @@ pub fn (r &TextServer) is_confusable(gdstring String, dict PackedStringArray) i3
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&gdstring)}
     args[1] = unsafe{voidptr(&dict)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextServer) spoof_check(gdstring String) bool {
@@ -2226,7 +2477,7 @@ pub fn (r &TextServer) spoof_check(gdstring String) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3927539163)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&gdstring)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextServer) strip_diacritics(gdstring String) String {
@@ -2238,7 +2489,7 @@ pub fn (r &TextServer) strip_diacritics(gdstring String) String {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3135753539)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&gdstring)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextServer) is_valid_identifier(gdstring String) bool {
@@ -2250,7 +2501,7 @@ pub fn (r &TextServer) is_valid_identifier(gdstring String) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3927539163)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&gdstring)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextServer) string_to_upper(gdstring String, language String) String {
@@ -2263,7 +2514,7 @@ pub fn (r &TextServer) string_to_upper(gdstring String, language String) String 
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&gdstring)}
     args[1] = unsafe{voidptr(&language)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextServer) string_to_lower(gdstring String, language String) String {
@@ -2276,7 +2527,7 @@ pub fn (r &TextServer) string_to_lower(gdstring String, language String) String 
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&gdstring)}
     args[1] = unsafe{voidptr(&language)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &TextServer) parse_structured_text(parser_type TextServerStructuredTextParser, gdargs Array, text String) Array {
@@ -2290,6 +2541,6 @@ pub fn (r &TextServer) parse_structured_text(parser_type TextServerStructuredTex
     args[0] = unsafe{voidptr(&parser_type)}
     args[1] = unsafe{voidptr(&gdargs)}
     args[2] = unsafe{voidptr(&text)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }

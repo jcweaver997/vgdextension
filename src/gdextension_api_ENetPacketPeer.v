@@ -30,7 +30,9 @@ pub enum ENetPacketPeerPeerStatistic {
     peer_packet_throttle_interval = 13
 }
 
-pub type ENetPacketPeer = voidptr
+pub struct ENetPacketPeer {
+    PacketPeer
+}
 
 pub fn (mut r ENetPacketPeer) peer_disconnect(data i32) {
     classname := StringName.new("ENetPacketPeer")
@@ -38,7 +40,9 @@ pub fn (mut r ENetPacketPeer) peer_disconnect(data i32) {
     fnname := StringName.new("peer_disconnect")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1995695955)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&data)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r ENetPacketPeer) peer_disconnect_later(data i32) {
     classname := StringName.new("ENetPacketPeer")
@@ -46,7 +50,9 @@ pub fn (mut r ENetPacketPeer) peer_disconnect_later(data i32) {
     fnname := StringName.new("peer_disconnect_later")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1995695955)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&data)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r ENetPacketPeer) peer_disconnect_now(data i32) {
     classname := StringName.new("ENetPacketPeer")
@@ -54,7 +60,9 @@ pub fn (mut r ENetPacketPeer) peer_disconnect_now(data i32) {
     fnname := StringName.new("peer_disconnect_now")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1995695955)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&data)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r ENetPacketPeer) ping() {
     classname := StringName.new("ENetPacketPeer")
@@ -62,7 +70,7 @@ pub fn (mut r ENetPacketPeer) ping() {
     fnname := StringName.new("ping")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
 pub fn (mut r ENetPacketPeer) ping_interval(ping_interval i32) {
     classname := StringName.new("ENetPacketPeer")
@@ -70,7 +78,9 @@ pub fn (mut r ENetPacketPeer) ping_interval(ping_interval i32) {
     fnname := StringName.new("ping_interval")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&ping_interval)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r ENetPacketPeer) reset() {
     classname := StringName.new("ENetPacketPeer")
@@ -78,7 +88,7 @@ pub fn (mut r ENetPacketPeer) reset() {
     fnname := StringName.new("reset")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
 pub fn (mut r ENetPacketPeer) send(channel i32, packet PackedByteArray, flags i32) GDError {
     mut object_out := GDError.ok
@@ -91,7 +101,7 @@ pub fn (mut r ENetPacketPeer) send(channel i32, packet PackedByteArray, flags i3
     args[0] = unsafe{voidptr(&channel)}
     args[1] = unsafe{voidptr(&packet)}
     args[2] = unsafe{voidptr(&flags)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ENetPacketPeer) throttle_configure(interval i32, acceleration i32, deceleration i32) {
@@ -100,7 +110,11 @@ pub fn (mut r ENetPacketPeer) throttle_configure(interval i32, acceleration i32,
     fnname := StringName.new("throttle_configure")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1649997291)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&interval)}
+    args[1] = unsafe{voidptr(&acceleration)}
+    args[2] = unsafe{voidptr(&deceleration)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r ENetPacketPeer) set_timeout(timeout i32, timeout_min i32, timeout_max i32) {
     classname := StringName.new("ENetPacketPeer")
@@ -108,7 +122,11 @@ pub fn (mut r ENetPacketPeer) set_timeout(timeout i32, timeout_min i32, timeout_
     fnname := StringName.new("set_timeout")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1649997291)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&timeout)}
+    args[1] = unsafe{voidptr(&timeout_min)}
+    args[2] = unsafe{voidptr(&timeout_max)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &ENetPacketPeer) get_remote_address() String {
     mut object_out := String{}
@@ -117,7 +135,7 @@ pub fn (r &ENetPacketPeer) get_remote_address() String {
     fnname := StringName.new("get_remote_address")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 201670096)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &ENetPacketPeer) get_remote_port() i32 {
@@ -127,11 +145,11 @@ pub fn (r &ENetPacketPeer) get_remote_port() i32 {
     fnname := StringName.new("get_remote_port")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r ENetPacketPeer) get_statistic(statistic ENetPacketPeerPeerStatistic) f32 {
-    mut object_out := f32(0)
+pub fn (mut r ENetPacketPeer) get_statistic(statistic ENetPacketPeerPeerStatistic) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("ENetPacketPeer")
     defer { classname.deinit() }
     fnname := StringName.new("get_statistic")
@@ -139,7 +157,7 @@ pub fn (mut r ENetPacketPeer) get_statistic(statistic ENetPacketPeerPeerStatisti
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1642578323)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&statistic)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &ENetPacketPeer) get_state() ENetPacketPeerPeerState {
@@ -149,7 +167,7 @@ pub fn (r &ENetPacketPeer) get_state() ENetPacketPeerPeerState {
     fnname := StringName.new("get_state")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 711068532)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &ENetPacketPeer) get_channels() i32 {
@@ -159,7 +177,7 @@ pub fn (r &ENetPacketPeer) get_channels() i32 {
     fnname := StringName.new("get_channels")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &ENetPacketPeer) is_active() bool {
@@ -169,6 +187,6 @@ pub fn (r &ENetPacketPeer) is_active() bool {
     fnname := StringName.new("is_active")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

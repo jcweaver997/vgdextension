@@ -1,6 +1,8 @@
 module vgdextension
 
-pub type Script = voidptr
+pub struct Script {
+    Resource
+}
 
 pub fn (r &Script) can_instantiate() bool {
     mut object_out := false
@@ -9,7 +11,7 @@ pub fn (r &Script) can_instantiate() bool {
     fnname := StringName.new("can_instantiate")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &Script) instance_has(base_object Object) bool {
@@ -20,8 +22,8 @@ pub fn (r &Script) instance_has(base_object Object) bool {
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 397768994)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&base_object)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    args[0] = base_object.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Script) has_source_code() bool {
@@ -31,7 +33,7 @@ pub fn (r &Script) has_source_code() bool {
     fnname := StringName.new("has_source_code")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &Script) get_source_code() String {
@@ -41,7 +43,7 @@ pub fn (r &Script) get_source_code() String {
     fnname := StringName.new("get_source_code")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 201670096)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Script) set_source_code(source String) {
@@ -50,7 +52,9 @@ pub fn (mut r Script) set_source_code(source String) {
     fnname := StringName.new("set_source_code")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&source)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r Script) reload(keep_state bool) GDError {
     mut object_out := GDError.ok
@@ -61,17 +65,17 @@ pub fn (mut r Script) reload(keep_state bool) GDError {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1633102583)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&keep_state)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Script) get_base_script() Script {
-    mut object_out := Script(unsafe{nil})
+    mut object_out := Script{}
     classname := StringName.new("Script")
     defer { classname.deinit() }
     fnname := StringName.new("get_base_script")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 278624046)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &Script) get_instance_base_type() StringName {
@@ -81,7 +85,7 @@ pub fn (r &Script) get_instance_base_type() StringName {
     fnname := StringName.new("get_instance_base_type")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2002593661)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &Script) has_script_signal(signal_name StringName) bool {
@@ -93,7 +97,7 @@ pub fn (r &Script) has_script_signal(signal_name StringName) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2619796661)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&signal_name)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Script) get_script_property_list() Array {
@@ -103,7 +107,7 @@ pub fn (mut r Script) get_script_property_list() Array {
     fnname := StringName.new("get_script_property_list")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2915620761)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Script) get_script_method_list() Array {
@@ -113,7 +117,7 @@ pub fn (mut r Script) get_script_method_list() Array {
     fnname := StringName.new("get_script_method_list")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2915620761)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Script) get_script_signal_list() Array {
@@ -123,7 +127,7 @@ pub fn (mut r Script) get_script_signal_list() Array {
     fnname := StringName.new("get_script_signal_list")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2915620761)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Script) get_script_constant_map() Dictionary {
@@ -133,7 +137,7 @@ pub fn (mut r Script) get_script_constant_map() Dictionary {
     fnname := StringName.new("get_script_constant_map")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2382534195)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Script) get_property_default_value(property StringName) Variant {
@@ -145,7 +149,7 @@ pub fn (mut r Script) get_property_default_value(property StringName) Variant {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2138907829)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&property)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Script) is_tool() bool {
@@ -155,6 +159,6 @@ pub fn (r &Script) is_tool() bool {
     fnname := StringName.new("is_tool")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

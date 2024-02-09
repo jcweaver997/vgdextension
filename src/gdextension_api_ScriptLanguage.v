@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type ScriptLanguage = voidptr
+pub struct ScriptLanguage {
+    Object
+}
 

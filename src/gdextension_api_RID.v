@@ -44,3 +44,8 @@ pub fn (v &RID) to_var() Variant {
     return output
 }
 
+pub fn (mut t RID) set_from_var(var &Variant) {
+    var_to_type := gdf.get_variant_to_type_constructor(GDExtensionVariantType.type_rid)
+    var_to_type(voidptr(&t), var)
+}
+

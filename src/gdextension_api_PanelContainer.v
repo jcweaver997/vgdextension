@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type PanelContainer = voidptr
+pub struct PanelContainer {
+    Container
+}
 

@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type GLTFDocumentExtensionTextureWebP = voidptr
+pub struct GLTFDocumentExtensionTextureWebP {
+    GLTFDocumentExtension
+}
 

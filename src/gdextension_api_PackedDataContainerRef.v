@@ -1,6 +1,8 @@
 module vgdextension
 
-pub type PackedDataContainerRef = voidptr
+pub struct PackedDataContainerRef {
+    RefCounted
+}
 
 pub fn (r &PackedDataContainerRef) size() i32 {
     mut object_out := i32(0)
@@ -9,6 +11,6 @@ pub fn (r &PackedDataContainerRef) size() i32 {
     fnname := StringName.new("size")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

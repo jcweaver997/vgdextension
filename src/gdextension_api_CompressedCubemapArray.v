@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type CompressedCubemapArray = voidptr
+pub struct CompressedCubemapArray {
+    CompressedTextureLayered
+}
 

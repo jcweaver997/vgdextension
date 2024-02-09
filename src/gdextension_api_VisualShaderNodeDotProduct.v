@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type VisualShaderNodeDotProduct = voidptr
+pub struct VisualShaderNodeDotProduct {
+    VisualShaderNode
+}
 

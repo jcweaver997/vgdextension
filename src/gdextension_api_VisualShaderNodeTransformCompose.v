@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type VisualShaderNodeTransformCompose = voidptr
+pub struct VisualShaderNodeTransformCompose {
+    VisualShaderNode
+}
 

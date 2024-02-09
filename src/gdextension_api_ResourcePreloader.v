@@ -1,6 +1,8 @@
 module vgdextension
 
-pub type ResourcePreloader = voidptr
+pub struct ResourcePreloader {
+    Node
+}
 
 pub fn (mut r ResourcePreloader) add_resource(name StringName, resource Resource) {
     classname := StringName.new("ResourcePreloader")
@@ -8,7 +10,10 @@ pub fn (mut r ResourcePreloader) add_resource(name StringName, resource Resource
     fnname := StringName.new("add_resource")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1168801743)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&name)}
+    args[1] = resource.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r ResourcePreloader) remove_resource(name StringName) {
     classname := StringName.new("ResourcePreloader")
@@ -16,7 +21,9 @@ pub fn (mut r ResourcePreloader) remove_resource(name StringName) {
     fnname := StringName.new("remove_resource")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&name)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r ResourcePreloader) rename_resource(name StringName, newname StringName) {
     classname := StringName.new("ResourcePreloader")
@@ -24,7 +31,10 @@ pub fn (mut r ResourcePreloader) rename_resource(name StringName, newname String
     fnname := StringName.new("rename_resource")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3740211285)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&name)}
+    args[1] = unsafe{voidptr(&newname)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &ResourcePreloader) has_resource(name StringName) bool {
     mut object_out := false
@@ -35,11 +45,11 @@ pub fn (r &ResourcePreloader) has_resource(name StringName) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2619796661)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&name)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &ResourcePreloader) get_resource(name StringName) Resource {
-    mut object_out := Resource(unsafe{nil})
+    mut object_out := Resource{}
     classname := StringName.new("ResourcePreloader")
     defer { classname.deinit() }
     fnname := StringName.new("get_resource")
@@ -47,7 +57,7 @@ pub fn (r &ResourcePreloader) get_resource(name StringName) Resource {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3742749261)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&name)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &ResourcePreloader) get_resource_list() PackedStringArray {
@@ -57,6 +67,6 @@ pub fn (r &ResourcePreloader) get_resource_list() PackedStringArray {
     fnname := StringName.new("get_resource_list")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1139954409)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

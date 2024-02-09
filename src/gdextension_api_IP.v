@@ -14,7 +14,18 @@ pub enum IPType {
     type_any = 3
 }
 
-pub type IP = voidptr
+pub struct IP {
+    Object
+}
+
+pub fn IP.get_singleton() IP {
+    sn := StringName.new("IP")
+    defer {sn.deinit()}
+    o := IP{
+        ptr: gdf.global_get_singleton(sn)
+    }
+    return o
+}
 
 pub fn (mut r IP) resolve_hostname(host String, ip_type IPType) String {
     mut object_out := String{}
@@ -26,7 +37,7 @@ pub fn (mut r IP) resolve_hostname(host String, ip_type IPType) String {
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&host)}
     args[1] = unsafe{voidptr(&ip_type)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r IP) resolve_hostname_addresses(host String, ip_type IPType) PackedStringArray {
@@ -39,7 +50,7 @@ pub fn (mut r IP) resolve_hostname_addresses(host String, ip_type IPType) Packed
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&host)}
     args[1] = unsafe{voidptr(&ip_type)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r IP) resolve_hostname_queue_item(host String, ip_type IPType) i32 {
@@ -52,7 +63,7 @@ pub fn (mut r IP) resolve_hostname_queue_item(host String, ip_type IPType) i32 {
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&host)}
     args[1] = unsafe{voidptr(&ip_type)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &IP) get_resolve_item_status(id i32) IPResolverStatus {
@@ -64,7 +75,7 @@ pub fn (r &IP) get_resolve_item_status(id i32) IPResolverStatus {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3812250196)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&id)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &IP) get_resolve_item_address(id i32) String {
@@ -76,7 +87,7 @@ pub fn (r &IP) get_resolve_item_address(id i32) String {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 844755477)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&id)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &IP) get_resolve_item_addresses(id i32) Array {
@@ -88,7 +99,7 @@ pub fn (r &IP) get_resolve_item_addresses(id i32) Array {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 663333327)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&id)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r IP) erase_resolve_item(id i32) {
@@ -97,7 +108,9 @@ pub fn (mut r IP) erase_resolve_item(id i32) {
     fnname := StringName.new("erase_resolve_item")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&id)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &IP) get_local_addresses() PackedStringArray {
     mut object_out := PackedStringArray{}
@@ -106,7 +119,7 @@ pub fn (r &IP) get_local_addresses() PackedStringArray {
     fnname := StringName.new("get_local_addresses")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1139954409)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &IP) get_local_interfaces() Array {
@@ -116,7 +129,7 @@ pub fn (r &IP) get_local_interfaces() Array {
     fnname := StringName.new("get_local_interfaces")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3995934104)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r IP) clear_cache(hostname String) {
@@ -125,5 +138,7 @@ pub fn (mut r IP) clear_cache(hostname String) {
     fnname := StringName.new("clear_cache")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3005725572)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&hostname)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }

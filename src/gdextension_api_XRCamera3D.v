@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type XRCamera3D = voidptr
+pub struct XRCamera3D {
+    Camera3D
+}
 

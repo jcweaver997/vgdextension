@@ -36,18 +36,23 @@ pub enum Generic6DOFJoint3DFlag {
     flag_max = 6
 }
 
-pub type Generic6DOFJoint3D = voidptr
+pub struct Generic6DOFJoint3D {
+    Joint3D
+}
 
-pub fn (mut r Generic6DOFJoint3D) set_param_x(param Generic6DOFJoint3DParam, value f32) {
+pub fn (mut r Generic6DOFJoint3D) set_param_x(param Generic6DOFJoint3DParam, value f64) {
     classname := StringName.new("Generic6DOFJoint3D")
     defer { classname.deinit() }
     fnname := StringName.new("set_param_x")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2018184242)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&param)}
+    args[1] = unsafe{voidptr(&value)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &Generic6DOFJoint3D) get_param_x(param Generic6DOFJoint3DParam) f32 {
-    mut object_out := f32(0)
+pub fn (r &Generic6DOFJoint3D) get_param_x(param Generic6DOFJoint3DParam) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("Generic6DOFJoint3D")
     defer { classname.deinit() }
     fnname := StringName.new("get_param_x")
@@ -55,19 +60,22 @@ pub fn (r &Generic6DOFJoint3D) get_param_x(param Generic6DOFJoint3DParam) f32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2599835054)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&param)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r Generic6DOFJoint3D) set_param_y(param Generic6DOFJoint3DParam, value f32) {
+pub fn (mut r Generic6DOFJoint3D) set_param_y(param Generic6DOFJoint3DParam, value f64) {
     classname := StringName.new("Generic6DOFJoint3D")
     defer { classname.deinit() }
     fnname := StringName.new("set_param_y")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2018184242)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&param)}
+    args[1] = unsafe{voidptr(&value)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &Generic6DOFJoint3D) get_param_y(param Generic6DOFJoint3DParam) f32 {
-    mut object_out := f32(0)
+pub fn (r &Generic6DOFJoint3D) get_param_y(param Generic6DOFJoint3DParam) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("Generic6DOFJoint3D")
     defer { classname.deinit() }
     fnname := StringName.new("get_param_y")
@@ -75,19 +83,22 @@ pub fn (r &Generic6DOFJoint3D) get_param_y(param Generic6DOFJoint3DParam) f32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2599835054)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&param)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r Generic6DOFJoint3D) set_param_z(param Generic6DOFJoint3DParam, value f32) {
+pub fn (mut r Generic6DOFJoint3D) set_param_z(param Generic6DOFJoint3DParam, value f64) {
     classname := StringName.new("Generic6DOFJoint3D")
     defer { classname.deinit() }
     fnname := StringName.new("set_param_z")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2018184242)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&param)}
+    args[1] = unsafe{voidptr(&value)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &Generic6DOFJoint3D) get_param_z(param Generic6DOFJoint3DParam) f32 {
-    mut object_out := f32(0)
+pub fn (r &Generic6DOFJoint3D) get_param_z(param Generic6DOFJoint3DParam) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("Generic6DOFJoint3D")
     defer { classname.deinit() }
     fnname := StringName.new("get_param_z")
@@ -95,7 +106,7 @@ pub fn (r &Generic6DOFJoint3D) get_param_z(param Generic6DOFJoint3DParam) f32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2599835054)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&param)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Generic6DOFJoint3D) set_flag_x(flag Generic6DOFJoint3DFlag, value bool) {
@@ -104,7 +115,10 @@ pub fn (mut r Generic6DOFJoint3D) set_flag_x(flag Generic6DOFJoint3DFlag, value 
     fnname := StringName.new("set_flag_x")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2451594564)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&flag)}
+    args[1] = unsafe{voidptr(&value)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Generic6DOFJoint3D) get_flag_x(flag Generic6DOFJoint3DFlag) bool {
     mut object_out := false
@@ -115,7 +129,7 @@ pub fn (r &Generic6DOFJoint3D) get_flag_x(flag Generic6DOFJoint3DFlag) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2122427807)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&flag)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Generic6DOFJoint3D) set_flag_y(flag Generic6DOFJoint3DFlag, value bool) {
@@ -124,7 +138,10 @@ pub fn (mut r Generic6DOFJoint3D) set_flag_y(flag Generic6DOFJoint3DFlag, value 
     fnname := StringName.new("set_flag_y")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2451594564)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&flag)}
+    args[1] = unsafe{voidptr(&value)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Generic6DOFJoint3D) get_flag_y(flag Generic6DOFJoint3DFlag) bool {
     mut object_out := false
@@ -135,7 +152,7 @@ pub fn (r &Generic6DOFJoint3D) get_flag_y(flag Generic6DOFJoint3DFlag) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2122427807)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&flag)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Generic6DOFJoint3D) set_flag_z(flag Generic6DOFJoint3DFlag, value bool) {
@@ -144,7 +161,10 @@ pub fn (mut r Generic6DOFJoint3D) set_flag_z(flag Generic6DOFJoint3DFlag, value 
     fnname := StringName.new("set_flag_z")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2451594564)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&flag)}
+    args[1] = unsafe{voidptr(&value)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Generic6DOFJoint3D) get_flag_z(flag Generic6DOFJoint3DFlag) bool {
     mut object_out := false
@@ -155,6 +175,6 @@ pub fn (r &Generic6DOFJoint3D) get_flag_z(flag Generic6DOFJoint3DFlag) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2122427807)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&flag)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }

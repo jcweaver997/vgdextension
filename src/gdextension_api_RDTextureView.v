@@ -1,6 +1,8 @@
 module vgdextension
 
-pub type RDTextureView = voidptr
+pub struct RDTextureView {
+    RefCounted
+}
 
 pub fn (mut r RDTextureView) set_format_override(p_member RenderingDeviceDataFormat) {
     classname := StringName.new("RDTextureView")
@@ -8,7 +10,9 @@ pub fn (mut r RDTextureView) set_format_override(p_member RenderingDeviceDataFor
     fnname := StringName.new("set_format_override")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 565531219)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&p_member)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &RDTextureView) get_format_override() RenderingDeviceDataFormat {
     mut object_out := RenderingDeviceDataFormat.data_format_r4g4_unorm_pack8
@@ -17,7 +21,7 @@ pub fn (r &RDTextureView) get_format_override() RenderingDeviceDataFormat {
     fnname := StringName.new("get_format_override")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2235804183)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r RDTextureView) set_swizzle_r(p_member RenderingDeviceTextureSwizzle) {
@@ -26,7 +30,9 @@ pub fn (mut r RDTextureView) set_swizzle_r(p_member RenderingDeviceTextureSwizzl
     fnname := StringName.new("set_swizzle_r")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3833362581)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&p_member)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &RDTextureView) get_swizzle_r() RenderingDeviceTextureSwizzle {
     mut object_out := RenderingDeviceTextureSwizzle.texture_swizzle_identity
@@ -35,7 +41,7 @@ pub fn (r &RDTextureView) get_swizzle_r() RenderingDeviceTextureSwizzle {
     fnname := StringName.new("get_swizzle_r")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4150792614)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r RDTextureView) set_swizzle_g(p_member RenderingDeviceTextureSwizzle) {
@@ -44,7 +50,9 @@ pub fn (mut r RDTextureView) set_swizzle_g(p_member RenderingDeviceTextureSwizzl
     fnname := StringName.new("set_swizzle_g")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3833362581)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&p_member)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &RDTextureView) get_swizzle_g() RenderingDeviceTextureSwizzle {
     mut object_out := RenderingDeviceTextureSwizzle.texture_swizzle_identity
@@ -53,7 +61,7 @@ pub fn (r &RDTextureView) get_swizzle_g() RenderingDeviceTextureSwizzle {
     fnname := StringName.new("get_swizzle_g")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4150792614)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r RDTextureView) set_swizzle_b(p_member RenderingDeviceTextureSwizzle) {
@@ -62,7 +70,9 @@ pub fn (mut r RDTextureView) set_swizzle_b(p_member RenderingDeviceTextureSwizzl
     fnname := StringName.new("set_swizzle_b")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3833362581)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&p_member)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &RDTextureView) get_swizzle_b() RenderingDeviceTextureSwizzle {
     mut object_out := RenderingDeviceTextureSwizzle.texture_swizzle_identity
@@ -71,7 +81,7 @@ pub fn (r &RDTextureView) get_swizzle_b() RenderingDeviceTextureSwizzle {
     fnname := StringName.new("get_swizzle_b")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4150792614)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r RDTextureView) set_swizzle_a(p_member RenderingDeviceTextureSwizzle) {
@@ -80,7 +90,9 @@ pub fn (mut r RDTextureView) set_swizzle_a(p_member RenderingDeviceTextureSwizzl
     fnname := StringName.new("set_swizzle_a")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3833362581)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&p_member)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &RDTextureView) get_swizzle_a() RenderingDeviceTextureSwizzle {
     mut object_out := RenderingDeviceTextureSwizzle.texture_swizzle_identity
@@ -89,6 +101,6 @@ pub fn (r &RDTextureView) get_swizzle_a() RenderingDeviceTextureSwizzle {
     fnname := StringName.new("get_swizzle_a")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4150792614)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

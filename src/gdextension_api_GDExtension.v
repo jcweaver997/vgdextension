@@ -7,7 +7,9 @@ pub enum GDExtensionInitializationLevel {
     initialization_level_editor = 3
 }
 
-pub type GDExtension = voidptr
+pub struct GDExtension {
+    Resource
+}
 
 pub fn (mut r GDExtension) open_library(path String, entry_symbol String) GDError {
     mut object_out := GDError.ok
@@ -19,7 +21,7 @@ pub fn (mut r GDExtension) open_library(path String, entry_symbol String) GDErro
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&path)}
     args[1] = unsafe{voidptr(&entry_symbol)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r GDExtension) close_library() {
@@ -28,7 +30,7 @@ pub fn (mut r GDExtension) close_library() {
     fnname := StringName.new("close_library")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
 pub fn (r &GDExtension) is_library_open() bool {
     mut object_out := false
@@ -37,7 +39,7 @@ pub fn (r &GDExtension) is_library_open() bool {
     fnname := StringName.new("is_library_open")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &GDExtension) get_minimum_library_initialization_level() GDExtensionInitializationLevel {
@@ -47,7 +49,7 @@ pub fn (r &GDExtension) get_minimum_library_initialization_level() GDExtensionIn
     fnname := StringName.new("get_minimum_library_initialization_level")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 964858755)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r GDExtension) initialize_library(level GDExtensionInitializationLevel) {
@@ -56,5 +58,7 @@ pub fn (mut r GDExtension) initialize_library(level GDExtensionInitializationLev
     fnname := StringName.new("initialize_library")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3409922941)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&level)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }

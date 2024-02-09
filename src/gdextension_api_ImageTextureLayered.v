@@ -1,6 +1,8 @@
 module vgdextension
 
-pub type ImageTextureLayered = voidptr
+pub struct ImageTextureLayered {
+    TextureLayered
+}
 
 pub fn (mut r ImageTextureLayered) create_from_images(images Array) GDError {
     mut object_out := GDError.ok
@@ -11,7 +13,7 @@ pub fn (mut r ImageTextureLayered) create_from_images(images Array) GDError {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2785773503)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&images)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ImageTextureLayered) update_layer(image Image, layer i32) {
@@ -20,5 +22,8 @@ pub fn (mut r ImageTextureLayered) update_layer(image Image, layer i32) {
     fnname := StringName.new("update_layer")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3331733361)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = image.ptr
+    args[1] = unsafe{voidptr(&layer)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }

@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type JavaScriptObject = voidptr
+pub struct JavaScriptObject {
+    RefCounted
+}
 

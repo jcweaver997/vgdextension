@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type ResourceFormatImporterSaver = voidptr
+pub struct ResourceFormatImporterSaver {
+    ResourceFormatSaver
+}
 

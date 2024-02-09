@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type SpotLight3D = voidptr
+pub struct SpotLight3D {
+    Light3D
+}
 

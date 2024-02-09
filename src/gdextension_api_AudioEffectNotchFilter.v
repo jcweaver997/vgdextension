@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type AudioEffectNotchFilter = voidptr
+pub struct AudioEffectNotchFilter {
+    AudioEffectFilter
+}
 

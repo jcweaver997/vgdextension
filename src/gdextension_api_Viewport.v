@@ -110,7 +110,9 @@ pub enum ViewportVRSMode {
     vrs_max = 3
 }
 
-pub type Viewport = voidptr
+pub struct Viewport {
+    Node
+}
 
 pub fn (mut r Viewport) set_world_2d(world_2d World2D) {
     classname := StringName.new("Viewport")
@@ -118,26 +120,28 @@ pub fn (mut r Viewport) set_world_2d(world_2d World2D) {
     fnname := StringName.new("set_world_2d")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2736080068)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = world_2d.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Viewport) get_world_2d() World2D {
-    mut object_out := World2D(unsafe{nil})
+    mut object_out := World2D{}
     classname := StringName.new("Viewport")
     defer { classname.deinit() }
     fnname := StringName.new("get_world_2d")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2339128592)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &Viewport) find_world_2d() World2D {
-    mut object_out := World2D(unsafe{nil})
+    mut object_out := World2D{}
     classname := StringName.new("Viewport")
     defer { classname.deinit() }
     fnname := StringName.new("find_world_2d")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2339128592)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) set_canvas_transform(xform Transform2D) {
@@ -146,7 +150,9 @@ pub fn (mut r Viewport) set_canvas_transform(xform Transform2D) {
     fnname := StringName.new("set_canvas_transform")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2761652528)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&xform)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Viewport) get_canvas_transform() Transform2D {
     mut object_out := Transform2D{}
@@ -155,7 +161,7 @@ pub fn (r &Viewport) get_canvas_transform() Transform2D {
     fnname := StringName.new("get_canvas_transform")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3814499831)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) set_global_canvas_transform(xform Transform2D) {
@@ -164,7 +170,9 @@ pub fn (mut r Viewport) set_global_canvas_transform(xform Transform2D) {
     fnname := StringName.new("set_global_canvas_transform")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2761652528)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&xform)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Viewport) get_global_canvas_transform() Transform2D {
     mut object_out := Transform2D{}
@@ -173,7 +181,7 @@ pub fn (r &Viewport) get_global_canvas_transform() Transform2D {
     fnname := StringName.new("get_global_canvas_transform")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3814499831)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &Viewport) get_final_transform() Transform2D {
@@ -183,7 +191,7 @@ pub fn (r &Viewport) get_final_transform() Transform2D {
     fnname := StringName.new("get_final_transform")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3814499831)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &Viewport) get_screen_transform() Transform2D {
@@ -193,7 +201,7 @@ pub fn (r &Viewport) get_screen_transform() Transform2D {
     fnname := StringName.new("get_screen_transform")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3814499831)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &Viewport) get_visible_rect() Rect2 {
@@ -203,7 +211,7 @@ pub fn (r &Viewport) get_visible_rect() Rect2 {
     fnname := StringName.new("get_visible_rect")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1639390495)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) set_transparent_background(enable bool) {
@@ -212,7 +220,9 @@ pub fn (mut r Viewport) set_transparent_background(enable bool) {
     fnname := StringName.new("set_transparent_background")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Viewport) has_transparent_background() bool {
     mut object_out := false
@@ -221,7 +231,7 @@ pub fn (r &Viewport) has_transparent_background() bool {
     fnname := StringName.new("has_transparent_background")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) set_msaa_2d(msaa ViewportMSAA) {
@@ -230,7 +240,9 @@ pub fn (mut r Viewport) set_msaa_2d(msaa ViewportMSAA) {
     fnname := StringName.new("set_msaa_2d")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3330258708)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&msaa)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Viewport) get_msaa_2d() ViewportMSAA {
     mut object_out := ViewportMSAA.msaa_disabled
@@ -239,7 +251,7 @@ pub fn (r &Viewport) get_msaa_2d() ViewportMSAA {
     fnname := StringName.new("get_msaa_2d")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2542055527)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) set_msaa_3d(msaa ViewportMSAA) {
@@ -248,7 +260,9 @@ pub fn (mut r Viewport) set_msaa_3d(msaa ViewportMSAA) {
     fnname := StringName.new("set_msaa_3d")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3330258708)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&msaa)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Viewport) get_msaa_3d() ViewportMSAA {
     mut object_out := ViewportMSAA.msaa_disabled
@@ -257,7 +271,7 @@ pub fn (r &Viewport) get_msaa_3d() ViewportMSAA {
     fnname := StringName.new("get_msaa_3d")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2542055527)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) set_screen_space_aa(screen_space_aa ViewportScreenSpaceAA) {
@@ -266,7 +280,9 @@ pub fn (mut r Viewport) set_screen_space_aa(screen_space_aa ViewportScreenSpaceA
     fnname := StringName.new("set_screen_space_aa")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3544169389)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&screen_space_aa)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Viewport) get_screen_space_aa() ViewportScreenSpaceAA {
     mut object_out := ViewportScreenSpaceAA.screen_space_aa_disabled
@@ -275,7 +291,7 @@ pub fn (r &Viewport) get_screen_space_aa() ViewportScreenSpaceAA {
     fnname := StringName.new("get_screen_space_aa")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1390814124)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) set_use_taa(enable bool) {
@@ -284,7 +300,9 @@ pub fn (mut r Viewport) set_use_taa(enable bool) {
     fnname := StringName.new("set_use_taa")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Viewport) is_using_taa() bool {
     mut object_out := false
@@ -293,7 +311,7 @@ pub fn (r &Viewport) is_using_taa() bool {
     fnname := StringName.new("is_using_taa")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) set_use_debanding(enable bool) {
@@ -302,7 +320,9 @@ pub fn (mut r Viewport) set_use_debanding(enable bool) {
     fnname := StringName.new("set_use_debanding")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Viewport) is_using_debanding() bool {
     mut object_out := false
@@ -311,7 +331,7 @@ pub fn (r &Viewport) is_using_debanding() bool {
     fnname := StringName.new("is_using_debanding")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) set_use_occlusion_culling(enable bool) {
@@ -320,7 +340,9 @@ pub fn (mut r Viewport) set_use_occlusion_culling(enable bool) {
     fnname := StringName.new("set_use_occlusion_culling")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Viewport) is_using_occlusion_culling() bool {
     mut object_out := false
@@ -329,7 +351,7 @@ pub fn (r &Viewport) is_using_occlusion_culling() bool {
     fnname := StringName.new("is_using_occlusion_culling")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) set_debug_draw(debug_draw ViewportDebugDraw) {
@@ -338,7 +360,9 @@ pub fn (mut r Viewport) set_debug_draw(debug_draw ViewportDebugDraw) {
     fnname := StringName.new("set_debug_draw")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1970246205)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&debug_draw)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Viewport) get_debug_draw() ViewportDebugDraw {
     mut object_out := ViewportDebugDraw.debug_draw_disabled
@@ -347,7 +371,7 @@ pub fn (r &Viewport) get_debug_draw() ViewportDebugDraw {
     fnname := StringName.new("get_debug_draw")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 579191299)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) get_render_info(type_name ViewportRenderInfoType, info ViewportRenderInfo) i32 {
@@ -360,17 +384,17 @@ pub fn (mut r Viewport) get_render_info(type_name ViewportRenderInfoType, info V
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&type_name)}
     args[1] = unsafe{voidptr(&info)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Viewport) get_texture() ViewportTexture {
-    mut object_out := ViewportTexture(unsafe{nil})
+    mut object_out := ViewportTexture{}
     classname := StringName.new("Viewport")
     defer { classname.deinit() }
     fnname := StringName.new("get_texture")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1746695840)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) set_physics_object_picking(enable bool) {
@@ -379,7 +403,9 @@ pub fn (mut r Viewport) set_physics_object_picking(enable bool) {
     fnname := StringName.new("set_physics_object_picking")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r Viewport) get_physics_object_picking() bool {
     mut object_out := false
@@ -388,7 +414,7 @@ pub fn (mut r Viewport) get_physics_object_picking() bool {
     fnname := StringName.new("get_physics_object_picking")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2240911060)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) set_physics_object_picking_sort(enable bool) {
@@ -397,7 +423,9 @@ pub fn (mut r Viewport) set_physics_object_picking_sort(enable bool) {
     fnname := StringName.new("set_physics_object_picking_sort")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r Viewport) get_physics_object_picking_sort() bool {
     mut object_out := false
@@ -406,7 +434,7 @@ pub fn (mut r Viewport) get_physics_object_picking_sort() bool {
     fnname := StringName.new("get_physics_object_picking_sort")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2240911060)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &Viewport) get_viewport_rid() RID {
@@ -416,7 +444,7 @@ pub fn (r &Viewport) get_viewport_rid() RID {
     fnname := StringName.new("get_viewport_rid")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2944877500)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) push_text_input(text String) {
@@ -425,7 +453,9 @@ pub fn (mut r Viewport) push_text_input(text String) {
     fnname := StringName.new("push_text_input")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&text)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r Viewport) push_input(event InputEvent, in_local_coords bool) {
     classname := StringName.new("Viewport")
@@ -433,7 +463,10 @@ pub fn (mut r Viewport) push_input(event InputEvent, in_local_coords bool) {
     fnname := StringName.new("push_input")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3644664830)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = event.ptr
+    args[1] = unsafe{voidptr(&in_local_coords)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r Viewport) push_unhandled_input(event InputEvent, in_local_coords bool) {
     classname := StringName.new("Viewport")
@@ -441,16 +474,19 @@ pub fn (mut r Viewport) push_unhandled_input(event InputEvent, in_local_coords b
     fnname := StringName.new("push_unhandled_input")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3644664830)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = event.ptr
+    args[1] = unsafe{voidptr(&in_local_coords)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Viewport) get_camera_2d() Camera2D {
-    mut object_out := Camera2D(unsafe{nil})
+    mut object_out := Camera2D{}
     classname := StringName.new("Viewport")
     defer { classname.deinit() }
     fnname := StringName.new("get_camera_2d")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3551466917)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) set_as_audio_listener_2d(enable bool) {
@@ -459,7 +495,9 @@ pub fn (mut r Viewport) set_as_audio_listener_2d(enable bool) {
     fnname := StringName.new("set_as_audio_listener_2d")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Viewport) is_audio_listener_2d() bool {
     mut object_out := false
@@ -468,7 +506,7 @@ pub fn (r &Viewport) is_audio_listener_2d() bool {
     fnname := StringName.new("is_audio_listener_2d")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &Viewport) get_mouse_position() Vector2 {
@@ -478,7 +516,7 @@ pub fn (r &Viewport) get_mouse_position() Vector2 {
     fnname := StringName.new("get_mouse_position")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3341600327)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) warp_mouse(position Vector2) {
@@ -487,7 +525,9 @@ pub fn (mut r Viewport) warp_mouse(position Vector2) {
     fnname := StringName.new("warp_mouse")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&position)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r Viewport) update_mouse_cursor_state() {
     classname := StringName.new("Viewport")
@@ -495,7 +535,7 @@ pub fn (mut r Viewport) update_mouse_cursor_state() {
     fnname := StringName.new("update_mouse_cursor_state")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
 pub fn (r &Viewport) gui_get_drag_data() Variant {
     mut object_out := Variant{}
@@ -504,7 +544,7 @@ pub fn (r &Viewport) gui_get_drag_data() Variant {
     fnname := StringName.new("gui_get_drag_data")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1214101251)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &Viewport) gui_is_dragging() bool {
@@ -514,7 +554,7 @@ pub fn (r &Viewport) gui_is_dragging() bool {
     fnname := StringName.new("gui_is_dragging")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &Viewport) gui_is_drag_successful() bool {
@@ -524,7 +564,7 @@ pub fn (r &Viewport) gui_is_drag_successful() bool {
     fnname := StringName.new("gui_is_drag_successful")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) gui_release_focus() {
@@ -533,16 +573,16 @@ pub fn (mut r Viewport) gui_release_focus() {
     fnname := StringName.new("gui_release_focus")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
 pub fn (r &Viewport) gui_get_focus_owner() Control {
-    mut object_out := Control(unsafe{nil})
+    mut object_out := Control{}
     classname := StringName.new("Viewport")
     defer { classname.deinit() }
     fnname := StringName.new("gui_get_focus_owner")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2783021301)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) set_disable_input(disable bool) {
@@ -551,7 +591,9 @@ pub fn (mut r Viewport) set_disable_input(disable bool) {
     fnname := StringName.new("set_disable_input")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&disable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Viewport) is_input_disabled() bool {
     mut object_out := false
@@ -560,7 +602,7 @@ pub fn (r &Viewport) is_input_disabled() bool {
     fnname := StringName.new("is_input_disabled")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) set_positional_shadow_atlas_size(size i32) {
@@ -569,7 +611,9 @@ pub fn (mut r Viewport) set_positional_shadow_atlas_size(size i32) {
     fnname := StringName.new("set_positional_shadow_atlas_size")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&size)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Viewport) get_positional_shadow_atlas_size() i32 {
     mut object_out := i32(0)
@@ -578,7 +622,7 @@ pub fn (r &Viewport) get_positional_shadow_atlas_size() i32 {
     fnname := StringName.new("get_positional_shadow_atlas_size")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) set_positional_shadow_atlas_16_bits(enable bool) {
@@ -587,7 +631,9 @@ pub fn (mut r Viewport) set_positional_shadow_atlas_16_bits(enable bool) {
     fnname := StringName.new("set_positional_shadow_atlas_16_bits")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Viewport) get_positional_shadow_atlas_16_bits() bool {
     mut object_out := false
@@ -596,7 +642,7 @@ pub fn (r &Viewport) get_positional_shadow_atlas_16_bits() bool {
     fnname := StringName.new("get_positional_shadow_atlas_16_bits")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) set_snap_controls_to_pixels(enabled bool) {
@@ -605,7 +651,9 @@ pub fn (mut r Viewport) set_snap_controls_to_pixels(enabled bool) {
     fnname := StringName.new("set_snap_controls_to_pixels")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enabled)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Viewport) is_snap_controls_to_pixels_enabled() bool {
     mut object_out := false
@@ -614,7 +662,7 @@ pub fn (r &Viewport) is_snap_controls_to_pixels_enabled() bool {
     fnname := StringName.new("is_snap_controls_to_pixels_enabled")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) set_snap_2d_transforms_to_pixel(enabled bool) {
@@ -623,7 +671,9 @@ pub fn (mut r Viewport) set_snap_2d_transforms_to_pixel(enabled bool) {
     fnname := StringName.new("set_snap_2d_transforms_to_pixel")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enabled)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Viewport) is_snap_2d_transforms_to_pixel_enabled() bool {
     mut object_out := false
@@ -632,7 +682,7 @@ pub fn (r &Viewport) is_snap_2d_transforms_to_pixel_enabled() bool {
     fnname := StringName.new("is_snap_2d_transforms_to_pixel_enabled")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) set_snap_2d_vertices_to_pixel(enabled bool) {
@@ -641,7 +691,9 @@ pub fn (mut r Viewport) set_snap_2d_vertices_to_pixel(enabled bool) {
     fnname := StringName.new("set_snap_2d_vertices_to_pixel")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enabled)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Viewport) is_snap_2d_vertices_to_pixel_enabled() bool {
     mut object_out := false
@@ -650,7 +702,7 @@ pub fn (r &Viewport) is_snap_2d_vertices_to_pixel_enabled() bool {
     fnname := StringName.new("is_snap_2d_vertices_to_pixel_enabled")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) set_positional_shadow_atlas_quadrant_subdiv(quadrant i32, subdiv ViewportPositionalShadowAtlasQuadrantSubdiv) {
@@ -659,7 +711,10 @@ pub fn (mut r Viewport) set_positional_shadow_atlas_quadrant_subdiv(quadrant i32
     fnname := StringName.new("set_positional_shadow_atlas_quadrant_subdiv")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2596956071)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&quadrant)}
+    args[1] = unsafe{voidptr(&subdiv)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Viewport) get_positional_shadow_atlas_quadrant_subdiv(quadrant i32) ViewportPositionalShadowAtlasQuadrantSubdiv {
     mut object_out := ViewportPositionalShadowAtlasQuadrantSubdiv.shadow_atlas_quadrant_subdiv_disabled
@@ -670,7 +725,7 @@ pub fn (r &Viewport) get_positional_shadow_atlas_quadrant_subdiv(quadrant i32) V
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2676778355)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&quadrant)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) set_input_as_handled() {
@@ -679,7 +734,7 @@ pub fn (mut r Viewport) set_input_as_handled() {
     fnname := StringName.new("set_input_as_handled")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
 pub fn (r &Viewport) is_input_handled() bool {
     mut object_out := false
@@ -688,7 +743,7 @@ pub fn (r &Viewport) is_input_handled() bool {
     fnname := StringName.new("is_input_handled")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) set_handle_input_locally(enable bool) {
@@ -697,7 +752,9 @@ pub fn (mut r Viewport) set_handle_input_locally(enable bool) {
     fnname := StringName.new("set_handle_input_locally")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Viewport) is_handling_input_locally() bool {
     mut object_out := false
@@ -706,7 +763,7 @@ pub fn (r &Viewport) is_handling_input_locally() bool {
     fnname := StringName.new("is_handling_input_locally")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) set_default_canvas_item_texture_filter(mode ViewportDefaultCanvasItemTextureFilter) {
@@ -715,7 +772,9 @@ pub fn (mut r Viewport) set_default_canvas_item_texture_filter(mode ViewportDefa
     fnname := StringName.new("set_default_canvas_item_texture_filter")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2815160100)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&mode)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Viewport) get_default_canvas_item_texture_filter() ViewportDefaultCanvasItemTextureFilter {
     mut object_out := ViewportDefaultCanvasItemTextureFilter.default_canvas_item_texture_filter_nearest
@@ -724,7 +783,7 @@ pub fn (r &Viewport) get_default_canvas_item_texture_filter() ViewportDefaultCan
     fnname := StringName.new("get_default_canvas_item_texture_filter")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 896601198)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) set_embedding_subwindows(enable bool) {
@@ -733,7 +792,9 @@ pub fn (mut r Viewport) set_embedding_subwindows(enable bool) {
     fnname := StringName.new("set_embedding_subwindows")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Viewport) is_embedding_subwindows() bool {
     mut object_out := false
@@ -742,36 +803,41 @@ pub fn (r &Viewport) is_embedding_subwindows() bool {
     fnname := StringName.new("is_embedding_subwindows")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r Viewport) set_canvas_cull_mask(mask i32) {
+pub fn (mut r Viewport) set_canvas_cull_mask(mask u32) {
     classname := StringName.new("Viewport")
     defer { classname.deinit() }
     fnname := StringName.new("set_canvas_cull_mask")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&mask)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &Viewport) get_canvas_cull_mask() i32 {
-    mut object_out := i32(0)
+pub fn (r &Viewport) get_canvas_cull_mask() u32 {
+    mut object_out := u32(0)
     classname := StringName.new("Viewport")
     defer { classname.deinit() }
     fnname := StringName.new("get_canvas_cull_mask")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r Viewport) set_canvas_cull_mask_bit(layer i32, enable bool) {
+pub fn (mut r Viewport) set_canvas_cull_mask_bit(layer u32, enable bool) {
     classname := StringName.new("Viewport")
     defer { classname.deinit() }
     fnname := StringName.new("set_canvas_cull_mask_bit")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&layer)}
+    args[1] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &Viewport) get_canvas_cull_mask_bit(layer i32) bool {
+pub fn (r &Viewport) get_canvas_cull_mask_bit(layer u32) bool {
     mut object_out := false
     classname := StringName.new("Viewport")
     defer { classname.deinit() }
@@ -780,7 +846,7 @@ pub fn (r &Viewport) get_canvas_cull_mask_bit(layer i32) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1116898809)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&layer)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) set_default_canvas_item_texture_repeat(mode ViewportDefaultCanvasItemTextureRepeat) {
@@ -789,7 +855,9 @@ pub fn (mut r Viewport) set_default_canvas_item_texture_repeat(mode ViewportDefa
     fnname := StringName.new("set_default_canvas_item_texture_repeat")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1658513413)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&mode)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Viewport) get_default_canvas_item_texture_repeat() ViewportDefaultCanvasItemTextureRepeat {
     mut object_out := ViewportDefaultCanvasItemTextureRepeat.default_canvas_item_texture_repeat_disabled
@@ -798,7 +866,7 @@ pub fn (r &Viewport) get_default_canvas_item_texture_repeat() ViewportDefaultCan
     fnname := StringName.new("get_default_canvas_item_texture_repeat")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4049774160)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) set_sdf_oversize(oversize ViewportSDFOversize) {
@@ -807,7 +875,9 @@ pub fn (mut r Viewport) set_sdf_oversize(oversize ViewportSDFOversize) {
     fnname := StringName.new("set_sdf_oversize")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2574159017)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&oversize)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Viewport) get_sdf_oversize() ViewportSDFOversize {
     mut object_out := ViewportSDFOversize.sdf_oversize_100_percent
@@ -816,7 +886,7 @@ pub fn (r &Viewport) get_sdf_oversize() ViewportSDFOversize {
     fnname := StringName.new("get_sdf_oversize")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2631427510)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) set_sdf_scale(scale ViewportSDFScale) {
@@ -825,7 +895,9 @@ pub fn (mut r Viewport) set_sdf_scale(scale ViewportSDFScale) {
     fnname := StringName.new("set_sdf_scale")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1402773951)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&scale)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Viewport) get_sdf_scale() ViewportSDFScale {
     mut object_out := ViewportSDFScale.sdf_scale_100_percent
@@ -834,25 +906,27 @@ pub fn (r &Viewport) get_sdf_scale() ViewportSDFScale {
     fnname := StringName.new("get_sdf_scale")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3162688184)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r Viewport) set_mesh_lod_threshold(pixels f32) {
+pub fn (mut r Viewport) set_mesh_lod_threshold(pixels f64) {
     classname := StringName.new("Viewport")
     defer { classname.deinit() }
     fnname := StringName.new("set_mesh_lod_threshold")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&pixels)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &Viewport) get_mesh_lod_threshold() f32 {
-    mut object_out := f32(0)
+pub fn (r &Viewport) get_mesh_lod_threshold() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("Viewport")
     defer { classname.deinit() }
     fnname := StringName.new("get_mesh_lod_threshold")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) set_world_3d(world_3d World3D) {
@@ -861,26 +935,28 @@ pub fn (mut r Viewport) set_world_3d(world_3d World3D) {
     fnname := StringName.new("set_world_3d")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1400875337)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = world_3d.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Viewport) get_world_3d() World3D {
-    mut object_out := World3D(unsafe{nil})
+    mut object_out := World3D{}
     classname := StringName.new("Viewport")
     defer { classname.deinit() }
     fnname := StringName.new("get_world_3d")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 317588385)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &Viewport) find_world_3d() World3D {
-    mut object_out := World3D(unsafe{nil})
+    mut object_out := World3D{}
     classname := StringName.new("Viewport")
     defer { classname.deinit() }
     fnname := StringName.new("find_world_3d")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 317588385)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) set_use_own_world_3d(enable bool) {
@@ -889,7 +965,9 @@ pub fn (mut r Viewport) set_use_own_world_3d(enable bool) {
     fnname := StringName.new("set_use_own_world_3d")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Viewport) is_using_own_world_3d() bool {
     mut object_out := false
@@ -898,17 +976,17 @@ pub fn (r &Viewport) is_using_own_world_3d() bool {
     fnname := StringName.new("is_using_own_world_3d")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &Viewport) get_camera_3d() Camera3D {
-    mut object_out := Camera3D(unsafe{nil})
+    mut object_out := Camera3D{}
     classname := StringName.new("Viewport")
     defer { classname.deinit() }
     fnname := StringName.new("get_camera_3d")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2285090890)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) set_as_audio_listener_3d(enable bool) {
@@ -917,7 +995,9 @@ pub fn (mut r Viewport) set_as_audio_listener_3d(enable bool) {
     fnname := StringName.new("set_as_audio_listener_3d")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Viewport) is_audio_listener_3d() bool {
     mut object_out := false
@@ -926,7 +1006,7 @@ pub fn (r &Viewport) is_audio_listener_3d() bool {
     fnname := StringName.new("is_audio_listener_3d")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) set_disable_3d(disable bool) {
@@ -935,7 +1015,9 @@ pub fn (mut r Viewport) set_disable_3d(disable bool) {
     fnname := StringName.new("set_disable_3d")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&disable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Viewport) is_3d_disabled() bool {
     mut object_out := false
@@ -944,7 +1026,7 @@ pub fn (r &Viewport) is_3d_disabled() bool {
     fnname := StringName.new("is_3d_disabled")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) set_use_xr(use bool) {
@@ -953,7 +1035,9 @@ pub fn (mut r Viewport) set_use_xr(use bool) {
     fnname := StringName.new("set_use_xr")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&use)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r Viewport) is_using_xr() bool {
     mut object_out := false
@@ -962,7 +1046,7 @@ pub fn (mut r Viewport) is_using_xr() bool {
     fnname := StringName.new("is_using_xr")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2240911060)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) set_scaling_3d_mode(scaling_3d_mode ViewportScaling3DMode) {
@@ -971,7 +1055,9 @@ pub fn (mut r Viewport) set_scaling_3d_mode(scaling_3d_mode ViewportScaling3DMod
     fnname := StringName.new("set_scaling_3d_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1531597597)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&scaling_3d_mode)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Viewport) get_scaling_3d_mode() ViewportScaling3DMode {
     mut object_out := ViewportScaling3DMode.scaling_3d_mode_bilinear
@@ -980,61 +1066,67 @@ pub fn (r &Viewport) get_scaling_3d_mode() ViewportScaling3DMode {
     fnname := StringName.new("get_scaling_3d_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2597660574)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r Viewport) set_scaling_3d_scale(scale f32) {
+pub fn (mut r Viewport) set_scaling_3d_scale(scale f64) {
     classname := StringName.new("Viewport")
     defer { classname.deinit() }
     fnname := StringName.new("set_scaling_3d_scale")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&scale)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &Viewport) get_scaling_3d_scale() f32 {
-    mut object_out := f32(0)
+pub fn (r &Viewport) get_scaling_3d_scale() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("Viewport")
     defer { classname.deinit() }
     fnname := StringName.new("get_scaling_3d_scale")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r Viewport) set_fsr_sharpness(fsr_sharpness f32) {
+pub fn (mut r Viewport) set_fsr_sharpness(fsr_sharpness f64) {
     classname := StringName.new("Viewport")
     defer { classname.deinit() }
     fnname := StringName.new("set_fsr_sharpness")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&fsr_sharpness)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &Viewport) get_fsr_sharpness() f32 {
-    mut object_out := f32(0)
+pub fn (r &Viewport) get_fsr_sharpness() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("Viewport")
     defer { classname.deinit() }
     fnname := StringName.new("get_fsr_sharpness")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r Viewport) set_texture_mipmap_bias(texture_mipmap_bias f32) {
+pub fn (mut r Viewport) set_texture_mipmap_bias(texture_mipmap_bias f64) {
     classname := StringName.new("Viewport")
     defer { classname.deinit() }
     fnname := StringName.new("set_texture_mipmap_bias")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&texture_mipmap_bias)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &Viewport) get_texture_mipmap_bias() f32 {
-    mut object_out := f32(0)
+pub fn (r &Viewport) get_texture_mipmap_bias() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("Viewport")
     defer { classname.deinit() }
     fnname := StringName.new("get_texture_mipmap_bias")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) set_vrs_mode(mode ViewportVRSMode) {
@@ -1043,7 +1135,9 @@ pub fn (mut r Viewport) set_vrs_mode(mode ViewportVRSMode) {
     fnname := StringName.new("set_vrs_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2749867817)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&mode)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Viewport) get_vrs_mode() ViewportVRSMode {
     mut object_out := ViewportVRSMode.vrs_disabled
@@ -1052,7 +1146,7 @@ pub fn (r &Viewport) get_vrs_mode() ViewportVRSMode {
     fnname := StringName.new("get_vrs_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 349660525)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Viewport) set_vrs_texture(texture Texture2D) {
@@ -1061,15 +1155,17 @@ pub fn (mut r Viewport) set_vrs_texture(texture Texture2D) {
     fnname := StringName.new("set_vrs_texture")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = texture.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Viewport) get_vrs_texture() Texture2D {
-    mut object_out := Texture2D(unsafe{nil})
+    mut object_out := Texture2D{}
     classname := StringName.new("Viewport")
     defer { classname.deinit() }
     fnname := StringName.new("get_vrs_texture")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3635182373)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

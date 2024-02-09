@@ -1,6 +1,8 @@
 module vgdextension
 
-pub type ImageTexture3D = voidptr
+pub struct ImageTexture3D {
+    Texture3D
+}
 
 pub fn (mut r ImageTexture3D) create(format ImageFormat, width i32, height i32, depth i32, use_mipmaps bool, data Array) GDError {
     mut object_out := GDError.ok
@@ -16,7 +18,7 @@ pub fn (mut r ImageTexture3D) create(format ImageFormat, width i32, height i32, 
     args[3] = unsafe{voidptr(&depth)}
     args[4] = unsafe{voidptr(&use_mipmaps)}
     args[5] = unsafe{voidptr(&data)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ImageTexture3D) update(data Array) {
@@ -25,5 +27,7 @@ pub fn (mut r ImageTexture3D) update(data Array) {
     fnname := StringName.new("update")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&data)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }

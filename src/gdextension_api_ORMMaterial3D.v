@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type ORMMaterial3D = voidptr
+pub struct ORMMaterial3D {
+    BaseMaterial3D
+}
 

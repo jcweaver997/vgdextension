@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type VScrollBar = voidptr
+pub struct VScrollBar {
+    ScrollBar
+}
 

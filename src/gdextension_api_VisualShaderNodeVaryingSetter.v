@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type VisualShaderNodeVaryingSetter = voidptr
+pub struct VisualShaderNodeVaryingSetter {
+    VisualShaderNodeVarying
+}
 

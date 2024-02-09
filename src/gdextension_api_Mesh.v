@@ -68,7 +68,14 @@ pub enum MeshBlendShapeMode {
     blend_shape_mode_relative = 1
 }
 
-pub type Mesh = voidptr
+pub struct Mesh {
+    Resource
+}
+
+pub interface IMeshGetSurfaceCount {
+    mut:
+    virt_get_surface_count() i32
+}
 
 pub fn (r &Mesh) uget_surface_count() i32 {
     mut object_out := i32(0)
@@ -77,9 +84,14 @@ pub fn (r &Mesh) uget_surface_count() i32 {
     fnname := StringName.new("_get_surface_count")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
+pub interface IMeshSurfaceGetArrayLen {
+    mut:
+    virt_surface_get_array_len(index i32) i32
+}
+
 pub fn (r &Mesh) usurface_get_array_len(index i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("Mesh")
@@ -89,9 +101,14 @@ pub fn (r &Mesh) usurface_get_array_len(index i32) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&index)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
+pub interface IMeshSurfaceGetArrayIndexLen {
+    mut:
+    virt_surface_get_array_index_len(index i32) i32
+}
+
 pub fn (r &Mesh) usurface_get_array_index_len(index i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("Mesh")
@@ -101,9 +118,14 @@ pub fn (r &Mesh) usurface_get_array_index_len(index i32) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&index)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
+pub interface IMeshSurfaceGetArrays {
+    mut:
+    virt_surface_get_arrays(index i32) Array
+}
+
 pub fn (r &Mesh) usurface_get_arrays(index i32) Array {
     mut object_out := Array{}
     classname := StringName.new("Mesh")
@@ -113,9 +135,14 @@ pub fn (r &Mesh) usurface_get_arrays(index i32) Array {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&index)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
+pub interface IMeshSurfaceGetBlendShapeArrays {
+    mut:
+    virt_surface_get_blend_shape_arrays(index i32) Array
+}
+
 pub fn (r &Mesh) usurface_get_blend_shape_arrays(index i32) Array {
     mut object_out := Array{}
     classname := StringName.new("Mesh")
@@ -125,9 +152,14 @@ pub fn (r &Mesh) usurface_get_blend_shape_arrays(index i32) Array {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&index)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
+pub interface IMeshSurfaceGetLods {
+    mut:
+    virt_surface_get_lods(index i32) Dictionary
+}
+
 pub fn (r &Mesh) usurface_get_lods(index i32) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("Mesh")
@@ -137,11 +169,16 @@ pub fn (r &Mesh) usurface_get_lods(index i32) Dictionary {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&index)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &Mesh) usurface_get_format(index i32) i32 {
-    mut object_out := i32(0)
+pub interface IMeshSurfaceGetFormat {
+    mut:
+    virt_surface_get_format(index i32) u32
+}
+
+pub fn (r &Mesh) usurface_get_format(index i32) u32 {
+    mut object_out := u32(0)
     classname := StringName.new("Mesh")
     defer { classname.deinit() }
     fnname := StringName.new("_surface_get_format")
@@ -149,11 +186,16 @@ pub fn (r &Mesh) usurface_get_format(index i32) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&index)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &Mesh) usurface_get_primitive_type(index i32) i32 {
-    mut object_out := i32(0)
+pub interface IMeshSurfaceGetPrimitiveType {
+    mut:
+    virt_surface_get_primitive_type(index i32) u32
+}
+
+pub fn (r &Mesh) usurface_get_primitive_type(index i32) u32 {
+    mut object_out := u32(0)
     classname := StringName.new("Mesh")
     defer { classname.deinit() }
     fnname := StringName.new("_surface_get_primitive_type")
@@ -161,19 +203,32 @@ pub fn (r &Mesh) usurface_get_primitive_type(index i32) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&index)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
+pub interface IMeshSurfaceSetMaterial {
+    mut:
+    virt_surface_set_material(index i32, material Material)
+}
+
 pub fn (mut r Mesh) usurface_set_material(index i32, material Material) {
     classname := StringName.new("Mesh")
     defer { classname.deinit() }
     fnname := StringName.new("_surface_set_material")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&index)}
+    args[1] = material.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
+pub interface IMeshSurfaceGetMaterial {
+    mut:
+    virt_surface_get_material(index i32) Material
+}
+
 pub fn (r &Mesh) usurface_get_material(index i32) Material {
-    mut object_out := Material(unsafe{nil})
+    mut object_out := Material{}
     classname := StringName.new("Mesh")
     defer { classname.deinit() }
     fnname := StringName.new("_surface_get_material")
@@ -181,9 +236,14 @@ pub fn (r &Mesh) usurface_get_material(index i32) Material {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&index)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
+pub interface IMeshGetBlendShapeCount {
+    mut:
+    virt_get_blend_shape_count() i32
+}
+
 pub fn (r &Mesh) uget_blend_shape_count() i32 {
     mut object_out := i32(0)
     classname := StringName.new("Mesh")
@@ -191,9 +251,14 @@ pub fn (r &Mesh) uget_blend_shape_count() i32 {
     fnname := StringName.new("_get_blend_shape_count")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
+pub interface IMeshGetBlendShapeName {
+    mut:
+    virt_get_blend_shape_name(index i32) StringName
+}
+
 pub fn (r &Mesh) uget_blend_shape_name(index i32) StringName {
     mut object_out := StringName{}
     classname := StringName.new("Mesh")
@@ -203,17 +268,30 @@ pub fn (r &Mesh) uget_blend_shape_name(index i32) StringName {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&index)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
+pub interface IMeshSetBlendShapeName {
+    mut:
+    virt_set_blend_shape_name(index i32, name StringName)
+}
+
 pub fn (mut r Mesh) uset_blend_shape_name(index i32, name StringName) {
     classname := StringName.new("Mesh")
     defer { classname.deinit() }
     fnname := StringName.new("_set_blend_shape_name")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&index)}
+    args[1] = unsafe{voidptr(&name)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
+pub interface IMeshGetAabb {
+    mut:
+    virt_get_aabb() AABB
+}
+
 pub fn (r &Mesh) uget_aabb() AABB {
     mut object_out := AABB{}
     classname := StringName.new("Mesh")
@@ -221,7 +299,7 @@ pub fn (r &Mesh) uget_aabb() AABB {
     fnname := StringName.new("_get_aabb")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Mesh) set_lightmap_size_hint(size Vector2i) {
@@ -230,7 +308,9 @@ pub fn (mut r Mesh) set_lightmap_size_hint(size Vector2i) {
     fnname := StringName.new("set_lightmap_size_hint")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1130785943)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&size)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Mesh) get_lightmap_size_hint() Vector2i {
     mut object_out := Vector2i{}
@@ -239,7 +319,7 @@ pub fn (r &Mesh) get_lightmap_size_hint() Vector2i {
     fnname := StringName.new("get_lightmap_size_hint")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3690982128)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &Mesh) get_aabb() AABB {
@@ -249,7 +329,7 @@ pub fn (r &Mesh) get_aabb() AABB {
     fnname := StringName.new("get_aabb")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1068685055)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &Mesh) get_faces() PackedVector3Array {
@@ -259,7 +339,7 @@ pub fn (r &Mesh) get_faces() PackedVector3Array {
     fnname := StringName.new("get_faces")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 497664490)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &Mesh) get_surface_count() i32 {
@@ -269,7 +349,7 @@ pub fn (r &Mesh) get_surface_count() i32 {
     fnname := StringName.new("get_surface_count")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &Mesh) surface_get_arrays(surf_idx i32) Array {
@@ -281,7 +361,7 @@ pub fn (r &Mesh) surface_get_arrays(surf_idx i32) Array {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 663333327)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&surf_idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Mesh) surface_get_blend_shape_arrays(surf_idx i32) Array {
@@ -293,7 +373,7 @@ pub fn (r &Mesh) surface_get_blend_shape_arrays(surf_idx i32) Array {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 663333327)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&surf_idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Mesh) surface_set_material(surf_idx i32, material Material) {
@@ -302,10 +382,13 @@ pub fn (mut r Mesh) surface_set_material(surf_idx i32, material Material) {
     fnname := StringName.new("surface_set_material")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3671737478)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&surf_idx)}
+    args[1] = material.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &Mesh) surface_get_material(surf_idx i32) Material {
-    mut object_out := Material(unsafe{nil})
+    mut object_out := Material{}
     classname := StringName.new("Mesh")
     defer { classname.deinit() }
     fnname := StringName.new("surface_get_material")
@@ -313,31 +396,31 @@ pub fn (r &Mesh) surface_get_material(surf_idx i32) Material {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2897466400)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&surf_idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Mesh) create_placeholder() Resource {
-    mut object_out := Resource(unsafe{nil})
+    mut object_out := Resource{}
     classname := StringName.new("Mesh")
     defer { classname.deinit() }
     fnname := StringName.new("create_placeholder")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 121922552)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &Mesh) create_trimesh_shape() ConcavePolygonShape3D {
-    mut object_out := ConcavePolygonShape3D(unsafe{nil})
+    mut object_out := ConcavePolygonShape3D{}
     classname := StringName.new("Mesh")
     defer { classname.deinit() }
     fnname := StringName.new("create_trimesh_shape")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4160111210)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &Mesh) create_convex_shape(clean bool, simplify bool) ConvexPolygonShape3D {
-    mut object_out := ConvexPolygonShape3D(unsafe{nil})
+    mut object_out := ConvexPolygonShape3D{}
     classname := StringName.new("Mesh")
     defer { classname.deinit() }
     fnname := StringName.new("create_convex_shape")
@@ -346,11 +429,11 @@ pub fn (r &Mesh) create_convex_shape(clean bool, simplify bool) ConvexPolygonSha
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&clean)}
     args[1] = unsafe{voidptr(&simplify)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (r &Mesh) create_outline(margin f32) Mesh {
-    mut object_out := Mesh(unsafe{nil})
+pub fn (r &Mesh) create_outline(margin f64) Mesh {
+    mut object_out := Mesh{}
     classname := StringName.new("Mesh")
     defer { classname.deinit() }
     fnname := StringName.new("create_outline")
@@ -358,16 +441,16 @@ pub fn (r &Mesh) create_outline(margin f32) Mesh {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1208642001)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&margin)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &Mesh) generate_triangle_mesh() TriangleMesh {
-    mut object_out := TriangleMesh(unsafe{nil})
+    mut object_out := TriangleMesh{}
     classname := StringName.new("Mesh")
     defer { classname.deinit() }
     fnname := StringName.new("generate_triangle_mesh")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3476533166)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

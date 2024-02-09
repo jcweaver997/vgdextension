@@ -1,6 +1,8 @@
 module vgdextension
 
-pub type SkeletonModification2DCCDIK = voidptr
+pub struct SkeletonModification2DCCDIK {
+    SkeletonModification2D
+}
 
 pub fn (mut r SkeletonModification2DCCDIK) set_target_node(target_nodepath NodePath) {
     classname := StringName.new("SkeletonModification2DCCDIK")
@@ -8,7 +10,9 @@ pub fn (mut r SkeletonModification2DCCDIK) set_target_node(target_nodepath NodeP
     fnname := StringName.new("set_target_node")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1348162250)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&target_nodepath)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SkeletonModification2DCCDIK) get_target_node() NodePath {
     mut object_out := NodePath{}
@@ -17,7 +21,7 @@ pub fn (r &SkeletonModification2DCCDIK) get_target_node() NodePath {
     fnname := StringName.new("get_target_node")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4075236667)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SkeletonModification2DCCDIK) set_tip_node(tip_nodepath NodePath) {
@@ -26,7 +30,9 @@ pub fn (mut r SkeletonModification2DCCDIK) set_tip_node(tip_nodepath NodePath) {
     fnname := StringName.new("set_tip_node")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1348162250)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&tip_nodepath)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SkeletonModification2DCCDIK) get_tip_node() NodePath {
     mut object_out := NodePath{}
@@ -35,7 +41,7 @@ pub fn (r &SkeletonModification2DCCDIK) get_tip_node() NodePath {
     fnname := StringName.new("get_tip_node")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4075236667)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SkeletonModification2DCCDIK) set_ccdik_data_chain_length(length i32) {
@@ -44,7 +50,9 @@ pub fn (mut r SkeletonModification2DCCDIK) set_ccdik_data_chain_length(length i3
     fnname := StringName.new("set_ccdik_data_chain_length")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&length)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r SkeletonModification2DCCDIK) get_ccdik_data_chain_length() i32 {
     mut object_out := i32(0)
@@ -53,7 +61,7 @@ pub fn (mut r SkeletonModification2DCCDIK) get_ccdik_data_chain_length() i32 {
     fnname := StringName.new("get_ccdik_data_chain_length")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2455072627)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SkeletonModification2DCCDIK) set_ccdik_joint_bone2d_node(joint_idx i32, bone2d_nodepath NodePath) {
@@ -62,7 +70,10 @@ pub fn (mut r SkeletonModification2DCCDIK) set_ccdik_joint_bone2d_node(joint_idx
     fnname := StringName.new("set_ccdik_joint_bone2d_node")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2761262315)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&joint_idx)}
+    args[1] = unsafe{voidptr(&bone2d_nodepath)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SkeletonModification2DCCDIK) get_ccdik_joint_bone2d_node(joint_idx i32) NodePath {
     mut object_out := NodePath{}
@@ -73,7 +84,7 @@ pub fn (r &SkeletonModification2DCCDIK) get_ccdik_joint_bone2d_node(joint_idx i3
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 408788394)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&joint_idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SkeletonModification2DCCDIK) set_ccdik_joint_bone_index(joint_idx i32, bone_idx i32) {
@@ -82,7 +93,10 @@ pub fn (mut r SkeletonModification2DCCDIK) set_ccdik_joint_bone_index(joint_idx 
     fnname := StringName.new("set_ccdik_joint_bone_index")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&joint_idx)}
+    args[1] = unsafe{voidptr(&bone_idx)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SkeletonModification2DCCDIK) get_ccdik_joint_bone_index(joint_idx i32) i32 {
     mut object_out := i32(0)
@@ -93,7 +107,7 @@ pub fn (r &SkeletonModification2DCCDIK) get_ccdik_joint_bone_index(joint_idx i32
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 923996154)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&joint_idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SkeletonModification2DCCDIK) set_ccdik_joint_rotate_from_joint(joint_idx i32, rotate_from_joint bool) {
@@ -102,7 +116,10 @@ pub fn (mut r SkeletonModification2DCCDIK) set_ccdik_joint_rotate_from_joint(joi
     fnname := StringName.new("set_ccdik_joint_rotate_from_joint")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&joint_idx)}
+    args[1] = unsafe{voidptr(&rotate_from_joint)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SkeletonModification2DCCDIK) get_ccdik_joint_rotate_from_joint(joint_idx i32) bool {
     mut object_out := false
@@ -113,7 +130,7 @@ pub fn (r &SkeletonModification2DCCDIK) get_ccdik_joint_rotate_from_joint(joint_
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1116898809)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&joint_idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SkeletonModification2DCCDIK) set_ccdik_joint_enable_constraint(joint_idx i32, enable_constraint bool) {
@@ -122,7 +139,10 @@ pub fn (mut r SkeletonModification2DCCDIK) set_ccdik_joint_enable_constraint(joi
     fnname := StringName.new("set_ccdik_joint_enable_constraint")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&joint_idx)}
+    args[1] = unsafe{voidptr(&enable_constraint)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SkeletonModification2DCCDIK) get_ccdik_joint_enable_constraint(joint_idx i32) bool {
     mut object_out := false
@@ -133,19 +153,22 @@ pub fn (r &SkeletonModification2DCCDIK) get_ccdik_joint_enable_constraint(joint_
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1116898809)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&joint_idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r SkeletonModification2DCCDIK) set_ccdik_joint_constraint_angle_min(joint_idx i32, angle_min f32) {
+pub fn (mut r SkeletonModification2DCCDIK) set_ccdik_joint_constraint_angle_min(joint_idx i32, angle_min f64) {
     classname := StringName.new("SkeletonModification2DCCDIK")
     defer { classname.deinit() }
     fnname := StringName.new("set_ccdik_joint_constraint_angle_min")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1602489585)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&joint_idx)}
+    args[1] = unsafe{voidptr(&angle_min)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &SkeletonModification2DCCDIK) get_ccdik_joint_constraint_angle_min(joint_idx i32) f32 {
-    mut object_out := f32(0)
+pub fn (r &SkeletonModification2DCCDIK) get_ccdik_joint_constraint_angle_min(joint_idx i32) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("SkeletonModification2DCCDIK")
     defer { classname.deinit() }
     fnname := StringName.new("get_ccdik_joint_constraint_angle_min")
@@ -153,19 +176,22 @@ pub fn (r &SkeletonModification2DCCDIK) get_ccdik_joint_constraint_angle_min(joi
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2339986948)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&joint_idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r SkeletonModification2DCCDIK) set_ccdik_joint_constraint_angle_max(joint_idx i32, angle_max f32) {
+pub fn (mut r SkeletonModification2DCCDIK) set_ccdik_joint_constraint_angle_max(joint_idx i32, angle_max f64) {
     classname := StringName.new("SkeletonModification2DCCDIK")
     defer { classname.deinit() }
     fnname := StringName.new("set_ccdik_joint_constraint_angle_max")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1602489585)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&joint_idx)}
+    args[1] = unsafe{voidptr(&angle_max)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &SkeletonModification2DCCDIK) get_ccdik_joint_constraint_angle_max(joint_idx i32) f32 {
-    mut object_out := f32(0)
+pub fn (r &SkeletonModification2DCCDIK) get_ccdik_joint_constraint_angle_max(joint_idx i32) f64 {
+    mut object_out := f64(0)
     classname := StringName.new("SkeletonModification2DCCDIK")
     defer { classname.deinit() }
     fnname := StringName.new("get_ccdik_joint_constraint_angle_max")
@@ -173,7 +199,7 @@ pub fn (r &SkeletonModification2DCCDIK) get_ccdik_joint_constraint_angle_max(joi
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2339986948)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&joint_idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r SkeletonModification2DCCDIK) set_ccdik_joint_constraint_angle_invert(joint_idx i32, invert bool) {
@@ -182,7 +208,10 @@ pub fn (mut r SkeletonModification2DCCDIK) set_ccdik_joint_constraint_angle_inve
     fnname := StringName.new("set_ccdik_joint_constraint_angle_invert")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&joint_idx)}
+    args[1] = unsafe{voidptr(&invert)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &SkeletonModification2DCCDIK) get_ccdik_joint_constraint_angle_invert(joint_idx i32) bool {
     mut object_out := false
@@ -193,6 +222,6 @@ pub fn (r &SkeletonModification2DCCDIK) get_ccdik_joint_constraint_angle_invert(
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1116898809)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&joint_idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }

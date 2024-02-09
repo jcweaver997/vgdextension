@@ -10,7 +10,9 @@ pub enum ItemListSelectMode {
     select_multi = 1
 }
 
-pub type ItemList = voidptr
+pub struct ItemList {
+    Control
+}
 
 pub fn (mut r ItemList) add_item(text String, icon Texture2D, selectable bool) i32 {
     mut object_out := i32(0)
@@ -21,9 +23,9 @@ pub fn (mut r ItemList) add_item(text String, icon Texture2D, selectable bool) i
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4086250691)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&text)}
-    args[1] = unsafe{voidptr(&icon)}
+    args[1] = icon.ptr
     args[2] = unsafe{voidptr(&selectable)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ItemList) add_icon_item(icon Texture2D, selectable bool) i32 {
@@ -34,9 +36,9 @@ pub fn (mut r ItemList) add_icon_item(icon Texture2D, selectable bool) i32 {
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3332687421)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&icon)}
+    args[0] = icon.ptr
     args[1] = unsafe{voidptr(&selectable)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ItemList) set_item_text(idx i32, text String) {
@@ -45,7 +47,10 @@ pub fn (mut r ItemList) set_item_text(idx i32, text String) {
     fnname := StringName.new("set_item_text")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&idx)}
+    args[1] = unsafe{voidptr(&text)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &ItemList) get_item_text(idx i32) String {
     mut object_out := String{}
@@ -56,7 +61,7 @@ pub fn (r &ItemList) get_item_text(idx i32) String {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 844755477)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ItemList) set_item_icon(idx i32, icon Texture2D) {
@@ -65,10 +70,13 @@ pub fn (mut r ItemList) set_item_icon(idx i32, icon Texture2D) {
     fnname := StringName.new("set_item_icon")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 666127730)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&idx)}
+    args[1] = icon.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &ItemList) get_item_icon(idx i32) Texture2D {
-    mut object_out := Texture2D(unsafe{nil})
+    mut object_out := Texture2D{}
     classname := StringName.new("ItemList")
     defer { classname.deinit() }
     fnname := StringName.new("get_item_icon")
@@ -76,7 +84,7 @@ pub fn (r &ItemList) get_item_icon(idx i32) Texture2D {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3536238170)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ItemList) set_item_text_direction(idx i32, direction ControlTextDirection) {
@@ -85,7 +93,10 @@ pub fn (mut r ItemList) set_item_text_direction(idx i32, direction ControlTextDi
     fnname := StringName.new("set_item_text_direction")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1707680378)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&idx)}
+    args[1] = unsafe{voidptr(&direction)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &ItemList) get_item_text_direction(idx i32) ControlTextDirection {
     mut object_out := ControlTextDirection.text_direction_inherited
@@ -96,7 +107,7 @@ pub fn (r &ItemList) get_item_text_direction(idx i32) ControlTextDirection {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4235602388)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ItemList) set_item_language(idx i32, language String) {
@@ -105,7 +116,10 @@ pub fn (mut r ItemList) set_item_language(idx i32, language String) {
     fnname := StringName.new("set_item_language")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&idx)}
+    args[1] = unsafe{voidptr(&language)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &ItemList) get_item_language(idx i32) String {
     mut object_out := String{}
@@ -116,7 +130,7 @@ pub fn (r &ItemList) get_item_language(idx i32) String {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 844755477)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ItemList) set_item_icon_transposed(idx i32, transposed bool) {
@@ -125,7 +139,10 @@ pub fn (mut r ItemList) set_item_icon_transposed(idx i32, transposed bool) {
     fnname := StringName.new("set_item_icon_transposed")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&idx)}
+    args[1] = unsafe{voidptr(&transposed)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &ItemList) is_item_icon_transposed(idx i32) bool {
     mut object_out := false
@@ -136,7 +153,7 @@ pub fn (r &ItemList) is_item_icon_transposed(idx i32) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1116898809)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ItemList) set_item_icon_region(idx i32, rect Rect2) {
@@ -145,7 +162,10 @@ pub fn (mut r ItemList) set_item_icon_region(idx i32, rect Rect2) {
     fnname := StringName.new("set_item_icon_region")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1356297692)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&idx)}
+    args[1] = unsafe{voidptr(&rect)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &ItemList) get_item_icon_region(idx i32) Rect2 {
     mut object_out := Rect2{}
@@ -156,7 +176,7 @@ pub fn (r &ItemList) get_item_icon_region(idx i32) Rect2 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3327874267)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ItemList) set_item_icon_modulate(idx i32, modulate Color) {
@@ -165,7 +185,10 @@ pub fn (mut r ItemList) set_item_icon_modulate(idx i32, modulate Color) {
     fnname := StringName.new("set_item_icon_modulate")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2878471219)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&idx)}
+    args[1] = unsafe{voidptr(&modulate)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &ItemList) get_item_icon_modulate(idx i32) Color {
     mut object_out := Color{}
@@ -176,7 +199,7 @@ pub fn (r &ItemList) get_item_icon_modulate(idx i32) Color {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3457211756)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ItemList) set_item_selectable(idx i32, selectable bool) {
@@ -185,7 +208,10 @@ pub fn (mut r ItemList) set_item_selectable(idx i32, selectable bool) {
     fnname := StringName.new("set_item_selectable")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&idx)}
+    args[1] = unsafe{voidptr(&selectable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &ItemList) is_item_selectable(idx i32) bool {
     mut object_out := false
@@ -196,7 +222,7 @@ pub fn (r &ItemList) is_item_selectable(idx i32) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1116898809)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ItemList) set_item_disabled(idx i32, disabled bool) {
@@ -205,7 +231,10 @@ pub fn (mut r ItemList) set_item_disabled(idx i32, disabled bool) {
     fnname := StringName.new("set_item_disabled")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&idx)}
+    args[1] = unsafe{voidptr(&disabled)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &ItemList) is_item_disabled(idx i32) bool {
     mut object_out := false
@@ -216,7 +245,7 @@ pub fn (r &ItemList) is_item_disabled(idx i32) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1116898809)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ItemList) set_item_metadata(idx i32, metadata Variant) {
@@ -225,7 +254,10 @@ pub fn (mut r ItemList) set_item_metadata(idx i32, metadata Variant) {
     fnname := StringName.new("set_item_metadata")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2152698145)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&idx)}
+    args[1] = unsafe{voidptr(&metadata)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &ItemList) get_item_metadata(idx i32) Variant {
     mut object_out := Variant{}
@@ -236,7 +268,7 @@ pub fn (r &ItemList) get_item_metadata(idx i32) Variant {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4227898402)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ItemList) set_item_custom_bg_color(idx i32, custom_bg_color Color) {
@@ -245,7 +277,10 @@ pub fn (mut r ItemList) set_item_custom_bg_color(idx i32, custom_bg_color Color)
     fnname := StringName.new("set_item_custom_bg_color")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2878471219)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&idx)}
+    args[1] = unsafe{voidptr(&custom_bg_color)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &ItemList) get_item_custom_bg_color(idx i32) Color {
     mut object_out := Color{}
@@ -256,7 +291,7 @@ pub fn (r &ItemList) get_item_custom_bg_color(idx i32) Color {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3457211756)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ItemList) set_item_custom_fg_color(idx i32, custom_fg_color Color) {
@@ -265,7 +300,10 @@ pub fn (mut r ItemList) set_item_custom_fg_color(idx i32, custom_fg_color Color)
     fnname := StringName.new("set_item_custom_fg_color")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2878471219)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&idx)}
+    args[1] = unsafe{voidptr(&custom_fg_color)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &ItemList) get_item_custom_fg_color(idx i32) Color {
     mut object_out := Color{}
@@ -276,7 +314,7 @@ pub fn (r &ItemList) get_item_custom_fg_color(idx i32) Color {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3457211756)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &ItemList) get_item_rect(idx i32, expand bool) Rect2 {
@@ -289,7 +327,7 @@ pub fn (r &ItemList) get_item_rect(idx i32, expand bool) Rect2 {
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
     args[1] = unsafe{voidptr(&expand)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ItemList) set_item_tooltip_enabled(idx i32, enable bool) {
@@ -298,7 +336,10 @@ pub fn (mut r ItemList) set_item_tooltip_enabled(idx i32, enable bool) {
     fnname := StringName.new("set_item_tooltip_enabled")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&idx)}
+    args[1] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &ItemList) is_item_tooltip_enabled(idx i32) bool {
     mut object_out := false
@@ -309,7 +350,7 @@ pub fn (r &ItemList) is_item_tooltip_enabled(idx i32) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1116898809)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ItemList) set_item_tooltip(idx i32, tooltip String) {
@@ -318,7 +359,10 @@ pub fn (mut r ItemList) set_item_tooltip(idx i32, tooltip String) {
     fnname := StringName.new("set_item_tooltip")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&idx)}
+    args[1] = unsafe{voidptr(&tooltip)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &ItemList) get_item_tooltip(idx i32) String {
     mut object_out := String{}
@@ -329,7 +373,7 @@ pub fn (r &ItemList) get_item_tooltip(idx i32) String {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 844755477)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ItemList) gdselect(idx i32, single bool) {
@@ -338,7 +382,10 @@ pub fn (mut r ItemList) gdselect(idx i32, single bool) {
     fnname := StringName.new("select")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4023243586)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&idx)}
+    args[1] = unsafe{voidptr(&single)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r ItemList) deselect(idx i32) {
     classname := StringName.new("ItemList")
@@ -346,7 +393,9 @@ pub fn (mut r ItemList) deselect(idx i32) {
     fnname := StringName.new("deselect")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&idx)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r ItemList) deselect_all() {
     classname := StringName.new("ItemList")
@@ -354,7 +403,7 @@ pub fn (mut r ItemList) deselect_all() {
     fnname := StringName.new("deselect_all")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
 pub fn (r &ItemList) is_selected(idx i32) bool {
     mut object_out := false
@@ -365,7 +414,7 @@ pub fn (r &ItemList) is_selected(idx i32) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1116898809)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ItemList) get_selected_items() PackedInt32Array {
@@ -375,7 +424,7 @@ pub fn (mut r ItemList) get_selected_items() PackedInt32Array {
     fnname := StringName.new("get_selected_items")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 969006518)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ItemList) move_item(from_idx i32, to_idx i32) {
@@ -384,7 +433,10 @@ pub fn (mut r ItemList) move_item(from_idx i32, to_idx i32) {
     fnname := StringName.new("move_item")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&from_idx)}
+    args[1] = unsafe{voidptr(&to_idx)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r ItemList) set_item_count(count i32) {
     classname := StringName.new("ItemList")
@@ -392,7 +444,9 @@ pub fn (mut r ItemList) set_item_count(count i32) {
     fnname := StringName.new("set_item_count")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&count)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &ItemList) get_item_count() i32 {
     mut object_out := i32(0)
@@ -401,7 +455,7 @@ pub fn (r &ItemList) get_item_count() i32 {
     fnname := StringName.new("get_item_count")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ItemList) remove_item(idx i32) {
@@ -410,7 +464,9 @@ pub fn (mut r ItemList) remove_item(idx i32) {
     fnname := StringName.new("remove_item")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&idx)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r ItemList) clear() {
     classname := StringName.new("ItemList")
@@ -418,7 +474,7 @@ pub fn (mut r ItemList) clear() {
     fnname := StringName.new("clear")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
 pub fn (mut r ItemList) sort_items_by_text() {
     classname := StringName.new("ItemList")
@@ -426,7 +482,7 @@ pub fn (mut r ItemList) sort_items_by_text() {
     fnname := StringName.new("sort_items_by_text")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
 pub fn (mut r ItemList) set_fixed_column_width(width i32) {
     classname := StringName.new("ItemList")
@@ -434,7 +490,9 @@ pub fn (mut r ItemList) set_fixed_column_width(width i32) {
     fnname := StringName.new("set_fixed_column_width")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&width)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &ItemList) get_fixed_column_width() i32 {
     mut object_out := i32(0)
@@ -443,7 +501,7 @@ pub fn (r &ItemList) get_fixed_column_width() i32 {
     fnname := StringName.new("get_fixed_column_width")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ItemList) set_same_column_width(enable bool) {
@@ -452,7 +510,9 @@ pub fn (mut r ItemList) set_same_column_width(enable bool) {
     fnname := StringName.new("set_same_column_width")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &ItemList) is_same_column_width() bool {
     mut object_out := false
@@ -461,7 +521,7 @@ pub fn (r &ItemList) is_same_column_width() bool {
     fnname := StringName.new("is_same_column_width")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ItemList) set_max_text_lines(lines i32) {
@@ -470,7 +530,9 @@ pub fn (mut r ItemList) set_max_text_lines(lines i32) {
     fnname := StringName.new("set_max_text_lines")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&lines)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &ItemList) get_max_text_lines() i32 {
     mut object_out := i32(0)
@@ -479,7 +541,7 @@ pub fn (r &ItemList) get_max_text_lines() i32 {
     fnname := StringName.new("get_max_text_lines")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ItemList) set_max_columns(amount i32) {
@@ -488,7 +550,9 @@ pub fn (mut r ItemList) set_max_columns(amount i32) {
     fnname := StringName.new("set_max_columns")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&amount)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &ItemList) get_max_columns() i32 {
     mut object_out := i32(0)
@@ -497,7 +561,7 @@ pub fn (r &ItemList) get_max_columns() i32 {
     fnname := StringName.new("get_max_columns")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ItemList) set_select_mode(mode ItemListSelectMode) {
@@ -506,7 +570,9 @@ pub fn (mut r ItemList) set_select_mode(mode ItemListSelectMode) {
     fnname := StringName.new("set_select_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 928267388)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&mode)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &ItemList) get_select_mode() ItemListSelectMode {
     mut object_out := ItemListSelectMode.select_single
@@ -515,7 +581,7 @@ pub fn (r &ItemList) get_select_mode() ItemListSelectMode {
     fnname := StringName.new("get_select_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1191945842)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ItemList) set_icon_mode(mode ItemListIconMode) {
@@ -524,7 +590,9 @@ pub fn (mut r ItemList) set_icon_mode(mode ItemListIconMode) {
     fnname := StringName.new("set_icon_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2025053633)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&mode)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &ItemList) get_icon_mode() ItemListIconMode {
     mut object_out := ItemListIconMode.icon_mode_top
@@ -533,7 +601,7 @@ pub fn (r &ItemList) get_icon_mode() ItemListIconMode {
     fnname := StringName.new("get_icon_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3353929232)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ItemList) set_fixed_icon_size(size Vector2i) {
@@ -542,7 +610,9 @@ pub fn (mut r ItemList) set_fixed_icon_size(size Vector2i) {
     fnname := StringName.new("set_fixed_icon_size")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1130785943)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&size)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &ItemList) get_fixed_icon_size() Vector2i {
     mut object_out := Vector2i{}
@@ -551,25 +621,27 @@ pub fn (r &ItemList) get_fixed_icon_size() Vector2i {
     fnname := StringName.new("get_fixed_icon_size")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3690982128)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
-pub fn (mut r ItemList) set_icon_scale(scale f32) {
+pub fn (mut r ItemList) set_icon_scale(scale f64) {
     classname := StringName.new("ItemList")
     defer { classname.deinit() }
     fnname := StringName.new("set_icon_scale")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&scale)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
-pub fn (r &ItemList) get_icon_scale() f32 {
-    mut object_out := f32(0)
+pub fn (r &ItemList) get_icon_scale() f64 {
+    mut object_out := f64(0)
     classname := StringName.new("ItemList")
     defer { classname.deinit() }
     fnname := StringName.new("get_icon_scale")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740695150)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ItemList) set_allow_rmb_select(allow bool) {
@@ -578,7 +650,9 @@ pub fn (mut r ItemList) set_allow_rmb_select(allow bool) {
     fnname := StringName.new("set_allow_rmb_select")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&allow)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &ItemList) get_allow_rmb_select() bool {
     mut object_out := false
@@ -587,7 +661,7 @@ pub fn (r &ItemList) get_allow_rmb_select() bool {
     fnname := StringName.new("get_allow_rmb_select")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ItemList) set_allow_reselect(allow bool) {
@@ -596,7 +670,9 @@ pub fn (mut r ItemList) set_allow_reselect(allow bool) {
     fnname := StringName.new("set_allow_reselect")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&allow)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &ItemList) get_allow_reselect() bool {
     mut object_out := false
@@ -605,7 +681,7 @@ pub fn (r &ItemList) get_allow_reselect() bool {
     fnname := StringName.new("get_allow_reselect")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ItemList) set_allow_search(allow bool) {
@@ -614,7 +690,9 @@ pub fn (mut r ItemList) set_allow_search(allow bool) {
     fnname := StringName.new("set_allow_search")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&allow)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &ItemList) get_allow_search() bool {
     mut object_out := false
@@ -623,7 +701,7 @@ pub fn (r &ItemList) get_allow_search() bool {
     fnname := StringName.new("get_allow_search")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ItemList) set_auto_height(enable bool) {
@@ -632,7 +710,9 @@ pub fn (mut r ItemList) set_auto_height(enable bool) {
     fnname := StringName.new("set_auto_height")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &ItemList) has_auto_height() bool {
     mut object_out := false
@@ -641,7 +721,7 @@ pub fn (r &ItemList) has_auto_height() bool {
     fnname := StringName.new("has_auto_height")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ItemList) is_anything_selected() bool {
@@ -651,7 +731,7 @@ pub fn (mut r ItemList) is_anything_selected() bool {
     fnname := StringName.new("is_anything_selected")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2240911060)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (r &ItemList) get_item_at_position(position Vector2, exact bool) i32 {
@@ -664,7 +744,7 @@ pub fn (r &ItemList) get_item_at_position(position Vector2, exact bool) i32 {
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&position)}
     args[1] = unsafe{voidptr(&exact)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ItemList) ensure_current_is_visible() {
@@ -673,16 +753,16 @@ pub fn (mut r ItemList) ensure_current_is_visible() {
     fnname := StringName.new("ensure_current_is_visible")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
 pub fn (mut r ItemList) get_v_scroll_bar() VScrollBar {
-    mut object_out := VScrollBar(unsafe{nil})
+    mut object_out := VScrollBar{}
     classname := StringName.new("ItemList")
     defer { classname.deinit() }
     fnname := StringName.new("get_v_scroll_bar")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2630340773)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r ItemList) set_text_overrun_behavior(overrun_behavior TextServerOverrunBehavior) {
@@ -691,7 +771,9 @@ pub fn (mut r ItemList) set_text_overrun_behavior(overrun_behavior TextServerOve
     fnname := StringName.new("set_text_overrun_behavior")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1008890932)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&overrun_behavior)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &ItemList) get_text_overrun_behavior() TextServerOverrunBehavior {
     mut object_out := TextServerOverrunBehavior.overrun_no_trimming
@@ -700,6 +782,6 @@ pub fn (r &ItemList) get_text_overrun_behavior() TextServerOverrunBehavior {
     fnname := StringName.new("get_text_overrun_behavior")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3779142101)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }

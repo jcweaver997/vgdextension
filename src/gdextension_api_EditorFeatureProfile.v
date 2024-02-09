@@ -12,7 +12,9 @@ pub enum EditorFeatureProfileFeature {
     feature_max = 8
 }
 
-pub type EditorFeatureProfile = voidptr
+pub struct EditorFeatureProfile {
+    RefCounted
+}
 
 pub fn (mut r EditorFeatureProfile) set_disable_class(class_name StringName, disable bool) {
     classname := StringName.new("EditorFeatureProfile")
@@ -20,7 +22,10 @@ pub fn (mut r EditorFeatureProfile) set_disable_class(class_name StringName, dis
     fnname := StringName.new("set_disable_class")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2524380260)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&class_name)}
+    args[1] = unsafe{voidptr(&disable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &EditorFeatureProfile) is_class_disabled(class_name StringName) bool {
     mut object_out := false
@@ -31,7 +36,7 @@ pub fn (r &EditorFeatureProfile) is_class_disabled(class_name StringName) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2619796661)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&class_name)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r EditorFeatureProfile) set_disable_class_editor(class_name StringName, disable bool) {
@@ -40,7 +45,10 @@ pub fn (mut r EditorFeatureProfile) set_disable_class_editor(class_name StringNa
     fnname := StringName.new("set_disable_class_editor")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2524380260)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&class_name)}
+    args[1] = unsafe{voidptr(&disable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &EditorFeatureProfile) is_class_editor_disabled(class_name StringName) bool {
     mut object_out := false
@@ -51,7 +59,7 @@ pub fn (r &EditorFeatureProfile) is_class_editor_disabled(class_name StringName)
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2619796661)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&class_name)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r EditorFeatureProfile) set_disable_class_property(class_name StringName, property StringName, disable bool) {
@@ -60,7 +68,11 @@ pub fn (mut r EditorFeatureProfile) set_disable_class_property(class_name String
     fnname := StringName.new("set_disable_class_property")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 865197084)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&class_name)}
+    args[1] = unsafe{voidptr(&property)}
+    args[2] = unsafe{voidptr(&disable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &EditorFeatureProfile) is_class_property_disabled(class_name StringName, property StringName) bool {
     mut object_out := false
@@ -72,7 +84,7 @@ pub fn (r &EditorFeatureProfile) is_class_property_disabled(class_name StringNam
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&class_name)}
     args[1] = unsafe{voidptr(&property)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r EditorFeatureProfile) set_disable_feature(feature EditorFeatureProfileFeature, disable bool) {
@@ -81,7 +93,10 @@ pub fn (mut r EditorFeatureProfile) set_disable_feature(feature EditorFeaturePro
     fnname := StringName.new("set_disable_feature")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1884871044)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&feature)}
+    args[1] = unsafe{voidptr(&disable)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &EditorFeatureProfile) is_feature_disabled(feature EditorFeatureProfileFeature) bool {
     mut object_out := false
@@ -92,7 +107,7 @@ pub fn (r &EditorFeatureProfile) is_feature_disabled(feature EditorFeatureProfil
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2974403161)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&feature)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r EditorFeatureProfile) get_feature_name(feature EditorFeatureProfileFeature) String {
@@ -104,7 +119,7 @@ pub fn (mut r EditorFeatureProfile) get_feature_name(feature EditorFeatureProfil
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3401335809)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&feature)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r EditorFeatureProfile) save_to_file(path String) GDError {
@@ -116,7 +131,7 @@ pub fn (mut r EditorFeatureProfile) save_to_file(path String) GDError {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 166001499)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&path)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r EditorFeatureProfile) load_from_file(path String) GDError {
@@ -128,6 +143,6 @@ pub fn (mut r EditorFeatureProfile) load_from_file(path String) GDError {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 166001499)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&path)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }

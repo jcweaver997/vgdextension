@@ -1,6 +1,8 @@
 module vgdextension
 
-pub type Mutex = voidptr
+pub struct Mutex {
+    RefCounted
+}
 
 pub fn (mut r Mutex) gdlock() {
     classname := StringName.new("Mutex")
@@ -8,7 +10,7 @@ pub fn (mut r Mutex) gdlock() {
     fnname := StringName.new("lock")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }
 pub fn (mut r Mutex) try_lock() bool {
     mut object_out := false
@@ -17,7 +19,7 @@ pub fn (mut r Mutex) try_lock() bool {
     fnname := StringName.new("try_lock")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2240911060)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r Mutex) unlock() {
@@ -26,5 +28,5 @@ pub fn (mut r Mutex) unlock() {
     fnname := StringName.new("unlock")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
 }

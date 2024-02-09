@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type IntervalTweener = voidptr
+pub struct IntervalTweener {
+    Tweener
+}
 

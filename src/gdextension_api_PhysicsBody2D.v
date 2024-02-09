@@ -1,9 +1,11 @@
 module vgdextension
 
-pub type PhysicsBody2D = voidptr
+pub struct PhysicsBody2D {
+    CollisionObject2D
+}
 
-pub fn (mut r PhysicsBody2D) move_and_collide(motion Vector2, test_only bool, safe_margin f32, recovery_as_collision bool) KinematicCollision2D {
-    mut object_out := KinematicCollision2D(unsafe{nil})
+pub fn (mut r PhysicsBody2D) move_and_collide(motion Vector2, test_only bool, safe_margin f64, recovery_as_collision bool) KinematicCollision2D {
+    mut object_out := KinematicCollision2D{}
     classname := StringName.new("PhysicsBody2D")
     defer { classname.deinit() }
     fnname := StringName.new("move_and_collide")
@@ -14,10 +16,10 @@ pub fn (mut r PhysicsBody2D) move_and_collide(motion Vector2, test_only bool, sa
     args[1] = unsafe{voidptr(&test_only)}
     args[2] = unsafe{voidptr(&safe_margin)}
     args[3] = unsafe{voidptr(&recovery_as_collision)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
-pub fn (mut r PhysicsBody2D) test_move(from Transform2D, motion Vector2, collision KinematicCollision2D, safe_margin f32, recovery_as_collision bool) bool {
+pub fn (mut r PhysicsBody2D) test_move(from Transform2D, motion Vector2, collision KinematicCollision2D, safe_margin f64, recovery_as_collision bool) bool {
     mut object_out := false
     classname := StringName.new("PhysicsBody2D")
     defer { classname.deinit() }
@@ -27,10 +29,10 @@ pub fn (mut r PhysicsBody2D) test_move(from Transform2D, motion Vector2, collisi
     mut args := unsafe { [5]voidptr{} }
     args[0] = unsafe{voidptr(&from)}
     args[1] = unsafe{voidptr(&motion)}
-    args[2] = unsafe{voidptr(&collision)}
+    args[2] = collision.ptr
     args[3] = unsafe{voidptr(&safe_margin)}
     args[4] = unsafe{voidptr(&recovery_as_collision)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r PhysicsBody2D) get_collision_exceptions() Array {
@@ -40,7 +42,7 @@ pub fn (mut r PhysicsBody2D) get_collision_exceptions() Array {
     fnname := StringName.new("get_collision_exceptions")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2915620761)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r PhysicsBody2D) add_collision_exception_with(body Node) {
@@ -49,7 +51,9 @@ pub fn (mut r PhysicsBody2D) add_collision_exception_with(body Node) {
     fnname := StringName.new("add_collision_exception_with")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = body.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r PhysicsBody2D) remove_collision_exception_with(body Node) {
     classname := StringName.new("PhysicsBody2D")
@@ -57,5 +61,7 @@ pub fn (mut r PhysicsBody2D) remove_collision_exception_with(body Node) {
     fnname := StringName.new("remove_collision_exception_with")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = body.ptr
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }

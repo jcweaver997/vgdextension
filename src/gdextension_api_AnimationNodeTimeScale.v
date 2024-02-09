@@ -1,4 +1,6 @@
 module vgdextension
 
-pub type AnimationNodeTimeScale = voidptr
+pub struct AnimationNodeTimeScale {
+    AnimationNode
+}
 

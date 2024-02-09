@@ -32,7 +32,9 @@ pub enum VisualShaderVaryingType {
     varying_type_max = 8
 }
 
-pub type VisualShader = voidptr
+pub struct VisualShader {
+    Shader
+}
 
 pub fn (mut r VisualShader) set_mode(mode ShaderMode) {
     classname := StringName.new("VisualShader")
@@ -40,7 +42,9 @@ pub fn (mut r VisualShader) set_mode(mode ShaderMode) {
     fnname := StringName.new("set_mode")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3978014962)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&mode)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r VisualShader) add_node(type_name VisualShaderType, node VisualShaderNode, position Vector2, id i32) {
     classname := StringName.new("VisualShader")
@@ -48,10 +52,15 @@ pub fn (mut r VisualShader) add_node(type_name VisualShaderType, node VisualShad
     fnname := StringName.new("add_node")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1560769431)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [4]voidptr{} }
+    args[0] = unsafe{voidptr(&type_name)}
+    args[1] = node.ptr
+    args[2] = unsafe{voidptr(&position)}
+    args[3] = unsafe{voidptr(&id)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &VisualShader) get_node(type_name VisualShaderType, id i32) VisualShaderNode {
-    mut object_out := VisualShaderNode(unsafe{nil})
+    mut object_out := VisualShaderNode{}
     classname := StringName.new("VisualShader")
     defer { classname.deinit() }
     fnname := StringName.new("get_node")
@@ -60,7 +69,7 @@ pub fn (r &VisualShader) get_node(type_name VisualShaderType, id i32) VisualShad
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&type_name)}
     args[1] = unsafe{voidptr(&id)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r VisualShader) set_node_position(type_name VisualShaderType, id i32, position Vector2) {
@@ -69,7 +78,11 @@ pub fn (mut r VisualShader) set_node_position(type_name VisualShaderType, id i32
     fnname := StringName.new("set_node_position")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2726660721)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&type_name)}
+    args[1] = unsafe{voidptr(&id)}
+    args[2] = unsafe{voidptr(&position)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &VisualShader) get_node_position(type_name VisualShaderType, id i32) Vector2 {
     mut object_out := Vector2{}
@@ -81,7 +94,7 @@ pub fn (r &VisualShader) get_node_position(type_name VisualShaderType, id i32) V
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&type_name)}
     args[1] = unsafe{voidptr(&id)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &VisualShader) get_node_list(type_name VisualShaderType) PackedInt32Array {
@@ -93,7 +106,7 @@ pub fn (r &VisualShader) get_node_list(type_name VisualShaderType) PackedInt32Ar
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2370592410)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&type_name)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &VisualShader) get_valid_node_id(type_name VisualShaderType) i32 {
@@ -105,7 +118,7 @@ pub fn (r &VisualShader) get_valid_node_id(type_name VisualShaderType) i32 {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 629467342)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&type_name)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r VisualShader) remove_node(type_name VisualShaderType, id i32) {
@@ -114,7 +127,10 @@ pub fn (mut r VisualShader) remove_node(type_name VisualShaderType, id i32) {
     fnname := StringName.new("remove_node")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 844050912)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [2]voidptr{} }
+    args[0] = unsafe{voidptr(&type_name)}
+    args[1] = unsafe{voidptr(&id)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r VisualShader) replace_node(type_name VisualShaderType, id i32, new_class StringName) {
     classname := StringName.new("VisualShader")
@@ -122,7 +138,11 @@ pub fn (mut r VisualShader) replace_node(type_name VisualShaderType, id i32, new
     fnname := StringName.new("replace_node")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3144735253)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&type_name)}
+    args[1] = unsafe{voidptr(&id)}
+    args[2] = unsafe{voidptr(&new_class)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &VisualShader) is_node_connection(type_name VisualShaderType, from_node i32, from_port i32, to_node i32, to_port i32) bool {
     mut object_out := false
@@ -137,7 +157,7 @@ pub fn (r &VisualShader) is_node_connection(type_name VisualShaderType, from_nod
     args[2] = unsafe{voidptr(&from_port)}
     args[3] = unsafe{voidptr(&to_node)}
     args[4] = unsafe{voidptr(&to_port)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (r &VisualShader) can_connect_nodes(type_name VisualShaderType, from_node i32, from_port i32, to_node i32, to_port i32) bool {
@@ -153,7 +173,7 @@ pub fn (r &VisualShader) can_connect_nodes(type_name VisualShaderType, from_node
     args[2] = unsafe{voidptr(&from_port)}
     args[3] = unsafe{voidptr(&to_node)}
     args[4] = unsafe{voidptr(&to_port)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r VisualShader) connect_nodes(type_name VisualShaderType, from_node i32, from_port i32, to_node i32, to_port i32) GDError {
@@ -169,7 +189,7 @@ pub fn (mut r VisualShader) connect_nodes(type_name VisualShaderType, from_node 
     args[2] = unsafe{voidptr(&from_port)}
     args[3] = unsafe{voidptr(&to_node)}
     args[4] = unsafe{voidptr(&to_port)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r VisualShader) disconnect_nodes(type_name VisualShaderType, from_node i32, from_port i32, to_node i32, to_port i32) {
@@ -178,7 +198,13 @@ pub fn (mut r VisualShader) disconnect_nodes(type_name VisualShaderType, from_no
     fnname := StringName.new("disconnect_nodes")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2268060358)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [5]voidptr{} }
+    args[0] = unsafe{voidptr(&type_name)}
+    args[1] = unsafe{voidptr(&from_node)}
+    args[2] = unsafe{voidptr(&from_port)}
+    args[3] = unsafe{voidptr(&to_node)}
+    args[4] = unsafe{voidptr(&to_port)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r VisualShader) connect_nodes_forced(type_name VisualShaderType, from_node i32, from_port i32, to_node i32, to_port i32) {
     classname := StringName.new("VisualShader")
@@ -186,7 +212,13 @@ pub fn (mut r VisualShader) connect_nodes_forced(type_name VisualShaderType, fro
     fnname := StringName.new("connect_nodes_forced")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2268060358)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [5]voidptr{} }
+    args[0] = unsafe{voidptr(&type_name)}
+    args[1] = unsafe{voidptr(&from_node)}
+    args[2] = unsafe{voidptr(&from_port)}
+    args[3] = unsafe{voidptr(&to_node)}
+    args[4] = unsafe{voidptr(&to_port)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &VisualShader) get_node_connections(type_name VisualShaderType) Array {
     mut object_out := Array{}
@@ -197,7 +229,7 @@ pub fn (r &VisualShader) get_node_connections(type_name VisualShaderType) Array 
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1441964831)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&type_name)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }
 pub fn (mut r VisualShader) set_graph_offset(offset Vector2) {
@@ -206,7 +238,9 @@ pub fn (mut r VisualShader) set_graph_offset(offset Vector2) {
     fnname := StringName.new("set_graph_offset")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&offset)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &VisualShader) get_graph_offset() Vector2 {
     mut object_out := Vector2{}
@@ -215,7 +249,7 @@ pub fn (r &VisualShader) get_graph_offset() Vector2 {
     fnname := StringName.new("get_graph_offset")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3341600327)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r VisualShader) add_varying(name String, mode VisualShaderVaryingMode, type_name VisualShaderVaryingType) {
@@ -224,7 +258,11 @@ pub fn (mut r VisualShader) add_varying(name String, mode VisualShaderVaryingMod
     fnname := StringName.new("add_varying")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2084110726)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [3]voidptr{} }
+    args[0] = unsafe{voidptr(&name)}
+    args[1] = unsafe{voidptr(&mode)}
+    args[2] = unsafe{voidptr(&type_name)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (mut r VisualShader) remove_varying(name String) {
     classname := StringName.new("VisualShader")
@@ -232,7 +270,9 @@ pub fn (mut r VisualShader) remove_varying(name String) {
     fnname := StringName.new("remove_varying")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&name)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &VisualShader) has_varying(name String) bool {
     mut object_out := false
@@ -243,6 +283,6 @@ pub fn (r &VisualShader) has_varying(name String) bool {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3927539163)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&name)}
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), voidptr(&args[0]), voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
    return object_out
 }

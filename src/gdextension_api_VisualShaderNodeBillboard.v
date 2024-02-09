@@ -8,7 +8,9 @@ pub enum VisualShaderNodeBillboardBillboardType {
     billboard_type_max = 4
 }
 
-pub type VisualShaderNodeBillboard = voidptr
+pub struct VisualShaderNodeBillboard {
+    VisualShaderNode
+}
 
 pub fn (mut r VisualShaderNodeBillboard) set_billboard_type(billboard_type VisualShaderNodeBillboardBillboardType) {
     classname := StringName.new("VisualShaderNodeBillboard")
@@ -16,7 +18,9 @@ pub fn (mut r VisualShaderNodeBillboard) set_billboard_type(billboard_type Visua
     fnname := StringName.new("set_billboard_type")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1227463289)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&billboard_type)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &VisualShaderNodeBillboard) get_billboard_type() VisualShaderNodeBillboardBillboardType {
     mut object_out := VisualShaderNodeBillboardBillboardType.billboard_type_disabled
@@ -25,7 +29,7 @@ pub fn (r &VisualShaderNodeBillboard) get_billboard_type() VisualShaderNodeBillb
     fnname := StringName.new("get_billboard_type")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3724188517)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
 pub fn (mut r VisualShaderNodeBillboard) set_keep_scale_enabled(enabled bool) {
@@ -34,7 +38,9 @@ pub fn (mut r VisualShaderNodeBillboard) set_keep_scale_enabled(enabled bool) {
     fnname := StringName.new("set_keep_scale_enabled")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, unsafe{nil})
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&enabled)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
 }
 pub fn (r &VisualShaderNodeBillboard) is_keep_scale_enabled() bool {
     mut object_out := false
@@ -43,6 +49,6 @@ pub fn (r &VisualShaderNodeBillboard) is_keep_scale_enabled() bool {
     fnname := StringName.new("is_keep_scale_enabled")
     defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
-    gdf.object_method_bind_ptrcall(mb, voidptr(r), unsafe{nil}, voidptr(&object_out))
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
    return object_out
 }
