@@ -6,6 +6,7 @@ pub enum ThreadPriority {
     priority_high = 2
 }
 
+@[noinit]
 pub struct Thread {
     RefCounted
 }

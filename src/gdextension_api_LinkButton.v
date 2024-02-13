@@ -6,6 +6,7 @@ pub enum LinkButtonUnderlineMode {
     underline_mode_never = 2
 }
 
+@[noinit]
 pub struct LinkButton {
     BaseButton
 }

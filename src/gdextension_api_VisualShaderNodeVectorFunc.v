@@ -37,6 +37,7 @@ pub enum VisualShaderNodeVectorFuncFunction {
     func_max = 33
 }
 
+@[noinit]
 pub struct VisualShaderNodeVectorFunc {
     VisualShaderNodeVectorBase
 }

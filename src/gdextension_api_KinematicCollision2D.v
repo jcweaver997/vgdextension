@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct KinematicCollision2D {
     RefCounted
 }

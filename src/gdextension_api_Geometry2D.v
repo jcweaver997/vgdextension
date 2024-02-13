@@ -21,6 +21,7 @@ pub enum Geometry2DPolyEndType {
     end_round = 4
 }
 
+@[noinit]
 pub struct Geometry2D {
     Object
 }

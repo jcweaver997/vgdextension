@@ -6,6 +6,7 @@ pub enum AnimationNodeStateMachineStateMachineType {
     state_machine_type_grouped = 2
 }
 
+@[noinit]
 pub struct AnimationNodeStateMachine {
     AnimationRootNode
 }

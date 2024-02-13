@@ -13,6 +13,7 @@ pub enum AspectRatioContainerAlignmentMode {
     alignment_end = 2
 }
 
+@[noinit]
 pub struct AspectRatioContainer {
     Container
 }

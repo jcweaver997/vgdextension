@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct QuadOccluder3D {
     Occluder3D
 }

@@ -6,6 +6,7 @@ pub enum PinJoint3DParam {
     param_impulse_clamp = 2
 }
 
+@[noinit]
 pub struct PinJoint3D {
     Joint3D
 }

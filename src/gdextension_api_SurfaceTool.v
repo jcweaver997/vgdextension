@@ -17,6 +17,7 @@ pub enum SurfaceToolSkinWeightCount {
     skin_8_weights = 1
 }
 
+@[noinit]
 pub struct SurfaceTool {
     RefCounted
 }

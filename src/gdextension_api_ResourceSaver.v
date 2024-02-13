@@ -11,6 +11,7 @@ pub enum ResourceSaverSaverFlags {
     flag_replace_subresource_paths = 64
 }
 
+@[noinit]
 pub struct ResourceSaver {
     Object
 }

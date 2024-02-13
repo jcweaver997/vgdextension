@@ -13,6 +13,7 @@ pub enum VisualShaderNodeColorOpOperator {
     op_max = 9
 }
 
+@[noinit]
 pub struct VisualShaderNodeColorOp {
     VisualShaderNode
 }

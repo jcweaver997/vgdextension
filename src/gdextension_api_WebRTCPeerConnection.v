@@ -24,6 +24,7 @@ pub enum WebRTCPeerConnectionSignalingState {
     signaling_state_closed = 5
 }
 
+@[noinit]
 pub struct WebRTCPeerConnection {
     RefCounted
 }

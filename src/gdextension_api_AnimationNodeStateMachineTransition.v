@@ -12,6 +12,7 @@ pub enum AnimationNodeStateMachineTransitionAdvanceMode {
     advance_mode_auto = 2
 }
 
+@[noinit]
 pub struct AnimationNodeStateMachineTransition {
     Resource
 }

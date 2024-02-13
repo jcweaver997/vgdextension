@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct SegmentShape2D {
     Shape2D
 }

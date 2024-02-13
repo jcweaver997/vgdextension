@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct VehicleBody3D {
     RigidBody3D
 }

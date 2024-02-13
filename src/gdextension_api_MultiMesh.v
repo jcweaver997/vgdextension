@@ -5,6 +5,7 @@ pub enum MultiMeshTransformFormat {
     transform_3d = 1
 }
 
+@[noinit]
 pub struct MultiMesh {
     Resource
 }

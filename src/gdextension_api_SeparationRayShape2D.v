@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct SeparationRayShape2D {
     Shape2D
 }

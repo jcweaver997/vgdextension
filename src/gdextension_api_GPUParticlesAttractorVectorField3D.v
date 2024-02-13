@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct GPUParticlesAttractorVectorField3D {
     GPUParticlesAttractor3D
 }

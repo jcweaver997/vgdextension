@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct PhysicalBone2D {
     RigidBody2D
 }

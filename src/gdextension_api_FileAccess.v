@@ -15,6 +15,7 @@ pub enum FileAccessCompressionMode {
     compression_brotli = 4
 }
 
+@[noinit]
 pub struct FileAccess {
     RefCounted
 }

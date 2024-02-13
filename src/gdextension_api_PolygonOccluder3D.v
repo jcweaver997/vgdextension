@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct PolygonOccluder3D {
     Occluder3D
 }

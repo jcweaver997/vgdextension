@@ -20,6 +20,7 @@ pub enum CodeEditCodeCompletionLocation {
     location_other = 1024
 }
 
+@[noinit]
 pub struct CodeEdit {
     TextEdit
 }

@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct SphereShape3D {
     Shape3D
 }

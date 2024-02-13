@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct RectangleShape2D {
     Shape2D
 }

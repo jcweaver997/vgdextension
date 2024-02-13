@@ -11,6 +11,7 @@ pub enum AnimationPlayerAnimationMethodCallMode {
     animation_method_call_immediate = 1
 }
 
+@[noinit]
 pub struct AnimationPlayer {
     Node
 }

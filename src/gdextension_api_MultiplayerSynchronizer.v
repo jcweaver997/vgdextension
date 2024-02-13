@@ -6,6 +6,7 @@ pub enum MultiplayerSynchronizerVisibilityUpdateMode {
     visibility_process_none = 2
 }
 
+@[noinit]
 pub struct MultiplayerSynchronizer {
     Node
 }

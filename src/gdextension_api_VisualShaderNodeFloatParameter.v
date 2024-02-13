@@ -7,6 +7,7 @@ pub enum VisualShaderNodeFloatParameterHint {
     hint_max = 3
 }
 
+@[noinit]
 pub struct VisualShaderNodeFloatParameter {
     VisualShaderNodeParameter
 }

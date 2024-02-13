@@ -6,6 +6,7 @@ pub enum XRPositionalTrackerTrackerHand {
     tracker_hand_right = 2
 }
 
+@[noinit]
 pub struct XRPositionalTracker {
     RefCounted
 }

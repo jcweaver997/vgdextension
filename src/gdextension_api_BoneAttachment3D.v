@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct BoneAttachment3D {
     Node3D
 }

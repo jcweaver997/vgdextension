@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct DampedSpringJoint2D {
     Joint2D
 }

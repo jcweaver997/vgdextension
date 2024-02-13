@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct SkeletonModification2DJiggle {
     SkeletonModification2D
 }

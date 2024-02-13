@@ -12,6 +12,7 @@ pub enum AnimationNodeOneShotMixMode {
     mix_mode_add = 1
 }
 
+@[noinit]
 pub struct AnimationNodeOneShot {
     AnimationNodeSync
 }

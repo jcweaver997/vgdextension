@@ -37,6 +37,7 @@ pub enum PerformanceMonitor {
     monitor_max = 33
 }
 
+@[noinit]
 pub struct Performance {
     Object
 }

@@ -12,6 +12,7 @@ pub enum Light2DBlendMode {
     blend_mode_mix = 2
 }
 
+@[noinit]
 pub struct Light2D {
     Node2D
 }

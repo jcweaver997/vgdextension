@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct SkeletonModificationStack2D {
     Resource
 }

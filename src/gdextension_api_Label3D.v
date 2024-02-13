@@ -15,6 +15,7 @@ pub enum Label3DAlphaCutMode {
     alpha_cut_hash = 3
 }
 
+@[noinit]
 pub struct Label3D {
     GeometryInstance3D
 }

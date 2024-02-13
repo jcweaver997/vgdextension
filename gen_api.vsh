@@ -659,6 +659,7 @@ fn gen_classes(ea &ExtensionApi) ! {
 			}
 		}
 		// gen class
+		f.write_string('@[noinit]\n')!
 		f.write_string('pub struct ${class.name} {\n')!
 		if class.inherits != '' {
 			f.write_string('    ${convert_type(class.inherits, "")}\n')!

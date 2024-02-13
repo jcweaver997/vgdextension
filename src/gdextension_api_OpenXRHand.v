@@ -12,6 +12,7 @@ pub enum OpenXRHandMotionRange {
     motion_range_max = 2
 }
 
+@[noinit]
 pub struct OpenXRHand {
     Node3D
 }

@@ -34,6 +34,7 @@ pub enum LightmapGIEnvironmentMode {
     environment_mode_custom_color = 3
 }
 
+@[noinit]
 pub struct LightmapGI {
     VisualInstance3D
 }

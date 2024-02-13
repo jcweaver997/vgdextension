@@ -6,6 +6,7 @@ pub enum PlaneMeshOrientation {
     face_z = 2
 }
 
+@[noinit]
 pub struct PlaneMesh {
     PrimitiveMesh
 }

@@ -119,6 +119,7 @@ pub enum PhysicsServer2DProcessInfo {
     info_island_count = 2
 }
 
+@[noinit]
 pub struct PhysicsServer2D {
     Object
 }

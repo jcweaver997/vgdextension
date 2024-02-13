@@ -13,6 +13,7 @@ pub enum AudioStreamPlayer3DDopplerTracking {
     doppler_tracking_physics_step = 2
 }
 
+@[noinit]
 pub struct AudioStreamPlayer3D {
     Node3D
 }

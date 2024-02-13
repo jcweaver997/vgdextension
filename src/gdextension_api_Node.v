@@ -33,6 +33,7 @@ pub enum NodeInternalMode {
     internal_mode_back = 2
 }
 
+@[noinit]
 pub struct Node {
     Object
 }

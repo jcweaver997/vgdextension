@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct VisibleOnScreenNotifier3D {
     VisualInstance3D
 }

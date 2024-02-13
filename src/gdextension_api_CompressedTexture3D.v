@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct CompressedTexture3D {
     Texture3D
 }

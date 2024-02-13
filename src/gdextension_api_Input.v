@@ -28,6 +28,7 @@ pub enum InputCursorShape {
     cursor_help = 16
 }
 
+@[noinit]
 pub struct Input {
     Object
 }

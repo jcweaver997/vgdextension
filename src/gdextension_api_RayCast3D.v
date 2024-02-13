@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct RayCast3D {
     Node3D
 }

@@ -68,6 +68,7 @@ pub enum MeshBlendShapeMode {
     blend_shape_mode_relative = 1
 }
 
+@[noinit]
 pub struct Mesh {
     Resource
 }

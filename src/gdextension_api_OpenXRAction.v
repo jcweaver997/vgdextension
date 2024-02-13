@@ -7,6 +7,7 @@ pub enum OpenXRActionActionType {
     openxr_action_pose = 3
 }
 
+@[noinit]
 pub struct OpenXRAction {
     Resource
 }

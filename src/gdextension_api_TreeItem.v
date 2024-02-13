@@ -8,6 +8,7 @@ pub enum TreeItemTreeCellMode {
     cell_mode_custom = 4
 }
 
+@[noinit]
 pub struct TreeItem {
     Object
 }

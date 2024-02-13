@@ -32,6 +32,7 @@ pub enum VisualShaderVaryingType {
     varying_type_max = 8
 }
 
+@[noinit]
 pub struct VisualShader {
     Shader
 }

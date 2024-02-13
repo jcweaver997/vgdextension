@@ -36,6 +36,7 @@ pub enum Generic6DOFJoint3DFlag {
     flag_max = 6
 }
 
+@[noinit]
 pub struct Generic6DOFJoint3D {
     Joint3D
 }

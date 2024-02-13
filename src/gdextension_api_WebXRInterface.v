@@ -7,6 +7,7 @@ pub enum WebXRInterfaceTargetRayMode {
     target_ray_mode_screen = 3
 }
 
+@[noinit]
 pub struct WebXRInterface {
     XRInterface
 }

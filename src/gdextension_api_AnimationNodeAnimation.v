@@ -5,6 +5,7 @@ pub enum AnimationNodeAnimationPlayMode {
     play_mode_backward = 1
 }
 
+@[noinit]
 pub struct AnimationNodeAnimation {
     AnimationRootNode
 }

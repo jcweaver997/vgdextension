@@ -11,6 +11,7 @@ pub enum CharacterBody3DPlatformOnLeave {
     platform_on_leave_do_nothing = 2
 }
 
+@[noinit]
 pub struct CharacterBody3D {
     PhysicsBody3D
 }

@@ -17,6 +17,7 @@ pub enum NavigationPathQueryParameters2DPathMetadataFlags {
     path_metadata_include_all = 7
 }
 
+@[noinit]
 pub struct NavigationPathQueryParameters2D {
     RefCounted
 }

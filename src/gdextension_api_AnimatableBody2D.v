@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct AnimatableBody2D {
     StaticBody2D
 }

@@ -7,6 +7,7 @@ pub enum AudioEffectFilterFilterDB {
     filter_24db = 3
 }
 
+@[noinit]
 pub struct AudioEffectFilter {
     AudioEffect
 }

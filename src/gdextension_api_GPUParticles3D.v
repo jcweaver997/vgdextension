@@ -22,6 +22,7 @@ pub enum GPUParticles3DTransformAlign {
     transform_align_z_billboard_y_to_velocity = 3
 }
 
+@[noinit]
 pub struct GPUParticles3D {
     GeometryInstance3D
 }

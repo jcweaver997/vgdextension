@@ -12,6 +12,7 @@ pub enum GradientColorSpace {
     gradient_color_space_oklab = 2
 }
 
+@[noinit]
 pub struct Gradient {
     Resource
 }

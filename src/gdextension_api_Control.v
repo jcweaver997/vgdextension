@@ -92,6 +92,7 @@ pub enum ControlTextDirection {
     text_direction_rtl = 2
 }
 
+@[noinit]
 pub struct Control {
     CanvasItem
 }

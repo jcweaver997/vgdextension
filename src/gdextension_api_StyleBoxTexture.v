@@ -6,6 +6,7 @@ pub enum StyleBoxTextureAxisStretchMode {
     axis_stretch_mode_tile_fit = 2
 }
 
+@[noinit]
 pub struct StyleBoxTexture {
     StyleBox
 }

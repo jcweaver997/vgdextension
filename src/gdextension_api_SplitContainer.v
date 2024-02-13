@@ -6,6 +6,7 @@ pub enum SplitContainerDraggerVisibility {
     dragger_hidden_collapsed = 2
 }
 
+@[noinit]
 pub struct SplitContainer {
     Container
 }

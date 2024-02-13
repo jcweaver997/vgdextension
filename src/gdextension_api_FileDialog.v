@@ -14,6 +14,7 @@ pub enum FileDialogAccess {
     access_filesystem = 2
 }
 
+@[noinit]
 pub struct FileDialog {
     ConfirmationDialog
 }

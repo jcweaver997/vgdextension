@@ -7,6 +7,7 @@ pub enum PackedSceneGenEditState {
     gen_edit_state_main_inherited = 3
 }
 
+@[noinit]
 pub struct PackedScene {
     Resource
 }

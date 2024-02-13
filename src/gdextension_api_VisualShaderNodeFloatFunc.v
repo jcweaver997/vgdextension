@@ -36,6 +36,7 @@ pub enum VisualShaderNodeFloatFuncFunction {
     func_max = 32
 }
 
+@[noinit]
 pub struct VisualShaderNodeFloatFunc {
     VisualShaderNode
 }

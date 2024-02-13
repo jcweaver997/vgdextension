@@ -9,6 +9,7 @@ pub enum ConeTwistJoint3DParam {
     param_max = 5
 }
 
+@[noinit]
 pub struct ConeTwistJoint3D {
     Joint3D
 }

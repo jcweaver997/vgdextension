@@ -6,6 +6,7 @@ pub enum XRPoseTrackingConfidence {
     xr_tracking_confidence_high = 2
 }
 
+@[noinit]
 pub struct XRPose {
     RefCounted
 }

@@ -40,6 +40,7 @@ pub enum CPUParticles3DEmissionShape {
     emission_shape_max = 7
 }
 
+@[noinit]
 pub struct CPUParticles3D {
     GeometryInstance3D
 }

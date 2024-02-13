@@ -15,6 +15,7 @@ pub enum GPUParticlesCollisionHeightField3DUpdateMode {
     update_mode_always = 1
 }
 
+@[noinit]
 pub struct GPUParticlesCollisionHeightField3D {
     GPUParticlesCollision3D
 }

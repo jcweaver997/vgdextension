@@ -6,6 +6,7 @@ pub enum BoxContainerAlignmentMode {
     alignment_end = 2
 }
 
+@[noinit]
 pub struct BoxContainer {
     Container
 }

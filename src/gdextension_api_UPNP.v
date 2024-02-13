@@ -32,6 +32,7 @@ pub enum UPNPUPNPResult {
     upnp_result_unknown_error = 28
 }
 
+@[noinit]
 pub struct UPNP {
     RefCounted
 }

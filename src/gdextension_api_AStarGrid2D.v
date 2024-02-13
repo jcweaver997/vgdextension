@@ -16,6 +16,7 @@ pub enum AStarGrid2DDiagonalMode {
     diagonal_mode_max = 4
 }
 
+@[noinit]
 pub struct AStarGrid2D {
     RefCounted
 }

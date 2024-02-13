@@ -7,6 +7,7 @@ pub enum StreamPeerTCPStatus {
     status_error = 3
 }
 
+@[noinit]
 pub struct StreamPeerTCP {
     StreamPeer
 }

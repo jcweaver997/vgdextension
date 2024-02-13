@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct ConcavePolygonShape2D {
     Shape2D
 }

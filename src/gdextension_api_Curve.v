@@ -6,6 +6,7 @@ pub enum CurveTangentMode {
     tangent_mode_count = 2
 }
 
+@[noinit]
 pub struct Curve {
     Resource
 }

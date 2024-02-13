@@ -5,6 +5,7 @@ pub enum CollisionPolygon2DBuildMode {
     build_segments = 1
 }
 
+@[noinit]
 pub struct CollisionPolygon2D {
     Node2D
 }

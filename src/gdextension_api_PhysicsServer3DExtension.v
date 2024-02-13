@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct PhysicsServer3DExtension {
     PhysicsServer3D
 }

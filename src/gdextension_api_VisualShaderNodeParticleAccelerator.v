@@ -7,6 +7,7 @@ pub enum VisualShaderNodeParticleAcceleratorMode {
     mode_max = 3
 }
 
+@[noinit]
 pub struct VisualShaderNodeParticleAccelerator {
     VisualShaderNode
 }

@@ -8,6 +8,7 @@ pub enum PathFollow3DRotationMode {
     rotation_oriented = 4
 }
 
+@[noinit]
 pub struct PathFollow3D {
     Node3D
 }

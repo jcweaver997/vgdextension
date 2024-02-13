@@ -5,6 +5,7 @@ pub enum SoftBody3DDisableMode {
     disable_mode_keep_active = 1
 }
 
+@[noinit]
 pub struct SoftBody3D {
     MeshInstance3D
 }

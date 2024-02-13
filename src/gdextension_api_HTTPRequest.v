@@ -17,6 +17,7 @@ pub enum HTTPRequestResult {
     result_timeout = 13
 }
 
+@[noinit]
 pub struct HTTPRequest {
     Node
 }

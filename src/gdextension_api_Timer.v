@@ -5,6 +5,7 @@ pub enum TimerTimerProcessCallback {
     timer_process_idle = 1
 }
 
+@[noinit]
 pub struct Timer {
     Node
 }

@@ -15,6 +15,7 @@ pub enum ColorPickerPickerShapeType {
     shape_none = 4
 }
 
+@[noinit]
 pub struct ColorPicker {
     VBoxContainer
 }

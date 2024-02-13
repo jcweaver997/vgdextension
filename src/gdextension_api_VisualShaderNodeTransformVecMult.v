@@ -8,6 +8,7 @@ pub enum VisualShaderNodeTransformVecMultOperator {
     op_max = 4
 }
 
+@[noinit]
 pub struct VisualShaderNodeTransformVecMult {
     VisualShaderNode
 }

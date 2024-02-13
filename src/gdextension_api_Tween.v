@@ -33,6 +33,7 @@ pub enum TweenEaseType {
     ease_out_in = 3
 }
 
+@[noinit]
 pub struct Tween {
     RefCounted
 }

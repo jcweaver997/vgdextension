@@ -8,6 +8,7 @@ pub enum GDExtensionManagerLoadStatus {
     load_status_needs_restart = 4
 }
 
+@[noinit]
 pub struct GDExtensionManager {
     Object
 }

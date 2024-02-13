@@ -13,6 +13,7 @@ pub enum ResourceLoaderCacheMode {
     cache_mode_replace = 2
 }
 
+@[noinit]
 pub struct ResourceLoader {
     Object
 }

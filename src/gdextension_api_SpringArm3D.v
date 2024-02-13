@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct SpringArm3D {
     Node3D
 }

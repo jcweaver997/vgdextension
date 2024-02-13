@@ -90,6 +90,7 @@ pub enum HTTPClientResponseCode {
     response_network_auth_required = 511
 }
 
+@[noinit]
 pub struct HTTPClient {
     RefCounted
 }

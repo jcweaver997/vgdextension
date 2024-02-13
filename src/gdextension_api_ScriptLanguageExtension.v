@@ -34,6 +34,7 @@ pub enum ScriptLanguageExtensionCodeCompletionKind {
     code_completion_kind_max = 10
 }
 
+@[noinit]
 pub struct ScriptLanguageExtension {
     ScriptLanguage
 }

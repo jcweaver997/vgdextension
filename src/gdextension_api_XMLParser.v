@@ -10,6 +10,7 @@ pub enum XMLParserNodeType {
     node_unknown = 6
 }
 
+@[noinit]
 pub struct XMLParser {
     RefCounted
 }

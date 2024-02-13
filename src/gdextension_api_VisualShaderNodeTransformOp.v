@@ -13,6 +13,7 @@ pub enum VisualShaderNodeTransformOpOperator {
     op_max = 9
 }
 
+@[noinit]
 pub struct VisualShaderNodeTransformOp {
     VisualShaderNode
 }

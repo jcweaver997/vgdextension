@@ -15,6 +15,7 @@ pub enum RigidBody3DDampMode {
     damp_mode_replace = 1
 }
 
+@[noinit]
 pub struct RigidBody3D {
     PhysicsBody3D
 }

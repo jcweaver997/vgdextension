@@ -6,6 +6,7 @@ pub enum AnimationTreeAnimationProcessCallback {
     animation_process_manual = 2
 }
 
+@[noinit]
 pub struct AnimationTree {
     Node
 }

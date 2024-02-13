@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct CSGTorus3D {
     CSGPrimitive3D
 }

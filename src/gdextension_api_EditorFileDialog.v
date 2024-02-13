@@ -19,6 +19,7 @@ pub enum EditorFileDialogDisplayMode {
     display_list = 1
 }
 
+@[noinit]
 pub struct EditorFileDialog {
     ConfirmationDialog
 }

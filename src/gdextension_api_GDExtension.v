@@ -7,6 +7,7 @@ pub enum GDExtensionInitializationLevel {
     initialization_level_editor = 3
 }
 
+@[noinit]
 pub struct GDExtension {
     Resource
 }

@@ -23,6 +23,7 @@ pub enum ENetConnectionHostStatistic {
     host_total_received_packets = 3
 }
 
+@[noinit]
 pub struct ENetConnection {
     RefCounted
 }

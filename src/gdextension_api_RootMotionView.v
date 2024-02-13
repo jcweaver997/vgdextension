@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct RootMotionView {
     VisualInstance3D
 }

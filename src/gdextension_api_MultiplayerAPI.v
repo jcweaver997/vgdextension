@@ -6,6 +6,7 @@ pub enum MultiplayerAPIRPCMode {
     rpc_mode_authority = 2
 }
 
+@[noinit]
 pub struct MultiplayerAPI {
     RefCounted
 }

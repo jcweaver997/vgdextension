@@ -5,6 +5,7 @@ pub enum CameraServerFeedImage {
     feed_cbcr_image = 1
 }
 
+@[noinit]
 pub struct CameraServer {
     Object
 }

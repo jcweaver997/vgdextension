@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct SkeletonModification2DStackHolder {
     SkeletonModification2D
 }

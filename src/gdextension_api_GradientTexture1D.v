@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct GradientTexture1D {
     Texture2D
 }

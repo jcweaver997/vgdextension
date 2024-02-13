@@ -14,6 +14,7 @@ pub enum GPUParticles2DEmitFlags {
     emit_flag_custom = 16
 }
 
+@[noinit]
 pub struct GPUParticles2D {
     Node2D
 }

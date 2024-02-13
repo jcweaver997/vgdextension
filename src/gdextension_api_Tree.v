@@ -12,6 +12,7 @@ pub enum TreeDropModeFlags {
     drop_mode_inbetween = 2
 }
 
+@[noinit]
 pub struct Tree {
     Control
 }

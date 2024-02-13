@@ -8,6 +8,7 @@ pub enum DecalDecalTexture {
     texture_max = 4
 }
 
+@[noinit]
 pub struct Decal {
     VisualInstance3D
 }

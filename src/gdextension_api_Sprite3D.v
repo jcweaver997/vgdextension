@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct Sprite3D {
     SpriteBase3D
 }

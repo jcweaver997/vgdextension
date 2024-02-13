@@ -195,6 +195,7 @@ pub enum PhysicsServer3DBodyAxis {
     body_axis_angular_z = 32
 }
 
+@[noinit]
 pub struct PhysicsServer3D {
     Object
 }

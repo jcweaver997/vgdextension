@@ -6,6 +6,7 @@ pub enum AudioStreamRandomizerPlaybackMode {
     playback_sequential = 2
 }
 
+@[noinit]
 pub struct AudioStreamRandomizer {
     AudioStream
 }

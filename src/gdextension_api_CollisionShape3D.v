@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct CollisionShape3D {
     Node3D
 }

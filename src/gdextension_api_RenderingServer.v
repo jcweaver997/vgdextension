@@ -641,6 +641,7 @@ pub enum RenderingServerFeatures {
     feature_multithreaded = 1
 }
 
+@[noinit]
 pub struct RenderingServer {
     Object
 }

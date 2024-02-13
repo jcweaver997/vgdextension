@@ -8,6 +8,7 @@ pub enum VisualShaderNodeParticleRandomnessOpType {
     op_type_max = 4
 }
 
+@[noinit]
 pub struct VisualShaderNodeParticleRandomness {
     VisualShaderNode
 }

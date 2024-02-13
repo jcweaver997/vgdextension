@@ -38,6 +38,7 @@ pub enum CPUParticles2DEmissionShape {
     emission_shape_max = 6
 }
 
+@[noinit]
 pub struct CPUParticles2D {
     Node2D
 }

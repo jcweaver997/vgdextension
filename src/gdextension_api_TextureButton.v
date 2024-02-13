@@ -10,6 +10,7 @@ pub enum TextureButtonStretchMode {
     stretch_keep_aspect_covered = 6
 }
 
+@[noinit]
 pub struct TextureButton {
     BaseButton
 }

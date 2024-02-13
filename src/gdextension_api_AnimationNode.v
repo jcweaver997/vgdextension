@@ -7,6 +7,7 @@ pub enum AnimationNodeFilterAction {
     filter_blend = 3
 }
 
+@[noinit]
 pub struct AnimationNode {
     Resource
 }

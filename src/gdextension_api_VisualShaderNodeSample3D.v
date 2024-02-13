@@ -6,6 +6,7 @@ pub enum VisualShaderNodeSample3DSource {
     source_max = 2
 }
 
+@[noinit]
 pub struct VisualShaderNodeSample3D {
     VisualShaderNode
 }

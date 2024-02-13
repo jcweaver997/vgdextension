@@ -11,6 +11,7 @@ pub enum VisualShaderNodeMixOpType {
     op_type_max = 7
 }
 
+@[noinit]
 pub struct VisualShaderNodeMix {
     VisualShaderNode
 }

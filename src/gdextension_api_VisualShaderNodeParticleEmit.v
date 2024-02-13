@@ -8,6 +8,7 @@ pub enum VisualShaderNodeParticleEmitEmitFlags {
     emit_flag_custom = 16
 }
 
+@[noinit]
 pub struct VisualShaderNodeParticleEmit {
     VisualShaderNode
 }

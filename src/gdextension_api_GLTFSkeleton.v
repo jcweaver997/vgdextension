@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct GLTFSkeleton {
     Resource
 }

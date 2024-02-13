@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct VehicleWheel3D {
     Node3D
 }

@@ -14,6 +14,7 @@ pub enum CanvasItemMaterialLightMode {
     light_mode_light_only = 2
 }
 
+@[noinit]
 pub struct CanvasItemMaterial {
     Material
 }

@@ -21,6 +21,7 @@ pub enum NavigationMeshSourceGeometryMode {
     source_geometry_max = 3
 }
 
+@[noinit]
 pub struct NavigationMesh {
     Resource
 }

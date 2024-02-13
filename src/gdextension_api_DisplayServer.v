@@ -126,6 +126,7 @@ pub enum DisplayServerTTSUtteranceEvent {
     tts_utterance_boundary = 3
 }
 
+@[noinit]
 pub struct DisplayServer {
     Object
 }

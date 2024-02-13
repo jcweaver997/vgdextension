@@ -6,6 +6,7 @@ pub enum VisualShaderNodeUVFuncFunction {
     func_max = 2
 }
 
+@[noinit]
 pub struct VisualShaderNodeUVFunc {
     VisualShaderNode
 }

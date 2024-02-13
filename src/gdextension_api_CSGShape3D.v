@@ -6,6 +6,7 @@ pub enum CSGShape3DOperation {
     operation_subtraction = 2
 }
 
+@[noinit]
 pub struct CSGShape3D {
     GeometryInstance3D
 }

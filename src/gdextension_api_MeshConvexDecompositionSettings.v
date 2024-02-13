@@ -5,6 +5,7 @@ pub enum MeshConvexDecompositionSettingsMode {
     convex_decomposition_mode_tetrahedron = 1
 }
 
+@[noinit]
 pub struct MeshConvexDecompositionSettings {
     RefCounted
 }

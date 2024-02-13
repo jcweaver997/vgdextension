@@ -6,6 +6,7 @@ pub enum UndoRedoMergeMode {
     merge_all = 2
 }
 
+@[noinit]
 pub struct UndoRedo {
     Object
 }

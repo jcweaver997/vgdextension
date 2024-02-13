@@ -13,6 +13,7 @@ pub enum BaseButtonActionMode {
     action_mode_button_release = 1
 }
 
+@[noinit]
 pub struct BaseButton {
     Control
 }
