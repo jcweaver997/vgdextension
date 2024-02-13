@@ -12,6 +12,7 @@ pub enum MultiplayerPeerTransferMode {
     transfer_mode_reliable = 2
 }
 
+@[noinit]
 pub struct MultiplayerPeer {
     PacketPeer
 }

@@ -8,6 +8,7 @@ pub enum Area2DSpaceOverride {
     space_override_replace_combine = 4
 }
 
+@[noinit]
 pub struct Area2D {
     CollisionObject2D
 }

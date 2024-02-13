@@ -45,6 +45,7 @@ pub enum FastNoiseLiteDomainWarpFractalType {
     domain_warp_fractal_independent = 2
 }
 
+@[noinit]
 pub struct FastNoiseLite {
     Noise
 }

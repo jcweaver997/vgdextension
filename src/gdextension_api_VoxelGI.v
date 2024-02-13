@@ -8,6 +8,7 @@ pub enum VoxelGISubdiv {
     subdiv_max = 4
 }
 
+@[noinit]
 pub struct VoxelGI {
     VisualInstance3D
 }

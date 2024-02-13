@@ -11,6 +11,7 @@ pub enum VisualShaderNodeSmoothStepOpType {
     op_type_max = 7
 }
 
+@[noinit]
 pub struct VisualShaderNodeSmoothStep {
     VisualShaderNode
 }

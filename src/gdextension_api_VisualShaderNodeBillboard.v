@@ -8,6 +8,7 @@ pub enum VisualShaderNodeBillboardBillboardType {
     billboard_type_max = 4
 }
 
+@[noinit]
 pub struct VisualShaderNodeBillboard {
     VisualShaderNode
 }

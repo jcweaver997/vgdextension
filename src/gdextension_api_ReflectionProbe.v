@@ -11,6 +11,7 @@ pub enum ReflectionProbeAmbientMode {
     ambient_color = 2
 }
 
+@[noinit]
 pub struct ReflectionProbe {
     VisualInstance3D
 }

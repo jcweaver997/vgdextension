@@ -10,6 +10,7 @@ pub enum ThemeDataType {
     data_type_max = 6
 }
 
+@[noinit]
 pub struct Theme {
     Resource
 }

@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct PhysicsShapeQueryParameters3D {
     RefCounted
 }

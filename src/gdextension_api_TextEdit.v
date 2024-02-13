@@ -71,6 +71,7 @@ pub enum TextEditGutterType {
     gutter_type_custom = 2
 }
 
+@[noinit]
 pub struct TextEdit {
     Control
 }

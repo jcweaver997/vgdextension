@@ -7,6 +7,7 @@ pub enum VisualShaderNodeIntParameterHint {
     hint_max = 3
 }
 
+@[noinit]
 pub struct VisualShaderNodeIntParameter {
     VisualShaderNodeParameter
 }

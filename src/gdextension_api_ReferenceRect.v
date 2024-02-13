@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct ReferenceRect {
     Control
 }

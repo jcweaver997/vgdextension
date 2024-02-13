@@ -12,6 +12,7 @@ pub enum DirectionalLight3DSkyMode {
     sky_mode_sky_only = 2
 }
 
+@[noinit]
 pub struct DirectionalLight3D {
     Light3D
 }

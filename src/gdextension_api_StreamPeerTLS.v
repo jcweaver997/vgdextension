@@ -8,6 +8,7 @@ pub enum StreamPeerTLSStatus {
     status_error_hostname_mismatch = 4
 }
 
+@[noinit]
 pub struct StreamPeerTLS {
     StreamPeer
 }

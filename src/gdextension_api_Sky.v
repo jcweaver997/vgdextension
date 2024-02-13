@@ -18,6 +18,7 @@ pub enum SkyProcessMode {
     process_mode_realtime = 3
 }
 
+@[noinit]
 pub struct Sky {
     Resource
 }

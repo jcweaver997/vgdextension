@@ -21,6 +21,7 @@ pub enum RigidBody2DCCDMode {
     ccd_mode_cast_shape = 2
 }
 
+@[noinit]
 pub struct RigidBody2D {
     PhysicsBody2D
 }

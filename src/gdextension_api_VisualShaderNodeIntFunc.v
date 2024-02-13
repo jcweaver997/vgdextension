@@ -8,6 +8,7 @@ pub enum VisualShaderNodeIntFuncFunction {
     func_max = 4
 }
 
+@[noinit]
 pub struct VisualShaderNodeIntFunc {
     VisualShaderNode
 }

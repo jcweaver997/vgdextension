@@ -44,6 +44,7 @@ pub enum EnvironmentSDFGIYScale {
     sdfgi_y_scale_100_percent = 2
 }
 
+@[noinit]
 pub struct Environment {
     Resource
 }

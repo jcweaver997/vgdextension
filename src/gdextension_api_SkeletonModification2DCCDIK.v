@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct SkeletonModification2DCCDIK {
     SkeletonModification2D
 }

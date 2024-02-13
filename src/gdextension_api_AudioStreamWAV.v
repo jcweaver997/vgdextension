@@ -13,6 +13,7 @@ pub enum AudioStreamWAVLoopMode {
     loop_backward = 3
 }
 
+@[noinit]
 pub struct AudioStreamWAV {
     AudioStream
 }

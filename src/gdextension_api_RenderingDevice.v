@@ -556,6 +556,7 @@ pub enum RenderingDeviceMemoryType {
     memory_total = 2
 }
 
+@[noinit]
 pub struct RenderingDevice {
     Object
 }

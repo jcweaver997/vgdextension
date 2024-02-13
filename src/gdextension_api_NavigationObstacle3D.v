@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct NavigationObstacle3D {
     Node3D
 }

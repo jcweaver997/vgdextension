@@ -52,6 +52,7 @@ pub enum ParticleProcessMaterialCollisionMode {
     collision_max = 3
 }
 
+@[noinit]
 pub struct ParticleProcessMaterial {
     Material
 }

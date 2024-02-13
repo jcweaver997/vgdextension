@@ -7,6 +7,7 @@ pub enum AudioServerSpeakerMode {
     speaker_surround_71 = 3
 }
 
+@[noinit]
 pub struct AudioServer {
     Object
 }

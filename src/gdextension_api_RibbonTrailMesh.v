@@ -5,6 +5,7 @@ pub enum RibbonTrailMeshShape {
     shape_cross = 1
 }
 
+@[noinit]
 pub struct RibbonTrailMesh {
     PrimitiveMesh
 }

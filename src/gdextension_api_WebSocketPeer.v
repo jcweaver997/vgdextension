@@ -12,6 +12,7 @@ pub enum WebSocketPeerState {
     state_closed = 3
 }
 
+@[noinit]
 pub struct WebSocketPeer {
     PacketPeer
 }

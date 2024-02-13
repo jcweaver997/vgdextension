@@ -6,6 +6,7 @@ pub enum ZIPPackerZipAppend {
     append_addinzip = 2
 }
 
+@[noinit]
 pub struct ZIPPacker {
     RefCounted
 }

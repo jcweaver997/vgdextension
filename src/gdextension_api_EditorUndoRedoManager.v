@@ -6,6 +6,7 @@ pub enum EditorUndoRedoManagerSpecialHistory {
     invalid_history = -99
 }
 
+@[noinit]
 pub struct EditorUndoRedoManager {
     Object
 }

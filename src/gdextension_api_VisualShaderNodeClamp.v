@@ -10,6 +10,7 @@ pub enum VisualShaderNodeClampOpType {
     op_type_max = 6
 }
 
+@[noinit]
 pub struct VisualShaderNodeClamp {
     VisualShaderNode
 }

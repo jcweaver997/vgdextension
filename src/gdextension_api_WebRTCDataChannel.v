@@ -12,6 +12,7 @@ pub enum WebRTCDataChannelChannelState {
     state_closed = 3
 }
 
+@[noinit]
 pub struct WebRTCDataChannel {
     PacketPeer
 }

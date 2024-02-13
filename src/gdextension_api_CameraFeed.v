@@ -13,6 +13,7 @@ pub enum CameraFeedFeedPosition {
     feed_back = 2
 }
 
+@[noinit]
 pub struct CameraFeed {
     RefCounted
 }

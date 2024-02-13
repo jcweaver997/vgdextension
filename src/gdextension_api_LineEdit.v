@@ -45,6 +45,7 @@ pub enum LineEditVirtualKeyboardType {
     keyboard_type_url = 7
 }
 
+@[noinit]
 pub struct LineEdit {
     Control
 }

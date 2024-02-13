@@ -12,6 +12,7 @@ pub enum NavigationServer3DProcessInfo {
     info_edge_free_count = 8
 }
 
+@[noinit]
 pub struct NavigationServer3D {
     Object
 }

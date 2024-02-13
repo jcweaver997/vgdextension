@@ -16,6 +16,7 @@ pub enum XRServerRotationMode {
     dont_reset_rotation = 2
 }
 
+@[noinit]
 pub struct XRServer {
     Object
 }

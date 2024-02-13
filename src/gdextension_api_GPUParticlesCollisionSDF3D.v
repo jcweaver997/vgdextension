@@ -10,6 +10,7 @@ pub enum GPUParticlesCollisionSDF3DResolution {
     resolution_max = 6
 }
 
+@[noinit]
 pub struct GPUParticlesCollisionSDF3D {
     GPUParticlesCollision3D
 }

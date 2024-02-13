@@ -17,6 +17,7 @@ pub enum CSGPolygon3DPathIntervalType {
     path_interval_subdivide = 1
 }
 
+@[noinit]
 pub struct CSGPolygon3D {
     CSGPrimitive3D
 }

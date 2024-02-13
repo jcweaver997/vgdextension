@@ -7,6 +7,7 @@ pub enum ObjectConnectFlags {
     connect_reference_counted = 8
 }
 
+@[noinit]
 pub struct Object {
     mut:
     ptr voidptr = unsafe{nil}

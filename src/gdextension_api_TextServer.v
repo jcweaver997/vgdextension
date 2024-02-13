@@ -159,6 +159,7 @@ pub enum TextServerStructuredTextParser {
     structured_text_custom = 6
 }
 
+@[noinit]
 pub struct TextServer {
     RefCounted
 }

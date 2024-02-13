@@ -8,6 +8,7 @@ pub enum Area3DSpaceOverride {
     space_override_replace_combine = 4
 }
 
+@[noinit]
 pub struct Area3D {
     CollisionObject3D
 }

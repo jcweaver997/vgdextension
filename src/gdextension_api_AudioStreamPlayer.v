@@ -6,6 +6,7 @@ pub enum AudioStreamPlayerMixTarget {
     mix_target_center = 2
 }
 
+@[noinit]
 pub struct AudioStreamPlayer {
     Node
 }

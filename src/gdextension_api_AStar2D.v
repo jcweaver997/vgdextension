@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct AStar2D {
     RefCounted
 }

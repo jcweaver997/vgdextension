@@ -6,6 +6,7 @@ pub enum AnimationNodeBlendSpace1DBlendMode {
     blend_mode_discrete_carry = 2
 }
 
+@[noinit]
 pub struct AnimationNodeBlendSpace1D {
     AnimationRootNode
 }

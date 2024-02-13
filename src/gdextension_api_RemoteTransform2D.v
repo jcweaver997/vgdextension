@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct RemoteTransform2D {
     Node2D
 }

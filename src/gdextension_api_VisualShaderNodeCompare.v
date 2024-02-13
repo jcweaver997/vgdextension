@@ -28,6 +28,7 @@ pub enum VisualShaderNodeCompareCondition {
     cond_max = 2
 }
 
+@[noinit]
 pub struct VisualShaderNodeCompare {
     VisualShaderNode
 }

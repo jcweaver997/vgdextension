@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct NavigationRegion2D {
     Node2D
 }

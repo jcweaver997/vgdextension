@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct BoxOccluder3D {
     Occluder3D
 }

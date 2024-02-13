@@ -14,6 +14,7 @@ pub enum IPType {
     type_any = 3
 }
 
+@[noinit]
 pub struct IP {
     Object
 }

@@ -16,6 +16,7 @@ pub enum VisualShaderNodeUIntOpOperator {
     op_enum_size = 12
 }
 
+@[noinit]
 pub struct VisualShaderNodeUIntOp {
     VisualShaderNode
 }

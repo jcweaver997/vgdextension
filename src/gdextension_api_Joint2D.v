@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct Joint2D {
     Node2D
 }

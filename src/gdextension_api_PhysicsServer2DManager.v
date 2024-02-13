@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct PhysicsServer2DManager {
     Object
 }

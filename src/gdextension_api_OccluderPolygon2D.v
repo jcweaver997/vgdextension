@@ -6,6 +6,7 @@ pub enum OccluderPolygon2DCullMode {
     cull_counter_clockwise = 2
 }
 
+@[noinit]
 pub struct OccluderPolygon2D {
     Resource
 }

@@ -25,6 +25,7 @@ pub enum TimeWeekday {
     weekday_saturday = 6
 }
 
+@[noinit]
 pub struct Time {
     Object
 }

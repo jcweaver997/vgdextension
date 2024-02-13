@@ -6,6 +6,7 @@ pub enum CollisionObject3DDisableMode {
     disable_mode_keep_active = 2
 }
 
+@[noinit]
 pub struct CollisionObject3D {
     Node3D
 }

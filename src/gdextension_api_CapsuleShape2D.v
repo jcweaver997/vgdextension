@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct CapsuleShape2D {
     Shape2D
 }

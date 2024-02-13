@@ -30,6 +30,7 @@ pub enum ENetPacketPeerPeerStatistic {
     peer_packet_throttle_interval = 13
 }
 
+@[noinit]
 pub struct ENetPacketPeer {
     PacketPeer
 }

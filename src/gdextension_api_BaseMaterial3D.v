@@ -159,6 +159,7 @@ pub enum BaseMaterial3DDistanceFadeMode {
     distance_fade_object_dither = 3
 }
 
+@[noinit]
 pub struct BaseMaterial3D {
     Material
 }

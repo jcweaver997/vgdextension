@@ -18,6 +18,7 @@ pub enum Line2DLineTextureMode {
     line_texture_stretch = 2
 }
 
+@[noinit]
 pub struct Line2D {
     Node2D
 }

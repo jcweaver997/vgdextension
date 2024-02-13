@@ -50,6 +50,7 @@ pub enum WindowWindowInitialPosition {
     window_initial_position_center_screen_with_keyboard_focus = 5
 }
 
+@[noinit]
 pub struct Window {
     Viewport
 }

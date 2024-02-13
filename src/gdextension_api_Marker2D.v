@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct Marker2D {
     Node2D
 }

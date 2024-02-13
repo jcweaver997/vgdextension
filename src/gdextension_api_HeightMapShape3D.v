@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct HeightMapShape3D {
     Shape3D
 }

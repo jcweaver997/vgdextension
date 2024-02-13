@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct ShapeCast3D {
     Node3D
 }

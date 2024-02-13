@@ -12,6 +12,7 @@ pub enum EditorFeatureProfileFeature {
     feature_max = 8
 }
 
+@[noinit]
 pub struct EditorFeatureProfile {
     RefCounted
 }

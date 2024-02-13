@@ -26,6 +26,7 @@ pub enum CanvasItemClipChildrenMode {
     clip_children_max = 3
 }
 
+@[noinit]
 pub struct CanvasItem {
     Node
 }

@@ -10,6 +10,7 @@ pub enum Camera2DCamera2DProcessCallback {
     camera2d_process_idle = 1
 }
 
+@[noinit]
 pub struct Camera2D {
     Node2D
 }

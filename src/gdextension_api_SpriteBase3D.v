@@ -16,6 +16,7 @@ pub enum SpriteBase3DAlphaCutMode {
     alpha_cut_hash = 3
 }
 
+@[noinit]
 pub struct SpriteBase3D {
     GeometryInstance3D
 }

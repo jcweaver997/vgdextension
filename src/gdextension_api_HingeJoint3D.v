@@ -18,6 +18,7 @@ pub enum HingeJoint3DFlag {
     flag_max = 2
 }
 
+@[noinit]
 pub struct HingeJoint3D {
     Joint3D
 }

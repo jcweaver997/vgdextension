@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct PhysicsDirectSpaceState3DExtension {
     PhysicsDirectSpaceState3D
 }

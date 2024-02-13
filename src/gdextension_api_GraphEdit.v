@@ -5,6 +5,7 @@ pub enum GraphEditPanningScheme {
     scroll_pans = 1
 }
 
+@[noinit]
 pub struct GraphEdit {
     Control
 }

@@ -5,6 +5,7 @@ pub enum NavigationPathQueryResult3DPathSegmentType {
     path_segment_type_link = 1
 }
 
+@[noinit]
 pub struct NavigationPathQueryResult3D {
     RefCounted
 }

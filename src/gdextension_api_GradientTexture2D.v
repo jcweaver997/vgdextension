@@ -12,6 +12,7 @@ pub enum GradientTexture2DRepeat {
     repeat_mirror = 2
 }
 
+@[noinit]
 pub struct GradientTexture2D {
     Texture2D
 }

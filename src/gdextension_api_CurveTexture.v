@@ -5,6 +5,7 @@ pub enum CurveTextureTextureMode {
     texture_mode_red = 1
 }
 
+@[noinit]
 pub struct CurveTexture {
     Texture2D
 }

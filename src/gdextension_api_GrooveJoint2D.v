@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct GrooveJoint2D {
     Joint2D
 }

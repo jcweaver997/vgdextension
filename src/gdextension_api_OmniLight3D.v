@@ -5,6 +5,7 @@ pub enum OmniLight3DShadowMode {
     shadow_cube = 1
 }
 
+@[noinit]
 pub struct OmniLight3D {
     Light3D
 }

@@ -27,6 +27,7 @@ pub enum GeometryInstance3DVisibilityRangeFadeMode {
     visibility_range_fade_dependencies = 2
 }
 
+@[noinit]
 pub struct GeometryInstance3D {
     VisualInstance3D
 }

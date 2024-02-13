@@ -86,6 +86,7 @@ pub enum ImageASTCFormat {
     astc_format_8x8 = 1
 }
 
+@[noinit]
 pub struct Image {
     Resource
 }

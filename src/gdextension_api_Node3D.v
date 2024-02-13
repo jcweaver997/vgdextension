@@ -6,6 +6,7 @@ pub enum Node3DRotationEditMode {
     rotation_edit_mode_basis = 2
 }
 
+@[noinit]
 pub struct Node3D {
     Node
 }

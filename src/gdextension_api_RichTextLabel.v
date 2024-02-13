@@ -13,6 +13,7 @@ pub enum RichTextLabelMenuItems {
     menu_max = 2
 }
 
+@[noinit]
 pub struct RichTextLabel {
     Control
 }

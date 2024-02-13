@@ -6,6 +6,7 @@ pub enum TextureLayeredLayeredType {
     layered_type_cubemap_array = 2
 }
 
+@[noinit]
 pub struct TextureLayered {
     Texture
 }

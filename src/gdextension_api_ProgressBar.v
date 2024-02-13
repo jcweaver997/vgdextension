@@ -7,6 +7,7 @@ pub enum ProgressBarFillMode {
     fill_bottom_to_top = 3
 }
 
+@[noinit]
 pub struct ProgressBar {
     Range
 }

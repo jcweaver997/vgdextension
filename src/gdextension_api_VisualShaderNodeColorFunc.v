@@ -8,6 +8,7 @@ pub enum VisualShaderNodeColorFuncFunction {
     func_max = 4
 }
 
+@[noinit]
 pub struct VisualShaderNodeColorFunc {
     VisualShaderNode
 }

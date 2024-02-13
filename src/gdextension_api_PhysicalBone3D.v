@@ -14,6 +14,7 @@ pub enum PhysicalBone3DJointType {
     joint_type_6dof = 5
 }
 
+@[noinit]
 pub struct PhysicalBone3D {
     PhysicsBody3D
 }

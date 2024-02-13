@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct XRController3D {
     XRNode3D
 }

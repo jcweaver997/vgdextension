@@ -8,6 +8,7 @@ pub enum AudioEffectDistortionMode {
     mode_waveshape = 4
 }
 
+@[noinit]
 pub struct AudioEffectDistortion {
     AudioEffect
 }

@@ -8,6 +8,7 @@ pub enum VisualShaderNodeMultiplyAddOpType {
     op_type_max = 4
 }
 
+@[noinit]
 pub struct VisualShaderNodeMultiplyAdd {
     VisualShaderNode
 }

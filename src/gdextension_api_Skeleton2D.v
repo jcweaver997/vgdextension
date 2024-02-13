@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct Skeleton2D {
     Node2D
 }

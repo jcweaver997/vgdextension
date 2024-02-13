@@ -13,6 +13,7 @@ pub enum VisualShaderNodePortType {
     port_type_max = 9
 }
 
+@[noinit]
 pub struct VisualShaderNode {
     Resource
 }

@@ -26,6 +26,7 @@ pub enum SliderJoint3DParam {
     param_max = 22
 }
 
+@[noinit]
 pub struct SliderJoint3D {
     Joint3D
 }

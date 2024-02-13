@@ -9,6 +9,7 @@ pub enum PortableCompressedTexture2DCompressionMode {
     compression_mode_bptc = 5
 }
 
+@[noinit]
 pub struct PortableCompressedTexture2D {
     Texture2D
 }

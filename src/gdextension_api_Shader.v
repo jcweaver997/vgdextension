@@ -8,6 +8,7 @@ pub enum ShaderMode {
     mode_fog = 4
 }
 
+@[noinit]
 pub struct Shader {
     Resource
 }

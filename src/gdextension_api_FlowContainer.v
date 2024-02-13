@@ -6,6 +6,7 @@ pub enum FlowContainerAlignmentMode {
     alignment_end = 2
 }
 
+@[noinit]
 pub struct FlowContainer {
     Container
 }

@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct ImporterMeshInstance3D {
     Node3D
 }

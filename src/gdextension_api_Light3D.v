@@ -31,6 +31,7 @@ pub enum Light3DBakeMode {
     bake_dynamic = 2
 }
 
+@[noinit]
 pub struct Light3D {
     VisualInstance3D
 }

@@ -7,6 +7,7 @@ pub enum VisualShaderNodeVectorBaseOpType {
     op_type_max = 3
 }
 
+@[noinit]
 pub struct VisualShaderNodeVectorBase {
     VisualShaderNode
 }

@@ -32,6 +32,7 @@ pub enum XRInterfaceEnvironmentBlendMode {
     xr_env_blend_mode_alpha_blend = 2
 }
 
+@[noinit]
 pub struct XRInterface {
     RefCounted
 }

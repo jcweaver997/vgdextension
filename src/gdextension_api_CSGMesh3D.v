@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct CSGMesh3D {
     CSGPrimitive3D
 }

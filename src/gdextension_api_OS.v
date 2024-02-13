@@ -16,6 +16,7 @@ pub enum OSSystemDir {
     system_dir_ringtones = 7
 }
 
+@[noinit]
 pub struct OS {
     Object
 }

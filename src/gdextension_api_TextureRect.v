@@ -19,6 +19,7 @@ pub enum TextureRectStretchMode {
     stretch_keep_aspect_covered = 6
 }
 
+@[noinit]
 pub struct TextureRect {
     Control
 }

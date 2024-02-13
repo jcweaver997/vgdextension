@@ -46,6 +46,7 @@ pub enum TileSetTerrainMode {
     terrain_mode_match_sides = 2
 }
 
+@[noinit]
 pub struct TileSet {
     Resource
 }

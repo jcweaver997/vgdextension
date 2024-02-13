@@ -44,6 +44,7 @@ pub enum AnimationFindMode {
     find_mode_exact = 2
 }
 
+@[noinit]
 pub struct Animation {
     Resource
 }

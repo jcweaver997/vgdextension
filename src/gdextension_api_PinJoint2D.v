@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct PinJoint2D {
     Joint2D
 }

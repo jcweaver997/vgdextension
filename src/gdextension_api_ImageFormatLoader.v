@@ -6,6 +6,7 @@ pub enum ImageFormatLoaderLoaderFlags {
     flag_convert_colors = 2
 }
 
+@[noinit]
 pub struct ImageFormatLoader {
     RefCounted
 }

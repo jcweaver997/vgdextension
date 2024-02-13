@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct MeshInstance3D {
     GeometryInstance3D
 }

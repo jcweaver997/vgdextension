@@ -6,6 +6,7 @@ pub enum VisibleOnScreenEnabler2DEnableMode {
     enable_mode_when_paused = 2
 }
 
+@[noinit]
 pub struct VisibleOnScreenEnabler2D {
     VisibleOnScreenNotifier2D
 }

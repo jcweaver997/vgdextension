@@ -110,6 +110,7 @@ pub enum ViewportVRSMode {
     vrs_max = 3
 }
 
+@[noinit]
 pub struct Viewport {
     Node
 }

@@ -7,6 +7,7 @@ pub enum ScrollContainerScrollMode {
     scroll_mode_show_never = 3
 }
 
+@[noinit]
 pub struct ScrollContainer {
     Container
 }

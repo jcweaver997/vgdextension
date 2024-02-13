@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct MultiMeshInstance3D {
     GeometryInstance3D
 }

@@ -12,6 +12,7 @@ pub enum TextureProgressBarFillMode {
     fill_clockwise_and_counter_clockwise = 8
 }
 
+@[noinit]
 pub struct TextureProgressBar {
     Range
 }

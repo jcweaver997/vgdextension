@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct NavigationServer2D {
     Object
 }

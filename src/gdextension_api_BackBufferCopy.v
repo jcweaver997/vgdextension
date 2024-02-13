@@ -6,6 +6,7 @@ pub enum BackBufferCopyCopyMode {
     copy_mode_viewport = 2
 }
 
+@[noinit]
 pub struct BackBufferCopy {
     Node2D
 }

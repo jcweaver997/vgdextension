@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct DirectionalLight2D {
     Light2D
 }

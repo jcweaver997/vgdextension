@@ -8,6 +8,7 @@ pub enum JSONRPCErrorCode {
     internal_error = -32603
 }
 
+@[noinit]
 pub struct JSONRPC {
     Object
 }

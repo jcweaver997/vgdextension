@@ -7,6 +7,7 @@ pub enum VisualShaderNodeParameterQualifier {
     qual_max = 3
 }
 
+@[noinit]
 pub struct VisualShaderNodeParameter {
     VisualShaderNode
 }

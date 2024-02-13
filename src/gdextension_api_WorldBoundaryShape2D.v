@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct WorldBoundaryShape2D {
     Shape2D
 }

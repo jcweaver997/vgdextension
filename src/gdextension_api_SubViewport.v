@@ -14,6 +14,7 @@ pub enum SubViewportUpdateMode {
     update_always = 4
 }
 
+@[noinit]
 pub struct SubViewport {
     Viewport
 }

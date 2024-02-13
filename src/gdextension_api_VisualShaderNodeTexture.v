@@ -19,6 +19,7 @@ pub enum VisualShaderNodeTextureTextureType {
     type_max = 3
 }
 
+@[noinit]
 pub struct VisualShaderNodeTexture {
     VisualShaderNode
 }

@@ -8,6 +8,7 @@ pub enum AESContextMode {
     mode_max = 4
 }
 
+@[noinit]
 pub struct AESContext {
     RefCounted
 }

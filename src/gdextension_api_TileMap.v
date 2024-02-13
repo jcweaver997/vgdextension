@@ -6,6 +6,7 @@ pub enum TileMapVisibilityMode {
     visibility_mode_force_show = 1
 }
 
+@[noinit]
 pub struct TileMap {
     Node2D
 }

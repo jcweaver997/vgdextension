@@ -14,6 +14,7 @@ pub enum TabBarCloseButtonDisplayPolicy {
     close_button_max = 3
 }
 
+@[noinit]
 pub struct TabBar {
     Control
 }

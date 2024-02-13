@@ -6,6 +6,7 @@ pub enum SkeletonProfileTailDirection {
     tail_direction_end = 2
 }
 
+@[noinit]
 pub struct SkeletonProfile {
     Resource
 }

@@ -11,6 +11,7 @@ pub enum EditorScenePostImportPluginInternalImportCategory {
     internal_import_category_max = 7
 }
 
+@[noinit]
 pub struct EditorScenePostImportPlugin {
     RefCounted
 }

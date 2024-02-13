@@ -9,6 +9,7 @@ pub enum AudioEffectPitchShiftFFTSize {
     fft_size_max = 5
 }
 
+@[noinit]
 pub struct AudioEffectPitchShift {
     AudioEffect
 }

@@ -10,6 +10,7 @@ pub enum ItemListSelectMode {
     select_multi = 1
 }
 
+@[noinit]
 pub struct ItemList {
     Control
 }

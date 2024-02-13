@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct AnimatedSprite2D {
     Node2D
 }

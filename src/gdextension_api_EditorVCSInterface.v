@@ -15,6 +15,7 @@ pub enum EditorVCSInterfaceTreeArea {
     tree_area_unstaged = 2
 }
 
+@[noinit]
 pub struct EditorVCSInterface {
     Object
 }

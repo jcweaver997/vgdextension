@@ -7,6 +7,7 @@ pub enum SceneTreeGroupCallFlags {
     group_call_unique = 4
 }
 
+@[noinit]
 pub struct SceneTree {
     MainLoop
 }

@@ -12,6 +12,7 @@ pub enum VisualShaderNodeSwitchOpType {
     op_type_max = 8
 }
 
+@[noinit]
 pub struct VisualShaderNodeSwitch {
     VisualShaderNode
 }

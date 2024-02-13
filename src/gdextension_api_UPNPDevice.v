@@ -13,6 +13,7 @@ pub enum UPNPDeviceIGDStatus {
     igd_status_unknown_error = 9
 }
 
+@[noinit]
 pub struct UPNPDevice {
     RefCounted
 }

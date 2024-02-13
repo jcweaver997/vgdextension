@@ -41,6 +41,7 @@ pub enum VisualShaderNodeTextureParameterTextureSource {
     source_max = 4
 }
 
+@[noinit]
 pub struct VisualShaderNodeTextureParameter {
     VisualShaderNodeParameter
 }

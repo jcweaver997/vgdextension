@@ -6,6 +6,7 @@ pub enum ResourceFormatLoaderCacheMode {
     cache_mode_replace = 2
 }
 
+@[noinit]
 pub struct ResourceFormatLoader {
     RefCounted
 }

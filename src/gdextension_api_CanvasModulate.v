@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct CanvasModulate {
     Node2D
 }

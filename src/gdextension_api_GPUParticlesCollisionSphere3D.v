@@ -1,5 +1,6 @@
 module vgdextension
 
+@[noinit]
 pub struct GPUParticlesCollisionSphere3D {
     GPUParticlesCollision3D
 }

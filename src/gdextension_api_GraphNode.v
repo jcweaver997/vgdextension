@@ -6,6 +6,7 @@ pub enum GraphNodeOverlay {
     overlay_position = 2
 }
 
+@[noinit]
 pub struct GraphNode {
     Container
 }

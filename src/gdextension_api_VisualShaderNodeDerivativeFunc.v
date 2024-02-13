@@ -22,6 +22,7 @@ pub enum VisualShaderNodeDerivativeFuncPrecision {
     precision_max = 3
 }
 
+@[noinit]
 pub struct VisualShaderNodeDerivativeFunc {
     VisualShaderNode
 }

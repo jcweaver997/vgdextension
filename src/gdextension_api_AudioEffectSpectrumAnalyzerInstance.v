@@ -5,6 +5,7 @@ pub enum AudioEffectSpectrumAnalyzerInstanceMagnitudeMode {
     magnitude_max = 1
 }
 
+@[noinit]
 pub struct AudioEffectSpectrumAnalyzerInstance {
     AudioEffectInstance
 }

@@ -33,6 +33,7 @@ pub enum EditorPluginAfterGUIInput {
     after_gui_input_custom = 2
 }
 
+@[noinit]
 pub struct EditorPlugin {
     Node
 }

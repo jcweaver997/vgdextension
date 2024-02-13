@@ -8,6 +8,7 @@ pub enum PacketPeerDTLSStatus {
     status_error_hostname_mismatch = 4
 }
 
+@[noinit]
 pub struct PacketPeerDTLS {
     PacketPeer
 }

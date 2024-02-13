@@ -9,6 +9,7 @@ pub enum AudioEffectSpectrumAnalyzerFFTSize {
     fft_size_max = 5
 }
 
+@[noinit]
 pub struct AudioEffectSpectrumAnalyzer {
     AudioEffect
 }

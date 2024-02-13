@@ -14,6 +14,7 @@ pub enum VisualShaderNodeFloatOpOperator {
     op_enum_size = 10
 }
 
+@[noinit]
 pub struct VisualShaderNodeFloatOp {
     VisualShaderNode
 }

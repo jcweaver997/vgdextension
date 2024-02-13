@@ -6,6 +6,7 @@ pub enum HashingContextHashType {
     hash_sha256 = 2
 }
 
+@[noinit]
 pub struct HashingContext {
     RefCounted
 }

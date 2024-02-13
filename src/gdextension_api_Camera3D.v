@@ -17,6 +17,7 @@ pub enum Camera3DDopplerTracking {
     doppler_tracking_physics_step = 2
 }
 
+@[noinit]
 pub struct Camera3D {
     Node3D
 }

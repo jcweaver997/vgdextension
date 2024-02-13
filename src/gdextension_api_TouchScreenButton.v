@@ -5,6 +5,7 @@ pub enum TouchScreenButtonVisibilityMode {
     visibility_touchscreen_only = 1
 }
 
+@[noinit]
 pub struct TouchScreenButton {
     Node2D
 }
