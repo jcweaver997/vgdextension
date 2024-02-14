@@ -1,6 +1,6 @@
 module vgdextension
 
-pub enum VariantOperator {
+pub enum VariantOperator as i64 {
     op_equal = 0
     op_not_equal = 1
     op_less = 2

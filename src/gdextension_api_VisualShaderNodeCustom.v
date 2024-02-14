@@ -13,11 +13,11 @@ pub interface IVisualShaderNodeCustomGetName {
 pub fn (r &VisualShaderNodeCustom) uget_name() String {
     mut object_out := String{}
     classname := StringName.new("VisualShaderNodeCustom")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_name")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IVisualShaderNodeCustomGetDescription {
@@ -28,11 +28,11 @@ pub interface IVisualShaderNodeCustomGetDescription {
 pub fn (r &VisualShaderNodeCustom) uget_description() String {
     mut object_out := String{}
     classname := StringName.new("VisualShaderNodeCustom")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_description")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IVisualShaderNodeCustomGetCategory {
@@ -43,11 +43,11 @@ pub interface IVisualShaderNodeCustomGetCategory {
 pub fn (r &VisualShaderNodeCustom) uget_category() String {
     mut object_out := String{}
     classname := StringName.new("VisualShaderNodeCustom")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_category")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IVisualShaderNodeCustomGetReturnIconType {
@@ -56,14 +56,14 @@ pub interface IVisualShaderNodeCustomGetReturnIconType {
 }
 
 pub fn (r &VisualShaderNodeCustom) uget_return_icon_type() VisualShaderNodePortType {
-    mut object_out := VisualShaderNodePortType.port_type_scalar
+    mut object_out := i64(VisualShaderNodePortType.port_type_scalar)
     classname := StringName.new("VisualShaderNodeCustom")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_return_icon_type")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
-   return object_out
+    classname.deinit()
+    fnname.deinit()
+   return unsafe{VisualShaderNodePortType(object_out)}
 }
 pub interface IVisualShaderNodeCustomGetInputPortCount {
     mut:
@@ -73,11 +73,11 @@ pub interface IVisualShaderNodeCustomGetInputPortCount {
 pub fn (r &VisualShaderNodeCustom) uget_input_port_count() i32 {
     mut object_out := i32(0)
     classname := StringName.new("VisualShaderNodeCustom")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_input_port_count")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IVisualShaderNodeCustomGetInputPortType {
@@ -86,16 +86,16 @@ pub interface IVisualShaderNodeCustomGetInputPortType {
 }
 
 pub fn (r &VisualShaderNodeCustom) uget_input_port_type(port i32) VisualShaderNodePortType {
-    mut object_out := VisualShaderNodePortType.port_type_scalar
+    mut object_out := i64(VisualShaderNodePortType.port_type_scalar)
     classname := StringName.new("VisualShaderNodeCustom")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_input_port_type")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&port)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
-   return object_out
+    classname.deinit()
+    fnname.deinit()
+   return unsafe{VisualShaderNodePortType(object_out)}
 }
 pub interface IVisualShaderNodeCustomGetInputPortName {
     mut:
@@ -105,13 +105,48 @@ pub interface IVisualShaderNodeCustomGetInputPortName {
 pub fn (r &VisualShaderNodeCustom) uget_input_port_name(port i32) String {
     mut object_out := String{}
     classname := StringName.new("VisualShaderNodeCustom")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_input_port_name")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&port)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
+   return object_out
+}
+pub interface IVisualShaderNodeCustomGetInputPortDefaultValue {
+    mut:
+    virt_get_input_port_default_value(port i32) Variant
+}
+
+pub fn (r &VisualShaderNodeCustom) uget_input_port_default_value(port i32) Variant {
+    mut object_out := Variant{}
+    classname := StringName.new("VisualShaderNodeCustom")
+    fnname := StringName.new("_get_input_port_default_value")
+    mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&port)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
+   return object_out
+}
+pub interface IVisualShaderNodeCustomGetDefaultInputPort {
+    mut:
+    virt_get_default_input_port(type_name VisualShaderNodePortType) i32
+}
+
+pub fn (r &VisualShaderNodeCustom) uget_default_input_port(type_name VisualShaderNodePortType) i32 {
+    mut object_out := i32(0)
+    classname := StringName.new("VisualShaderNodeCustom")
+    fnname := StringName.new("_get_default_input_port")
+    mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
+    mut args := unsafe { [1]voidptr{} }
+    i64_type_name := i64(type_name)
+    args[0] = unsafe{voidptr(&i64_type_name)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IVisualShaderNodeCustomGetOutputPortCount {
@@ -122,11 +157,11 @@ pub interface IVisualShaderNodeCustomGetOutputPortCount {
 pub fn (r &VisualShaderNodeCustom) uget_output_port_count() i32 {
     mut object_out := i32(0)
     classname := StringName.new("VisualShaderNodeCustom")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_output_port_count")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IVisualShaderNodeCustomGetOutputPortType {
@@ -135,16 +170,16 @@ pub interface IVisualShaderNodeCustomGetOutputPortType {
 }
 
 pub fn (r &VisualShaderNodeCustom) uget_output_port_type(port i32) VisualShaderNodePortType {
-    mut object_out := VisualShaderNodePortType.port_type_scalar
+    mut object_out := i64(VisualShaderNodePortType.port_type_scalar)
     classname := StringName.new("VisualShaderNodeCustom")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_output_port_type")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&port)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
-   return object_out
+    classname.deinit()
+    fnname.deinit()
+   return unsafe{VisualShaderNodePortType(object_out)}
 }
 pub interface IVisualShaderNodeCustomGetOutputPortName {
     mut:
@@ -154,13 +189,79 @@ pub interface IVisualShaderNodeCustomGetOutputPortName {
 pub fn (r &VisualShaderNodeCustom) uget_output_port_name(port i32) String {
     mut object_out := String{}
     classname := StringName.new("VisualShaderNodeCustom")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_output_port_name")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&port)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
+   return object_out
+}
+pub interface IVisualShaderNodeCustomGetPropertyCount {
+    mut:
+    virt_get_property_count() i32
+}
+
+pub fn (r &VisualShaderNodeCustom) uget_property_count() i32 {
+    mut object_out := i32(0)
+    classname := StringName.new("VisualShaderNodeCustom")
+    fnname := StringName.new("_get_property_count")
+    mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
+    gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
+   return object_out
+}
+pub interface IVisualShaderNodeCustomGetPropertyName {
+    mut:
+    virt_get_property_name(index i32) String
+}
+
+pub fn (r &VisualShaderNodeCustom) uget_property_name(index i32) String {
+    mut object_out := String{}
+    classname := StringName.new("VisualShaderNodeCustom")
+    fnname := StringName.new("_get_property_name")
+    mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&index)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
+   return object_out
+}
+pub interface IVisualShaderNodeCustomGetPropertyDefaultIndex {
+    mut:
+    virt_get_property_default_index(index i32) i32
+}
+
+pub fn (r &VisualShaderNodeCustom) uget_property_default_index(index i32) i32 {
+    mut object_out := i32(0)
+    classname := StringName.new("VisualShaderNodeCustom")
+    fnname := StringName.new("_get_property_default_index")
+    mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&index)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
+   return object_out
+}
+pub interface IVisualShaderNodeCustomGetPropertyOptions {
+    mut:
+    virt_get_property_options(index i32) PackedStringArray
+}
+
+pub fn (r &VisualShaderNodeCustom) uget_property_options(index i32) PackedStringArray {
+    mut object_out := PackedStringArray{}
+    classname := StringName.new("VisualShaderNodeCustom")
+    fnname := StringName.new("_get_property_options")
+    mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&index)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IVisualShaderNodeCustomGetCode {
@@ -171,16 +272,18 @@ pub interface IVisualShaderNodeCustomGetCode {
 pub fn (r &VisualShaderNodeCustom) uget_code(input_vars Array, output_vars Array, mode ShaderMode, type_name VisualShaderType) String {
     mut object_out := String{}
     classname := StringName.new("VisualShaderNodeCustom")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_code")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [4]voidptr{} }
     args[0] = unsafe{voidptr(&input_vars)}
     args[1] = unsafe{voidptr(&output_vars)}
-    args[2] = unsafe{voidptr(&mode)}
-    args[3] = unsafe{voidptr(&type_name)}
+    i64_mode := i64(mode)
+    args[2] = unsafe{voidptr(&i64_mode)}
+    i64_type_name := i64(type_name)
+    args[3] = unsafe{voidptr(&i64_type_name)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IVisualShaderNodeCustomGetFuncCode {
@@ -191,14 +294,16 @@ pub interface IVisualShaderNodeCustomGetFuncCode {
 pub fn (r &VisualShaderNodeCustom) uget_func_code(mode ShaderMode, type_name VisualShaderType) String {
     mut object_out := String{}
     classname := StringName.new("VisualShaderNodeCustom")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_func_code")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&mode)}
-    args[1] = unsafe{voidptr(&type_name)}
+    i64_mode := i64(mode)
+    args[0] = unsafe{voidptr(&i64_mode)}
+    i64_type_name := i64(type_name)
+    args[1] = unsafe{voidptr(&i64_type_name)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IVisualShaderNodeCustomGetGlobalCode {
@@ -209,13 +314,14 @@ pub interface IVisualShaderNodeCustomGetGlobalCode {
 pub fn (r &VisualShaderNodeCustom) uget_global_code(mode ShaderMode) String {
     mut object_out := String{}
     classname := StringName.new("VisualShaderNodeCustom")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_global_code")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&mode)}
+    i64_mode := i64(mode)
+    args[0] = unsafe{voidptr(&i64_mode)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IVisualShaderNodeCustomIsHighend {
@@ -226,11 +332,11 @@ pub interface IVisualShaderNodeCustomIsHighend {
 pub fn (r &VisualShaderNodeCustom) uis_highend() bool {
     mut object_out := false
     classname := StringName.new("VisualShaderNodeCustom")
-    defer { classname.deinit() }
     fnname := StringName.new("_is_highend")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IVisualShaderNodeCustomIsAvailable {
@@ -241,13 +347,27 @@ pub interface IVisualShaderNodeCustomIsAvailable {
 pub fn (r &VisualShaderNodeCustom) uis_available(mode ShaderMode, type_name VisualShaderType) bool {
     mut object_out := false
     classname := StringName.new("VisualShaderNodeCustom")
-    defer { classname.deinit() }
     fnname := StringName.new("_is_available")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&mode)}
-    args[1] = unsafe{voidptr(&type_name)}
+    i64_mode := i64(mode)
+    args[0] = unsafe{voidptr(&i64_mode)}
+    i64_type_name := i64(type_name)
+    args[1] = unsafe{voidptr(&i64_type_name)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
+   return object_out
+}
+pub fn (r &VisualShaderNodeCustom) get_option_index(option i32) i32 {
+    mut object_out := i32(0)
+    classname := StringName.new("VisualShaderNodeCustom")
+    fnname := StringName.new("get_option_index")
+    mb := gdf.classdb_get_method_bind(&classname, &fnname, 923996154)
+    mut args := unsafe { [1]voidptr{} }
+    args[0] = unsafe{voidptr(&option)}
+    gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }

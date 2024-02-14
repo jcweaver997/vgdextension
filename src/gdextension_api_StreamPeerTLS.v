@@ -1,6 +1,6 @@
 module vgdextension
 
-pub enum StreamPeerTLSStatus {
+pub enum StreamPeerTLSStatus as i64 {
     status_disconnected = 0
     status_handshaking = 1
     status_connected = 2
@@ -15,64 +15,64 @@ pub struct StreamPeerTLS {
 
 pub fn (mut r StreamPeerTLS) poll() {
     classname := StringName.new("StreamPeerTLS")
-    defer { classname.deinit() }
     fnname := StringName.new("poll")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub fn (mut r StreamPeerTLS) accept_stream(stream StreamPeer, server_options TLSOptions) GDError {
-    mut object_out := GDError.ok
+    mut object_out := i64(GDError.ok)
     classname := StringName.new("StreamPeerTLS")
-    defer { classname.deinit() }
     fnname := StringName.new("accept_stream")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4292689651)
     mut args := unsafe { [2]voidptr{} }
     args[0] = stream.ptr
     args[1] = server_options.ptr
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
-   return object_out
+    classname.deinit()
+    fnname.deinit()
+   return unsafe{GDError(object_out)}
 }
 pub fn (mut r StreamPeerTLS) connect_to_stream(stream StreamPeer, common_name String, client_options TLSOptions) GDError {
-    mut object_out := GDError.ok
+    mut object_out := i64(GDError.ok)
     classname := StringName.new("StreamPeerTLS")
-    defer { classname.deinit() }
     fnname := StringName.new("connect_to_stream")
-    defer { fnname.deinit() }
-    mb := gdf.classdb_get_method_bind(&classname, &fnname, 1325480781)
+    mb := gdf.classdb_get_method_bind(&classname, &fnname, 57169517)
     mut args := unsafe { [3]voidptr{} }
     args[0] = stream.ptr
     args[1] = unsafe{voidptr(&common_name)}
     args[2] = client_options.ptr
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
-   return object_out
+    classname.deinit()
+    fnname.deinit()
+   return unsafe{GDError(object_out)}
 }
 pub fn (r &StreamPeerTLS) get_status() StreamPeerTLSStatus {
-    mut object_out := StreamPeerTLSStatus.status_disconnected
+    mut object_out := i64(StreamPeerTLSStatus.status_disconnected)
     classname := StringName.new("StreamPeerTLS")
-    defer { classname.deinit() }
     fnname := StringName.new("get_status")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1128380576)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
-   return object_out
+    classname.deinit()
+    fnname.deinit()
+   return unsafe{StreamPeerTLSStatus(object_out)}
 }
 pub fn (r &StreamPeerTLS) get_stream() StreamPeer {
     mut object_out := StreamPeer{}
     classname := StringName.new("StreamPeerTLS")
-    defer { classname.deinit() }
     fnname := StringName.new("get_stream")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2741655269)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub fn (mut r StreamPeerTLS) disconnect_from_stream() {
     classname := StringName.new("StreamPeerTLS")
-    defer { classname.deinit() }
     fnname := StringName.new("disconnect_from_stream")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }

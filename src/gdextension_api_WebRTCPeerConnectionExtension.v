@@ -11,14 +11,14 @@ pub interface IWebRTCPeerConnectionExtensionGetConnectionState {
 }
 
 pub fn (r &WebRTCPeerConnectionExtension) uget_connection_state() WebRTCPeerConnectionConnectionState {
-    mut object_out := WebRTCPeerConnectionConnectionState.state_new
+    mut object_out := i64(WebRTCPeerConnectionConnectionState.state_new)
     classname := StringName.new("WebRTCPeerConnectionExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_connection_state")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
-   return object_out
+    classname.deinit()
+    fnname.deinit()
+   return unsafe{WebRTCPeerConnectionConnectionState(object_out)}
 }
 pub interface IWebRTCPeerConnectionExtensionGetGatheringState {
     mut:
@@ -26,14 +26,14 @@ pub interface IWebRTCPeerConnectionExtensionGetGatheringState {
 }
 
 pub fn (r &WebRTCPeerConnectionExtension) uget_gathering_state() WebRTCPeerConnectionGatheringState {
-    mut object_out := WebRTCPeerConnectionGatheringState.gathering_state_new
+    mut object_out := i64(WebRTCPeerConnectionGatheringState.gathering_state_new)
     classname := StringName.new("WebRTCPeerConnectionExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_gathering_state")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
-   return object_out
+    classname.deinit()
+    fnname.deinit()
+   return unsafe{WebRTCPeerConnectionGatheringState(object_out)}
 }
 pub interface IWebRTCPeerConnectionExtensionGetSignalingState {
     mut:
@@ -41,14 +41,14 @@ pub interface IWebRTCPeerConnectionExtensionGetSignalingState {
 }
 
 pub fn (r &WebRTCPeerConnectionExtension) uget_signaling_state() WebRTCPeerConnectionSignalingState {
-    mut object_out := WebRTCPeerConnectionSignalingState.signaling_state_stable
+    mut object_out := i64(WebRTCPeerConnectionSignalingState.signaling_state_stable)
     classname := StringName.new("WebRTCPeerConnectionExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_signaling_state")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
-   return object_out
+    classname.deinit()
+    fnname.deinit()
+   return unsafe{WebRTCPeerConnectionSignalingState(object_out)}
 }
 pub interface IWebRTCPeerConnectionExtensionInitialize {
     mut:
@@ -56,16 +56,16 @@ pub interface IWebRTCPeerConnectionExtensionInitialize {
 }
 
 pub fn (mut r WebRTCPeerConnectionExtension) uinitialize(p_config Dictionary) GDError {
-    mut object_out := GDError.ok
+    mut object_out := i64(GDError.ok)
     classname := StringName.new("WebRTCPeerConnectionExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_initialize")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&p_config)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
-   return object_out
+    classname.deinit()
+    fnname.deinit()
+   return unsafe{GDError(object_out)}
 }
 pub interface IWebRTCPeerConnectionExtensionCreateDataChannel {
     mut:
@@ -75,14 +75,14 @@ pub interface IWebRTCPeerConnectionExtensionCreateDataChannel {
 pub fn (mut r WebRTCPeerConnectionExtension) ucreate_data_channel(p_label String, p_config Dictionary) WebRTCDataChannel {
     mut object_out := WebRTCDataChannel{}
     classname := StringName.new("WebRTCPeerConnectionExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_create_data_channel")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&p_label)}
     args[1] = unsafe{voidptr(&p_config)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IWebRTCPeerConnectionExtensionCreateOffer {
@@ -91,14 +91,14 @@ pub interface IWebRTCPeerConnectionExtensionCreateOffer {
 }
 
 pub fn (mut r WebRTCPeerConnectionExtension) ucreate_offer() GDError {
-    mut object_out := GDError.ok
+    mut object_out := i64(GDError.ok)
     classname := StringName.new("WebRTCPeerConnectionExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_create_offer")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
-   return object_out
+    classname.deinit()
+    fnname.deinit()
+   return unsafe{GDError(object_out)}
 }
 pub interface IWebRTCPeerConnectionExtensionSetRemoteDescription {
     mut:
@@ -106,17 +106,17 @@ pub interface IWebRTCPeerConnectionExtensionSetRemoteDescription {
 }
 
 pub fn (mut r WebRTCPeerConnectionExtension) uset_remote_description(p_type String, p_sdp String) GDError {
-    mut object_out := GDError.ok
+    mut object_out := i64(GDError.ok)
     classname := StringName.new("WebRTCPeerConnectionExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_set_remote_description")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&p_type)}
     args[1] = unsafe{voidptr(&p_sdp)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
-   return object_out
+    classname.deinit()
+    fnname.deinit()
+   return unsafe{GDError(object_out)}
 }
 pub interface IWebRTCPeerConnectionExtensionSetLocalDescription {
     mut:
@@ -124,17 +124,17 @@ pub interface IWebRTCPeerConnectionExtensionSetLocalDescription {
 }
 
 pub fn (mut r WebRTCPeerConnectionExtension) uset_local_description(p_type String, p_sdp String) GDError {
-    mut object_out := GDError.ok
+    mut object_out := i64(GDError.ok)
     classname := StringName.new("WebRTCPeerConnectionExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_set_local_description")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&p_type)}
     args[1] = unsafe{voidptr(&p_sdp)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
-   return object_out
+    classname.deinit()
+    fnname.deinit()
+   return unsafe{GDError(object_out)}
 }
 pub interface IWebRTCPeerConnectionExtensionAddIceCandidate {
     mut:
@@ -142,18 +142,18 @@ pub interface IWebRTCPeerConnectionExtensionAddIceCandidate {
 }
 
 pub fn (mut r WebRTCPeerConnectionExtension) uadd_ice_candidate(p_sdp_mid_name String, p_sdp_mline_index i32, p_sdp_name String) GDError {
-    mut object_out := GDError.ok
+    mut object_out := i64(GDError.ok)
     classname := StringName.new("WebRTCPeerConnectionExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_add_ice_candidate")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&p_sdp_mid_name)}
     args[1] = unsafe{voidptr(&p_sdp_mline_index)}
     args[2] = unsafe{voidptr(&p_sdp_name)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
-   return object_out
+    classname.deinit()
+    fnname.deinit()
+   return unsafe{GDError(object_out)}
 }
 pub interface IWebRTCPeerConnectionExtensionPoll {
     mut:
@@ -161,14 +161,14 @@ pub interface IWebRTCPeerConnectionExtensionPoll {
 }
 
 pub fn (mut r WebRTCPeerConnectionExtension) upoll() GDError {
-    mut object_out := GDError.ok
+    mut object_out := i64(GDError.ok)
     classname := StringName.new("WebRTCPeerConnectionExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_poll")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
-   return object_out
+    classname.deinit()
+    fnname.deinit()
+   return unsafe{GDError(object_out)}
 }
 pub interface IWebRTCPeerConnectionExtensionClose {
     mut:
@@ -177,9 +177,9 @@ pub interface IWebRTCPeerConnectionExtensionClose {
 
 pub fn (mut r WebRTCPeerConnectionExtension) uclose() {
     classname := StringName.new("WebRTCPeerConnectionExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_close")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }

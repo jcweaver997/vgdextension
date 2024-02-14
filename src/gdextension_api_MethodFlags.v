@@ -1,6 +1,6 @@
 module vgdextension
 
-pub enum MethodFlags {
+pub enum MethodFlags as i64 {
     method_flag_normal = 1
     method_flag_editor = 2
     method_flag_const = 4

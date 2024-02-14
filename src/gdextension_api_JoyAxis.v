@@ -1,6 +1,6 @@
 module vgdextension
 
-pub enum JoyAxis {
+pub enum JoyAxis as i64 {
     joy_axis_invalid = -1
     joy_axis_left_x = 0
     joy_axis_left_y = 1

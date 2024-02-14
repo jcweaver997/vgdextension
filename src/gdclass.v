@@ -58,16 +58,27 @@ fn class_set_func[T](instance GDExtensionClassInstancePtr, name &StringName, var
 	vname := name.to_v()
 	mut handled := false
 
+
 	$for field in T.fields {
-		$if field.typ is FromVariant {
-			if field.name == vname {
-				t := unsafe{&T(instance)}
-				mut var := &FromVariant(&t.$(field.name))
-				var.set_from_var(variant)
+		if field.name == vname {
+			$if field.typ is FromVariant {
+				
+					t := unsafe{&T(instance)}
+					mut var := &FromVariant(&t.$(field.name))
+					var.set_from_var(variant)
+					handled = true
+			}$else $if field.typ is f64 {
+				mut t := unsafe{&T(instance)}
+				t.$(field.name) = f64_from_var(variant)
+				handled = true
+			}$else $if field.typ is i64 {
+				mut t := unsafe{&T(instance)}
+				t.$(field.name) = i64_from_var(variant)
 				handled = true
 			}
 		}
 	}
+
 	return GDExtensionBool(handled)
 }
 
@@ -76,11 +87,19 @@ fn class_get_func[T](instance GDExtensionClassInstancePtr, name &StringName, mut
 	mut handled := false
 	
 	$for field in T.fields {
-		$if field.typ is ToVariant {
-			if field.name == vname {
+		if field.name == vname {
+			$if field.typ is ToVariant {
 				t := unsafe{&T(instance)}
 				var := ToVariant(t.$(field.name))
 				variant = var.to_var()
+				handled = true
+			}$else $if field.typ is f64 {
+				t := unsafe{&T(instance)}
+				variant = f64_to_var(&t.$(field.name))
+				handled = true
+			}$else $if field.typ is i64 {
+				t := unsafe{&T(instance)}
+				variant = i64_to_var(&t.$(field.name))
 				handled = true
 			}
 		}
@@ -100,11 +119,11 @@ fn class_get_property_list[T](instance GDExtensionClassInstancePtr, return_count
 			$if field.typ is bool {
 				type_ = .type_bool
 			}
-			$if field.typ is i32 {
-				type_ = .type_i32
+			$if field.typ is i64 {
+				type_ = .type_i64
 			}
-			$if field.typ is f32 {
-				type_ = .type_f32
+			$if field.typ is f64 {
+				type_ = .type_f64
 			}
 			$if field.typ is String {
 				type_ = .type_string
@@ -218,6 +237,32 @@ fn class_get_property_list[T](instance GDExtensionClassInstancePtr, return_count
 				usage:       u32(PropertyUsageFlags.property_usage_default)
 			}
 			infos << info
+		} $else $if field.typ is f64 {
+			field_name := StringName.new(field.name)
+			class_name := StringName.new(T.name)
+			hint := String.new("test hint")
+			info := GDExtensionPropertyInfo {
+				type_:       .type_f64
+				name:        &field_name
+				class_name:  &class_name
+				hint:        u32(PropertyHint.property_hint_none)
+				hint_string: &hint
+				usage:       u32(PropertyUsageFlags.property_usage_default)
+			}
+			infos << info
+		} $else $if field.typ is i64 {
+			field_name := StringName.new(field.name)
+			class_name := StringName.new(T.name)
+			hint := String.new("test hint")
+			info := GDExtensionPropertyInfo {
+				type_:       .type_i64
+				name:        &field_name
+				class_name:  &class_name
+				hint:        u32(PropertyHint.property_hint_none)
+				hint_string: &hint
+				usage:       u32(PropertyUsageFlags.property_usage_default)
+			}
+			infos << info
 		}
 	}
 	unsafe {
@@ -245,12 +290,10 @@ fn class_free_property_list[T](instance GDExtensionClassInstancePtr, info &GDExt
 }
 
 fn class_property_can_revert[T](instance GDExtensionClassInstancePtr, prop_name &StringName) GDExtensionBool {
-	println("canrevert ${T.name}")
 	return GDExtensionBool(false)
 }
 
 fn class_to_string[T](instance GDExtensionClassInstancePtr, valid &GDExtensionBool, out &String){
-	println("tostring ${T.name}")
 	unsafe {
 		*valid = GDExtensionBool(true)
 		*out = String.new(T.name)
@@ -258,12 +301,10 @@ fn class_to_string[T](instance GDExtensionClassInstancePtr, valid &GDExtensionBo
 }
 
 fn class_reference[T](instance GDExtensionClassInstancePtr){
-	println("reference ${T.name}")
 	// what is this for?
 }
 
 fn class_unreference[T](instance GDExtensionClassInstancePtr){
-	println("unreference ${T.name}")
 	// what is this for?
 }
 
@@ -298,10 +339,8 @@ fn class_free_instance[T](user_data voidptr, instance GDExtensionClassInstancePt
 	}
 }
 
-type Virt0 = fn () GDExtensionTypePtr
-type Virt1 = fn (GDExtensionConstTypePtr) GDExtensionTypePtr
-
 fn class_get_virtual_func[T](user_data voidptr, method_name &StringName) GDExtensionClassCallVirtual {
+	
 	ud := unsafe{&ClassInfo(user_data)}
 	m_name := method_name.to_v()
 	if m_name in ud.virtual_methods {

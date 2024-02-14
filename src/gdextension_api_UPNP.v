@@ -1,6 +1,6 @@
 module vgdextension
 
-pub enum UPNPUPNPResult {
+pub enum UPNPUPNPResult as i64 {
     upnp_result_success = 0
     upnp_result_not_authorized = 1
     upnp_result_port_mapping_not_found = 2
@@ -40,105 +40,103 @@ pub struct UPNP {
 pub fn (r &UPNP) get_device_count() i32 {
     mut object_out := i32(0)
     classname := StringName.new("UPNP")
-    defer { classname.deinit() }
     fnname := StringName.new("get_device_count")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub fn (r &UPNP) get_device(index i32) UPNPDevice {
     mut object_out := UPNPDevice{}
     classname := StringName.new("UPNP")
-    defer { classname.deinit() }
     fnname := StringName.new("get_device")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2193290270)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&index)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub fn (mut r UPNP) add_device(device UPNPDevice) {
     classname := StringName.new("UPNP")
-    defer { classname.deinit() }
     fnname := StringName.new("add_device")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 986715920)
     mut args := unsafe { [1]voidptr{} }
     args[0] = device.ptr
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub fn (mut r UPNP) set_device(index i32, device UPNPDevice) {
     classname := StringName.new("UPNP")
-    defer { classname.deinit() }
     fnname := StringName.new("set_device")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3015133723)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&index)}
     args[1] = device.ptr
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub fn (mut r UPNP) remove_device(index i32) {
     classname := StringName.new("UPNP")
-    defer { classname.deinit() }
     fnname := StringName.new("remove_device")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&index)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub fn (mut r UPNP) clear_devices() {
     classname := StringName.new("UPNP")
-    defer { classname.deinit() }
     fnname := StringName.new("clear_devices")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub fn (r &UPNP) get_gateway() UPNPDevice {
     mut object_out := UPNPDevice{}
     classname := StringName.new("UPNP")
-    defer { classname.deinit() }
     fnname := StringName.new("get_gateway")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2276800779)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub fn (mut r UPNP) discover(timeout i32, ttl i32, device_filter String) i32 {
     mut object_out := i32(0)
     classname := StringName.new("UPNP")
-    defer { classname.deinit() }
     fnname := StringName.new("discover")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1575334765)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&timeout)}
     args[1] = unsafe{voidptr(&ttl)}
     args[2] = unsafe{voidptr(&device_filter)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub fn (r &UPNP) query_external_address() String {
     mut object_out := String{}
     classname := StringName.new("UPNP")
-    defer { classname.deinit() }
     fnname := StringName.new("query_external_address")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 201670096)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub fn (r &UPNP) add_port_mapping(port i32, port_internal i32, desc String, proto String, duration i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("UPNP")
-    defer { classname.deinit() }
     fnname := StringName.new("add_port_mapping")
-    defer { fnname.deinit() }
-    mb := gdf.classdb_get_method_bind(&classname, &fnname, 3358934458)
+    mb := gdf.classdb_get_method_bind(&classname, &fnname, 818314583)
     mut args := unsafe { [5]voidptr{} }
     args[0] = unsafe{voidptr(&port)}
     args[1] = unsafe{voidptr(&port_internal)}
@@ -146,78 +144,80 @@ pub fn (r &UPNP) add_port_mapping(port i32, port_internal i32, desc String, prot
     args[3] = unsafe{voidptr(&proto)}
     args[4] = unsafe{voidptr(&duration)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub fn (r &UPNP) delete_port_mapping(port i32, proto String) i32 {
     mut object_out := i32(0)
     classname := StringName.new("UPNP")
-    defer { classname.deinit() }
     fnname := StringName.new("delete_port_mapping")
-    defer { fnname.deinit() }
-    mb := gdf.classdb_get_method_bind(&classname, &fnname, 760296170)
+    mb := gdf.classdb_get_method_bind(&classname, &fnname, 3444187325)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&port)}
     args[1] = unsafe{voidptr(&proto)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub fn (mut r UPNP) set_discover_multicast_if(m_if String) {
     classname := StringName.new("UPNP")
-    defer { classname.deinit() }
     fnname := StringName.new("set_discover_multicast_if")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&m_if)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub fn (r &UPNP) get_discover_multicast_if() String {
     mut object_out := String{}
     classname := StringName.new("UPNP")
-    defer { classname.deinit() }
     fnname := StringName.new("get_discover_multicast_if")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 201670096)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub fn (mut r UPNP) set_discover_local_port(port i32) {
     classname := StringName.new("UPNP")
-    defer { classname.deinit() }
     fnname := StringName.new("set_discover_local_port")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&port)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub fn (r &UPNP) get_discover_local_port() i32 {
     mut object_out := i32(0)
     classname := StringName.new("UPNP")
-    defer { classname.deinit() }
     fnname := StringName.new("get_discover_local_port")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3905245786)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub fn (mut r UPNP) set_discover_ipv6(ipv6 bool) {
     classname := StringName.new("UPNP")
-    defer { classname.deinit() }
     fnname := StringName.new("set_discover_ipv6")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&ipv6)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub fn (r &UPNP) is_discover_ipv6() bool {
     mut object_out := false
     classname := StringName.new("UPNP")
-    defer { classname.deinit() }
     fnname := StringName.new("is_discover_ipv6")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 36873697)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }

@@ -1,6 +1,6 @@
 module vgdextension
 
-@[heap]
+@[heap; packed]
 pub struct Dictionary {
         godot_data [8]u8 // filler
 }
@@ -26,131 +26,131 @@ pub fn (c &Dictionary) deinit () {
     destructor(voidptr(c))
 }
 
-pub fn (r &Dictionary) size() i32 {
-    mut object_out := i32(0)
+pub fn (r &Dictionary) size() i64 {
+    mut object_out := i64(0)
     fnname := StringName.new("size")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_dictionary, voidptr(&fnname), 3173160232)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Dictionary) is_empty() bool {
     mut object_out := false
     fnname := StringName.new("is_empty")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_dictionary, voidptr(&fnname), 3918633141)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
 pub fn (mut r Dictionary) clear() {
     fnname := StringName.new("clear")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_dictionary, voidptr(&fnname), 3218959716)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 0)
+    fnname.deinit()
 }
 pub fn (mut r Dictionary) merge(dictionary Dictionary, overwrite bool) {
     fnname := StringName.new("merge")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_dictionary, voidptr(&fnname), 2079548978)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 2)
+    fnname.deinit()
 }
 pub fn (r &Dictionary) has(key Variant) bool {
     mut object_out := false
     fnname := StringName.new("has")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_dictionary, voidptr(&fnname), 3680194679)
     mut args := unsafe { [1]voidptr{} }
     args[0] = voidptr(&key)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Dictionary) has_all(keys Array) bool {
     mut object_out := false
     fnname := StringName.new("has_all")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_dictionary, voidptr(&fnname), 2988181878)
     mut args := unsafe { [1]voidptr{} }
     args[0] = voidptr(&keys)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Dictionary) find_key(value Variant) Variant {
     mut object_out := Variant{}
     fnname := StringName.new("find_key")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_dictionary, voidptr(&fnname), 1988825835)
     mut args := unsafe { [1]voidptr{} }
     args[0] = voidptr(&value)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
+    fnname.deinit()
    return object_out
 }
 pub fn (mut r Dictionary) erase(key Variant) bool {
     mut object_out := false
     fnname := StringName.new("erase")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_dictionary, voidptr(&fnname), 1776646889)
     mut args := unsafe { [1]voidptr{} }
     args[0] = voidptr(&key)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
+    fnname.deinit()
    return object_out
 }
-pub fn (r &Dictionary) hash() i32 {
-    mut object_out := i32(0)
+pub fn (r &Dictionary) hash() i64 {
+    mut object_out := i64(0)
     fnname := StringName.new("hash")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_dictionary, voidptr(&fnname), 3173160232)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Dictionary) keys() Array {
     mut object_out := Array{}
     fnname := StringName.new("keys")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_dictionary, voidptr(&fnname), 4144163970)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Dictionary) values() Array {
     mut object_out := Array{}
     fnname := StringName.new("values")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_dictionary, voidptr(&fnname), 4144163970)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Dictionary) duplicate(deep bool) Dictionary {
     mut object_out := Dictionary{}
     fnname := StringName.new("duplicate")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_dictionary, voidptr(&fnname), 830099069)
     mut args := unsafe { [1]voidptr{} }
     args[0] = voidptr(&deep)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Dictionary) get(key Variant, default Variant) Variant {
     mut object_out := Variant{}
     fnname := StringName.new("get")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_dictionary, voidptr(&fnname), 2205440559)
     mut args := unsafe { [2]voidptr{} }
     args[0] = voidptr(&key)
     args[1] = voidptr(&default)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 2)
+    fnname.deinit()
    return object_out
 }
 pub fn (mut r Dictionary) make_read_only() {
     fnname := StringName.new("make_read_only")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_dictionary, voidptr(&fnname), 3218959716)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 0)
+    fnname.deinit()
 }
 pub fn (r &Dictionary) is_read_only() bool {
     mut object_out := false
     fnname := StringName.new("is_read_only")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_dictionary, voidptr(&fnname), 3918633141)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
 pub fn (v &Dictionary) to_var() Variant {
@@ -165,7 +165,7 @@ pub fn (mut t Dictionary) set_from_var(var &Variant) {
     var_to_type(voidptr(&t), var)
 }
 
-pub fn (v &Dictionary) index(i int) Variant {
+pub fn (v &Dictionary) index(i i64) Variant {
     index_fn := gdf.variant_get_ptr_indexed_getter(GDExtensionVariantType.type_dictionary)
     mut output := Variant{}
     index_fn(GDExtensionConstTypePtr(v), GDExtensionInt(i), GDExtensionTypePtr(&output))

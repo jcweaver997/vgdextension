@@ -13,11 +13,11 @@ pub interface IPhysicsDirectBodyState2DExtensionGetTotalGravity {
 pub fn (r &PhysicsDirectBodyState2DExtension) uget_total_gravity() Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_total_gravity")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsDirectBodyState2DExtensionGetTotalLinearDamp {
@@ -28,11 +28,11 @@ pub interface IPhysicsDirectBodyState2DExtensionGetTotalLinearDamp {
 pub fn (r &PhysicsDirectBodyState2DExtension) uget_total_linear_damp() f64 {
     mut object_out := f64(0)
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_total_linear_damp")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsDirectBodyState2DExtensionGetTotalAngularDamp {
@@ -43,11 +43,11 @@ pub interface IPhysicsDirectBodyState2DExtensionGetTotalAngularDamp {
 pub fn (r &PhysicsDirectBodyState2DExtension) uget_total_angular_damp() f64 {
     mut object_out := f64(0)
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_total_angular_damp")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsDirectBodyState2DExtensionGetCenterOfMass {
@@ -58,11 +58,11 @@ pub interface IPhysicsDirectBodyState2DExtensionGetCenterOfMass {
 pub fn (r &PhysicsDirectBodyState2DExtension) uget_center_of_mass() Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_center_of_mass")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsDirectBodyState2DExtensionGetCenterOfMassLocal {
@@ -73,11 +73,11 @@ pub interface IPhysicsDirectBodyState2DExtensionGetCenterOfMassLocal {
 pub fn (r &PhysicsDirectBodyState2DExtension) uget_center_of_mass_local() Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_center_of_mass_local")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsDirectBodyState2DExtensionGetInverseMass {
@@ -88,11 +88,11 @@ pub interface IPhysicsDirectBodyState2DExtensionGetInverseMass {
 pub fn (r &PhysicsDirectBodyState2DExtension) uget_inverse_mass() f64 {
     mut object_out := f64(0)
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_inverse_mass")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsDirectBodyState2DExtensionGetInverseInertia {
@@ -103,11 +103,11 @@ pub interface IPhysicsDirectBodyState2DExtensionGetInverseInertia {
 pub fn (r &PhysicsDirectBodyState2DExtension) uget_inverse_inertia() f64 {
     mut object_out := f64(0)
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_inverse_inertia")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsDirectBodyState2DExtensionSetLinearVelocity {
@@ -117,13 +117,13 @@ pub interface IPhysicsDirectBodyState2DExtensionSetLinearVelocity {
 
 pub fn (mut r PhysicsDirectBodyState2DExtension) uset_linear_velocity(velocity Vector2) {
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_set_linear_velocity")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&velocity)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsDirectBodyState2DExtensionGetLinearVelocity {
     mut:
@@ -133,11 +133,11 @@ pub interface IPhysicsDirectBodyState2DExtensionGetLinearVelocity {
 pub fn (r &PhysicsDirectBodyState2DExtension) uget_linear_velocity() Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_linear_velocity")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsDirectBodyState2DExtensionSetAngularVelocity {
@@ -147,13 +147,13 @@ pub interface IPhysicsDirectBodyState2DExtensionSetAngularVelocity {
 
 pub fn (mut r PhysicsDirectBodyState2DExtension) uset_angular_velocity(velocity f64) {
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_set_angular_velocity")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&velocity)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsDirectBodyState2DExtensionGetAngularVelocity {
     mut:
@@ -163,11 +163,11 @@ pub interface IPhysicsDirectBodyState2DExtensionGetAngularVelocity {
 pub fn (r &PhysicsDirectBodyState2DExtension) uget_angular_velocity() f64 {
     mut object_out := f64(0)
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_angular_velocity")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsDirectBodyState2DExtensionSetTransform {
@@ -177,13 +177,13 @@ pub interface IPhysicsDirectBodyState2DExtensionSetTransform {
 
 pub fn (mut r PhysicsDirectBodyState2DExtension) uset_transform(transform Transform2D) {
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_set_transform")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&transform)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsDirectBodyState2DExtensionGetTransform {
     mut:
@@ -193,11 +193,11 @@ pub interface IPhysicsDirectBodyState2DExtensionGetTransform {
 pub fn (r &PhysicsDirectBodyState2DExtension) uget_transform() Transform2D {
     mut object_out := Transform2D{}
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_transform")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsDirectBodyState2DExtensionGetVelocityAtLocalPosition {
@@ -208,13 +208,13 @@ pub interface IPhysicsDirectBodyState2DExtensionGetVelocityAtLocalPosition {
 pub fn (r &PhysicsDirectBodyState2DExtension) uget_velocity_at_local_position(local_position Vector2) Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_velocity_at_local_position")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&local_position)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsDirectBodyState2DExtensionApplyCentralImpulse {
@@ -224,13 +224,13 @@ pub interface IPhysicsDirectBodyState2DExtensionApplyCentralImpulse {
 
 pub fn (mut r PhysicsDirectBodyState2DExtension) uapply_central_impulse(impulse Vector2) {
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_apply_central_impulse")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&impulse)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsDirectBodyState2DExtensionApplyImpulse {
     mut:
@@ -239,14 +239,14 @@ pub interface IPhysicsDirectBodyState2DExtensionApplyImpulse {
 
 pub fn (mut r PhysicsDirectBodyState2DExtension) uapply_impulse(impulse Vector2, position Vector2) {
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_apply_impulse")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&impulse)}
     args[1] = unsafe{voidptr(&position)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsDirectBodyState2DExtensionApplyTorqueImpulse {
     mut:
@@ -255,13 +255,13 @@ pub interface IPhysicsDirectBodyState2DExtensionApplyTorqueImpulse {
 
 pub fn (mut r PhysicsDirectBodyState2DExtension) uapply_torque_impulse(impulse f64) {
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_apply_torque_impulse")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&impulse)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsDirectBodyState2DExtensionApplyCentralForce {
     mut:
@@ -270,13 +270,13 @@ pub interface IPhysicsDirectBodyState2DExtensionApplyCentralForce {
 
 pub fn (mut r PhysicsDirectBodyState2DExtension) uapply_central_force(force Vector2) {
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_apply_central_force")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&force)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsDirectBodyState2DExtensionApplyForce {
     mut:
@@ -285,14 +285,14 @@ pub interface IPhysicsDirectBodyState2DExtensionApplyForce {
 
 pub fn (mut r PhysicsDirectBodyState2DExtension) uapply_force(force Vector2, position Vector2) {
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_apply_force")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&force)}
     args[1] = unsafe{voidptr(&position)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsDirectBodyState2DExtensionApplyTorque {
     mut:
@@ -301,13 +301,13 @@ pub interface IPhysicsDirectBodyState2DExtensionApplyTorque {
 
 pub fn (mut r PhysicsDirectBodyState2DExtension) uapply_torque(torque f64) {
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_apply_torque")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&torque)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsDirectBodyState2DExtensionAddConstantCentralForce {
     mut:
@@ -316,13 +316,13 @@ pub interface IPhysicsDirectBodyState2DExtensionAddConstantCentralForce {
 
 pub fn (mut r PhysicsDirectBodyState2DExtension) uadd_constant_central_force(force Vector2) {
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_add_constant_central_force")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&force)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsDirectBodyState2DExtensionAddConstantForce {
     mut:
@@ -331,14 +331,14 @@ pub interface IPhysicsDirectBodyState2DExtensionAddConstantForce {
 
 pub fn (mut r PhysicsDirectBodyState2DExtension) uadd_constant_force(force Vector2, position Vector2) {
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_add_constant_force")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&force)}
     args[1] = unsafe{voidptr(&position)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsDirectBodyState2DExtensionAddConstantTorque {
     mut:
@@ -347,13 +347,13 @@ pub interface IPhysicsDirectBodyState2DExtensionAddConstantTorque {
 
 pub fn (mut r PhysicsDirectBodyState2DExtension) uadd_constant_torque(torque f64) {
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_add_constant_torque")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&torque)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsDirectBodyState2DExtensionSetConstantForce {
     mut:
@@ -362,13 +362,13 @@ pub interface IPhysicsDirectBodyState2DExtensionSetConstantForce {
 
 pub fn (mut r PhysicsDirectBodyState2DExtension) uset_constant_force(force Vector2) {
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_set_constant_force")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&force)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsDirectBodyState2DExtensionGetConstantForce {
     mut:
@@ -378,11 +378,11 @@ pub interface IPhysicsDirectBodyState2DExtensionGetConstantForce {
 pub fn (r &PhysicsDirectBodyState2DExtension) uget_constant_force() Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_constant_force")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsDirectBodyState2DExtensionSetConstantTorque {
@@ -392,13 +392,13 @@ pub interface IPhysicsDirectBodyState2DExtensionSetConstantTorque {
 
 pub fn (mut r PhysicsDirectBodyState2DExtension) uset_constant_torque(torque f64) {
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_set_constant_torque")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&torque)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsDirectBodyState2DExtensionGetConstantTorque {
     mut:
@@ -408,11 +408,11 @@ pub interface IPhysicsDirectBodyState2DExtensionGetConstantTorque {
 pub fn (r &PhysicsDirectBodyState2DExtension) uget_constant_torque() f64 {
     mut object_out := f64(0)
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_constant_torque")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsDirectBodyState2DExtensionSetSleepState {
@@ -422,13 +422,13 @@ pub interface IPhysicsDirectBodyState2DExtensionSetSleepState {
 
 pub fn (mut r PhysicsDirectBodyState2DExtension) uset_sleep_state(enabled bool) {
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_set_sleep_state")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&enabled)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsDirectBodyState2DExtensionIsSleeping {
     mut:
@@ -438,11 +438,11 @@ pub interface IPhysicsDirectBodyState2DExtensionIsSleeping {
 pub fn (r &PhysicsDirectBodyState2DExtension) uis_sleeping() bool {
     mut object_out := false
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_is_sleeping")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsDirectBodyState2DExtensionGetContactCount {
@@ -453,11 +453,11 @@ pub interface IPhysicsDirectBodyState2DExtensionGetContactCount {
 pub fn (r &PhysicsDirectBodyState2DExtension) uget_contact_count() i32 {
     mut object_out := i32(0)
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_contact_count")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsDirectBodyState2DExtensionGetContactLocalPosition {
@@ -468,13 +468,13 @@ pub interface IPhysicsDirectBodyState2DExtensionGetContactLocalPosition {
 pub fn (r &PhysicsDirectBodyState2DExtension) uget_contact_local_position(contact_idx i32) Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_contact_local_position")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&contact_idx)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsDirectBodyState2DExtensionGetContactLocalNormal {
@@ -485,13 +485,13 @@ pub interface IPhysicsDirectBodyState2DExtensionGetContactLocalNormal {
 pub fn (r &PhysicsDirectBodyState2DExtension) uget_contact_local_normal(contact_idx i32) Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_contact_local_normal")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&contact_idx)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsDirectBodyState2DExtensionGetContactLocalShape {
@@ -502,13 +502,13 @@ pub interface IPhysicsDirectBodyState2DExtensionGetContactLocalShape {
 pub fn (r &PhysicsDirectBodyState2DExtension) uget_contact_local_shape(contact_idx i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_contact_local_shape")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&contact_idx)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsDirectBodyState2DExtensionGetContactLocalVelocityAtPosition {
@@ -519,13 +519,13 @@ pub interface IPhysicsDirectBodyState2DExtensionGetContactLocalVelocityAtPositio
 pub fn (r &PhysicsDirectBodyState2DExtension) uget_contact_local_velocity_at_position(contact_idx i32) Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_contact_local_velocity_at_position")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&contact_idx)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsDirectBodyState2DExtensionGetContactCollider {
@@ -536,13 +536,13 @@ pub interface IPhysicsDirectBodyState2DExtensionGetContactCollider {
 pub fn (r &PhysicsDirectBodyState2DExtension) uget_contact_collider(contact_idx i32) RID {
     mut object_out := RID{}
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_contact_collider")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&contact_idx)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsDirectBodyState2DExtensionGetContactColliderPosition {
@@ -553,13 +553,13 @@ pub interface IPhysicsDirectBodyState2DExtensionGetContactColliderPosition {
 pub fn (r &PhysicsDirectBodyState2DExtension) uget_contact_collider_position(contact_idx i32) Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_contact_collider_position")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&contact_idx)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsDirectBodyState2DExtensionGetContactColliderId {
@@ -570,13 +570,13 @@ pub interface IPhysicsDirectBodyState2DExtensionGetContactColliderId {
 pub fn (r &PhysicsDirectBodyState2DExtension) uget_contact_collider_id(contact_idx i32) u64 {
     mut object_out := u64(0)
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_contact_collider_id")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&contact_idx)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsDirectBodyState2DExtensionGetContactColliderObject {
@@ -587,13 +587,13 @@ pub interface IPhysicsDirectBodyState2DExtensionGetContactColliderObject {
 pub fn (r &PhysicsDirectBodyState2DExtension) uget_contact_collider_object(contact_idx i32) Object {
     mut object_out := Object{}
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_contact_collider_object")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&contact_idx)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsDirectBodyState2DExtensionGetContactColliderShape {
@@ -604,13 +604,13 @@ pub interface IPhysicsDirectBodyState2DExtensionGetContactColliderShape {
 pub fn (r &PhysicsDirectBodyState2DExtension) uget_contact_collider_shape(contact_idx i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_contact_collider_shape")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&contact_idx)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsDirectBodyState2DExtensionGetContactColliderVelocityAtPosition {
@@ -621,13 +621,13 @@ pub interface IPhysicsDirectBodyState2DExtensionGetContactColliderVelocityAtPosi
 pub fn (r &PhysicsDirectBodyState2DExtension) uget_contact_collider_velocity_at_position(contact_idx i32) Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_contact_collider_velocity_at_position")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&contact_idx)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsDirectBodyState2DExtensionGetContactImpulse {
@@ -638,13 +638,13 @@ pub interface IPhysicsDirectBodyState2DExtensionGetContactImpulse {
 pub fn (r &PhysicsDirectBodyState2DExtension) uget_contact_impulse(contact_idx i32) Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_contact_impulse")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&contact_idx)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsDirectBodyState2DExtensionGetStep {
@@ -655,11 +655,11 @@ pub interface IPhysicsDirectBodyState2DExtensionGetStep {
 pub fn (r &PhysicsDirectBodyState2DExtension) uget_step() f64 {
     mut object_out := f64(0)
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_step")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsDirectBodyState2DExtensionIntegrateForces {
@@ -669,11 +669,11 @@ pub interface IPhysicsDirectBodyState2DExtensionIntegrateForces {
 
 pub fn (mut r PhysicsDirectBodyState2DExtension) uintegrate_forces() {
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_integrate_forces")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsDirectBodyState2DExtensionGetSpaceState {
     mut:
@@ -683,10 +683,10 @@ pub interface IPhysicsDirectBodyState2DExtensionGetSpaceState {
 pub fn (mut r PhysicsDirectBodyState2DExtension) uget_space_state() PhysicsDirectSpaceState2D {
     mut object_out := PhysicsDirectSpaceState2D{}
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_space_state")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }

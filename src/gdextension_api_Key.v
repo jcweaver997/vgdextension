@@ -1,6 +1,6 @@
 module vgdextension
 
-pub enum Key {
+pub enum Key as i64 {
     key_none = 0
     key_special = 4194304
     key_escape = 4194305
@@ -118,6 +118,10 @@ pub enum Key {
     key_launchd = 4194413
     key_launche = 4194414
     key_launchf = 4194415
+    key_globe = 4194416
+    key_keyboard = 4194417
+    key_jis_eisu = 4194418
+    key_jis_kana = 4194419
     key_unknown = 8388607
     key_space = 32
     key_exclam = 33
@@ -190,8 +194,4 @@ pub enum Key {
     key_asciitilde = 126
     key_yen = 165
     key_section = 167
-    key_globe = 4194416
-    key_keyboard = 4194417
-    key_jis_eisu = 4194418
-    key_jis_kana = 4194419
 }

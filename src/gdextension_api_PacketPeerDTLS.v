@@ -1,6 +1,6 @@
 module vgdextension
 
-pub enum PacketPeerDTLSStatus {
+pub enum PacketPeerDTLSStatus as i64 {
     status_disconnected = 0
     status_handshaking = 1
     status_connected = 2
@@ -15,41 +15,41 @@ pub struct PacketPeerDTLS {
 
 pub fn (mut r PacketPeerDTLS) poll() {
     classname := StringName.new("PacketPeerDTLS")
-    defer { classname.deinit() }
     fnname := StringName.new("poll")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub fn (mut r PacketPeerDTLS) connect_to_peer(packet_peer PacketPeerUDP, hostname String, client_options TLSOptions) GDError {
-    mut object_out := GDError.ok
+    mut object_out := i64(GDError.ok)
     classname := StringName.new("PacketPeerDTLS")
-    defer { classname.deinit() }
     fnname := StringName.new("connect_to_peer")
-    defer { fnname.deinit() }
-    mb := gdf.classdb_get_method_bind(&classname, &fnname, 1801538152)
+    mb := gdf.classdb_get_method_bind(&classname, &fnname, 2880188099)
     mut args := unsafe { [3]voidptr{} }
     args[0] = packet_peer.ptr
     args[1] = unsafe{voidptr(&hostname)}
     args[2] = client_options.ptr
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
-   return object_out
+    classname.deinit()
+    fnname.deinit()
+   return unsafe{GDError(object_out)}
 }
 pub fn (r &PacketPeerDTLS) get_status() PacketPeerDTLSStatus {
-    mut object_out := PacketPeerDTLSStatus.status_disconnected
+    mut object_out := i64(PacketPeerDTLSStatus.status_disconnected)
     classname := StringName.new("PacketPeerDTLS")
-    defer { classname.deinit() }
     fnname := StringName.new("get_status")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3248654679)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
-   return object_out
+    classname.deinit()
+    fnname.deinit()
+   return unsafe{PacketPeerDTLSStatus(object_out)}
 }
 pub fn (mut r PacketPeerDTLS) disconnect_from_peer() {
     classname := StringName.new("PacketPeerDTLS")
-    defer { classname.deinit() }
     fnname := StringName.new("disconnect_from_peer")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }

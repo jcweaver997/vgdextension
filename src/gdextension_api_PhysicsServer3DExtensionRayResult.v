@@ -7,6 +7,7 @@ pub struct PhysicsServer3DExtensionRayResult {
     rid RID
     collider_id ObjectID
     collider &Object
-    shape i32
+    shape i64
+    face_index i64
 }
 

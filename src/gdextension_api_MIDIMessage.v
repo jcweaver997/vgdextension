@@ -1,6 +1,6 @@
 module vgdextension
 
-pub enum MIDIMessage {
+pub enum MIDIMessage as i64 {
     midi_message_none = 0
     midi_message_note_off = 8
     midi_message_note_on = 9

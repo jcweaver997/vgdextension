@@ -1,6 +1,6 @@
 module vgdextension
 
-pub enum MouseButton {
+pub enum MouseButton as i64 {
     mouse_button_none = 0
     mouse_button_left = 1
     mouse_button_right = 2

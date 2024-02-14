@@ -1,6 +1,6 @@
 module vgdextension
 
-pub enum JoyButton {
+pub enum JoyButton as i64 {
     joy_button_invalid = -1
     joy_button_a = 0
     joy_button_b = 1

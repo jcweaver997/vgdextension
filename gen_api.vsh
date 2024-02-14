@@ -123,7 +123,7 @@ pub mut:
 struct ExtensionApiClassMethodReturnValue {
 pub mut:
 	type_name string
-	meta string
+	meta      string
 }
 
 struct ExtensionApiClassMethod {
@@ -262,13 +262,13 @@ fn json_replacements(original string) string {
 fn virtual_method_name(class_name string, method_name string) string {
 	mut mname := method_name.capitalize()
 	for mname.contains('_') {
-		i := mname.index("_") or { panic(err) }
-		mname = "${mname[0..i]}${mname[i+1..].capitalize()}"
+		i := mname.index('_') or { panic(err) }
+		mname = '${mname[0..i]}${mname[i + 1..].capitalize()}'
 	}
-	return "I${class_name}${mname}"
+	return 'I${class_name}${mname}'
 }
 
-fn gen_virtual_bind(ea &ExtensionApi)!{
+fn gen_virtual_bind(ea &ExtensionApi) ! {
 	mut f := os.File{}
 	f = os.create('src/gdextension_api_virtual_bind.v')!
 	defer {
@@ -284,16 +284,17 @@ fn gen_virtual_bind(ea &ExtensionApi)!{
 			}
 
 			virt_name := virtual_method_name(class.name, method.name)
-			mut methodname := "virt_${convert_name(method.name)[1..]}"
-			f.write_string('fn ${convert_type(class.name, "").to_lower()}_${convert_name(method.name)}[T] (instance GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {\n')!
-			f.write_string('    mut i := &${virt_name}(unsafe{&T(voidptr(instance))})\n')!
-			
+			mut methodname := 'virt_${convert_name(method.name)[1..]}'
+			f.write_string('fn ${convert_type(class.name, '').to_lower()}_${convert_name(method.name)}[T] (inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {\n')!
+			f.write_string('    mut i := &${virt_name}(unsafe{&T(voidptr(inst))})\n')!
+
 			for i, arg in method.arguments {
-				f.write_string('    ${convert_name(arg.name)} := unsafe{&${convert_type(arg.type_name, arg.meta)}(args[${i}])}\n')!
+				f.write_string('    ${convert_name(arg.name)} := unsafe{&${convert_type(arg.type_name,
+					arg.meta)}(args[${i}])}\n')!
 			}
-			if method.return_value.type_name != "" {
+			if method.return_value.type_name != '' {
 				f.write_string('    *(&${convert_type(method.return_value.type_name, method.return_value.meta)}(ret)) := ')!
-			}else {
+			} else {
 				f.write_string('    ')!
 			}
 			f.write_string('i.${methodname}(')!
@@ -305,8 +306,6 @@ fn gen_virtual_bind(ea &ExtensionApi)!{
 			}
 			f.write_string(')\n')!
 			f.write_string('}\n\n')!
-
-		
 		}
 	}
 
@@ -321,7 +320,8 @@ fn gen_virtual_bind(ea &ExtensionApi)!{
 			virt_name := virtual_method_name(class.name, method.name)
 
 			f.write_string('    \$if T is ${virt_name} {\n')!
-			f.write_string('        ci.virtual_methods["${method.name}"] = ${convert_type(class.name, "").to_lower()}_${convert_name(method.name)}[T]\n')!
+			f.write_string('        ci.virtual_methods["${method.name}"] = ${convert_type(class.name,
+				'').to_lower()}_${convert_name(method.name)}[T]\n')!
 			f.write_string('    }\n')!
 		}
 	}
@@ -331,13 +331,13 @@ fn gen_virtual_bind(ea &ExtensionApi)!{
 
 fn gen_global_enums(ea &ExtensionApi) ! {
 	for e in ea.global_enums {
-		enum_name := convert_type(e.name, "")
+		enum_name := convert_type(e.name, '')
 		mut f := os.create('src/gdextension_api_${enum_name}.v')!
 		defer {
 			f.close()
 		}
 		f.write_string('module vgdextension\n\n')!
-		f.write_string('pub enum ${enum_name} {\n')!
+		f.write_string('pub enum ${enum_name} as i64 {\n')!
 		mut written_values := []i64{cap: e.values.len}
 		for v in e.values {
 			if v.value !in written_values {
@@ -362,14 +362,14 @@ fn gen_builtin_classes(ea &ExtensionApi) ! {
 	// 		}
 	// 	}
 	// }
-	object_names := ea.classes.map(convert_type(it.name, ""))
+	object_names := ea.classes.map(convert_type(it.name, ''))
 
 	for class in ea.builtin_classes {
 		match class.name {
 			'float', 'int32', 'int', 'bool' { continue }
 			else {}
 		}
-		classname := convert_type(class.name, "")
+		classname := convert_type(class.name, '')
 		mut f := os.create('src/gdextension_api_${classname}.v')!
 		defer {
 			f.close()
@@ -380,7 +380,7 @@ fn gen_builtin_classes(ea &ExtensionApi) ! {
 		{
 			for class_enum in class.enums {
 				mut written_values := []i64{cap: class_enum.values.len}
-				f.write_string('pub enum ${class.name}${class_enum.name} {\n')!
+				f.write_string('pub enum ${class.name}${class_enum.name} as i64 {\n')!
 				for value in class_enum.values {
 					if value.value !in written_values {
 						written_values << value.value
@@ -394,7 +394,7 @@ fn gen_builtin_classes(ea &ExtensionApi) ! {
 
 		// TODO
 
-		f.write_string('@[heap]\n')!
+		f.write_string('@[heap; packed]\n')!
 		f.write_string('pub struct ${class.name} {\n')!
 		mut defined_size := 0
 		if members := ea.builtin_class_member_offsets[platform_index].classes.filter(it.name == class.name)[0] {
@@ -402,18 +402,23 @@ fn gen_builtin_classes(ea &ExtensionApi) ! {
 			f.write_string('    pub mut:\n')!
 
 			for m in sorted_mem {
-				if m.meta in ['int32', 'float'] {
+				if m.meta == 'int32' {
 					defined_size += 4
 				} else {
 					defined_size += ea.builtin_class_sizes[platform_index].sizes.filter(it.name == m.meta).first().size
 				}
-				f.write_string('        ${m.member} ${convert_type(m.meta, "")} // offset ${m.offset}\n')!
+				f.write_string('        ${m.member} ${convert_type(m.meta, '')} // offset ${m.offset}\n')!
 			}
 		}
 		class_size := ea.builtin_class_sizes[platform_index].sizes.filter(it.name == class.name).first().size
-		if defined_size != class_size {
+		if defined_size < class_size {
 			f.write_string('        godot_data [${class_size - defined_size}]u8 // filler\n')!
 		}
+
+		if defined_size > class_size {
+			println('${class.name} defined size ${defined_size} does not match class size ${class_size}')
+		}
+
 		f.write_string('}\n\n')!
 
 		for c in class.constructors {
@@ -476,7 +481,7 @@ fn gen_builtin_classes(ea &ExtensionApi) ! {
 			}
 			has_return := method.return_type != ''
 			if has_return {
-				ret_type := convert_type(method.return_type, "")
+				ret_type := convert_type(method.return_type, '')
 				f.write_string(') ${ret_type} {\n')!
 				if ret_type in v_numbers {
 					f.write_string('    mut object_out := ${ret_type}(0)\n')!
@@ -489,7 +494,6 @@ fn gen_builtin_classes(ea &ExtensionApi) ! {
 				}
 
 				f.write_string('    fnname := StringName.new("${method.name}")\n')!
-				f.write_string('    defer { fnname.deinit() }\n')!
 
 				f.write_string('    f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_${class.name.to_lower()}, voidptr(&fnname), ${method.hash})\n')!
 
@@ -504,15 +508,15 @@ fn gen_builtin_classes(ea &ExtensionApi) ! {
 				} else {
 					f.write_string('    f(${p_base}, unsafe{nil}, voidptr(&object_out), ${method.arguments.len})\n')!
 				}
-
+				f.write_string('    fnname.deinit()\n')!
 				f.write_string('   return object_out\n')!
 			} else {
 				f.write_string(') {\n')!
 				f.write_string('    fnname := StringName.new("${method.name}")\n')!
-				f.write_string('    defer { fnname.deinit() }\n')!
 
 				f.write_string('    f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_${class.name.to_lower()}, voidptr(&fnname), ${method.hash})\n')!
 				f.write_string('    f(${p_base}, unsafe{nil}, unsafe{nil}, ${method.arguments.len})\n')!
+				f.write_string('    fnname.deinit()\n')!
 			}
 			f.write_string('}\n')!
 		}
@@ -533,8 +537,8 @@ fn gen_builtin_classes(ea &ExtensionApi) ! {
 
 		// index
 		if mut ret_type := class.indexing_return_type {
-			ret_type = convert_type(ret_type, "")
-			f.write_string('pub fn (v &${class.name}) index(i int) ${ret_type} {\n')!
+			ret_type = convert_type(ret_type, '')
+			f.write_string('pub fn (v &${class.name}) index(i i64) ${ret_type} {\n')!
 			f.write_string('    index_fn := gdf.variant_get_ptr_indexed_getter(GDExtensionVariantType.type_${class.name.to_lower()})\n')!
 
 			if ret_type in v_numbers {
@@ -565,7 +569,7 @@ fn gen_utility_functions(ea &ExtensionApi, mut f os.File) ! {
 
 		has_return := fun.return_type != ''
 		if has_return {
-			ret_type := convert_type(fun.return_type, "")
+			ret_type := convert_type(fun.return_type, '')
 			f.write_string(') ${ret_type} {\n')!
 			if ret_type in v_numbers {
 				f.write_string('    mut object_out := ${ret_type}(0)\n')!
@@ -578,7 +582,6 @@ fn gen_utility_functions(ea &ExtensionApi, mut f os.File) ! {
 			}
 
 			f.write_string('    fnname := StringName.new("${fun.name}")\n')!
-			f.write_string('    defer { fnname.deinit() }\n')!
 
 			f.write_string('    f := gdf.variant_get_ptr_utility_function(voidptr(&fnname), ${fun.hash})\n')!
 
@@ -593,12 +596,11 @@ fn gen_utility_functions(ea &ExtensionApi, mut f os.File) ! {
 			} else {
 				f.write_string('    f(voidptr(&object_out), unsafe{nil}, ${fun.arguments.len})\n')!
 			}
-
+			f.write_string('    fnname.deinit()\n')!
 			f.write_string('   return object_out\n')!
 		} else {
 			f.write_string(') {\n')!
 			f.write_string('    fnname := StringName.new("${fun.name}")\n')!
-			f.write_string('    defer { fnname.deinit() }\n')!
 
 			f.write_string('    f := gdf.variant_get_ptr_utility_function(voidptr(&fnname), ${fun.hash})\n')!
 			if fun.arguments.len > 0 {
@@ -612,16 +614,17 @@ fn gen_utility_functions(ea &ExtensionApi, mut f os.File) ! {
 			} else {
 				f.write_string('    f(unsafe{nil}, unsafe{nil}, ${fun.arguments.len})\n')!
 			}
+			f.write_string('    fnname.deinit()\n')!
 		}
 		f.write_string('}\n')!
 	}
 }
 
 fn gen_classes(ea &ExtensionApi) ! {
-	object_names := ea.classes.map(convert_type(it.name, ""))
+	object_names := ea.classes.map(convert_type(it.name, ''))
 	mut enum_defaults := map[string]string{}
 	for e in ea.global_enums {
-		name := convert_type(e.name, "")
+		name := convert_type(e.name, '')
 		enum_defaults[name] = convert_name(e.values.first().name)
 	}
 
@@ -637,7 +640,7 @@ fn gen_classes(ea &ExtensionApi) ! {
 	}
 
 	for class in ea.classes {
-		classname := convert_type(class.name, "")
+		classname := convert_type(class.name, '')
 		mut f := os.create('src/gdextension_api_${classname}.v')!
 		defer {
 			f.close()
@@ -648,7 +651,7 @@ fn gen_classes(ea &ExtensionApi) ! {
 			for class_enum in class.enums {
 				mut written_values := []i64{cap: class_enum.values.len}
 
-				f.write_string('pub enum ${class.name}${class_enum.name} {\n')!
+				f.write_string('pub enum ${class.name}${class_enum.name} as i64 {\n')!
 				for value in class_enum.values {
 					if value.value !in written_values {
 						written_values << value.value
@@ -662,7 +665,7 @@ fn gen_classes(ea &ExtensionApi) ! {
 		f.write_string('@[noinit]\n')!
 		f.write_string('pub struct ${class.name} {\n')!
 		if class.inherits != '' {
-			f.write_string('    ${convert_type(class.inherits, "")}\n')!
+			f.write_string('    ${convert_type(class.inherits, '')}\n')!
 		} else {
 			f.write_string('    mut:\n')!
 			f.write_string('    ptr voidptr = unsafe{nil}\n')!
@@ -674,10 +677,10 @@ fn gen_classes(ea &ExtensionApi) ! {
 		if singletons.len > 0 {
 			f.write_string('pub fn ${class.name}.get_singleton() ${class.name} {\n')!
 			f.write_string('    sn := StringName.new("${class.name}")\n')!
-			f.write_string('    defer {sn.deinit()}\n')!
 			f.write_string('    o := ${class.name}{\n')!
 			f.write_string('        ptr: gdf.global_get_singleton(sn)\n')!
 			f.write_string('    }\n')!
+			f.write_string('    sn.deinit()\n')!
 			f.write_string('    return o\n')!
 			f.write_string('}\n\n')!
 		}
@@ -692,8 +695,8 @@ fn gen_classes(ea &ExtensionApi) ! {
 				virt_name := virtual_method_name(class.name, method.name)
 				f.write_string('pub interface ${virt_name} {\n')!
 				f.write_string('    mut:\n')!
-				mut methodname := "virt_${convert_name(method.name)[1..]}"
-				
+				mut methodname := 'virt_${convert_name(method.name)[1..]}'
+
 				f.write_string('    ${methodname}(')!
 				for i, arg in method.arguments {
 					if i != 0 {
@@ -707,7 +710,7 @@ fn gen_classes(ea &ExtensionApi) ! {
 				if has_return {
 					ret_type := convert_type(method.return_value.type_name, method.return_value.meta)
 					f.write_string(') ${ret_type}\n')!
-				}else {
+				} else {
 					f.write_string(')\n')!
 				}
 				f.write_string('}\n\n')!
@@ -750,17 +753,16 @@ fn gen_classes(ea &ExtensionApi) ! {
 					f.write_string('    mut object_out := false\n')!
 				} else if method.return_value.type_name.starts_with('enum::')
 					|| method.return_value.type_name.starts_with('bitfield::') {
-					f.write_string('    mut object_out := ${ret_type}.${enum_defaults[ret_type]}\n')!
-				} else if ret_type in ["voidptr"] {
+					f.write_string('    mut object_out := i64(${ret_type}.${enum_defaults[ret_type]})\n')!
+				} else if ret_type == 'voidptr' {
 					f.write_string('    mut object_out := unsafe{nil}\n')!
 				} else {
 					f.write_string('    mut object_out := ${ret_type}{}\n')!
 				}
 
 				f.write_string('    classname := StringName.new("${class.name}")\n')!
-				f.write_string('    defer { classname.deinit() }\n')!
+
 				f.write_string('    fnname := StringName.new("${method.name}")\n')!
-				f.write_string('    defer { fnname.deinit() }\n')!
 
 				f.write_string('    mb := gdf.classdb_get_method_bind(&classname, &fnname, ${method.hash})\n')!
 
@@ -771,7 +773,13 @@ fn gen_classes(ea &ExtensionApi) ! {
 						if convert_type(a.type_name, a.meta) in object_names {
 							f.write_string('    args[${i}] = ${name}.ptr\n')!
 						} else {
-							f.write_string('    args[${i}] = unsafe{voidptr(&${name})}\n')!
+							if a.type_name.starts_with('enum::')
+								|| a.type_name.starts_with('bitfield::') {
+								f.write_string('    i64_${name} := i64(${name})\n')!
+								f.write_string('    args[${i}] = unsafe{voidptr(&i64_${name})}\n')!
+							} else {
+								f.write_string('    args[${i}] = unsafe{voidptr(&${name})}\n')!
+							}
 						}
 					}
 
@@ -779,14 +787,20 @@ fn gen_classes(ea &ExtensionApi) ! {
 				} else {
 					f.write_string('    gdf.object_method_bind_ptrcall(mb, ${p_base}, unsafe{nil}, voidptr(&object_out))\n')!
 				}
-
-				f.write_string('   return object_out\n')!
+				f.write_string('    classname.deinit()\n')!
+				f.write_string('    fnname.deinit()\n')!
+				if method.return_value.type_name.starts_with('enum::')
+					|| method.return_value.type_name.starts_with('bitfield::') {
+					f.write_string('   return unsafe{${ret_type}(object_out)}\n')!
+				} else {
+					f.write_string('   return object_out\n')!
+				}
 			} else {
 				f.write_string(') {\n')!
 				f.write_string('    classname := StringName.new("${class.name}")\n')!
-				f.write_string('    defer { classname.deinit() }\n')!
+
 				f.write_string('    fnname := StringName.new("${method.name}")\n')!
-				f.write_string('    defer { fnname.deinit() }\n')!
+
 				f.write_string('    mb := gdf.classdb_get_method_bind(&classname, &fnname, ${method.hash})\n')!
 				if method.arguments.len > 0 {
 					f.write_string('    mut args := unsafe { [${method.arguments.len}]voidptr{} }\n')!
@@ -795,15 +809,22 @@ fn gen_classes(ea &ExtensionApi) ! {
 						if convert_type(a.type_name, a.meta) in object_names {
 							f.write_string('    args[${i}] = ${name}.ptr\n')!
 						} else {
-							f.write_string('    args[${i}] = unsafe{voidptr(&${name})}\n')!
+							if a.type_name.starts_with('enum::')
+								|| a.type_name.starts_with('bitfield::') {
+								f.write_string('    i64_${name} := i64(${name})\n')!
+								f.write_string('    args[${i}] = unsafe{voidptr(&i64_${name})}\n')!
+							} else {
+								f.write_string('    args[${i}] = unsafe{voidptr(&${name})}\n')!
+							}
 						}
 					}
 
 					f.write_string('    gdf.object_method_bind_ptrcall(mb, ${p_base}, voidptr(&args[0]), unsafe{nil})\n')!
-				}else{
+				} else {
 					f.write_string('    gdf.object_method_bind_ptrcall(mb, ${p_base}, unsafe{nil}, unsafe{nil})\n')!
 				}
-				
+				f.write_string('    classname.deinit()\n')!
+				f.write_string('    fnname.deinit()\n')!
 			}
 			f.write_string('}\n')!
 		}
@@ -812,7 +833,7 @@ fn gen_classes(ea &ExtensionApi) ! {
 
 fn gen_native_structures(ea &ExtensionApi) ! {
 	for ns in ea.native_structures {
-		name := convert_type(ns.name, "")
+		name := convert_type(ns.name, '')
 		mut f := os.create('src/gdextension_api_${name}.v')!
 		defer {
 			f.close()
@@ -826,7 +847,7 @@ fn gen_native_structures(ea &ExtensionApi) ! {
 			segments := member.split('=')
 			parts := segments[0].trim_space().split(' ')
 
-			mut mtype := convert_type(parts[..parts.len - 1].join(' '), "")
+			mut mtype := convert_type(parts[..parts.len - 1].join(' '), '')
 			mut mname := convert_name(parts.last())
 			for mname.starts_with('*') {
 				mtype = '&${mtype}'
@@ -864,7 +885,7 @@ fn convert_name(name string) string {
 
 fn convert_type(name string, meta string) string {
 	mut ret := name
-	if meta != "" {
+	if meta != '' {
 		ret = meta
 	}
 
@@ -905,11 +926,11 @@ fn convert_type(name string, meta string) string {
 		ret = '&${ret[..ret.len - 1]}'
 	}
 
-	if ret.replace("&", "") == "int" {
-		ret = ret.replace('int', 'i32')
+	if ret.replace('&', '') == 'int' {
+		ret = ret.replace('int', 'i64')
 	}
 
-	if ret.replace("&", "") == "float" {
+	if ret.replace('&', '') == 'float' {
 		ret = ret.replace('float', 'f64')
 	}
 

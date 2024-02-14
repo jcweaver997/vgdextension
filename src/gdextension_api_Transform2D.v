@@ -1,6 +1,6 @@
 module vgdextension
 
-@[heap]
+@[heap; packed]
 pub struct Transform2D {
     pub mut:
         x Vector2 // offset 0
@@ -60,184 +60,192 @@ pub fn Transform2D.new4 (x_axis &Vector2, y_axis &Vector2, origin &Vector2) Tran
 pub fn (r &Transform2D) inverse() Transform2D {
     mut object_out := Transform2D{}
     fnname := StringName.new("inverse")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_transform2d, voidptr(&fnname), 1420440541)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Transform2D) affine_inverse() Transform2D {
     mut object_out := Transform2D{}
     fnname := StringName.new("affine_inverse")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_transform2d, voidptr(&fnname), 1420440541)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Transform2D) get_rotation() f64 {
     mut object_out := f64(0)
     fnname := StringName.new("get_rotation")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_transform2d, voidptr(&fnname), 466405837)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Transform2D) get_origin() Vector2 {
     mut object_out := Vector2{}
     fnname := StringName.new("get_origin")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_transform2d, voidptr(&fnname), 2428350749)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Transform2D) get_scale() Vector2 {
     mut object_out := Vector2{}
     fnname := StringName.new("get_scale")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_transform2d, voidptr(&fnname), 2428350749)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Transform2D) get_skew() f64 {
     mut object_out := f64(0)
     fnname := StringName.new("get_skew")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_transform2d, voidptr(&fnname), 466405837)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Transform2D) orthonormalized() Transform2D {
     mut object_out := Transform2D{}
     fnname := StringName.new("orthonormalized")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_transform2d, voidptr(&fnname), 1420440541)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Transform2D) rotated(angle f64) Transform2D {
     mut object_out := Transform2D{}
     fnname := StringName.new("rotated")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_transform2d, voidptr(&fnname), 729597514)
     mut args := unsafe { [1]voidptr{} }
     args[0] = voidptr(&angle)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Transform2D) rotated_local(angle f64) Transform2D {
     mut object_out := Transform2D{}
     fnname := StringName.new("rotated_local")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_transform2d, voidptr(&fnname), 729597514)
     mut args := unsafe { [1]voidptr{} }
     args[0] = voidptr(&angle)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Transform2D) scaled(scale Vector2) Transform2D {
     mut object_out := Transform2D{}
     fnname := StringName.new("scaled")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_transform2d, voidptr(&fnname), 1446323263)
     mut args := unsafe { [1]voidptr{} }
     args[0] = voidptr(&scale)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Transform2D) scaled_local(scale Vector2) Transform2D {
     mut object_out := Transform2D{}
     fnname := StringName.new("scaled_local")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_transform2d, voidptr(&fnname), 1446323263)
     mut args := unsafe { [1]voidptr{} }
     args[0] = voidptr(&scale)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Transform2D) translated(offset Vector2) Transform2D {
     mut object_out := Transform2D{}
     fnname := StringName.new("translated")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_transform2d, voidptr(&fnname), 1446323263)
     mut args := unsafe { [1]voidptr{} }
     args[0] = voidptr(&offset)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Transform2D) translated_local(offset Vector2) Transform2D {
     mut object_out := Transform2D{}
     fnname := StringName.new("translated_local")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_transform2d, voidptr(&fnname), 1446323263)
     mut args := unsafe { [1]voidptr{} }
     args[0] = voidptr(&offset)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Transform2D) determinant() f64 {
     mut object_out := f64(0)
     fnname := StringName.new("determinant")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_transform2d, voidptr(&fnname), 466405837)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Transform2D) basis_xform(v Vector2) Vector2 {
     mut object_out := Vector2{}
     fnname := StringName.new("basis_xform")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_transform2d, voidptr(&fnname), 2026743667)
     mut args := unsafe { [1]voidptr{} }
     args[0] = voidptr(&v)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Transform2D) basis_xform_inv(v Vector2) Vector2 {
     mut object_out := Vector2{}
     fnname := StringName.new("basis_xform_inv")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_transform2d, voidptr(&fnname), 2026743667)
     mut args := unsafe { [1]voidptr{} }
     args[0] = voidptr(&v)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Transform2D) interpolate_with(xform Transform2D, weight f64) Transform2D {
     mut object_out := Transform2D{}
     fnname := StringName.new("interpolate_with")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_transform2d, voidptr(&fnname), 359399686)
     mut args := unsafe { [2]voidptr{} }
     args[0] = voidptr(&xform)
     args[1] = voidptr(&weight)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 2)
+    fnname.deinit()
+   return object_out
+}
+pub fn (r &Transform2D) is_conformal() bool {
+    mut object_out := false
+    fnname := StringName.new("is_conformal")
+    f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_transform2d, voidptr(&fnname), 3918633141)
+    f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Transform2D) is_equal_approx(xform Transform2D) bool {
     mut object_out := false
     fnname := StringName.new("is_equal_approx")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_transform2d, voidptr(&fnname), 3837431929)
     mut args := unsafe { [1]voidptr{} }
     args[0] = voidptr(&xform)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Transform2D) is_finite() bool {
     mut object_out := false
     fnname := StringName.new("is_finite")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_transform2d, voidptr(&fnname), 3918633141)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Transform2D) looking_at(target Vector2) Transform2D {
     mut object_out := Transform2D{}
     fnname := StringName.new("looking_at")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_transform2d, voidptr(&fnname), 1446323263)
     mut args := unsafe { [1]voidptr{} }
     args[0] = voidptr(&target)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
+    fnname.deinit()
    return object_out
 }
 pub fn (v &Transform2D) to_var() Variant {
@@ -252,7 +260,7 @@ pub fn (mut t Transform2D) set_from_var(var &Variant) {
     var_to_type(voidptr(&t), var)
 }
 
-pub fn (v &Transform2D) index(i int) Vector2 {
+pub fn (v &Transform2D) index(i i64) Vector2 {
     index_fn := gdf.variant_get_ptr_indexed_getter(GDExtensionVariantType.type_transform2d)
     mut output := Vector2{}
     index_fn(GDExtensionConstTypePtr(v), GDExtensionInt(i), GDExtensionTypePtr(&output))

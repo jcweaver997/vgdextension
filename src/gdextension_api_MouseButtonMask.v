@@ -1,6 +1,6 @@
 module vgdextension
 
-pub enum MouseButtonMask {
+pub enum MouseButtonMask as i64 {
     mouse_button_mask_left = 1
     mouse_button_mask_right = 2
     mouse_button_mask_middle = 4

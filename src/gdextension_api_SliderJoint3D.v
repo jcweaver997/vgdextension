@@ -1,6 +1,6 @@
 module vgdextension
 
-pub enum SliderJoint3DParam {
+pub enum SliderJoint3DParam as i64 {
     param_linear_limit_upper = 0
     param_linear_limit_lower = 1
     param_linear_limit_softness = 2
@@ -33,24 +33,26 @@ pub struct SliderJoint3D {
 
 pub fn (mut r SliderJoint3D) set_param(param SliderJoint3DParam, value f64) {
     classname := StringName.new("SliderJoint3D")
-    defer { classname.deinit() }
     fnname := StringName.new("set_param")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 918243683)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&param)}
+    i64_param := i64(param)
+    args[0] = unsafe{voidptr(&i64_param)}
     args[1] = unsafe{voidptr(&value)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub fn (r &SliderJoint3D) get_param(param SliderJoint3DParam) f64 {
     mut object_out := f64(0)
     classname := StringName.new("SliderJoint3D")
-    defer { classname.deinit() }
     fnname := StringName.new("get_param")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 959925627)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&param)}
+    i64_param := i64(param)
+    args[0] = unsafe{voidptr(&i64_param)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }

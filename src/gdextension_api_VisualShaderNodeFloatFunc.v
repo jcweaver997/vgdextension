@@ -1,6 +1,6 @@
 module vgdextension
 
-pub enum VisualShaderNodeFloatFuncFunction {
+pub enum VisualShaderNodeFloatFuncFunction as i64 {
     func_sin = 0
     func_cos = 1
     func_tan = 2
@@ -43,21 +43,22 @@ pub struct VisualShaderNodeFloatFunc {
 
 pub fn (mut r VisualShaderNodeFloatFunc) set_function(func VisualShaderNodeFloatFuncFunction) {
     classname := StringName.new("VisualShaderNodeFloatFunc")
-    defer { classname.deinit() }
     fnname := StringName.new("set_function")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 536026177)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&func)}
+    i64_func := i64(func)
+    args[0] = unsafe{voidptr(&i64_func)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub fn (r &VisualShaderNodeFloatFunc) get_function() VisualShaderNodeFloatFuncFunction {
-    mut object_out := VisualShaderNodeFloatFuncFunction.func_sin
+    mut object_out := i64(VisualShaderNodeFloatFuncFunction.func_sin)
     classname := StringName.new("VisualShaderNodeFloatFunc")
-    defer { classname.deinit() }
     fnname := StringName.new("get_function")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2033948868)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
-   return object_out
+    classname.deinit()
+    fnname.deinit()
+   return unsafe{VisualShaderNodeFloatFuncFunction(object_out)}
 }

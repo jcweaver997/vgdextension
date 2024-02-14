@@ -6,7 +6,7 @@ pub struct PhysicsServer3DExtensionShapeRestInfo {
     normal Vector3
     rid RID
     collider_id ObjectID
-    shape i32
+    shape i64
     linear_velocity Vector3
 }
 

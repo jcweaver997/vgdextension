@@ -1,6 +1,6 @@
 module vgdextension
 
-pub enum GDError {
+pub enum GDError as i64 {
     ok = 0
     failed = 1
     err_unavailable = 2

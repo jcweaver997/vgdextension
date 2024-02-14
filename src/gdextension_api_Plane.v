@@ -1,6 +1,6 @@
 module vgdextension
 
-@[heap]
+@[heap; packed]
 pub struct Plane {
     pub mut:
         normal Vector3 // offset 0
@@ -78,109 +78,109 @@ pub fn Plane.new6 (a &f64, b &f64, c &f64, d &f64) Plane {
 pub fn (r &Plane) normalized() Plane {
     mut object_out := Plane{}
     fnname := StringName.new("normalized")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_plane, voidptr(&fnname), 1051796340)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Plane) get_center() Vector3 {
     mut object_out := Vector3{}
     fnname := StringName.new("get_center")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_plane, voidptr(&fnname), 1776574132)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Plane) is_equal_approx(to_plane Plane) bool {
     mut object_out := false
     fnname := StringName.new("is_equal_approx")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_plane, voidptr(&fnname), 1150170233)
     mut args := unsafe { [1]voidptr{} }
     args[0] = voidptr(&to_plane)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Plane) is_finite() bool {
     mut object_out := false
     fnname := StringName.new("is_finite")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_plane, voidptr(&fnname), 3918633141)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Plane) is_point_over(point Vector3) bool {
     mut object_out := false
     fnname := StringName.new("is_point_over")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_plane, voidptr(&fnname), 1749054343)
     mut args := unsafe { [1]voidptr{} }
     args[0] = voidptr(&point)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Plane) distance_to(point Vector3) f64 {
     mut object_out := f64(0)
     fnname := StringName.new("distance_to")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_plane, voidptr(&fnname), 1047977935)
     mut args := unsafe { [1]voidptr{} }
     args[0] = voidptr(&point)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Plane) has_point(point Vector3, tolerance f64) bool {
     mut object_out := false
     fnname := StringName.new("has_point")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_plane, voidptr(&fnname), 1258189072)
     mut args := unsafe { [2]voidptr{} }
     args[0] = voidptr(&point)
     args[1] = voidptr(&tolerance)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 2)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Plane) project(point Vector3) Vector3 {
     mut object_out := Vector3{}
     fnname := StringName.new("project")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_plane, voidptr(&fnname), 2923479887)
     mut args := unsafe { [1]voidptr{} }
     args[0] = voidptr(&point)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Plane) intersect_3(b Plane, c Plane) Variant {
     mut object_out := Variant{}
     fnname := StringName.new("intersect_3")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_plane, voidptr(&fnname), 2012052692)
     mut args := unsafe { [2]voidptr{} }
     args[0] = voidptr(&b)
     args[1] = voidptr(&c)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 2)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Plane) intersects_ray(from Vector3, dir Vector3) Variant {
     mut object_out := Variant{}
     fnname := StringName.new("intersects_ray")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_plane, voidptr(&fnname), 2048133369)
     mut args := unsafe { [2]voidptr{} }
     args[0] = voidptr(&from)
     args[1] = voidptr(&dir)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 2)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Plane) intersects_segment(from Vector3, to Vector3) Variant {
     mut object_out := Variant{}
     fnname := StringName.new("intersects_segment")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_plane, voidptr(&fnname), 2048133369)
     mut args := unsafe { [2]voidptr{} }
     args[0] = voidptr(&from)
     args[1] = voidptr(&to)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 2)
+    fnname.deinit()
    return object_out
 }
 pub fn (v &Plane) to_var() Variant {

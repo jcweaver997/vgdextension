@@ -1,6 +1,6 @@
 module vgdextension
 
-@[heap]
+@[heap; packed]
 pub struct Nil {
 }
 

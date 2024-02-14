@@ -1,6 +1,6 @@
 module vgdextension
 
-pub enum VisualShaderNodeTransformOpOperator {
+pub enum VisualShaderNodeTransformOpOperator as i64 {
     op_axb = 0
     op_bxa = 1
     op_axb_comp = 2
@@ -20,21 +20,22 @@ pub struct VisualShaderNodeTransformOp {
 
 pub fn (mut r VisualShaderNodeTransformOp) set_operator(op VisualShaderNodeTransformOpOperator) {
     classname := StringName.new("VisualShaderNodeTransformOp")
-    defer { classname.deinit() }
     fnname := StringName.new("set_operator")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2287310733)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&op)}
+    i64_op := i64(op)
+    args[0] = unsafe{voidptr(&i64_op)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub fn (r &VisualShaderNodeTransformOp) get_operator() VisualShaderNodeTransformOpOperator {
-    mut object_out := VisualShaderNodeTransformOpOperator.op_axb
+    mut object_out := i64(VisualShaderNodeTransformOpOperator.op_axb)
     classname := StringName.new("VisualShaderNodeTransformOp")
-    defer { classname.deinit() }
     fnname := StringName.new("get_operator")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1238663601)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
-   return object_out
+    classname.deinit()
+    fnname.deinit()
+   return unsafe{VisualShaderNodeTransformOpOperator(object_out)}
 }

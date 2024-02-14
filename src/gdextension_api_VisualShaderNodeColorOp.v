@@ -1,6 +1,6 @@
 module vgdextension
 
-pub enum VisualShaderNodeColorOpOperator {
+pub enum VisualShaderNodeColorOpOperator as i64 {
     op_screen = 0
     op_difference = 1
     op_darken = 2
@@ -20,21 +20,22 @@ pub struct VisualShaderNodeColorOp {
 
 pub fn (mut r VisualShaderNodeColorOp) set_operator(op VisualShaderNodeColorOpOperator) {
     classname := StringName.new("VisualShaderNodeColorOp")
-    defer { classname.deinit() }
     fnname := StringName.new("set_operator")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4260370673)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&op)}
+    i64_op := i64(op)
+    args[0] = unsafe{voidptr(&i64_op)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub fn (r &VisualShaderNodeColorOp) get_operator() VisualShaderNodeColorOpOperator {
-    mut object_out := VisualShaderNodeColorOpOperator.op_screen
+    mut object_out := i64(VisualShaderNodeColorOpOperator.op_screen)
     classname := StringName.new("VisualShaderNodeColorOp")
-    defer { classname.deinit() }
     fnname := StringName.new("get_operator")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1950956529)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
-   return object_out
+    classname.deinit()
+    fnname.deinit()
+   return unsafe{VisualShaderNodeColorOpOperator(object_out)}
 }

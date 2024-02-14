@@ -1,6 +1,6 @@
 module vgdextension
 
-pub enum VisualShaderNodeIsFunction {
+pub enum VisualShaderNodeIsFunction as i64 {
     func_is_inf = 0
     func_is_nan = 1
     func_max = 2
@@ -13,21 +13,22 @@ pub struct VisualShaderNodeIs {
 
 pub fn (mut r VisualShaderNodeIs) set_function(func VisualShaderNodeIsFunction) {
     classname := StringName.new("VisualShaderNodeIs")
-    defer { classname.deinit() }
     fnname := StringName.new("set_function")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1438374690)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&func)}
+    i64_func := i64(func)
+    args[0] = unsafe{voidptr(&i64_func)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub fn (r &VisualShaderNodeIs) get_function() VisualShaderNodeIsFunction {
-    mut object_out := VisualShaderNodeIsFunction.func_is_inf
+    mut object_out := i64(VisualShaderNodeIsFunction.func_is_inf)
     classname := StringName.new("VisualShaderNodeIs")
-    defer { classname.deinit() }
     fnname := StringName.new("get_function")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 580678557)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
-   return object_out
+    classname.deinit()
+    fnname.deinit()
+   return unsafe{VisualShaderNodeIsFunction(object_out)}
 }

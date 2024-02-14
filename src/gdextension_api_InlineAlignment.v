@@ -1,6 +1,6 @@
 module vgdextension
 
-pub enum InlineAlignment {
+pub enum InlineAlignment as i64 {
     inline_alignment_top_to = 0
     inline_alignment_center_to = 1
     inline_alignment_baseline_to = 3

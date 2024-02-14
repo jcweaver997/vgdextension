@@ -1,6 +1,6 @@
 module vgdextension
 
-pub enum VariantType {
+pub enum VariantType as i64 {
     type_nil = 0
     type_bool = 1
     type_int = 2

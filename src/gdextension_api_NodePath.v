@@ -1,6 +1,6 @@
 module vgdextension
 
-@[heap]
+@[heap; packed]
 pub struct NodePath {
         godot_data [8]u8 // filler
 }
@@ -38,85 +38,85 @@ pub fn (c &NodePath) deinit () {
 pub fn (r &NodePath) is_absolute() bool {
     mut object_out := false
     fnname := StringName.new("is_absolute")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_nodepath, voidptr(&fnname), 3918633141)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
-pub fn (r &NodePath) get_name_count() i32 {
-    mut object_out := i32(0)
+pub fn (r &NodePath) get_name_count() i64 {
+    mut object_out := i64(0)
     fnname := StringName.new("get_name_count")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_nodepath, voidptr(&fnname), 3173160232)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
-pub fn (r &NodePath) get_name(idx i32) StringName {
+pub fn (r &NodePath) get_name(idx i64) StringName {
     mut object_out := StringName{}
     fnname := StringName.new("get_name")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_nodepath, voidptr(&fnname), 2948586938)
     mut args := unsafe { [1]voidptr{} }
     args[0] = voidptr(&idx)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
+    fnname.deinit()
    return object_out
 }
-pub fn (r &NodePath) get_subname_count() i32 {
-    mut object_out := i32(0)
+pub fn (r &NodePath) get_subname_count() i64 {
+    mut object_out := i64(0)
     fnname := StringName.new("get_subname_count")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_nodepath, voidptr(&fnname), 3173160232)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
-pub fn (r &NodePath) hash() i32 {
-    mut object_out := i32(0)
+pub fn (r &NodePath) hash() i64 {
+    mut object_out := i64(0)
     fnname := StringName.new("hash")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_nodepath, voidptr(&fnname), 3173160232)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
-pub fn (r &NodePath) get_subname(idx i32) StringName {
+pub fn (r &NodePath) get_subname(idx i64) StringName {
     mut object_out := StringName{}
     fnname := StringName.new("get_subname")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_nodepath, voidptr(&fnname), 2948586938)
     mut args := unsafe { [1]voidptr{} }
     args[0] = voidptr(&idx)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &NodePath) get_concatenated_names() StringName {
     mut object_out := StringName{}
     fnname := StringName.new("get_concatenated_names")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_nodepath, voidptr(&fnname), 1825232092)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &NodePath) get_concatenated_subnames() StringName {
     mut object_out := StringName{}
     fnname := StringName.new("get_concatenated_subnames")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_nodepath, voidptr(&fnname), 1825232092)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &NodePath) get_as_property_path() NodePath {
     mut object_out := NodePath{}
     fnname := StringName.new("get_as_property_path")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_nodepath, voidptr(&fnname), 1598598043)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &NodePath) is_empty() bool {
     mut object_out := false
     fnname := StringName.new("is_empty")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_nodepath, voidptr(&fnname), 3918633141)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
 pub fn (v &NodePath) to_var() Variant {

@@ -3,8 +3,8 @@ module vgdextension
 pub enum GDExtensionVariantType {
 	type_nil
 	type_bool
-	type_i32
-	type_f32
+	type_i64
+	type_f64
 	type_string
 	type_vector2
 	type_vector2i

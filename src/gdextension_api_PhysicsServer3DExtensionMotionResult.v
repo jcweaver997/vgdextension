@@ -8,6 +8,6 @@ pub struct PhysicsServer3DExtensionMotionResult {
     collision_safe_fraction f64
     collision_unsafe_fraction f64
     collisions[32] PhysicsServer3DExtensionMotionCollision
-    collision_count i32
+    collision_count i64
 }
 

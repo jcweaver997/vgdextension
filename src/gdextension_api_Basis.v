@@ -1,6 +1,6 @@
 module vgdextension
 
-@[heap]
+@[heap; packed]
 pub struct Basis {
     pub mut:
         x Vector3 // offset 0
@@ -57,172 +57,180 @@ pub fn Basis.new4 (x_axis &Vector3, y_axis &Vector3, z_axis &Vector3) Basis {
 pub fn (r &Basis) inverse() Basis {
     mut object_out := Basis{}
     fnname := StringName.new("inverse")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_basis, voidptr(&fnname), 594669093)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Basis) transposed() Basis {
     mut object_out := Basis{}
     fnname := StringName.new("transposed")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_basis, voidptr(&fnname), 594669093)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Basis) orthonormalized() Basis {
     mut object_out := Basis{}
     fnname := StringName.new("orthonormalized")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_basis, voidptr(&fnname), 594669093)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Basis) determinant() f64 {
     mut object_out := f64(0)
     fnname := StringName.new("determinant")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_basis, voidptr(&fnname), 466405837)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Basis) rotated(axis Vector3, angle f64) Basis {
     mut object_out := Basis{}
     fnname := StringName.new("rotated")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_basis, voidptr(&fnname), 1998708965)
     mut args := unsafe { [2]voidptr{} }
     args[0] = voidptr(&axis)
     args[1] = voidptr(&angle)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 2)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Basis) scaled(scale Vector3) Basis {
     mut object_out := Basis{}
     fnname := StringName.new("scaled")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_basis, voidptr(&fnname), 3934786792)
     mut args := unsafe { [1]voidptr{} }
     args[0] = voidptr(&scale)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Basis) get_scale() Vector3 {
     mut object_out := Vector3{}
     fnname := StringName.new("get_scale")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_basis, voidptr(&fnname), 1776574132)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
-pub fn (r &Basis) get_euler(order i32) Vector3 {
+pub fn (r &Basis) get_euler(order i64) Vector3 {
     mut object_out := Vector3{}
     fnname := StringName.new("get_euler")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_basis, voidptr(&fnname), 1394941017)
     mut args := unsafe { [1]voidptr{} }
     args[0] = voidptr(&order)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Basis) tdotx(with Vector3) f64 {
     mut object_out := f64(0)
     fnname := StringName.new("tdotx")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_basis, voidptr(&fnname), 1047977935)
     mut args := unsafe { [1]voidptr{} }
     args[0] = voidptr(&with)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Basis) tdoty(with Vector3) f64 {
     mut object_out := f64(0)
     fnname := StringName.new("tdoty")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_basis, voidptr(&fnname), 1047977935)
     mut args := unsafe { [1]voidptr{} }
     args[0] = voidptr(&with)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Basis) tdotz(with Vector3) f64 {
     mut object_out := f64(0)
     fnname := StringName.new("tdotz")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_basis, voidptr(&fnname), 1047977935)
     mut args := unsafe { [1]voidptr{} }
     args[0] = voidptr(&with)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Basis) slerp(to Basis, weight f64) Basis {
     mut object_out := Basis{}
     fnname := StringName.new("slerp")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_basis, voidptr(&fnname), 3118673011)
     mut args := unsafe { [2]voidptr{} }
     args[0] = voidptr(&to)
     args[1] = voidptr(&weight)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 2)
+    fnname.deinit()
+   return object_out
+}
+pub fn (r &Basis) is_conformal() bool {
+    mut object_out := false
+    fnname := StringName.new("is_conformal")
+    f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_basis, voidptr(&fnname), 3918633141)
+    f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Basis) is_equal_approx(b Basis) bool {
     mut object_out := false
     fnname := StringName.new("is_equal_approx")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_basis, voidptr(&fnname), 3165333982)
     mut args := unsafe { [1]voidptr{} }
     args[0] = voidptr(&b)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Basis) is_finite() bool {
     mut object_out := false
     fnname := StringName.new("is_finite")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_basis, voidptr(&fnname), 3918633141)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Basis) get_rotation_quaternion() Quaternion {
     mut object_out := Quaternion{}
     fnname := StringName.new("get_rotation_quaternion")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_basis, voidptr(&fnname), 4274879941)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
 pub fn Basis.looking_at(target Vector3, up Vector3, use_model_front bool) Basis {
     mut object_out := Basis{}
     fnname := StringName.new("looking_at")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_basis, voidptr(&fnname), 3728732505)
     mut args := unsafe { [3]voidptr{} }
     args[0] = voidptr(&target)
     args[1] = voidptr(&up)
     args[2] = voidptr(&use_model_front)
     f(unsafe{nil}, voidptr(&args[0]), voidptr(&object_out), 3)
+    fnname.deinit()
    return object_out
 }
 pub fn Basis.from_scale(scale Vector3) Basis {
     mut object_out := Basis{}
     fnname := StringName.new("from_scale")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_basis, voidptr(&fnname), 3703240166)
     mut args := unsafe { [1]voidptr{} }
     args[0] = voidptr(&scale)
     f(unsafe{nil}, voidptr(&args[0]), voidptr(&object_out), 1)
+    fnname.deinit()
    return object_out
 }
-pub fn Basis.from_euler(euler Vector3, order i32) Basis {
+pub fn Basis.from_euler(euler Vector3, order i64) Basis {
     mut object_out := Basis{}
     fnname := StringName.new("from_euler")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_basis, voidptr(&fnname), 2802321791)
     mut args := unsafe { [2]voidptr{} }
     args[0] = voidptr(&euler)
     args[1] = voidptr(&order)
     f(unsafe{nil}, voidptr(&args[0]), voidptr(&object_out), 2)
+    fnname.deinit()
    return object_out
 }
 pub fn (v &Basis) to_var() Variant {
@@ -237,7 +245,7 @@ pub fn (mut t Basis) set_from_var(var &Variant) {
     var_to_type(voidptr(&t), var)
 }
 
-pub fn (v &Basis) index(i int) Vector3 {
+pub fn (v &Basis) index(i i64) Vector3 {
     index_fn := gdf.variant_get_ptr_indexed_getter(GDExtensionVariantType.type_basis)
     mut output := Vector3{}
     index_fn(GDExtensionConstTypePtr(v), GDExtensionInt(i), GDExtensionTypePtr(&output))

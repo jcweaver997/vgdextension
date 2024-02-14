@@ -1,6 +1,6 @@
 module vgdextension
 
-pub enum EulerOrder {
+pub enum EulerOrder as i64 {
     euler_order_xyz = 0
     euler_order_xzy = 1
     euler_order_yxz = 2

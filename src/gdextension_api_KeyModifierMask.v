@@ -1,6 +1,6 @@
 module vgdextension
 
-pub enum KeyModifierMask {
+pub enum KeyModifierMask as i64 {
     key_code_mask = 8388607
     key_modifier_mask = 532676608
     key_mask_cmd_or_ctrl = 16777216

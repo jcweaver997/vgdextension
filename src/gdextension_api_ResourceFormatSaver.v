@@ -11,18 +11,18 @@ pub interface IResourceFormatSaverSave {
 }
 
 pub fn (mut r ResourceFormatSaver) usave(resource Resource, path String, flags u32) GDError {
-    mut object_out := GDError.ok
+    mut object_out := i64(GDError.ok)
     classname := StringName.new("ResourceFormatSaver")
-    defer { classname.deinit() }
     fnname := StringName.new("_save")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
     args[0] = resource.ptr
     args[1] = unsafe{voidptr(&path)}
     args[2] = unsafe{voidptr(&flags)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
-   return object_out
+    classname.deinit()
+    fnname.deinit()
+   return unsafe{GDError(object_out)}
 }
 pub interface IResourceFormatSaverSetUid {
     mut:
@@ -30,17 +30,17 @@ pub interface IResourceFormatSaverSetUid {
 }
 
 pub fn (mut r ResourceFormatSaver) uset_uid(path String, uid i64) GDError {
-    mut object_out := GDError.ok
+    mut object_out := i64(GDError.ok)
     classname := StringName.new("ResourceFormatSaver")
-    defer { classname.deinit() }
     fnname := StringName.new("_set_uid")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&path)}
     args[1] = unsafe{voidptr(&uid)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
-   return object_out
+    classname.deinit()
+    fnname.deinit()
+   return unsafe{GDError(object_out)}
 }
 pub interface IResourceFormatSaverRecognize {
     mut:
@@ -50,13 +50,13 @@ pub interface IResourceFormatSaverRecognize {
 pub fn (r &ResourceFormatSaver) urecognize(resource Resource) bool {
     mut object_out := false
     classname := StringName.new("ResourceFormatSaver")
-    defer { classname.deinit() }
     fnname := StringName.new("_recognize")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = resource.ptr
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IResourceFormatSaverGetRecognizedExtensions {
@@ -67,13 +67,13 @@ pub interface IResourceFormatSaverGetRecognizedExtensions {
 pub fn (r &ResourceFormatSaver) uget_recognized_extensions(resource Resource) PackedStringArray {
     mut object_out := PackedStringArray{}
     classname := StringName.new("ResourceFormatSaver")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_recognized_extensions")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = resource.ptr
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IResourceFormatSaverRecognizePath {
@@ -84,13 +84,13 @@ pub interface IResourceFormatSaverRecognizePath {
 pub fn (r &ResourceFormatSaver) urecognize_path(resource Resource, path String) bool {
     mut object_out := false
     classname := StringName.new("ResourceFormatSaver")
-    defer { classname.deinit() }
     fnname := StringName.new("_recognize_path")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = resource.ptr
     args[1] = unsafe{voidptr(&path)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }

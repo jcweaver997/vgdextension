@@ -1,6 +1,6 @@
 module vgdextension
 
-@[heap]
+@[heap; packed]
 pub struct RID {
         godot_data [8]u8 // filler
 }
@@ -24,17 +24,17 @@ pub fn RID.new1 (from &RID) RID {
 pub fn (r &RID) is_valid() bool {
     mut object_out := false
     fnname := StringName.new("is_valid")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_rid, voidptr(&fnname), 3918633141)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
-pub fn (r &RID) get_id() i32 {
-    mut object_out := i32(0)
+pub fn (r &RID) get_id() i64 {
+    mut object_out := i64(0)
     fnname := StringName.new("get_id")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_rid, voidptr(&fnname), 3173160232)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
 pub fn (v &RID) to_var() Variant {

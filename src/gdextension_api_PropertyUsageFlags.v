@@ -1,6 +1,6 @@
 module vgdextension
 
-pub enum PropertyUsageFlags {
+pub enum PropertyUsageFlags as i64 {
     property_usage_none = 0
     property_usage_storage = 2
     property_usage_editor = 4

@@ -7,9 +7,9 @@ pub struct PhysicsServer3DExtensionMotionCollision {
     collider_velocity Vector3
     collider_angular_velocity Vector3
     depth f64
-    local_shape i32
+    local_shape i64
     collider_id ObjectID
     collider RID
-    collider_shape i32
+    collider_shape i64
 }
 

@@ -1,6 +1,6 @@
 module vgdextension
 
-pub enum PropertyHint {
+pub enum PropertyHint as i64 {
     property_hint_none = 0
     property_hint_range = 1
     property_hint_enum = 2

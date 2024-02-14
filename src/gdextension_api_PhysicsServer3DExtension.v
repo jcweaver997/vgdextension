@@ -13,11 +13,11 @@ pub interface IPhysicsServer3DExtensionWorldBoundaryShapeCreate {
 pub fn (mut r PhysicsServer3DExtension) uworld_boundary_shape_create() RID {
     mut object_out := RID{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_world_boundary_shape_create")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionSeparationRayShapeCreate {
@@ -28,11 +28,11 @@ pub interface IPhysicsServer3DExtensionSeparationRayShapeCreate {
 pub fn (mut r PhysicsServer3DExtension) useparation_ray_shape_create() RID {
     mut object_out := RID{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_separation_ray_shape_create")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionSphereShapeCreate {
@@ -43,11 +43,11 @@ pub interface IPhysicsServer3DExtensionSphereShapeCreate {
 pub fn (mut r PhysicsServer3DExtension) usphere_shape_create() RID {
     mut object_out := RID{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_sphere_shape_create")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionBoxShapeCreate {
@@ -58,11 +58,11 @@ pub interface IPhysicsServer3DExtensionBoxShapeCreate {
 pub fn (mut r PhysicsServer3DExtension) ubox_shape_create() RID {
     mut object_out := RID{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_box_shape_create")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionCapsuleShapeCreate {
@@ -73,11 +73,11 @@ pub interface IPhysicsServer3DExtensionCapsuleShapeCreate {
 pub fn (mut r PhysicsServer3DExtension) ucapsule_shape_create() RID {
     mut object_out := RID{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_capsule_shape_create")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionCylinderShapeCreate {
@@ -88,11 +88,11 @@ pub interface IPhysicsServer3DExtensionCylinderShapeCreate {
 pub fn (mut r PhysicsServer3DExtension) ucylinder_shape_create() RID {
     mut object_out := RID{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_cylinder_shape_create")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionConvexPolygonShapeCreate {
@@ -103,11 +103,11 @@ pub interface IPhysicsServer3DExtensionConvexPolygonShapeCreate {
 pub fn (mut r PhysicsServer3DExtension) uconvex_polygon_shape_create() RID {
     mut object_out := RID{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_convex_polygon_shape_create")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionConcavePolygonShapeCreate {
@@ -118,11 +118,11 @@ pub interface IPhysicsServer3DExtensionConcavePolygonShapeCreate {
 pub fn (mut r PhysicsServer3DExtension) uconcave_polygon_shape_create() RID {
     mut object_out := RID{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_concave_polygon_shape_create")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionHeightmapShapeCreate {
@@ -133,11 +133,11 @@ pub interface IPhysicsServer3DExtensionHeightmapShapeCreate {
 pub fn (mut r PhysicsServer3DExtension) uheightmap_shape_create() RID {
     mut object_out := RID{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_heightmap_shape_create")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionCustomShapeCreate {
@@ -148,11 +148,11 @@ pub interface IPhysicsServer3DExtensionCustomShapeCreate {
 pub fn (mut r PhysicsServer3DExtension) ucustom_shape_create() RID {
     mut object_out := RID{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_custom_shape_create")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionShapeSetData {
@@ -162,14 +162,14 @@ pub interface IPhysicsServer3DExtensionShapeSetData {
 
 pub fn (mut r PhysicsServer3DExtension) ushape_set_data(shape RID, data Variant) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_shape_set_data")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&shape)}
     args[1] = unsafe{voidptr(&data)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionShapeSetCustomSolverBias {
     mut:
@@ -178,14 +178,14 @@ pub interface IPhysicsServer3DExtensionShapeSetCustomSolverBias {
 
 pub fn (mut r PhysicsServer3DExtension) ushape_set_custom_solver_bias(shape RID, bias f64) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_shape_set_custom_solver_bias")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&shape)}
     args[1] = unsafe{voidptr(&bias)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionShapeSetMargin {
     mut:
@@ -194,14 +194,14 @@ pub interface IPhysicsServer3DExtensionShapeSetMargin {
 
 pub fn (mut r PhysicsServer3DExtension) ushape_set_margin(shape RID, margin f64) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_shape_set_margin")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&shape)}
     args[1] = unsafe{voidptr(&margin)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionShapeGetMargin {
     mut:
@@ -211,13 +211,13 @@ pub interface IPhysicsServer3DExtensionShapeGetMargin {
 pub fn (r &PhysicsServer3DExtension) ushape_get_margin(shape RID) f64 {
     mut object_out := f64(0)
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_shape_get_margin")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&shape)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionShapeGetType {
@@ -226,16 +226,16 @@ pub interface IPhysicsServer3DExtensionShapeGetType {
 }
 
 pub fn (r &PhysicsServer3DExtension) ushape_get_type(shape RID) PhysicsServer3DShapeType {
-    mut object_out := PhysicsServer3DShapeType.shape_world_boundary
+    mut object_out := i64(PhysicsServer3DShapeType.shape_world_boundary)
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_shape_get_type")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&shape)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
-   return object_out
+    classname.deinit()
+    fnname.deinit()
+   return unsafe{PhysicsServer3DShapeType(object_out)}
 }
 pub interface IPhysicsServer3DExtensionShapeGetData {
     mut:
@@ -245,13 +245,13 @@ pub interface IPhysicsServer3DExtensionShapeGetData {
 pub fn (r &PhysicsServer3DExtension) ushape_get_data(shape RID) Variant {
     mut object_out := Variant{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_shape_get_data")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&shape)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionShapeGetCustomSolverBias {
@@ -262,13 +262,13 @@ pub interface IPhysicsServer3DExtensionShapeGetCustomSolverBias {
 pub fn (r &PhysicsServer3DExtension) ushape_get_custom_solver_bias(shape RID) f64 {
     mut object_out := f64(0)
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_shape_get_custom_solver_bias")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&shape)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionSpaceCreate {
@@ -279,11 +279,11 @@ pub interface IPhysicsServer3DExtensionSpaceCreate {
 pub fn (mut r PhysicsServer3DExtension) uspace_create() RID {
     mut object_out := RID{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_space_create")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionSpaceSetActive {
@@ -293,14 +293,14 @@ pub interface IPhysicsServer3DExtensionSpaceSetActive {
 
 pub fn (mut r PhysicsServer3DExtension) uspace_set_active(space RID, active bool) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_space_set_active")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&space)}
     args[1] = unsafe{voidptr(&active)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionSpaceIsActive {
     mut:
@@ -310,13 +310,13 @@ pub interface IPhysicsServer3DExtensionSpaceIsActive {
 pub fn (r &PhysicsServer3DExtension) uspace_is_active(space RID) bool {
     mut object_out := false
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_space_is_active")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&space)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionSpaceSetParam {
@@ -326,15 +326,16 @@ pub interface IPhysicsServer3DExtensionSpaceSetParam {
 
 pub fn (mut r PhysicsServer3DExtension) uspace_set_param(space RID, param PhysicsServer3DSpaceParameter, value f64) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_space_set_param")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&space)}
-    args[1] = unsafe{voidptr(&param)}
+    i64_param := i64(param)
+    args[1] = unsafe{voidptr(&i64_param)}
     args[2] = unsafe{voidptr(&value)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionSpaceGetParam {
     mut:
@@ -344,14 +345,15 @@ pub interface IPhysicsServer3DExtensionSpaceGetParam {
 pub fn (r &PhysicsServer3DExtension) uspace_get_param(space RID, param PhysicsServer3DSpaceParameter) f64 {
     mut object_out := f64(0)
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_space_get_param")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&space)}
-    args[1] = unsafe{voidptr(&param)}
+    i64_param := i64(param)
+    args[1] = unsafe{voidptr(&i64_param)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionSpaceGetDirectState {
@@ -362,13 +364,13 @@ pub interface IPhysicsServer3DExtensionSpaceGetDirectState {
 pub fn (mut r PhysicsServer3DExtension) uspace_get_direct_state(space RID) PhysicsDirectSpaceState3D {
     mut object_out := PhysicsDirectSpaceState3D{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_space_get_direct_state")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&space)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionSpaceSetDebugContacts {
@@ -378,14 +380,14 @@ pub interface IPhysicsServer3DExtensionSpaceSetDebugContacts {
 
 pub fn (mut r PhysicsServer3DExtension) uspace_set_debug_contacts(space RID, max_contacts i32) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_space_set_debug_contacts")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&space)}
     args[1] = unsafe{voidptr(&max_contacts)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionSpaceGetContacts {
     mut:
@@ -395,13 +397,13 @@ pub interface IPhysicsServer3DExtensionSpaceGetContacts {
 pub fn (r &PhysicsServer3DExtension) uspace_get_contacts(space RID) PackedVector3Array {
     mut object_out := PackedVector3Array{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_space_get_contacts")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&space)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionSpaceGetContactCount {
@@ -412,13 +414,13 @@ pub interface IPhysicsServer3DExtensionSpaceGetContactCount {
 pub fn (r &PhysicsServer3DExtension) uspace_get_contact_count(space RID) i32 {
     mut object_out := i32(0)
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_space_get_contact_count")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&space)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionAreaCreate {
@@ -429,11 +431,11 @@ pub interface IPhysicsServer3DExtensionAreaCreate {
 pub fn (mut r PhysicsServer3DExtension) uarea_create() RID {
     mut object_out := RID{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_area_create")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionAreaSetSpace {
@@ -443,14 +445,14 @@ pub interface IPhysicsServer3DExtensionAreaSetSpace {
 
 pub fn (mut r PhysicsServer3DExtension) uarea_set_space(area RID, space RID) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_area_set_space")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&area)}
     args[1] = unsafe{voidptr(&space)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionAreaGetSpace {
     mut:
@@ -460,13 +462,13 @@ pub interface IPhysicsServer3DExtensionAreaGetSpace {
 pub fn (r &PhysicsServer3DExtension) uarea_get_space(area RID) RID {
     mut object_out := RID{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_area_get_space")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&area)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionAreaAddShape {
@@ -476,9 +478,7 @@ pub interface IPhysicsServer3DExtensionAreaAddShape {
 
 pub fn (mut r PhysicsServer3DExtension) uarea_add_shape(area RID, shape RID, transform Transform3D, disabled bool) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_area_add_shape")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [4]voidptr{} }
     args[0] = unsafe{voidptr(&area)}
@@ -486,6 +486,8 @@ pub fn (mut r PhysicsServer3DExtension) uarea_add_shape(area RID, shape RID, tra
     args[2] = unsafe{voidptr(&transform)}
     args[3] = unsafe{voidptr(&disabled)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionAreaSetShape {
     mut:
@@ -494,15 +496,15 @@ pub interface IPhysicsServer3DExtensionAreaSetShape {
 
 pub fn (mut r PhysicsServer3DExtension) uarea_set_shape(area RID, shape_idx i32, shape RID) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_area_set_shape")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&area)}
     args[1] = unsafe{voidptr(&shape_idx)}
     args[2] = unsafe{voidptr(&shape)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionAreaSetShapeTransform {
     mut:
@@ -511,15 +513,15 @@ pub interface IPhysicsServer3DExtensionAreaSetShapeTransform {
 
 pub fn (mut r PhysicsServer3DExtension) uarea_set_shape_transform(area RID, shape_idx i32, transform Transform3D) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_area_set_shape_transform")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&area)}
     args[1] = unsafe{voidptr(&shape_idx)}
     args[2] = unsafe{voidptr(&transform)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionAreaSetShapeDisabled {
     mut:
@@ -528,15 +530,15 @@ pub interface IPhysicsServer3DExtensionAreaSetShapeDisabled {
 
 pub fn (mut r PhysicsServer3DExtension) uarea_set_shape_disabled(area RID, shape_idx i32, disabled bool) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_area_set_shape_disabled")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&area)}
     args[1] = unsafe{voidptr(&shape_idx)}
     args[2] = unsafe{voidptr(&disabled)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionAreaGetShapeCount {
     mut:
@@ -546,13 +548,13 @@ pub interface IPhysicsServer3DExtensionAreaGetShapeCount {
 pub fn (r &PhysicsServer3DExtension) uarea_get_shape_count(area RID) i32 {
     mut object_out := i32(0)
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_area_get_shape_count")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&area)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionAreaGetShape {
@@ -563,14 +565,14 @@ pub interface IPhysicsServer3DExtensionAreaGetShape {
 pub fn (r &PhysicsServer3DExtension) uarea_get_shape(area RID, shape_idx i32) RID {
     mut object_out := RID{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_area_get_shape")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&area)}
     args[1] = unsafe{voidptr(&shape_idx)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionAreaGetShapeTransform {
@@ -581,14 +583,14 @@ pub interface IPhysicsServer3DExtensionAreaGetShapeTransform {
 pub fn (r &PhysicsServer3DExtension) uarea_get_shape_transform(area RID, shape_idx i32) Transform3D {
     mut object_out := Transform3D{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_area_get_shape_transform")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&area)}
     args[1] = unsafe{voidptr(&shape_idx)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionAreaRemoveShape {
@@ -598,14 +600,14 @@ pub interface IPhysicsServer3DExtensionAreaRemoveShape {
 
 pub fn (mut r PhysicsServer3DExtension) uarea_remove_shape(area RID, shape_idx i32) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_area_remove_shape")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&area)}
     args[1] = unsafe{voidptr(&shape_idx)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionAreaClearShapes {
     mut:
@@ -614,13 +616,13 @@ pub interface IPhysicsServer3DExtensionAreaClearShapes {
 
 pub fn (mut r PhysicsServer3DExtension) uarea_clear_shapes(area RID) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_area_clear_shapes")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&area)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionAreaAttachObjectInstanceId {
     mut:
@@ -629,14 +631,14 @@ pub interface IPhysicsServer3DExtensionAreaAttachObjectInstanceId {
 
 pub fn (mut r PhysicsServer3DExtension) uarea_attach_object_instance_id(area RID, id u64) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_area_attach_object_instance_id")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&area)}
     args[1] = unsafe{voidptr(&id)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionAreaGetObjectInstanceId {
     mut:
@@ -646,13 +648,13 @@ pub interface IPhysicsServer3DExtensionAreaGetObjectInstanceId {
 pub fn (r &PhysicsServer3DExtension) uarea_get_object_instance_id(area RID) u64 {
     mut object_out := u64(0)
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_area_get_object_instance_id")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&area)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionAreaSetParam {
@@ -662,15 +664,16 @@ pub interface IPhysicsServer3DExtensionAreaSetParam {
 
 pub fn (mut r PhysicsServer3DExtension) uarea_set_param(area RID, param PhysicsServer3DAreaParameter, value Variant) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_area_set_param")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&area)}
-    args[1] = unsafe{voidptr(&param)}
+    i64_param := i64(param)
+    args[1] = unsafe{voidptr(&i64_param)}
     args[2] = unsafe{voidptr(&value)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionAreaSetTransform {
     mut:
@@ -679,14 +682,14 @@ pub interface IPhysicsServer3DExtensionAreaSetTransform {
 
 pub fn (mut r PhysicsServer3DExtension) uarea_set_transform(area RID, transform Transform3D) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_area_set_transform")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&area)}
     args[1] = unsafe{voidptr(&transform)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionAreaGetParam {
     mut:
@@ -696,14 +699,15 @@ pub interface IPhysicsServer3DExtensionAreaGetParam {
 pub fn (r &PhysicsServer3DExtension) uarea_get_param(area RID, param PhysicsServer3DAreaParameter) Variant {
     mut object_out := Variant{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_area_get_param")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&area)}
-    args[1] = unsafe{voidptr(&param)}
+    i64_param := i64(param)
+    args[1] = unsafe{voidptr(&i64_param)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionAreaGetTransform {
@@ -714,13 +718,13 @@ pub interface IPhysicsServer3DExtensionAreaGetTransform {
 pub fn (r &PhysicsServer3DExtension) uarea_get_transform(area RID) Transform3D {
     mut object_out := Transform3D{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_area_get_transform")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&area)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionAreaSetCollisionLayer {
@@ -730,14 +734,14 @@ pub interface IPhysicsServer3DExtensionAreaSetCollisionLayer {
 
 pub fn (mut r PhysicsServer3DExtension) uarea_set_collision_layer(area RID, layer u32) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_area_set_collision_layer")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&area)}
     args[1] = unsafe{voidptr(&layer)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionAreaGetCollisionLayer {
     mut:
@@ -747,13 +751,13 @@ pub interface IPhysicsServer3DExtensionAreaGetCollisionLayer {
 pub fn (r &PhysicsServer3DExtension) uarea_get_collision_layer(area RID) u32 {
     mut object_out := u32(0)
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_area_get_collision_layer")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&area)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionAreaSetCollisionMask {
@@ -763,14 +767,14 @@ pub interface IPhysicsServer3DExtensionAreaSetCollisionMask {
 
 pub fn (mut r PhysicsServer3DExtension) uarea_set_collision_mask(area RID, mask u32) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_area_set_collision_mask")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&area)}
     args[1] = unsafe{voidptr(&mask)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionAreaGetCollisionMask {
     mut:
@@ -780,13 +784,13 @@ pub interface IPhysicsServer3DExtensionAreaGetCollisionMask {
 pub fn (r &PhysicsServer3DExtension) uarea_get_collision_mask(area RID) u32 {
     mut object_out := u32(0)
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_area_get_collision_mask")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&area)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionAreaSetMonitorable {
@@ -796,14 +800,14 @@ pub interface IPhysicsServer3DExtensionAreaSetMonitorable {
 
 pub fn (mut r PhysicsServer3DExtension) uarea_set_monitorable(area RID, monitorable bool) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_area_set_monitorable")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&area)}
     args[1] = unsafe{voidptr(&monitorable)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionAreaSetRayPickable {
     mut:
@@ -812,14 +816,14 @@ pub interface IPhysicsServer3DExtensionAreaSetRayPickable {
 
 pub fn (mut r PhysicsServer3DExtension) uarea_set_ray_pickable(area RID, enable bool) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_area_set_ray_pickable")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&area)}
     args[1] = unsafe{voidptr(&enable)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionAreaSetMonitorCallback {
     mut:
@@ -828,14 +832,14 @@ pub interface IPhysicsServer3DExtensionAreaSetMonitorCallback {
 
 pub fn (mut r PhysicsServer3DExtension) uarea_set_monitor_callback(area RID, callback Callable) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_area_set_monitor_callback")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&area)}
     args[1] = unsafe{voidptr(&callback)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionAreaSetAreaMonitorCallback {
     mut:
@@ -844,14 +848,14 @@ pub interface IPhysicsServer3DExtensionAreaSetAreaMonitorCallback {
 
 pub fn (mut r PhysicsServer3DExtension) uarea_set_area_monitor_callback(area RID, callback Callable) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_area_set_area_monitor_callback")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&area)}
     args[1] = unsafe{voidptr(&callback)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodyCreate {
     mut:
@@ -861,11 +865,11 @@ pub interface IPhysicsServer3DExtensionBodyCreate {
 pub fn (mut r PhysicsServer3DExtension) ubody_create() RID {
     mut object_out := RID{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_create")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionBodySetSpace {
@@ -875,14 +879,14 @@ pub interface IPhysicsServer3DExtensionBodySetSpace {
 
 pub fn (mut r PhysicsServer3DExtension) ubody_set_space(body RID, space RID) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_set_space")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&space)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodyGetSpace {
     mut:
@@ -892,13 +896,13 @@ pub interface IPhysicsServer3DExtensionBodyGetSpace {
 pub fn (r &PhysicsServer3DExtension) ubody_get_space(body RID) RID {
     mut object_out := RID{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_get_space")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionBodySetMode {
@@ -908,14 +912,15 @@ pub interface IPhysicsServer3DExtensionBodySetMode {
 
 pub fn (mut r PhysicsServer3DExtension) ubody_set_mode(body RID, mode PhysicsServer3DBodyMode) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_set_mode")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
-    args[1] = unsafe{voidptr(&mode)}
+    i64_mode := i64(mode)
+    args[1] = unsafe{voidptr(&i64_mode)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodyGetMode {
     mut:
@@ -923,16 +928,16 @@ pub interface IPhysicsServer3DExtensionBodyGetMode {
 }
 
 pub fn (r &PhysicsServer3DExtension) ubody_get_mode(body RID) PhysicsServer3DBodyMode {
-    mut object_out := PhysicsServer3DBodyMode.body_mode_static
+    mut object_out := i64(PhysicsServer3DBodyMode.body_mode_static)
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_get_mode")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
-   return object_out
+    classname.deinit()
+    fnname.deinit()
+   return unsafe{PhysicsServer3DBodyMode(object_out)}
 }
 pub interface IPhysicsServer3DExtensionBodyAddShape {
     mut:
@@ -941,9 +946,7 @@ pub interface IPhysicsServer3DExtensionBodyAddShape {
 
 pub fn (mut r PhysicsServer3DExtension) ubody_add_shape(body RID, shape RID, transform Transform3D, disabled bool) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_add_shape")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [4]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
@@ -951,6 +954,8 @@ pub fn (mut r PhysicsServer3DExtension) ubody_add_shape(body RID, shape RID, tra
     args[2] = unsafe{voidptr(&transform)}
     args[3] = unsafe{voidptr(&disabled)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodySetShape {
     mut:
@@ -959,15 +964,15 @@ pub interface IPhysicsServer3DExtensionBodySetShape {
 
 pub fn (mut r PhysicsServer3DExtension) ubody_set_shape(body RID, shape_idx i32, shape RID) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_set_shape")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&shape_idx)}
     args[2] = unsafe{voidptr(&shape)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodySetShapeTransform {
     mut:
@@ -976,15 +981,15 @@ pub interface IPhysicsServer3DExtensionBodySetShapeTransform {
 
 pub fn (mut r PhysicsServer3DExtension) ubody_set_shape_transform(body RID, shape_idx i32, transform Transform3D) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_set_shape_transform")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&shape_idx)}
     args[2] = unsafe{voidptr(&transform)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodySetShapeDisabled {
     mut:
@@ -993,15 +998,15 @@ pub interface IPhysicsServer3DExtensionBodySetShapeDisabled {
 
 pub fn (mut r PhysicsServer3DExtension) ubody_set_shape_disabled(body RID, shape_idx i32, disabled bool) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_set_shape_disabled")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&shape_idx)}
     args[2] = unsafe{voidptr(&disabled)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodyGetShapeCount {
     mut:
@@ -1011,13 +1016,13 @@ pub interface IPhysicsServer3DExtensionBodyGetShapeCount {
 pub fn (r &PhysicsServer3DExtension) ubody_get_shape_count(body RID) i32 {
     mut object_out := i32(0)
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_get_shape_count")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionBodyGetShape {
@@ -1028,14 +1033,14 @@ pub interface IPhysicsServer3DExtensionBodyGetShape {
 pub fn (r &PhysicsServer3DExtension) ubody_get_shape(body RID, shape_idx i32) RID {
     mut object_out := RID{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_get_shape")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&shape_idx)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionBodyGetShapeTransform {
@@ -1046,14 +1051,14 @@ pub interface IPhysicsServer3DExtensionBodyGetShapeTransform {
 pub fn (r &PhysicsServer3DExtension) ubody_get_shape_transform(body RID, shape_idx i32) Transform3D {
     mut object_out := Transform3D{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_get_shape_transform")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&shape_idx)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionBodyRemoveShape {
@@ -1063,14 +1068,14 @@ pub interface IPhysicsServer3DExtensionBodyRemoveShape {
 
 pub fn (mut r PhysicsServer3DExtension) ubody_remove_shape(body RID, shape_idx i32) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_remove_shape")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&shape_idx)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodyClearShapes {
     mut:
@@ -1079,13 +1084,13 @@ pub interface IPhysicsServer3DExtensionBodyClearShapes {
 
 pub fn (mut r PhysicsServer3DExtension) ubody_clear_shapes(body RID) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_clear_shapes")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodyAttachObjectInstanceId {
     mut:
@@ -1094,14 +1099,14 @@ pub interface IPhysicsServer3DExtensionBodyAttachObjectInstanceId {
 
 pub fn (mut r PhysicsServer3DExtension) ubody_attach_object_instance_id(body RID, id u64) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_attach_object_instance_id")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&id)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodyGetObjectInstanceId {
     mut:
@@ -1111,13 +1116,13 @@ pub interface IPhysicsServer3DExtensionBodyGetObjectInstanceId {
 pub fn (r &PhysicsServer3DExtension) ubody_get_object_instance_id(body RID) u64 {
     mut object_out := u64(0)
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_get_object_instance_id")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionBodySetEnableContinuousCollisionDetection {
@@ -1127,14 +1132,14 @@ pub interface IPhysicsServer3DExtensionBodySetEnableContinuousCollisionDetection
 
 pub fn (mut r PhysicsServer3DExtension) ubody_set_enable_continuous_collision_detection(body RID, enable bool) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_set_enable_continuous_collision_detection")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&enable)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodyIsContinuousCollisionDetectionEnabled {
     mut:
@@ -1144,13 +1149,13 @@ pub interface IPhysicsServer3DExtensionBodyIsContinuousCollisionDetectionEnabled
 pub fn (r &PhysicsServer3DExtension) ubody_is_continuous_collision_detection_enabled(body RID) bool {
     mut object_out := false
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_is_continuous_collision_detection_enabled")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionBodySetCollisionLayer {
@@ -1160,14 +1165,14 @@ pub interface IPhysicsServer3DExtensionBodySetCollisionLayer {
 
 pub fn (mut r PhysicsServer3DExtension) ubody_set_collision_layer(body RID, layer u32) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_set_collision_layer")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&layer)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodyGetCollisionLayer {
     mut:
@@ -1177,13 +1182,13 @@ pub interface IPhysicsServer3DExtensionBodyGetCollisionLayer {
 pub fn (r &PhysicsServer3DExtension) ubody_get_collision_layer(body RID) u32 {
     mut object_out := u32(0)
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_get_collision_layer")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionBodySetCollisionMask {
@@ -1193,14 +1198,14 @@ pub interface IPhysicsServer3DExtensionBodySetCollisionMask {
 
 pub fn (mut r PhysicsServer3DExtension) ubody_set_collision_mask(body RID, mask u32) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_set_collision_mask")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&mask)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodyGetCollisionMask {
     mut:
@@ -1210,13 +1215,13 @@ pub interface IPhysicsServer3DExtensionBodyGetCollisionMask {
 pub fn (r &PhysicsServer3DExtension) ubody_get_collision_mask(body RID) u32 {
     mut object_out := u32(0)
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_get_collision_mask")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionBodySetCollisionPriority {
@@ -1226,14 +1231,14 @@ pub interface IPhysicsServer3DExtensionBodySetCollisionPriority {
 
 pub fn (mut r PhysicsServer3DExtension) ubody_set_collision_priority(body RID, priority f64) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_set_collision_priority")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&priority)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodyGetCollisionPriority {
     mut:
@@ -1243,13 +1248,13 @@ pub interface IPhysicsServer3DExtensionBodyGetCollisionPriority {
 pub fn (r &PhysicsServer3DExtension) ubody_get_collision_priority(body RID) f64 {
     mut object_out := f64(0)
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_get_collision_priority")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionBodySetUserFlags {
@@ -1259,14 +1264,14 @@ pub interface IPhysicsServer3DExtensionBodySetUserFlags {
 
 pub fn (mut r PhysicsServer3DExtension) ubody_set_user_flags(body RID, flags u32) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_set_user_flags")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&flags)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodyGetUserFlags {
     mut:
@@ -1276,13 +1281,13 @@ pub interface IPhysicsServer3DExtensionBodyGetUserFlags {
 pub fn (r &PhysicsServer3DExtension) ubody_get_user_flags(body RID) u32 {
     mut object_out := u32(0)
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_get_user_flags")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionBodySetParam {
@@ -1292,15 +1297,16 @@ pub interface IPhysicsServer3DExtensionBodySetParam {
 
 pub fn (mut r PhysicsServer3DExtension) ubody_set_param(body RID, param PhysicsServer3DBodyParameter, value Variant) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_set_param")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
-    args[1] = unsafe{voidptr(&param)}
+    i64_param := i64(param)
+    args[1] = unsafe{voidptr(&i64_param)}
     args[2] = unsafe{voidptr(&value)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodyGetParam {
     mut:
@@ -1310,14 +1316,15 @@ pub interface IPhysicsServer3DExtensionBodyGetParam {
 pub fn (r &PhysicsServer3DExtension) ubody_get_param(body RID, param PhysicsServer3DBodyParameter) Variant {
     mut object_out := Variant{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_get_param")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
-    args[1] = unsafe{voidptr(&param)}
+    i64_param := i64(param)
+    args[1] = unsafe{voidptr(&i64_param)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionBodyResetMassProperties {
@@ -1327,13 +1334,13 @@ pub interface IPhysicsServer3DExtensionBodyResetMassProperties {
 
 pub fn (mut r PhysicsServer3DExtension) ubody_reset_mass_properties(body RID) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_reset_mass_properties")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodySetState {
     mut:
@@ -1342,15 +1349,16 @@ pub interface IPhysicsServer3DExtensionBodySetState {
 
 pub fn (mut r PhysicsServer3DExtension) ubody_set_state(body RID, state PhysicsServer3DBodyState, value Variant) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_set_state")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
-    args[1] = unsafe{voidptr(&state)}
+    i64_state := i64(state)
+    args[1] = unsafe{voidptr(&i64_state)}
     args[2] = unsafe{voidptr(&value)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodyGetState {
     mut:
@@ -1360,14 +1368,15 @@ pub interface IPhysicsServer3DExtensionBodyGetState {
 pub fn (r &PhysicsServer3DExtension) ubody_get_state(body RID, state PhysicsServer3DBodyState) Variant {
     mut object_out := Variant{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_get_state")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
-    args[1] = unsafe{voidptr(&state)}
+    i64_state := i64(state)
+    args[1] = unsafe{voidptr(&i64_state)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionBodyApplyCentralImpulse {
@@ -1377,14 +1386,14 @@ pub interface IPhysicsServer3DExtensionBodyApplyCentralImpulse {
 
 pub fn (mut r PhysicsServer3DExtension) ubody_apply_central_impulse(body RID, impulse Vector3) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_apply_central_impulse")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&impulse)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodyApplyImpulse {
     mut:
@@ -1393,15 +1402,15 @@ pub interface IPhysicsServer3DExtensionBodyApplyImpulse {
 
 pub fn (mut r PhysicsServer3DExtension) ubody_apply_impulse(body RID, impulse Vector3, position Vector3) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_apply_impulse")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&impulse)}
     args[2] = unsafe{voidptr(&position)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodyApplyTorqueImpulse {
     mut:
@@ -1410,14 +1419,14 @@ pub interface IPhysicsServer3DExtensionBodyApplyTorqueImpulse {
 
 pub fn (mut r PhysicsServer3DExtension) ubody_apply_torque_impulse(body RID, impulse Vector3) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_apply_torque_impulse")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&impulse)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodyApplyCentralForce {
     mut:
@@ -1426,14 +1435,14 @@ pub interface IPhysicsServer3DExtensionBodyApplyCentralForce {
 
 pub fn (mut r PhysicsServer3DExtension) ubody_apply_central_force(body RID, force Vector3) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_apply_central_force")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&force)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodyApplyForce {
     mut:
@@ -1442,15 +1451,15 @@ pub interface IPhysicsServer3DExtensionBodyApplyForce {
 
 pub fn (mut r PhysicsServer3DExtension) ubody_apply_force(body RID, force Vector3, position Vector3) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_apply_force")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&force)}
     args[2] = unsafe{voidptr(&position)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodyApplyTorque {
     mut:
@@ -1459,14 +1468,14 @@ pub interface IPhysicsServer3DExtensionBodyApplyTorque {
 
 pub fn (mut r PhysicsServer3DExtension) ubody_apply_torque(body RID, torque Vector3) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_apply_torque")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&torque)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodyAddConstantCentralForce {
     mut:
@@ -1475,14 +1484,14 @@ pub interface IPhysicsServer3DExtensionBodyAddConstantCentralForce {
 
 pub fn (mut r PhysicsServer3DExtension) ubody_add_constant_central_force(body RID, force Vector3) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_add_constant_central_force")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&force)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodyAddConstantForce {
     mut:
@@ -1491,15 +1500,15 @@ pub interface IPhysicsServer3DExtensionBodyAddConstantForce {
 
 pub fn (mut r PhysicsServer3DExtension) ubody_add_constant_force(body RID, force Vector3, position Vector3) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_add_constant_force")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&force)}
     args[2] = unsafe{voidptr(&position)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodyAddConstantTorque {
     mut:
@@ -1508,14 +1517,14 @@ pub interface IPhysicsServer3DExtensionBodyAddConstantTorque {
 
 pub fn (mut r PhysicsServer3DExtension) ubody_add_constant_torque(body RID, torque Vector3) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_add_constant_torque")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&torque)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodySetConstantForce {
     mut:
@@ -1524,14 +1533,14 @@ pub interface IPhysicsServer3DExtensionBodySetConstantForce {
 
 pub fn (mut r PhysicsServer3DExtension) ubody_set_constant_force(body RID, force Vector3) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_set_constant_force")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&force)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodyGetConstantForce {
     mut:
@@ -1541,13 +1550,13 @@ pub interface IPhysicsServer3DExtensionBodyGetConstantForce {
 pub fn (r &PhysicsServer3DExtension) ubody_get_constant_force(body RID) Vector3 {
     mut object_out := Vector3{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_get_constant_force")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionBodySetConstantTorque {
@@ -1557,14 +1566,14 @@ pub interface IPhysicsServer3DExtensionBodySetConstantTorque {
 
 pub fn (mut r PhysicsServer3DExtension) ubody_set_constant_torque(body RID, torque Vector3) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_set_constant_torque")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&torque)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodyGetConstantTorque {
     mut:
@@ -1574,13 +1583,13 @@ pub interface IPhysicsServer3DExtensionBodyGetConstantTorque {
 pub fn (r &PhysicsServer3DExtension) ubody_get_constant_torque(body RID) Vector3 {
     mut object_out := Vector3{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_get_constant_torque")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionBodySetAxisVelocity {
@@ -1590,14 +1599,14 @@ pub interface IPhysicsServer3DExtensionBodySetAxisVelocity {
 
 pub fn (mut r PhysicsServer3DExtension) ubody_set_axis_velocity(body RID, axis_velocity Vector3) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_set_axis_velocity")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&axis_velocity)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodySetAxisLock {
     mut:
@@ -1606,15 +1615,16 @@ pub interface IPhysicsServer3DExtensionBodySetAxisLock {
 
 pub fn (mut r PhysicsServer3DExtension) ubody_set_axis_lock(body RID, axis PhysicsServer3DBodyAxis, gdlock bool) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_set_axis_lock")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
-    args[1] = unsafe{voidptr(&axis)}
+    i64_axis := i64(axis)
+    args[1] = unsafe{voidptr(&i64_axis)}
     args[2] = unsafe{voidptr(&gdlock)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodyIsAxisLocked {
     mut:
@@ -1624,14 +1634,15 @@ pub interface IPhysicsServer3DExtensionBodyIsAxisLocked {
 pub fn (r &PhysicsServer3DExtension) ubody_is_axis_locked(body RID, axis PhysicsServer3DBodyAxis) bool {
     mut object_out := false
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_is_axis_locked")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
-    args[1] = unsafe{voidptr(&axis)}
+    i64_axis := i64(axis)
+    args[1] = unsafe{voidptr(&i64_axis)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionBodyAddCollisionException {
@@ -1641,14 +1652,14 @@ pub interface IPhysicsServer3DExtensionBodyAddCollisionException {
 
 pub fn (mut r PhysicsServer3DExtension) ubody_add_collision_exception(body RID, excepted_body RID) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_add_collision_exception")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&excepted_body)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodyRemoveCollisionException {
     mut:
@@ -1657,14 +1668,14 @@ pub interface IPhysicsServer3DExtensionBodyRemoveCollisionException {
 
 pub fn (mut r PhysicsServer3DExtension) ubody_remove_collision_exception(body RID, excepted_body RID) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_remove_collision_exception")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&excepted_body)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodyGetCollisionExceptions {
     mut:
@@ -1674,13 +1685,13 @@ pub interface IPhysicsServer3DExtensionBodyGetCollisionExceptions {
 pub fn (r &PhysicsServer3DExtension) ubody_get_collision_exceptions(body RID) Array {
     mut object_out := Array{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_get_collision_exceptions")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionBodySetMaxContactsReported {
@@ -1690,14 +1701,14 @@ pub interface IPhysicsServer3DExtensionBodySetMaxContactsReported {
 
 pub fn (mut r PhysicsServer3DExtension) ubody_set_max_contacts_reported(body RID, amount i32) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_set_max_contacts_reported")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&amount)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodyGetMaxContactsReported {
     mut:
@@ -1707,13 +1718,13 @@ pub interface IPhysicsServer3DExtensionBodyGetMaxContactsReported {
 pub fn (r &PhysicsServer3DExtension) ubody_get_max_contacts_reported(body RID) i32 {
     mut object_out := i32(0)
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_get_max_contacts_reported")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionBodySetContactsReportedDepthThreshold {
@@ -1723,14 +1734,14 @@ pub interface IPhysicsServer3DExtensionBodySetContactsReportedDepthThreshold {
 
 pub fn (mut r PhysicsServer3DExtension) ubody_set_contacts_reported_depth_threshold(body RID, threshold f64) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_set_contacts_reported_depth_threshold")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&threshold)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodyGetContactsReportedDepthThreshold {
     mut:
@@ -1740,13 +1751,13 @@ pub interface IPhysicsServer3DExtensionBodyGetContactsReportedDepthThreshold {
 pub fn (r &PhysicsServer3DExtension) ubody_get_contacts_reported_depth_threshold(body RID) f64 {
     mut object_out := f64(0)
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_get_contacts_reported_depth_threshold")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionBodySetOmitForceIntegration {
@@ -1756,14 +1767,14 @@ pub interface IPhysicsServer3DExtensionBodySetOmitForceIntegration {
 
 pub fn (mut r PhysicsServer3DExtension) ubody_set_omit_force_integration(body RID, enable bool) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_set_omit_force_integration")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&enable)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodyIsOmittingForceIntegration {
     mut:
@@ -1773,13 +1784,13 @@ pub interface IPhysicsServer3DExtensionBodyIsOmittingForceIntegration {
 pub fn (r &PhysicsServer3DExtension) ubody_is_omitting_force_integration(body RID) bool {
     mut object_out := false
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_is_omitting_force_integration")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionBodySetStateSyncCallback {
@@ -1789,14 +1800,14 @@ pub interface IPhysicsServer3DExtensionBodySetStateSyncCallback {
 
 pub fn (mut r PhysicsServer3DExtension) ubody_set_state_sync_callback(body RID, callable Callable) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_set_state_sync_callback")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&callable)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodySetForceIntegrationCallback {
     mut:
@@ -1805,15 +1816,15 @@ pub interface IPhysicsServer3DExtensionBodySetForceIntegrationCallback {
 
 pub fn (mut r PhysicsServer3DExtension) ubody_set_force_integration_callback(body RID, callable Callable, userdata Variant) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_set_force_integration_callback")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&callable)}
     args[2] = unsafe{voidptr(&userdata)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodySetRayPickable {
     mut:
@@ -1822,14 +1833,14 @@ pub interface IPhysicsServer3DExtensionBodySetRayPickable {
 
 pub fn (mut r PhysicsServer3DExtension) ubody_set_ray_pickable(body RID, enable bool) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_set_ray_pickable")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&enable)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionBodyTestMotion {
     mut:
@@ -1839,9 +1850,7 @@ pub interface IPhysicsServer3DExtensionBodyTestMotion {
 pub fn (r &PhysicsServer3DExtension) ubody_test_motion(body RID, from Transform3D, motion Vector3, margin f64, max_collisions i32, collide_separation_ray bool, recovery_as_collision bool, result &PhysicsServer3DExtensionMotionResult) bool {
     mut object_out := false
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_test_motion")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [8]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
@@ -1853,6 +1862,8 @@ pub fn (r &PhysicsServer3DExtension) ubody_test_motion(body RID, from Transform3
     args[6] = unsafe{voidptr(&recovery_as_collision)}
     args[7] = unsafe{voidptr(&result)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionBodyGetDirectState {
@@ -1863,13 +1874,13 @@ pub interface IPhysicsServer3DExtensionBodyGetDirectState {
 pub fn (mut r PhysicsServer3DExtension) ubody_get_direct_state(body RID) PhysicsDirectBodyState3D {
     mut object_out := PhysicsDirectBodyState3D{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_body_get_direct_state")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionSoftBodyCreate {
@@ -1880,11 +1891,11 @@ pub interface IPhysicsServer3DExtensionSoftBodyCreate {
 pub fn (mut r PhysicsServer3DExtension) usoft_body_create() RID {
     mut object_out := RID{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_soft_body_create")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionSoftBodyUpdateRenderingServer {
@@ -1894,14 +1905,14 @@ pub interface IPhysicsServer3DExtensionSoftBodyUpdateRenderingServer {
 
 pub fn (mut r PhysicsServer3DExtension) usoft_body_update_rendering_server(body RID, rendering_server_handler PhysicsServer3DRenderingServerHandler) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_soft_body_update_rendering_server")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = rendering_server_handler.ptr
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionSoftBodySetSpace {
     mut:
@@ -1910,14 +1921,14 @@ pub interface IPhysicsServer3DExtensionSoftBodySetSpace {
 
 pub fn (mut r PhysicsServer3DExtension) usoft_body_set_space(body RID, space RID) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_soft_body_set_space")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&space)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionSoftBodyGetSpace {
     mut:
@@ -1927,13 +1938,13 @@ pub interface IPhysicsServer3DExtensionSoftBodyGetSpace {
 pub fn (r &PhysicsServer3DExtension) usoft_body_get_space(body RID) RID {
     mut object_out := RID{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_soft_body_get_space")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionSoftBodySetRayPickable {
@@ -1943,14 +1954,14 @@ pub interface IPhysicsServer3DExtensionSoftBodySetRayPickable {
 
 pub fn (mut r PhysicsServer3DExtension) usoft_body_set_ray_pickable(body RID, enable bool) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_soft_body_set_ray_pickable")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&enable)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionSoftBodySetCollisionLayer {
     mut:
@@ -1959,14 +1970,14 @@ pub interface IPhysicsServer3DExtensionSoftBodySetCollisionLayer {
 
 pub fn (mut r PhysicsServer3DExtension) usoft_body_set_collision_layer(body RID, layer u32) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_soft_body_set_collision_layer")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&layer)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionSoftBodyGetCollisionLayer {
     mut:
@@ -1976,13 +1987,13 @@ pub interface IPhysicsServer3DExtensionSoftBodyGetCollisionLayer {
 pub fn (r &PhysicsServer3DExtension) usoft_body_get_collision_layer(body RID) u32 {
     mut object_out := u32(0)
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_soft_body_get_collision_layer")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionSoftBodySetCollisionMask {
@@ -1992,14 +2003,14 @@ pub interface IPhysicsServer3DExtensionSoftBodySetCollisionMask {
 
 pub fn (mut r PhysicsServer3DExtension) usoft_body_set_collision_mask(body RID, mask u32) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_soft_body_set_collision_mask")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&mask)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionSoftBodyGetCollisionMask {
     mut:
@@ -2009,13 +2020,13 @@ pub interface IPhysicsServer3DExtensionSoftBodyGetCollisionMask {
 pub fn (r &PhysicsServer3DExtension) usoft_body_get_collision_mask(body RID) u32 {
     mut object_out := u32(0)
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_soft_body_get_collision_mask")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionSoftBodyAddCollisionException {
@@ -2025,14 +2036,14 @@ pub interface IPhysicsServer3DExtensionSoftBodyAddCollisionException {
 
 pub fn (mut r PhysicsServer3DExtension) usoft_body_add_collision_exception(body RID, body_b RID) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_soft_body_add_collision_exception")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&body_b)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionSoftBodyRemoveCollisionException {
     mut:
@@ -2041,14 +2052,14 @@ pub interface IPhysicsServer3DExtensionSoftBodyRemoveCollisionException {
 
 pub fn (mut r PhysicsServer3DExtension) usoft_body_remove_collision_exception(body RID, body_b RID) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_soft_body_remove_collision_exception")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&body_b)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionSoftBodyGetCollisionExceptions {
     mut:
@@ -2058,13 +2069,13 @@ pub interface IPhysicsServer3DExtensionSoftBodyGetCollisionExceptions {
 pub fn (r &PhysicsServer3DExtension) usoft_body_get_collision_exceptions(body RID) Array {
     mut object_out := Array{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_soft_body_get_collision_exceptions")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionSoftBodySetState {
@@ -2074,15 +2085,16 @@ pub interface IPhysicsServer3DExtensionSoftBodySetState {
 
 pub fn (mut r PhysicsServer3DExtension) usoft_body_set_state(body RID, state PhysicsServer3DBodyState, variant Variant) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_soft_body_set_state")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
-    args[1] = unsafe{voidptr(&state)}
+    i64_state := i64(state)
+    args[1] = unsafe{voidptr(&i64_state)}
     args[2] = unsafe{voidptr(&variant)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionSoftBodyGetState {
     mut:
@@ -2092,14 +2104,15 @@ pub interface IPhysicsServer3DExtensionSoftBodyGetState {
 pub fn (r &PhysicsServer3DExtension) usoft_body_get_state(body RID, state PhysicsServer3DBodyState) Variant {
     mut object_out := Variant{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_soft_body_get_state")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
-    args[1] = unsafe{voidptr(&state)}
+    i64_state := i64(state)
+    args[1] = unsafe{voidptr(&i64_state)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionSoftBodySetTransform {
@@ -2109,14 +2122,14 @@ pub interface IPhysicsServer3DExtensionSoftBodySetTransform {
 
 pub fn (mut r PhysicsServer3DExtension) usoft_body_set_transform(body RID, transform Transform3D) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_soft_body_set_transform")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&transform)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionSoftBodySetSimulationPrecision {
     mut:
@@ -2125,14 +2138,14 @@ pub interface IPhysicsServer3DExtensionSoftBodySetSimulationPrecision {
 
 pub fn (mut r PhysicsServer3DExtension) usoft_body_set_simulation_precision(body RID, simulation_precision i32) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_soft_body_set_simulation_precision")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&simulation_precision)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionSoftBodyGetSimulationPrecision {
     mut:
@@ -2142,13 +2155,13 @@ pub interface IPhysicsServer3DExtensionSoftBodyGetSimulationPrecision {
 pub fn (r &PhysicsServer3DExtension) usoft_body_get_simulation_precision(body RID) i32 {
     mut object_out := i32(0)
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_soft_body_get_simulation_precision")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionSoftBodySetTotalMass {
@@ -2158,14 +2171,14 @@ pub interface IPhysicsServer3DExtensionSoftBodySetTotalMass {
 
 pub fn (mut r PhysicsServer3DExtension) usoft_body_set_total_mass(body RID, total_mass f64) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_soft_body_set_total_mass")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&total_mass)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionSoftBodyGetTotalMass {
     mut:
@@ -2175,13 +2188,13 @@ pub interface IPhysicsServer3DExtensionSoftBodyGetTotalMass {
 pub fn (r &PhysicsServer3DExtension) usoft_body_get_total_mass(body RID) f64 {
     mut object_out := f64(0)
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_soft_body_get_total_mass")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionSoftBodySetLinearStiffness {
@@ -2191,14 +2204,14 @@ pub interface IPhysicsServer3DExtensionSoftBodySetLinearStiffness {
 
 pub fn (mut r PhysicsServer3DExtension) usoft_body_set_linear_stiffness(body RID, linear_stiffness f64) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_soft_body_set_linear_stiffness")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&linear_stiffness)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionSoftBodyGetLinearStiffness {
     mut:
@@ -2208,13 +2221,13 @@ pub interface IPhysicsServer3DExtensionSoftBodyGetLinearStiffness {
 pub fn (r &PhysicsServer3DExtension) usoft_body_get_linear_stiffness(body RID) f64 {
     mut object_out := f64(0)
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_soft_body_get_linear_stiffness")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionSoftBodySetPressureCoefficient {
@@ -2224,14 +2237,14 @@ pub interface IPhysicsServer3DExtensionSoftBodySetPressureCoefficient {
 
 pub fn (mut r PhysicsServer3DExtension) usoft_body_set_pressure_coefficient(body RID, pressure_coefficient f64) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_soft_body_set_pressure_coefficient")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&pressure_coefficient)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionSoftBodyGetPressureCoefficient {
     mut:
@@ -2241,13 +2254,13 @@ pub interface IPhysicsServer3DExtensionSoftBodyGetPressureCoefficient {
 pub fn (r &PhysicsServer3DExtension) usoft_body_get_pressure_coefficient(body RID) f64 {
     mut object_out := f64(0)
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_soft_body_get_pressure_coefficient")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionSoftBodySetDampingCoefficient {
@@ -2257,14 +2270,14 @@ pub interface IPhysicsServer3DExtensionSoftBodySetDampingCoefficient {
 
 pub fn (mut r PhysicsServer3DExtension) usoft_body_set_damping_coefficient(body RID, damping_coefficient f64) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_soft_body_set_damping_coefficient")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&damping_coefficient)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionSoftBodyGetDampingCoefficient {
     mut:
@@ -2274,13 +2287,13 @@ pub interface IPhysicsServer3DExtensionSoftBodyGetDampingCoefficient {
 pub fn (r &PhysicsServer3DExtension) usoft_body_get_damping_coefficient(body RID) f64 {
     mut object_out := f64(0)
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_soft_body_get_damping_coefficient")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionSoftBodySetDragCoefficient {
@@ -2290,14 +2303,14 @@ pub interface IPhysicsServer3DExtensionSoftBodySetDragCoefficient {
 
 pub fn (mut r PhysicsServer3DExtension) usoft_body_set_drag_coefficient(body RID, drag_coefficient f64) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_soft_body_set_drag_coefficient")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&drag_coefficient)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionSoftBodyGetDragCoefficient {
     mut:
@@ -2307,13 +2320,13 @@ pub interface IPhysicsServer3DExtensionSoftBodyGetDragCoefficient {
 pub fn (r &PhysicsServer3DExtension) usoft_body_get_drag_coefficient(body RID) f64 {
     mut object_out := f64(0)
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_soft_body_get_drag_coefficient")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionSoftBodySetMesh {
@@ -2323,14 +2336,14 @@ pub interface IPhysicsServer3DExtensionSoftBodySetMesh {
 
 pub fn (mut r PhysicsServer3DExtension) usoft_body_set_mesh(body RID, mesh RID) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_soft_body_set_mesh")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&mesh)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionSoftBodyGetBounds {
     mut:
@@ -2340,13 +2353,13 @@ pub interface IPhysicsServer3DExtensionSoftBodyGetBounds {
 pub fn (r &PhysicsServer3DExtension) usoft_body_get_bounds(body RID) AABB {
     mut object_out := AABB{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_soft_body_get_bounds")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionSoftBodyMovePoint {
@@ -2356,15 +2369,15 @@ pub interface IPhysicsServer3DExtensionSoftBodyMovePoint {
 
 pub fn (mut r PhysicsServer3DExtension) usoft_body_move_point(body RID, point_index i32, global_position Vector3) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_soft_body_move_point")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&point_index)}
     args[2] = unsafe{voidptr(&global_position)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionSoftBodyGetPointGlobalPosition {
     mut:
@@ -2374,14 +2387,14 @@ pub interface IPhysicsServer3DExtensionSoftBodyGetPointGlobalPosition {
 pub fn (r &PhysicsServer3DExtension) usoft_body_get_point_global_position(body RID, point_index i32) Vector3 {
     mut object_out := Vector3{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_soft_body_get_point_global_position")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&point_index)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionSoftBodyRemoveAllPinnedPoints {
@@ -2391,13 +2404,13 @@ pub interface IPhysicsServer3DExtensionSoftBodyRemoveAllPinnedPoints {
 
 pub fn (mut r PhysicsServer3DExtension) usoft_body_remove_all_pinned_points(body RID) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_soft_body_remove_all_pinned_points")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionSoftBodyPinPoint {
     mut:
@@ -2406,15 +2419,15 @@ pub interface IPhysicsServer3DExtensionSoftBodyPinPoint {
 
 pub fn (mut r PhysicsServer3DExtension) usoft_body_pin_point(body RID, point_index i32, pin bool) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_soft_body_pin_point")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&point_index)}
     args[2] = unsafe{voidptr(&pin)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionSoftBodyIsPointPinned {
     mut:
@@ -2424,14 +2437,14 @@ pub interface IPhysicsServer3DExtensionSoftBodyIsPointPinned {
 pub fn (r &PhysicsServer3DExtension) usoft_body_is_point_pinned(body RID, point_index i32) bool {
     mut object_out := false
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_soft_body_is_point_pinned")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     args[1] = unsafe{voidptr(&point_index)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionJointCreate {
@@ -2442,11 +2455,11 @@ pub interface IPhysicsServer3DExtensionJointCreate {
 pub fn (mut r PhysicsServer3DExtension) ujoint_create() RID {
     mut object_out := RID{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_joint_create")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionJointClear {
@@ -2456,13 +2469,13 @@ pub interface IPhysicsServer3DExtensionJointClear {
 
 pub fn (mut r PhysicsServer3DExtension) ujoint_clear(joint RID) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_joint_clear")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&joint)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionJointMakePin {
     mut:
@@ -2471,9 +2484,7 @@ pub interface IPhysicsServer3DExtensionJointMakePin {
 
 pub fn (mut r PhysicsServer3DExtension) ujoint_make_pin(joint RID, body_a RID, local_a Vector3, body_b RID, local_b Vector3) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_joint_make_pin")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [5]voidptr{} }
     args[0] = unsafe{voidptr(&joint)}
@@ -2482,6 +2493,8 @@ pub fn (mut r PhysicsServer3DExtension) ujoint_make_pin(joint RID, body_a RID, l
     args[3] = unsafe{voidptr(&body_b)}
     args[4] = unsafe{voidptr(&local_b)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionPinJointSetParam {
     mut:
@@ -2490,15 +2503,16 @@ pub interface IPhysicsServer3DExtensionPinJointSetParam {
 
 pub fn (mut r PhysicsServer3DExtension) upin_joint_set_param(joint RID, param PhysicsServer3DPinJointParam, value f64) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_pin_joint_set_param")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&joint)}
-    args[1] = unsafe{voidptr(&param)}
+    i64_param := i64(param)
+    args[1] = unsafe{voidptr(&i64_param)}
     args[2] = unsafe{voidptr(&value)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionPinJointGetParam {
     mut:
@@ -2508,14 +2522,15 @@ pub interface IPhysicsServer3DExtensionPinJointGetParam {
 pub fn (r &PhysicsServer3DExtension) upin_joint_get_param(joint RID, param PhysicsServer3DPinJointParam) f64 {
     mut object_out := f64(0)
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_pin_joint_get_param")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&joint)}
-    args[1] = unsafe{voidptr(&param)}
+    i64_param := i64(param)
+    args[1] = unsafe{voidptr(&i64_param)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionPinJointSetLocalA {
@@ -2525,14 +2540,14 @@ pub interface IPhysicsServer3DExtensionPinJointSetLocalA {
 
 pub fn (mut r PhysicsServer3DExtension) upin_joint_set_local_a(joint RID, local_a Vector3) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_pin_joint_set_local_a")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&joint)}
     args[1] = unsafe{voidptr(&local_a)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionPinJointGetLocalA {
     mut:
@@ -2542,13 +2557,13 @@ pub interface IPhysicsServer3DExtensionPinJointGetLocalA {
 pub fn (r &PhysicsServer3DExtension) upin_joint_get_local_a(joint RID) Vector3 {
     mut object_out := Vector3{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_pin_joint_get_local_a")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&joint)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionPinJointSetLocalB {
@@ -2558,14 +2573,14 @@ pub interface IPhysicsServer3DExtensionPinJointSetLocalB {
 
 pub fn (mut r PhysicsServer3DExtension) upin_joint_set_local_b(joint RID, local_b Vector3) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_pin_joint_set_local_b")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&joint)}
     args[1] = unsafe{voidptr(&local_b)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionPinJointGetLocalB {
     mut:
@@ -2575,13 +2590,13 @@ pub interface IPhysicsServer3DExtensionPinJointGetLocalB {
 pub fn (r &PhysicsServer3DExtension) upin_joint_get_local_b(joint RID) Vector3 {
     mut object_out := Vector3{}
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_pin_joint_get_local_b")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&joint)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionJointMakeHinge {
@@ -2591,9 +2606,7 @@ pub interface IPhysicsServer3DExtensionJointMakeHinge {
 
 pub fn (mut r PhysicsServer3DExtension) ujoint_make_hinge(joint RID, body_a RID, hinge_a Transform3D, body_b RID, hinge_b Transform3D) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_joint_make_hinge")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [5]voidptr{} }
     args[0] = unsafe{voidptr(&joint)}
@@ -2602,6 +2615,8 @@ pub fn (mut r PhysicsServer3DExtension) ujoint_make_hinge(joint RID, body_a RID,
     args[3] = unsafe{voidptr(&body_b)}
     args[4] = unsafe{voidptr(&hinge_b)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionJointMakeHingeSimple {
     mut:
@@ -2610,9 +2625,7 @@ pub interface IPhysicsServer3DExtensionJointMakeHingeSimple {
 
 pub fn (mut r PhysicsServer3DExtension) ujoint_make_hinge_simple(joint RID, body_a RID, pivot_a Vector3, axis_a Vector3, body_b RID, pivot_b Vector3, axis_b Vector3) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_joint_make_hinge_simple")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [7]voidptr{} }
     args[0] = unsafe{voidptr(&joint)}
@@ -2623,6 +2636,8 @@ pub fn (mut r PhysicsServer3DExtension) ujoint_make_hinge_simple(joint RID, body
     args[5] = unsafe{voidptr(&pivot_b)}
     args[6] = unsafe{voidptr(&axis_b)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionHingeJointSetParam {
     mut:
@@ -2631,15 +2646,16 @@ pub interface IPhysicsServer3DExtensionHingeJointSetParam {
 
 pub fn (mut r PhysicsServer3DExtension) uhinge_joint_set_param(joint RID, param PhysicsServer3DHingeJointParam, value f64) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_hinge_joint_set_param")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&joint)}
-    args[1] = unsafe{voidptr(&param)}
+    i64_param := i64(param)
+    args[1] = unsafe{voidptr(&i64_param)}
     args[2] = unsafe{voidptr(&value)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionHingeJointGetParam {
     mut:
@@ -2649,14 +2665,15 @@ pub interface IPhysicsServer3DExtensionHingeJointGetParam {
 pub fn (r &PhysicsServer3DExtension) uhinge_joint_get_param(joint RID, param PhysicsServer3DHingeJointParam) f64 {
     mut object_out := f64(0)
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_hinge_joint_get_param")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&joint)}
-    args[1] = unsafe{voidptr(&param)}
+    i64_param := i64(param)
+    args[1] = unsafe{voidptr(&i64_param)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionHingeJointSetFlag {
@@ -2666,15 +2683,16 @@ pub interface IPhysicsServer3DExtensionHingeJointSetFlag {
 
 pub fn (mut r PhysicsServer3DExtension) uhinge_joint_set_flag(joint RID, flag PhysicsServer3DHingeJointFlag, enabled bool) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_hinge_joint_set_flag")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&joint)}
-    args[1] = unsafe{voidptr(&flag)}
+    i64_flag := i64(flag)
+    args[1] = unsafe{voidptr(&i64_flag)}
     args[2] = unsafe{voidptr(&enabled)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionHingeJointGetFlag {
     mut:
@@ -2684,14 +2702,15 @@ pub interface IPhysicsServer3DExtensionHingeJointGetFlag {
 pub fn (r &PhysicsServer3DExtension) uhinge_joint_get_flag(joint RID, flag PhysicsServer3DHingeJointFlag) bool {
     mut object_out := false
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_hinge_joint_get_flag")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&joint)}
-    args[1] = unsafe{voidptr(&flag)}
+    i64_flag := i64(flag)
+    args[1] = unsafe{voidptr(&i64_flag)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionJointMakeSlider {
@@ -2701,9 +2720,7 @@ pub interface IPhysicsServer3DExtensionJointMakeSlider {
 
 pub fn (mut r PhysicsServer3DExtension) ujoint_make_slider(joint RID, body_a RID, local_ref_a Transform3D, body_b RID, local_ref_b Transform3D) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_joint_make_slider")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [5]voidptr{} }
     args[0] = unsafe{voidptr(&joint)}
@@ -2712,6 +2729,8 @@ pub fn (mut r PhysicsServer3DExtension) ujoint_make_slider(joint RID, body_a RID
     args[3] = unsafe{voidptr(&body_b)}
     args[4] = unsafe{voidptr(&local_ref_b)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionSliderJointSetParam {
     mut:
@@ -2720,15 +2739,16 @@ pub interface IPhysicsServer3DExtensionSliderJointSetParam {
 
 pub fn (mut r PhysicsServer3DExtension) uslider_joint_set_param(joint RID, param PhysicsServer3DSliderJointParam, value f64) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_slider_joint_set_param")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&joint)}
-    args[1] = unsafe{voidptr(&param)}
+    i64_param := i64(param)
+    args[1] = unsafe{voidptr(&i64_param)}
     args[2] = unsafe{voidptr(&value)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionSliderJointGetParam {
     mut:
@@ -2738,14 +2758,15 @@ pub interface IPhysicsServer3DExtensionSliderJointGetParam {
 pub fn (r &PhysicsServer3DExtension) uslider_joint_get_param(joint RID, param PhysicsServer3DSliderJointParam) f64 {
     mut object_out := f64(0)
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_slider_joint_get_param")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&joint)}
-    args[1] = unsafe{voidptr(&param)}
+    i64_param := i64(param)
+    args[1] = unsafe{voidptr(&i64_param)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionJointMakeConeTwist {
@@ -2755,9 +2776,7 @@ pub interface IPhysicsServer3DExtensionJointMakeConeTwist {
 
 pub fn (mut r PhysicsServer3DExtension) ujoint_make_cone_twist(joint RID, body_a RID, local_ref_a Transform3D, body_b RID, local_ref_b Transform3D) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_joint_make_cone_twist")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [5]voidptr{} }
     args[0] = unsafe{voidptr(&joint)}
@@ -2766,6 +2785,8 @@ pub fn (mut r PhysicsServer3DExtension) ujoint_make_cone_twist(joint RID, body_a
     args[3] = unsafe{voidptr(&body_b)}
     args[4] = unsafe{voidptr(&local_ref_b)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionConeTwistJointSetParam {
     mut:
@@ -2774,15 +2795,16 @@ pub interface IPhysicsServer3DExtensionConeTwistJointSetParam {
 
 pub fn (mut r PhysicsServer3DExtension) ucone_twist_joint_set_param(joint RID, param PhysicsServer3DConeTwistJointParam, value f64) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_cone_twist_joint_set_param")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&joint)}
-    args[1] = unsafe{voidptr(&param)}
+    i64_param := i64(param)
+    args[1] = unsafe{voidptr(&i64_param)}
     args[2] = unsafe{voidptr(&value)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionConeTwistJointGetParam {
     mut:
@@ -2792,14 +2814,15 @@ pub interface IPhysicsServer3DExtensionConeTwistJointGetParam {
 pub fn (r &PhysicsServer3DExtension) ucone_twist_joint_get_param(joint RID, param PhysicsServer3DConeTwistJointParam) f64 {
     mut object_out := f64(0)
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_cone_twist_joint_get_param")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&joint)}
-    args[1] = unsafe{voidptr(&param)}
+    i64_param := i64(param)
+    args[1] = unsafe{voidptr(&i64_param)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionJointMakeGeneric6dof {
@@ -2809,9 +2832,7 @@ pub interface IPhysicsServer3DExtensionJointMakeGeneric6dof {
 
 pub fn (mut r PhysicsServer3DExtension) ujoint_make_generic_6dof(joint RID, body_a RID, local_ref_a Transform3D, body_b RID, local_ref_b Transform3D) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_joint_make_generic_6dof")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [5]voidptr{} }
     args[0] = unsafe{voidptr(&joint)}
@@ -2820,6 +2841,8 @@ pub fn (mut r PhysicsServer3DExtension) ujoint_make_generic_6dof(joint RID, body
     args[3] = unsafe{voidptr(&body_b)}
     args[4] = unsafe{voidptr(&local_ref_b)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionGeneric6dofJointSetParam {
     mut:
@@ -2828,16 +2851,18 @@ pub interface IPhysicsServer3DExtensionGeneric6dofJointSetParam {
 
 pub fn (mut r PhysicsServer3DExtension) ugeneric_6dof_joint_set_param(joint RID, axis Vector3Axis, param PhysicsServer3DG6DOFJointAxisParam, value f64) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_generic_6dof_joint_set_param")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [4]voidptr{} }
     args[0] = unsafe{voidptr(&joint)}
-    args[1] = unsafe{voidptr(&axis)}
-    args[2] = unsafe{voidptr(&param)}
+    i64_axis := i64(axis)
+    args[1] = unsafe{voidptr(&i64_axis)}
+    i64_param := i64(param)
+    args[2] = unsafe{voidptr(&i64_param)}
     args[3] = unsafe{voidptr(&value)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionGeneric6dofJointGetParam {
     mut:
@@ -2847,15 +2872,17 @@ pub interface IPhysicsServer3DExtensionGeneric6dofJointGetParam {
 pub fn (r &PhysicsServer3DExtension) ugeneric_6dof_joint_get_param(joint RID, axis Vector3Axis, param PhysicsServer3DG6DOFJointAxisParam) f64 {
     mut object_out := f64(0)
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_generic_6dof_joint_get_param")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&joint)}
-    args[1] = unsafe{voidptr(&axis)}
-    args[2] = unsafe{voidptr(&param)}
+    i64_axis := i64(axis)
+    args[1] = unsafe{voidptr(&i64_axis)}
+    i64_param := i64(param)
+    args[2] = unsafe{voidptr(&i64_param)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionGeneric6dofJointSetFlag {
@@ -2865,16 +2892,18 @@ pub interface IPhysicsServer3DExtensionGeneric6dofJointSetFlag {
 
 pub fn (mut r PhysicsServer3DExtension) ugeneric_6dof_joint_set_flag(joint RID, axis Vector3Axis, flag PhysicsServer3DG6DOFJointAxisFlag, enable bool) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_generic_6dof_joint_set_flag")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [4]voidptr{} }
     args[0] = unsafe{voidptr(&joint)}
-    args[1] = unsafe{voidptr(&axis)}
-    args[2] = unsafe{voidptr(&flag)}
+    i64_axis := i64(axis)
+    args[1] = unsafe{voidptr(&i64_axis)}
+    i64_flag := i64(flag)
+    args[2] = unsafe{voidptr(&i64_flag)}
     args[3] = unsafe{voidptr(&enable)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionGeneric6dofJointGetFlag {
     mut:
@@ -2884,15 +2913,17 @@ pub interface IPhysicsServer3DExtensionGeneric6dofJointGetFlag {
 pub fn (r &PhysicsServer3DExtension) ugeneric_6dof_joint_get_flag(joint RID, axis Vector3Axis, flag PhysicsServer3DG6DOFJointAxisFlag) bool {
     mut object_out := false
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_generic_6dof_joint_get_flag")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&joint)}
-    args[1] = unsafe{voidptr(&axis)}
-    args[2] = unsafe{voidptr(&flag)}
+    i64_axis := i64(axis)
+    args[1] = unsafe{voidptr(&i64_axis)}
+    i64_flag := i64(flag)
+    args[2] = unsafe{voidptr(&i64_flag)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionJointGetType {
@@ -2901,16 +2932,16 @@ pub interface IPhysicsServer3DExtensionJointGetType {
 }
 
 pub fn (r &PhysicsServer3DExtension) ujoint_get_type(joint RID) PhysicsServer3DJointType {
-    mut object_out := PhysicsServer3DJointType.joint_type_pin
+    mut object_out := i64(PhysicsServer3DJointType.joint_type_pin)
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_joint_get_type")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&joint)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
-   return object_out
+    classname.deinit()
+    fnname.deinit()
+   return unsafe{PhysicsServer3DJointType(object_out)}
 }
 pub interface IPhysicsServer3DExtensionJointSetSolverPriority {
     mut:
@@ -2919,14 +2950,14 @@ pub interface IPhysicsServer3DExtensionJointSetSolverPriority {
 
 pub fn (mut r PhysicsServer3DExtension) ujoint_set_solver_priority(joint RID, priority i32) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_joint_set_solver_priority")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&joint)}
     args[1] = unsafe{voidptr(&priority)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionJointGetSolverPriority {
     mut:
@@ -2936,13 +2967,13 @@ pub interface IPhysicsServer3DExtensionJointGetSolverPriority {
 pub fn (r &PhysicsServer3DExtension) ujoint_get_solver_priority(joint RID) i32 {
     mut object_out := i32(0)
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_joint_get_solver_priority")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&joint)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionJointDisableCollisionsBetweenBodies {
@@ -2952,14 +2983,14 @@ pub interface IPhysicsServer3DExtensionJointDisableCollisionsBetweenBodies {
 
 pub fn (mut r PhysicsServer3DExtension) ujoint_disable_collisions_between_bodies(joint RID, disable bool) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_joint_disable_collisions_between_bodies")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&joint)}
     args[1] = unsafe{voidptr(&disable)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionJointIsDisabledCollisionsBetweenBodies {
     mut:
@@ -2969,13 +3000,13 @@ pub interface IPhysicsServer3DExtensionJointIsDisabledCollisionsBetweenBodies {
 pub fn (r &PhysicsServer3DExtension) ujoint_is_disabled_collisions_between_bodies(joint RID) bool {
     mut object_out := false
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_joint_is_disabled_collisions_between_bodies")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&joint)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionFreeRid {
@@ -2985,13 +3016,13 @@ pub interface IPhysicsServer3DExtensionFreeRid {
 
 pub fn (mut r PhysicsServer3DExtension) ufree_rid(rid RID) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_free_rid")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&rid)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionSetActive {
     mut:
@@ -3000,13 +3031,13 @@ pub interface IPhysicsServer3DExtensionSetActive {
 
 pub fn (mut r PhysicsServer3DExtension) uset_active(active bool) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_set_active")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&active)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionInit {
     mut:
@@ -3015,11 +3046,11 @@ pub interface IPhysicsServer3DExtensionInit {
 
 pub fn (mut r PhysicsServer3DExtension) uinit() {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_init")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionStep {
     mut:
@@ -3028,13 +3059,13 @@ pub interface IPhysicsServer3DExtensionStep {
 
 pub fn (mut r PhysicsServer3DExtension) ustep(step f64) {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_step")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&step)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionSync {
     mut:
@@ -3043,11 +3074,11 @@ pub interface IPhysicsServer3DExtensionSync {
 
 pub fn (mut r PhysicsServer3DExtension) usync() {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_sync")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionFlushQueries {
     mut:
@@ -3056,11 +3087,11 @@ pub interface IPhysicsServer3DExtensionFlushQueries {
 
 pub fn (mut r PhysicsServer3DExtension) uflush_queries() {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_flush_queries")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionEndSync {
     mut:
@@ -3069,11 +3100,11 @@ pub interface IPhysicsServer3DExtensionEndSync {
 
 pub fn (mut r PhysicsServer3DExtension) uend_sync() {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_end_sync")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionFinish {
     mut:
@@ -3082,11 +3113,11 @@ pub interface IPhysicsServer3DExtensionFinish {
 
 pub fn (mut r PhysicsServer3DExtension) ufinish() {
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_finish")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, unsafe{nil})
+    classname.deinit()
+    fnname.deinit()
 }
 pub interface IPhysicsServer3DExtensionIsFlushingQueries {
     mut:
@@ -3096,11 +3127,11 @@ pub interface IPhysicsServer3DExtensionIsFlushingQueries {
 pub fn (r &PhysicsServer3DExtension) uis_flushing_queries() bool {
     mut object_out := false
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_is_flushing_queries")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub interface IPhysicsServer3DExtensionGetProcessInfo {
@@ -3111,36 +3142,37 @@ pub interface IPhysicsServer3DExtensionGetProcessInfo {
 pub fn (mut r PhysicsServer3DExtension) uget_process_info(process_info PhysicsServer3DProcessInfo) i32 {
     mut object_out := i32(0)
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("_get_process_info")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&process_info)}
+    i64_process_info := i64(process_info)
+    args[0] = unsafe{voidptr(&i64_process_info)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub fn (r &PhysicsServer3DExtension) body_test_motion_is_excluding_body(body RID) bool {
     mut object_out := false
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("body_test_motion_is_excluding_body")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4155700596)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }
 pub fn (r &PhysicsServer3DExtension) body_test_motion_is_excluding_object(object u64) bool {
     mut object_out := false
     classname := StringName.new("PhysicsServer3DExtension")
-    defer { classname.deinit() }
     fnname := StringName.new("body_test_motion_is_excluding_object")
-    defer { fnname.deinit() }
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1116898809)
     mut args := unsafe { [1]voidptr{} }
     args[0] = unsafe{voidptr(&object)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    classname.deinit()
+    fnname.deinit()
    return object_out
 }

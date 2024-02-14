@@ -1,6 +1,6 @@
 module vgdextension
 
-@[heap]
+@[heap; packed]
 pub struct Transform3D {
     pub mut:
         basis Basis // offset 0
@@ -57,128 +57,128 @@ pub fn Transform3D.new4 (from &Projection) Transform3D {
 pub fn (r &Transform3D) inverse() Transform3D {
     mut object_out := Transform3D{}
     fnname := StringName.new("inverse")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_transform3d, voidptr(&fnname), 3816817146)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Transform3D) affine_inverse() Transform3D {
     mut object_out := Transform3D{}
     fnname := StringName.new("affine_inverse")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_transform3d, voidptr(&fnname), 3816817146)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Transform3D) orthonormalized() Transform3D {
     mut object_out := Transform3D{}
     fnname := StringName.new("orthonormalized")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_transform3d, voidptr(&fnname), 3816817146)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Transform3D) rotated(axis Vector3, angle f64) Transform3D {
     mut object_out := Transform3D{}
     fnname := StringName.new("rotated")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_transform3d, voidptr(&fnname), 1563203923)
     mut args := unsafe { [2]voidptr{} }
     args[0] = voidptr(&axis)
     args[1] = voidptr(&angle)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 2)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Transform3D) rotated_local(axis Vector3, angle f64) Transform3D {
     mut object_out := Transform3D{}
     fnname := StringName.new("rotated_local")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_transform3d, voidptr(&fnname), 1563203923)
     mut args := unsafe { [2]voidptr{} }
     args[0] = voidptr(&axis)
     args[1] = voidptr(&angle)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 2)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Transform3D) scaled(scale Vector3) Transform3D {
     mut object_out := Transform3D{}
     fnname := StringName.new("scaled")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_transform3d, voidptr(&fnname), 1405596198)
     mut args := unsafe { [1]voidptr{} }
     args[0] = voidptr(&scale)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Transform3D) scaled_local(scale Vector3) Transform3D {
     mut object_out := Transform3D{}
     fnname := StringName.new("scaled_local")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_transform3d, voidptr(&fnname), 1405596198)
     mut args := unsafe { [1]voidptr{} }
     args[0] = voidptr(&scale)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Transform3D) translated(offset Vector3) Transform3D {
     mut object_out := Transform3D{}
     fnname := StringName.new("translated")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_transform3d, voidptr(&fnname), 1405596198)
     mut args := unsafe { [1]voidptr{} }
     args[0] = voidptr(&offset)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Transform3D) translated_local(offset Vector3) Transform3D {
     mut object_out := Transform3D{}
     fnname := StringName.new("translated_local")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_transform3d, voidptr(&fnname), 1405596198)
     mut args := unsafe { [1]voidptr{} }
     args[0] = voidptr(&offset)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Transform3D) looking_at(target Vector3, up Vector3, use_model_front bool) Transform3D {
     mut object_out := Transform3D{}
     fnname := StringName.new("looking_at")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_transform3d, voidptr(&fnname), 90889270)
     mut args := unsafe { [3]voidptr{} }
     args[0] = voidptr(&target)
     args[1] = voidptr(&up)
     args[2] = voidptr(&use_model_front)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 3)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Transform3D) interpolate_with(xform Transform3D, weight f64) Transform3D {
     mut object_out := Transform3D{}
     fnname := StringName.new("interpolate_with")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_transform3d, voidptr(&fnname), 1786453358)
     mut args := unsafe { [2]voidptr{} }
     args[0] = voidptr(&xform)
     args[1] = voidptr(&weight)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 2)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Transform3D) is_equal_approx(xform Transform3D) bool {
     mut object_out := false
     fnname := StringName.new("is_equal_approx")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_transform3d, voidptr(&fnname), 696001652)
     mut args := unsafe { [1]voidptr{} }
     args[0] = voidptr(&xform)
     f(voidptr(r), voidptr(&args[0]), voidptr(&object_out), 1)
+    fnname.deinit()
    return object_out
 }
 pub fn (r &Transform3D) is_finite() bool {
     mut object_out := false
     fnname := StringName.new("is_finite")
-    defer { fnname.deinit() }
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_transform3d, voidptr(&fnname), 3918633141)
     f(voidptr(r), unsafe{nil}, voidptr(&object_out), 0)
+    fnname.deinit()
    return object_out
 }
 pub fn (v &Transform3D) to_var() Variant {
