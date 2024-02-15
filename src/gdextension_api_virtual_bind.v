@@ -7975,3712 +7975,4948 @@ fn xrinterfaceextension_uget_velocity_texture[T] (inst GDExtensionClassInstanceP
 }
 
 fn register_virtual_methods[T](mut ci ClassInfo) {
-    $if T is IAStar2DEstimateCost {
-        ci.virtual_methods["_estimate_cost"] = astar2d_uestimate_cost[T]
-    }
-    $if T is IAStar2DComputeCost {
-        ci.virtual_methods["_compute_cost"] = astar2d_ucompute_cost[T]
-    }
-    $if T is IAStar3DEstimateCost {
-        ci.virtual_methods["_estimate_cost"] = astar3d_uestimate_cost[T]
-    }
-    $if T is IAStar3DComputeCost {
-        ci.virtual_methods["_compute_cost"] = astar3d_ucompute_cost[T]
-    }
-    $if T is IAStarGrid2DEstimateCost {
-        ci.virtual_methods["_estimate_cost"] = astargrid2d_uestimate_cost[T]
-    }
-    $if T is IAStarGrid2DComputeCost {
-        ci.virtual_methods["_compute_cost"] = astargrid2d_ucompute_cost[T]
-    }
-    $if T is IAnimationMixerPostProcessKeyValue {
-        ci.virtual_methods["_post_process_key_value"] = animationmixer_upost_process_key_value[T]
-    }
-    $if T is IAnimationNodeGetChildNodes {
-        ci.virtual_methods["_get_child_nodes"] = animationnode_uget_child_nodes[T]
-    }
-    $if T is IAnimationNodeGetParameterList {
-        ci.virtual_methods["_get_parameter_list"] = animationnode_uget_parameter_list[T]
-    }
-    $if T is IAnimationNodeGetChildByName {
-        ci.virtual_methods["_get_child_by_name"] = animationnode_uget_child_by_name[T]
-    }
-    $if T is IAnimationNodeGetParameterDefaultValue {
-        ci.virtual_methods["_get_parameter_default_value"] = animationnode_uget_parameter_default_value[T]
-    }
-    $if T is IAnimationNodeIsParameterReadOnly {
-        ci.virtual_methods["_is_parameter_read_only"] = animationnode_uis_parameter_read_only[T]
-    }
-    $if T is IAnimationNodeProcess {
-        ci.virtual_methods["_process"] = animationnode_uprocess[T]
-    }
-    $if T is IAnimationNodeGetCaption {
-        ci.virtual_methods["_get_caption"] = animationnode_uget_caption[T]
-    }
-    $if T is IAnimationNodeHasFilter {
-        ci.virtual_methods["_has_filter"] = animationnode_uhas_filter[T]
-    }
-    $if T is IAudioEffectInstantiate {
-        ci.virtual_methods["_instantiate"] = audioeffect_uinstantiate[T]
-    }
-    $if T is IAudioEffectInstanceProcess {
-        ci.virtual_methods["_process"] = audioeffectinstance_uprocess[T]
-    }
-    $if T is IAudioEffectInstanceProcessSilence {
-        ci.virtual_methods["_process_silence"] = audioeffectinstance_uprocess_silence[T]
-    }
-    $if T is IAudioStreamInstantiatePlayback {
-        ci.virtual_methods["_instantiate_playback"] = audiostream_uinstantiate_playback[T]
-    }
-    $if T is IAudioStreamGetStreamName {
-        ci.virtual_methods["_get_stream_name"] = audiostream_uget_stream_name[T]
-    }
-    $if T is IAudioStreamGetLength {
-        ci.virtual_methods["_get_length"] = audiostream_uget_length[T]
-    }
-    $if T is IAudioStreamIsMonophonic {
-        ci.virtual_methods["_is_monophonic"] = audiostream_uis_monophonic[T]
-    }
-    $if T is IAudioStreamGetBpm {
-        ci.virtual_methods["_get_bpm"] = audiostream_uget_bpm[T]
-    }
-    $if T is IAudioStreamGetBeatCount {
-        ci.virtual_methods["_get_beat_count"] = audiostream_uget_beat_count[T]
-    }
-    $if T is IAudioStreamPlaybackStart {
-        ci.virtual_methods["_start"] = audiostreamplayback_ustart[T]
-    }
-    $if T is IAudioStreamPlaybackStop {
-        ci.virtual_methods["_stop"] = audiostreamplayback_ustop[T]
-    }
-    $if T is IAudioStreamPlaybackIsPlaying {
-        ci.virtual_methods["_is_playing"] = audiostreamplayback_uis_playing[T]
-    }
-    $if T is IAudioStreamPlaybackGetLoopCount {
-        ci.virtual_methods["_get_loop_count"] = audiostreamplayback_uget_loop_count[T]
-    }
-    $if T is IAudioStreamPlaybackGetPlaybackPosition {
-        ci.virtual_methods["_get_playback_position"] = audiostreamplayback_uget_playback_position[T]
-    }
-    $if T is IAudioStreamPlaybackSeek {
-        ci.virtual_methods["_seek"] = audiostreamplayback_useek[T]
-    }
-    $if T is IAudioStreamPlaybackMix {
-        ci.virtual_methods["_mix"] = audiostreamplayback_umix[T]
-    }
-    $if T is IAudioStreamPlaybackTagUsedStreams {
-        ci.virtual_methods["_tag_used_streams"] = audiostreamplayback_utag_used_streams[T]
-    }
-    $if T is IAudioStreamPlaybackResampledMixResampled {
-        ci.virtual_methods["_mix_resampled"] = audiostreamplaybackresampled_umix_resampled[T]
-    }
-    $if T is IAudioStreamPlaybackResampledGetStreamSamplingRate {
-        ci.virtual_methods["_get_stream_sampling_rate"] = audiostreamplaybackresampled_uget_stream_sampling_rate[T]
-    }
-    $if T is IBaseButtonPressed {
-        ci.virtual_methods["_pressed"] = basebutton_upressed[T]
-    }
-    $if T is IBaseButtonToggled {
-        ci.virtual_methods["_toggled"] = basebutton_utoggled[T]
-    }
-    $if T is ICanvasItemDraw {
-        ci.virtual_methods["_draw"] = canvasitem_udraw[T]
-    }
-    $if T is ICodeEditConfirmCodeCompletion {
-        ci.virtual_methods["_confirm_code_completion"] = codeedit_uconfirm_code_completion[T]
-    }
-    $if T is ICodeEditRequestCodeCompletion {
-        ci.virtual_methods["_request_code_completion"] = codeedit_urequest_code_completion[T]
-    }
-    $if T is ICodeEditFilterCodeCompletionCandidates {
-        ci.virtual_methods["_filter_code_completion_candidates"] = codeedit_ufilter_code_completion_candidates[T]
-    }
-    $if T is ICollisionObject2DInputEvent {
-        ci.virtual_methods["_input_event"] = collisionobject2d_uinput_event[T]
-    }
-    $if T is ICollisionObject2DMouseEnter {
-        ci.virtual_methods["_mouse_enter"] = collisionobject2d_umouse_enter[T]
-    }
-    $if T is ICollisionObject2DMouseExit {
-        ci.virtual_methods["_mouse_exit"] = collisionobject2d_umouse_exit[T]
-    }
-    $if T is ICollisionObject2DMouseShapeEnter {
-        ci.virtual_methods["_mouse_shape_enter"] = collisionobject2d_umouse_shape_enter[T]
-    }
-    $if T is ICollisionObject2DMouseShapeExit {
-        ci.virtual_methods["_mouse_shape_exit"] = collisionobject2d_umouse_shape_exit[T]
-    }
-    $if T is ICollisionObject3DInputEvent {
-        ci.virtual_methods["_input_event"] = collisionobject3d_uinput_event[T]
-    }
-    $if T is ICollisionObject3DMouseEnter {
-        ci.virtual_methods["_mouse_enter"] = collisionobject3d_umouse_enter[T]
-    }
-    $if T is ICollisionObject3DMouseExit {
-        ci.virtual_methods["_mouse_exit"] = collisionobject3d_umouse_exit[T]
-    }
-    $if T is IContainerGetAllowedSizeFlagsHorizontal {
-        ci.virtual_methods["_get_allowed_size_flags_horizontal"] = container_uget_allowed_size_flags_horizontal[T]
-    }
-    $if T is IContainerGetAllowedSizeFlagsVertical {
-        ci.virtual_methods["_get_allowed_size_flags_vertical"] = container_uget_allowed_size_flags_vertical[T]
-    }
-    $if T is IControlHasPoint {
-        ci.virtual_methods["_has_point"] = control_uhas_point[T]
-    }
-    $if T is IControlStructuredTextParser {
-        ci.virtual_methods["_structured_text_parser"] = control_ustructured_text_parser[T]
-    }
-    $if T is IControlGetMinimumSize {
-        ci.virtual_methods["_get_minimum_size"] = control_uget_minimum_size[T]
-    }
-    $if T is IControlGetTooltip {
-        ci.virtual_methods["_get_tooltip"] = control_uget_tooltip[T]
-    }
-    $if T is IControlGetDragData {
-        ci.virtual_methods["_get_drag_data"] = control_uget_drag_data[T]
-    }
-    $if T is IControlCanDropData {
-        ci.virtual_methods["_can_drop_data"] = control_ucan_drop_data[T]
-    }
-    $if T is IControlDropData {
-        ci.virtual_methods["_drop_data"] = control_udrop_data[T]
-    }
-    $if T is IControlMakeCustomTooltip {
-        ci.virtual_methods["_make_custom_tooltip"] = control_umake_custom_tooltip[T]
-    }
-    $if T is IControlGuiInput {
-        ci.virtual_methods["_gui_input"] = control_ugui_input[T]
-    }
-    $if T is IEditorDebuggerPluginSetupSession {
-        ci.virtual_methods["_setup_session"] = editordebuggerplugin_usetup_session[T]
-    }
-    $if T is IEditorDebuggerPluginHasCapture {
-        ci.virtual_methods["_has_capture"] = editordebuggerplugin_uhas_capture[T]
-    }
-    $if T is IEditorDebuggerPluginCapture {
-        ci.virtual_methods["_capture"] = editordebuggerplugin_ucapture[T]
-    }
-    $if T is IEditorExportPluginExportFile {
-        ci.virtual_methods["_export_file"] = editorexportplugin_uexport_file[T]
-    }
-    $if T is IEditorExportPluginExportBegin {
-        ci.virtual_methods["_export_begin"] = editorexportplugin_uexport_begin[T]
-    }
-    $if T is IEditorExportPluginExportEnd {
-        ci.virtual_methods["_export_end"] = editorexportplugin_uexport_end[T]
-    }
-    $if T is IEditorExportPluginBeginCustomizeResources {
-        ci.virtual_methods["_begin_customize_resources"] = editorexportplugin_ubegin_customize_resources[T]
-    }
-    $if T is IEditorExportPluginCustomizeResource {
-        ci.virtual_methods["_customize_resource"] = editorexportplugin_ucustomize_resource[T]
-    }
-    $if T is IEditorExportPluginBeginCustomizeScenes {
-        ci.virtual_methods["_begin_customize_scenes"] = editorexportplugin_ubegin_customize_scenes[T]
-    }
-    $if T is IEditorExportPluginCustomizeScene {
-        ci.virtual_methods["_customize_scene"] = editorexportplugin_ucustomize_scene[T]
-    }
-    $if T is IEditorExportPluginGetCustomizationConfigurationHash {
-        ci.virtual_methods["_get_customization_configuration_hash"] = editorexportplugin_uget_customization_configuration_hash[T]
-    }
-    $if T is IEditorExportPluginEndCustomizeScenes {
-        ci.virtual_methods["_end_customize_scenes"] = editorexportplugin_uend_customize_scenes[T]
-    }
-    $if T is IEditorExportPluginEndCustomizeResources {
-        ci.virtual_methods["_end_customize_resources"] = editorexportplugin_uend_customize_resources[T]
-    }
-    $if T is IEditorExportPluginGetExportOptions {
-        ci.virtual_methods["_get_export_options"] = editorexportplugin_uget_export_options[T]
-    }
-    $if T is IEditorExportPluginShouldUpdateExportOptions {
-        ci.virtual_methods["_should_update_export_options"] = editorexportplugin_ushould_update_export_options[T]
-    }
-    $if T is IEditorExportPluginGetExportOptionWarning {
-        ci.virtual_methods["_get_export_option_warning"] = editorexportplugin_uget_export_option_warning[T]
-    }
-    $if T is IEditorExportPluginGetExportFeatures {
-        ci.virtual_methods["_get_export_features"] = editorexportplugin_uget_export_features[T]
-    }
-    $if T is IEditorExportPluginGetName {
-        ci.virtual_methods["_get_name"] = editorexportplugin_uget_name[T]
-    }
-    $if T is IEditorExportPluginSupportsPlatform {
-        ci.virtual_methods["_supports_platform"] = editorexportplugin_usupports_platform[T]
-    }
-    $if T is IEditorExportPluginGetAndroidDependencies {
-        ci.virtual_methods["_get_android_dependencies"] = editorexportplugin_uget_android_dependencies[T]
-    }
-    $if T is IEditorExportPluginGetAndroidDependenciesMavenRepos {
-        ci.virtual_methods["_get_android_dependencies_maven_repos"] = editorexportplugin_uget_android_dependencies_maven_repos[T]
-    }
-    $if T is IEditorExportPluginGetAndroidLibraries {
-        ci.virtual_methods["_get_android_libraries"] = editorexportplugin_uget_android_libraries[T]
-    }
-    $if T is IEditorExportPluginGetAndroidManifestActivityElementContents {
-        ci.virtual_methods["_get_android_manifest_activity_element_contents"] = editorexportplugin_uget_android_manifest_activity_element_contents[T]
-    }
-    $if T is IEditorExportPluginGetAndroidManifestApplicationElementContents {
-        ci.virtual_methods["_get_android_manifest_application_element_contents"] = editorexportplugin_uget_android_manifest_application_element_contents[T]
-    }
-    $if T is IEditorExportPluginGetAndroidManifestElementContents {
-        ci.virtual_methods["_get_android_manifest_element_contents"] = editorexportplugin_uget_android_manifest_element_contents[T]
-    }
-    $if T is IEditorFileSystemImportFormatSupportQueryIsActive {
-        ci.virtual_methods["_is_active"] = editorfilesystemimportformatsupportquery_uis_active[T]
-    }
-    $if T is IEditorFileSystemImportFormatSupportQueryGetFileExtensions {
-        ci.virtual_methods["_get_file_extensions"] = editorfilesystemimportformatsupportquery_uget_file_extensions[T]
-    }
-    $if T is IEditorFileSystemImportFormatSupportQueryQuery {
-        ci.virtual_methods["_query"] = editorfilesystemimportformatsupportquery_uquery[T]
-    }
-    $if T is IEditorImportPluginGetImporterName {
-        ci.virtual_methods["_get_importer_name"] = editorimportplugin_uget_importer_name[T]
-    }
-    $if T is IEditorImportPluginGetVisibleName {
-        ci.virtual_methods["_get_visible_name"] = editorimportplugin_uget_visible_name[T]
-    }
-    $if T is IEditorImportPluginGetPresetCount {
-        ci.virtual_methods["_get_preset_count"] = editorimportplugin_uget_preset_count[T]
-    }
-    $if T is IEditorImportPluginGetPresetName {
-        ci.virtual_methods["_get_preset_name"] = editorimportplugin_uget_preset_name[T]
-    }
-    $if T is IEditorImportPluginGetRecognizedExtensions {
-        ci.virtual_methods["_get_recognized_extensions"] = editorimportplugin_uget_recognized_extensions[T]
-    }
-    $if T is IEditorImportPluginGetImportOptions {
-        ci.virtual_methods["_get_import_options"] = editorimportplugin_uget_import_options[T]
-    }
-    $if T is IEditorImportPluginGetSaveExtension {
-        ci.virtual_methods["_get_save_extension"] = editorimportplugin_uget_save_extension[T]
-    }
-    $if T is IEditorImportPluginGetResourceType {
-        ci.virtual_methods["_get_resource_type"] = editorimportplugin_uget_resource_type[T]
-    }
-    $if T is IEditorImportPluginGetPriority {
-        ci.virtual_methods["_get_priority"] = editorimportplugin_uget_priority[T]
-    }
-    $if T is IEditorImportPluginGetImportOrder {
-        ci.virtual_methods["_get_import_order"] = editorimportplugin_uget_import_order[T]
-    }
-    $if T is IEditorImportPluginGetOptionVisibility {
-        ci.virtual_methods["_get_option_visibility"] = editorimportplugin_uget_option_visibility[T]
-    }
-    $if T is IEditorImportPluginImport {
-        ci.virtual_methods["_import"] = editorimportplugin_uimport[T]
-    }
-    $if T is IEditorInspectorPluginCanHandle {
-        ci.virtual_methods["_can_handle"] = editorinspectorplugin_ucan_handle[T]
-    }
-    $if T is IEditorInspectorPluginParseBegin {
-        ci.virtual_methods["_parse_begin"] = editorinspectorplugin_uparse_begin[T]
-    }
-    $if T is IEditorInspectorPluginParseCategory {
-        ci.virtual_methods["_parse_category"] = editorinspectorplugin_uparse_category[T]
-    }
-    $if T is IEditorInspectorPluginParseGroup {
-        ci.virtual_methods["_parse_group"] = editorinspectorplugin_uparse_group[T]
-    }
-    $if T is IEditorInspectorPluginParseProperty {
-        ci.virtual_methods["_parse_property"] = editorinspectorplugin_uparse_property[T]
-    }
-    $if T is IEditorInspectorPluginParseEnd {
-        ci.virtual_methods["_parse_end"] = editorinspectorplugin_uparse_end[T]
-    }
-    $if T is IEditorNode3DGizmoRedraw {
-        ci.virtual_methods["_redraw"] = editornode3dgizmo_uredraw[T]
-    }
-    $if T is IEditorNode3DGizmoGetHandleName {
-        ci.virtual_methods["_get_handle_name"] = editornode3dgizmo_uget_handle_name[T]
-    }
-    $if T is IEditorNode3DGizmoIsHandleHighlighted {
-        ci.virtual_methods["_is_handle_highlighted"] = editornode3dgizmo_uis_handle_highlighted[T]
-    }
-    $if T is IEditorNode3DGizmoGetHandleValue {
-        ci.virtual_methods["_get_handle_value"] = editornode3dgizmo_uget_handle_value[T]
-    }
-    $if T is IEditorNode3DGizmoSetHandle {
-        ci.virtual_methods["_set_handle"] = editornode3dgizmo_uset_handle[T]
-    }
-    $if T is IEditorNode3DGizmoCommitHandle {
-        ci.virtual_methods["_commit_handle"] = editornode3dgizmo_ucommit_handle[T]
-    }
-    $if T is IEditorNode3DGizmoSubgizmosIntersectRay {
-        ci.virtual_methods["_subgizmos_intersect_ray"] = editornode3dgizmo_usubgizmos_intersect_ray[T]
-    }
-    $if T is IEditorNode3DGizmoSubgizmosIntersectFrustum {
-        ci.virtual_methods["_subgizmos_intersect_frustum"] = editornode3dgizmo_usubgizmos_intersect_frustum[T]
-    }
-    $if T is IEditorNode3DGizmoSetSubgizmoTransform {
-        ci.virtual_methods["_set_subgizmo_transform"] = editornode3dgizmo_uset_subgizmo_transform[T]
-    }
-    $if T is IEditorNode3DGizmoGetSubgizmoTransform {
-        ci.virtual_methods["_get_subgizmo_transform"] = editornode3dgizmo_uget_subgizmo_transform[T]
-    }
-    $if T is IEditorNode3DGizmoCommitSubgizmos {
-        ci.virtual_methods["_commit_subgizmos"] = editornode3dgizmo_ucommit_subgizmos[T]
-    }
-    $if T is IEditorNode3DGizmoPluginHasGizmo {
-        ci.virtual_methods["_has_gizmo"] = editornode3dgizmoplugin_uhas_gizmo[T]
-    }
-    $if T is IEditorNode3DGizmoPluginCreateGizmo {
-        ci.virtual_methods["_create_gizmo"] = editornode3dgizmoplugin_ucreate_gizmo[T]
-    }
-    $if T is IEditorNode3DGizmoPluginGetGizmoName {
-        ci.virtual_methods["_get_gizmo_name"] = editornode3dgizmoplugin_uget_gizmo_name[T]
-    }
-    $if T is IEditorNode3DGizmoPluginGetPriority {
-        ci.virtual_methods["_get_priority"] = editornode3dgizmoplugin_uget_priority[T]
-    }
-    $if T is IEditorNode3DGizmoPluginCanBeHidden {
-        ci.virtual_methods["_can_be_hidden"] = editornode3dgizmoplugin_ucan_be_hidden[T]
-    }
-    $if T is IEditorNode3DGizmoPluginIsSelectableWhenHidden {
-        ci.virtual_methods["_is_selectable_when_hidden"] = editornode3dgizmoplugin_uis_selectable_when_hidden[T]
-    }
-    $if T is IEditorNode3DGizmoPluginRedraw {
-        ci.virtual_methods["_redraw"] = editornode3dgizmoplugin_uredraw[T]
-    }
-    $if T is IEditorNode3DGizmoPluginGetHandleName {
-        ci.virtual_methods["_get_handle_name"] = editornode3dgizmoplugin_uget_handle_name[T]
-    }
-    $if T is IEditorNode3DGizmoPluginIsHandleHighlighted {
-        ci.virtual_methods["_is_handle_highlighted"] = editornode3dgizmoplugin_uis_handle_highlighted[T]
-    }
-    $if T is IEditorNode3DGizmoPluginGetHandleValue {
-        ci.virtual_methods["_get_handle_value"] = editornode3dgizmoplugin_uget_handle_value[T]
-    }
-    $if T is IEditorNode3DGizmoPluginSetHandle {
-        ci.virtual_methods["_set_handle"] = editornode3dgizmoplugin_uset_handle[T]
-    }
-    $if T is IEditorNode3DGizmoPluginCommitHandle {
-        ci.virtual_methods["_commit_handle"] = editornode3dgizmoplugin_ucommit_handle[T]
-    }
-    $if T is IEditorNode3DGizmoPluginSubgizmosIntersectRay {
-        ci.virtual_methods["_subgizmos_intersect_ray"] = editornode3dgizmoplugin_usubgizmos_intersect_ray[T]
-    }
-    $if T is IEditorNode3DGizmoPluginSubgizmosIntersectFrustum {
-        ci.virtual_methods["_subgizmos_intersect_frustum"] = editornode3dgizmoplugin_usubgizmos_intersect_frustum[T]
-    }
-    $if T is IEditorNode3DGizmoPluginGetSubgizmoTransform {
-        ci.virtual_methods["_get_subgizmo_transform"] = editornode3dgizmoplugin_uget_subgizmo_transform[T]
-    }
-    $if T is IEditorNode3DGizmoPluginSetSubgizmoTransform {
-        ci.virtual_methods["_set_subgizmo_transform"] = editornode3dgizmoplugin_uset_subgizmo_transform[T]
-    }
-    $if T is IEditorNode3DGizmoPluginCommitSubgizmos {
-        ci.virtual_methods["_commit_subgizmos"] = editornode3dgizmoplugin_ucommit_subgizmos[T]
-    }
-    $if T is IEditorPluginForwardCanvasGuiInput {
-        ci.virtual_methods["_forward_canvas_gui_input"] = editorplugin_uforward_canvas_gui_input[T]
-    }
-    $if T is IEditorPluginForwardCanvasDrawOverViewport {
-        ci.virtual_methods["_forward_canvas_draw_over_viewport"] = editorplugin_uforward_canvas_draw_over_viewport[T]
-    }
-    $if T is IEditorPluginForwardCanvasForceDrawOverViewport {
-        ci.virtual_methods["_forward_canvas_force_draw_over_viewport"] = editorplugin_uforward_canvas_force_draw_over_viewport[T]
-    }
-    $if T is IEditorPluginForward3dGuiInput {
-        ci.virtual_methods["_forward_3d_gui_input"] = editorplugin_uforward_3d_gui_input[T]
-    }
-    $if T is IEditorPluginForward3dDrawOverViewport {
-        ci.virtual_methods["_forward_3d_draw_over_viewport"] = editorplugin_uforward_3d_draw_over_viewport[T]
-    }
-    $if T is IEditorPluginForward3dForceDrawOverViewport {
-        ci.virtual_methods["_forward_3d_force_draw_over_viewport"] = editorplugin_uforward_3d_force_draw_over_viewport[T]
-    }
-    $if T is IEditorPluginGetPluginName {
-        ci.virtual_methods["_get_plugin_name"] = editorplugin_uget_plugin_name[T]
-    }
-    $if T is IEditorPluginGetPluginIcon {
-        ci.virtual_methods["_get_plugin_icon"] = editorplugin_uget_plugin_icon[T]
-    }
-    $if T is IEditorPluginHasMainScreen {
-        ci.virtual_methods["_has_main_screen"] = editorplugin_uhas_main_screen[T]
-    }
-    $if T is IEditorPluginMakeVisible {
-        ci.virtual_methods["_make_visible"] = editorplugin_umake_visible[T]
-    }
-    $if T is IEditorPluginEdit {
-        ci.virtual_methods["_edit"] = editorplugin_uedit[T]
-    }
-    $if T is IEditorPluginHandles {
-        ci.virtual_methods["_handles"] = editorplugin_uhandles[T]
-    }
-    $if T is IEditorPluginGetState {
-        ci.virtual_methods["_get_state"] = editorplugin_uget_state[T]
-    }
-    $if T is IEditorPluginSetState {
-        ci.virtual_methods["_set_state"] = editorplugin_uset_state[T]
-    }
-    $if T is IEditorPluginClear {
-        ci.virtual_methods["_clear"] = editorplugin_uclear[T]
-    }
-    $if T is IEditorPluginGetUnsavedStatus {
-        ci.virtual_methods["_get_unsaved_status"] = editorplugin_uget_unsaved_status[T]
-    }
-    $if T is IEditorPluginSaveExternalData {
-        ci.virtual_methods["_save_external_data"] = editorplugin_usave_external_data[T]
-    }
-    $if T is IEditorPluginApplyChanges {
-        ci.virtual_methods["_apply_changes"] = editorplugin_uapply_changes[T]
-    }
-    $if T is IEditorPluginGetBreakpoints {
-        ci.virtual_methods["_get_breakpoints"] = editorplugin_uget_breakpoints[T]
-    }
-    $if T is IEditorPluginSetWindowLayout {
-        ci.virtual_methods["_set_window_layout"] = editorplugin_uset_window_layout[T]
-    }
-    $if T is IEditorPluginGetWindowLayout {
-        ci.virtual_methods["_get_window_layout"] = editorplugin_uget_window_layout[T]
-    }
-    $if T is IEditorPluginBuild {
-        ci.virtual_methods["_build"] = editorplugin_ubuild[T]
-    }
-    $if T is IEditorPluginEnablePlugin {
-        ci.virtual_methods["_enable_plugin"] = editorplugin_uenable_plugin[T]
-    }
-    $if T is IEditorPluginDisablePlugin {
-        ci.virtual_methods["_disable_plugin"] = editorplugin_udisable_plugin[T]
-    }
-    $if T is IEditorPropertyUpdateProperty {
-        ci.virtual_methods["_update_property"] = editorproperty_uupdate_property[T]
-    }
-    $if T is IEditorPropertySetReadOnly {
-        ci.virtual_methods["_set_read_only"] = editorproperty_uset_read_only[T]
-    }
-    $if T is IEditorResourceConversionPluginConvertsTo {
-        ci.virtual_methods["_converts_to"] = editorresourceconversionplugin_uconverts_to[T]
-    }
-    $if T is IEditorResourceConversionPluginHandles {
-        ci.virtual_methods["_handles"] = editorresourceconversionplugin_uhandles[T]
-    }
-    $if T is IEditorResourceConversionPluginConvert {
-        ci.virtual_methods["_convert"] = editorresourceconversionplugin_uconvert[T]
-    }
-    $if T is IEditorResourcePickerSetCreateOptions {
-        ci.virtual_methods["_set_create_options"] = editorresourcepicker_uset_create_options[T]
-    }
-    $if T is IEditorResourcePickerHandleMenuSelected {
-        ci.virtual_methods["_handle_menu_selected"] = editorresourcepicker_uhandle_menu_selected[T]
-    }
-    $if T is IEditorResourcePreviewGeneratorHandles {
-        ci.virtual_methods["_handles"] = editorresourcepreviewgenerator_uhandles[T]
-    }
-    $if T is IEditorResourcePreviewGeneratorGenerate {
-        ci.virtual_methods["_generate"] = editorresourcepreviewgenerator_ugenerate[T]
-    }
-    $if T is IEditorResourcePreviewGeneratorGenerateFromPath {
-        ci.virtual_methods["_generate_from_path"] = editorresourcepreviewgenerator_ugenerate_from_path[T]
-    }
-    $if T is IEditorResourcePreviewGeneratorGenerateSmallPreviewAutomatically {
-        ci.virtual_methods["_generate_small_preview_automatically"] = editorresourcepreviewgenerator_ugenerate_small_preview_automatically[T]
-    }
-    $if T is IEditorResourcePreviewGeneratorCanGenerateSmallPreview {
-        ci.virtual_methods["_can_generate_small_preview"] = editorresourcepreviewgenerator_ucan_generate_small_preview[T]
-    }
-    $if T is IEditorResourceTooltipPluginHandles {
-        ci.virtual_methods["_handles"] = editorresourcetooltipplugin_uhandles[T]
-    }
-    $if T is IEditorResourceTooltipPluginMakeTooltipForPath {
-        ci.virtual_methods["_make_tooltip_for_path"] = editorresourcetooltipplugin_umake_tooltip_for_path[T]
-    }
-    $if T is IEditorSceneFormatImporterGetImportFlags {
-        ci.virtual_methods["_get_import_flags"] = editorsceneformatimporter_uget_import_flags[T]
-    }
-    $if T is IEditorSceneFormatImporterGetExtensions {
-        ci.virtual_methods["_get_extensions"] = editorsceneformatimporter_uget_extensions[T]
-    }
-    $if T is IEditorSceneFormatImporterImportScene {
-        ci.virtual_methods["_import_scene"] = editorsceneformatimporter_uimport_scene[T]
-    }
-    $if T is IEditorSceneFormatImporterGetImportOptions {
-        ci.virtual_methods["_get_import_options"] = editorsceneformatimporter_uget_import_options[T]
-    }
-    $if T is IEditorSceneFormatImporterGetOptionVisibility {
-        ci.virtual_methods["_get_option_visibility"] = editorsceneformatimporter_uget_option_visibility[T]
-    }
-    $if T is IEditorScenePostImportPostImport {
-        ci.virtual_methods["_post_import"] = editorscenepostimport_upost_import[T]
-    }
-    $if T is IEditorScenePostImportPluginGetInternalImportOptions {
-        ci.virtual_methods["_get_internal_import_options"] = editorscenepostimportplugin_uget_internal_import_options[T]
-    }
-    $if T is IEditorScenePostImportPluginGetInternalOptionVisibility {
-        ci.virtual_methods["_get_internal_option_visibility"] = editorscenepostimportplugin_uget_internal_option_visibility[T]
-    }
-    $if T is IEditorScenePostImportPluginGetInternalOptionUpdateViewRequired {
-        ci.virtual_methods["_get_internal_option_update_view_required"] = editorscenepostimportplugin_uget_internal_option_update_view_required[T]
-    }
-    $if T is IEditorScenePostImportPluginInternalProcess {
-        ci.virtual_methods["_internal_process"] = editorscenepostimportplugin_uinternal_process[T]
-    }
-    $if T is IEditorScenePostImportPluginGetImportOptions {
-        ci.virtual_methods["_get_import_options"] = editorscenepostimportplugin_uget_import_options[T]
-    }
-    $if T is IEditorScenePostImportPluginGetOptionVisibility {
-        ci.virtual_methods["_get_option_visibility"] = editorscenepostimportplugin_uget_option_visibility[T]
-    }
-    $if T is IEditorScenePostImportPluginPreProcess {
-        ci.virtual_methods["_pre_process"] = editorscenepostimportplugin_upre_process[T]
-    }
-    $if T is IEditorScenePostImportPluginPostProcess {
-        ci.virtual_methods["_post_process"] = editorscenepostimportplugin_upost_process[T]
-    }
-    $if T is IEditorScriptRun {
-        ci.virtual_methods["_run"] = editorscript_urun[T]
-    }
-    $if T is IEditorSyntaxHighlighterGetName {
-        ci.virtual_methods["_get_name"] = editorsyntaxhighlighter_uget_name[T]
-    }
-    $if T is IEditorSyntaxHighlighterGetSupportedLanguages {
-        ci.virtual_methods["_get_supported_languages"] = editorsyntaxhighlighter_uget_supported_languages[T]
-    }
-    $if T is IEditorTranslationParserPluginParseFile {
-        ci.virtual_methods["_parse_file"] = editortranslationparserplugin_uparse_file[T]
-    }
-    $if T is IEditorTranslationParserPluginGetRecognizedExtensions {
-        ci.virtual_methods["_get_recognized_extensions"] = editortranslationparserplugin_uget_recognized_extensions[T]
-    }
-    $if T is IEditorVCSInterfaceInitialize {
-        ci.virtual_methods["_initialize"] = editorvcsinterface_uinitialize[T]
-    }
-    $if T is IEditorVCSInterfaceSetCredentials {
-        ci.virtual_methods["_set_credentials"] = editorvcsinterface_uset_credentials[T]
-    }
-    $if T is IEditorVCSInterfaceGetModifiedFilesData {
-        ci.virtual_methods["_get_modified_files_data"] = editorvcsinterface_uget_modified_files_data[T]
-    }
-    $if T is IEditorVCSInterfaceStageFile {
-        ci.virtual_methods["_stage_file"] = editorvcsinterface_ustage_file[T]
-    }
-    $if T is IEditorVCSInterfaceUnstageFile {
-        ci.virtual_methods["_unstage_file"] = editorvcsinterface_uunstage_file[T]
-    }
-    $if T is IEditorVCSInterfaceDiscardFile {
-        ci.virtual_methods["_discard_file"] = editorvcsinterface_udiscard_file[T]
-    }
-    $if T is IEditorVCSInterfaceCommit {
-        ci.virtual_methods["_commit"] = editorvcsinterface_ucommit[T]
-    }
-    $if T is IEditorVCSInterfaceGetDiff {
-        ci.virtual_methods["_get_diff"] = editorvcsinterface_uget_diff[T]
-    }
-    $if T is IEditorVCSInterfaceShutDown {
-        ci.virtual_methods["_shut_down"] = editorvcsinterface_ushut_down[T]
-    }
-    $if T is IEditorVCSInterfaceGetVcsName {
-        ci.virtual_methods["_get_vcs_name"] = editorvcsinterface_uget_vcs_name[T]
-    }
-    $if T is IEditorVCSInterfaceGetPreviousCommits {
-        ci.virtual_methods["_get_previous_commits"] = editorvcsinterface_uget_previous_commits[T]
-    }
-    $if T is IEditorVCSInterfaceGetBranchList {
-        ci.virtual_methods["_get_branch_list"] = editorvcsinterface_uget_branch_list[T]
-    }
-    $if T is IEditorVCSInterfaceGetRemotes {
-        ci.virtual_methods["_get_remotes"] = editorvcsinterface_uget_remotes[T]
-    }
-    $if T is IEditorVCSInterfaceCreateBranch {
-        ci.virtual_methods["_create_branch"] = editorvcsinterface_ucreate_branch[T]
-    }
-    $if T is IEditorVCSInterfaceRemoveBranch {
-        ci.virtual_methods["_remove_branch"] = editorvcsinterface_uremove_branch[T]
-    }
-    $if T is IEditorVCSInterfaceCreateRemote {
-        ci.virtual_methods["_create_remote"] = editorvcsinterface_ucreate_remote[T]
-    }
-    $if T is IEditorVCSInterfaceRemoveRemote {
-        ci.virtual_methods["_remove_remote"] = editorvcsinterface_uremove_remote[T]
-    }
-    $if T is IEditorVCSInterfaceGetCurrentBranchName {
-        ci.virtual_methods["_get_current_branch_name"] = editorvcsinterface_uget_current_branch_name[T]
-    }
-    $if T is IEditorVCSInterfaceCheckoutBranch {
-        ci.virtual_methods["_checkout_branch"] = editorvcsinterface_ucheckout_branch[T]
-    }
-    $if T is IEditorVCSInterfacePull {
-        ci.virtual_methods["_pull"] = editorvcsinterface_upull[T]
-    }
-    $if T is IEditorVCSInterfacePush {
-        ci.virtual_methods["_push"] = editorvcsinterface_upush[T]
-    }
-    $if T is IEditorVCSInterfaceFetch {
-        ci.virtual_methods["_fetch"] = editorvcsinterface_ufetch[T]
-    }
-    $if T is IEditorVCSInterfaceGetLineDiff {
-        ci.virtual_methods["_get_line_diff"] = editorvcsinterface_uget_line_diff[T]
-    }
-    $if T is IEngineProfilerToggle {
-        ci.virtual_methods["_toggle"] = engineprofiler_utoggle[T]
-    }
-    $if T is IEngineProfilerAddFrame {
-        ci.virtual_methods["_add_frame"] = engineprofiler_uadd_frame[T]
-    }
-    $if T is IEngineProfilerTick {
-        ci.virtual_methods["_tick"] = engineprofiler_utick[T]
-    }
-    $if T is IGLTFDocumentExtensionImportPreflight {
-        ci.virtual_methods["_import_preflight"] = gltfdocumentextension_uimport_preflight[T]
-    }
-    $if T is IGLTFDocumentExtensionGetSupportedExtensions {
-        ci.virtual_methods["_get_supported_extensions"] = gltfdocumentextension_uget_supported_extensions[T]
-    }
-    $if T is IGLTFDocumentExtensionParseNodeExtensions {
-        ci.virtual_methods["_parse_node_extensions"] = gltfdocumentextension_uparse_node_extensions[T]
-    }
-    $if T is IGLTFDocumentExtensionParseImageData {
-        ci.virtual_methods["_parse_image_data"] = gltfdocumentextension_uparse_image_data[T]
-    }
-    $if T is IGLTFDocumentExtensionGetImageFileExtension {
-        ci.virtual_methods["_get_image_file_extension"] = gltfdocumentextension_uget_image_file_extension[T]
-    }
-    $if T is IGLTFDocumentExtensionParseTextureJson {
-        ci.virtual_methods["_parse_texture_json"] = gltfdocumentextension_uparse_texture_json[T]
-    }
-    $if T is IGLTFDocumentExtensionGenerateSceneNode {
-        ci.virtual_methods["_generate_scene_node"] = gltfdocumentextension_ugenerate_scene_node[T]
-    }
-    $if T is IGLTFDocumentExtensionImportPostParse {
-        ci.virtual_methods["_import_post_parse"] = gltfdocumentextension_uimport_post_parse[T]
-    }
-    $if T is IGLTFDocumentExtensionImportNode {
-        ci.virtual_methods["_import_node"] = gltfdocumentextension_uimport_node[T]
-    }
-    $if T is IGLTFDocumentExtensionImportPost {
-        ci.virtual_methods["_import_post"] = gltfdocumentextension_uimport_post[T]
-    }
-    $if T is IGLTFDocumentExtensionExportPreflight {
-        ci.virtual_methods["_export_preflight"] = gltfdocumentextension_uexport_preflight[T]
-    }
-    $if T is IGLTFDocumentExtensionConvertSceneNode {
-        ci.virtual_methods["_convert_scene_node"] = gltfdocumentextension_uconvert_scene_node[T]
-    }
-    $if T is IGLTFDocumentExtensionExportPreserialize {
-        ci.virtual_methods["_export_preserialize"] = gltfdocumentextension_uexport_preserialize[T]
-    }
-    $if T is IGLTFDocumentExtensionGetSaveableImageFormats {
-        ci.virtual_methods["_get_saveable_image_formats"] = gltfdocumentextension_uget_saveable_image_formats[T]
-    }
-    $if T is IGLTFDocumentExtensionSerializeImageToBytes {
-        ci.virtual_methods["_serialize_image_to_bytes"] = gltfdocumentextension_userialize_image_to_bytes[T]
-    }
-    $if T is IGLTFDocumentExtensionSaveImageAtPath {
-        ci.virtual_methods["_save_image_at_path"] = gltfdocumentextension_usave_image_at_path[T]
-    }
-    $if T is IGLTFDocumentExtensionSerializeTextureJson {
-        ci.virtual_methods["_serialize_texture_json"] = gltfdocumentextension_userialize_texture_json[T]
-    }
-    $if T is IGLTFDocumentExtensionExportNode {
-        ci.virtual_methods["_export_node"] = gltfdocumentextension_uexport_node[T]
-    }
-    $if T is IGLTFDocumentExtensionExportPost {
-        ci.virtual_methods["_export_post"] = gltfdocumentextension_uexport_post[T]
-    }
-    $if T is IGraphEditIsInInputHotzone {
-        ci.virtual_methods["_is_in_input_hotzone"] = graphedit_uis_in_input_hotzone[T]
-    }
-    $if T is IGraphEditIsInOutputHotzone {
-        ci.virtual_methods["_is_in_output_hotzone"] = graphedit_uis_in_output_hotzone[T]
-    }
-    $if T is IGraphEditGetConnectionLine {
-        ci.virtual_methods["_get_connection_line"] = graphedit_uget_connection_line[T]
-    }
-    $if T is IGraphEditIsNodeHoverValid {
-        ci.virtual_methods["_is_node_hover_valid"] = graphedit_uis_node_hover_valid[T]
-    }
-    $if T is IGraphNodeDrawPort {
-        ci.virtual_methods["_draw_port"] = graphnode_udraw_port[T]
-    }
-    $if T is IImageFormatLoaderExtensionGetRecognizedExtensions {
-        ci.virtual_methods["_get_recognized_extensions"] = imageformatloaderextension_uget_recognized_extensions[T]
-    }
-    $if T is IImageFormatLoaderExtensionLoadImage {
-        ci.virtual_methods["_load_image"] = imageformatloaderextension_uload_image[T]
-    }
-    $if T is IMainLoopInitialize {
-        ci.virtual_methods["_initialize"] = mainloop_uinitialize[T]
-    }
-    $if T is IMainLoopPhysicsProcess {
-        ci.virtual_methods["_physics_process"] = mainloop_uphysics_process[T]
-    }
-    $if T is IMainLoopProcess {
-        ci.virtual_methods["_process"] = mainloop_uprocess[T]
-    }
-    $if T is IMainLoopFinalize {
-        ci.virtual_methods["_finalize"] = mainloop_ufinalize[T]
-    }
-    $if T is IMaterialGetShaderRid {
-        ci.virtual_methods["_get_shader_rid"] = material_uget_shader_rid[T]
-    }
-    $if T is IMaterialGetShaderMode {
-        ci.virtual_methods["_get_shader_mode"] = material_uget_shader_mode[T]
-    }
-    $if T is IMaterialCanDoNextPass {
-        ci.virtual_methods["_can_do_next_pass"] = material_ucan_do_next_pass[T]
-    }
-    $if T is IMaterialCanUseRenderPriority {
-        ci.virtual_methods["_can_use_render_priority"] = material_ucan_use_render_priority[T]
-    }
-    $if T is IMeshGetSurfaceCount {
-        ci.virtual_methods["_get_surface_count"] = mesh_uget_surface_count[T]
-    }
-    $if T is IMeshSurfaceGetArrayLen {
-        ci.virtual_methods["_surface_get_array_len"] = mesh_usurface_get_array_len[T]
-    }
-    $if T is IMeshSurfaceGetArrayIndexLen {
-        ci.virtual_methods["_surface_get_array_index_len"] = mesh_usurface_get_array_index_len[T]
-    }
-    $if T is IMeshSurfaceGetArrays {
-        ci.virtual_methods["_surface_get_arrays"] = mesh_usurface_get_arrays[T]
-    }
-    $if T is IMeshSurfaceGetBlendShapeArrays {
-        ci.virtual_methods["_surface_get_blend_shape_arrays"] = mesh_usurface_get_blend_shape_arrays[T]
-    }
-    $if T is IMeshSurfaceGetLods {
-        ci.virtual_methods["_surface_get_lods"] = mesh_usurface_get_lods[T]
-    }
-    $if T is IMeshSurfaceGetFormat {
-        ci.virtual_methods["_surface_get_format"] = mesh_usurface_get_format[T]
-    }
-    $if T is IMeshSurfaceGetPrimitiveType {
-        ci.virtual_methods["_surface_get_primitive_type"] = mesh_usurface_get_primitive_type[T]
-    }
-    $if T is IMeshSurfaceSetMaterial {
-        ci.virtual_methods["_surface_set_material"] = mesh_usurface_set_material[T]
-    }
-    $if T is IMeshSurfaceGetMaterial {
-        ci.virtual_methods["_surface_get_material"] = mesh_usurface_get_material[T]
-    }
-    $if T is IMeshGetBlendShapeCount {
-        ci.virtual_methods["_get_blend_shape_count"] = mesh_uget_blend_shape_count[T]
-    }
-    $if T is IMeshGetBlendShapeName {
-        ci.virtual_methods["_get_blend_shape_name"] = mesh_uget_blend_shape_name[T]
-    }
-    $if T is IMeshSetBlendShapeName {
-        ci.virtual_methods["_set_blend_shape_name"] = mesh_uset_blend_shape_name[T]
-    }
-    $if T is IMeshGetAabb {
-        ci.virtual_methods["_get_aabb"] = mesh_uget_aabb[T]
-    }
-    $if T is IMovieWriterGetAudioMixRate {
-        ci.virtual_methods["_get_audio_mix_rate"] = moviewriter_uget_audio_mix_rate[T]
-    }
-    $if T is IMovieWriterGetAudioSpeakerMode {
-        ci.virtual_methods["_get_audio_speaker_mode"] = moviewriter_uget_audio_speaker_mode[T]
-    }
-    $if T is IMovieWriterHandlesFile {
-        ci.virtual_methods["_handles_file"] = moviewriter_uhandles_file[T]
-    }
-    $if T is IMovieWriterWriteBegin {
-        ci.virtual_methods["_write_begin"] = moviewriter_uwrite_begin[T]
-    }
-    $if T is IMovieWriterWriteFrame {
-        ci.virtual_methods["_write_frame"] = moviewriter_uwrite_frame[T]
-    }
-    $if T is IMovieWriterWriteEnd {
-        ci.virtual_methods["_write_end"] = moviewriter_uwrite_end[T]
-    }
-    $if T is IMultiplayerAPIExtensionPoll {
-        ci.virtual_methods["_poll"] = multiplayerapiextension_upoll[T]
-    }
-    $if T is IMultiplayerAPIExtensionSetMultiplayerPeer {
-        ci.virtual_methods["_set_multiplayer_peer"] = multiplayerapiextension_uset_multiplayer_peer[T]
-    }
-    $if T is IMultiplayerAPIExtensionGetMultiplayerPeer {
-        ci.virtual_methods["_get_multiplayer_peer"] = multiplayerapiextension_uget_multiplayer_peer[T]
-    }
-    $if T is IMultiplayerAPIExtensionGetUniqueId {
-        ci.virtual_methods["_get_unique_id"] = multiplayerapiextension_uget_unique_id[T]
-    }
-    $if T is IMultiplayerAPIExtensionGetPeerIds {
-        ci.virtual_methods["_get_peer_ids"] = multiplayerapiextension_uget_peer_ids[T]
-    }
-    $if T is IMultiplayerAPIExtensionRpc {
-        ci.virtual_methods["_rpc"] = multiplayerapiextension_urpc[T]
-    }
-    $if T is IMultiplayerAPIExtensionGetRemoteSenderId {
-        ci.virtual_methods["_get_remote_sender_id"] = multiplayerapiextension_uget_remote_sender_id[T]
-    }
-    $if T is IMultiplayerAPIExtensionObjectConfigurationAdd {
-        ci.virtual_methods["_object_configuration_add"] = multiplayerapiextension_uobject_configuration_add[T]
-    }
-    $if T is IMultiplayerAPIExtensionObjectConfigurationRemove {
-        ci.virtual_methods["_object_configuration_remove"] = multiplayerapiextension_uobject_configuration_remove[T]
-    }
-    $if T is IMultiplayerPeerExtensionGetPacket {
-        ci.virtual_methods["_get_packet"] = multiplayerpeerextension_uget_packet[T]
-    }
-    $if T is IMultiplayerPeerExtensionPutPacket {
-        ci.virtual_methods["_put_packet"] = multiplayerpeerextension_uput_packet[T]
-    }
-    $if T is IMultiplayerPeerExtensionGetAvailablePacketCount {
-        ci.virtual_methods["_get_available_packet_count"] = multiplayerpeerextension_uget_available_packet_count[T]
-    }
-    $if T is IMultiplayerPeerExtensionGetMaxPacketSize {
-        ci.virtual_methods["_get_max_packet_size"] = multiplayerpeerextension_uget_max_packet_size[T]
-    }
-    $if T is IMultiplayerPeerExtensionGetPacketScript {
-        ci.virtual_methods["_get_packet_script"] = multiplayerpeerextension_uget_packet_script[T]
-    }
-    $if T is IMultiplayerPeerExtensionPutPacketScript {
-        ci.virtual_methods["_put_packet_script"] = multiplayerpeerextension_uput_packet_script[T]
-    }
-    $if T is IMultiplayerPeerExtensionGetPacketChannel {
-        ci.virtual_methods["_get_packet_channel"] = multiplayerpeerextension_uget_packet_channel[T]
-    }
-    $if T is IMultiplayerPeerExtensionGetPacketMode {
-        ci.virtual_methods["_get_packet_mode"] = multiplayerpeerextension_uget_packet_mode[T]
-    }
-    $if T is IMultiplayerPeerExtensionSetTransferChannel {
-        ci.virtual_methods["_set_transfer_channel"] = multiplayerpeerextension_uset_transfer_channel[T]
-    }
-    $if T is IMultiplayerPeerExtensionGetTransferChannel {
-        ci.virtual_methods["_get_transfer_channel"] = multiplayerpeerextension_uget_transfer_channel[T]
-    }
-    $if T is IMultiplayerPeerExtensionSetTransferMode {
-        ci.virtual_methods["_set_transfer_mode"] = multiplayerpeerextension_uset_transfer_mode[T]
-    }
-    $if T is IMultiplayerPeerExtensionGetTransferMode {
-        ci.virtual_methods["_get_transfer_mode"] = multiplayerpeerextension_uget_transfer_mode[T]
-    }
-    $if T is IMultiplayerPeerExtensionSetTargetPeer {
-        ci.virtual_methods["_set_target_peer"] = multiplayerpeerextension_uset_target_peer[T]
-    }
-    $if T is IMultiplayerPeerExtensionGetPacketPeer {
-        ci.virtual_methods["_get_packet_peer"] = multiplayerpeerextension_uget_packet_peer[T]
-    }
-    $if T is IMultiplayerPeerExtensionIsServer {
-        ci.virtual_methods["_is_server"] = multiplayerpeerextension_uis_server[T]
-    }
-    $if T is IMultiplayerPeerExtensionPoll {
-        ci.virtual_methods["_poll"] = multiplayerpeerextension_upoll[T]
-    }
-    $if T is IMultiplayerPeerExtensionClose {
-        ci.virtual_methods["_close"] = multiplayerpeerextension_uclose[T]
-    }
-    $if T is IMultiplayerPeerExtensionDisconnectPeer {
-        ci.virtual_methods["_disconnect_peer"] = multiplayerpeerextension_udisconnect_peer[T]
-    }
-    $if T is IMultiplayerPeerExtensionGetUniqueId {
-        ci.virtual_methods["_get_unique_id"] = multiplayerpeerextension_uget_unique_id[T]
-    }
-    $if T is IMultiplayerPeerExtensionSetRefuseNewConnections {
-        ci.virtual_methods["_set_refuse_new_connections"] = multiplayerpeerextension_uset_refuse_new_connections[T]
-    }
-    $if T is IMultiplayerPeerExtensionIsRefusingNewConnections {
-        ci.virtual_methods["_is_refusing_new_connections"] = multiplayerpeerextension_uis_refusing_new_connections[T]
-    }
-    $if T is IMultiplayerPeerExtensionIsServerRelaySupported {
-        ci.virtual_methods["_is_server_relay_supported"] = multiplayerpeerextension_uis_server_relay_supported[T]
-    }
-    $if T is IMultiplayerPeerExtensionGetConnectionStatus {
-        ci.virtual_methods["_get_connection_status"] = multiplayerpeerextension_uget_connection_status[T]
-    }
-    $if T is INodeProcess {
-        ci.virtual_methods["_process"] = node_uprocess[T]
-    }
-    $if T is INodePhysicsProcess {
-        ci.virtual_methods["_physics_process"] = node_uphysics_process[T]
-    }
-    $if T is INodeEnterTree {
-        ci.virtual_methods["_enter_tree"] = node_uenter_tree[T]
-    }
-    $if T is INodeExitTree {
-        ci.virtual_methods["_exit_tree"] = node_uexit_tree[T]
-    }
-    $if T is INodeReady {
-        ci.virtual_methods["_ready"] = node_uready[T]
-    }
-    $if T is INodeGetConfigurationWarnings {
-        ci.virtual_methods["_get_configuration_warnings"] = node_uget_configuration_warnings[T]
-    }
-    $if T is INodeInput {
-        ci.virtual_methods["_input"] = node_uinput[T]
-    }
-    $if T is INodeShortcutInput {
-        ci.virtual_methods["_shortcut_input"] = node_ushortcut_input[T]
-    }
-    $if T is INodeUnhandledInput {
-        ci.virtual_methods["_unhandled_input"] = node_uunhandled_input[T]
-    }
-    $if T is INodeUnhandledKeyInput {
-        ci.virtual_methods["_unhandled_key_input"] = node_uunhandled_key_input[T]
-    }
-    $if T is IOpenXRExtensionWrapperExtensionGetRequestedExtensions {
-        ci.virtual_methods["_get_requested_extensions"] = openxrextensionwrapperextension_uget_requested_extensions[T]
-    }
-    $if T is IOpenXRExtensionWrapperExtensionSetSystemPropertiesAndGetNextPointer {
-        ci.virtual_methods["_set_system_properties_and_get_next_pointer"] = openxrextensionwrapperextension_uset_system_properties_and_get_next_pointer[T]
-    }
-    $if T is IOpenXRExtensionWrapperExtensionSetInstanceCreateInfoAndGetNextPointer {
-        ci.virtual_methods["_set_instance_create_info_and_get_next_pointer"] = openxrextensionwrapperextension_uset_instance_create_info_and_get_next_pointer[T]
-    }
-    $if T is IOpenXRExtensionWrapperExtensionSetSessionCreateAndGetNextPointer {
-        ci.virtual_methods["_set_session_create_and_get_next_pointer"] = openxrextensionwrapperextension_uset_session_create_and_get_next_pointer[T]
-    }
-    $if T is IOpenXRExtensionWrapperExtensionSetSwapchainCreateInfoAndGetNextPointer {
-        ci.virtual_methods["_set_swapchain_create_info_and_get_next_pointer"] = openxrextensionwrapperextension_uset_swapchain_create_info_and_get_next_pointer[T]
-    }
-    $if T is IOpenXRExtensionWrapperExtensionOnRegisterMetadata {
-        ci.virtual_methods["_on_register_metadata"] = openxrextensionwrapperextension_uon_register_metadata[T]
-    }
-    $if T is IOpenXRExtensionWrapperExtensionOnBeforeInstanceCreated {
-        ci.virtual_methods["_on_before_instance_created"] = openxrextensionwrapperextension_uon_before_instance_created[T]
-    }
-    $if T is IOpenXRExtensionWrapperExtensionOnInstanceCreated {
-        ci.virtual_methods["_on_instance_created"] = openxrextensionwrapperextension_uon_instance_created[T]
-    }
-    $if T is IOpenXRExtensionWrapperExtensionOnInstanceDestroyed {
-        ci.virtual_methods["_on_instance_destroyed"] = openxrextensionwrapperextension_uon_instance_destroyed[T]
-    }
-    $if T is IOpenXRExtensionWrapperExtensionOnSessionCreated {
-        ci.virtual_methods["_on_session_created"] = openxrextensionwrapperextension_uon_session_created[T]
-    }
-    $if T is IOpenXRExtensionWrapperExtensionOnProcess {
-        ci.virtual_methods["_on_process"] = openxrextensionwrapperextension_uon_process[T]
-    }
-    $if T is IOpenXRExtensionWrapperExtensionOnPreRender {
-        ci.virtual_methods["_on_pre_render"] = openxrextensionwrapperextension_uon_pre_render[T]
-    }
-    $if T is IOpenXRExtensionWrapperExtensionOnSessionDestroyed {
-        ci.virtual_methods["_on_session_destroyed"] = openxrextensionwrapperextension_uon_session_destroyed[T]
-    }
-    $if T is IOpenXRExtensionWrapperExtensionOnStateIdle {
-        ci.virtual_methods["_on_state_idle"] = openxrextensionwrapperextension_uon_state_idle[T]
-    }
-    $if T is IOpenXRExtensionWrapperExtensionOnStateReady {
-        ci.virtual_methods["_on_state_ready"] = openxrextensionwrapperextension_uon_state_ready[T]
-    }
-    $if T is IOpenXRExtensionWrapperExtensionOnStateSynchronized {
-        ci.virtual_methods["_on_state_synchronized"] = openxrextensionwrapperextension_uon_state_synchronized[T]
-    }
-    $if T is IOpenXRExtensionWrapperExtensionOnStateVisible {
-        ci.virtual_methods["_on_state_visible"] = openxrextensionwrapperextension_uon_state_visible[T]
-    }
-    $if T is IOpenXRExtensionWrapperExtensionOnStateFocused {
-        ci.virtual_methods["_on_state_focused"] = openxrextensionwrapperextension_uon_state_focused[T]
-    }
-    $if T is IOpenXRExtensionWrapperExtensionOnStateStopping {
-        ci.virtual_methods["_on_state_stopping"] = openxrextensionwrapperextension_uon_state_stopping[T]
-    }
-    $if T is IOpenXRExtensionWrapperExtensionOnStateLossPending {
-        ci.virtual_methods["_on_state_loss_pending"] = openxrextensionwrapperextension_uon_state_loss_pending[T]
-    }
-    $if T is IOpenXRExtensionWrapperExtensionOnStateExiting {
-        ci.virtual_methods["_on_state_exiting"] = openxrextensionwrapperextension_uon_state_exiting[T]
-    }
-    $if T is IOpenXRExtensionWrapperExtensionOnEventPolled {
-        ci.virtual_methods["_on_event_polled"] = openxrextensionwrapperextension_uon_event_polled[T]
-    }
-    $if T is IPacketPeerExtensionGetPacket {
-        ci.virtual_methods["_get_packet"] = packetpeerextension_uget_packet[T]
-    }
-    $if T is IPacketPeerExtensionPutPacket {
-        ci.virtual_methods["_put_packet"] = packetpeerextension_uput_packet[T]
-    }
-    $if T is IPacketPeerExtensionGetAvailablePacketCount {
-        ci.virtual_methods["_get_available_packet_count"] = packetpeerextension_uget_available_packet_count[T]
-    }
-    $if T is IPacketPeerExtensionGetMaxPacketSize {
-        ci.virtual_methods["_get_max_packet_size"] = packetpeerextension_uget_max_packet_size[T]
-    }
-    $if T is IPhysicalBone3DIntegrateForces {
-        ci.virtual_methods["_integrate_forces"] = physicalbone3d_uintegrate_forces[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionGetTotalGravity {
-        ci.virtual_methods["_get_total_gravity"] = physicsdirectbodystate2dextension_uget_total_gravity[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionGetTotalLinearDamp {
-        ci.virtual_methods["_get_total_linear_damp"] = physicsdirectbodystate2dextension_uget_total_linear_damp[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionGetTotalAngularDamp {
-        ci.virtual_methods["_get_total_angular_damp"] = physicsdirectbodystate2dextension_uget_total_angular_damp[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionGetCenterOfMass {
-        ci.virtual_methods["_get_center_of_mass"] = physicsdirectbodystate2dextension_uget_center_of_mass[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionGetCenterOfMassLocal {
-        ci.virtual_methods["_get_center_of_mass_local"] = physicsdirectbodystate2dextension_uget_center_of_mass_local[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionGetInverseMass {
-        ci.virtual_methods["_get_inverse_mass"] = physicsdirectbodystate2dextension_uget_inverse_mass[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionGetInverseInertia {
-        ci.virtual_methods["_get_inverse_inertia"] = physicsdirectbodystate2dextension_uget_inverse_inertia[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionSetLinearVelocity {
-        ci.virtual_methods["_set_linear_velocity"] = physicsdirectbodystate2dextension_uset_linear_velocity[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionGetLinearVelocity {
-        ci.virtual_methods["_get_linear_velocity"] = physicsdirectbodystate2dextension_uget_linear_velocity[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionSetAngularVelocity {
-        ci.virtual_methods["_set_angular_velocity"] = physicsdirectbodystate2dextension_uset_angular_velocity[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionGetAngularVelocity {
-        ci.virtual_methods["_get_angular_velocity"] = physicsdirectbodystate2dextension_uget_angular_velocity[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionSetTransform {
-        ci.virtual_methods["_set_transform"] = physicsdirectbodystate2dextension_uset_transform[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionGetTransform {
-        ci.virtual_methods["_get_transform"] = physicsdirectbodystate2dextension_uget_transform[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionGetVelocityAtLocalPosition {
-        ci.virtual_methods["_get_velocity_at_local_position"] = physicsdirectbodystate2dextension_uget_velocity_at_local_position[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionApplyCentralImpulse {
-        ci.virtual_methods["_apply_central_impulse"] = physicsdirectbodystate2dextension_uapply_central_impulse[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionApplyImpulse {
-        ci.virtual_methods["_apply_impulse"] = physicsdirectbodystate2dextension_uapply_impulse[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionApplyTorqueImpulse {
-        ci.virtual_methods["_apply_torque_impulse"] = physicsdirectbodystate2dextension_uapply_torque_impulse[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionApplyCentralForce {
-        ci.virtual_methods["_apply_central_force"] = physicsdirectbodystate2dextension_uapply_central_force[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionApplyForce {
-        ci.virtual_methods["_apply_force"] = physicsdirectbodystate2dextension_uapply_force[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionApplyTorque {
-        ci.virtual_methods["_apply_torque"] = physicsdirectbodystate2dextension_uapply_torque[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionAddConstantCentralForce {
-        ci.virtual_methods["_add_constant_central_force"] = physicsdirectbodystate2dextension_uadd_constant_central_force[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionAddConstantForce {
-        ci.virtual_methods["_add_constant_force"] = physicsdirectbodystate2dextension_uadd_constant_force[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionAddConstantTorque {
-        ci.virtual_methods["_add_constant_torque"] = physicsdirectbodystate2dextension_uadd_constant_torque[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionSetConstantForce {
-        ci.virtual_methods["_set_constant_force"] = physicsdirectbodystate2dextension_uset_constant_force[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionGetConstantForce {
-        ci.virtual_methods["_get_constant_force"] = physicsdirectbodystate2dextension_uget_constant_force[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionSetConstantTorque {
-        ci.virtual_methods["_set_constant_torque"] = physicsdirectbodystate2dextension_uset_constant_torque[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionGetConstantTorque {
-        ci.virtual_methods["_get_constant_torque"] = physicsdirectbodystate2dextension_uget_constant_torque[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionSetSleepState {
-        ci.virtual_methods["_set_sleep_state"] = physicsdirectbodystate2dextension_uset_sleep_state[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionIsSleeping {
-        ci.virtual_methods["_is_sleeping"] = physicsdirectbodystate2dextension_uis_sleeping[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionGetContactCount {
-        ci.virtual_methods["_get_contact_count"] = physicsdirectbodystate2dextension_uget_contact_count[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionGetContactLocalPosition {
-        ci.virtual_methods["_get_contact_local_position"] = physicsdirectbodystate2dextension_uget_contact_local_position[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionGetContactLocalNormal {
-        ci.virtual_methods["_get_contact_local_normal"] = physicsdirectbodystate2dextension_uget_contact_local_normal[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionGetContactLocalShape {
-        ci.virtual_methods["_get_contact_local_shape"] = physicsdirectbodystate2dextension_uget_contact_local_shape[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionGetContactLocalVelocityAtPosition {
-        ci.virtual_methods["_get_contact_local_velocity_at_position"] = physicsdirectbodystate2dextension_uget_contact_local_velocity_at_position[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionGetContactCollider {
-        ci.virtual_methods["_get_contact_collider"] = physicsdirectbodystate2dextension_uget_contact_collider[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionGetContactColliderPosition {
-        ci.virtual_methods["_get_contact_collider_position"] = physicsdirectbodystate2dextension_uget_contact_collider_position[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionGetContactColliderId {
-        ci.virtual_methods["_get_contact_collider_id"] = physicsdirectbodystate2dextension_uget_contact_collider_id[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionGetContactColliderObject {
-        ci.virtual_methods["_get_contact_collider_object"] = physicsdirectbodystate2dextension_uget_contact_collider_object[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionGetContactColliderShape {
-        ci.virtual_methods["_get_contact_collider_shape"] = physicsdirectbodystate2dextension_uget_contact_collider_shape[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionGetContactColliderVelocityAtPosition {
-        ci.virtual_methods["_get_contact_collider_velocity_at_position"] = physicsdirectbodystate2dextension_uget_contact_collider_velocity_at_position[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionGetContactImpulse {
-        ci.virtual_methods["_get_contact_impulse"] = physicsdirectbodystate2dextension_uget_contact_impulse[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionGetStep {
-        ci.virtual_methods["_get_step"] = physicsdirectbodystate2dextension_uget_step[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionIntegrateForces {
-        ci.virtual_methods["_integrate_forces"] = physicsdirectbodystate2dextension_uintegrate_forces[T]
-    }
-    $if T is IPhysicsDirectBodyState2DExtensionGetSpaceState {
-        ci.virtual_methods["_get_space_state"] = physicsdirectbodystate2dextension_uget_space_state[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionGetTotalGravity {
-        ci.virtual_methods["_get_total_gravity"] = physicsdirectbodystate3dextension_uget_total_gravity[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionGetTotalLinearDamp {
-        ci.virtual_methods["_get_total_linear_damp"] = physicsdirectbodystate3dextension_uget_total_linear_damp[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionGetTotalAngularDamp {
-        ci.virtual_methods["_get_total_angular_damp"] = physicsdirectbodystate3dextension_uget_total_angular_damp[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionGetCenterOfMass {
-        ci.virtual_methods["_get_center_of_mass"] = physicsdirectbodystate3dextension_uget_center_of_mass[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionGetCenterOfMassLocal {
-        ci.virtual_methods["_get_center_of_mass_local"] = physicsdirectbodystate3dextension_uget_center_of_mass_local[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionGetPrincipalInertiaAxes {
-        ci.virtual_methods["_get_principal_inertia_axes"] = physicsdirectbodystate3dextension_uget_principal_inertia_axes[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionGetInverseMass {
-        ci.virtual_methods["_get_inverse_mass"] = physicsdirectbodystate3dextension_uget_inverse_mass[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionGetInverseInertia {
-        ci.virtual_methods["_get_inverse_inertia"] = physicsdirectbodystate3dextension_uget_inverse_inertia[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionGetInverseInertiaTensor {
-        ci.virtual_methods["_get_inverse_inertia_tensor"] = physicsdirectbodystate3dextension_uget_inverse_inertia_tensor[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionSetLinearVelocity {
-        ci.virtual_methods["_set_linear_velocity"] = physicsdirectbodystate3dextension_uset_linear_velocity[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionGetLinearVelocity {
-        ci.virtual_methods["_get_linear_velocity"] = physicsdirectbodystate3dextension_uget_linear_velocity[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionSetAngularVelocity {
-        ci.virtual_methods["_set_angular_velocity"] = physicsdirectbodystate3dextension_uset_angular_velocity[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionGetAngularVelocity {
-        ci.virtual_methods["_get_angular_velocity"] = physicsdirectbodystate3dextension_uget_angular_velocity[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionSetTransform {
-        ci.virtual_methods["_set_transform"] = physicsdirectbodystate3dextension_uset_transform[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionGetTransform {
-        ci.virtual_methods["_get_transform"] = physicsdirectbodystate3dextension_uget_transform[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionGetVelocityAtLocalPosition {
-        ci.virtual_methods["_get_velocity_at_local_position"] = physicsdirectbodystate3dextension_uget_velocity_at_local_position[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionApplyCentralImpulse {
-        ci.virtual_methods["_apply_central_impulse"] = physicsdirectbodystate3dextension_uapply_central_impulse[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionApplyImpulse {
-        ci.virtual_methods["_apply_impulse"] = physicsdirectbodystate3dextension_uapply_impulse[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionApplyTorqueImpulse {
-        ci.virtual_methods["_apply_torque_impulse"] = physicsdirectbodystate3dextension_uapply_torque_impulse[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionApplyCentralForce {
-        ci.virtual_methods["_apply_central_force"] = physicsdirectbodystate3dextension_uapply_central_force[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionApplyForce {
-        ci.virtual_methods["_apply_force"] = physicsdirectbodystate3dextension_uapply_force[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionApplyTorque {
-        ci.virtual_methods["_apply_torque"] = physicsdirectbodystate3dextension_uapply_torque[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionAddConstantCentralForce {
-        ci.virtual_methods["_add_constant_central_force"] = physicsdirectbodystate3dextension_uadd_constant_central_force[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionAddConstantForce {
-        ci.virtual_methods["_add_constant_force"] = physicsdirectbodystate3dextension_uadd_constant_force[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionAddConstantTorque {
-        ci.virtual_methods["_add_constant_torque"] = physicsdirectbodystate3dextension_uadd_constant_torque[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionSetConstantForce {
-        ci.virtual_methods["_set_constant_force"] = physicsdirectbodystate3dextension_uset_constant_force[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionGetConstantForce {
-        ci.virtual_methods["_get_constant_force"] = physicsdirectbodystate3dextension_uget_constant_force[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionSetConstantTorque {
-        ci.virtual_methods["_set_constant_torque"] = physicsdirectbodystate3dextension_uset_constant_torque[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionGetConstantTorque {
-        ci.virtual_methods["_get_constant_torque"] = physicsdirectbodystate3dextension_uget_constant_torque[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionSetSleepState {
-        ci.virtual_methods["_set_sleep_state"] = physicsdirectbodystate3dextension_uset_sleep_state[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionIsSleeping {
-        ci.virtual_methods["_is_sleeping"] = physicsdirectbodystate3dextension_uis_sleeping[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionGetContactCount {
-        ci.virtual_methods["_get_contact_count"] = physicsdirectbodystate3dextension_uget_contact_count[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionGetContactLocalPosition {
-        ci.virtual_methods["_get_contact_local_position"] = physicsdirectbodystate3dextension_uget_contact_local_position[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionGetContactLocalNormal {
-        ci.virtual_methods["_get_contact_local_normal"] = physicsdirectbodystate3dextension_uget_contact_local_normal[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionGetContactImpulse {
-        ci.virtual_methods["_get_contact_impulse"] = physicsdirectbodystate3dextension_uget_contact_impulse[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionGetContactLocalShape {
-        ci.virtual_methods["_get_contact_local_shape"] = physicsdirectbodystate3dextension_uget_contact_local_shape[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionGetContactLocalVelocityAtPosition {
-        ci.virtual_methods["_get_contact_local_velocity_at_position"] = physicsdirectbodystate3dextension_uget_contact_local_velocity_at_position[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionGetContactCollider {
-        ci.virtual_methods["_get_contact_collider"] = physicsdirectbodystate3dextension_uget_contact_collider[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionGetContactColliderPosition {
-        ci.virtual_methods["_get_contact_collider_position"] = physicsdirectbodystate3dextension_uget_contact_collider_position[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionGetContactColliderId {
-        ci.virtual_methods["_get_contact_collider_id"] = physicsdirectbodystate3dextension_uget_contact_collider_id[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionGetContactColliderObject {
-        ci.virtual_methods["_get_contact_collider_object"] = physicsdirectbodystate3dextension_uget_contact_collider_object[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionGetContactColliderShape {
-        ci.virtual_methods["_get_contact_collider_shape"] = physicsdirectbodystate3dextension_uget_contact_collider_shape[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionGetContactColliderVelocityAtPosition {
-        ci.virtual_methods["_get_contact_collider_velocity_at_position"] = physicsdirectbodystate3dextension_uget_contact_collider_velocity_at_position[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionGetStep {
-        ci.virtual_methods["_get_step"] = physicsdirectbodystate3dextension_uget_step[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionIntegrateForces {
-        ci.virtual_methods["_integrate_forces"] = physicsdirectbodystate3dextension_uintegrate_forces[T]
-    }
-    $if T is IPhysicsDirectBodyState3DExtensionGetSpaceState {
-        ci.virtual_methods["_get_space_state"] = physicsdirectbodystate3dextension_uget_space_state[T]
-    }
-    $if T is IPhysicsDirectSpaceState2DExtensionIntersectRay {
-        ci.virtual_methods["_intersect_ray"] = physicsdirectspacestate2dextension_uintersect_ray[T]
-    }
-    $if T is IPhysicsDirectSpaceState2DExtensionIntersectPoint {
-        ci.virtual_methods["_intersect_point"] = physicsdirectspacestate2dextension_uintersect_point[T]
-    }
-    $if T is IPhysicsDirectSpaceState2DExtensionIntersectShape {
-        ci.virtual_methods["_intersect_shape"] = physicsdirectspacestate2dextension_uintersect_shape[T]
-    }
-    $if T is IPhysicsDirectSpaceState2DExtensionCastMotion {
-        ci.virtual_methods["_cast_motion"] = physicsdirectspacestate2dextension_ucast_motion[T]
-    }
-    $if T is IPhysicsDirectSpaceState2DExtensionCollideShape {
-        ci.virtual_methods["_collide_shape"] = physicsdirectspacestate2dextension_ucollide_shape[T]
-    }
-    $if T is IPhysicsDirectSpaceState2DExtensionRestInfo {
-        ci.virtual_methods["_rest_info"] = physicsdirectspacestate2dextension_urest_info[T]
-    }
-    $if T is IPhysicsDirectSpaceState3DExtensionIntersectRay {
-        ci.virtual_methods["_intersect_ray"] = physicsdirectspacestate3dextension_uintersect_ray[T]
-    }
-    $if T is IPhysicsDirectSpaceState3DExtensionIntersectPoint {
-        ci.virtual_methods["_intersect_point"] = physicsdirectspacestate3dextension_uintersect_point[T]
-    }
-    $if T is IPhysicsDirectSpaceState3DExtensionIntersectShape {
-        ci.virtual_methods["_intersect_shape"] = physicsdirectspacestate3dextension_uintersect_shape[T]
-    }
-    $if T is IPhysicsDirectSpaceState3DExtensionCastMotion {
-        ci.virtual_methods["_cast_motion"] = physicsdirectspacestate3dextension_ucast_motion[T]
-    }
-    $if T is IPhysicsDirectSpaceState3DExtensionCollideShape {
-        ci.virtual_methods["_collide_shape"] = physicsdirectspacestate3dextension_ucollide_shape[T]
-    }
-    $if T is IPhysicsDirectSpaceState3DExtensionRestInfo {
-        ci.virtual_methods["_rest_info"] = physicsdirectspacestate3dextension_urest_info[T]
-    }
-    $if T is IPhysicsDirectSpaceState3DExtensionGetClosestPointToObjectVolume {
-        ci.virtual_methods["_get_closest_point_to_object_volume"] = physicsdirectspacestate3dextension_uget_closest_point_to_object_volume[T]
-    }
-    $if T is IPhysicsServer2DExtensionWorldBoundaryShapeCreate {
-        ci.virtual_methods["_world_boundary_shape_create"] = physicsserver2dextension_uworld_boundary_shape_create[T]
-    }
-    $if T is IPhysicsServer2DExtensionSeparationRayShapeCreate {
-        ci.virtual_methods["_separation_ray_shape_create"] = physicsserver2dextension_useparation_ray_shape_create[T]
-    }
-    $if T is IPhysicsServer2DExtensionSegmentShapeCreate {
-        ci.virtual_methods["_segment_shape_create"] = physicsserver2dextension_usegment_shape_create[T]
-    }
-    $if T is IPhysicsServer2DExtensionCircleShapeCreate {
-        ci.virtual_methods["_circle_shape_create"] = physicsserver2dextension_ucircle_shape_create[T]
-    }
-    $if T is IPhysicsServer2DExtensionRectangleShapeCreate {
-        ci.virtual_methods["_rectangle_shape_create"] = physicsserver2dextension_urectangle_shape_create[T]
-    }
-    $if T is IPhysicsServer2DExtensionCapsuleShapeCreate {
-        ci.virtual_methods["_capsule_shape_create"] = physicsserver2dextension_ucapsule_shape_create[T]
-    }
-    $if T is IPhysicsServer2DExtensionConvexPolygonShapeCreate {
-        ci.virtual_methods["_convex_polygon_shape_create"] = physicsserver2dextension_uconvex_polygon_shape_create[T]
-    }
-    $if T is IPhysicsServer2DExtensionConcavePolygonShapeCreate {
-        ci.virtual_methods["_concave_polygon_shape_create"] = physicsserver2dextension_uconcave_polygon_shape_create[T]
-    }
-    $if T is IPhysicsServer2DExtensionShapeSetData {
-        ci.virtual_methods["_shape_set_data"] = physicsserver2dextension_ushape_set_data[T]
-    }
-    $if T is IPhysicsServer2DExtensionShapeSetCustomSolverBias {
-        ci.virtual_methods["_shape_set_custom_solver_bias"] = physicsserver2dextension_ushape_set_custom_solver_bias[T]
-    }
-    $if T is IPhysicsServer2DExtensionShapeGetType {
-        ci.virtual_methods["_shape_get_type"] = physicsserver2dextension_ushape_get_type[T]
-    }
-    $if T is IPhysicsServer2DExtensionShapeGetData {
-        ci.virtual_methods["_shape_get_data"] = physicsserver2dextension_ushape_get_data[T]
-    }
-    $if T is IPhysicsServer2DExtensionShapeGetCustomSolverBias {
-        ci.virtual_methods["_shape_get_custom_solver_bias"] = physicsserver2dextension_ushape_get_custom_solver_bias[T]
-    }
-    $if T is IPhysicsServer2DExtensionShapeCollide {
-        ci.virtual_methods["_shape_collide"] = physicsserver2dextension_ushape_collide[T]
-    }
-    $if T is IPhysicsServer2DExtensionSpaceCreate {
-        ci.virtual_methods["_space_create"] = physicsserver2dextension_uspace_create[T]
-    }
-    $if T is IPhysicsServer2DExtensionSpaceSetActive {
-        ci.virtual_methods["_space_set_active"] = physicsserver2dextension_uspace_set_active[T]
-    }
-    $if T is IPhysicsServer2DExtensionSpaceIsActive {
-        ci.virtual_methods["_space_is_active"] = physicsserver2dextension_uspace_is_active[T]
-    }
-    $if T is IPhysicsServer2DExtensionSpaceSetParam {
-        ci.virtual_methods["_space_set_param"] = physicsserver2dextension_uspace_set_param[T]
-    }
-    $if T is IPhysicsServer2DExtensionSpaceGetParam {
-        ci.virtual_methods["_space_get_param"] = physicsserver2dextension_uspace_get_param[T]
-    }
-    $if T is IPhysicsServer2DExtensionSpaceGetDirectState {
-        ci.virtual_methods["_space_get_direct_state"] = physicsserver2dextension_uspace_get_direct_state[T]
-    }
-    $if T is IPhysicsServer2DExtensionSpaceSetDebugContacts {
-        ci.virtual_methods["_space_set_debug_contacts"] = physicsserver2dextension_uspace_set_debug_contacts[T]
-    }
-    $if T is IPhysicsServer2DExtensionSpaceGetContacts {
-        ci.virtual_methods["_space_get_contacts"] = physicsserver2dextension_uspace_get_contacts[T]
-    }
-    $if T is IPhysicsServer2DExtensionSpaceGetContactCount {
-        ci.virtual_methods["_space_get_contact_count"] = physicsserver2dextension_uspace_get_contact_count[T]
-    }
-    $if T is IPhysicsServer2DExtensionAreaCreate {
-        ci.virtual_methods["_area_create"] = physicsserver2dextension_uarea_create[T]
-    }
-    $if T is IPhysicsServer2DExtensionAreaSetSpace {
-        ci.virtual_methods["_area_set_space"] = physicsserver2dextension_uarea_set_space[T]
-    }
-    $if T is IPhysicsServer2DExtensionAreaGetSpace {
-        ci.virtual_methods["_area_get_space"] = physicsserver2dextension_uarea_get_space[T]
-    }
-    $if T is IPhysicsServer2DExtensionAreaAddShape {
-        ci.virtual_methods["_area_add_shape"] = physicsserver2dextension_uarea_add_shape[T]
-    }
-    $if T is IPhysicsServer2DExtensionAreaSetShape {
-        ci.virtual_methods["_area_set_shape"] = physicsserver2dextension_uarea_set_shape[T]
-    }
-    $if T is IPhysicsServer2DExtensionAreaSetShapeTransform {
-        ci.virtual_methods["_area_set_shape_transform"] = physicsserver2dextension_uarea_set_shape_transform[T]
-    }
-    $if T is IPhysicsServer2DExtensionAreaSetShapeDisabled {
-        ci.virtual_methods["_area_set_shape_disabled"] = physicsserver2dextension_uarea_set_shape_disabled[T]
-    }
-    $if T is IPhysicsServer2DExtensionAreaGetShapeCount {
-        ci.virtual_methods["_area_get_shape_count"] = physicsserver2dextension_uarea_get_shape_count[T]
-    }
-    $if T is IPhysicsServer2DExtensionAreaGetShape {
-        ci.virtual_methods["_area_get_shape"] = physicsserver2dextension_uarea_get_shape[T]
-    }
-    $if T is IPhysicsServer2DExtensionAreaGetShapeTransform {
-        ci.virtual_methods["_area_get_shape_transform"] = physicsserver2dextension_uarea_get_shape_transform[T]
-    }
-    $if T is IPhysicsServer2DExtensionAreaRemoveShape {
-        ci.virtual_methods["_area_remove_shape"] = physicsserver2dextension_uarea_remove_shape[T]
-    }
-    $if T is IPhysicsServer2DExtensionAreaClearShapes {
-        ci.virtual_methods["_area_clear_shapes"] = physicsserver2dextension_uarea_clear_shapes[T]
-    }
-    $if T is IPhysicsServer2DExtensionAreaAttachObjectInstanceId {
-        ci.virtual_methods["_area_attach_object_instance_id"] = physicsserver2dextension_uarea_attach_object_instance_id[T]
-    }
-    $if T is IPhysicsServer2DExtensionAreaGetObjectInstanceId {
-        ci.virtual_methods["_area_get_object_instance_id"] = physicsserver2dextension_uarea_get_object_instance_id[T]
-    }
-    $if T is IPhysicsServer2DExtensionAreaAttachCanvasInstanceId {
-        ci.virtual_methods["_area_attach_canvas_instance_id"] = physicsserver2dextension_uarea_attach_canvas_instance_id[T]
-    }
-    $if T is IPhysicsServer2DExtensionAreaGetCanvasInstanceId {
-        ci.virtual_methods["_area_get_canvas_instance_id"] = physicsserver2dextension_uarea_get_canvas_instance_id[T]
-    }
-    $if T is IPhysicsServer2DExtensionAreaSetParam {
-        ci.virtual_methods["_area_set_param"] = physicsserver2dextension_uarea_set_param[T]
-    }
-    $if T is IPhysicsServer2DExtensionAreaSetTransform {
-        ci.virtual_methods["_area_set_transform"] = physicsserver2dextension_uarea_set_transform[T]
-    }
-    $if T is IPhysicsServer2DExtensionAreaGetParam {
-        ci.virtual_methods["_area_get_param"] = physicsserver2dextension_uarea_get_param[T]
-    }
-    $if T is IPhysicsServer2DExtensionAreaGetTransform {
-        ci.virtual_methods["_area_get_transform"] = physicsserver2dextension_uarea_get_transform[T]
-    }
-    $if T is IPhysicsServer2DExtensionAreaSetCollisionLayer {
-        ci.virtual_methods["_area_set_collision_layer"] = physicsserver2dextension_uarea_set_collision_layer[T]
-    }
-    $if T is IPhysicsServer2DExtensionAreaGetCollisionLayer {
-        ci.virtual_methods["_area_get_collision_layer"] = physicsserver2dextension_uarea_get_collision_layer[T]
-    }
-    $if T is IPhysicsServer2DExtensionAreaSetCollisionMask {
-        ci.virtual_methods["_area_set_collision_mask"] = physicsserver2dextension_uarea_set_collision_mask[T]
-    }
-    $if T is IPhysicsServer2DExtensionAreaGetCollisionMask {
-        ci.virtual_methods["_area_get_collision_mask"] = physicsserver2dextension_uarea_get_collision_mask[T]
-    }
-    $if T is IPhysicsServer2DExtensionAreaSetMonitorable {
-        ci.virtual_methods["_area_set_monitorable"] = physicsserver2dextension_uarea_set_monitorable[T]
-    }
-    $if T is IPhysicsServer2DExtensionAreaSetPickable {
-        ci.virtual_methods["_area_set_pickable"] = physicsserver2dextension_uarea_set_pickable[T]
-    }
-    $if T is IPhysicsServer2DExtensionAreaSetMonitorCallback {
-        ci.virtual_methods["_area_set_monitor_callback"] = physicsserver2dextension_uarea_set_monitor_callback[T]
-    }
-    $if T is IPhysicsServer2DExtensionAreaSetAreaMonitorCallback {
-        ci.virtual_methods["_area_set_area_monitor_callback"] = physicsserver2dextension_uarea_set_area_monitor_callback[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyCreate {
-        ci.virtual_methods["_body_create"] = physicsserver2dextension_ubody_create[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodySetSpace {
-        ci.virtual_methods["_body_set_space"] = physicsserver2dextension_ubody_set_space[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyGetSpace {
-        ci.virtual_methods["_body_get_space"] = physicsserver2dextension_ubody_get_space[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodySetMode {
-        ci.virtual_methods["_body_set_mode"] = physicsserver2dextension_ubody_set_mode[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyGetMode {
-        ci.virtual_methods["_body_get_mode"] = physicsserver2dextension_ubody_get_mode[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyAddShape {
-        ci.virtual_methods["_body_add_shape"] = physicsserver2dextension_ubody_add_shape[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodySetShape {
-        ci.virtual_methods["_body_set_shape"] = physicsserver2dextension_ubody_set_shape[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodySetShapeTransform {
-        ci.virtual_methods["_body_set_shape_transform"] = physicsserver2dextension_ubody_set_shape_transform[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyGetShapeCount {
-        ci.virtual_methods["_body_get_shape_count"] = physicsserver2dextension_ubody_get_shape_count[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyGetShape {
-        ci.virtual_methods["_body_get_shape"] = physicsserver2dextension_ubody_get_shape[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyGetShapeTransform {
-        ci.virtual_methods["_body_get_shape_transform"] = physicsserver2dextension_ubody_get_shape_transform[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodySetShapeDisabled {
-        ci.virtual_methods["_body_set_shape_disabled"] = physicsserver2dextension_ubody_set_shape_disabled[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodySetShapeAsOneWayCollision {
-        ci.virtual_methods["_body_set_shape_as_one_way_collision"] = physicsserver2dextension_ubody_set_shape_as_one_way_collision[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyRemoveShape {
-        ci.virtual_methods["_body_remove_shape"] = physicsserver2dextension_ubody_remove_shape[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyClearShapes {
-        ci.virtual_methods["_body_clear_shapes"] = physicsserver2dextension_ubody_clear_shapes[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyAttachObjectInstanceId {
-        ci.virtual_methods["_body_attach_object_instance_id"] = physicsserver2dextension_ubody_attach_object_instance_id[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyGetObjectInstanceId {
-        ci.virtual_methods["_body_get_object_instance_id"] = physicsserver2dextension_ubody_get_object_instance_id[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyAttachCanvasInstanceId {
-        ci.virtual_methods["_body_attach_canvas_instance_id"] = physicsserver2dextension_ubody_attach_canvas_instance_id[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyGetCanvasInstanceId {
-        ci.virtual_methods["_body_get_canvas_instance_id"] = physicsserver2dextension_ubody_get_canvas_instance_id[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodySetContinuousCollisionDetectionMode {
-        ci.virtual_methods["_body_set_continuous_collision_detection_mode"] = physicsserver2dextension_ubody_set_continuous_collision_detection_mode[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyGetContinuousCollisionDetectionMode {
-        ci.virtual_methods["_body_get_continuous_collision_detection_mode"] = physicsserver2dextension_ubody_get_continuous_collision_detection_mode[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodySetCollisionLayer {
-        ci.virtual_methods["_body_set_collision_layer"] = physicsserver2dextension_ubody_set_collision_layer[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyGetCollisionLayer {
-        ci.virtual_methods["_body_get_collision_layer"] = physicsserver2dextension_ubody_get_collision_layer[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodySetCollisionMask {
-        ci.virtual_methods["_body_set_collision_mask"] = physicsserver2dextension_ubody_set_collision_mask[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyGetCollisionMask {
-        ci.virtual_methods["_body_get_collision_mask"] = physicsserver2dextension_ubody_get_collision_mask[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodySetCollisionPriority {
-        ci.virtual_methods["_body_set_collision_priority"] = physicsserver2dextension_ubody_set_collision_priority[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyGetCollisionPriority {
-        ci.virtual_methods["_body_get_collision_priority"] = physicsserver2dextension_ubody_get_collision_priority[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodySetParam {
-        ci.virtual_methods["_body_set_param"] = physicsserver2dextension_ubody_set_param[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyGetParam {
-        ci.virtual_methods["_body_get_param"] = physicsserver2dextension_ubody_get_param[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyResetMassProperties {
-        ci.virtual_methods["_body_reset_mass_properties"] = physicsserver2dextension_ubody_reset_mass_properties[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodySetState {
-        ci.virtual_methods["_body_set_state"] = physicsserver2dextension_ubody_set_state[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyGetState {
-        ci.virtual_methods["_body_get_state"] = physicsserver2dextension_ubody_get_state[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyApplyCentralImpulse {
-        ci.virtual_methods["_body_apply_central_impulse"] = physicsserver2dextension_ubody_apply_central_impulse[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyApplyTorqueImpulse {
-        ci.virtual_methods["_body_apply_torque_impulse"] = physicsserver2dextension_ubody_apply_torque_impulse[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyApplyImpulse {
-        ci.virtual_methods["_body_apply_impulse"] = physicsserver2dextension_ubody_apply_impulse[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyApplyCentralForce {
-        ci.virtual_methods["_body_apply_central_force"] = physicsserver2dextension_ubody_apply_central_force[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyApplyForce {
-        ci.virtual_methods["_body_apply_force"] = physicsserver2dextension_ubody_apply_force[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyApplyTorque {
-        ci.virtual_methods["_body_apply_torque"] = physicsserver2dextension_ubody_apply_torque[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyAddConstantCentralForce {
-        ci.virtual_methods["_body_add_constant_central_force"] = physicsserver2dextension_ubody_add_constant_central_force[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyAddConstantForce {
-        ci.virtual_methods["_body_add_constant_force"] = physicsserver2dextension_ubody_add_constant_force[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyAddConstantTorque {
-        ci.virtual_methods["_body_add_constant_torque"] = physicsserver2dextension_ubody_add_constant_torque[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodySetConstantForce {
-        ci.virtual_methods["_body_set_constant_force"] = physicsserver2dextension_ubody_set_constant_force[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyGetConstantForce {
-        ci.virtual_methods["_body_get_constant_force"] = physicsserver2dextension_ubody_get_constant_force[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodySetConstantTorque {
-        ci.virtual_methods["_body_set_constant_torque"] = physicsserver2dextension_ubody_set_constant_torque[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyGetConstantTorque {
-        ci.virtual_methods["_body_get_constant_torque"] = physicsserver2dextension_ubody_get_constant_torque[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodySetAxisVelocity {
-        ci.virtual_methods["_body_set_axis_velocity"] = physicsserver2dextension_ubody_set_axis_velocity[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyAddCollisionException {
-        ci.virtual_methods["_body_add_collision_exception"] = physicsserver2dextension_ubody_add_collision_exception[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyRemoveCollisionException {
-        ci.virtual_methods["_body_remove_collision_exception"] = physicsserver2dextension_ubody_remove_collision_exception[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyGetCollisionExceptions {
-        ci.virtual_methods["_body_get_collision_exceptions"] = physicsserver2dextension_ubody_get_collision_exceptions[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodySetMaxContactsReported {
-        ci.virtual_methods["_body_set_max_contacts_reported"] = physicsserver2dextension_ubody_set_max_contacts_reported[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyGetMaxContactsReported {
-        ci.virtual_methods["_body_get_max_contacts_reported"] = physicsserver2dextension_ubody_get_max_contacts_reported[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodySetContactsReportedDepthThreshold {
-        ci.virtual_methods["_body_set_contacts_reported_depth_threshold"] = physicsserver2dextension_ubody_set_contacts_reported_depth_threshold[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyGetContactsReportedDepthThreshold {
-        ci.virtual_methods["_body_get_contacts_reported_depth_threshold"] = physicsserver2dextension_ubody_get_contacts_reported_depth_threshold[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodySetOmitForceIntegration {
-        ci.virtual_methods["_body_set_omit_force_integration"] = physicsserver2dextension_ubody_set_omit_force_integration[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyIsOmittingForceIntegration {
-        ci.virtual_methods["_body_is_omitting_force_integration"] = physicsserver2dextension_ubody_is_omitting_force_integration[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodySetStateSyncCallback {
-        ci.virtual_methods["_body_set_state_sync_callback"] = physicsserver2dextension_ubody_set_state_sync_callback[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodySetForceIntegrationCallback {
-        ci.virtual_methods["_body_set_force_integration_callback"] = physicsserver2dextension_ubody_set_force_integration_callback[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyCollideShape {
-        ci.virtual_methods["_body_collide_shape"] = physicsserver2dextension_ubody_collide_shape[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodySetPickable {
-        ci.virtual_methods["_body_set_pickable"] = physicsserver2dextension_ubody_set_pickable[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyGetDirectState {
-        ci.virtual_methods["_body_get_direct_state"] = physicsserver2dextension_ubody_get_direct_state[T]
-    }
-    $if T is IPhysicsServer2DExtensionBodyTestMotion {
-        ci.virtual_methods["_body_test_motion"] = physicsserver2dextension_ubody_test_motion[T]
-    }
-    $if T is IPhysicsServer2DExtensionJointCreate {
-        ci.virtual_methods["_joint_create"] = physicsserver2dextension_ujoint_create[T]
-    }
-    $if T is IPhysicsServer2DExtensionJointClear {
-        ci.virtual_methods["_joint_clear"] = physicsserver2dextension_ujoint_clear[T]
-    }
-    $if T is IPhysicsServer2DExtensionJointSetParam {
-        ci.virtual_methods["_joint_set_param"] = physicsserver2dextension_ujoint_set_param[T]
-    }
-    $if T is IPhysicsServer2DExtensionJointGetParam {
-        ci.virtual_methods["_joint_get_param"] = physicsserver2dextension_ujoint_get_param[T]
-    }
-    $if T is IPhysicsServer2DExtensionJointDisableCollisionsBetweenBodies {
-        ci.virtual_methods["_joint_disable_collisions_between_bodies"] = physicsserver2dextension_ujoint_disable_collisions_between_bodies[T]
-    }
-    $if T is IPhysicsServer2DExtensionJointIsDisabledCollisionsBetweenBodies {
-        ci.virtual_methods["_joint_is_disabled_collisions_between_bodies"] = physicsserver2dextension_ujoint_is_disabled_collisions_between_bodies[T]
-    }
-    $if T is IPhysicsServer2DExtensionJointMakePin {
-        ci.virtual_methods["_joint_make_pin"] = physicsserver2dextension_ujoint_make_pin[T]
-    }
-    $if T is IPhysicsServer2DExtensionJointMakeGroove {
-        ci.virtual_methods["_joint_make_groove"] = physicsserver2dextension_ujoint_make_groove[T]
-    }
-    $if T is IPhysicsServer2DExtensionJointMakeDampedSpring {
-        ci.virtual_methods["_joint_make_damped_spring"] = physicsserver2dextension_ujoint_make_damped_spring[T]
-    }
-    $if T is IPhysicsServer2DExtensionPinJointSetFlag {
-        ci.virtual_methods["_pin_joint_set_flag"] = physicsserver2dextension_upin_joint_set_flag[T]
-    }
-    $if T is IPhysicsServer2DExtensionPinJointGetFlag {
-        ci.virtual_methods["_pin_joint_get_flag"] = physicsserver2dextension_upin_joint_get_flag[T]
-    }
-    $if T is IPhysicsServer2DExtensionPinJointSetParam {
-        ci.virtual_methods["_pin_joint_set_param"] = physicsserver2dextension_upin_joint_set_param[T]
-    }
-    $if T is IPhysicsServer2DExtensionPinJointGetParam {
-        ci.virtual_methods["_pin_joint_get_param"] = physicsserver2dextension_upin_joint_get_param[T]
-    }
-    $if T is IPhysicsServer2DExtensionDampedSpringJointSetParam {
-        ci.virtual_methods["_damped_spring_joint_set_param"] = physicsserver2dextension_udamped_spring_joint_set_param[T]
-    }
-    $if T is IPhysicsServer2DExtensionDampedSpringJointGetParam {
-        ci.virtual_methods["_damped_spring_joint_get_param"] = physicsserver2dextension_udamped_spring_joint_get_param[T]
-    }
-    $if T is IPhysicsServer2DExtensionJointGetType {
-        ci.virtual_methods["_joint_get_type"] = physicsserver2dextension_ujoint_get_type[T]
-    }
-    $if T is IPhysicsServer2DExtensionFreeRid {
-        ci.virtual_methods["_free_rid"] = physicsserver2dextension_ufree_rid[T]
-    }
-    $if T is IPhysicsServer2DExtensionSetActive {
-        ci.virtual_methods["_set_active"] = physicsserver2dextension_uset_active[T]
-    }
-    $if T is IPhysicsServer2DExtensionInit {
-        ci.virtual_methods["_init"] = physicsserver2dextension_uinit[T]
-    }
-    $if T is IPhysicsServer2DExtensionStep {
-        ci.virtual_methods["_step"] = physicsserver2dextension_ustep[T]
-    }
-    $if T is IPhysicsServer2DExtensionSync {
-        ci.virtual_methods["_sync"] = physicsserver2dextension_usync[T]
-    }
-    $if T is IPhysicsServer2DExtensionFlushQueries {
-        ci.virtual_methods["_flush_queries"] = physicsserver2dextension_uflush_queries[T]
-    }
-    $if T is IPhysicsServer2DExtensionEndSync {
-        ci.virtual_methods["_end_sync"] = physicsserver2dextension_uend_sync[T]
-    }
-    $if T is IPhysicsServer2DExtensionFinish {
-        ci.virtual_methods["_finish"] = physicsserver2dextension_ufinish[T]
-    }
-    $if T is IPhysicsServer2DExtensionIsFlushingQueries {
-        ci.virtual_methods["_is_flushing_queries"] = physicsserver2dextension_uis_flushing_queries[T]
-    }
-    $if T is IPhysicsServer2DExtensionGetProcessInfo {
-        ci.virtual_methods["_get_process_info"] = physicsserver2dextension_uget_process_info[T]
-    }
-    $if T is IPhysicsServer3DExtensionWorldBoundaryShapeCreate {
-        ci.virtual_methods["_world_boundary_shape_create"] = physicsserver3dextension_uworld_boundary_shape_create[T]
-    }
-    $if T is IPhysicsServer3DExtensionSeparationRayShapeCreate {
-        ci.virtual_methods["_separation_ray_shape_create"] = physicsserver3dextension_useparation_ray_shape_create[T]
-    }
-    $if T is IPhysicsServer3DExtensionSphereShapeCreate {
-        ci.virtual_methods["_sphere_shape_create"] = physicsserver3dextension_usphere_shape_create[T]
-    }
-    $if T is IPhysicsServer3DExtensionBoxShapeCreate {
-        ci.virtual_methods["_box_shape_create"] = physicsserver3dextension_ubox_shape_create[T]
-    }
-    $if T is IPhysicsServer3DExtensionCapsuleShapeCreate {
-        ci.virtual_methods["_capsule_shape_create"] = physicsserver3dextension_ucapsule_shape_create[T]
-    }
-    $if T is IPhysicsServer3DExtensionCylinderShapeCreate {
-        ci.virtual_methods["_cylinder_shape_create"] = physicsserver3dextension_ucylinder_shape_create[T]
-    }
-    $if T is IPhysicsServer3DExtensionConvexPolygonShapeCreate {
-        ci.virtual_methods["_convex_polygon_shape_create"] = physicsserver3dextension_uconvex_polygon_shape_create[T]
-    }
-    $if T is IPhysicsServer3DExtensionConcavePolygonShapeCreate {
-        ci.virtual_methods["_concave_polygon_shape_create"] = physicsserver3dextension_uconcave_polygon_shape_create[T]
-    }
-    $if T is IPhysicsServer3DExtensionHeightmapShapeCreate {
-        ci.virtual_methods["_heightmap_shape_create"] = physicsserver3dextension_uheightmap_shape_create[T]
-    }
-    $if T is IPhysicsServer3DExtensionCustomShapeCreate {
-        ci.virtual_methods["_custom_shape_create"] = physicsserver3dextension_ucustom_shape_create[T]
-    }
-    $if T is IPhysicsServer3DExtensionShapeSetData {
-        ci.virtual_methods["_shape_set_data"] = physicsserver3dextension_ushape_set_data[T]
-    }
-    $if T is IPhysicsServer3DExtensionShapeSetCustomSolverBias {
-        ci.virtual_methods["_shape_set_custom_solver_bias"] = physicsserver3dextension_ushape_set_custom_solver_bias[T]
-    }
-    $if T is IPhysicsServer3DExtensionShapeSetMargin {
-        ci.virtual_methods["_shape_set_margin"] = physicsserver3dextension_ushape_set_margin[T]
-    }
-    $if T is IPhysicsServer3DExtensionShapeGetMargin {
-        ci.virtual_methods["_shape_get_margin"] = physicsserver3dextension_ushape_get_margin[T]
-    }
-    $if T is IPhysicsServer3DExtensionShapeGetType {
-        ci.virtual_methods["_shape_get_type"] = physicsserver3dextension_ushape_get_type[T]
-    }
-    $if T is IPhysicsServer3DExtensionShapeGetData {
-        ci.virtual_methods["_shape_get_data"] = physicsserver3dextension_ushape_get_data[T]
-    }
-    $if T is IPhysicsServer3DExtensionShapeGetCustomSolverBias {
-        ci.virtual_methods["_shape_get_custom_solver_bias"] = physicsserver3dextension_ushape_get_custom_solver_bias[T]
-    }
-    $if T is IPhysicsServer3DExtensionSpaceCreate {
-        ci.virtual_methods["_space_create"] = physicsserver3dextension_uspace_create[T]
-    }
-    $if T is IPhysicsServer3DExtensionSpaceSetActive {
-        ci.virtual_methods["_space_set_active"] = physicsserver3dextension_uspace_set_active[T]
-    }
-    $if T is IPhysicsServer3DExtensionSpaceIsActive {
-        ci.virtual_methods["_space_is_active"] = physicsserver3dextension_uspace_is_active[T]
-    }
-    $if T is IPhysicsServer3DExtensionSpaceSetParam {
-        ci.virtual_methods["_space_set_param"] = physicsserver3dextension_uspace_set_param[T]
-    }
-    $if T is IPhysicsServer3DExtensionSpaceGetParam {
-        ci.virtual_methods["_space_get_param"] = physicsserver3dextension_uspace_get_param[T]
-    }
-    $if T is IPhysicsServer3DExtensionSpaceGetDirectState {
-        ci.virtual_methods["_space_get_direct_state"] = physicsserver3dextension_uspace_get_direct_state[T]
-    }
-    $if T is IPhysicsServer3DExtensionSpaceSetDebugContacts {
-        ci.virtual_methods["_space_set_debug_contacts"] = physicsserver3dextension_uspace_set_debug_contacts[T]
-    }
-    $if T is IPhysicsServer3DExtensionSpaceGetContacts {
-        ci.virtual_methods["_space_get_contacts"] = physicsserver3dextension_uspace_get_contacts[T]
-    }
-    $if T is IPhysicsServer3DExtensionSpaceGetContactCount {
-        ci.virtual_methods["_space_get_contact_count"] = physicsserver3dextension_uspace_get_contact_count[T]
-    }
-    $if T is IPhysicsServer3DExtensionAreaCreate {
-        ci.virtual_methods["_area_create"] = physicsserver3dextension_uarea_create[T]
-    }
-    $if T is IPhysicsServer3DExtensionAreaSetSpace {
-        ci.virtual_methods["_area_set_space"] = physicsserver3dextension_uarea_set_space[T]
-    }
-    $if T is IPhysicsServer3DExtensionAreaGetSpace {
-        ci.virtual_methods["_area_get_space"] = physicsserver3dextension_uarea_get_space[T]
-    }
-    $if T is IPhysicsServer3DExtensionAreaAddShape {
-        ci.virtual_methods["_area_add_shape"] = physicsserver3dextension_uarea_add_shape[T]
-    }
-    $if T is IPhysicsServer3DExtensionAreaSetShape {
-        ci.virtual_methods["_area_set_shape"] = physicsserver3dextension_uarea_set_shape[T]
-    }
-    $if T is IPhysicsServer3DExtensionAreaSetShapeTransform {
-        ci.virtual_methods["_area_set_shape_transform"] = physicsserver3dextension_uarea_set_shape_transform[T]
-    }
-    $if T is IPhysicsServer3DExtensionAreaSetShapeDisabled {
-        ci.virtual_methods["_area_set_shape_disabled"] = physicsserver3dextension_uarea_set_shape_disabled[T]
-    }
-    $if T is IPhysicsServer3DExtensionAreaGetShapeCount {
-        ci.virtual_methods["_area_get_shape_count"] = physicsserver3dextension_uarea_get_shape_count[T]
-    }
-    $if T is IPhysicsServer3DExtensionAreaGetShape {
-        ci.virtual_methods["_area_get_shape"] = physicsserver3dextension_uarea_get_shape[T]
-    }
-    $if T is IPhysicsServer3DExtensionAreaGetShapeTransform {
-        ci.virtual_methods["_area_get_shape_transform"] = physicsserver3dextension_uarea_get_shape_transform[T]
-    }
-    $if T is IPhysicsServer3DExtensionAreaRemoveShape {
-        ci.virtual_methods["_area_remove_shape"] = physicsserver3dextension_uarea_remove_shape[T]
-    }
-    $if T is IPhysicsServer3DExtensionAreaClearShapes {
-        ci.virtual_methods["_area_clear_shapes"] = physicsserver3dextension_uarea_clear_shapes[T]
-    }
-    $if T is IPhysicsServer3DExtensionAreaAttachObjectInstanceId {
-        ci.virtual_methods["_area_attach_object_instance_id"] = physicsserver3dextension_uarea_attach_object_instance_id[T]
-    }
-    $if T is IPhysicsServer3DExtensionAreaGetObjectInstanceId {
-        ci.virtual_methods["_area_get_object_instance_id"] = physicsserver3dextension_uarea_get_object_instance_id[T]
-    }
-    $if T is IPhysicsServer3DExtensionAreaSetParam {
-        ci.virtual_methods["_area_set_param"] = physicsserver3dextension_uarea_set_param[T]
-    }
-    $if T is IPhysicsServer3DExtensionAreaSetTransform {
-        ci.virtual_methods["_area_set_transform"] = physicsserver3dextension_uarea_set_transform[T]
-    }
-    $if T is IPhysicsServer3DExtensionAreaGetParam {
-        ci.virtual_methods["_area_get_param"] = physicsserver3dextension_uarea_get_param[T]
-    }
-    $if T is IPhysicsServer3DExtensionAreaGetTransform {
-        ci.virtual_methods["_area_get_transform"] = physicsserver3dextension_uarea_get_transform[T]
-    }
-    $if T is IPhysicsServer3DExtensionAreaSetCollisionLayer {
-        ci.virtual_methods["_area_set_collision_layer"] = physicsserver3dextension_uarea_set_collision_layer[T]
-    }
-    $if T is IPhysicsServer3DExtensionAreaGetCollisionLayer {
-        ci.virtual_methods["_area_get_collision_layer"] = physicsserver3dextension_uarea_get_collision_layer[T]
-    }
-    $if T is IPhysicsServer3DExtensionAreaSetCollisionMask {
-        ci.virtual_methods["_area_set_collision_mask"] = physicsserver3dextension_uarea_set_collision_mask[T]
-    }
-    $if T is IPhysicsServer3DExtensionAreaGetCollisionMask {
-        ci.virtual_methods["_area_get_collision_mask"] = physicsserver3dextension_uarea_get_collision_mask[T]
-    }
-    $if T is IPhysicsServer3DExtensionAreaSetMonitorable {
-        ci.virtual_methods["_area_set_monitorable"] = physicsserver3dextension_uarea_set_monitorable[T]
-    }
-    $if T is IPhysicsServer3DExtensionAreaSetRayPickable {
-        ci.virtual_methods["_area_set_ray_pickable"] = physicsserver3dextension_uarea_set_ray_pickable[T]
-    }
-    $if T is IPhysicsServer3DExtensionAreaSetMonitorCallback {
-        ci.virtual_methods["_area_set_monitor_callback"] = physicsserver3dextension_uarea_set_monitor_callback[T]
-    }
-    $if T is IPhysicsServer3DExtensionAreaSetAreaMonitorCallback {
-        ci.virtual_methods["_area_set_area_monitor_callback"] = physicsserver3dextension_uarea_set_area_monitor_callback[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyCreate {
-        ci.virtual_methods["_body_create"] = physicsserver3dextension_ubody_create[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodySetSpace {
-        ci.virtual_methods["_body_set_space"] = physicsserver3dextension_ubody_set_space[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyGetSpace {
-        ci.virtual_methods["_body_get_space"] = physicsserver3dextension_ubody_get_space[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodySetMode {
-        ci.virtual_methods["_body_set_mode"] = physicsserver3dextension_ubody_set_mode[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyGetMode {
-        ci.virtual_methods["_body_get_mode"] = physicsserver3dextension_ubody_get_mode[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyAddShape {
-        ci.virtual_methods["_body_add_shape"] = physicsserver3dextension_ubody_add_shape[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodySetShape {
-        ci.virtual_methods["_body_set_shape"] = physicsserver3dextension_ubody_set_shape[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodySetShapeTransform {
-        ci.virtual_methods["_body_set_shape_transform"] = physicsserver3dextension_ubody_set_shape_transform[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodySetShapeDisabled {
-        ci.virtual_methods["_body_set_shape_disabled"] = physicsserver3dextension_ubody_set_shape_disabled[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyGetShapeCount {
-        ci.virtual_methods["_body_get_shape_count"] = physicsserver3dextension_ubody_get_shape_count[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyGetShape {
-        ci.virtual_methods["_body_get_shape"] = physicsserver3dextension_ubody_get_shape[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyGetShapeTransform {
-        ci.virtual_methods["_body_get_shape_transform"] = physicsserver3dextension_ubody_get_shape_transform[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyRemoveShape {
-        ci.virtual_methods["_body_remove_shape"] = physicsserver3dextension_ubody_remove_shape[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyClearShapes {
-        ci.virtual_methods["_body_clear_shapes"] = physicsserver3dextension_ubody_clear_shapes[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyAttachObjectInstanceId {
-        ci.virtual_methods["_body_attach_object_instance_id"] = physicsserver3dextension_ubody_attach_object_instance_id[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyGetObjectInstanceId {
-        ci.virtual_methods["_body_get_object_instance_id"] = physicsserver3dextension_ubody_get_object_instance_id[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodySetEnableContinuousCollisionDetection {
-        ci.virtual_methods["_body_set_enable_continuous_collision_detection"] = physicsserver3dextension_ubody_set_enable_continuous_collision_detection[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyIsContinuousCollisionDetectionEnabled {
-        ci.virtual_methods["_body_is_continuous_collision_detection_enabled"] = physicsserver3dextension_ubody_is_continuous_collision_detection_enabled[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodySetCollisionLayer {
-        ci.virtual_methods["_body_set_collision_layer"] = physicsserver3dextension_ubody_set_collision_layer[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyGetCollisionLayer {
-        ci.virtual_methods["_body_get_collision_layer"] = physicsserver3dextension_ubody_get_collision_layer[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodySetCollisionMask {
-        ci.virtual_methods["_body_set_collision_mask"] = physicsserver3dextension_ubody_set_collision_mask[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyGetCollisionMask {
-        ci.virtual_methods["_body_get_collision_mask"] = physicsserver3dextension_ubody_get_collision_mask[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodySetCollisionPriority {
-        ci.virtual_methods["_body_set_collision_priority"] = physicsserver3dextension_ubody_set_collision_priority[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyGetCollisionPriority {
-        ci.virtual_methods["_body_get_collision_priority"] = physicsserver3dextension_ubody_get_collision_priority[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodySetUserFlags {
-        ci.virtual_methods["_body_set_user_flags"] = physicsserver3dextension_ubody_set_user_flags[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyGetUserFlags {
-        ci.virtual_methods["_body_get_user_flags"] = physicsserver3dextension_ubody_get_user_flags[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodySetParam {
-        ci.virtual_methods["_body_set_param"] = physicsserver3dextension_ubody_set_param[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyGetParam {
-        ci.virtual_methods["_body_get_param"] = physicsserver3dextension_ubody_get_param[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyResetMassProperties {
-        ci.virtual_methods["_body_reset_mass_properties"] = physicsserver3dextension_ubody_reset_mass_properties[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodySetState {
-        ci.virtual_methods["_body_set_state"] = physicsserver3dextension_ubody_set_state[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyGetState {
-        ci.virtual_methods["_body_get_state"] = physicsserver3dextension_ubody_get_state[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyApplyCentralImpulse {
-        ci.virtual_methods["_body_apply_central_impulse"] = physicsserver3dextension_ubody_apply_central_impulse[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyApplyImpulse {
-        ci.virtual_methods["_body_apply_impulse"] = physicsserver3dextension_ubody_apply_impulse[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyApplyTorqueImpulse {
-        ci.virtual_methods["_body_apply_torque_impulse"] = physicsserver3dextension_ubody_apply_torque_impulse[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyApplyCentralForce {
-        ci.virtual_methods["_body_apply_central_force"] = physicsserver3dextension_ubody_apply_central_force[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyApplyForce {
-        ci.virtual_methods["_body_apply_force"] = physicsserver3dextension_ubody_apply_force[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyApplyTorque {
-        ci.virtual_methods["_body_apply_torque"] = physicsserver3dextension_ubody_apply_torque[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyAddConstantCentralForce {
-        ci.virtual_methods["_body_add_constant_central_force"] = physicsserver3dextension_ubody_add_constant_central_force[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyAddConstantForce {
-        ci.virtual_methods["_body_add_constant_force"] = physicsserver3dextension_ubody_add_constant_force[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyAddConstantTorque {
-        ci.virtual_methods["_body_add_constant_torque"] = physicsserver3dextension_ubody_add_constant_torque[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodySetConstantForce {
-        ci.virtual_methods["_body_set_constant_force"] = physicsserver3dextension_ubody_set_constant_force[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyGetConstantForce {
-        ci.virtual_methods["_body_get_constant_force"] = physicsserver3dextension_ubody_get_constant_force[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodySetConstantTorque {
-        ci.virtual_methods["_body_set_constant_torque"] = physicsserver3dextension_ubody_set_constant_torque[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyGetConstantTorque {
-        ci.virtual_methods["_body_get_constant_torque"] = physicsserver3dextension_ubody_get_constant_torque[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodySetAxisVelocity {
-        ci.virtual_methods["_body_set_axis_velocity"] = physicsserver3dextension_ubody_set_axis_velocity[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodySetAxisLock {
-        ci.virtual_methods["_body_set_axis_lock"] = physicsserver3dextension_ubody_set_axis_lock[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyIsAxisLocked {
-        ci.virtual_methods["_body_is_axis_locked"] = physicsserver3dextension_ubody_is_axis_locked[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyAddCollisionException {
-        ci.virtual_methods["_body_add_collision_exception"] = physicsserver3dextension_ubody_add_collision_exception[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyRemoveCollisionException {
-        ci.virtual_methods["_body_remove_collision_exception"] = physicsserver3dextension_ubody_remove_collision_exception[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyGetCollisionExceptions {
-        ci.virtual_methods["_body_get_collision_exceptions"] = physicsserver3dextension_ubody_get_collision_exceptions[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodySetMaxContactsReported {
-        ci.virtual_methods["_body_set_max_contacts_reported"] = physicsserver3dextension_ubody_set_max_contacts_reported[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyGetMaxContactsReported {
-        ci.virtual_methods["_body_get_max_contacts_reported"] = physicsserver3dextension_ubody_get_max_contacts_reported[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodySetContactsReportedDepthThreshold {
-        ci.virtual_methods["_body_set_contacts_reported_depth_threshold"] = physicsserver3dextension_ubody_set_contacts_reported_depth_threshold[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyGetContactsReportedDepthThreshold {
-        ci.virtual_methods["_body_get_contacts_reported_depth_threshold"] = physicsserver3dextension_ubody_get_contacts_reported_depth_threshold[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodySetOmitForceIntegration {
-        ci.virtual_methods["_body_set_omit_force_integration"] = physicsserver3dextension_ubody_set_omit_force_integration[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyIsOmittingForceIntegration {
-        ci.virtual_methods["_body_is_omitting_force_integration"] = physicsserver3dextension_ubody_is_omitting_force_integration[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodySetStateSyncCallback {
-        ci.virtual_methods["_body_set_state_sync_callback"] = physicsserver3dextension_ubody_set_state_sync_callback[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodySetForceIntegrationCallback {
-        ci.virtual_methods["_body_set_force_integration_callback"] = physicsserver3dextension_ubody_set_force_integration_callback[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodySetRayPickable {
-        ci.virtual_methods["_body_set_ray_pickable"] = physicsserver3dextension_ubody_set_ray_pickable[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyTestMotion {
-        ci.virtual_methods["_body_test_motion"] = physicsserver3dextension_ubody_test_motion[T]
-    }
-    $if T is IPhysicsServer3DExtensionBodyGetDirectState {
-        ci.virtual_methods["_body_get_direct_state"] = physicsserver3dextension_ubody_get_direct_state[T]
-    }
-    $if T is IPhysicsServer3DExtensionSoftBodyCreate {
-        ci.virtual_methods["_soft_body_create"] = physicsserver3dextension_usoft_body_create[T]
-    }
-    $if T is IPhysicsServer3DExtensionSoftBodyUpdateRenderingServer {
-        ci.virtual_methods["_soft_body_update_rendering_server"] = physicsserver3dextension_usoft_body_update_rendering_server[T]
-    }
-    $if T is IPhysicsServer3DExtensionSoftBodySetSpace {
-        ci.virtual_methods["_soft_body_set_space"] = physicsserver3dextension_usoft_body_set_space[T]
-    }
-    $if T is IPhysicsServer3DExtensionSoftBodyGetSpace {
-        ci.virtual_methods["_soft_body_get_space"] = physicsserver3dextension_usoft_body_get_space[T]
-    }
-    $if T is IPhysicsServer3DExtensionSoftBodySetRayPickable {
-        ci.virtual_methods["_soft_body_set_ray_pickable"] = physicsserver3dextension_usoft_body_set_ray_pickable[T]
-    }
-    $if T is IPhysicsServer3DExtensionSoftBodySetCollisionLayer {
-        ci.virtual_methods["_soft_body_set_collision_layer"] = physicsserver3dextension_usoft_body_set_collision_layer[T]
-    }
-    $if T is IPhysicsServer3DExtensionSoftBodyGetCollisionLayer {
-        ci.virtual_methods["_soft_body_get_collision_layer"] = physicsserver3dextension_usoft_body_get_collision_layer[T]
-    }
-    $if T is IPhysicsServer3DExtensionSoftBodySetCollisionMask {
-        ci.virtual_methods["_soft_body_set_collision_mask"] = physicsserver3dextension_usoft_body_set_collision_mask[T]
-    }
-    $if T is IPhysicsServer3DExtensionSoftBodyGetCollisionMask {
-        ci.virtual_methods["_soft_body_get_collision_mask"] = physicsserver3dextension_usoft_body_get_collision_mask[T]
-    }
-    $if T is IPhysicsServer3DExtensionSoftBodyAddCollisionException {
-        ci.virtual_methods["_soft_body_add_collision_exception"] = physicsserver3dextension_usoft_body_add_collision_exception[T]
-    }
-    $if T is IPhysicsServer3DExtensionSoftBodyRemoveCollisionException {
-        ci.virtual_methods["_soft_body_remove_collision_exception"] = physicsserver3dextension_usoft_body_remove_collision_exception[T]
-    }
-    $if T is IPhysicsServer3DExtensionSoftBodyGetCollisionExceptions {
-        ci.virtual_methods["_soft_body_get_collision_exceptions"] = physicsserver3dextension_usoft_body_get_collision_exceptions[T]
-    }
-    $if T is IPhysicsServer3DExtensionSoftBodySetState {
-        ci.virtual_methods["_soft_body_set_state"] = physicsserver3dextension_usoft_body_set_state[T]
-    }
-    $if T is IPhysicsServer3DExtensionSoftBodyGetState {
-        ci.virtual_methods["_soft_body_get_state"] = physicsserver3dextension_usoft_body_get_state[T]
-    }
-    $if T is IPhysicsServer3DExtensionSoftBodySetTransform {
-        ci.virtual_methods["_soft_body_set_transform"] = physicsserver3dextension_usoft_body_set_transform[T]
-    }
-    $if T is IPhysicsServer3DExtensionSoftBodySetSimulationPrecision {
-        ci.virtual_methods["_soft_body_set_simulation_precision"] = physicsserver3dextension_usoft_body_set_simulation_precision[T]
-    }
-    $if T is IPhysicsServer3DExtensionSoftBodyGetSimulationPrecision {
-        ci.virtual_methods["_soft_body_get_simulation_precision"] = physicsserver3dextension_usoft_body_get_simulation_precision[T]
-    }
-    $if T is IPhysicsServer3DExtensionSoftBodySetTotalMass {
-        ci.virtual_methods["_soft_body_set_total_mass"] = physicsserver3dextension_usoft_body_set_total_mass[T]
-    }
-    $if T is IPhysicsServer3DExtensionSoftBodyGetTotalMass {
-        ci.virtual_methods["_soft_body_get_total_mass"] = physicsserver3dextension_usoft_body_get_total_mass[T]
-    }
-    $if T is IPhysicsServer3DExtensionSoftBodySetLinearStiffness {
-        ci.virtual_methods["_soft_body_set_linear_stiffness"] = physicsserver3dextension_usoft_body_set_linear_stiffness[T]
-    }
-    $if T is IPhysicsServer3DExtensionSoftBodyGetLinearStiffness {
-        ci.virtual_methods["_soft_body_get_linear_stiffness"] = physicsserver3dextension_usoft_body_get_linear_stiffness[T]
-    }
-    $if T is IPhysicsServer3DExtensionSoftBodySetPressureCoefficient {
-        ci.virtual_methods["_soft_body_set_pressure_coefficient"] = physicsserver3dextension_usoft_body_set_pressure_coefficient[T]
-    }
-    $if T is IPhysicsServer3DExtensionSoftBodyGetPressureCoefficient {
-        ci.virtual_methods["_soft_body_get_pressure_coefficient"] = physicsserver3dextension_usoft_body_get_pressure_coefficient[T]
-    }
-    $if T is IPhysicsServer3DExtensionSoftBodySetDampingCoefficient {
-        ci.virtual_methods["_soft_body_set_damping_coefficient"] = physicsserver3dextension_usoft_body_set_damping_coefficient[T]
-    }
-    $if T is IPhysicsServer3DExtensionSoftBodyGetDampingCoefficient {
-        ci.virtual_methods["_soft_body_get_damping_coefficient"] = physicsserver3dextension_usoft_body_get_damping_coefficient[T]
-    }
-    $if T is IPhysicsServer3DExtensionSoftBodySetDragCoefficient {
-        ci.virtual_methods["_soft_body_set_drag_coefficient"] = physicsserver3dextension_usoft_body_set_drag_coefficient[T]
-    }
-    $if T is IPhysicsServer3DExtensionSoftBodyGetDragCoefficient {
-        ci.virtual_methods["_soft_body_get_drag_coefficient"] = physicsserver3dextension_usoft_body_get_drag_coefficient[T]
-    }
-    $if T is IPhysicsServer3DExtensionSoftBodySetMesh {
-        ci.virtual_methods["_soft_body_set_mesh"] = physicsserver3dextension_usoft_body_set_mesh[T]
-    }
-    $if T is IPhysicsServer3DExtensionSoftBodyGetBounds {
-        ci.virtual_methods["_soft_body_get_bounds"] = physicsserver3dextension_usoft_body_get_bounds[T]
-    }
-    $if T is IPhysicsServer3DExtensionSoftBodyMovePoint {
-        ci.virtual_methods["_soft_body_move_point"] = physicsserver3dextension_usoft_body_move_point[T]
-    }
-    $if T is IPhysicsServer3DExtensionSoftBodyGetPointGlobalPosition {
-        ci.virtual_methods["_soft_body_get_point_global_position"] = physicsserver3dextension_usoft_body_get_point_global_position[T]
-    }
-    $if T is IPhysicsServer3DExtensionSoftBodyRemoveAllPinnedPoints {
-        ci.virtual_methods["_soft_body_remove_all_pinned_points"] = physicsserver3dextension_usoft_body_remove_all_pinned_points[T]
-    }
-    $if T is IPhysicsServer3DExtensionSoftBodyPinPoint {
-        ci.virtual_methods["_soft_body_pin_point"] = physicsserver3dextension_usoft_body_pin_point[T]
-    }
-    $if T is IPhysicsServer3DExtensionSoftBodyIsPointPinned {
-        ci.virtual_methods["_soft_body_is_point_pinned"] = physicsserver3dextension_usoft_body_is_point_pinned[T]
-    }
-    $if T is IPhysicsServer3DExtensionJointCreate {
-        ci.virtual_methods["_joint_create"] = physicsserver3dextension_ujoint_create[T]
-    }
-    $if T is IPhysicsServer3DExtensionJointClear {
-        ci.virtual_methods["_joint_clear"] = physicsserver3dextension_ujoint_clear[T]
-    }
-    $if T is IPhysicsServer3DExtensionJointMakePin {
-        ci.virtual_methods["_joint_make_pin"] = physicsserver3dextension_ujoint_make_pin[T]
-    }
-    $if T is IPhysicsServer3DExtensionPinJointSetParam {
-        ci.virtual_methods["_pin_joint_set_param"] = physicsserver3dextension_upin_joint_set_param[T]
-    }
-    $if T is IPhysicsServer3DExtensionPinJointGetParam {
-        ci.virtual_methods["_pin_joint_get_param"] = physicsserver3dextension_upin_joint_get_param[T]
-    }
-    $if T is IPhysicsServer3DExtensionPinJointSetLocalA {
-        ci.virtual_methods["_pin_joint_set_local_a"] = physicsserver3dextension_upin_joint_set_local_a[T]
-    }
-    $if T is IPhysicsServer3DExtensionPinJointGetLocalA {
-        ci.virtual_methods["_pin_joint_get_local_a"] = physicsserver3dextension_upin_joint_get_local_a[T]
-    }
-    $if T is IPhysicsServer3DExtensionPinJointSetLocalB {
-        ci.virtual_methods["_pin_joint_set_local_b"] = physicsserver3dextension_upin_joint_set_local_b[T]
-    }
-    $if T is IPhysicsServer3DExtensionPinJointGetLocalB {
-        ci.virtual_methods["_pin_joint_get_local_b"] = physicsserver3dextension_upin_joint_get_local_b[T]
-    }
-    $if T is IPhysicsServer3DExtensionJointMakeHinge {
-        ci.virtual_methods["_joint_make_hinge"] = physicsserver3dextension_ujoint_make_hinge[T]
-    }
-    $if T is IPhysicsServer3DExtensionJointMakeHingeSimple {
-        ci.virtual_methods["_joint_make_hinge_simple"] = physicsserver3dextension_ujoint_make_hinge_simple[T]
-    }
-    $if T is IPhysicsServer3DExtensionHingeJointSetParam {
-        ci.virtual_methods["_hinge_joint_set_param"] = physicsserver3dextension_uhinge_joint_set_param[T]
-    }
-    $if T is IPhysicsServer3DExtensionHingeJointGetParam {
-        ci.virtual_methods["_hinge_joint_get_param"] = physicsserver3dextension_uhinge_joint_get_param[T]
-    }
-    $if T is IPhysicsServer3DExtensionHingeJointSetFlag {
-        ci.virtual_methods["_hinge_joint_set_flag"] = physicsserver3dextension_uhinge_joint_set_flag[T]
-    }
-    $if T is IPhysicsServer3DExtensionHingeJointGetFlag {
-        ci.virtual_methods["_hinge_joint_get_flag"] = physicsserver3dextension_uhinge_joint_get_flag[T]
-    }
-    $if T is IPhysicsServer3DExtensionJointMakeSlider {
-        ci.virtual_methods["_joint_make_slider"] = physicsserver3dextension_ujoint_make_slider[T]
-    }
-    $if T is IPhysicsServer3DExtensionSliderJointSetParam {
-        ci.virtual_methods["_slider_joint_set_param"] = physicsserver3dextension_uslider_joint_set_param[T]
-    }
-    $if T is IPhysicsServer3DExtensionSliderJointGetParam {
-        ci.virtual_methods["_slider_joint_get_param"] = physicsserver3dextension_uslider_joint_get_param[T]
-    }
-    $if T is IPhysicsServer3DExtensionJointMakeConeTwist {
-        ci.virtual_methods["_joint_make_cone_twist"] = physicsserver3dextension_ujoint_make_cone_twist[T]
-    }
-    $if T is IPhysicsServer3DExtensionConeTwistJointSetParam {
-        ci.virtual_methods["_cone_twist_joint_set_param"] = physicsserver3dextension_ucone_twist_joint_set_param[T]
-    }
-    $if T is IPhysicsServer3DExtensionConeTwistJointGetParam {
-        ci.virtual_methods["_cone_twist_joint_get_param"] = physicsserver3dextension_ucone_twist_joint_get_param[T]
-    }
-    $if T is IPhysicsServer3DExtensionJointMakeGeneric6dof {
-        ci.virtual_methods["_joint_make_generic_6dof"] = physicsserver3dextension_ujoint_make_generic_6dof[T]
-    }
-    $if T is IPhysicsServer3DExtensionGeneric6dofJointSetParam {
-        ci.virtual_methods["_generic_6dof_joint_set_param"] = physicsserver3dextension_ugeneric_6dof_joint_set_param[T]
-    }
-    $if T is IPhysicsServer3DExtensionGeneric6dofJointGetParam {
-        ci.virtual_methods["_generic_6dof_joint_get_param"] = physicsserver3dextension_ugeneric_6dof_joint_get_param[T]
-    }
-    $if T is IPhysicsServer3DExtensionGeneric6dofJointSetFlag {
-        ci.virtual_methods["_generic_6dof_joint_set_flag"] = physicsserver3dextension_ugeneric_6dof_joint_set_flag[T]
-    }
-    $if T is IPhysicsServer3DExtensionGeneric6dofJointGetFlag {
-        ci.virtual_methods["_generic_6dof_joint_get_flag"] = physicsserver3dextension_ugeneric_6dof_joint_get_flag[T]
-    }
-    $if T is IPhysicsServer3DExtensionJointGetType {
-        ci.virtual_methods["_joint_get_type"] = physicsserver3dextension_ujoint_get_type[T]
-    }
-    $if T is IPhysicsServer3DExtensionJointSetSolverPriority {
-        ci.virtual_methods["_joint_set_solver_priority"] = physicsserver3dextension_ujoint_set_solver_priority[T]
-    }
-    $if T is IPhysicsServer3DExtensionJointGetSolverPriority {
-        ci.virtual_methods["_joint_get_solver_priority"] = physicsserver3dextension_ujoint_get_solver_priority[T]
-    }
-    $if T is IPhysicsServer3DExtensionJointDisableCollisionsBetweenBodies {
-        ci.virtual_methods["_joint_disable_collisions_between_bodies"] = physicsserver3dextension_ujoint_disable_collisions_between_bodies[T]
-    }
-    $if T is IPhysicsServer3DExtensionJointIsDisabledCollisionsBetweenBodies {
-        ci.virtual_methods["_joint_is_disabled_collisions_between_bodies"] = physicsserver3dextension_ujoint_is_disabled_collisions_between_bodies[T]
-    }
-    $if T is IPhysicsServer3DExtensionFreeRid {
-        ci.virtual_methods["_free_rid"] = physicsserver3dextension_ufree_rid[T]
-    }
-    $if T is IPhysicsServer3DExtensionSetActive {
-        ci.virtual_methods["_set_active"] = physicsserver3dextension_uset_active[T]
-    }
-    $if T is IPhysicsServer3DExtensionInit {
-        ci.virtual_methods["_init"] = physicsserver3dextension_uinit[T]
-    }
-    $if T is IPhysicsServer3DExtensionStep {
-        ci.virtual_methods["_step"] = physicsserver3dextension_ustep[T]
-    }
-    $if T is IPhysicsServer3DExtensionSync {
-        ci.virtual_methods["_sync"] = physicsserver3dextension_usync[T]
-    }
-    $if T is IPhysicsServer3DExtensionFlushQueries {
-        ci.virtual_methods["_flush_queries"] = physicsserver3dextension_uflush_queries[T]
-    }
-    $if T is IPhysicsServer3DExtensionEndSync {
-        ci.virtual_methods["_end_sync"] = physicsserver3dextension_uend_sync[T]
-    }
-    $if T is IPhysicsServer3DExtensionFinish {
-        ci.virtual_methods["_finish"] = physicsserver3dextension_ufinish[T]
-    }
-    $if T is IPhysicsServer3DExtensionIsFlushingQueries {
-        ci.virtual_methods["_is_flushing_queries"] = physicsserver3dextension_uis_flushing_queries[T]
-    }
-    $if T is IPhysicsServer3DExtensionGetProcessInfo {
-        ci.virtual_methods["_get_process_info"] = physicsserver3dextension_uget_process_info[T]
-    }
-    $if T is IPhysicsServer3DRenderingServerHandlerSetVertex {
-        ci.virtual_methods["_set_vertex"] = physicsserver3drenderingserverhandler_uset_vertex[T]
-    }
-    $if T is IPhysicsServer3DRenderingServerHandlerSetNormal {
-        ci.virtual_methods["_set_normal"] = physicsserver3drenderingserverhandler_uset_normal[T]
-    }
-    $if T is IPhysicsServer3DRenderingServerHandlerSetAabb {
-        ci.virtual_methods["_set_aabb"] = physicsserver3drenderingserverhandler_uset_aabb[T]
-    }
-    $if T is IPrimitiveMeshCreateMeshArray {
-        ci.virtual_methods["_create_mesh_array"] = primitivemesh_ucreate_mesh_array[T]
-    }
-    $if T is IRangeValueChanged {
-        ci.virtual_methods["_value_changed"] = range_uvalue_changed[T]
-    }
-    $if T is IRenderSceneBuffersExtensionConfigure {
-        ci.virtual_methods["_configure"] = renderscenebuffersextension_uconfigure[T]
-    }
-    $if T is IRenderSceneBuffersExtensionSetFsrSharpness {
-        ci.virtual_methods["_set_fsr_sharpness"] = renderscenebuffersextension_uset_fsr_sharpness[T]
-    }
-    $if T is IRenderSceneBuffersExtensionSetTextureMipmapBias {
-        ci.virtual_methods["_set_texture_mipmap_bias"] = renderscenebuffersextension_uset_texture_mipmap_bias[T]
-    }
-    $if T is IRenderSceneBuffersExtensionSetUseDebanding {
-        ci.virtual_methods["_set_use_debanding"] = renderscenebuffersextension_uset_use_debanding[T]
-    }
-    $if T is IResourceSetupLocalToScene {
-        ci.virtual_methods["_setup_local_to_scene"] = resource_usetup_local_to_scene[T]
-    }
-    $if T is IResourceFormatLoaderGetRecognizedExtensions {
-        ci.virtual_methods["_get_recognized_extensions"] = resourceformatloader_uget_recognized_extensions[T]
-    }
-    $if T is IResourceFormatLoaderRecognizePath {
-        ci.virtual_methods["_recognize_path"] = resourceformatloader_urecognize_path[T]
-    }
-    $if T is IResourceFormatLoaderHandlesType {
-        ci.virtual_methods["_handles_type"] = resourceformatloader_uhandles_type[T]
-    }
-    $if T is IResourceFormatLoaderGetResourceType {
-        ci.virtual_methods["_get_resource_type"] = resourceformatloader_uget_resource_type[T]
-    }
-    $if T is IResourceFormatLoaderGetResourceScriptClass {
-        ci.virtual_methods["_get_resource_script_class"] = resourceformatloader_uget_resource_script_class[T]
-    }
-    $if T is IResourceFormatLoaderGetResourceUid {
-        ci.virtual_methods["_get_resource_uid"] = resourceformatloader_uget_resource_uid[T]
-    }
-    $if T is IResourceFormatLoaderGetDependencies {
-        ci.virtual_methods["_get_dependencies"] = resourceformatloader_uget_dependencies[T]
-    }
-    $if T is IResourceFormatLoaderRenameDependencies {
-        ci.virtual_methods["_rename_dependencies"] = resourceformatloader_urename_dependencies[T]
-    }
-    $if T is IResourceFormatLoaderExists {
-        ci.virtual_methods["_exists"] = resourceformatloader_uexists[T]
-    }
-    $if T is IResourceFormatLoaderGetClassesUsed {
-        ci.virtual_methods["_get_classes_used"] = resourceformatloader_uget_classes_used[T]
-    }
-    $if T is IResourceFormatLoaderLoad {
-        ci.virtual_methods["_load"] = resourceformatloader_uload[T]
-    }
-    $if T is IResourceFormatSaverSave {
-        ci.virtual_methods["_save"] = resourceformatsaver_usave[T]
-    }
-    $if T is IResourceFormatSaverSetUid {
-        ci.virtual_methods["_set_uid"] = resourceformatsaver_uset_uid[T]
-    }
-    $if T is IResourceFormatSaverRecognize {
-        ci.virtual_methods["_recognize"] = resourceformatsaver_urecognize[T]
-    }
-    $if T is IResourceFormatSaverGetRecognizedExtensions {
-        ci.virtual_methods["_get_recognized_extensions"] = resourceformatsaver_uget_recognized_extensions[T]
-    }
-    $if T is IResourceFormatSaverRecognizePath {
-        ci.virtual_methods["_recognize_path"] = resourceformatsaver_urecognize_path[T]
-    }
-    $if T is IRichTextEffectProcessCustomFx {
-        ci.virtual_methods["_process_custom_fx"] = richtexteffect_uprocess_custom_fx[T]
-    }
-    $if T is IRigidBody2DIntegrateForces {
-        ci.virtual_methods["_integrate_forces"] = rigidbody2d_uintegrate_forces[T]
-    }
-    $if T is IRigidBody3DIntegrateForces {
-        ci.virtual_methods["_integrate_forces"] = rigidbody3d_uintegrate_forces[T]
-    }
-    $if T is IScriptExtensionEditorCanReloadFromFile {
-        ci.virtual_methods["_editor_can_reload_from_file"] = scriptextension_ueditor_can_reload_from_file[T]
-    }
-    $if T is IScriptExtensionPlaceholderErased {
-        ci.virtual_methods["_placeholder_erased"] = scriptextension_uplaceholder_erased[T]
-    }
-    $if T is IScriptExtensionCanInstantiate {
-        ci.virtual_methods["_can_instantiate"] = scriptextension_ucan_instantiate[T]
-    }
-    $if T is IScriptExtensionGetBaseScript {
-        ci.virtual_methods["_get_base_script"] = scriptextension_uget_base_script[T]
-    }
-    $if T is IScriptExtensionGetGlobalName {
-        ci.virtual_methods["_get_global_name"] = scriptextension_uget_global_name[T]
-    }
-    $if T is IScriptExtensionInheritsScript {
-        ci.virtual_methods["_inherits_script"] = scriptextension_uinherits_script[T]
-    }
-    $if T is IScriptExtensionGetInstanceBaseType {
-        ci.virtual_methods["_get_instance_base_type"] = scriptextension_uget_instance_base_type[T]
-    }
-    $if T is IScriptExtensionInstanceCreate {
-        ci.virtual_methods["_instance_create"] = scriptextension_uinstance_create[T]
-    }
-    $if T is IScriptExtensionPlaceholderInstanceCreate {
-        ci.virtual_methods["_placeholder_instance_create"] = scriptextension_uplaceholder_instance_create[T]
-    }
-    $if T is IScriptExtensionInstanceHas {
-        ci.virtual_methods["_instance_has"] = scriptextension_uinstance_has[T]
-    }
-    $if T is IScriptExtensionHasSourceCode {
-        ci.virtual_methods["_has_source_code"] = scriptextension_uhas_source_code[T]
-    }
-    $if T is IScriptExtensionGetSourceCode {
-        ci.virtual_methods["_get_source_code"] = scriptextension_uget_source_code[T]
-    }
-    $if T is IScriptExtensionSetSourceCode {
-        ci.virtual_methods["_set_source_code"] = scriptextension_uset_source_code[T]
-    }
-    $if T is IScriptExtensionReload {
-        ci.virtual_methods["_reload"] = scriptextension_ureload[T]
-    }
-    $if T is IScriptExtensionGetDocumentation {
-        ci.virtual_methods["_get_documentation"] = scriptextension_uget_documentation[T]
-    }
-    $if T is IScriptExtensionGetClassIconPath {
-        ci.virtual_methods["_get_class_icon_path"] = scriptextension_uget_class_icon_path[T]
-    }
-    $if T is IScriptExtensionHasMethod {
-        ci.virtual_methods["_has_method"] = scriptextension_uhas_method[T]
-    }
-    $if T is IScriptExtensionHasStaticMethod {
-        ci.virtual_methods["_has_static_method"] = scriptextension_uhas_static_method[T]
-    }
-    $if T is IScriptExtensionGetMethodInfo {
-        ci.virtual_methods["_get_method_info"] = scriptextension_uget_method_info[T]
-    }
-    $if T is IScriptExtensionIsTool {
-        ci.virtual_methods["_is_tool"] = scriptextension_uis_tool[T]
-    }
-    $if T is IScriptExtensionIsValid {
-        ci.virtual_methods["_is_valid"] = scriptextension_uis_valid[T]
-    }
-    $if T is IScriptExtensionIsAbstract {
-        ci.virtual_methods["_is_abstract"] = scriptextension_uis_abstract[T]
-    }
-    $if T is IScriptExtensionGetLanguage {
-        ci.virtual_methods["_get_language"] = scriptextension_uget_language[T]
-    }
-    $if T is IScriptExtensionHasScriptSignal {
-        ci.virtual_methods["_has_script_signal"] = scriptextension_uhas_script_signal[T]
-    }
-    $if T is IScriptExtensionGetScriptSignalList {
-        ci.virtual_methods["_get_script_signal_list"] = scriptextension_uget_script_signal_list[T]
-    }
-    $if T is IScriptExtensionHasPropertyDefaultValue {
-        ci.virtual_methods["_has_property_default_value"] = scriptextension_uhas_property_default_value[T]
-    }
-    $if T is IScriptExtensionGetPropertyDefaultValue {
-        ci.virtual_methods["_get_property_default_value"] = scriptextension_uget_property_default_value[T]
-    }
-    $if T is IScriptExtensionUpdateExports {
-        ci.virtual_methods["_update_exports"] = scriptextension_uupdate_exports[T]
-    }
-    $if T is IScriptExtensionGetScriptMethodList {
-        ci.virtual_methods["_get_script_method_list"] = scriptextension_uget_script_method_list[T]
-    }
-    $if T is IScriptExtensionGetScriptPropertyList {
-        ci.virtual_methods["_get_script_property_list"] = scriptextension_uget_script_property_list[T]
-    }
-    $if T is IScriptExtensionGetMemberLine {
-        ci.virtual_methods["_get_member_line"] = scriptextension_uget_member_line[T]
-    }
-    $if T is IScriptExtensionGetConstants {
-        ci.virtual_methods["_get_constants"] = scriptextension_uget_constants[T]
-    }
-    $if T is IScriptExtensionGetMembers {
-        ci.virtual_methods["_get_members"] = scriptextension_uget_members[T]
-    }
-    $if T is IScriptExtensionIsPlaceholderFallbackEnabled {
-        ci.virtual_methods["_is_placeholder_fallback_enabled"] = scriptextension_uis_placeholder_fallback_enabled[T]
-    }
-    $if T is IScriptExtensionGetRpcConfig {
-        ci.virtual_methods["_get_rpc_config"] = scriptextension_uget_rpc_config[T]
-    }
-    $if T is IScriptLanguageExtensionGetName {
-        ci.virtual_methods["_get_name"] = scriptlanguageextension_uget_name[T]
-    }
-    $if T is IScriptLanguageExtensionInit {
-        ci.virtual_methods["_init"] = scriptlanguageextension_uinit[T]
-    }
-    $if T is IScriptLanguageExtensionGetType {
-        ci.virtual_methods["_get_type"] = scriptlanguageextension_uget_type[T]
-    }
-    $if T is IScriptLanguageExtensionGetExtension {
-        ci.virtual_methods["_get_extension"] = scriptlanguageextension_uget_extension[T]
-    }
-    $if T is IScriptLanguageExtensionFinish {
-        ci.virtual_methods["_finish"] = scriptlanguageextension_ufinish[T]
-    }
-    $if T is IScriptLanguageExtensionGetReservedWords {
-        ci.virtual_methods["_get_reserved_words"] = scriptlanguageextension_uget_reserved_words[T]
-    }
-    $if T is IScriptLanguageExtensionIsControlFlowKeyword {
-        ci.virtual_methods["_is_control_flow_keyword"] = scriptlanguageextension_uis_control_flow_keyword[T]
-    }
-    $if T is IScriptLanguageExtensionGetCommentDelimiters {
-        ci.virtual_methods["_get_comment_delimiters"] = scriptlanguageextension_uget_comment_delimiters[T]
-    }
-    $if T is IScriptLanguageExtensionGetDocCommentDelimiters {
-        ci.virtual_methods["_get_doc_comment_delimiters"] = scriptlanguageextension_uget_doc_comment_delimiters[T]
-    }
-    $if T is IScriptLanguageExtensionGetStringDelimiters {
-        ci.virtual_methods["_get_string_delimiters"] = scriptlanguageextension_uget_string_delimiters[T]
-    }
-    $if T is IScriptLanguageExtensionMakeTemplate {
-        ci.virtual_methods["_make_template"] = scriptlanguageextension_umake_template[T]
-    }
-    $if T is IScriptLanguageExtensionGetBuiltInTemplates {
-        ci.virtual_methods["_get_built_in_templates"] = scriptlanguageextension_uget_built_in_templates[T]
-    }
-    $if T is IScriptLanguageExtensionIsUsingTemplates {
-        ci.virtual_methods["_is_using_templates"] = scriptlanguageextension_uis_using_templates[T]
-    }
-    $if T is IScriptLanguageExtensionValidate {
-        ci.virtual_methods["_validate"] = scriptlanguageextension_uvalidate[T]
-    }
-    $if T is IScriptLanguageExtensionValidatePath {
-        ci.virtual_methods["_validate_path"] = scriptlanguageextension_uvalidate_path[T]
-    }
-    $if T is IScriptLanguageExtensionCreateScript {
-        ci.virtual_methods["_create_script"] = scriptlanguageextension_ucreate_script[T]
-    }
-    $if T is IScriptLanguageExtensionHasNamedClasses {
-        ci.virtual_methods["_has_named_classes"] = scriptlanguageextension_uhas_named_classes[T]
-    }
-    $if T is IScriptLanguageExtensionSupportsBuiltinMode {
-        ci.virtual_methods["_supports_builtin_mode"] = scriptlanguageextension_usupports_builtin_mode[T]
-    }
-    $if T is IScriptLanguageExtensionSupportsDocumentation {
-        ci.virtual_methods["_supports_documentation"] = scriptlanguageextension_usupports_documentation[T]
-    }
-    $if T is IScriptLanguageExtensionCanInheritFromFile {
-        ci.virtual_methods["_can_inherit_from_file"] = scriptlanguageextension_ucan_inherit_from_file[T]
-    }
-    $if T is IScriptLanguageExtensionFindFunction {
-        ci.virtual_methods["_find_function"] = scriptlanguageextension_ufind_function[T]
-    }
-    $if T is IScriptLanguageExtensionMakeFunction {
-        ci.virtual_methods["_make_function"] = scriptlanguageextension_umake_function[T]
-    }
-    $if T is IScriptLanguageExtensionOpenInExternalEditor {
-        ci.virtual_methods["_open_in_external_editor"] = scriptlanguageextension_uopen_in_external_editor[T]
-    }
-    $if T is IScriptLanguageExtensionOverridesExternalEditor {
-        ci.virtual_methods["_overrides_external_editor"] = scriptlanguageextension_uoverrides_external_editor[T]
-    }
-    $if T is IScriptLanguageExtensionCompleteCode {
-        ci.virtual_methods["_complete_code"] = scriptlanguageextension_ucomplete_code[T]
-    }
-    $if T is IScriptLanguageExtensionLookupCode {
-        ci.virtual_methods["_lookup_code"] = scriptlanguageextension_ulookup_code[T]
-    }
-    $if T is IScriptLanguageExtensionAutoIndentCode {
-        ci.virtual_methods["_auto_indent_code"] = scriptlanguageextension_uauto_indent_code[T]
-    }
-    $if T is IScriptLanguageExtensionAddGlobalConstant {
-        ci.virtual_methods["_add_global_constant"] = scriptlanguageextension_uadd_global_constant[T]
-    }
-    $if T is IScriptLanguageExtensionAddNamedGlobalConstant {
-        ci.virtual_methods["_add_named_global_constant"] = scriptlanguageextension_uadd_named_global_constant[T]
-    }
-    $if T is IScriptLanguageExtensionRemoveNamedGlobalConstant {
-        ci.virtual_methods["_remove_named_global_constant"] = scriptlanguageextension_uremove_named_global_constant[T]
-    }
-    $if T is IScriptLanguageExtensionThreadEnter {
-        ci.virtual_methods["_thread_enter"] = scriptlanguageextension_uthread_enter[T]
-    }
-    $if T is IScriptLanguageExtensionThreadExit {
-        ci.virtual_methods["_thread_exit"] = scriptlanguageextension_uthread_exit[T]
-    }
-    $if T is IScriptLanguageExtensionDebugGetError {
-        ci.virtual_methods["_debug_get_error"] = scriptlanguageextension_udebug_get_error[T]
-    }
-    $if T is IScriptLanguageExtensionDebugGetStackLevelCount {
-        ci.virtual_methods["_debug_get_stack_level_count"] = scriptlanguageextension_udebug_get_stack_level_count[T]
-    }
-    $if T is IScriptLanguageExtensionDebugGetStackLevelLine {
-        ci.virtual_methods["_debug_get_stack_level_line"] = scriptlanguageextension_udebug_get_stack_level_line[T]
-    }
-    $if T is IScriptLanguageExtensionDebugGetStackLevelFunction {
-        ci.virtual_methods["_debug_get_stack_level_function"] = scriptlanguageextension_udebug_get_stack_level_function[T]
-    }
-    $if T is IScriptLanguageExtensionDebugGetStackLevelLocals {
-        ci.virtual_methods["_debug_get_stack_level_locals"] = scriptlanguageextension_udebug_get_stack_level_locals[T]
-    }
-    $if T is IScriptLanguageExtensionDebugGetStackLevelMembers {
-        ci.virtual_methods["_debug_get_stack_level_members"] = scriptlanguageextension_udebug_get_stack_level_members[T]
-    }
-    $if T is IScriptLanguageExtensionDebugGetStackLevelInstance {
-        ci.virtual_methods["_debug_get_stack_level_instance"] = scriptlanguageextension_udebug_get_stack_level_instance[T]
-    }
-    $if T is IScriptLanguageExtensionDebugGetGlobals {
-        ci.virtual_methods["_debug_get_globals"] = scriptlanguageextension_udebug_get_globals[T]
-    }
-    $if T is IScriptLanguageExtensionDebugParseStackLevelExpression {
-        ci.virtual_methods["_debug_parse_stack_level_expression"] = scriptlanguageextension_udebug_parse_stack_level_expression[T]
-    }
-    $if T is IScriptLanguageExtensionDebugGetCurrentStackInfo {
-        ci.virtual_methods["_debug_get_current_stack_info"] = scriptlanguageextension_udebug_get_current_stack_info[T]
-    }
-    $if T is IScriptLanguageExtensionReloadAllScripts {
-        ci.virtual_methods["_reload_all_scripts"] = scriptlanguageextension_ureload_all_scripts[T]
-    }
-    $if T is IScriptLanguageExtensionReloadToolScript {
-        ci.virtual_methods["_reload_tool_script"] = scriptlanguageextension_ureload_tool_script[T]
-    }
-    $if T is IScriptLanguageExtensionGetRecognizedExtensions {
-        ci.virtual_methods["_get_recognized_extensions"] = scriptlanguageextension_uget_recognized_extensions[T]
-    }
-    $if T is IScriptLanguageExtensionGetPublicFunctions {
-        ci.virtual_methods["_get_public_functions"] = scriptlanguageextension_uget_public_functions[T]
-    }
-    $if T is IScriptLanguageExtensionGetPublicConstants {
-        ci.virtual_methods["_get_public_constants"] = scriptlanguageextension_uget_public_constants[T]
-    }
-    $if T is IScriptLanguageExtensionGetPublicAnnotations {
-        ci.virtual_methods["_get_public_annotations"] = scriptlanguageextension_uget_public_annotations[T]
-    }
-    $if T is IScriptLanguageExtensionProfilingStart {
-        ci.virtual_methods["_profiling_start"] = scriptlanguageextension_uprofiling_start[T]
-    }
-    $if T is IScriptLanguageExtensionProfilingStop {
-        ci.virtual_methods["_profiling_stop"] = scriptlanguageextension_uprofiling_stop[T]
-    }
-    $if T is IScriptLanguageExtensionProfilingGetAccumulatedData {
-        ci.virtual_methods["_profiling_get_accumulated_data"] = scriptlanguageextension_uprofiling_get_accumulated_data[T]
-    }
-    $if T is IScriptLanguageExtensionProfilingGetFrameData {
-        ci.virtual_methods["_profiling_get_frame_data"] = scriptlanguageextension_uprofiling_get_frame_data[T]
-    }
-    $if T is IScriptLanguageExtensionFrame {
-        ci.virtual_methods["_frame"] = scriptlanguageextension_uframe[T]
-    }
-    $if T is IScriptLanguageExtensionHandlesGlobalClassType {
-        ci.virtual_methods["_handles_global_class_type"] = scriptlanguageextension_uhandles_global_class_type[T]
-    }
-    $if T is IScriptLanguageExtensionGetGlobalClassName {
-        ci.virtual_methods["_get_global_class_name"] = scriptlanguageextension_uget_global_class_name[T]
-    }
-    $if T is ISkeletonModification2DExecute {
-        ci.virtual_methods["_execute"] = skeletonmodification2d_uexecute[T]
-    }
-    $if T is ISkeletonModification2DSetupModification {
-        ci.virtual_methods["_setup_modification"] = skeletonmodification2d_usetup_modification[T]
-    }
-    $if T is ISkeletonModification2DDrawEditorGizmo {
-        ci.virtual_methods["_draw_editor_gizmo"] = skeletonmodification2d_udraw_editor_gizmo[T]
-    }
-    $if T is IStreamPeerExtensionGetData {
-        ci.virtual_methods["_get_data"] = streampeerextension_uget_data[T]
-    }
-    $if T is IStreamPeerExtensionGetPartialData {
-        ci.virtual_methods["_get_partial_data"] = streampeerextension_uget_partial_data[T]
-    }
-    $if T is IStreamPeerExtensionPutData {
-        ci.virtual_methods["_put_data"] = streampeerextension_uput_data[T]
-    }
-    $if T is IStreamPeerExtensionPutPartialData {
-        ci.virtual_methods["_put_partial_data"] = streampeerextension_uput_partial_data[T]
-    }
-    $if T is IStreamPeerExtensionGetAvailableBytes {
-        ci.virtual_methods["_get_available_bytes"] = streampeerextension_uget_available_bytes[T]
-    }
-    $if T is IStyleBoxDraw {
-        ci.virtual_methods["_draw"] = stylebox_udraw[T]
-    }
-    $if T is IStyleBoxGetDrawRect {
-        ci.virtual_methods["_get_draw_rect"] = stylebox_uget_draw_rect[T]
-    }
-    $if T is IStyleBoxGetMinimumSize {
-        ci.virtual_methods["_get_minimum_size"] = stylebox_uget_minimum_size[T]
-    }
-    $if T is IStyleBoxTestMask {
-        ci.virtual_methods["_test_mask"] = stylebox_utest_mask[T]
-    }
-    $if T is ISubViewportContainerPropagateInputEvent {
-        ci.virtual_methods["_propagate_input_event"] = subviewportcontainer_upropagate_input_event[T]
-    }
-    $if T is ISyntaxHighlighterGetLineSyntaxHighlighting {
-        ci.virtual_methods["_get_line_syntax_highlighting"] = syntaxhighlighter_uget_line_syntax_highlighting[T]
-    }
-    $if T is ISyntaxHighlighterClearHighlightingCache {
-        ci.virtual_methods["_clear_highlighting_cache"] = syntaxhighlighter_uclear_highlighting_cache[T]
-    }
-    $if T is ISyntaxHighlighterUpdateCache {
-        ci.virtual_methods["_update_cache"] = syntaxhighlighter_uupdate_cache[T]
-    }
-    $if T is ITextEditHandleUnicodeInput {
-        ci.virtual_methods["_handle_unicode_input"] = textedit_uhandle_unicode_input[T]
-    }
-    $if T is ITextEditBackspace {
-        ci.virtual_methods["_backspace"] = textedit_ubackspace[T]
-    }
-    $if T is ITextEditCut {
-        ci.virtual_methods["_cut"] = textedit_ucut[T]
-    }
-    $if T is ITextEditCopy {
-        ci.virtual_methods["_copy"] = textedit_ucopy[T]
-    }
-    $if T is ITextEditPaste {
-        ci.virtual_methods["_paste"] = textedit_upaste[T]
-    }
-    $if T is ITextEditPastePrimaryClipboard {
-        ci.virtual_methods["_paste_primary_clipboard"] = textedit_upaste_primary_clipboard[T]
-    }
-    $if T is ITextServerExtensionHasFeature {
-        ci.virtual_methods["_has_feature"] = textserverextension_uhas_feature[T]
-    }
-    $if T is ITextServerExtensionGetName {
-        ci.virtual_methods["_get_name"] = textserverextension_uget_name[T]
-    }
-    $if T is ITextServerExtensionGetFeatures {
-        ci.virtual_methods["_get_features"] = textserverextension_uget_features[T]
-    }
-    $if T is ITextServerExtensionFreeRid {
-        ci.virtual_methods["_free_rid"] = textserverextension_ufree_rid[T]
-    }
-    $if T is ITextServerExtensionHas {
-        ci.virtual_methods["_has"] = textserverextension_uhas[T]
-    }
-    $if T is ITextServerExtensionLoadSupportData {
-        ci.virtual_methods["_load_support_data"] = textserverextension_uload_support_data[T]
-    }
-    $if T is ITextServerExtensionGetSupportDataFilename {
-        ci.virtual_methods["_get_support_data_filename"] = textserverextension_uget_support_data_filename[T]
-    }
-    $if T is ITextServerExtensionGetSupportDataInfo {
-        ci.virtual_methods["_get_support_data_info"] = textserverextension_uget_support_data_info[T]
-    }
-    $if T is ITextServerExtensionSaveSupportData {
-        ci.virtual_methods["_save_support_data"] = textserverextension_usave_support_data[T]
-    }
-    $if T is ITextServerExtensionIsLocaleRightToLeft {
-        ci.virtual_methods["_is_locale_right_to_left"] = textserverextension_uis_locale_right_to_left[T]
-    }
-    $if T is ITextServerExtensionNameToTag {
-        ci.virtual_methods["_name_to_tag"] = textserverextension_uname_to_tag[T]
-    }
-    $if T is ITextServerExtensionTagToName {
-        ci.virtual_methods["_tag_to_name"] = textserverextension_utag_to_name[T]
-    }
-    $if T is ITextServerExtensionCreateFont {
-        ci.virtual_methods["_create_font"] = textserverextension_ucreate_font[T]
-    }
-    $if T is ITextServerExtensionCreateFontLinkedVariation {
-        ci.virtual_methods["_create_font_linked_variation"] = textserverextension_ucreate_font_linked_variation[T]
-    }
-    $if T is ITextServerExtensionFontSetData {
-        ci.virtual_methods["_font_set_data"] = textserverextension_ufont_set_data[T]
-    }
-    $if T is ITextServerExtensionFontSetDataPtr {
-        ci.virtual_methods["_font_set_data_ptr"] = textserverextension_ufont_set_data_ptr[T]
-    }
-    $if T is ITextServerExtensionFontSetFaceIndex {
-        ci.virtual_methods["_font_set_face_index"] = textserverextension_ufont_set_face_index[T]
-    }
-    $if T is ITextServerExtensionFontGetFaceIndex {
-        ci.virtual_methods["_font_get_face_index"] = textserverextension_ufont_get_face_index[T]
-    }
-    $if T is ITextServerExtensionFontGetFaceCount {
-        ci.virtual_methods["_font_get_face_count"] = textserverextension_ufont_get_face_count[T]
-    }
-    $if T is ITextServerExtensionFontSetStyle {
-        ci.virtual_methods["_font_set_style"] = textserverextension_ufont_set_style[T]
-    }
-    $if T is ITextServerExtensionFontGetStyle {
-        ci.virtual_methods["_font_get_style"] = textserverextension_ufont_get_style[T]
-    }
-    $if T is ITextServerExtensionFontSetName {
-        ci.virtual_methods["_font_set_name"] = textserverextension_ufont_set_name[T]
-    }
-    $if T is ITextServerExtensionFontGetName {
-        ci.virtual_methods["_font_get_name"] = textserverextension_ufont_get_name[T]
-    }
-    $if T is ITextServerExtensionFontGetOtNameStrings {
-        ci.virtual_methods["_font_get_ot_name_strings"] = textserverextension_ufont_get_ot_name_strings[T]
-    }
-    $if T is ITextServerExtensionFontSetStyleName {
-        ci.virtual_methods["_font_set_style_name"] = textserverextension_ufont_set_style_name[T]
-    }
-    $if T is ITextServerExtensionFontGetStyleName {
-        ci.virtual_methods["_font_get_style_name"] = textserverextension_ufont_get_style_name[T]
-    }
-    $if T is ITextServerExtensionFontSetWeight {
-        ci.virtual_methods["_font_set_weight"] = textserverextension_ufont_set_weight[T]
-    }
-    $if T is ITextServerExtensionFontGetWeight {
-        ci.virtual_methods["_font_get_weight"] = textserverextension_ufont_get_weight[T]
-    }
-    $if T is ITextServerExtensionFontSetStretch {
-        ci.virtual_methods["_font_set_stretch"] = textserverextension_ufont_set_stretch[T]
-    }
-    $if T is ITextServerExtensionFontGetStretch {
-        ci.virtual_methods["_font_get_stretch"] = textserverextension_ufont_get_stretch[T]
-    }
-    $if T is ITextServerExtensionFontSetAntialiasing {
-        ci.virtual_methods["_font_set_antialiasing"] = textserverextension_ufont_set_antialiasing[T]
-    }
-    $if T is ITextServerExtensionFontGetAntialiasing {
-        ci.virtual_methods["_font_get_antialiasing"] = textserverextension_ufont_get_antialiasing[T]
-    }
-    $if T is ITextServerExtensionFontSetGenerateMipmaps {
-        ci.virtual_methods["_font_set_generate_mipmaps"] = textserverextension_ufont_set_generate_mipmaps[T]
-    }
-    $if T is ITextServerExtensionFontGetGenerateMipmaps {
-        ci.virtual_methods["_font_get_generate_mipmaps"] = textserverextension_ufont_get_generate_mipmaps[T]
-    }
-    $if T is ITextServerExtensionFontSetMultichannelSignedDistanceField {
-        ci.virtual_methods["_font_set_multichannel_signed_distance_field"] = textserverextension_ufont_set_multichannel_signed_distance_field[T]
-    }
-    $if T is ITextServerExtensionFontIsMultichannelSignedDistanceField {
-        ci.virtual_methods["_font_is_multichannel_signed_distance_field"] = textserverextension_ufont_is_multichannel_signed_distance_field[T]
-    }
-    $if T is ITextServerExtensionFontSetMsdfPixelRange {
-        ci.virtual_methods["_font_set_msdf_pixel_range"] = textserverextension_ufont_set_msdf_pixel_range[T]
-    }
-    $if T is ITextServerExtensionFontGetMsdfPixelRange {
-        ci.virtual_methods["_font_get_msdf_pixel_range"] = textserverextension_ufont_get_msdf_pixel_range[T]
-    }
-    $if T is ITextServerExtensionFontSetMsdfSize {
-        ci.virtual_methods["_font_set_msdf_size"] = textserverextension_ufont_set_msdf_size[T]
-    }
-    $if T is ITextServerExtensionFontGetMsdfSize {
-        ci.virtual_methods["_font_get_msdf_size"] = textserverextension_ufont_get_msdf_size[T]
-    }
-    $if T is ITextServerExtensionFontSetFixedSize {
-        ci.virtual_methods["_font_set_fixed_size"] = textserverextension_ufont_set_fixed_size[T]
-    }
-    $if T is ITextServerExtensionFontGetFixedSize {
-        ci.virtual_methods["_font_get_fixed_size"] = textserverextension_ufont_get_fixed_size[T]
-    }
-    $if T is ITextServerExtensionFontSetFixedSizeScaleMode {
-        ci.virtual_methods["_font_set_fixed_size_scale_mode"] = textserverextension_ufont_set_fixed_size_scale_mode[T]
-    }
-    $if T is ITextServerExtensionFontGetFixedSizeScaleMode {
-        ci.virtual_methods["_font_get_fixed_size_scale_mode"] = textserverextension_ufont_get_fixed_size_scale_mode[T]
-    }
-    $if T is ITextServerExtensionFontSetAllowSystemFallback {
-        ci.virtual_methods["_font_set_allow_system_fallback"] = textserverextension_ufont_set_allow_system_fallback[T]
-    }
-    $if T is ITextServerExtensionFontIsAllowSystemFallback {
-        ci.virtual_methods["_font_is_allow_system_fallback"] = textserverextension_ufont_is_allow_system_fallback[T]
-    }
-    $if T is ITextServerExtensionFontSetForceAutohinter {
-        ci.virtual_methods["_font_set_force_autohinter"] = textserverextension_ufont_set_force_autohinter[T]
-    }
-    $if T is ITextServerExtensionFontIsForceAutohinter {
-        ci.virtual_methods["_font_is_force_autohinter"] = textserverextension_ufont_is_force_autohinter[T]
-    }
-    $if T is ITextServerExtensionFontSetHinting {
-        ci.virtual_methods["_font_set_hinting"] = textserverextension_ufont_set_hinting[T]
-    }
-    $if T is ITextServerExtensionFontGetHinting {
-        ci.virtual_methods["_font_get_hinting"] = textserverextension_ufont_get_hinting[T]
-    }
-    $if T is ITextServerExtensionFontSetSubpixelPositioning {
-        ci.virtual_methods["_font_set_subpixel_positioning"] = textserverextension_ufont_set_subpixel_positioning[T]
-    }
-    $if T is ITextServerExtensionFontGetSubpixelPositioning {
-        ci.virtual_methods["_font_get_subpixel_positioning"] = textserverextension_ufont_get_subpixel_positioning[T]
-    }
-    $if T is ITextServerExtensionFontSetEmbolden {
-        ci.virtual_methods["_font_set_embolden"] = textserverextension_ufont_set_embolden[T]
-    }
-    $if T is ITextServerExtensionFontGetEmbolden {
-        ci.virtual_methods["_font_get_embolden"] = textserverextension_ufont_get_embolden[T]
-    }
-    $if T is ITextServerExtensionFontSetSpacing {
-        ci.virtual_methods["_font_set_spacing"] = textserverextension_ufont_set_spacing[T]
-    }
-    $if T is ITextServerExtensionFontGetSpacing {
-        ci.virtual_methods["_font_get_spacing"] = textserverextension_ufont_get_spacing[T]
-    }
-    $if T is ITextServerExtensionFontSetTransform {
-        ci.virtual_methods["_font_set_transform"] = textserverextension_ufont_set_transform[T]
-    }
-    $if T is ITextServerExtensionFontGetTransform {
-        ci.virtual_methods["_font_get_transform"] = textserverextension_ufont_get_transform[T]
-    }
-    $if T is ITextServerExtensionFontSetVariationCoordinates {
-        ci.virtual_methods["_font_set_variation_coordinates"] = textserverextension_ufont_set_variation_coordinates[T]
-    }
-    $if T is ITextServerExtensionFontGetVariationCoordinates {
-        ci.virtual_methods["_font_get_variation_coordinates"] = textserverextension_ufont_get_variation_coordinates[T]
-    }
-    $if T is ITextServerExtensionFontSetOversampling {
-        ci.virtual_methods["_font_set_oversampling"] = textserverextension_ufont_set_oversampling[T]
-    }
-    $if T is ITextServerExtensionFontGetOversampling {
-        ci.virtual_methods["_font_get_oversampling"] = textserverextension_ufont_get_oversampling[T]
-    }
-    $if T is ITextServerExtensionFontGetSizeCacheList {
-        ci.virtual_methods["_font_get_size_cache_list"] = textserverextension_ufont_get_size_cache_list[T]
-    }
-    $if T is ITextServerExtensionFontClearSizeCache {
-        ci.virtual_methods["_font_clear_size_cache"] = textserverextension_ufont_clear_size_cache[T]
-    }
-    $if T is ITextServerExtensionFontRemoveSizeCache {
-        ci.virtual_methods["_font_remove_size_cache"] = textserverextension_ufont_remove_size_cache[T]
-    }
-    $if T is ITextServerExtensionFontSetAscent {
-        ci.virtual_methods["_font_set_ascent"] = textserverextension_ufont_set_ascent[T]
-    }
-    $if T is ITextServerExtensionFontGetAscent {
-        ci.virtual_methods["_font_get_ascent"] = textserverextension_ufont_get_ascent[T]
-    }
-    $if T is ITextServerExtensionFontSetDescent {
-        ci.virtual_methods["_font_set_descent"] = textserverextension_ufont_set_descent[T]
-    }
-    $if T is ITextServerExtensionFontGetDescent {
-        ci.virtual_methods["_font_get_descent"] = textserverextension_ufont_get_descent[T]
-    }
-    $if T is ITextServerExtensionFontSetUnderlinePosition {
-        ci.virtual_methods["_font_set_underline_position"] = textserverextension_ufont_set_underline_position[T]
-    }
-    $if T is ITextServerExtensionFontGetUnderlinePosition {
-        ci.virtual_methods["_font_get_underline_position"] = textserverextension_ufont_get_underline_position[T]
-    }
-    $if T is ITextServerExtensionFontSetUnderlineThickness {
-        ci.virtual_methods["_font_set_underline_thickness"] = textserverextension_ufont_set_underline_thickness[T]
-    }
-    $if T is ITextServerExtensionFontGetUnderlineThickness {
-        ci.virtual_methods["_font_get_underline_thickness"] = textserverextension_ufont_get_underline_thickness[T]
-    }
-    $if T is ITextServerExtensionFontSetScale {
-        ci.virtual_methods["_font_set_scale"] = textserverextension_ufont_set_scale[T]
-    }
-    $if T is ITextServerExtensionFontGetScale {
-        ci.virtual_methods["_font_get_scale"] = textserverextension_ufont_get_scale[T]
-    }
-    $if T is ITextServerExtensionFontGetTextureCount {
-        ci.virtual_methods["_font_get_texture_count"] = textserverextension_ufont_get_texture_count[T]
-    }
-    $if T is ITextServerExtensionFontClearTextures {
-        ci.virtual_methods["_font_clear_textures"] = textserverextension_ufont_clear_textures[T]
-    }
-    $if T is ITextServerExtensionFontRemoveTexture {
-        ci.virtual_methods["_font_remove_texture"] = textserverextension_ufont_remove_texture[T]
-    }
-    $if T is ITextServerExtensionFontSetTextureImage {
-        ci.virtual_methods["_font_set_texture_image"] = textserverextension_ufont_set_texture_image[T]
-    }
-    $if T is ITextServerExtensionFontGetTextureImage {
-        ci.virtual_methods["_font_get_texture_image"] = textserverextension_ufont_get_texture_image[T]
-    }
-    $if T is ITextServerExtensionFontSetTextureOffsets {
-        ci.virtual_methods["_font_set_texture_offsets"] = textserverextension_ufont_set_texture_offsets[T]
-    }
-    $if T is ITextServerExtensionFontGetTextureOffsets {
-        ci.virtual_methods["_font_get_texture_offsets"] = textserverextension_ufont_get_texture_offsets[T]
-    }
-    $if T is ITextServerExtensionFontGetGlyphList {
-        ci.virtual_methods["_font_get_glyph_list"] = textserverextension_ufont_get_glyph_list[T]
-    }
-    $if T is ITextServerExtensionFontClearGlyphs {
-        ci.virtual_methods["_font_clear_glyphs"] = textserverextension_ufont_clear_glyphs[T]
-    }
-    $if T is ITextServerExtensionFontRemoveGlyph {
-        ci.virtual_methods["_font_remove_glyph"] = textserverextension_ufont_remove_glyph[T]
-    }
-    $if T is ITextServerExtensionFontGetGlyphAdvance {
-        ci.virtual_methods["_font_get_glyph_advance"] = textserverextension_ufont_get_glyph_advance[T]
-    }
-    $if T is ITextServerExtensionFontSetGlyphAdvance {
-        ci.virtual_methods["_font_set_glyph_advance"] = textserverextension_ufont_set_glyph_advance[T]
-    }
-    $if T is ITextServerExtensionFontGetGlyphOffset {
-        ci.virtual_methods["_font_get_glyph_offset"] = textserverextension_ufont_get_glyph_offset[T]
-    }
-    $if T is ITextServerExtensionFontSetGlyphOffset {
-        ci.virtual_methods["_font_set_glyph_offset"] = textserverextension_ufont_set_glyph_offset[T]
-    }
-    $if T is ITextServerExtensionFontGetGlyphSize {
-        ci.virtual_methods["_font_get_glyph_size"] = textserverextension_ufont_get_glyph_size[T]
-    }
-    $if T is ITextServerExtensionFontSetGlyphSize {
-        ci.virtual_methods["_font_set_glyph_size"] = textserverextension_ufont_set_glyph_size[T]
-    }
-    $if T is ITextServerExtensionFontGetGlyphUvRect {
-        ci.virtual_methods["_font_get_glyph_uv_rect"] = textserverextension_ufont_get_glyph_uv_rect[T]
-    }
-    $if T is ITextServerExtensionFontSetGlyphUvRect {
-        ci.virtual_methods["_font_set_glyph_uv_rect"] = textserverextension_ufont_set_glyph_uv_rect[T]
-    }
-    $if T is ITextServerExtensionFontGetGlyphTextureIdx {
-        ci.virtual_methods["_font_get_glyph_texture_idx"] = textserverextension_ufont_get_glyph_texture_idx[T]
-    }
-    $if T is ITextServerExtensionFontSetGlyphTextureIdx {
-        ci.virtual_methods["_font_set_glyph_texture_idx"] = textserverextension_ufont_set_glyph_texture_idx[T]
-    }
-    $if T is ITextServerExtensionFontGetGlyphTextureRid {
-        ci.virtual_methods["_font_get_glyph_texture_rid"] = textserverextension_ufont_get_glyph_texture_rid[T]
-    }
-    $if T is ITextServerExtensionFontGetGlyphTextureSize {
-        ci.virtual_methods["_font_get_glyph_texture_size"] = textserverextension_ufont_get_glyph_texture_size[T]
-    }
-    $if T is ITextServerExtensionFontGetGlyphContours {
-        ci.virtual_methods["_font_get_glyph_contours"] = textserverextension_ufont_get_glyph_contours[T]
-    }
-    $if T is ITextServerExtensionFontGetKerningList {
-        ci.virtual_methods["_font_get_kerning_list"] = textserverextension_ufont_get_kerning_list[T]
-    }
-    $if T is ITextServerExtensionFontClearKerningMap {
-        ci.virtual_methods["_font_clear_kerning_map"] = textserverextension_ufont_clear_kerning_map[T]
-    }
-    $if T is ITextServerExtensionFontRemoveKerning {
-        ci.virtual_methods["_font_remove_kerning"] = textserverextension_ufont_remove_kerning[T]
-    }
-    $if T is ITextServerExtensionFontSetKerning {
-        ci.virtual_methods["_font_set_kerning"] = textserverextension_ufont_set_kerning[T]
-    }
-    $if T is ITextServerExtensionFontGetKerning {
-        ci.virtual_methods["_font_get_kerning"] = textserverextension_ufont_get_kerning[T]
-    }
-    $if T is ITextServerExtensionFontGetGlyphIndex {
-        ci.virtual_methods["_font_get_glyph_index"] = textserverextension_ufont_get_glyph_index[T]
-    }
-    $if T is ITextServerExtensionFontGetCharFromGlyphIndex {
-        ci.virtual_methods["_font_get_char_from_glyph_index"] = textserverextension_ufont_get_char_from_glyph_index[T]
-    }
-    $if T is ITextServerExtensionFontHasChar {
-        ci.virtual_methods["_font_has_char"] = textserverextension_ufont_has_char[T]
-    }
-    $if T is ITextServerExtensionFontGetSupportedChars {
-        ci.virtual_methods["_font_get_supported_chars"] = textserverextension_ufont_get_supported_chars[T]
-    }
-    $if T is ITextServerExtensionFontRenderRange {
-        ci.virtual_methods["_font_render_range"] = textserverextension_ufont_render_range[T]
-    }
-    $if T is ITextServerExtensionFontRenderGlyph {
-        ci.virtual_methods["_font_render_glyph"] = textserverextension_ufont_render_glyph[T]
-    }
-    $if T is ITextServerExtensionFontDrawGlyph {
-        ci.virtual_methods["_font_draw_glyph"] = textserverextension_ufont_draw_glyph[T]
-    }
-    $if T is ITextServerExtensionFontDrawGlyphOutline {
-        ci.virtual_methods["_font_draw_glyph_outline"] = textserverextension_ufont_draw_glyph_outline[T]
-    }
-    $if T is ITextServerExtensionFontIsLanguageSupported {
-        ci.virtual_methods["_font_is_language_supported"] = textserverextension_ufont_is_language_supported[T]
-    }
-    $if T is ITextServerExtensionFontSetLanguageSupportOverride {
-        ci.virtual_methods["_font_set_language_support_override"] = textserverextension_ufont_set_language_support_override[T]
-    }
-    $if T is ITextServerExtensionFontGetLanguageSupportOverride {
-        ci.virtual_methods["_font_get_language_support_override"] = textserverextension_ufont_get_language_support_override[T]
-    }
-    $if T is ITextServerExtensionFontRemoveLanguageSupportOverride {
-        ci.virtual_methods["_font_remove_language_support_override"] = textserverextension_ufont_remove_language_support_override[T]
-    }
-    $if T is ITextServerExtensionFontGetLanguageSupportOverrides {
-        ci.virtual_methods["_font_get_language_support_overrides"] = textserverextension_ufont_get_language_support_overrides[T]
-    }
-    $if T is ITextServerExtensionFontIsScriptSupported {
-        ci.virtual_methods["_font_is_script_supported"] = textserverextension_ufont_is_script_supported[T]
-    }
-    $if T is ITextServerExtensionFontSetScriptSupportOverride {
-        ci.virtual_methods["_font_set_script_support_override"] = textserverextension_ufont_set_script_support_override[T]
-    }
-    $if T is ITextServerExtensionFontGetScriptSupportOverride {
-        ci.virtual_methods["_font_get_script_support_override"] = textserverextension_ufont_get_script_support_override[T]
-    }
-    $if T is ITextServerExtensionFontRemoveScriptSupportOverride {
-        ci.virtual_methods["_font_remove_script_support_override"] = textserverextension_ufont_remove_script_support_override[T]
-    }
-    $if T is ITextServerExtensionFontGetScriptSupportOverrides {
-        ci.virtual_methods["_font_get_script_support_overrides"] = textserverextension_ufont_get_script_support_overrides[T]
-    }
-    $if T is ITextServerExtensionFontSetOpentypeFeatureOverrides {
-        ci.virtual_methods["_font_set_opentype_feature_overrides"] = textserverextension_ufont_set_opentype_feature_overrides[T]
-    }
-    $if T is ITextServerExtensionFontGetOpentypeFeatureOverrides {
-        ci.virtual_methods["_font_get_opentype_feature_overrides"] = textserverextension_ufont_get_opentype_feature_overrides[T]
-    }
-    $if T is ITextServerExtensionFontSupportedFeatureList {
-        ci.virtual_methods["_font_supported_feature_list"] = textserverextension_ufont_supported_feature_list[T]
-    }
-    $if T is ITextServerExtensionFontSupportedVariationList {
-        ci.virtual_methods["_font_supported_variation_list"] = textserverextension_ufont_supported_variation_list[T]
-    }
-    $if T is ITextServerExtensionFontGetGlobalOversampling {
-        ci.virtual_methods["_font_get_global_oversampling"] = textserverextension_ufont_get_global_oversampling[T]
-    }
-    $if T is ITextServerExtensionFontSetGlobalOversampling {
-        ci.virtual_methods["_font_set_global_oversampling"] = textserverextension_ufont_set_global_oversampling[T]
-    }
-    $if T is ITextServerExtensionGetHexCodeBoxSize {
-        ci.virtual_methods["_get_hex_code_box_size"] = textserverextension_uget_hex_code_box_size[T]
-    }
-    $if T is ITextServerExtensionDrawHexCodeBox {
-        ci.virtual_methods["_draw_hex_code_box"] = textserverextension_udraw_hex_code_box[T]
-    }
-    $if T is ITextServerExtensionCreateShapedText {
-        ci.virtual_methods["_create_shaped_text"] = textserverextension_ucreate_shaped_text[T]
-    }
-    $if T is ITextServerExtensionShapedTextClear {
-        ci.virtual_methods["_shaped_text_clear"] = textserverextension_ushaped_text_clear[T]
-    }
-    $if T is ITextServerExtensionShapedTextSetDirection {
-        ci.virtual_methods["_shaped_text_set_direction"] = textserverextension_ushaped_text_set_direction[T]
-    }
-    $if T is ITextServerExtensionShapedTextGetDirection {
-        ci.virtual_methods["_shaped_text_get_direction"] = textserverextension_ushaped_text_get_direction[T]
-    }
-    $if T is ITextServerExtensionShapedTextGetInferredDirection {
-        ci.virtual_methods["_shaped_text_get_inferred_direction"] = textserverextension_ushaped_text_get_inferred_direction[T]
-    }
-    $if T is ITextServerExtensionShapedTextSetBidiOverride {
-        ci.virtual_methods["_shaped_text_set_bidi_override"] = textserverextension_ushaped_text_set_bidi_override[T]
-    }
-    $if T is ITextServerExtensionShapedTextSetCustomPunctuation {
-        ci.virtual_methods["_shaped_text_set_custom_punctuation"] = textserverextension_ushaped_text_set_custom_punctuation[T]
-    }
-    $if T is ITextServerExtensionShapedTextGetCustomPunctuation {
-        ci.virtual_methods["_shaped_text_get_custom_punctuation"] = textserverextension_ushaped_text_get_custom_punctuation[T]
-    }
-    $if T is ITextServerExtensionShapedTextSetOrientation {
-        ci.virtual_methods["_shaped_text_set_orientation"] = textserverextension_ushaped_text_set_orientation[T]
-    }
-    $if T is ITextServerExtensionShapedTextGetOrientation {
-        ci.virtual_methods["_shaped_text_get_orientation"] = textserverextension_ushaped_text_get_orientation[T]
-    }
-    $if T is ITextServerExtensionShapedTextSetPreserveInvalid {
-        ci.virtual_methods["_shaped_text_set_preserve_invalid"] = textserverextension_ushaped_text_set_preserve_invalid[T]
-    }
-    $if T is ITextServerExtensionShapedTextGetPreserveInvalid {
-        ci.virtual_methods["_shaped_text_get_preserve_invalid"] = textserverextension_ushaped_text_get_preserve_invalid[T]
-    }
-    $if T is ITextServerExtensionShapedTextSetPreserveControl {
-        ci.virtual_methods["_shaped_text_set_preserve_control"] = textserverextension_ushaped_text_set_preserve_control[T]
-    }
-    $if T is ITextServerExtensionShapedTextGetPreserveControl {
-        ci.virtual_methods["_shaped_text_get_preserve_control"] = textserverextension_ushaped_text_get_preserve_control[T]
-    }
-    $if T is ITextServerExtensionShapedTextSetSpacing {
-        ci.virtual_methods["_shaped_text_set_spacing"] = textserverextension_ushaped_text_set_spacing[T]
-    }
-    $if T is ITextServerExtensionShapedTextGetSpacing {
-        ci.virtual_methods["_shaped_text_get_spacing"] = textserverextension_ushaped_text_get_spacing[T]
-    }
-    $if T is ITextServerExtensionShapedTextAddString {
-        ci.virtual_methods["_shaped_text_add_string"] = textserverextension_ushaped_text_add_string[T]
-    }
-    $if T is ITextServerExtensionShapedTextAddObject {
-        ci.virtual_methods["_shaped_text_add_object"] = textserverextension_ushaped_text_add_object[T]
-    }
-    $if T is ITextServerExtensionShapedTextResizeObject {
-        ci.virtual_methods["_shaped_text_resize_object"] = textserverextension_ushaped_text_resize_object[T]
-    }
-    $if T is ITextServerExtensionShapedGetSpanCount {
-        ci.virtual_methods["_shaped_get_span_count"] = textserverextension_ushaped_get_span_count[T]
-    }
-    $if T is ITextServerExtensionShapedGetSpanMeta {
-        ci.virtual_methods["_shaped_get_span_meta"] = textserverextension_ushaped_get_span_meta[T]
-    }
-    $if T is ITextServerExtensionShapedSetSpanUpdateFont {
-        ci.virtual_methods["_shaped_set_span_update_font"] = textserverextension_ushaped_set_span_update_font[T]
-    }
-    $if T is ITextServerExtensionShapedTextSubstr {
-        ci.virtual_methods["_shaped_text_substr"] = textserverextension_ushaped_text_substr[T]
-    }
-    $if T is ITextServerExtensionShapedTextGetParent {
-        ci.virtual_methods["_shaped_text_get_parent"] = textserverextension_ushaped_text_get_parent[T]
-    }
-    $if T is ITextServerExtensionShapedTextFitToWidth {
-        ci.virtual_methods["_shaped_text_fit_to_width"] = textserverextension_ushaped_text_fit_to_width[T]
-    }
-    $if T is ITextServerExtensionShapedTextTabAlign {
-        ci.virtual_methods["_shaped_text_tab_align"] = textserverextension_ushaped_text_tab_align[T]
-    }
-    $if T is ITextServerExtensionShapedTextShape {
-        ci.virtual_methods["_shaped_text_shape"] = textserverextension_ushaped_text_shape[T]
-    }
-    $if T is ITextServerExtensionShapedTextUpdateBreaks {
-        ci.virtual_methods["_shaped_text_update_breaks"] = textserverextension_ushaped_text_update_breaks[T]
-    }
-    $if T is ITextServerExtensionShapedTextUpdateJustificationOps {
-        ci.virtual_methods["_shaped_text_update_justification_ops"] = textserverextension_ushaped_text_update_justification_ops[T]
-    }
-    $if T is ITextServerExtensionShapedTextIsReady {
-        ci.virtual_methods["_shaped_text_is_ready"] = textserverextension_ushaped_text_is_ready[T]
-    }
-    $if T is ITextServerExtensionShapedTextGetGlyphs {
-        ci.virtual_methods["_shaped_text_get_glyphs"] = textserverextension_ushaped_text_get_glyphs[T]
-    }
-    $if T is ITextServerExtensionShapedTextSortLogical {
-        ci.virtual_methods["_shaped_text_sort_logical"] = textserverextension_ushaped_text_sort_logical[T]
-    }
-    $if T is ITextServerExtensionShapedTextGetGlyphCount {
-        ci.virtual_methods["_shaped_text_get_glyph_count"] = textserverextension_ushaped_text_get_glyph_count[T]
-    }
-    $if T is ITextServerExtensionShapedTextGetRange {
-        ci.virtual_methods["_shaped_text_get_range"] = textserverextension_ushaped_text_get_range[T]
-    }
-    $if T is ITextServerExtensionShapedTextGetLineBreaksAdv {
-        ci.virtual_methods["_shaped_text_get_line_breaks_adv"] = textserverextension_ushaped_text_get_line_breaks_adv[T]
-    }
-    $if T is ITextServerExtensionShapedTextGetLineBreaks {
-        ci.virtual_methods["_shaped_text_get_line_breaks"] = textserverextension_ushaped_text_get_line_breaks[T]
-    }
-    $if T is ITextServerExtensionShapedTextGetWordBreaks {
-        ci.virtual_methods["_shaped_text_get_word_breaks"] = textserverextension_ushaped_text_get_word_breaks[T]
-    }
-    $if T is ITextServerExtensionShapedTextGetTrimPos {
-        ci.virtual_methods["_shaped_text_get_trim_pos"] = textserverextension_ushaped_text_get_trim_pos[T]
-    }
-    $if T is ITextServerExtensionShapedTextGetEllipsisPos {
-        ci.virtual_methods["_shaped_text_get_ellipsis_pos"] = textserverextension_ushaped_text_get_ellipsis_pos[T]
-    }
-    $if T is ITextServerExtensionShapedTextGetEllipsisGlyphCount {
-        ci.virtual_methods["_shaped_text_get_ellipsis_glyph_count"] = textserverextension_ushaped_text_get_ellipsis_glyph_count[T]
-    }
-    $if T is ITextServerExtensionShapedTextGetEllipsisGlyphs {
-        ci.virtual_methods["_shaped_text_get_ellipsis_glyphs"] = textserverextension_ushaped_text_get_ellipsis_glyphs[T]
-    }
-    $if T is ITextServerExtensionShapedTextOverrunTrimToWidth {
-        ci.virtual_methods["_shaped_text_overrun_trim_to_width"] = textserverextension_ushaped_text_overrun_trim_to_width[T]
-    }
-    $if T is ITextServerExtensionShapedTextGetObjects {
-        ci.virtual_methods["_shaped_text_get_objects"] = textserverextension_ushaped_text_get_objects[T]
-    }
-    $if T is ITextServerExtensionShapedTextGetObjectRect {
-        ci.virtual_methods["_shaped_text_get_object_rect"] = textserverextension_ushaped_text_get_object_rect[T]
-    }
-    $if T is ITextServerExtensionShapedTextGetSize {
-        ci.virtual_methods["_shaped_text_get_size"] = textserverextension_ushaped_text_get_size[T]
-    }
-    $if T is ITextServerExtensionShapedTextGetAscent {
-        ci.virtual_methods["_shaped_text_get_ascent"] = textserverextension_ushaped_text_get_ascent[T]
-    }
-    $if T is ITextServerExtensionShapedTextGetDescent {
-        ci.virtual_methods["_shaped_text_get_descent"] = textserverextension_ushaped_text_get_descent[T]
-    }
-    $if T is ITextServerExtensionShapedTextGetWidth {
-        ci.virtual_methods["_shaped_text_get_width"] = textserverextension_ushaped_text_get_width[T]
-    }
-    $if T is ITextServerExtensionShapedTextGetUnderlinePosition {
-        ci.virtual_methods["_shaped_text_get_underline_position"] = textserverextension_ushaped_text_get_underline_position[T]
-    }
-    $if T is ITextServerExtensionShapedTextGetUnderlineThickness {
-        ci.virtual_methods["_shaped_text_get_underline_thickness"] = textserverextension_ushaped_text_get_underline_thickness[T]
-    }
-    $if T is ITextServerExtensionShapedTextGetDominantDirectionInRange {
-        ci.virtual_methods["_shaped_text_get_dominant_direction_in_range"] = textserverextension_ushaped_text_get_dominant_direction_in_range[T]
-    }
-    $if T is ITextServerExtensionShapedTextGetCarets {
-        ci.virtual_methods["_shaped_text_get_carets"] = textserverextension_ushaped_text_get_carets[T]
-    }
-    $if T is ITextServerExtensionShapedTextGetSelection {
-        ci.virtual_methods["_shaped_text_get_selection"] = textserverextension_ushaped_text_get_selection[T]
-    }
-    $if T is ITextServerExtensionShapedTextHitTestGrapheme {
-        ci.virtual_methods["_shaped_text_hit_test_grapheme"] = textserverextension_ushaped_text_hit_test_grapheme[T]
-    }
-    $if T is ITextServerExtensionShapedTextHitTestPosition {
-        ci.virtual_methods["_shaped_text_hit_test_position"] = textserverextension_ushaped_text_hit_test_position[T]
-    }
-    $if T is ITextServerExtensionShapedTextDraw {
-        ci.virtual_methods["_shaped_text_draw"] = textserverextension_ushaped_text_draw[T]
-    }
-    $if T is ITextServerExtensionShapedTextDrawOutline {
-        ci.virtual_methods["_shaped_text_draw_outline"] = textserverextension_ushaped_text_draw_outline[T]
-    }
-    $if T is ITextServerExtensionShapedTextGetGraphemeBounds {
-        ci.virtual_methods["_shaped_text_get_grapheme_bounds"] = textserverextension_ushaped_text_get_grapheme_bounds[T]
-    }
-    $if T is ITextServerExtensionShapedTextNextGraphemePos {
-        ci.virtual_methods["_shaped_text_next_grapheme_pos"] = textserverextension_ushaped_text_next_grapheme_pos[T]
-    }
-    $if T is ITextServerExtensionShapedTextPrevGraphemePos {
-        ci.virtual_methods["_shaped_text_prev_grapheme_pos"] = textserverextension_ushaped_text_prev_grapheme_pos[T]
-    }
-    $if T is ITextServerExtensionShapedTextGetCharacterBreaks {
-        ci.virtual_methods["_shaped_text_get_character_breaks"] = textserverextension_ushaped_text_get_character_breaks[T]
-    }
-    $if T is ITextServerExtensionShapedTextNextCharacterPos {
-        ci.virtual_methods["_shaped_text_next_character_pos"] = textserverextension_ushaped_text_next_character_pos[T]
-    }
-    $if T is ITextServerExtensionShapedTextPrevCharacterPos {
-        ci.virtual_methods["_shaped_text_prev_character_pos"] = textserverextension_ushaped_text_prev_character_pos[T]
-    }
-    $if T is ITextServerExtensionShapedTextClosestCharacterPos {
-        ci.virtual_methods["_shaped_text_closest_character_pos"] = textserverextension_ushaped_text_closest_character_pos[T]
-    }
-    $if T is ITextServerExtensionFormatNumber {
-        ci.virtual_methods["_format_number"] = textserverextension_uformat_number[T]
-    }
-    $if T is ITextServerExtensionParseNumber {
-        ci.virtual_methods["_parse_number"] = textserverextension_uparse_number[T]
-    }
-    $if T is ITextServerExtensionPercentSign {
-        ci.virtual_methods["_percent_sign"] = textserverextension_upercent_sign[T]
-    }
-    $if T is ITextServerExtensionStripDiacritics {
-        ci.virtual_methods["_strip_diacritics"] = textserverextension_ustrip_diacritics[T]
-    }
-    $if T is ITextServerExtensionIsValidIdentifier {
-        ci.virtual_methods["_is_valid_identifier"] = textserverextension_uis_valid_identifier[T]
-    }
-    $if T is ITextServerExtensionStringGetWordBreaks {
-        ci.virtual_methods["_string_get_word_breaks"] = textserverextension_ustring_get_word_breaks[T]
-    }
-    $if T is ITextServerExtensionStringGetCharacterBreaks {
-        ci.virtual_methods["_string_get_character_breaks"] = textserverextension_ustring_get_character_breaks[T]
-    }
-    $if T is ITextServerExtensionIsConfusable {
-        ci.virtual_methods["_is_confusable"] = textserverextension_uis_confusable[T]
-    }
-    $if T is ITextServerExtensionSpoofCheck {
-        ci.virtual_methods["_spoof_check"] = textserverextension_uspoof_check[T]
-    }
-    $if T is ITextServerExtensionStringToUpper {
-        ci.virtual_methods["_string_to_upper"] = textserverextension_ustring_to_upper[T]
-    }
-    $if T is ITextServerExtensionStringToLower {
-        ci.virtual_methods["_string_to_lower"] = textserverextension_ustring_to_lower[T]
-    }
-    $if T is ITextServerExtensionParseStructuredText {
-        ci.virtual_methods["_parse_structured_text"] = textserverextension_uparse_structured_text[T]
-    }
-    $if T is ITextServerExtensionCleanup {
-        ci.virtual_methods["_cleanup"] = textserverextension_ucleanup[T]
-    }
-    $if T is ITexture2DGetWidth {
-        ci.virtual_methods["_get_width"] = texture2d_uget_width[T]
-    }
-    $if T is ITexture2DGetHeight {
-        ci.virtual_methods["_get_height"] = texture2d_uget_height[T]
-    }
-    $if T is ITexture2DIsPixelOpaque {
-        ci.virtual_methods["_is_pixel_opaque"] = texture2d_uis_pixel_opaque[T]
-    }
-    $if T is ITexture2DHasAlpha {
-        ci.virtual_methods["_has_alpha"] = texture2d_uhas_alpha[T]
-    }
-    $if T is ITexture2DDraw {
-        ci.virtual_methods["_draw"] = texture2d_udraw[T]
-    }
-    $if T is ITexture2DDrawRect {
-        ci.virtual_methods["_draw_rect"] = texture2d_udraw_rect[T]
-    }
-    $if T is ITexture2DDrawRectRegion {
-        ci.virtual_methods["_draw_rect_region"] = texture2d_udraw_rect_region[T]
-    }
-    $if T is ITexture3DGetFormat {
-        ci.virtual_methods["_get_format"] = texture3d_uget_format[T]
-    }
-    $if T is ITexture3DGetWidth {
-        ci.virtual_methods["_get_width"] = texture3d_uget_width[T]
-    }
-    $if T is ITexture3DGetHeight {
-        ci.virtual_methods["_get_height"] = texture3d_uget_height[T]
-    }
-    $if T is ITexture3DGetDepth {
-        ci.virtual_methods["_get_depth"] = texture3d_uget_depth[T]
-    }
-    $if T is ITexture3DHasMipmaps {
-        ci.virtual_methods["_has_mipmaps"] = texture3d_uhas_mipmaps[T]
-    }
-    $if T is ITexture3DGetData {
-        ci.virtual_methods["_get_data"] = texture3d_uget_data[T]
-    }
-    $if T is ITextureLayeredGetFormat {
-        ci.virtual_methods["_get_format"] = texturelayered_uget_format[T]
-    }
-    $if T is ITextureLayeredGetLayeredType {
-        ci.virtual_methods["_get_layered_type"] = texturelayered_uget_layered_type[T]
-    }
-    $if T is ITextureLayeredGetWidth {
-        ci.virtual_methods["_get_width"] = texturelayered_uget_width[T]
-    }
-    $if T is ITextureLayeredGetHeight {
-        ci.virtual_methods["_get_height"] = texturelayered_uget_height[T]
-    }
-    $if T is ITextureLayeredGetLayers {
-        ci.virtual_methods["_get_layers"] = texturelayered_uget_layers[T]
-    }
-    $if T is ITextureLayeredHasMipmaps {
-        ci.virtual_methods["_has_mipmaps"] = texturelayered_uhas_mipmaps[T]
-    }
-    $if T is ITextureLayeredGetLayerData {
-        ci.virtual_methods["_get_layer_data"] = texturelayered_uget_layer_data[T]
-    }
-    $if T is ITileMapUseTileDataRuntimeUpdate {
-        ci.virtual_methods["_use_tile_data_runtime_update"] = tilemap_uuse_tile_data_runtime_update[T]
-    }
-    $if T is ITileMapTileDataRuntimeUpdate {
-        ci.virtual_methods["_tile_data_runtime_update"] = tilemap_utile_data_runtime_update[T]
-    }
-    $if T is ITranslationGetPluralMessage {
-        ci.virtual_methods["_get_plural_message"] = translation_uget_plural_message[T]
-    }
-    $if T is ITranslationGetMessage {
-        ci.virtual_methods["_get_message"] = translation_uget_message[T]
-    }
-    $if T is IVideoStreamInstantiatePlayback {
-        ci.virtual_methods["_instantiate_playback"] = videostream_uinstantiate_playback[T]
-    }
-    $if T is IVideoStreamPlaybackStop {
-        ci.virtual_methods["_stop"] = videostreamplayback_ustop[T]
-    }
-    $if T is IVideoStreamPlaybackPlay {
-        ci.virtual_methods["_play"] = videostreamplayback_uplay[T]
-    }
-    $if T is IVideoStreamPlaybackIsPlaying {
-        ci.virtual_methods["_is_playing"] = videostreamplayback_uis_playing[T]
-    }
-    $if T is IVideoStreamPlaybackSetPaused {
-        ci.virtual_methods["_set_paused"] = videostreamplayback_uset_paused[T]
-    }
-    $if T is IVideoStreamPlaybackIsPaused {
-        ci.virtual_methods["_is_paused"] = videostreamplayback_uis_paused[T]
-    }
-    $if T is IVideoStreamPlaybackGetLength {
-        ci.virtual_methods["_get_length"] = videostreamplayback_uget_length[T]
-    }
-    $if T is IVideoStreamPlaybackGetPlaybackPosition {
-        ci.virtual_methods["_get_playback_position"] = videostreamplayback_uget_playback_position[T]
-    }
-    $if T is IVideoStreamPlaybackSeek {
-        ci.virtual_methods["_seek"] = videostreamplayback_useek[T]
-    }
-    $if T is IVideoStreamPlaybackSetAudioTrack {
-        ci.virtual_methods["_set_audio_track"] = videostreamplayback_uset_audio_track[T]
-    }
-    $if T is IVideoStreamPlaybackGetTexture {
-        ci.virtual_methods["_get_texture"] = videostreamplayback_uget_texture[T]
-    }
-    $if T is IVideoStreamPlaybackUpdate {
-        ci.virtual_methods["_update"] = videostreamplayback_uupdate[T]
-    }
-    $if T is IVideoStreamPlaybackGetChannels {
-        ci.virtual_methods["_get_channels"] = videostreamplayback_uget_channels[T]
-    }
-    $if T is IVideoStreamPlaybackGetMixRate {
-        ci.virtual_methods["_get_mix_rate"] = videostreamplayback_uget_mix_rate[T]
-    }
-    $if T is IVisualInstance3DGetAabb {
-        ci.virtual_methods["_get_aabb"] = visualinstance3d_uget_aabb[T]
-    }
-    $if T is IVisualShaderNodeCustomGetName {
-        ci.virtual_methods["_get_name"] = visualshadernodecustom_uget_name[T]
-    }
-    $if T is IVisualShaderNodeCustomGetDescription {
-        ci.virtual_methods["_get_description"] = visualshadernodecustom_uget_description[T]
-    }
-    $if T is IVisualShaderNodeCustomGetCategory {
-        ci.virtual_methods["_get_category"] = visualshadernodecustom_uget_category[T]
-    }
-    $if T is IVisualShaderNodeCustomGetReturnIconType {
-        ci.virtual_methods["_get_return_icon_type"] = visualshadernodecustom_uget_return_icon_type[T]
-    }
-    $if T is IVisualShaderNodeCustomGetInputPortCount {
-        ci.virtual_methods["_get_input_port_count"] = visualshadernodecustom_uget_input_port_count[T]
-    }
-    $if T is IVisualShaderNodeCustomGetInputPortType {
-        ci.virtual_methods["_get_input_port_type"] = visualshadernodecustom_uget_input_port_type[T]
-    }
-    $if T is IVisualShaderNodeCustomGetInputPortName {
-        ci.virtual_methods["_get_input_port_name"] = visualshadernodecustom_uget_input_port_name[T]
-    }
-    $if T is IVisualShaderNodeCustomGetInputPortDefaultValue {
-        ci.virtual_methods["_get_input_port_default_value"] = visualshadernodecustom_uget_input_port_default_value[T]
-    }
-    $if T is IVisualShaderNodeCustomGetDefaultInputPort {
-        ci.virtual_methods["_get_default_input_port"] = visualshadernodecustom_uget_default_input_port[T]
-    }
-    $if T is IVisualShaderNodeCustomGetOutputPortCount {
-        ci.virtual_methods["_get_output_port_count"] = visualshadernodecustom_uget_output_port_count[T]
-    }
-    $if T is IVisualShaderNodeCustomGetOutputPortType {
-        ci.virtual_methods["_get_output_port_type"] = visualshadernodecustom_uget_output_port_type[T]
-    }
-    $if T is IVisualShaderNodeCustomGetOutputPortName {
-        ci.virtual_methods["_get_output_port_name"] = visualshadernodecustom_uget_output_port_name[T]
-    }
-    $if T is IVisualShaderNodeCustomGetPropertyCount {
-        ci.virtual_methods["_get_property_count"] = visualshadernodecustom_uget_property_count[T]
-    }
-    $if T is IVisualShaderNodeCustomGetPropertyName {
-        ci.virtual_methods["_get_property_name"] = visualshadernodecustom_uget_property_name[T]
-    }
-    $if T is IVisualShaderNodeCustomGetPropertyDefaultIndex {
-        ci.virtual_methods["_get_property_default_index"] = visualshadernodecustom_uget_property_default_index[T]
-    }
-    $if T is IVisualShaderNodeCustomGetPropertyOptions {
-        ci.virtual_methods["_get_property_options"] = visualshadernodecustom_uget_property_options[T]
-    }
-    $if T is IVisualShaderNodeCustomGetCode {
-        ci.virtual_methods["_get_code"] = visualshadernodecustom_uget_code[T]
-    }
-    $if T is IVisualShaderNodeCustomGetFuncCode {
-        ci.virtual_methods["_get_func_code"] = visualshadernodecustom_uget_func_code[T]
-    }
-    $if T is IVisualShaderNodeCustomGetGlobalCode {
-        ci.virtual_methods["_get_global_code"] = visualshadernodecustom_uget_global_code[T]
-    }
-    $if T is IVisualShaderNodeCustomIsHighend {
-        ci.virtual_methods["_is_highend"] = visualshadernodecustom_uis_highend[T]
-    }
-    $if T is IVisualShaderNodeCustomIsAvailable {
-        ci.virtual_methods["_is_available"] = visualshadernodecustom_uis_available[T]
-    }
-    $if T is IWebRTCDataChannelExtensionGetPacket {
-        ci.virtual_methods["_get_packet"] = webrtcdatachannelextension_uget_packet[T]
-    }
-    $if T is IWebRTCDataChannelExtensionPutPacket {
-        ci.virtual_methods["_put_packet"] = webrtcdatachannelextension_uput_packet[T]
-    }
-    $if T is IWebRTCDataChannelExtensionGetAvailablePacketCount {
-        ci.virtual_methods["_get_available_packet_count"] = webrtcdatachannelextension_uget_available_packet_count[T]
-    }
-    $if T is IWebRTCDataChannelExtensionGetMaxPacketSize {
-        ci.virtual_methods["_get_max_packet_size"] = webrtcdatachannelextension_uget_max_packet_size[T]
-    }
-    $if T is IWebRTCDataChannelExtensionPoll {
-        ci.virtual_methods["_poll"] = webrtcdatachannelextension_upoll[T]
-    }
-    $if T is IWebRTCDataChannelExtensionClose {
-        ci.virtual_methods["_close"] = webrtcdatachannelextension_uclose[T]
-    }
-    $if T is IWebRTCDataChannelExtensionSetWriteMode {
-        ci.virtual_methods["_set_write_mode"] = webrtcdatachannelextension_uset_write_mode[T]
-    }
-    $if T is IWebRTCDataChannelExtensionGetWriteMode {
-        ci.virtual_methods["_get_write_mode"] = webrtcdatachannelextension_uget_write_mode[T]
-    }
-    $if T is IWebRTCDataChannelExtensionWasStringPacket {
-        ci.virtual_methods["_was_string_packet"] = webrtcdatachannelextension_uwas_string_packet[T]
-    }
-    $if T is IWebRTCDataChannelExtensionGetReadyState {
-        ci.virtual_methods["_get_ready_state"] = webrtcdatachannelextension_uget_ready_state[T]
-    }
-    $if T is IWebRTCDataChannelExtensionGetLabel {
-        ci.virtual_methods["_get_label"] = webrtcdatachannelextension_uget_label[T]
-    }
-    $if T is IWebRTCDataChannelExtensionIsOrdered {
-        ci.virtual_methods["_is_ordered"] = webrtcdatachannelextension_uis_ordered[T]
-    }
-    $if T is IWebRTCDataChannelExtensionGetId {
-        ci.virtual_methods["_get_id"] = webrtcdatachannelextension_uget_id[T]
-    }
-    $if T is IWebRTCDataChannelExtensionGetMaxPacketLifeTime {
-        ci.virtual_methods["_get_max_packet_life_time"] = webrtcdatachannelextension_uget_max_packet_life_time[T]
-    }
-    $if T is IWebRTCDataChannelExtensionGetMaxRetransmits {
-        ci.virtual_methods["_get_max_retransmits"] = webrtcdatachannelextension_uget_max_retransmits[T]
-    }
-    $if T is IWebRTCDataChannelExtensionGetProtocol {
-        ci.virtual_methods["_get_protocol"] = webrtcdatachannelextension_uget_protocol[T]
-    }
-    $if T is IWebRTCDataChannelExtensionIsNegotiated {
-        ci.virtual_methods["_is_negotiated"] = webrtcdatachannelextension_uis_negotiated[T]
-    }
-    $if T is IWebRTCDataChannelExtensionGetBufferedAmount {
-        ci.virtual_methods["_get_buffered_amount"] = webrtcdatachannelextension_uget_buffered_amount[T]
-    }
-    $if T is IWebRTCPeerConnectionExtensionGetConnectionState {
-        ci.virtual_methods["_get_connection_state"] = webrtcpeerconnectionextension_uget_connection_state[T]
-    }
-    $if T is IWebRTCPeerConnectionExtensionGetGatheringState {
-        ci.virtual_methods["_get_gathering_state"] = webrtcpeerconnectionextension_uget_gathering_state[T]
-    }
-    $if T is IWebRTCPeerConnectionExtensionGetSignalingState {
-        ci.virtual_methods["_get_signaling_state"] = webrtcpeerconnectionextension_uget_signaling_state[T]
-    }
-    $if T is IWebRTCPeerConnectionExtensionInitialize {
-        ci.virtual_methods["_initialize"] = webrtcpeerconnectionextension_uinitialize[T]
-    }
-    $if T is IWebRTCPeerConnectionExtensionCreateDataChannel {
-        ci.virtual_methods["_create_data_channel"] = webrtcpeerconnectionextension_ucreate_data_channel[T]
-    }
-    $if T is IWebRTCPeerConnectionExtensionCreateOffer {
-        ci.virtual_methods["_create_offer"] = webrtcpeerconnectionextension_ucreate_offer[T]
-    }
-    $if T is IWebRTCPeerConnectionExtensionSetRemoteDescription {
-        ci.virtual_methods["_set_remote_description"] = webrtcpeerconnectionextension_uset_remote_description[T]
-    }
-    $if T is IWebRTCPeerConnectionExtensionSetLocalDescription {
-        ci.virtual_methods["_set_local_description"] = webrtcpeerconnectionextension_uset_local_description[T]
-    }
-    $if T is IWebRTCPeerConnectionExtensionAddIceCandidate {
-        ci.virtual_methods["_add_ice_candidate"] = webrtcpeerconnectionextension_uadd_ice_candidate[T]
-    }
-    $if T is IWebRTCPeerConnectionExtensionPoll {
-        ci.virtual_methods["_poll"] = webrtcpeerconnectionextension_upoll[T]
-    }
-    $if T is IWebRTCPeerConnectionExtensionClose {
-        ci.virtual_methods["_close"] = webrtcpeerconnectionextension_uclose[T]
-    }
-    $if T is IWindowGetContentsMinimumSize {
-        ci.virtual_methods["_get_contents_minimum_size"] = window_uget_contents_minimum_size[T]
-    }
-    $if T is IXRInterfaceExtensionGetName {
-        ci.virtual_methods["_get_name"] = xrinterfaceextension_uget_name[T]
-    }
-    $if T is IXRInterfaceExtensionGetCapabilities {
-        ci.virtual_methods["_get_capabilities"] = xrinterfaceextension_uget_capabilities[T]
-    }
-    $if T is IXRInterfaceExtensionIsInitialized {
-        ci.virtual_methods["_is_initialized"] = xrinterfaceextension_uis_initialized[T]
-    }
-    $if T is IXRInterfaceExtensionInitialize {
-        ci.virtual_methods["_initialize"] = xrinterfaceextension_uinitialize[T]
-    }
-    $if T is IXRInterfaceExtensionUninitialize {
-        ci.virtual_methods["_uninitialize"] = xrinterfaceextension_uuninitialize[T]
-    }
-    $if T is IXRInterfaceExtensionGetSystemInfo {
-        ci.virtual_methods["_get_system_info"] = xrinterfaceextension_uget_system_info[T]
-    }
-    $if T is IXRInterfaceExtensionSupportsPlayAreaMode {
-        ci.virtual_methods["_supports_play_area_mode"] = xrinterfaceextension_usupports_play_area_mode[T]
-    }
-    $if T is IXRInterfaceExtensionGetPlayAreaMode {
-        ci.virtual_methods["_get_play_area_mode"] = xrinterfaceextension_uget_play_area_mode[T]
-    }
-    $if T is IXRInterfaceExtensionSetPlayAreaMode {
-        ci.virtual_methods["_set_play_area_mode"] = xrinterfaceextension_uset_play_area_mode[T]
-    }
-    $if T is IXRInterfaceExtensionGetPlayArea {
-        ci.virtual_methods["_get_play_area"] = xrinterfaceextension_uget_play_area[T]
-    }
-    $if T is IXRInterfaceExtensionGetRenderTargetSize {
-        ci.virtual_methods["_get_render_target_size"] = xrinterfaceextension_uget_render_target_size[T]
-    }
-    $if T is IXRInterfaceExtensionGetViewCount {
-        ci.virtual_methods["_get_view_count"] = xrinterfaceextension_uget_view_count[T]
-    }
-    $if T is IXRInterfaceExtensionGetCameraTransform {
-        ci.virtual_methods["_get_camera_transform"] = xrinterfaceextension_uget_camera_transform[T]
-    }
-    $if T is IXRInterfaceExtensionGetTransformForView {
-        ci.virtual_methods["_get_transform_for_view"] = xrinterfaceextension_uget_transform_for_view[T]
-    }
-    $if T is IXRInterfaceExtensionGetProjectionForView {
-        ci.virtual_methods["_get_projection_for_view"] = xrinterfaceextension_uget_projection_for_view[T]
-    }
-    $if T is IXRInterfaceExtensionGetVrsTexture {
-        ci.virtual_methods["_get_vrs_texture"] = xrinterfaceextension_uget_vrs_texture[T]
-    }
-    $if T is IXRInterfaceExtensionProcess {
-        ci.virtual_methods["_process"] = xrinterfaceextension_uprocess[T]
-    }
-    $if T is IXRInterfaceExtensionPreRender {
-        ci.virtual_methods["_pre_render"] = xrinterfaceextension_upre_render[T]
-    }
-    $if T is IXRInterfaceExtensionPreDrawViewport {
-        ci.virtual_methods["_pre_draw_viewport"] = xrinterfaceextension_upre_draw_viewport[T]
-    }
-    $if T is IXRInterfaceExtensionPostDrawViewport {
-        ci.virtual_methods["_post_draw_viewport"] = xrinterfaceextension_upost_draw_viewport[T]
-    }
-    $if T is IXRInterfaceExtensionEndFrame {
-        ci.virtual_methods["_end_frame"] = xrinterfaceextension_uend_frame[T]
-    }
-    $if T is IXRInterfaceExtensionGetSuggestedTrackerNames {
-        ci.virtual_methods["_get_suggested_tracker_names"] = xrinterfaceextension_uget_suggested_tracker_names[T]
-    }
-    $if T is IXRInterfaceExtensionGetSuggestedPoseNames {
-        ci.virtual_methods["_get_suggested_pose_names"] = xrinterfaceextension_uget_suggested_pose_names[T]
-    }
-    $if T is IXRInterfaceExtensionGetTrackingStatus {
-        ci.virtual_methods["_get_tracking_status"] = xrinterfaceextension_uget_tracking_status[T]
-    }
-    $if T is IXRInterfaceExtensionTriggerHapticPulse {
-        ci.virtual_methods["_trigger_haptic_pulse"] = xrinterfaceextension_utrigger_haptic_pulse[T]
-    }
-    $if T is IXRInterfaceExtensionGetAnchorDetectionIsEnabled {
-        ci.virtual_methods["_get_anchor_detection_is_enabled"] = xrinterfaceextension_uget_anchor_detection_is_enabled[T]
-    }
-    $if T is IXRInterfaceExtensionSetAnchorDetectionIsEnabled {
-        ci.virtual_methods["_set_anchor_detection_is_enabled"] = xrinterfaceextension_uset_anchor_detection_is_enabled[T]
-    }
-    $if T is IXRInterfaceExtensionGetCameraFeedId {
-        ci.virtual_methods["_get_camera_feed_id"] = xrinterfaceextension_uget_camera_feed_id[T]
-    }
-    $if T is IXRInterfaceExtensionGetColorTexture {
-        ci.virtual_methods["_get_color_texture"] = xrinterfaceextension_uget_color_texture[T]
-    }
-    $if T is IXRInterfaceExtensionGetDepthTexture {
-        ci.virtual_methods["_get_depth_texture"] = xrinterfaceextension_uget_depth_texture[T]
-    }
-    $if T is IXRInterfaceExtensionGetVelocityTexture {
-        ci.virtual_methods["_get_velocity_texture"] = xrinterfaceextension_uget_velocity_texture[T]
-    }
+    $if T is IAStar2DEstimateCost {{
+        func := astar2d_uestimate_cost[T]
+        ci.virtual_methods["_estimate_cost"] = func
+    }}
+    $if T is IAStar2DComputeCost {{
+        func := astar2d_ucompute_cost[T]
+        ci.virtual_methods["_compute_cost"] = func
+    }}
+    $if T is IAStar3DEstimateCost {{
+        func := astar3d_uestimate_cost[T]
+        ci.virtual_methods["_estimate_cost"] = func
+    }}
+    $if T is IAStar3DComputeCost {{
+        func := astar3d_ucompute_cost[T]
+        ci.virtual_methods["_compute_cost"] = func
+    }}
+    $if T is IAStarGrid2DEstimateCost {{
+        func := astargrid2d_uestimate_cost[T]
+        ci.virtual_methods["_estimate_cost"] = func
+    }}
+    $if T is IAStarGrid2DComputeCost {{
+        func := astargrid2d_ucompute_cost[T]
+        ci.virtual_methods["_compute_cost"] = func
+    }}
+    $if T is IAnimationMixerPostProcessKeyValue {{
+        func := animationmixer_upost_process_key_value[T]
+        ci.virtual_methods["_post_process_key_value"] = func
+    }}
+    $if T is IAnimationNodeGetChildNodes {{
+        func := animationnode_uget_child_nodes[T]
+        ci.virtual_methods["_get_child_nodes"] = func
+    }}
+    $if T is IAnimationNodeGetParameterList {{
+        func := animationnode_uget_parameter_list[T]
+        ci.virtual_methods["_get_parameter_list"] = func
+    }}
+    $if T is IAnimationNodeGetChildByName {{
+        func := animationnode_uget_child_by_name[T]
+        ci.virtual_methods["_get_child_by_name"] = func
+    }}
+    $if T is IAnimationNodeGetParameterDefaultValue {{
+        func := animationnode_uget_parameter_default_value[T]
+        ci.virtual_methods["_get_parameter_default_value"] = func
+    }}
+    $if T is IAnimationNodeIsParameterReadOnly {{
+        func := animationnode_uis_parameter_read_only[T]
+        ci.virtual_methods["_is_parameter_read_only"] = func
+    }}
+    $if T is IAnimationNodeProcess {{
+        func := animationnode_uprocess[T]
+        ci.virtual_methods["_process"] = func
+    }}
+    $if T is IAnimationNodeGetCaption {{
+        func := animationnode_uget_caption[T]
+        ci.virtual_methods["_get_caption"] = func
+    }}
+    $if T is IAnimationNodeHasFilter {{
+        func := animationnode_uhas_filter[T]
+        ci.virtual_methods["_has_filter"] = func
+    }}
+    $if T is IAudioEffectInstantiate {{
+        func := audioeffect_uinstantiate[T]
+        ci.virtual_methods["_instantiate"] = func
+    }}
+    $if T is IAudioEffectInstanceProcess {{
+        func := audioeffectinstance_uprocess[T]
+        ci.virtual_methods["_process"] = func
+    }}
+    $if T is IAudioEffectInstanceProcessSilence {{
+        func := audioeffectinstance_uprocess_silence[T]
+        ci.virtual_methods["_process_silence"] = func
+    }}
+    $if T is IAudioStreamInstantiatePlayback {{
+        func := audiostream_uinstantiate_playback[T]
+        ci.virtual_methods["_instantiate_playback"] = func
+    }}
+    $if T is IAudioStreamGetStreamName {{
+        func := audiostream_uget_stream_name[T]
+        ci.virtual_methods["_get_stream_name"] = func
+    }}
+    $if T is IAudioStreamGetLength {{
+        func := audiostream_uget_length[T]
+        ci.virtual_methods["_get_length"] = func
+    }}
+    $if T is IAudioStreamIsMonophonic {{
+        func := audiostream_uis_monophonic[T]
+        ci.virtual_methods["_is_monophonic"] = func
+    }}
+    $if T is IAudioStreamGetBpm {{
+        func := audiostream_uget_bpm[T]
+        ci.virtual_methods["_get_bpm"] = func
+    }}
+    $if T is IAudioStreamGetBeatCount {{
+        func := audiostream_uget_beat_count[T]
+        ci.virtual_methods["_get_beat_count"] = func
+    }}
+    $if T is IAudioStreamPlaybackStart {{
+        func := audiostreamplayback_ustart[T]
+        ci.virtual_methods["_start"] = func
+    }}
+    $if T is IAudioStreamPlaybackStop {{
+        func := audiostreamplayback_ustop[T]
+        ci.virtual_methods["_stop"] = func
+    }}
+    $if T is IAudioStreamPlaybackIsPlaying {{
+        func := audiostreamplayback_uis_playing[T]
+        ci.virtual_methods["_is_playing"] = func
+    }}
+    $if T is IAudioStreamPlaybackGetLoopCount {{
+        func := audiostreamplayback_uget_loop_count[T]
+        ci.virtual_methods["_get_loop_count"] = func
+    }}
+    $if T is IAudioStreamPlaybackGetPlaybackPosition {{
+        func := audiostreamplayback_uget_playback_position[T]
+        ci.virtual_methods["_get_playback_position"] = func
+    }}
+    $if T is IAudioStreamPlaybackSeek {{
+        func := audiostreamplayback_useek[T]
+        ci.virtual_methods["_seek"] = func
+    }}
+    $if T is IAudioStreamPlaybackMix {{
+        func := audiostreamplayback_umix[T]
+        ci.virtual_methods["_mix"] = func
+    }}
+    $if T is IAudioStreamPlaybackTagUsedStreams {{
+        func := audiostreamplayback_utag_used_streams[T]
+        ci.virtual_methods["_tag_used_streams"] = func
+    }}
+    $if T is IAudioStreamPlaybackResampledMixResampled {{
+        func := audiostreamplaybackresampled_umix_resampled[T]
+        ci.virtual_methods["_mix_resampled"] = func
+    }}
+    $if T is IAudioStreamPlaybackResampledGetStreamSamplingRate {{
+        func := audiostreamplaybackresampled_uget_stream_sampling_rate[T]
+        ci.virtual_methods["_get_stream_sampling_rate"] = func
+    }}
+    $if T is IBaseButtonPressed {{
+        func := basebutton_upressed[T]
+        ci.virtual_methods["_pressed"] = func
+    }}
+    $if T is IBaseButtonToggled {{
+        func := basebutton_utoggled[T]
+        ci.virtual_methods["_toggled"] = func
+    }}
+    $if T is ICanvasItemDraw {{
+        func := canvasitem_udraw[T]
+        ci.virtual_methods["_draw"] = func
+    }}
+    $if T is ICodeEditConfirmCodeCompletion {{
+        func := codeedit_uconfirm_code_completion[T]
+        ci.virtual_methods["_confirm_code_completion"] = func
+    }}
+    $if T is ICodeEditRequestCodeCompletion {{
+        func := codeedit_urequest_code_completion[T]
+        ci.virtual_methods["_request_code_completion"] = func
+    }}
+    $if T is ICodeEditFilterCodeCompletionCandidates {{
+        func := codeedit_ufilter_code_completion_candidates[T]
+        ci.virtual_methods["_filter_code_completion_candidates"] = func
+    }}
+    $if T is ICollisionObject2DInputEvent {{
+        func := collisionobject2d_uinput_event[T]
+        ci.virtual_methods["_input_event"] = func
+    }}
+    $if T is ICollisionObject2DMouseEnter {{
+        func := collisionobject2d_umouse_enter[T]
+        ci.virtual_methods["_mouse_enter"] = func
+    }}
+    $if T is ICollisionObject2DMouseExit {{
+        func := collisionobject2d_umouse_exit[T]
+        ci.virtual_methods["_mouse_exit"] = func
+    }}
+    $if T is ICollisionObject2DMouseShapeEnter {{
+        func := collisionobject2d_umouse_shape_enter[T]
+        ci.virtual_methods["_mouse_shape_enter"] = func
+    }}
+    $if T is ICollisionObject2DMouseShapeExit {{
+        func := collisionobject2d_umouse_shape_exit[T]
+        ci.virtual_methods["_mouse_shape_exit"] = func
+    }}
+    $if T is ICollisionObject3DInputEvent {{
+        func := collisionobject3d_uinput_event[T]
+        ci.virtual_methods["_input_event"] = func
+    }}
+    $if T is ICollisionObject3DMouseEnter {{
+        func := collisionobject3d_umouse_enter[T]
+        ci.virtual_methods["_mouse_enter"] = func
+    }}
+    $if T is ICollisionObject3DMouseExit {{
+        func := collisionobject3d_umouse_exit[T]
+        ci.virtual_methods["_mouse_exit"] = func
+    }}
+    $if T is IContainerGetAllowedSizeFlagsHorizontal {{
+        func := container_uget_allowed_size_flags_horizontal[T]
+        ci.virtual_methods["_get_allowed_size_flags_horizontal"] = func
+    }}
+    $if T is IContainerGetAllowedSizeFlagsVertical {{
+        func := container_uget_allowed_size_flags_vertical[T]
+        ci.virtual_methods["_get_allowed_size_flags_vertical"] = func
+    }}
+    $if T is IControlHasPoint {{
+        func := control_uhas_point[T]
+        ci.virtual_methods["_has_point"] = func
+    }}
+    $if T is IControlStructuredTextParser {{
+        func := control_ustructured_text_parser[T]
+        ci.virtual_methods["_structured_text_parser"] = func
+    }}
+    $if T is IControlGetMinimumSize {{
+        func := control_uget_minimum_size[T]
+        ci.virtual_methods["_get_minimum_size"] = func
+    }}
+    $if T is IControlGetTooltip {{
+        func := control_uget_tooltip[T]
+        ci.virtual_methods["_get_tooltip"] = func
+    }}
+    $if T is IControlGetDragData {{
+        func := control_uget_drag_data[T]
+        ci.virtual_methods["_get_drag_data"] = func
+    }}
+    $if T is IControlCanDropData {{
+        func := control_ucan_drop_data[T]
+        ci.virtual_methods["_can_drop_data"] = func
+    }}
+    $if T is IControlDropData {{
+        func := control_udrop_data[T]
+        ci.virtual_methods["_drop_data"] = func
+    }}
+    $if T is IControlMakeCustomTooltip {{
+        func := control_umake_custom_tooltip[T]
+        ci.virtual_methods["_make_custom_tooltip"] = func
+    }}
+    $if T is IControlGuiInput {{
+        func := control_ugui_input[T]
+        ci.virtual_methods["_gui_input"] = func
+    }}
+    $if T is IEditorDebuggerPluginSetupSession {{
+        func := editordebuggerplugin_usetup_session[T]
+        ci.virtual_methods["_setup_session"] = func
+    }}
+    $if T is IEditorDebuggerPluginHasCapture {{
+        func := editordebuggerplugin_uhas_capture[T]
+        ci.virtual_methods["_has_capture"] = func
+    }}
+    $if T is IEditorDebuggerPluginCapture {{
+        func := editordebuggerplugin_ucapture[T]
+        ci.virtual_methods["_capture"] = func
+    }}
+    $if T is IEditorExportPluginExportFile {{
+        func := editorexportplugin_uexport_file[T]
+        ci.virtual_methods["_export_file"] = func
+    }}
+    $if T is IEditorExportPluginExportBegin {{
+        func := editorexportplugin_uexport_begin[T]
+        ci.virtual_methods["_export_begin"] = func
+    }}
+    $if T is IEditorExportPluginExportEnd {{
+        func := editorexportplugin_uexport_end[T]
+        ci.virtual_methods["_export_end"] = func
+    }}
+    $if T is IEditorExportPluginBeginCustomizeResources {{
+        func := editorexportplugin_ubegin_customize_resources[T]
+        ci.virtual_methods["_begin_customize_resources"] = func
+    }}
+    $if T is IEditorExportPluginCustomizeResource {{
+        func := editorexportplugin_ucustomize_resource[T]
+        ci.virtual_methods["_customize_resource"] = func
+    }}
+    $if T is IEditorExportPluginBeginCustomizeScenes {{
+        func := editorexportplugin_ubegin_customize_scenes[T]
+        ci.virtual_methods["_begin_customize_scenes"] = func
+    }}
+    $if T is IEditorExportPluginCustomizeScene {{
+        func := editorexportplugin_ucustomize_scene[T]
+        ci.virtual_methods["_customize_scene"] = func
+    }}
+    $if T is IEditorExportPluginGetCustomizationConfigurationHash {{
+        func := editorexportplugin_uget_customization_configuration_hash[T]
+        ci.virtual_methods["_get_customization_configuration_hash"] = func
+    }}
+    $if T is IEditorExportPluginEndCustomizeScenes {{
+        func := editorexportplugin_uend_customize_scenes[T]
+        ci.virtual_methods["_end_customize_scenes"] = func
+    }}
+    $if T is IEditorExportPluginEndCustomizeResources {{
+        func := editorexportplugin_uend_customize_resources[T]
+        ci.virtual_methods["_end_customize_resources"] = func
+    }}
+    $if T is IEditorExportPluginGetExportOptions {{
+        func := editorexportplugin_uget_export_options[T]
+        ci.virtual_methods["_get_export_options"] = func
+    }}
+    $if T is IEditorExportPluginShouldUpdateExportOptions {{
+        func := editorexportplugin_ushould_update_export_options[T]
+        ci.virtual_methods["_should_update_export_options"] = func
+    }}
+    $if T is IEditorExportPluginGetExportOptionWarning {{
+        func := editorexportplugin_uget_export_option_warning[T]
+        ci.virtual_methods["_get_export_option_warning"] = func
+    }}
+    $if T is IEditorExportPluginGetExportFeatures {{
+        func := editorexportplugin_uget_export_features[T]
+        ci.virtual_methods["_get_export_features"] = func
+    }}
+    $if T is IEditorExportPluginGetName {{
+        func := editorexportplugin_uget_name[T]
+        ci.virtual_methods["_get_name"] = func
+    }}
+    $if T is IEditorExportPluginSupportsPlatform {{
+        func := editorexportplugin_usupports_platform[T]
+        ci.virtual_methods["_supports_platform"] = func
+    }}
+    $if T is IEditorExportPluginGetAndroidDependencies {{
+        func := editorexportplugin_uget_android_dependencies[T]
+        ci.virtual_methods["_get_android_dependencies"] = func
+    }}
+    $if T is IEditorExportPluginGetAndroidDependenciesMavenRepos {{
+        func := editorexportplugin_uget_android_dependencies_maven_repos[T]
+        ci.virtual_methods["_get_android_dependencies_maven_repos"] = func
+    }}
+    $if T is IEditorExportPluginGetAndroidLibraries {{
+        func := editorexportplugin_uget_android_libraries[T]
+        ci.virtual_methods["_get_android_libraries"] = func
+    }}
+    $if T is IEditorExportPluginGetAndroidManifestActivityElementContents {{
+        func := editorexportplugin_uget_android_manifest_activity_element_contents[T]
+        ci.virtual_methods["_get_android_manifest_activity_element_contents"] = func
+    }}
+    $if T is IEditorExportPluginGetAndroidManifestApplicationElementContents {{
+        func := editorexportplugin_uget_android_manifest_application_element_contents[T]
+        ci.virtual_methods["_get_android_manifest_application_element_contents"] = func
+    }}
+    $if T is IEditorExportPluginGetAndroidManifestElementContents {{
+        func := editorexportplugin_uget_android_manifest_element_contents[T]
+        ci.virtual_methods["_get_android_manifest_element_contents"] = func
+    }}
+    $if T is IEditorFileSystemImportFormatSupportQueryIsActive {{
+        func := editorfilesystemimportformatsupportquery_uis_active[T]
+        ci.virtual_methods["_is_active"] = func
+    }}
+    $if T is IEditorFileSystemImportFormatSupportQueryGetFileExtensions {{
+        func := editorfilesystemimportformatsupportquery_uget_file_extensions[T]
+        ci.virtual_methods["_get_file_extensions"] = func
+    }}
+    $if T is IEditorFileSystemImportFormatSupportQueryQuery {{
+        func := editorfilesystemimportformatsupportquery_uquery[T]
+        ci.virtual_methods["_query"] = func
+    }}
+    $if T is IEditorImportPluginGetImporterName {{
+        func := editorimportplugin_uget_importer_name[T]
+        ci.virtual_methods["_get_importer_name"] = func
+    }}
+    $if T is IEditorImportPluginGetVisibleName {{
+        func := editorimportplugin_uget_visible_name[T]
+        ci.virtual_methods["_get_visible_name"] = func
+    }}
+    $if T is IEditorImportPluginGetPresetCount {{
+        func := editorimportplugin_uget_preset_count[T]
+        ci.virtual_methods["_get_preset_count"] = func
+    }}
+    $if T is IEditorImportPluginGetPresetName {{
+        func := editorimportplugin_uget_preset_name[T]
+        ci.virtual_methods["_get_preset_name"] = func
+    }}
+    $if T is IEditorImportPluginGetRecognizedExtensions {{
+        func := editorimportplugin_uget_recognized_extensions[T]
+        ci.virtual_methods["_get_recognized_extensions"] = func
+    }}
+    $if T is IEditorImportPluginGetImportOptions {{
+        func := editorimportplugin_uget_import_options[T]
+        ci.virtual_methods["_get_import_options"] = func
+    }}
+    $if T is IEditorImportPluginGetSaveExtension {{
+        func := editorimportplugin_uget_save_extension[T]
+        ci.virtual_methods["_get_save_extension"] = func
+    }}
+    $if T is IEditorImportPluginGetResourceType {{
+        func := editorimportplugin_uget_resource_type[T]
+        ci.virtual_methods["_get_resource_type"] = func
+    }}
+    $if T is IEditorImportPluginGetPriority {{
+        func := editorimportplugin_uget_priority[T]
+        ci.virtual_methods["_get_priority"] = func
+    }}
+    $if T is IEditorImportPluginGetImportOrder {{
+        func := editorimportplugin_uget_import_order[T]
+        ci.virtual_methods["_get_import_order"] = func
+    }}
+    $if T is IEditorImportPluginGetOptionVisibility {{
+        func := editorimportplugin_uget_option_visibility[T]
+        ci.virtual_methods["_get_option_visibility"] = func
+    }}
+    $if T is IEditorImportPluginImport {{
+        func := editorimportplugin_uimport[T]
+        ci.virtual_methods["_import"] = func
+    }}
+    $if T is IEditorInspectorPluginCanHandle {{
+        func := editorinspectorplugin_ucan_handle[T]
+        ci.virtual_methods["_can_handle"] = func
+    }}
+    $if T is IEditorInspectorPluginParseBegin {{
+        func := editorinspectorplugin_uparse_begin[T]
+        ci.virtual_methods["_parse_begin"] = func
+    }}
+    $if T is IEditorInspectorPluginParseCategory {{
+        func := editorinspectorplugin_uparse_category[T]
+        ci.virtual_methods["_parse_category"] = func
+    }}
+    $if T is IEditorInspectorPluginParseGroup {{
+        func := editorinspectorplugin_uparse_group[T]
+        ci.virtual_methods["_parse_group"] = func
+    }}
+    $if T is IEditorInspectorPluginParseProperty {{
+        func := editorinspectorplugin_uparse_property[T]
+        ci.virtual_methods["_parse_property"] = func
+    }}
+    $if T is IEditorInspectorPluginParseEnd {{
+        func := editorinspectorplugin_uparse_end[T]
+        ci.virtual_methods["_parse_end"] = func
+    }}
+    $if T is IEditorNode3DGizmoRedraw {{
+        func := editornode3dgizmo_uredraw[T]
+        ci.virtual_methods["_redraw"] = func
+    }}
+    $if T is IEditorNode3DGizmoGetHandleName {{
+        func := editornode3dgizmo_uget_handle_name[T]
+        ci.virtual_methods["_get_handle_name"] = func
+    }}
+    $if T is IEditorNode3DGizmoIsHandleHighlighted {{
+        func := editornode3dgizmo_uis_handle_highlighted[T]
+        ci.virtual_methods["_is_handle_highlighted"] = func
+    }}
+    $if T is IEditorNode3DGizmoGetHandleValue {{
+        func := editornode3dgizmo_uget_handle_value[T]
+        ci.virtual_methods["_get_handle_value"] = func
+    }}
+    $if T is IEditorNode3DGizmoSetHandle {{
+        func := editornode3dgizmo_uset_handle[T]
+        ci.virtual_methods["_set_handle"] = func
+    }}
+    $if T is IEditorNode3DGizmoCommitHandle {{
+        func := editornode3dgizmo_ucommit_handle[T]
+        ci.virtual_methods["_commit_handle"] = func
+    }}
+    $if T is IEditorNode3DGizmoSubgizmosIntersectRay {{
+        func := editornode3dgizmo_usubgizmos_intersect_ray[T]
+        ci.virtual_methods["_subgizmos_intersect_ray"] = func
+    }}
+    $if T is IEditorNode3DGizmoSubgizmosIntersectFrustum {{
+        func := editornode3dgizmo_usubgizmos_intersect_frustum[T]
+        ci.virtual_methods["_subgizmos_intersect_frustum"] = func
+    }}
+    $if T is IEditorNode3DGizmoSetSubgizmoTransform {{
+        func := editornode3dgizmo_uset_subgizmo_transform[T]
+        ci.virtual_methods["_set_subgizmo_transform"] = func
+    }}
+    $if T is IEditorNode3DGizmoGetSubgizmoTransform {{
+        func := editornode3dgizmo_uget_subgizmo_transform[T]
+        ci.virtual_methods["_get_subgizmo_transform"] = func
+    }}
+    $if T is IEditorNode3DGizmoCommitSubgizmos {{
+        func := editornode3dgizmo_ucommit_subgizmos[T]
+        ci.virtual_methods["_commit_subgizmos"] = func
+    }}
+    $if T is IEditorNode3DGizmoPluginHasGizmo {{
+        func := editornode3dgizmoplugin_uhas_gizmo[T]
+        ci.virtual_methods["_has_gizmo"] = func
+    }}
+    $if T is IEditorNode3DGizmoPluginCreateGizmo {{
+        func := editornode3dgizmoplugin_ucreate_gizmo[T]
+        ci.virtual_methods["_create_gizmo"] = func
+    }}
+    $if T is IEditorNode3DGizmoPluginGetGizmoName {{
+        func := editornode3dgizmoplugin_uget_gizmo_name[T]
+        ci.virtual_methods["_get_gizmo_name"] = func
+    }}
+    $if T is IEditorNode3DGizmoPluginGetPriority {{
+        func := editornode3dgizmoplugin_uget_priority[T]
+        ci.virtual_methods["_get_priority"] = func
+    }}
+    $if T is IEditorNode3DGizmoPluginCanBeHidden {{
+        func := editornode3dgizmoplugin_ucan_be_hidden[T]
+        ci.virtual_methods["_can_be_hidden"] = func
+    }}
+    $if T is IEditorNode3DGizmoPluginIsSelectableWhenHidden {{
+        func := editornode3dgizmoplugin_uis_selectable_when_hidden[T]
+        ci.virtual_methods["_is_selectable_when_hidden"] = func
+    }}
+    $if T is IEditorNode3DGizmoPluginRedraw {{
+        func := editornode3dgizmoplugin_uredraw[T]
+        ci.virtual_methods["_redraw"] = func
+    }}
+    $if T is IEditorNode3DGizmoPluginGetHandleName {{
+        func := editornode3dgizmoplugin_uget_handle_name[T]
+        ci.virtual_methods["_get_handle_name"] = func
+    }}
+    $if T is IEditorNode3DGizmoPluginIsHandleHighlighted {{
+        func := editornode3dgizmoplugin_uis_handle_highlighted[T]
+        ci.virtual_methods["_is_handle_highlighted"] = func
+    }}
+    $if T is IEditorNode3DGizmoPluginGetHandleValue {{
+        func := editornode3dgizmoplugin_uget_handle_value[T]
+        ci.virtual_methods["_get_handle_value"] = func
+    }}
+    $if T is IEditorNode3DGizmoPluginSetHandle {{
+        func := editornode3dgizmoplugin_uset_handle[T]
+        ci.virtual_methods["_set_handle"] = func
+    }}
+    $if T is IEditorNode3DGizmoPluginCommitHandle {{
+        func := editornode3dgizmoplugin_ucommit_handle[T]
+        ci.virtual_methods["_commit_handle"] = func
+    }}
+    $if T is IEditorNode3DGizmoPluginSubgizmosIntersectRay {{
+        func := editornode3dgizmoplugin_usubgizmos_intersect_ray[T]
+        ci.virtual_methods["_subgizmos_intersect_ray"] = func
+    }}
+    $if T is IEditorNode3DGizmoPluginSubgizmosIntersectFrustum {{
+        func := editornode3dgizmoplugin_usubgizmos_intersect_frustum[T]
+        ci.virtual_methods["_subgizmos_intersect_frustum"] = func
+    }}
+    $if T is IEditorNode3DGizmoPluginGetSubgizmoTransform {{
+        func := editornode3dgizmoplugin_uget_subgizmo_transform[T]
+        ci.virtual_methods["_get_subgizmo_transform"] = func
+    }}
+    $if T is IEditorNode3DGizmoPluginSetSubgizmoTransform {{
+        func := editornode3dgizmoplugin_uset_subgizmo_transform[T]
+        ci.virtual_methods["_set_subgizmo_transform"] = func
+    }}
+    $if T is IEditorNode3DGizmoPluginCommitSubgizmos {{
+        func := editornode3dgizmoplugin_ucommit_subgizmos[T]
+        ci.virtual_methods["_commit_subgizmos"] = func
+    }}
+    $if T is IEditorPluginForwardCanvasGuiInput {{
+        func := editorplugin_uforward_canvas_gui_input[T]
+        ci.virtual_methods["_forward_canvas_gui_input"] = func
+    }}
+    $if T is IEditorPluginForwardCanvasDrawOverViewport {{
+        func := editorplugin_uforward_canvas_draw_over_viewport[T]
+        ci.virtual_methods["_forward_canvas_draw_over_viewport"] = func
+    }}
+    $if T is IEditorPluginForwardCanvasForceDrawOverViewport {{
+        func := editorplugin_uforward_canvas_force_draw_over_viewport[T]
+        ci.virtual_methods["_forward_canvas_force_draw_over_viewport"] = func
+    }}
+    $if T is IEditorPluginForward3dGuiInput {{
+        func := editorplugin_uforward_3d_gui_input[T]
+        ci.virtual_methods["_forward_3d_gui_input"] = func
+    }}
+    $if T is IEditorPluginForward3dDrawOverViewport {{
+        func := editorplugin_uforward_3d_draw_over_viewport[T]
+        ci.virtual_methods["_forward_3d_draw_over_viewport"] = func
+    }}
+    $if T is IEditorPluginForward3dForceDrawOverViewport {{
+        func := editorplugin_uforward_3d_force_draw_over_viewport[T]
+        ci.virtual_methods["_forward_3d_force_draw_over_viewport"] = func
+    }}
+    $if T is IEditorPluginGetPluginName {{
+        func := editorplugin_uget_plugin_name[T]
+        ci.virtual_methods["_get_plugin_name"] = func
+    }}
+    $if T is IEditorPluginGetPluginIcon {{
+        func := editorplugin_uget_plugin_icon[T]
+        ci.virtual_methods["_get_plugin_icon"] = func
+    }}
+    $if T is IEditorPluginHasMainScreen {{
+        func := editorplugin_uhas_main_screen[T]
+        ci.virtual_methods["_has_main_screen"] = func
+    }}
+    $if T is IEditorPluginMakeVisible {{
+        func := editorplugin_umake_visible[T]
+        ci.virtual_methods["_make_visible"] = func
+    }}
+    $if T is IEditorPluginEdit {{
+        func := editorplugin_uedit[T]
+        ci.virtual_methods["_edit"] = func
+    }}
+    $if T is IEditorPluginHandles {{
+        func := editorplugin_uhandles[T]
+        ci.virtual_methods["_handles"] = func
+    }}
+    $if T is IEditorPluginGetState {{
+        func := editorplugin_uget_state[T]
+        ci.virtual_methods["_get_state"] = func
+    }}
+    $if T is IEditorPluginSetState {{
+        func := editorplugin_uset_state[T]
+        ci.virtual_methods["_set_state"] = func
+    }}
+    $if T is IEditorPluginClear {{
+        func := editorplugin_uclear[T]
+        ci.virtual_methods["_clear"] = func
+    }}
+    $if T is IEditorPluginGetUnsavedStatus {{
+        func := editorplugin_uget_unsaved_status[T]
+        ci.virtual_methods["_get_unsaved_status"] = func
+    }}
+    $if T is IEditorPluginSaveExternalData {{
+        func := editorplugin_usave_external_data[T]
+        ci.virtual_methods["_save_external_data"] = func
+    }}
+    $if T is IEditorPluginApplyChanges {{
+        func := editorplugin_uapply_changes[T]
+        ci.virtual_methods["_apply_changes"] = func
+    }}
+    $if T is IEditorPluginGetBreakpoints {{
+        func := editorplugin_uget_breakpoints[T]
+        ci.virtual_methods["_get_breakpoints"] = func
+    }}
+    $if T is IEditorPluginSetWindowLayout {{
+        func := editorplugin_uset_window_layout[T]
+        ci.virtual_methods["_set_window_layout"] = func
+    }}
+    $if T is IEditorPluginGetWindowLayout {{
+        func := editorplugin_uget_window_layout[T]
+        ci.virtual_methods["_get_window_layout"] = func
+    }}
+    $if T is IEditorPluginBuild {{
+        func := editorplugin_ubuild[T]
+        ci.virtual_methods["_build"] = func
+    }}
+    $if T is IEditorPluginEnablePlugin {{
+        func := editorplugin_uenable_plugin[T]
+        ci.virtual_methods["_enable_plugin"] = func
+    }}
+    $if T is IEditorPluginDisablePlugin {{
+        func := editorplugin_udisable_plugin[T]
+        ci.virtual_methods["_disable_plugin"] = func
+    }}
+    $if T is IEditorPropertyUpdateProperty {{
+        func := editorproperty_uupdate_property[T]
+        ci.virtual_methods["_update_property"] = func
+    }}
+    $if T is IEditorPropertySetReadOnly {{
+        func := editorproperty_uset_read_only[T]
+        ci.virtual_methods["_set_read_only"] = func
+    }}
+    $if T is IEditorResourceConversionPluginConvertsTo {{
+        func := editorresourceconversionplugin_uconverts_to[T]
+        ci.virtual_methods["_converts_to"] = func
+    }}
+    $if T is IEditorResourceConversionPluginHandles {{
+        func := editorresourceconversionplugin_uhandles[T]
+        ci.virtual_methods["_handles"] = func
+    }}
+    $if T is IEditorResourceConversionPluginConvert {{
+        func := editorresourceconversionplugin_uconvert[T]
+        ci.virtual_methods["_convert"] = func
+    }}
+    $if T is IEditorResourcePickerSetCreateOptions {{
+        func := editorresourcepicker_uset_create_options[T]
+        ci.virtual_methods["_set_create_options"] = func
+    }}
+    $if T is IEditorResourcePickerHandleMenuSelected {{
+        func := editorresourcepicker_uhandle_menu_selected[T]
+        ci.virtual_methods["_handle_menu_selected"] = func
+    }}
+    $if T is IEditorResourcePreviewGeneratorHandles {{
+        func := editorresourcepreviewgenerator_uhandles[T]
+        ci.virtual_methods["_handles"] = func
+    }}
+    $if T is IEditorResourcePreviewGeneratorGenerate {{
+        func := editorresourcepreviewgenerator_ugenerate[T]
+        ci.virtual_methods["_generate"] = func
+    }}
+    $if T is IEditorResourcePreviewGeneratorGenerateFromPath {{
+        func := editorresourcepreviewgenerator_ugenerate_from_path[T]
+        ci.virtual_methods["_generate_from_path"] = func
+    }}
+    $if T is IEditorResourcePreviewGeneratorGenerateSmallPreviewAutomatically {{
+        func := editorresourcepreviewgenerator_ugenerate_small_preview_automatically[T]
+        ci.virtual_methods["_generate_small_preview_automatically"] = func
+    }}
+    $if T is IEditorResourcePreviewGeneratorCanGenerateSmallPreview {{
+        func := editorresourcepreviewgenerator_ucan_generate_small_preview[T]
+        ci.virtual_methods["_can_generate_small_preview"] = func
+    }}
+    $if T is IEditorResourceTooltipPluginHandles {{
+        func := editorresourcetooltipplugin_uhandles[T]
+        ci.virtual_methods["_handles"] = func
+    }}
+    $if T is IEditorResourceTooltipPluginMakeTooltipForPath {{
+        func := editorresourcetooltipplugin_umake_tooltip_for_path[T]
+        ci.virtual_methods["_make_tooltip_for_path"] = func
+    }}
+    $if T is IEditorSceneFormatImporterGetImportFlags {{
+        func := editorsceneformatimporter_uget_import_flags[T]
+        ci.virtual_methods["_get_import_flags"] = func
+    }}
+    $if T is IEditorSceneFormatImporterGetExtensions {{
+        func := editorsceneformatimporter_uget_extensions[T]
+        ci.virtual_methods["_get_extensions"] = func
+    }}
+    $if T is IEditorSceneFormatImporterImportScene {{
+        func := editorsceneformatimporter_uimport_scene[T]
+        ci.virtual_methods["_import_scene"] = func
+    }}
+    $if T is IEditorSceneFormatImporterGetImportOptions {{
+        func := editorsceneformatimporter_uget_import_options[T]
+        ci.virtual_methods["_get_import_options"] = func
+    }}
+    $if T is IEditorSceneFormatImporterGetOptionVisibility {{
+        func := editorsceneformatimporter_uget_option_visibility[T]
+        ci.virtual_methods["_get_option_visibility"] = func
+    }}
+    $if T is IEditorScenePostImportPostImport {{
+        func := editorscenepostimport_upost_import[T]
+        ci.virtual_methods["_post_import"] = func
+    }}
+    $if T is IEditorScenePostImportPluginGetInternalImportOptions {{
+        func := editorscenepostimportplugin_uget_internal_import_options[T]
+        ci.virtual_methods["_get_internal_import_options"] = func
+    }}
+    $if T is IEditorScenePostImportPluginGetInternalOptionVisibility {{
+        func := editorscenepostimportplugin_uget_internal_option_visibility[T]
+        ci.virtual_methods["_get_internal_option_visibility"] = func
+    }}
+    $if T is IEditorScenePostImportPluginGetInternalOptionUpdateViewRequired {{
+        func := editorscenepostimportplugin_uget_internal_option_update_view_required[T]
+        ci.virtual_methods["_get_internal_option_update_view_required"] = func
+    }}
+    $if T is IEditorScenePostImportPluginInternalProcess {{
+        func := editorscenepostimportplugin_uinternal_process[T]
+        ci.virtual_methods["_internal_process"] = func
+    }}
+    $if T is IEditorScenePostImportPluginGetImportOptions {{
+        func := editorscenepostimportplugin_uget_import_options[T]
+        ci.virtual_methods["_get_import_options"] = func
+    }}
+    $if T is IEditorScenePostImportPluginGetOptionVisibility {{
+        func := editorscenepostimportplugin_uget_option_visibility[T]
+        ci.virtual_methods["_get_option_visibility"] = func
+    }}
+    $if T is IEditorScenePostImportPluginPreProcess {{
+        func := editorscenepostimportplugin_upre_process[T]
+        ci.virtual_methods["_pre_process"] = func
+    }}
+    $if T is IEditorScenePostImportPluginPostProcess {{
+        func := editorscenepostimportplugin_upost_process[T]
+        ci.virtual_methods["_post_process"] = func
+    }}
+    $if T is IEditorScriptRun {{
+        func := editorscript_urun[T]
+        ci.virtual_methods["_run"] = func
+    }}
+    $if T is IEditorSyntaxHighlighterGetName {{
+        func := editorsyntaxhighlighter_uget_name[T]
+        ci.virtual_methods["_get_name"] = func
+    }}
+    $if T is IEditorSyntaxHighlighterGetSupportedLanguages {{
+        func := editorsyntaxhighlighter_uget_supported_languages[T]
+        ci.virtual_methods["_get_supported_languages"] = func
+    }}
+    $if T is IEditorTranslationParserPluginParseFile {{
+        func := editortranslationparserplugin_uparse_file[T]
+        ci.virtual_methods["_parse_file"] = func
+    }}
+    $if T is IEditorTranslationParserPluginGetRecognizedExtensions {{
+        func := editortranslationparserplugin_uget_recognized_extensions[T]
+        ci.virtual_methods["_get_recognized_extensions"] = func
+    }}
+    $if T is IEditorVCSInterfaceInitialize {{
+        func := editorvcsinterface_uinitialize[T]
+        ci.virtual_methods["_initialize"] = func
+    }}
+    $if T is IEditorVCSInterfaceSetCredentials {{
+        func := editorvcsinterface_uset_credentials[T]
+        ci.virtual_methods["_set_credentials"] = func
+    }}
+    $if T is IEditorVCSInterfaceGetModifiedFilesData {{
+        func := editorvcsinterface_uget_modified_files_data[T]
+        ci.virtual_methods["_get_modified_files_data"] = func
+    }}
+    $if T is IEditorVCSInterfaceStageFile {{
+        func := editorvcsinterface_ustage_file[T]
+        ci.virtual_methods["_stage_file"] = func
+    }}
+    $if T is IEditorVCSInterfaceUnstageFile {{
+        func := editorvcsinterface_uunstage_file[T]
+        ci.virtual_methods["_unstage_file"] = func
+    }}
+    $if T is IEditorVCSInterfaceDiscardFile {{
+        func := editorvcsinterface_udiscard_file[T]
+        ci.virtual_methods["_discard_file"] = func
+    }}
+    $if T is IEditorVCSInterfaceCommit {{
+        func := editorvcsinterface_ucommit[T]
+        ci.virtual_methods["_commit"] = func
+    }}
+    $if T is IEditorVCSInterfaceGetDiff {{
+        func := editorvcsinterface_uget_diff[T]
+        ci.virtual_methods["_get_diff"] = func
+    }}
+    $if T is IEditorVCSInterfaceShutDown {{
+        func := editorvcsinterface_ushut_down[T]
+        ci.virtual_methods["_shut_down"] = func
+    }}
+    $if T is IEditorVCSInterfaceGetVcsName {{
+        func := editorvcsinterface_uget_vcs_name[T]
+        ci.virtual_methods["_get_vcs_name"] = func
+    }}
+    $if T is IEditorVCSInterfaceGetPreviousCommits {{
+        func := editorvcsinterface_uget_previous_commits[T]
+        ci.virtual_methods["_get_previous_commits"] = func
+    }}
+    $if T is IEditorVCSInterfaceGetBranchList {{
+        func := editorvcsinterface_uget_branch_list[T]
+        ci.virtual_methods["_get_branch_list"] = func
+    }}
+    $if T is IEditorVCSInterfaceGetRemotes {{
+        func := editorvcsinterface_uget_remotes[T]
+        ci.virtual_methods["_get_remotes"] = func
+    }}
+    $if T is IEditorVCSInterfaceCreateBranch {{
+        func := editorvcsinterface_ucreate_branch[T]
+        ci.virtual_methods["_create_branch"] = func
+    }}
+    $if T is IEditorVCSInterfaceRemoveBranch {{
+        func := editorvcsinterface_uremove_branch[T]
+        ci.virtual_methods["_remove_branch"] = func
+    }}
+    $if T is IEditorVCSInterfaceCreateRemote {{
+        func := editorvcsinterface_ucreate_remote[T]
+        ci.virtual_methods["_create_remote"] = func
+    }}
+    $if T is IEditorVCSInterfaceRemoveRemote {{
+        func := editorvcsinterface_uremove_remote[T]
+        ci.virtual_methods["_remove_remote"] = func
+    }}
+    $if T is IEditorVCSInterfaceGetCurrentBranchName {{
+        func := editorvcsinterface_uget_current_branch_name[T]
+        ci.virtual_methods["_get_current_branch_name"] = func
+    }}
+    $if T is IEditorVCSInterfaceCheckoutBranch {{
+        func := editorvcsinterface_ucheckout_branch[T]
+        ci.virtual_methods["_checkout_branch"] = func
+    }}
+    $if T is IEditorVCSInterfacePull {{
+        func := editorvcsinterface_upull[T]
+        ci.virtual_methods["_pull"] = func
+    }}
+    $if T is IEditorVCSInterfacePush {{
+        func := editorvcsinterface_upush[T]
+        ci.virtual_methods["_push"] = func
+    }}
+    $if T is IEditorVCSInterfaceFetch {{
+        func := editorvcsinterface_ufetch[T]
+        ci.virtual_methods["_fetch"] = func
+    }}
+    $if T is IEditorVCSInterfaceGetLineDiff {{
+        func := editorvcsinterface_uget_line_diff[T]
+        ci.virtual_methods["_get_line_diff"] = func
+    }}
+    $if T is IEngineProfilerToggle {{
+        func := engineprofiler_utoggle[T]
+        ci.virtual_methods["_toggle"] = func
+    }}
+    $if T is IEngineProfilerAddFrame {{
+        func := engineprofiler_uadd_frame[T]
+        ci.virtual_methods["_add_frame"] = func
+    }}
+    $if T is IEngineProfilerTick {{
+        func := engineprofiler_utick[T]
+        ci.virtual_methods["_tick"] = func
+    }}
+    $if T is IGLTFDocumentExtensionImportPreflight {{
+        func := gltfdocumentextension_uimport_preflight[T]
+        ci.virtual_methods["_import_preflight"] = func
+    }}
+    $if T is IGLTFDocumentExtensionGetSupportedExtensions {{
+        func := gltfdocumentextension_uget_supported_extensions[T]
+        ci.virtual_methods["_get_supported_extensions"] = func
+    }}
+    $if T is IGLTFDocumentExtensionParseNodeExtensions {{
+        func := gltfdocumentextension_uparse_node_extensions[T]
+        ci.virtual_methods["_parse_node_extensions"] = func
+    }}
+    $if T is IGLTFDocumentExtensionParseImageData {{
+        func := gltfdocumentextension_uparse_image_data[T]
+        ci.virtual_methods["_parse_image_data"] = func
+    }}
+    $if T is IGLTFDocumentExtensionGetImageFileExtension {{
+        func := gltfdocumentextension_uget_image_file_extension[T]
+        ci.virtual_methods["_get_image_file_extension"] = func
+    }}
+    $if T is IGLTFDocumentExtensionParseTextureJson {{
+        func := gltfdocumentextension_uparse_texture_json[T]
+        ci.virtual_methods["_parse_texture_json"] = func
+    }}
+    $if T is IGLTFDocumentExtensionGenerateSceneNode {{
+        func := gltfdocumentextension_ugenerate_scene_node[T]
+        ci.virtual_methods["_generate_scene_node"] = func
+    }}
+    $if T is IGLTFDocumentExtensionImportPostParse {{
+        func := gltfdocumentextension_uimport_post_parse[T]
+        ci.virtual_methods["_import_post_parse"] = func
+    }}
+    $if T is IGLTFDocumentExtensionImportNode {{
+        func := gltfdocumentextension_uimport_node[T]
+        ci.virtual_methods["_import_node"] = func
+    }}
+    $if T is IGLTFDocumentExtensionImportPost {{
+        func := gltfdocumentextension_uimport_post[T]
+        ci.virtual_methods["_import_post"] = func
+    }}
+    $if T is IGLTFDocumentExtensionExportPreflight {{
+        func := gltfdocumentextension_uexport_preflight[T]
+        ci.virtual_methods["_export_preflight"] = func
+    }}
+    $if T is IGLTFDocumentExtensionConvertSceneNode {{
+        func := gltfdocumentextension_uconvert_scene_node[T]
+        ci.virtual_methods["_convert_scene_node"] = func
+    }}
+    $if T is IGLTFDocumentExtensionExportPreserialize {{
+        func := gltfdocumentextension_uexport_preserialize[T]
+        ci.virtual_methods["_export_preserialize"] = func
+    }}
+    $if T is IGLTFDocumentExtensionGetSaveableImageFormats {{
+        func := gltfdocumentextension_uget_saveable_image_formats[T]
+        ci.virtual_methods["_get_saveable_image_formats"] = func
+    }}
+    $if T is IGLTFDocumentExtensionSerializeImageToBytes {{
+        func := gltfdocumentextension_userialize_image_to_bytes[T]
+        ci.virtual_methods["_serialize_image_to_bytes"] = func
+    }}
+    $if T is IGLTFDocumentExtensionSaveImageAtPath {{
+        func := gltfdocumentextension_usave_image_at_path[T]
+        ci.virtual_methods["_save_image_at_path"] = func
+    }}
+    $if T is IGLTFDocumentExtensionSerializeTextureJson {{
+        func := gltfdocumentextension_userialize_texture_json[T]
+        ci.virtual_methods["_serialize_texture_json"] = func
+    }}
+    $if T is IGLTFDocumentExtensionExportNode {{
+        func := gltfdocumentextension_uexport_node[T]
+        ci.virtual_methods["_export_node"] = func
+    }}
+    $if T is IGLTFDocumentExtensionExportPost {{
+        func := gltfdocumentextension_uexport_post[T]
+        ci.virtual_methods["_export_post"] = func
+    }}
+    $if T is IGraphEditIsInInputHotzone {{
+        func := graphedit_uis_in_input_hotzone[T]
+        ci.virtual_methods["_is_in_input_hotzone"] = func
+    }}
+    $if T is IGraphEditIsInOutputHotzone {{
+        func := graphedit_uis_in_output_hotzone[T]
+        ci.virtual_methods["_is_in_output_hotzone"] = func
+    }}
+    $if T is IGraphEditGetConnectionLine {{
+        func := graphedit_uget_connection_line[T]
+        ci.virtual_methods["_get_connection_line"] = func
+    }}
+    $if T is IGraphEditIsNodeHoverValid {{
+        func := graphedit_uis_node_hover_valid[T]
+        ci.virtual_methods["_is_node_hover_valid"] = func
+    }}
+    $if T is IGraphNodeDrawPort {{
+        func := graphnode_udraw_port[T]
+        ci.virtual_methods["_draw_port"] = func
+    }}
+    $if T is IImageFormatLoaderExtensionGetRecognizedExtensions {{
+        func := imageformatloaderextension_uget_recognized_extensions[T]
+        ci.virtual_methods["_get_recognized_extensions"] = func
+    }}
+    $if T is IImageFormatLoaderExtensionLoadImage {{
+        func := imageformatloaderextension_uload_image[T]
+        ci.virtual_methods["_load_image"] = func
+    }}
+    $if T is IMainLoopInitialize {{
+        func := mainloop_uinitialize[T]
+        ci.virtual_methods["_initialize"] = func
+    }}
+    $if T is IMainLoopPhysicsProcess {{
+        func := mainloop_uphysics_process[T]
+        ci.virtual_methods["_physics_process"] = func
+    }}
+    $if T is IMainLoopProcess {{
+        func := mainloop_uprocess[T]
+        ci.virtual_methods["_process"] = func
+    }}
+    $if T is IMainLoopFinalize {{
+        func := mainloop_ufinalize[T]
+        ci.virtual_methods["_finalize"] = func
+    }}
+    $if T is IMaterialGetShaderRid {{
+        func := material_uget_shader_rid[T]
+        ci.virtual_methods["_get_shader_rid"] = func
+    }}
+    $if T is IMaterialGetShaderMode {{
+        func := material_uget_shader_mode[T]
+        ci.virtual_methods["_get_shader_mode"] = func
+    }}
+    $if T is IMaterialCanDoNextPass {{
+        func := material_ucan_do_next_pass[T]
+        ci.virtual_methods["_can_do_next_pass"] = func
+    }}
+    $if T is IMaterialCanUseRenderPriority {{
+        func := material_ucan_use_render_priority[T]
+        ci.virtual_methods["_can_use_render_priority"] = func
+    }}
+    $if T is IMeshGetSurfaceCount {{
+        func := mesh_uget_surface_count[T]
+        ci.virtual_methods["_get_surface_count"] = func
+    }}
+    $if T is IMeshSurfaceGetArrayLen {{
+        func := mesh_usurface_get_array_len[T]
+        ci.virtual_methods["_surface_get_array_len"] = func
+    }}
+    $if T is IMeshSurfaceGetArrayIndexLen {{
+        func := mesh_usurface_get_array_index_len[T]
+        ci.virtual_methods["_surface_get_array_index_len"] = func
+    }}
+    $if T is IMeshSurfaceGetArrays {{
+        func := mesh_usurface_get_arrays[T]
+        ci.virtual_methods["_surface_get_arrays"] = func
+    }}
+    $if T is IMeshSurfaceGetBlendShapeArrays {{
+        func := mesh_usurface_get_blend_shape_arrays[T]
+        ci.virtual_methods["_surface_get_blend_shape_arrays"] = func
+    }}
+    $if T is IMeshSurfaceGetLods {{
+        func := mesh_usurface_get_lods[T]
+        ci.virtual_methods["_surface_get_lods"] = func
+    }}
+    $if T is IMeshSurfaceGetFormat {{
+        func := mesh_usurface_get_format[T]
+        ci.virtual_methods["_surface_get_format"] = func
+    }}
+    $if T is IMeshSurfaceGetPrimitiveType {{
+        func := mesh_usurface_get_primitive_type[T]
+        ci.virtual_methods["_surface_get_primitive_type"] = func
+    }}
+    $if T is IMeshSurfaceSetMaterial {{
+        func := mesh_usurface_set_material[T]
+        ci.virtual_methods["_surface_set_material"] = func
+    }}
+    $if T is IMeshSurfaceGetMaterial {{
+        func := mesh_usurface_get_material[T]
+        ci.virtual_methods["_surface_get_material"] = func
+    }}
+    $if T is IMeshGetBlendShapeCount {{
+        func := mesh_uget_blend_shape_count[T]
+        ci.virtual_methods["_get_blend_shape_count"] = func
+    }}
+    $if T is IMeshGetBlendShapeName {{
+        func := mesh_uget_blend_shape_name[T]
+        ci.virtual_methods["_get_blend_shape_name"] = func
+    }}
+    $if T is IMeshSetBlendShapeName {{
+        func := mesh_uset_blend_shape_name[T]
+        ci.virtual_methods["_set_blend_shape_name"] = func
+    }}
+    $if T is IMeshGetAabb {{
+        func := mesh_uget_aabb[T]
+        ci.virtual_methods["_get_aabb"] = func
+    }}
+    $if T is IMovieWriterGetAudioMixRate {{
+        func := moviewriter_uget_audio_mix_rate[T]
+        ci.virtual_methods["_get_audio_mix_rate"] = func
+    }}
+    $if T is IMovieWriterGetAudioSpeakerMode {{
+        func := moviewriter_uget_audio_speaker_mode[T]
+        ci.virtual_methods["_get_audio_speaker_mode"] = func
+    }}
+    $if T is IMovieWriterHandlesFile {{
+        func := moviewriter_uhandles_file[T]
+        ci.virtual_methods["_handles_file"] = func
+    }}
+    $if T is IMovieWriterWriteBegin {{
+        func := moviewriter_uwrite_begin[T]
+        ci.virtual_methods["_write_begin"] = func
+    }}
+    $if T is IMovieWriterWriteFrame {{
+        func := moviewriter_uwrite_frame[T]
+        ci.virtual_methods["_write_frame"] = func
+    }}
+    $if T is IMovieWriterWriteEnd {{
+        func := moviewriter_uwrite_end[T]
+        ci.virtual_methods["_write_end"] = func
+    }}
+    $if T is IMultiplayerAPIExtensionPoll {{
+        func := multiplayerapiextension_upoll[T]
+        ci.virtual_methods["_poll"] = func
+    }}
+    $if T is IMultiplayerAPIExtensionSetMultiplayerPeer {{
+        func := multiplayerapiextension_uset_multiplayer_peer[T]
+        ci.virtual_methods["_set_multiplayer_peer"] = func
+    }}
+    $if T is IMultiplayerAPIExtensionGetMultiplayerPeer {{
+        func := multiplayerapiextension_uget_multiplayer_peer[T]
+        ci.virtual_methods["_get_multiplayer_peer"] = func
+    }}
+    $if T is IMultiplayerAPIExtensionGetUniqueId {{
+        func := multiplayerapiextension_uget_unique_id[T]
+        ci.virtual_methods["_get_unique_id"] = func
+    }}
+    $if T is IMultiplayerAPIExtensionGetPeerIds {{
+        func := multiplayerapiextension_uget_peer_ids[T]
+        ci.virtual_methods["_get_peer_ids"] = func
+    }}
+    $if T is IMultiplayerAPIExtensionRpc {{
+        func := multiplayerapiextension_urpc[T]
+        ci.virtual_methods["_rpc"] = func
+    }}
+    $if T is IMultiplayerAPIExtensionGetRemoteSenderId {{
+        func := multiplayerapiextension_uget_remote_sender_id[T]
+        ci.virtual_methods["_get_remote_sender_id"] = func
+    }}
+    $if T is IMultiplayerAPIExtensionObjectConfigurationAdd {{
+        func := multiplayerapiextension_uobject_configuration_add[T]
+        ci.virtual_methods["_object_configuration_add"] = func
+    }}
+    $if T is IMultiplayerAPIExtensionObjectConfigurationRemove {{
+        func := multiplayerapiextension_uobject_configuration_remove[T]
+        ci.virtual_methods["_object_configuration_remove"] = func
+    }}
+    $if T is IMultiplayerPeerExtensionGetPacket {{
+        func := multiplayerpeerextension_uget_packet[T]
+        ci.virtual_methods["_get_packet"] = func
+    }}
+    $if T is IMultiplayerPeerExtensionPutPacket {{
+        func := multiplayerpeerextension_uput_packet[T]
+        ci.virtual_methods["_put_packet"] = func
+    }}
+    $if T is IMultiplayerPeerExtensionGetAvailablePacketCount {{
+        func := multiplayerpeerextension_uget_available_packet_count[T]
+        ci.virtual_methods["_get_available_packet_count"] = func
+    }}
+    $if T is IMultiplayerPeerExtensionGetMaxPacketSize {{
+        func := multiplayerpeerextension_uget_max_packet_size[T]
+        ci.virtual_methods["_get_max_packet_size"] = func
+    }}
+    $if T is IMultiplayerPeerExtensionGetPacketScript {{
+        func := multiplayerpeerextension_uget_packet_script[T]
+        ci.virtual_methods["_get_packet_script"] = func
+    }}
+    $if T is IMultiplayerPeerExtensionPutPacketScript {{
+        func := multiplayerpeerextension_uput_packet_script[T]
+        ci.virtual_methods["_put_packet_script"] = func
+    }}
+    $if T is IMultiplayerPeerExtensionGetPacketChannel {{
+        func := multiplayerpeerextension_uget_packet_channel[T]
+        ci.virtual_methods["_get_packet_channel"] = func
+    }}
+    $if T is IMultiplayerPeerExtensionGetPacketMode {{
+        func := multiplayerpeerextension_uget_packet_mode[T]
+        ci.virtual_methods["_get_packet_mode"] = func
+    }}
+    $if T is IMultiplayerPeerExtensionSetTransferChannel {{
+        func := multiplayerpeerextension_uset_transfer_channel[T]
+        ci.virtual_methods["_set_transfer_channel"] = func
+    }}
+    $if T is IMultiplayerPeerExtensionGetTransferChannel {{
+        func := multiplayerpeerextension_uget_transfer_channel[T]
+        ci.virtual_methods["_get_transfer_channel"] = func
+    }}
+    $if T is IMultiplayerPeerExtensionSetTransferMode {{
+        func := multiplayerpeerextension_uset_transfer_mode[T]
+        ci.virtual_methods["_set_transfer_mode"] = func
+    }}
+    $if T is IMultiplayerPeerExtensionGetTransferMode {{
+        func := multiplayerpeerextension_uget_transfer_mode[T]
+        ci.virtual_methods["_get_transfer_mode"] = func
+    }}
+    $if T is IMultiplayerPeerExtensionSetTargetPeer {{
+        func := multiplayerpeerextension_uset_target_peer[T]
+        ci.virtual_methods["_set_target_peer"] = func
+    }}
+    $if T is IMultiplayerPeerExtensionGetPacketPeer {{
+        func := multiplayerpeerextension_uget_packet_peer[T]
+        ci.virtual_methods["_get_packet_peer"] = func
+    }}
+    $if T is IMultiplayerPeerExtensionIsServer {{
+        func := multiplayerpeerextension_uis_server[T]
+        ci.virtual_methods["_is_server"] = func
+    }}
+    $if T is IMultiplayerPeerExtensionPoll {{
+        func := multiplayerpeerextension_upoll[T]
+        ci.virtual_methods["_poll"] = func
+    }}
+    $if T is IMultiplayerPeerExtensionClose {{
+        func := multiplayerpeerextension_uclose[T]
+        ci.virtual_methods["_close"] = func
+    }}
+    $if T is IMultiplayerPeerExtensionDisconnectPeer {{
+        func := multiplayerpeerextension_udisconnect_peer[T]
+        ci.virtual_methods["_disconnect_peer"] = func
+    }}
+    $if T is IMultiplayerPeerExtensionGetUniqueId {{
+        func := multiplayerpeerextension_uget_unique_id[T]
+        ci.virtual_methods["_get_unique_id"] = func
+    }}
+    $if T is IMultiplayerPeerExtensionSetRefuseNewConnections {{
+        func := multiplayerpeerextension_uset_refuse_new_connections[T]
+        ci.virtual_methods["_set_refuse_new_connections"] = func
+    }}
+    $if T is IMultiplayerPeerExtensionIsRefusingNewConnections {{
+        func := multiplayerpeerextension_uis_refusing_new_connections[T]
+        ci.virtual_methods["_is_refusing_new_connections"] = func
+    }}
+    $if T is IMultiplayerPeerExtensionIsServerRelaySupported {{
+        func := multiplayerpeerextension_uis_server_relay_supported[T]
+        ci.virtual_methods["_is_server_relay_supported"] = func
+    }}
+    $if T is IMultiplayerPeerExtensionGetConnectionStatus {{
+        func := multiplayerpeerextension_uget_connection_status[T]
+        ci.virtual_methods["_get_connection_status"] = func
+    }}
+    $if T is INodeProcess {{
+        func := node_uprocess[T]
+        ci.virtual_methods["_process"] = func
+    }}
+    $if T is INodePhysicsProcess {{
+        func := node_uphysics_process[T]
+        ci.virtual_methods["_physics_process"] = func
+    }}
+    $if T is INodeEnterTree {{
+        func := node_uenter_tree[T]
+        ci.virtual_methods["_enter_tree"] = func
+    }}
+    $if T is INodeExitTree {{
+        func := node_uexit_tree[T]
+        ci.virtual_methods["_exit_tree"] = func
+    }}
+    $if T is INodeReady {{
+        func := node_uready[T]
+        ci.virtual_methods["_ready"] = func
+    }}
+    $if T is INodeGetConfigurationWarnings {{
+        func := node_uget_configuration_warnings[T]
+        ci.virtual_methods["_get_configuration_warnings"] = func
+    }}
+    $if T is INodeInput {{
+        func := node_uinput[T]
+        ci.virtual_methods["_input"] = func
+    }}
+    $if T is INodeShortcutInput {{
+        func := node_ushortcut_input[T]
+        ci.virtual_methods["_shortcut_input"] = func
+    }}
+    $if T is INodeUnhandledInput {{
+        func := node_uunhandled_input[T]
+        ci.virtual_methods["_unhandled_input"] = func
+    }}
+    $if T is INodeUnhandledKeyInput {{
+        func := node_uunhandled_key_input[T]
+        ci.virtual_methods["_unhandled_key_input"] = func
+    }}
+    $if T is IOpenXRExtensionWrapperExtensionGetRequestedExtensions {{
+        func := openxrextensionwrapperextension_uget_requested_extensions[T]
+        ci.virtual_methods["_get_requested_extensions"] = func
+    }}
+    $if T is IOpenXRExtensionWrapperExtensionSetSystemPropertiesAndGetNextPointer {{
+        func := openxrextensionwrapperextension_uset_system_properties_and_get_next_pointer[T]
+        ci.virtual_methods["_set_system_properties_and_get_next_pointer"] = func
+    }}
+    $if T is IOpenXRExtensionWrapperExtensionSetInstanceCreateInfoAndGetNextPointer {{
+        func := openxrextensionwrapperextension_uset_instance_create_info_and_get_next_pointer[T]
+        ci.virtual_methods["_set_instance_create_info_and_get_next_pointer"] = func
+    }}
+    $if T is IOpenXRExtensionWrapperExtensionSetSessionCreateAndGetNextPointer {{
+        func := openxrextensionwrapperextension_uset_session_create_and_get_next_pointer[T]
+        ci.virtual_methods["_set_session_create_and_get_next_pointer"] = func
+    }}
+    $if T is IOpenXRExtensionWrapperExtensionSetSwapchainCreateInfoAndGetNextPointer {{
+        func := openxrextensionwrapperextension_uset_swapchain_create_info_and_get_next_pointer[T]
+        ci.virtual_methods["_set_swapchain_create_info_and_get_next_pointer"] = func
+    }}
+    $if T is IOpenXRExtensionWrapperExtensionOnRegisterMetadata {{
+        func := openxrextensionwrapperextension_uon_register_metadata[T]
+        ci.virtual_methods["_on_register_metadata"] = func
+    }}
+    $if T is IOpenXRExtensionWrapperExtensionOnBeforeInstanceCreated {{
+        func := openxrextensionwrapperextension_uon_before_instance_created[T]
+        ci.virtual_methods["_on_before_instance_created"] = func
+    }}
+    $if T is IOpenXRExtensionWrapperExtensionOnInstanceCreated {{
+        func := openxrextensionwrapperextension_uon_instance_created[T]
+        ci.virtual_methods["_on_instance_created"] = func
+    }}
+    $if T is IOpenXRExtensionWrapperExtensionOnInstanceDestroyed {{
+        func := openxrextensionwrapperextension_uon_instance_destroyed[T]
+        ci.virtual_methods["_on_instance_destroyed"] = func
+    }}
+    $if T is IOpenXRExtensionWrapperExtensionOnSessionCreated {{
+        func := openxrextensionwrapperextension_uon_session_created[T]
+        ci.virtual_methods["_on_session_created"] = func
+    }}
+    $if T is IOpenXRExtensionWrapperExtensionOnProcess {{
+        func := openxrextensionwrapperextension_uon_process[T]
+        ci.virtual_methods["_on_process"] = func
+    }}
+    $if T is IOpenXRExtensionWrapperExtensionOnPreRender {{
+        func := openxrextensionwrapperextension_uon_pre_render[T]
+        ci.virtual_methods["_on_pre_render"] = func
+    }}
+    $if T is IOpenXRExtensionWrapperExtensionOnSessionDestroyed {{
+        func := openxrextensionwrapperextension_uon_session_destroyed[T]
+        ci.virtual_methods["_on_session_destroyed"] = func
+    }}
+    $if T is IOpenXRExtensionWrapperExtensionOnStateIdle {{
+        func := openxrextensionwrapperextension_uon_state_idle[T]
+        ci.virtual_methods["_on_state_idle"] = func
+    }}
+    $if T is IOpenXRExtensionWrapperExtensionOnStateReady {{
+        func := openxrextensionwrapperextension_uon_state_ready[T]
+        ci.virtual_methods["_on_state_ready"] = func
+    }}
+    $if T is IOpenXRExtensionWrapperExtensionOnStateSynchronized {{
+        func := openxrextensionwrapperextension_uon_state_synchronized[T]
+        ci.virtual_methods["_on_state_synchronized"] = func
+    }}
+    $if T is IOpenXRExtensionWrapperExtensionOnStateVisible {{
+        func := openxrextensionwrapperextension_uon_state_visible[T]
+        ci.virtual_methods["_on_state_visible"] = func
+    }}
+    $if T is IOpenXRExtensionWrapperExtensionOnStateFocused {{
+        func := openxrextensionwrapperextension_uon_state_focused[T]
+        ci.virtual_methods["_on_state_focused"] = func
+    }}
+    $if T is IOpenXRExtensionWrapperExtensionOnStateStopping {{
+        func := openxrextensionwrapperextension_uon_state_stopping[T]
+        ci.virtual_methods["_on_state_stopping"] = func
+    }}
+    $if T is IOpenXRExtensionWrapperExtensionOnStateLossPending {{
+        func := openxrextensionwrapperextension_uon_state_loss_pending[T]
+        ci.virtual_methods["_on_state_loss_pending"] = func
+    }}
+    $if T is IOpenXRExtensionWrapperExtensionOnStateExiting {{
+        func := openxrextensionwrapperextension_uon_state_exiting[T]
+        ci.virtual_methods["_on_state_exiting"] = func
+    }}
+    $if T is IOpenXRExtensionWrapperExtensionOnEventPolled {{
+        func := openxrextensionwrapperextension_uon_event_polled[T]
+        ci.virtual_methods["_on_event_polled"] = func
+    }}
+    $if T is IPacketPeerExtensionGetPacket {{
+        func := packetpeerextension_uget_packet[T]
+        ci.virtual_methods["_get_packet"] = func
+    }}
+    $if T is IPacketPeerExtensionPutPacket {{
+        func := packetpeerextension_uput_packet[T]
+        ci.virtual_methods["_put_packet"] = func
+    }}
+    $if T is IPacketPeerExtensionGetAvailablePacketCount {{
+        func := packetpeerextension_uget_available_packet_count[T]
+        ci.virtual_methods["_get_available_packet_count"] = func
+    }}
+    $if T is IPacketPeerExtensionGetMaxPacketSize {{
+        func := packetpeerextension_uget_max_packet_size[T]
+        ci.virtual_methods["_get_max_packet_size"] = func
+    }}
+    $if T is IPhysicalBone3DIntegrateForces {{
+        func := physicalbone3d_uintegrate_forces[T]
+        ci.virtual_methods["_integrate_forces"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionGetTotalGravity {{
+        func := physicsdirectbodystate2dextension_uget_total_gravity[T]
+        ci.virtual_methods["_get_total_gravity"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionGetTotalLinearDamp {{
+        func := physicsdirectbodystate2dextension_uget_total_linear_damp[T]
+        ci.virtual_methods["_get_total_linear_damp"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionGetTotalAngularDamp {{
+        func := physicsdirectbodystate2dextension_uget_total_angular_damp[T]
+        ci.virtual_methods["_get_total_angular_damp"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionGetCenterOfMass {{
+        func := physicsdirectbodystate2dextension_uget_center_of_mass[T]
+        ci.virtual_methods["_get_center_of_mass"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionGetCenterOfMassLocal {{
+        func := physicsdirectbodystate2dextension_uget_center_of_mass_local[T]
+        ci.virtual_methods["_get_center_of_mass_local"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionGetInverseMass {{
+        func := physicsdirectbodystate2dextension_uget_inverse_mass[T]
+        ci.virtual_methods["_get_inverse_mass"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionGetInverseInertia {{
+        func := physicsdirectbodystate2dextension_uget_inverse_inertia[T]
+        ci.virtual_methods["_get_inverse_inertia"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionSetLinearVelocity {{
+        func := physicsdirectbodystate2dextension_uset_linear_velocity[T]
+        ci.virtual_methods["_set_linear_velocity"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionGetLinearVelocity {{
+        func := physicsdirectbodystate2dextension_uget_linear_velocity[T]
+        ci.virtual_methods["_get_linear_velocity"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionSetAngularVelocity {{
+        func := physicsdirectbodystate2dextension_uset_angular_velocity[T]
+        ci.virtual_methods["_set_angular_velocity"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionGetAngularVelocity {{
+        func := physicsdirectbodystate2dextension_uget_angular_velocity[T]
+        ci.virtual_methods["_get_angular_velocity"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionSetTransform {{
+        func := physicsdirectbodystate2dextension_uset_transform[T]
+        ci.virtual_methods["_set_transform"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionGetTransform {{
+        func := physicsdirectbodystate2dextension_uget_transform[T]
+        ci.virtual_methods["_get_transform"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionGetVelocityAtLocalPosition {{
+        func := physicsdirectbodystate2dextension_uget_velocity_at_local_position[T]
+        ci.virtual_methods["_get_velocity_at_local_position"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionApplyCentralImpulse {{
+        func := physicsdirectbodystate2dextension_uapply_central_impulse[T]
+        ci.virtual_methods["_apply_central_impulse"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionApplyImpulse {{
+        func := physicsdirectbodystate2dextension_uapply_impulse[T]
+        ci.virtual_methods["_apply_impulse"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionApplyTorqueImpulse {{
+        func := physicsdirectbodystate2dextension_uapply_torque_impulse[T]
+        ci.virtual_methods["_apply_torque_impulse"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionApplyCentralForce {{
+        func := physicsdirectbodystate2dextension_uapply_central_force[T]
+        ci.virtual_methods["_apply_central_force"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionApplyForce {{
+        func := physicsdirectbodystate2dextension_uapply_force[T]
+        ci.virtual_methods["_apply_force"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionApplyTorque {{
+        func := physicsdirectbodystate2dextension_uapply_torque[T]
+        ci.virtual_methods["_apply_torque"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionAddConstantCentralForce {{
+        func := physicsdirectbodystate2dextension_uadd_constant_central_force[T]
+        ci.virtual_methods["_add_constant_central_force"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionAddConstantForce {{
+        func := physicsdirectbodystate2dextension_uadd_constant_force[T]
+        ci.virtual_methods["_add_constant_force"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionAddConstantTorque {{
+        func := physicsdirectbodystate2dextension_uadd_constant_torque[T]
+        ci.virtual_methods["_add_constant_torque"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionSetConstantForce {{
+        func := physicsdirectbodystate2dextension_uset_constant_force[T]
+        ci.virtual_methods["_set_constant_force"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionGetConstantForce {{
+        func := physicsdirectbodystate2dextension_uget_constant_force[T]
+        ci.virtual_methods["_get_constant_force"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionSetConstantTorque {{
+        func := physicsdirectbodystate2dextension_uset_constant_torque[T]
+        ci.virtual_methods["_set_constant_torque"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionGetConstantTorque {{
+        func := physicsdirectbodystate2dextension_uget_constant_torque[T]
+        ci.virtual_methods["_get_constant_torque"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionSetSleepState {{
+        func := physicsdirectbodystate2dextension_uset_sleep_state[T]
+        ci.virtual_methods["_set_sleep_state"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionIsSleeping {{
+        func := physicsdirectbodystate2dextension_uis_sleeping[T]
+        ci.virtual_methods["_is_sleeping"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionGetContactCount {{
+        func := physicsdirectbodystate2dextension_uget_contact_count[T]
+        ci.virtual_methods["_get_contact_count"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionGetContactLocalPosition {{
+        func := physicsdirectbodystate2dextension_uget_contact_local_position[T]
+        ci.virtual_methods["_get_contact_local_position"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionGetContactLocalNormal {{
+        func := physicsdirectbodystate2dextension_uget_contact_local_normal[T]
+        ci.virtual_methods["_get_contact_local_normal"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionGetContactLocalShape {{
+        func := physicsdirectbodystate2dextension_uget_contact_local_shape[T]
+        ci.virtual_methods["_get_contact_local_shape"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionGetContactLocalVelocityAtPosition {{
+        func := physicsdirectbodystate2dextension_uget_contact_local_velocity_at_position[T]
+        ci.virtual_methods["_get_contact_local_velocity_at_position"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionGetContactCollider {{
+        func := physicsdirectbodystate2dextension_uget_contact_collider[T]
+        ci.virtual_methods["_get_contact_collider"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionGetContactColliderPosition {{
+        func := physicsdirectbodystate2dextension_uget_contact_collider_position[T]
+        ci.virtual_methods["_get_contact_collider_position"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionGetContactColliderId {{
+        func := physicsdirectbodystate2dextension_uget_contact_collider_id[T]
+        ci.virtual_methods["_get_contact_collider_id"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionGetContactColliderObject {{
+        func := physicsdirectbodystate2dextension_uget_contact_collider_object[T]
+        ci.virtual_methods["_get_contact_collider_object"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionGetContactColliderShape {{
+        func := physicsdirectbodystate2dextension_uget_contact_collider_shape[T]
+        ci.virtual_methods["_get_contact_collider_shape"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionGetContactColliderVelocityAtPosition {{
+        func := physicsdirectbodystate2dextension_uget_contact_collider_velocity_at_position[T]
+        ci.virtual_methods["_get_contact_collider_velocity_at_position"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionGetContactImpulse {{
+        func := physicsdirectbodystate2dextension_uget_contact_impulse[T]
+        ci.virtual_methods["_get_contact_impulse"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionGetStep {{
+        func := physicsdirectbodystate2dextension_uget_step[T]
+        ci.virtual_methods["_get_step"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionIntegrateForces {{
+        func := physicsdirectbodystate2dextension_uintegrate_forces[T]
+        ci.virtual_methods["_integrate_forces"] = func
+    }}
+    $if T is IPhysicsDirectBodyState2DExtensionGetSpaceState {{
+        func := physicsdirectbodystate2dextension_uget_space_state[T]
+        ci.virtual_methods["_get_space_state"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionGetTotalGravity {{
+        func := physicsdirectbodystate3dextension_uget_total_gravity[T]
+        ci.virtual_methods["_get_total_gravity"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionGetTotalLinearDamp {{
+        func := physicsdirectbodystate3dextension_uget_total_linear_damp[T]
+        ci.virtual_methods["_get_total_linear_damp"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionGetTotalAngularDamp {{
+        func := physicsdirectbodystate3dextension_uget_total_angular_damp[T]
+        ci.virtual_methods["_get_total_angular_damp"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionGetCenterOfMass {{
+        func := physicsdirectbodystate3dextension_uget_center_of_mass[T]
+        ci.virtual_methods["_get_center_of_mass"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionGetCenterOfMassLocal {{
+        func := physicsdirectbodystate3dextension_uget_center_of_mass_local[T]
+        ci.virtual_methods["_get_center_of_mass_local"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionGetPrincipalInertiaAxes {{
+        func := physicsdirectbodystate3dextension_uget_principal_inertia_axes[T]
+        ci.virtual_methods["_get_principal_inertia_axes"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionGetInverseMass {{
+        func := physicsdirectbodystate3dextension_uget_inverse_mass[T]
+        ci.virtual_methods["_get_inverse_mass"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionGetInverseInertia {{
+        func := physicsdirectbodystate3dextension_uget_inverse_inertia[T]
+        ci.virtual_methods["_get_inverse_inertia"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionGetInverseInertiaTensor {{
+        func := physicsdirectbodystate3dextension_uget_inverse_inertia_tensor[T]
+        ci.virtual_methods["_get_inverse_inertia_tensor"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionSetLinearVelocity {{
+        func := physicsdirectbodystate3dextension_uset_linear_velocity[T]
+        ci.virtual_methods["_set_linear_velocity"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionGetLinearVelocity {{
+        func := physicsdirectbodystate3dextension_uget_linear_velocity[T]
+        ci.virtual_methods["_get_linear_velocity"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionSetAngularVelocity {{
+        func := physicsdirectbodystate3dextension_uset_angular_velocity[T]
+        ci.virtual_methods["_set_angular_velocity"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionGetAngularVelocity {{
+        func := physicsdirectbodystate3dextension_uget_angular_velocity[T]
+        ci.virtual_methods["_get_angular_velocity"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionSetTransform {{
+        func := physicsdirectbodystate3dextension_uset_transform[T]
+        ci.virtual_methods["_set_transform"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionGetTransform {{
+        func := physicsdirectbodystate3dextension_uget_transform[T]
+        ci.virtual_methods["_get_transform"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionGetVelocityAtLocalPosition {{
+        func := physicsdirectbodystate3dextension_uget_velocity_at_local_position[T]
+        ci.virtual_methods["_get_velocity_at_local_position"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionApplyCentralImpulse {{
+        func := physicsdirectbodystate3dextension_uapply_central_impulse[T]
+        ci.virtual_methods["_apply_central_impulse"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionApplyImpulse {{
+        func := physicsdirectbodystate3dextension_uapply_impulse[T]
+        ci.virtual_methods["_apply_impulse"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionApplyTorqueImpulse {{
+        func := physicsdirectbodystate3dextension_uapply_torque_impulse[T]
+        ci.virtual_methods["_apply_torque_impulse"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionApplyCentralForce {{
+        func := physicsdirectbodystate3dextension_uapply_central_force[T]
+        ci.virtual_methods["_apply_central_force"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionApplyForce {{
+        func := physicsdirectbodystate3dextension_uapply_force[T]
+        ci.virtual_methods["_apply_force"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionApplyTorque {{
+        func := physicsdirectbodystate3dextension_uapply_torque[T]
+        ci.virtual_methods["_apply_torque"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionAddConstantCentralForce {{
+        func := physicsdirectbodystate3dextension_uadd_constant_central_force[T]
+        ci.virtual_methods["_add_constant_central_force"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionAddConstantForce {{
+        func := physicsdirectbodystate3dextension_uadd_constant_force[T]
+        ci.virtual_methods["_add_constant_force"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionAddConstantTorque {{
+        func := physicsdirectbodystate3dextension_uadd_constant_torque[T]
+        ci.virtual_methods["_add_constant_torque"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionSetConstantForce {{
+        func := physicsdirectbodystate3dextension_uset_constant_force[T]
+        ci.virtual_methods["_set_constant_force"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionGetConstantForce {{
+        func := physicsdirectbodystate3dextension_uget_constant_force[T]
+        ci.virtual_methods["_get_constant_force"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionSetConstantTorque {{
+        func := physicsdirectbodystate3dextension_uset_constant_torque[T]
+        ci.virtual_methods["_set_constant_torque"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionGetConstantTorque {{
+        func := physicsdirectbodystate3dextension_uget_constant_torque[T]
+        ci.virtual_methods["_get_constant_torque"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionSetSleepState {{
+        func := physicsdirectbodystate3dextension_uset_sleep_state[T]
+        ci.virtual_methods["_set_sleep_state"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionIsSleeping {{
+        func := physicsdirectbodystate3dextension_uis_sleeping[T]
+        ci.virtual_methods["_is_sleeping"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionGetContactCount {{
+        func := physicsdirectbodystate3dextension_uget_contact_count[T]
+        ci.virtual_methods["_get_contact_count"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionGetContactLocalPosition {{
+        func := physicsdirectbodystate3dextension_uget_contact_local_position[T]
+        ci.virtual_methods["_get_contact_local_position"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionGetContactLocalNormal {{
+        func := physicsdirectbodystate3dextension_uget_contact_local_normal[T]
+        ci.virtual_methods["_get_contact_local_normal"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionGetContactImpulse {{
+        func := physicsdirectbodystate3dextension_uget_contact_impulse[T]
+        ci.virtual_methods["_get_contact_impulse"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionGetContactLocalShape {{
+        func := physicsdirectbodystate3dextension_uget_contact_local_shape[T]
+        ci.virtual_methods["_get_contact_local_shape"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionGetContactLocalVelocityAtPosition {{
+        func := physicsdirectbodystate3dextension_uget_contact_local_velocity_at_position[T]
+        ci.virtual_methods["_get_contact_local_velocity_at_position"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionGetContactCollider {{
+        func := physicsdirectbodystate3dextension_uget_contact_collider[T]
+        ci.virtual_methods["_get_contact_collider"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionGetContactColliderPosition {{
+        func := physicsdirectbodystate3dextension_uget_contact_collider_position[T]
+        ci.virtual_methods["_get_contact_collider_position"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionGetContactColliderId {{
+        func := physicsdirectbodystate3dextension_uget_contact_collider_id[T]
+        ci.virtual_methods["_get_contact_collider_id"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionGetContactColliderObject {{
+        func := physicsdirectbodystate3dextension_uget_contact_collider_object[T]
+        ci.virtual_methods["_get_contact_collider_object"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionGetContactColliderShape {{
+        func := physicsdirectbodystate3dextension_uget_contact_collider_shape[T]
+        ci.virtual_methods["_get_contact_collider_shape"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionGetContactColliderVelocityAtPosition {{
+        func := physicsdirectbodystate3dextension_uget_contact_collider_velocity_at_position[T]
+        ci.virtual_methods["_get_contact_collider_velocity_at_position"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionGetStep {{
+        func := physicsdirectbodystate3dextension_uget_step[T]
+        ci.virtual_methods["_get_step"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionIntegrateForces {{
+        func := physicsdirectbodystate3dextension_uintegrate_forces[T]
+        ci.virtual_methods["_integrate_forces"] = func
+    }}
+    $if T is IPhysicsDirectBodyState3DExtensionGetSpaceState {{
+        func := physicsdirectbodystate3dextension_uget_space_state[T]
+        ci.virtual_methods["_get_space_state"] = func
+    }}
+    $if T is IPhysicsDirectSpaceState2DExtensionIntersectRay {{
+        func := physicsdirectspacestate2dextension_uintersect_ray[T]
+        ci.virtual_methods["_intersect_ray"] = func
+    }}
+    $if T is IPhysicsDirectSpaceState2DExtensionIntersectPoint {{
+        func := physicsdirectspacestate2dextension_uintersect_point[T]
+        ci.virtual_methods["_intersect_point"] = func
+    }}
+    $if T is IPhysicsDirectSpaceState2DExtensionIntersectShape {{
+        func := physicsdirectspacestate2dextension_uintersect_shape[T]
+        ci.virtual_methods["_intersect_shape"] = func
+    }}
+    $if T is IPhysicsDirectSpaceState2DExtensionCastMotion {{
+        func := physicsdirectspacestate2dextension_ucast_motion[T]
+        ci.virtual_methods["_cast_motion"] = func
+    }}
+    $if T is IPhysicsDirectSpaceState2DExtensionCollideShape {{
+        func := physicsdirectspacestate2dextension_ucollide_shape[T]
+        ci.virtual_methods["_collide_shape"] = func
+    }}
+    $if T is IPhysicsDirectSpaceState2DExtensionRestInfo {{
+        func := physicsdirectspacestate2dextension_urest_info[T]
+        ci.virtual_methods["_rest_info"] = func
+    }}
+    $if T is IPhysicsDirectSpaceState3DExtensionIntersectRay {{
+        func := physicsdirectspacestate3dextension_uintersect_ray[T]
+        ci.virtual_methods["_intersect_ray"] = func
+    }}
+    $if T is IPhysicsDirectSpaceState3DExtensionIntersectPoint {{
+        func := physicsdirectspacestate3dextension_uintersect_point[T]
+        ci.virtual_methods["_intersect_point"] = func
+    }}
+    $if T is IPhysicsDirectSpaceState3DExtensionIntersectShape {{
+        func := physicsdirectspacestate3dextension_uintersect_shape[T]
+        ci.virtual_methods["_intersect_shape"] = func
+    }}
+    $if T is IPhysicsDirectSpaceState3DExtensionCastMotion {{
+        func := physicsdirectspacestate3dextension_ucast_motion[T]
+        ci.virtual_methods["_cast_motion"] = func
+    }}
+    $if T is IPhysicsDirectSpaceState3DExtensionCollideShape {{
+        func := physicsdirectspacestate3dextension_ucollide_shape[T]
+        ci.virtual_methods["_collide_shape"] = func
+    }}
+    $if T is IPhysicsDirectSpaceState3DExtensionRestInfo {{
+        func := physicsdirectspacestate3dextension_urest_info[T]
+        ci.virtual_methods["_rest_info"] = func
+    }}
+    $if T is IPhysicsDirectSpaceState3DExtensionGetClosestPointToObjectVolume {{
+        func := physicsdirectspacestate3dextension_uget_closest_point_to_object_volume[T]
+        ci.virtual_methods["_get_closest_point_to_object_volume"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionWorldBoundaryShapeCreate {{
+        func := physicsserver2dextension_uworld_boundary_shape_create[T]
+        ci.virtual_methods["_world_boundary_shape_create"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionSeparationRayShapeCreate {{
+        func := physicsserver2dextension_useparation_ray_shape_create[T]
+        ci.virtual_methods["_separation_ray_shape_create"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionSegmentShapeCreate {{
+        func := physicsserver2dextension_usegment_shape_create[T]
+        ci.virtual_methods["_segment_shape_create"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionCircleShapeCreate {{
+        func := physicsserver2dextension_ucircle_shape_create[T]
+        ci.virtual_methods["_circle_shape_create"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionRectangleShapeCreate {{
+        func := physicsserver2dextension_urectangle_shape_create[T]
+        ci.virtual_methods["_rectangle_shape_create"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionCapsuleShapeCreate {{
+        func := physicsserver2dextension_ucapsule_shape_create[T]
+        ci.virtual_methods["_capsule_shape_create"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionConvexPolygonShapeCreate {{
+        func := physicsserver2dextension_uconvex_polygon_shape_create[T]
+        ci.virtual_methods["_convex_polygon_shape_create"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionConcavePolygonShapeCreate {{
+        func := physicsserver2dextension_uconcave_polygon_shape_create[T]
+        ci.virtual_methods["_concave_polygon_shape_create"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionShapeSetData {{
+        func := physicsserver2dextension_ushape_set_data[T]
+        ci.virtual_methods["_shape_set_data"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionShapeSetCustomSolverBias {{
+        func := physicsserver2dextension_ushape_set_custom_solver_bias[T]
+        ci.virtual_methods["_shape_set_custom_solver_bias"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionShapeGetType {{
+        func := physicsserver2dextension_ushape_get_type[T]
+        ci.virtual_methods["_shape_get_type"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionShapeGetData {{
+        func := physicsserver2dextension_ushape_get_data[T]
+        ci.virtual_methods["_shape_get_data"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionShapeGetCustomSolverBias {{
+        func := physicsserver2dextension_ushape_get_custom_solver_bias[T]
+        ci.virtual_methods["_shape_get_custom_solver_bias"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionShapeCollide {{
+        func := physicsserver2dextension_ushape_collide[T]
+        ci.virtual_methods["_shape_collide"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionSpaceCreate {{
+        func := physicsserver2dextension_uspace_create[T]
+        ci.virtual_methods["_space_create"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionSpaceSetActive {{
+        func := physicsserver2dextension_uspace_set_active[T]
+        ci.virtual_methods["_space_set_active"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionSpaceIsActive {{
+        func := physicsserver2dextension_uspace_is_active[T]
+        ci.virtual_methods["_space_is_active"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionSpaceSetParam {{
+        func := physicsserver2dextension_uspace_set_param[T]
+        ci.virtual_methods["_space_set_param"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionSpaceGetParam {{
+        func := physicsserver2dextension_uspace_get_param[T]
+        ci.virtual_methods["_space_get_param"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionSpaceGetDirectState {{
+        func := physicsserver2dextension_uspace_get_direct_state[T]
+        ci.virtual_methods["_space_get_direct_state"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionSpaceSetDebugContacts {{
+        func := physicsserver2dextension_uspace_set_debug_contacts[T]
+        ci.virtual_methods["_space_set_debug_contacts"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionSpaceGetContacts {{
+        func := physicsserver2dextension_uspace_get_contacts[T]
+        ci.virtual_methods["_space_get_contacts"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionSpaceGetContactCount {{
+        func := physicsserver2dextension_uspace_get_contact_count[T]
+        ci.virtual_methods["_space_get_contact_count"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionAreaCreate {{
+        func := physicsserver2dextension_uarea_create[T]
+        ci.virtual_methods["_area_create"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionAreaSetSpace {{
+        func := physicsserver2dextension_uarea_set_space[T]
+        ci.virtual_methods["_area_set_space"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionAreaGetSpace {{
+        func := physicsserver2dextension_uarea_get_space[T]
+        ci.virtual_methods["_area_get_space"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionAreaAddShape {{
+        func := physicsserver2dextension_uarea_add_shape[T]
+        ci.virtual_methods["_area_add_shape"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionAreaSetShape {{
+        func := physicsserver2dextension_uarea_set_shape[T]
+        ci.virtual_methods["_area_set_shape"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionAreaSetShapeTransform {{
+        func := physicsserver2dextension_uarea_set_shape_transform[T]
+        ci.virtual_methods["_area_set_shape_transform"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionAreaSetShapeDisabled {{
+        func := physicsserver2dextension_uarea_set_shape_disabled[T]
+        ci.virtual_methods["_area_set_shape_disabled"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionAreaGetShapeCount {{
+        func := physicsserver2dextension_uarea_get_shape_count[T]
+        ci.virtual_methods["_area_get_shape_count"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionAreaGetShape {{
+        func := physicsserver2dextension_uarea_get_shape[T]
+        ci.virtual_methods["_area_get_shape"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionAreaGetShapeTransform {{
+        func := physicsserver2dextension_uarea_get_shape_transform[T]
+        ci.virtual_methods["_area_get_shape_transform"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionAreaRemoveShape {{
+        func := physicsserver2dextension_uarea_remove_shape[T]
+        ci.virtual_methods["_area_remove_shape"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionAreaClearShapes {{
+        func := physicsserver2dextension_uarea_clear_shapes[T]
+        ci.virtual_methods["_area_clear_shapes"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionAreaAttachObjectInstanceId {{
+        func := physicsserver2dextension_uarea_attach_object_instance_id[T]
+        ci.virtual_methods["_area_attach_object_instance_id"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionAreaGetObjectInstanceId {{
+        func := physicsserver2dextension_uarea_get_object_instance_id[T]
+        ci.virtual_methods["_area_get_object_instance_id"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionAreaAttachCanvasInstanceId {{
+        func := physicsserver2dextension_uarea_attach_canvas_instance_id[T]
+        ci.virtual_methods["_area_attach_canvas_instance_id"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionAreaGetCanvasInstanceId {{
+        func := physicsserver2dextension_uarea_get_canvas_instance_id[T]
+        ci.virtual_methods["_area_get_canvas_instance_id"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionAreaSetParam {{
+        func := physicsserver2dextension_uarea_set_param[T]
+        ci.virtual_methods["_area_set_param"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionAreaSetTransform {{
+        func := physicsserver2dextension_uarea_set_transform[T]
+        ci.virtual_methods["_area_set_transform"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionAreaGetParam {{
+        func := physicsserver2dextension_uarea_get_param[T]
+        ci.virtual_methods["_area_get_param"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionAreaGetTransform {{
+        func := physicsserver2dextension_uarea_get_transform[T]
+        ci.virtual_methods["_area_get_transform"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionAreaSetCollisionLayer {{
+        func := physicsserver2dextension_uarea_set_collision_layer[T]
+        ci.virtual_methods["_area_set_collision_layer"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionAreaGetCollisionLayer {{
+        func := physicsserver2dextension_uarea_get_collision_layer[T]
+        ci.virtual_methods["_area_get_collision_layer"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionAreaSetCollisionMask {{
+        func := physicsserver2dextension_uarea_set_collision_mask[T]
+        ci.virtual_methods["_area_set_collision_mask"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionAreaGetCollisionMask {{
+        func := physicsserver2dextension_uarea_get_collision_mask[T]
+        ci.virtual_methods["_area_get_collision_mask"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionAreaSetMonitorable {{
+        func := physicsserver2dextension_uarea_set_monitorable[T]
+        ci.virtual_methods["_area_set_monitorable"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionAreaSetPickable {{
+        func := physicsserver2dextension_uarea_set_pickable[T]
+        ci.virtual_methods["_area_set_pickable"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionAreaSetMonitorCallback {{
+        func := physicsserver2dextension_uarea_set_monitor_callback[T]
+        ci.virtual_methods["_area_set_monitor_callback"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionAreaSetAreaMonitorCallback {{
+        func := physicsserver2dextension_uarea_set_area_monitor_callback[T]
+        ci.virtual_methods["_area_set_area_monitor_callback"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyCreate {{
+        func := physicsserver2dextension_ubody_create[T]
+        ci.virtual_methods["_body_create"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodySetSpace {{
+        func := physicsserver2dextension_ubody_set_space[T]
+        ci.virtual_methods["_body_set_space"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyGetSpace {{
+        func := physicsserver2dextension_ubody_get_space[T]
+        ci.virtual_methods["_body_get_space"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodySetMode {{
+        func := physicsserver2dextension_ubody_set_mode[T]
+        ci.virtual_methods["_body_set_mode"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyGetMode {{
+        func := physicsserver2dextension_ubody_get_mode[T]
+        ci.virtual_methods["_body_get_mode"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyAddShape {{
+        func := physicsserver2dextension_ubody_add_shape[T]
+        ci.virtual_methods["_body_add_shape"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodySetShape {{
+        func := physicsserver2dextension_ubody_set_shape[T]
+        ci.virtual_methods["_body_set_shape"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodySetShapeTransform {{
+        func := physicsserver2dextension_ubody_set_shape_transform[T]
+        ci.virtual_methods["_body_set_shape_transform"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyGetShapeCount {{
+        func := physicsserver2dextension_ubody_get_shape_count[T]
+        ci.virtual_methods["_body_get_shape_count"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyGetShape {{
+        func := physicsserver2dextension_ubody_get_shape[T]
+        ci.virtual_methods["_body_get_shape"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyGetShapeTransform {{
+        func := physicsserver2dextension_ubody_get_shape_transform[T]
+        ci.virtual_methods["_body_get_shape_transform"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodySetShapeDisabled {{
+        func := physicsserver2dextension_ubody_set_shape_disabled[T]
+        ci.virtual_methods["_body_set_shape_disabled"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodySetShapeAsOneWayCollision {{
+        func := physicsserver2dextension_ubody_set_shape_as_one_way_collision[T]
+        ci.virtual_methods["_body_set_shape_as_one_way_collision"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyRemoveShape {{
+        func := physicsserver2dextension_ubody_remove_shape[T]
+        ci.virtual_methods["_body_remove_shape"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyClearShapes {{
+        func := physicsserver2dextension_ubody_clear_shapes[T]
+        ci.virtual_methods["_body_clear_shapes"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyAttachObjectInstanceId {{
+        func := physicsserver2dextension_ubody_attach_object_instance_id[T]
+        ci.virtual_methods["_body_attach_object_instance_id"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyGetObjectInstanceId {{
+        func := physicsserver2dextension_ubody_get_object_instance_id[T]
+        ci.virtual_methods["_body_get_object_instance_id"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyAttachCanvasInstanceId {{
+        func := physicsserver2dextension_ubody_attach_canvas_instance_id[T]
+        ci.virtual_methods["_body_attach_canvas_instance_id"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyGetCanvasInstanceId {{
+        func := physicsserver2dextension_ubody_get_canvas_instance_id[T]
+        ci.virtual_methods["_body_get_canvas_instance_id"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodySetContinuousCollisionDetectionMode {{
+        func := physicsserver2dextension_ubody_set_continuous_collision_detection_mode[T]
+        ci.virtual_methods["_body_set_continuous_collision_detection_mode"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyGetContinuousCollisionDetectionMode {{
+        func := physicsserver2dextension_ubody_get_continuous_collision_detection_mode[T]
+        ci.virtual_methods["_body_get_continuous_collision_detection_mode"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodySetCollisionLayer {{
+        func := physicsserver2dextension_ubody_set_collision_layer[T]
+        ci.virtual_methods["_body_set_collision_layer"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyGetCollisionLayer {{
+        func := physicsserver2dextension_ubody_get_collision_layer[T]
+        ci.virtual_methods["_body_get_collision_layer"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodySetCollisionMask {{
+        func := physicsserver2dextension_ubody_set_collision_mask[T]
+        ci.virtual_methods["_body_set_collision_mask"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyGetCollisionMask {{
+        func := physicsserver2dextension_ubody_get_collision_mask[T]
+        ci.virtual_methods["_body_get_collision_mask"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodySetCollisionPriority {{
+        func := physicsserver2dextension_ubody_set_collision_priority[T]
+        ci.virtual_methods["_body_set_collision_priority"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyGetCollisionPriority {{
+        func := physicsserver2dextension_ubody_get_collision_priority[T]
+        ci.virtual_methods["_body_get_collision_priority"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodySetParam {{
+        func := physicsserver2dextension_ubody_set_param[T]
+        ci.virtual_methods["_body_set_param"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyGetParam {{
+        func := physicsserver2dextension_ubody_get_param[T]
+        ci.virtual_methods["_body_get_param"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyResetMassProperties {{
+        func := physicsserver2dextension_ubody_reset_mass_properties[T]
+        ci.virtual_methods["_body_reset_mass_properties"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodySetState {{
+        func := physicsserver2dextension_ubody_set_state[T]
+        ci.virtual_methods["_body_set_state"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyGetState {{
+        func := physicsserver2dextension_ubody_get_state[T]
+        ci.virtual_methods["_body_get_state"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyApplyCentralImpulse {{
+        func := physicsserver2dextension_ubody_apply_central_impulse[T]
+        ci.virtual_methods["_body_apply_central_impulse"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyApplyTorqueImpulse {{
+        func := physicsserver2dextension_ubody_apply_torque_impulse[T]
+        ci.virtual_methods["_body_apply_torque_impulse"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyApplyImpulse {{
+        func := physicsserver2dextension_ubody_apply_impulse[T]
+        ci.virtual_methods["_body_apply_impulse"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyApplyCentralForce {{
+        func := physicsserver2dextension_ubody_apply_central_force[T]
+        ci.virtual_methods["_body_apply_central_force"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyApplyForce {{
+        func := physicsserver2dextension_ubody_apply_force[T]
+        ci.virtual_methods["_body_apply_force"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyApplyTorque {{
+        func := physicsserver2dextension_ubody_apply_torque[T]
+        ci.virtual_methods["_body_apply_torque"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyAddConstantCentralForce {{
+        func := physicsserver2dextension_ubody_add_constant_central_force[T]
+        ci.virtual_methods["_body_add_constant_central_force"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyAddConstantForce {{
+        func := physicsserver2dextension_ubody_add_constant_force[T]
+        ci.virtual_methods["_body_add_constant_force"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyAddConstantTorque {{
+        func := physicsserver2dextension_ubody_add_constant_torque[T]
+        ci.virtual_methods["_body_add_constant_torque"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodySetConstantForce {{
+        func := physicsserver2dextension_ubody_set_constant_force[T]
+        ci.virtual_methods["_body_set_constant_force"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyGetConstantForce {{
+        func := physicsserver2dextension_ubody_get_constant_force[T]
+        ci.virtual_methods["_body_get_constant_force"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodySetConstantTorque {{
+        func := physicsserver2dextension_ubody_set_constant_torque[T]
+        ci.virtual_methods["_body_set_constant_torque"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyGetConstantTorque {{
+        func := physicsserver2dextension_ubody_get_constant_torque[T]
+        ci.virtual_methods["_body_get_constant_torque"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodySetAxisVelocity {{
+        func := physicsserver2dextension_ubody_set_axis_velocity[T]
+        ci.virtual_methods["_body_set_axis_velocity"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyAddCollisionException {{
+        func := physicsserver2dextension_ubody_add_collision_exception[T]
+        ci.virtual_methods["_body_add_collision_exception"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyRemoveCollisionException {{
+        func := physicsserver2dextension_ubody_remove_collision_exception[T]
+        ci.virtual_methods["_body_remove_collision_exception"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyGetCollisionExceptions {{
+        func := physicsserver2dextension_ubody_get_collision_exceptions[T]
+        ci.virtual_methods["_body_get_collision_exceptions"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodySetMaxContactsReported {{
+        func := physicsserver2dextension_ubody_set_max_contacts_reported[T]
+        ci.virtual_methods["_body_set_max_contacts_reported"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyGetMaxContactsReported {{
+        func := physicsserver2dextension_ubody_get_max_contacts_reported[T]
+        ci.virtual_methods["_body_get_max_contacts_reported"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodySetContactsReportedDepthThreshold {{
+        func := physicsserver2dextension_ubody_set_contacts_reported_depth_threshold[T]
+        ci.virtual_methods["_body_set_contacts_reported_depth_threshold"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyGetContactsReportedDepthThreshold {{
+        func := physicsserver2dextension_ubody_get_contacts_reported_depth_threshold[T]
+        ci.virtual_methods["_body_get_contacts_reported_depth_threshold"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodySetOmitForceIntegration {{
+        func := physicsserver2dextension_ubody_set_omit_force_integration[T]
+        ci.virtual_methods["_body_set_omit_force_integration"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyIsOmittingForceIntegration {{
+        func := physicsserver2dextension_ubody_is_omitting_force_integration[T]
+        ci.virtual_methods["_body_is_omitting_force_integration"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodySetStateSyncCallback {{
+        func := physicsserver2dextension_ubody_set_state_sync_callback[T]
+        ci.virtual_methods["_body_set_state_sync_callback"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodySetForceIntegrationCallback {{
+        func := physicsserver2dextension_ubody_set_force_integration_callback[T]
+        ci.virtual_methods["_body_set_force_integration_callback"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyCollideShape {{
+        func := physicsserver2dextension_ubody_collide_shape[T]
+        ci.virtual_methods["_body_collide_shape"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodySetPickable {{
+        func := physicsserver2dextension_ubody_set_pickable[T]
+        ci.virtual_methods["_body_set_pickable"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyGetDirectState {{
+        func := physicsserver2dextension_ubody_get_direct_state[T]
+        ci.virtual_methods["_body_get_direct_state"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionBodyTestMotion {{
+        func := physicsserver2dextension_ubody_test_motion[T]
+        ci.virtual_methods["_body_test_motion"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionJointCreate {{
+        func := physicsserver2dextension_ujoint_create[T]
+        ci.virtual_methods["_joint_create"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionJointClear {{
+        func := physicsserver2dextension_ujoint_clear[T]
+        ci.virtual_methods["_joint_clear"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionJointSetParam {{
+        func := physicsserver2dextension_ujoint_set_param[T]
+        ci.virtual_methods["_joint_set_param"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionJointGetParam {{
+        func := physicsserver2dextension_ujoint_get_param[T]
+        ci.virtual_methods["_joint_get_param"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionJointDisableCollisionsBetweenBodies {{
+        func := physicsserver2dextension_ujoint_disable_collisions_between_bodies[T]
+        ci.virtual_methods["_joint_disable_collisions_between_bodies"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionJointIsDisabledCollisionsBetweenBodies {{
+        func := physicsserver2dextension_ujoint_is_disabled_collisions_between_bodies[T]
+        ci.virtual_methods["_joint_is_disabled_collisions_between_bodies"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionJointMakePin {{
+        func := physicsserver2dextension_ujoint_make_pin[T]
+        ci.virtual_methods["_joint_make_pin"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionJointMakeGroove {{
+        func := physicsserver2dextension_ujoint_make_groove[T]
+        ci.virtual_methods["_joint_make_groove"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionJointMakeDampedSpring {{
+        func := physicsserver2dextension_ujoint_make_damped_spring[T]
+        ci.virtual_methods["_joint_make_damped_spring"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionPinJointSetFlag {{
+        func := physicsserver2dextension_upin_joint_set_flag[T]
+        ci.virtual_methods["_pin_joint_set_flag"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionPinJointGetFlag {{
+        func := physicsserver2dextension_upin_joint_get_flag[T]
+        ci.virtual_methods["_pin_joint_get_flag"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionPinJointSetParam {{
+        func := physicsserver2dextension_upin_joint_set_param[T]
+        ci.virtual_methods["_pin_joint_set_param"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionPinJointGetParam {{
+        func := physicsserver2dextension_upin_joint_get_param[T]
+        ci.virtual_methods["_pin_joint_get_param"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionDampedSpringJointSetParam {{
+        func := physicsserver2dextension_udamped_spring_joint_set_param[T]
+        ci.virtual_methods["_damped_spring_joint_set_param"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionDampedSpringJointGetParam {{
+        func := physicsserver2dextension_udamped_spring_joint_get_param[T]
+        ci.virtual_methods["_damped_spring_joint_get_param"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionJointGetType {{
+        func := physicsserver2dextension_ujoint_get_type[T]
+        ci.virtual_methods["_joint_get_type"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionFreeRid {{
+        func := physicsserver2dextension_ufree_rid[T]
+        ci.virtual_methods["_free_rid"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionSetActive {{
+        func := physicsserver2dextension_uset_active[T]
+        ci.virtual_methods["_set_active"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionInit {{
+        func := physicsserver2dextension_uinit[T]
+        ci.virtual_methods["_init"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionStep {{
+        func := physicsserver2dextension_ustep[T]
+        ci.virtual_methods["_step"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionSync {{
+        func := physicsserver2dextension_usync[T]
+        ci.virtual_methods["_sync"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionFlushQueries {{
+        func := physicsserver2dextension_uflush_queries[T]
+        ci.virtual_methods["_flush_queries"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionEndSync {{
+        func := physicsserver2dextension_uend_sync[T]
+        ci.virtual_methods["_end_sync"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionFinish {{
+        func := physicsserver2dextension_ufinish[T]
+        ci.virtual_methods["_finish"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionIsFlushingQueries {{
+        func := physicsserver2dextension_uis_flushing_queries[T]
+        ci.virtual_methods["_is_flushing_queries"] = func
+    }}
+    $if T is IPhysicsServer2DExtensionGetProcessInfo {{
+        func := physicsserver2dextension_uget_process_info[T]
+        ci.virtual_methods["_get_process_info"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionWorldBoundaryShapeCreate {{
+        func := physicsserver3dextension_uworld_boundary_shape_create[T]
+        ci.virtual_methods["_world_boundary_shape_create"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSeparationRayShapeCreate {{
+        func := physicsserver3dextension_useparation_ray_shape_create[T]
+        ci.virtual_methods["_separation_ray_shape_create"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSphereShapeCreate {{
+        func := physicsserver3dextension_usphere_shape_create[T]
+        ci.virtual_methods["_sphere_shape_create"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBoxShapeCreate {{
+        func := physicsserver3dextension_ubox_shape_create[T]
+        ci.virtual_methods["_box_shape_create"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionCapsuleShapeCreate {{
+        func := physicsserver3dextension_ucapsule_shape_create[T]
+        ci.virtual_methods["_capsule_shape_create"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionCylinderShapeCreate {{
+        func := physicsserver3dextension_ucylinder_shape_create[T]
+        ci.virtual_methods["_cylinder_shape_create"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionConvexPolygonShapeCreate {{
+        func := physicsserver3dextension_uconvex_polygon_shape_create[T]
+        ci.virtual_methods["_convex_polygon_shape_create"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionConcavePolygonShapeCreate {{
+        func := physicsserver3dextension_uconcave_polygon_shape_create[T]
+        ci.virtual_methods["_concave_polygon_shape_create"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionHeightmapShapeCreate {{
+        func := physicsserver3dextension_uheightmap_shape_create[T]
+        ci.virtual_methods["_heightmap_shape_create"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionCustomShapeCreate {{
+        func := physicsserver3dextension_ucustom_shape_create[T]
+        ci.virtual_methods["_custom_shape_create"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionShapeSetData {{
+        func := physicsserver3dextension_ushape_set_data[T]
+        ci.virtual_methods["_shape_set_data"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionShapeSetCustomSolverBias {{
+        func := physicsserver3dextension_ushape_set_custom_solver_bias[T]
+        ci.virtual_methods["_shape_set_custom_solver_bias"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionShapeSetMargin {{
+        func := physicsserver3dextension_ushape_set_margin[T]
+        ci.virtual_methods["_shape_set_margin"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionShapeGetMargin {{
+        func := physicsserver3dextension_ushape_get_margin[T]
+        ci.virtual_methods["_shape_get_margin"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionShapeGetType {{
+        func := physicsserver3dextension_ushape_get_type[T]
+        ci.virtual_methods["_shape_get_type"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionShapeGetData {{
+        func := physicsserver3dextension_ushape_get_data[T]
+        ci.virtual_methods["_shape_get_data"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionShapeGetCustomSolverBias {{
+        func := physicsserver3dextension_ushape_get_custom_solver_bias[T]
+        ci.virtual_methods["_shape_get_custom_solver_bias"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSpaceCreate {{
+        func := physicsserver3dextension_uspace_create[T]
+        ci.virtual_methods["_space_create"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSpaceSetActive {{
+        func := physicsserver3dextension_uspace_set_active[T]
+        ci.virtual_methods["_space_set_active"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSpaceIsActive {{
+        func := physicsserver3dextension_uspace_is_active[T]
+        ci.virtual_methods["_space_is_active"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSpaceSetParam {{
+        func := physicsserver3dextension_uspace_set_param[T]
+        ci.virtual_methods["_space_set_param"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSpaceGetParam {{
+        func := physicsserver3dextension_uspace_get_param[T]
+        ci.virtual_methods["_space_get_param"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSpaceGetDirectState {{
+        func := physicsserver3dextension_uspace_get_direct_state[T]
+        ci.virtual_methods["_space_get_direct_state"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSpaceSetDebugContacts {{
+        func := physicsserver3dextension_uspace_set_debug_contacts[T]
+        ci.virtual_methods["_space_set_debug_contacts"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSpaceGetContacts {{
+        func := physicsserver3dextension_uspace_get_contacts[T]
+        ci.virtual_methods["_space_get_contacts"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSpaceGetContactCount {{
+        func := physicsserver3dextension_uspace_get_contact_count[T]
+        ci.virtual_methods["_space_get_contact_count"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionAreaCreate {{
+        func := physicsserver3dextension_uarea_create[T]
+        ci.virtual_methods["_area_create"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionAreaSetSpace {{
+        func := physicsserver3dextension_uarea_set_space[T]
+        ci.virtual_methods["_area_set_space"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionAreaGetSpace {{
+        func := physicsserver3dextension_uarea_get_space[T]
+        ci.virtual_methods["_area_get_space"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionAreaAddShape {{
+        func := physicsserver3dextension_uarea_add_shape[T]
+        ci.virtual_methods["_area_add_shape"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionAreaSetShape {{
+        func := physicsserver3dextension_uarea_set_shape[T]
+        ci.virtual_methods["_area_set_shape"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionAreaSetShapeTransform {{
+        func := physicsserver3dextension_uarea_set_shape_transform[T]
+        ci.virtual_methods["_area_set_shape_transform"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionAreaSetShapeDisabled {{
+        func := physicsserver3dextension_uarea_set_shape_disabled[T]
+        ci.virtual_methods["_area_set_shape_disabled"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionAreaGetShapeCount {{
+        func := physicsserver3dextension_uarea_get_shape_count[T]
+        ci.virtual_methods["_area_get_shape_count"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionAreaGetShape {{
+        func := physicsserver3dextension_uarea_get_shape[T]
+        ci.virtual_methods["_area_get_shape"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionAreaGetShapeTransform {{
+        func := physicsserver3dextension_uarea_get_shape_transform[T]
+        ci.virtual_methods["_area_get_shape_transform"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionAreaRemoveShape {{
+        func := physicsserver3dextension_uarea_remove_shape[T]
+        ci.virtual_methods["_area_remove_shape"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionAreaClearShapes {{
+        func := physicsserver3dextension_uarea_clear_shapes[T]
+        ci.virtual_methods["_area_clear_shapes"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionAreaAttachObjectInstanceId {{
+        func := physicsserver3dextension_uarea_attach_object_instance_id[T]
+        ci.virtual_methods["_area_attach_object_instance_id"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionAreaGetObjectInstanceId {{
+        func := physicsserver3dextension_uarea_get_object_instance_id[T]
+        ci.virtual_methods["_area_get_object_instance_id"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionAreaSetParam {{
+        func := physicsserver3dextension_uarea_set_param[T]
+        ci.virtual_methods["_area_set_param"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionAreaSetTransform {{
+        func := physicsserver3dextension_uarea_set_transform[T]
+        ci.virtual_methods["_area_set_transform"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionAreaGetParam {{
+        func := physicsserver3dextension_uarea_get_param[T]
+        ci.virtual_methods["_area_get_param"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionAreaGetTransform {{
+        func := physicsserver3dextension_uarea_get_transform[T]
+        ci.virtual_methods["_area_get_transform"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionAreaSetCollisionLayer {{
+        func := physicsserver3dextension_uarea_set_collision_layer[T]
+        ci.virtual_methods["_area_set_collision_layer"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionAreaGetCollisionLayer {{
+        func := physicsserver3dextension_uarea_get_collision_layer[T]
+        ci.virtual_methods["_area_get_collision_layer"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionAreaSetCollisionMask {{
+        func := physicsserver3dextension_uarea_set_collision_mask[T]
+        ci.virtual_methods["_area_set_collision_mask"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionAreaGetCollisionMask {{
+        func := physicsserver3dextension_uarea_get_collision_mask[T]
+        ci.virtual_methods["_area_get_collision_mask"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionAreaSetMonitorable {{
+        func := physicsserver3dextension_uarea_set_monitorable[T]
+        ci.virtual_methods["_area_set_monitorable"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionAreaSetRayPickable {{
+        func := physicsserver3dextension_uarea_set_ray_pickable[T]
+        ci.virtual_methods["_area_set_ray_pickable"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionAreaSetMonitorCallback {{
+        func := physicsserver3dextension_uarea_set_monitor_callback[T]
+        ci.virtual_methods["_area_set_monitor_callback"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionAreaSetAreaMonitorCallback {{
+        func := physicsserver3dextension_uarea_set_area_monitor_callback[T]
+        ci.virtual_methods["_area_set_area_monitor_callback"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyCreate {{
+        func := physicsserver3dextension_ubody_create[T]
+        ci.virtual_methods["_body_create"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodySetSpace {{
+        func := physicsserver3dextension_ubody_set_space[T]
+        ci.virtual_methods["_body_set_space"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyGetSpace {{
+        func := physicsserver3dextension_ubody_get_space[T]
+        ci.virtual_methods["_body_get_space"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodySetMode {{
+        func := physicsserver3dextension_ubody_set_mode[T]
+        ci.virtual_methods["_body_set_mode"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyGetMode {{
+        func := physicsserver3dextension_ubody_get_mode[T]
+        ci.virtual_methods["_body_get_mode"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyAddShape {{
+        func := physicsserver3dextension_ubody_add_shape[T]
+        ci.virtual_methods["_body_add_shape"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodySetShape {{
+        func := physicsserver3dextension_ubody_set_shape[T]
+        ci.virtual_methods["_body_set_shape"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodySetShapeTransform {{
+        func := physicsserver3dextension_ubody_set_shape_transform[T]
+        ci.virtual_methods["_body_set_shape_transform"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodySetShapeDisabled {{
+        func := physicsserver3dextension_ubody_set_shape_disabled[T]
+        ci.virtual_methods["_body_set_shape_disabled"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyGetShapeCount {{
+        func := physicsserver3dextension_ubody_get_shape_count[T]
+        ci.virtual_methods["_body_get_shape_count"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyGetShape {{
+        func := physicsserver3dextension_ubody_get_shape[T]
+        ci.virtual_methods["_body_get_shape"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyGetShapeTransform {{
+        func := physicsserver3dextension_ubody_get_shape_transform[T]
+        ci.virtual_methods["_body_get_shape_transform"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyRemoveShape {{
+        func := physicsserver3dextension_ubody_remove_shape[T]
+        ci.virtual_methods["_body_remove_shape"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyClearShapes {{
+        func := physicsserver3dextension_ubody_clear_shapes[T]
+        ci.virtual_methods["_body_clear_shapes"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyAttachObjectInstanceId {{
+        func := physicsserver3dextension_ubody_attach_object_instance_id[T]
+        ci.virtual_methods["_body_attach_object_instance_id"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyGetObjectInstanceId {{
+        func := physicsserver3dextension_ubody_get_object_instance_id[T]
+        ci.virtual_methods["_body_get_object_instance_id"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodySetEnableContinuousCollisionDetection {{
+        func := physicsserver3dextension_ubody_set_enable_continuous_collision_detection[T]
+        ci.virtual_methods["_body_set_enable_continuous_collision_detection"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyIsContinuousCollisionDetectionEnabled {{
+        func := physicsserver3dextension_ubody_is_continuous_collision_detection_enabled[T]
+        ci.virtual_methods["_body_is_continuous_collision_detection_enabled"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodySetCollisionLayer {{
+        func := physicsserver3dextension_ubody_set_collision_layer[T]
+        ci.virtual_methods["_body_set_collision_layer"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyGetCollisionLayer {{
+        func := physicsserver3dextension_ubody_get_collision_layer[T]
+        ci.virtual_methods["_body_get_collision_layer"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodySetCollisionMask {{
+        func := physicsserver3dextension_ubody_set_collision_mask[T]
+        ci.virtual_methods["_body_set_collision_mask"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyGetCollisionMask {{
+        func := physicsserver3dextension_ubody_get_collision_mask[T]
+        ci.virtual_methods["_body_get_collision_mask"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodySetCollisionPriority {{
+        func := physicsserver3dextension_ubody_set_collision_priority[T]
+        ci.virtual_methods["_body_set_collision_priority"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyGetCollisionPriority {{
+        func := physicsserver3dextension_ubody_get_collision_priority[T]
+        ci.virtual_methods["_body_get_collision_priority"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodySetUserFlags {{
+        func := physicsserver3dextension_ubody_set_user_flags[T]
+        ci.virtual_methods["_body_set_user_flags"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyGetUserFlags {{
+        func := physicsserver3dextension_ubody_get_user_flags[T]
+        ci.virtual_methods["_body_get_user_flags"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodySetParam {{
+        func := physicsserver3dextension_ubody_set_param[T]
+        ci.virtual_methods["_body_set_param"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyGetParam {{
+        func := physicsserver3dextension_ubody_get_param[T]
+        ci.virtual_methods["_body_get_param"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyResetMassProperties {{
+        func := physicsserver3dextension_ubody_reset_mass_properties[T]
+        ci.virtual_methods["_body_reset_mass_properties"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodySetState {{
+        func := physicsserver3dextension_ubody_set_state[T]
+        ci.virtual_methods["_body_set_state"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyGetState {{
+        func := physicsserver3dextension_ubody_get_state[T]
+        ci.virtual_methods["_body_get_state"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyApplyCentralImpulse {{
+        func := physicsserver3dextension_ubody_apply_central_impulse[T]
+        ci.virtual_methods["_body_apply_central_impulse"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyApplyImpulse {{
+        func := physicsserver3dextension_ubody_apply_impulse[T]
+        ci.virtual_methods["_body_apply_impulse"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyApplyTorqueImpulse {{
+        func := physicsserver3dextension_ubody_apply_torque_impulse[T]
+        ci.virtual_methods["_body_apply_torque_impulse"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyApplyCentralForce {{
+        func := physicsserver3dextension_ubody_apply_central_force[T]
+        ci.virtual_methods["_body_apply_central_force"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyApplyForce {{
+        func := physicsserver3dextension_ubody_apply_force[T]
+        ci.virtual_methods["_body_apply_force"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyApplyTorque {{
+        func := physicsserver3dextension_ubody_apply_torque[T]
+        ci.virtual_methods["_body_apply_torque"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyAddConstantCentralForce {{
+        func := physicsserver3dextension_ubody_add_constant_central_force[T]
+        ci.virtual_methods["_body_add_constant_central_force"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyAddConstantForce {{
+        func := physicsserver3dextension_ubody_add_constant_force[T]
+        ci.virtual_methods["_body_add_constant_force"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyAddConstantTorque {{
+        func := physicsserver3dextension_ubody_add_constant_torque[T]
+        ci.virtual_methods["_body_add_constant_torque"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodySetConstantForce {{
+        func := physicsserver3dextension_ubody_set_constant_force[T]
+        ci.virtual_methods["_body_set_constant_force"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyGetConstantForce {{
+        func := physicsserver3dextension_ubody_get_constant_force[T]
+        ci.virtual_methods["_body_get_constant_force"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodySetConstantTorque {{
+        func := physicsserver3dextension_ubody_set_constant_torque[T]
+        ci.virtual_methods["_body_set_constant_torque"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyGetConstantTorque {{
+        func := physicsserver3dextension_ubody_get_constant_torque[T]
+        ci.virtual_methods["_body_get_constant_torque"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodySetAxisVelocity {{
+        func := physicsserver3dextension_ubody_set_axis_velocity[T]
+        ci.virtual_methods["_body_set_axis_velocity"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodySetAxisLock {{
+        func := physicsserver3dextension_ubody_set_axis_lock[T]
+        ci.virtual_methods["_body_set_axis_lock"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyIsAxisLocked {{
+        func := physicsserver3dextension_ubody_is_axis_locked[T]
+        ci.virtual_methods["_body_is_axis_locked"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyAddCollisionException {{
+        func := physicsserver3dextension_ubody_add_collision_exception[T]
+        ci.virtual_methods["_body_add_collision_exception"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyRemoveCollisionException {{
+        func := physicsserver3dextension_ubody_remove_collision_exception[T]
+        ci.virtual_methods["_body_remove_collision_exception"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyGetCollisionExceptions {{
+        func := physicsserver3dextension_ubody_get_collision_exceptions[T]
+        ci.virtual_methods["_body_get_collision_exceptions"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodySetMaxContactsReported {{
+        func := physicsserver3dextension_ubody_set_max_contacts_reported[T]
+        ci.virtual_methods["_body_set_max_contacts_reported"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyGetMaxContactsReported {{
+        func := physicsserver3dextension_ubody_get_max_contacts_reported[T]
+        ci.virtual_methods["_body_get_max_contacts_reported"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodySetContactsReportedDepthThreshold {{
+        func := physicsserver3dextension_ubody_set_contacts_reported_depth_threshold[T]
+        ci.virtual_methods["_body_set_contacts_reported_depth_threshold"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyGetContactsReportedDepthThreshold {{
+        func := physicsserver3dextension_ubody_get_contacts_reported_depth_threshold[T]
+        ci.virtual_methods["_body_get_contacts_reported_depth_threshold"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodySetOmitForceIntegration {{
+        func := physicsserver3dextension_ubody_set_omit_force_integration[T]
+        ci.virtual_methods["_body_set_omit_force_integration"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyIsOmittingForceIntegration {{
+        func := physicsserver3dextension_ubody_is_omitting_force_integration[T]
+        ci.virtual_methods["_body_is_omitting_force_integration"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodySetStateSyncCallback {{
+        func := physicsserver3dextension_ubody_set_state_sync_callback[T]
+        ci.virtual_methods["_body_set_state_sync_callback"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodySetForceIntegrationCallback {{
+        func := physicsserver3dextension_ubody_set_force_integration_callback[T]
+        ci.virtual_methods["_body_set_force_integration_callback"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodySetRayPickable {{
+        func := physicsserver3dextension_ubody_set_ray_pickable[T]
+        ci.virtual_methods["_body_set_ray_pickable"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyTestMotion {{
+        func := physicsserver3dextension_ubody_test_motion[T]
+        ci.virtual_methods["_body_test_motion"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionBodyGetDirectState {{
+        func := physicsserver3dextension_ubody_get_direct_state[T]
+        ci.virtual_methods["_body_get_direct_state"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSoftBodyCreate {{
+        func := physicsserver3dextension_usoft_body_create[T]
+        ci.virtual_methods["_soft_body_create"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSoftBodyUpdateRenderingServer {{
+        func := physicsserver3dextension_usoft_body_update_rendering_server[T]
+        ci.virtual_methods["_soft_body_update_rendering_server"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSoftBodySetSpace {{
+        func := physicsserver3dextension_usoft_body_set_space[T]
+        ci.virtual_methods["_soft_body_set_space"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSoftBodyGetSpace {{
+        func := physicsserver3dextension_usoft_body_get_space[T]
+        ci.virtual_methods["_soft_body_get_space"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSoftBodySetRayPickable {{
+        func := physicsserver3dextension_usoft_body_set_ray_pickable[T]
+        ci.virtual_methods["_soft_body_set_ray_pickable"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSoftBodySetCollisionLayer {{
+        func := physicsserver3dextension_usoft_body_set_collision_layer[T]
+        ci.virtual_methods["_soft_body_set_collision_layer"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSoftBodyGetCollisionLayer {{
+        func := physicsserver3dextension_usoft_body_get_collision_layer[T]
+        ci.virtual_methods["_soft_body_get_collision_layer"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSoftBodySetCollisionMask {{
+        func := physicsserver3dextension_usoft_body_set_collision_mask[T]
+        ci.virtual_methods["_soft_body_set_collision_mask"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSoftBodyGetCollisionMask {{
+        func := physicsserver3dextension_usoft_body_get_collision_mask[T]
+        ci.virtual_methods["_soft_body_get_collision_mask"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSoftBodyAddCollisionException {{
+        func := physicsserver3dextension_usoft_body_add_collision_exception[T]
+        ci.virtual_methods["_soft_body_add_collision_exception"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSoftBodyRemoveCollisionException {{
+        func := physicsserver3dextension_usoft_body_remove_collision_exception[T]
+        ci.virtual_methods["_soft_body_remove_collision_exception"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSoftBodyGetCollisionExceptions {{
+        func := physicsserver3dextension_usoft_body_get_collision_exceptions[T]
+        ci.virtual_methods["_soft_body_get_collision_exceptions"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSoftBodySetState {{
+        func := physicsserver3dextension_usoft_body_set_state[T]
+        ci.virtual_methods["_soft_body_set_state"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSoftBodyGetState {{
+        func := physicsserver3dextension_usoft_body_get_state[T]
+        ci.virtual_methods["_soft_body_get_state"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSoftBodySetTransform {{
+        func := physicsserver3dextension_usoft_body_set_transform[T]
+        ci.virtual_methods["_soft_body_set_transform"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSoftBodySetSimulationPrecision {{
+        func := physicsserver3dextension_usoft_body_set_simulation_precision[T]
+        ci.virtual_methods["_soft_body_set_simulation_precision"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSoftBodyGetSimulationPrecision {{
+        func := physicsserver3dextension_usoft_body_get_simulation_precision[T]
+        ci.virtual_methods["_soft_body_get_simulation_precision"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSoftBodySetTotalMass {{
+        func := physicsserver3dextension_usoft_body_set_total_mass[T]
+        ci.virtual_methods["_soft_body_set_total_mass"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSoftBodyGetTotalMass {{
+        func := physicsserver3dextension_usoft_body_get_total_mass[T]
+        ci.virtual_methods["_soft_body_get_total_mass"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSoftBodySetLinearStiffness {{
+        func := physicsserver3dextension_usoft_body_set_linear_stiffness[T]
+        ci.virtual_methods["_soft_body_set_linear_stiffness"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSoftBodyGetLinearStiffness {{
+        func := physicsserver3dextension_usoft_body_get_linear_stiffness[T]
+        ci.virtual_methods["_soft_body_get_linear_stiffness"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSoftBodySetPressureCoefficient {{
+        func := physicsserver3dextension_usoft_body_set_pressure_coefficient[T]
+        ci.virtual_methods["_soft_body_set_pressure_coefficient"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSoftBodyGetPressureCoefficient {{
+        func := physicsserver3dextension_usoft_body_get_pressure_coefficient[T]
+        ci.virtual_methods["_soft_body_get_pressure_coefficient"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSoftBodySetDampingCoefficient {{
+        func := physicsserver3dextension_usoft_body_set_damping_coefficient[T]
+        ci.virtual_methods["_soft_body_set_damping_coefficient"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSoftBodyGetDampingCoefficient {{
+        func := physicsserver3dextension_usoft_body_get_damping_coefficient[T]
+        ci.virtual_methods["_soft_body_get_damping_coefficient"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSoftBodySetDragCoefficient {{
+        func := physicsserver3dextension_usoft_body_set_drag_coefficient[T]
+        ci.virtual_methods["_soft_body_set_drag_coefficient"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSoftBodyGetDragCoefficient {{
+        func := physicsserver3dextension_usoft_body_get_drag_coefficient[T]
+        ci.virtual_methods["_soft_body_get_drag_coefficient"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSoftBodySetMesh {{
+        func := physicsserver3dextension_usoft_body_set_mesh[T]
+        ci.virtual_methods["_soft_body_set_mesh"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSoftBodyGetBounds {{
+        func := physicsserver3dextension_usoft_body_get_bounds[T]
+        ci.virtual_methods["_soft_body_get_bounds"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSoftBodyMovePoint {{
+        func := physicsserver3dextension_usoft_body_move_point[T]
+        ci.virtual_methods["_soft_body_move_point"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSoftBodyGetPointGlobalPosition {{
+        func := physicsserver3dextension_usoft_body_get_point_global_position[T]
+        ci.virtual_methods["_soft_body_get_point_global_position"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSoftBodyRemoveAllPinnedPoints {{
+        func := physicsserver3dextension_usoft_body_remove_all_pinned_points[T]
+        ci.virtual_methods["_soft_body_remove_all_pinned_points"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSoftBodyPinPoint {{
+        func := physicsserver3dextension_usoft_body_pin_point[T]
+        ci.virtual_methods["_soft_body_pin_point"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSoftBodyIsPointPinned {{
+        func := physicsserver3dextension_usoft_body_is_point_pinned[T]
+        ci.virtual_methods["_soft_body_is_point_pinned"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionJointCreate {{
+        func := physicsserver3dextension_ujoint_create[T]
+        ci.virtual_methods["_joint_create"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionJointClear {{
+        func := physicsserver3dextension_ujoint_clear[T]
+        ci.virtual_methods["_joint_clear"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionJointMakePin {{
+        func := physicsserver3dextension_ujoint_make_pin[T]
+        ci.virtual_methods["_joint_make_pin"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionPinJointSetParam {{
+        func := physicsserver3dextension_upin_joint_set_param[T]
+        ci.virtual_methods["_pin_joint_set_param"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionPinJointGetParam {{
+        func := physicsserver3dextension_upin_joint_get_param[T]
+        ci.virtual_methods["_pin_joint_get_param"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionPinJointSetLocalA {{
+        func := physicsserver3dextension_upin_joint_set_local_a[T]
+        ci.virtual_methods["_pin_joint_set_local_a"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionPinJointGetLocalA {{
+        func := physicsserver3dextension_upin_joint_get_local_a[T]
+        ci.virtual_methods["_pin_joint_get_local_a"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionPinJointSetLocalB {{
+        func := physicsserver3dextension_upin_joint_set_local_b[T]
+        ci.virtual_methods["_pin_joint_set_local_b"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionPinJointGetLocalB {{
+        func := physicsserver3dextension_upin_joint_get_local_b[T]
+        ci.virtual_methods["_pin_joint_get_local_b"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionJointMakeHinge {{
+        func := physicsserver3dextension_ujoint_make_hinge[T]
+        ci.virtual_methods["_joint_make_hinge"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionJointMakeHingeSimple {{
+        func := physicsserver3dextension_ujoint_make_hinge_simple[T]
+        ci.virtual_methods["_joint_make_hinge_simple"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionHingeJointSetParam {{
+        func := physicsserver3dextension_uhinge_joint_set_param[T]
+        ci.virtual_methods["_hinge_joint_set_param"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionHingeJointGetParam {{
+        func := physicsserver3dextension_uhinge_joint_get_param[T]
+        ci.virtual_methods["_hinge_joint_get_param"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionHingeJointSetFlag {{
+        func := physicsserver3dextension_uhinge_joint_set_flag[T]
+        ci.virtual_methods["_hinge_joint_set_flag"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionHingeJointGetFlag {{
+        func := physicsserver3dextension_uhinge_joint_get_flag[T]
+        ci.virtual_methods["_hinge_joint_get_flag"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionJointMakeSlider {{
+        func := physicsserver3dextension_ujoint_make_slider[T]
+        ci.virtual_methods["_joint_make_slider"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSliderJointSetParam {{
+        func := physicsserver3dextension_uslider_joint_set_param[T]
+        ci.virtual_methods["_slider_joint_set_param"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSliderJointGetParam {{
+        func := physicsserver3dextension_uslider_joint_get_param[T]
+        ci.virtual_methods["_slider_joint_get_param"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionJointMakeConeTwist {{
+        func := physicsserver3dextension_ujoint_make_cone_twist[T]
+        ci.virtual_methods["_joint_make_cone_twist"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionConeTwistJointSetParam {{
+        func := physicsserver3dextension_ucone_twist_joint_set_param[T]
+        ci.virtual_methods["_cone_twist_joint_set_param"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionConeTwistJointGetParam {{
+        func := physicsserver3dextension_ucone_twist_joint_get_param[T]
+        ci.virtual_methods["_cone_twist_joint_get_param"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionJointMakeGeneric6dof {{
+        func := physicsserver3dextension_ujoint_make_generic_6dof[T]
+        ci.virtual_methods["_joint_make_generic_6dof"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionGeneric6dofJointSetParam {{
+        func := physicsserver3dextension_ugeneric_6dof_joint_set_param[T]
+        ci.virtual_methods["_generic_6dof_joint_set_param"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionGeneric6dofJointGetParam {{
+        func := physicsserver3dextension_ugeneric_6dof_joint_get_param[T]
+        ci.virtual_methods["_generic_6dof_joint_get_param"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionGeneric6dofJointSetFlag {{
+        func := physicsserver3dextension_ugeneric_6dof_joint_set_flag[T]
+        ci.virtual_methods["_generic_6dof_joint_set_flag"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionGeneric6dofJointGetFlag {{
+        func := physicsserver3dextension_ugeneric_6dof_joint_get_flag[T]
+        ci.virtual_methods["_generic_6dof_joint_get_flag"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionJointGetType {{
+        func := physicsserver3dextension_ujoint_get_type[T]
+        ci.virtual_methods["_joint_get_type"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionJointSetSolverPriority {{
+        func := physicsserver3dextension_ujoint_set_solver_priority[T]
+        ci.virtual_methods["_joint_set_solver_priority"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionJointGetSolverPriority {{
+        func := physicsserver3dextension_ujoint_get_solver_priority[T]
+        ci.virtual_methods["_joint_get_solver_priority"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionJointDisableCollisionsBetweenBodies {{
+        func := physicsserver3dextension_ujoint_disable_collisions_between_bodies[T]
+        ci.virtual_methods["_joint_disable_collisions_between_bodies"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionJointIsDisabledCollisionsBetweenBodies {{
+        func := physicsserver3dextension_ujoint_is_disabled_collisions_between_bodies[T]
+        ci.virtual_methods["_joint_is_disabled_collisions_between_bodies"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionFreeRid {{
+        func := physicsserver3dextension_ufree_rid[T]
+        ci.virtual_methods["_free_rid"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSetActive {{
+        func := physicsserver3dextension_uset_active[T]
+        ci.virtual_methods["_set_active"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionInit {{
+        func := physicsserver3dextension_uinit[T]
+        ci.virtual_methods["_init"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionStep {{
+        func := physicsserver3dextension_ustep[T]
+        ci.virtual_methods["_step"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionSync {{
+        func := physicsserver3dextension_usync[T]
+        ci.virtual_methods["_sync"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionFlushQueries {{
+        func := physicsserver3dextension_uflush_queries[T]
+        ci.virtual_methods["_flush_queries"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionEndSync {{
+        func := physicsserver3dextension_uend_sync[T]
+        ci.virtual_methods["_end_sync"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionFinish {{
+        func := physicsserver3dextension_ufinish[T]
+        ci.virtual_methods["_finish"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionIsFlushingQueries {{
+        func := physicsserver3dextension_uis_flushing_queries[T]
+        ci.virtual_methods["_is_flushing_queries"] = func
+    }}
+    $if T is IPhysicsServer3DExtensionGetProcessInfo {{
+        func := physicsserver3dextension_uget_process_info[T]
+        ci.virtual_methods["_get_process_info"] = func
+    }}
+    $if T is IPhysicsServer3DRenderingServerHandlerSetVertex {{
+        func := physicsserver3drenderingserverhandler_uset_vertex[T]
+        ci.virtual_methods["_set_vertex"] = func
+    }}
+    $if T is IPhysicsServer3DRenderingServerHandlerSetNormal {{
+        func := physicsserver3drenderingserverhandler_uset_normal[T]
+        ci.virtual_methods["_set_normal"] = func
+    }}
+    $if T is IPhysicsServer3DRenderingServerHandlerSetAabb {{
+        func := physicsserver3drenderingserverhandler_uset_aabb[T]
+        ci.virtual_methods["_set_aabb"] = func
+    }}
+    $if T is IPrimitiveMeshCreateMeshArray {{
+        func := primitivemesh_ucreate_mesh_array[T]
+        ci.virtual_methods["_create_mesh_array"] = func
+    }}
+    $if T is IRangeValueChanged {{
+        func := range_uvalue_changed[T]
+        ci.virtual_methods["_value_changed"] = func
+    }}
+    $if T is IRenderSceneBuffersExtensionConfigure {{
+        func := renderscenebuffersextension_uconfigure[T]
+        ci.virtual_methods["_configure"] = func
+    }}
+    $if T is IRenderSceneBuffersExtensionSetFsrSharpness {{
+        func := renderscenebuffersextension_uset_fsr_sharpness[T]
+        ci.virtual_methods["_set_fsr_sharpness"] = func
+    }}
+    $if T is IRenderSceneBuffersExtensionSetTextureMipmapBias {{
+        func := renderscenebuffersextension_uset_texture_mipmap_bias[T]
+        ci.virtual_methods["_set_texture_mipmap_bias"] = func
+    }}
+    $if T is IRenderSceneBuffersExtensionSetUseDebanding {{
+        func := renderscenebuffersextension_uset_use_debanding[T]
+        ci.virtual_methods["_set_use_debanding"] = func
+    }}
+    $if T is IResourceSetupLocalToScene {{
+        func := resource_usetup_local_to_scene[T]
+        ci.virtual_methods["_setup_local_to_scene"] = func
+    }}
+    $if T is IResourceFormatLoaderGetRecognizedExtensions {{
+        func := resourceformatloader_uget_recognized_extensions[T]
+        ci.virtual_methods["_get_recognized_extensions"] = func
+    }}
+    $if T is IResourceFormatLoaderRecognizePath {{
+        func := resourceformatloader_urecognize_path[T]
+        ci.virtual_methods["_recognize_path"] = func
+    }}
+    $if T is IResourceFormatLoaderHandlesType {{
+        func := resourceformatloader_uhandles_type[T]
+        ci.virtual_methods["_handles_type"] = func
+    }}
+    $if T is IResourceFormatLoaderGetResourceType {{
+        func := resourceformatloader_uget_resource_type[T]
+        ci.virtual_methods["_get_resource_type"] = func
+    }}
+    $if T is IResourceFormatLoaderGetResourceScriptClass {{
+        func := resourceformatloader_uget_resource_script_class[T]
+        ci.virtual_methods["_get_resource_script_class"] = func
+    }}
+    $if T is IResourceFormatLoaderGetResourceUid {{
+        func := resourceformatloader_uget_resource_uid[T]
+        ci.virtual_methods["_get_resource_uid"] = func
+    }}
+    $if T is IResourceFormatLoaderGetDependencies {{
+        func := resourceformatloader_uget_dependencies[T]
+        ci.virtual_methods["_get_dependencies"] = func
+    }}
+    $if T is IResourceFormatLoaderRenameDependencies {{
+        func := resourceformatloader_urename_dependencies[T]
+        ci.virtual_methods["_rename_dependencies"] = func
+    }}
+    $if T is IResourceFormatLoaderExists {{
+        func := resourceformatloader_uexists[T]
+        ci.virtual_methods["_exists"] = func
+    }}
+    $if T is IResourceFormatLoaderGetClassesUsed {{
+        func := resourceformatloader_uget_classes_used[T]
+        ci.virtual_methods["_get_classes_used"] = func
+    }}
+    $if T is IResourceFormatLoaderLoad {{
+        func := resourceformatloader_uload[T]
+        ci.virtual_methods["_load"] = func
+    }}
+    $if T is IResourceFormatSaverSave {{
+        func := resourceformatsaver_usave[T]
+        ci.virtual_methods["_save"] = func
+    }}
+    $if T is IResourceFormatSaverSetUid {{
+        func := resourceformatsaver_uset_uid[T]
+        ci.virtual_methods["_set_uid"] = func
+    }}
+    $if T is IResourceFormatSaverRecognize {{
+        func := resourceformatsaver_urecognize[T]
+        ci.virtual_methods["_recognize"] = func
+    }}
+    $if T is IResourceFormatSaverGetRecognizedExtensions {{
+        func := resourceformatsaver_uget_recognized_extensions[T]
+        ci.virtual_methods["_get_recognized_extensions"] = func
+    }}
+    $if T is IResourceFormatSaverRecognizePath {{
+        func := resourceformatsaver_urecognize_path[T]
+        ci.virtual_methods["_recognize_path"] = func
+    }}
+    $if T is IRichTextEffectProcessCustomFx {{
+        func := richtexteffect_uprocess_custom_fx[T]
+        ci.virtual_methods["_process_custom_fx"] = func
+    }}
+    $if T is IRigidBody2DIntegrateForces {{
+        func := rigidbody2d_uintegrate_forces[T]
+        ci.virtual_methods["_integrate_forces"] = func
+    }}
+    $if T is IRigidBody3DIntegrateForces {{
+        func := rigidbody3d_uintegrate_forces[T]
+        ci.virtual_methods["_integrate_forces"] = func
+    }}
+    $if T is IScriptExtensionEditorCanReloadFromFile {{
+        func := scriptextension_ueditor_can_reload_from_file[T]
+        ci.virtual_methods["_editor_can_reload_from_file"] = func
+    }}
+    $if T is IScriptExtensionPlaceholderErased {{
+        func := scriptextension_uplaceholder_erased[T]
+        ci.virtual_methods["_placeholder_erased"] = func
+    }}
+    $if T is IScriptExtensionCanInstantiate {{
+        func := scriptextension_ucan_instantiate[T]
+        ci.virtual_methods["_can_instantiate"] = func
+    }}
+    $if T is IScriptExtensionGetBaseScript {{
+        func := scriptextension_uget_base_script[T]
+        ci.virtual_methods["_get_base_script"] = func
+    }}
+    $if T is IScriptExtensionGetGlobalName {{
+        func := scriptextension_uget_global_name[T]
+        ci.virtual_methods["_get_global_name"] = func
+    }}
+    $if T is IScriptExtensionInheritsScript {{
+        func := scriptextension_uinherits_script[T]
+        ci.virtual_methods["_inherits_script"] = func
+    }}
+    $if T is IScriptExtensionGetInstanceBaseType {{
+        func := scriptextension_uget_instance_base_type[T]
+        ci.virtual_methods["_get_instance_base_type"] = func
+    }}
+    $if T is IScriptExtensionInstanceCreate {{
+        func := scriptextension_uinstance_create[T]
+        ci.virtual_methods["_instance_create"] = func
+    }}
+    $if T is IScriptExtensionPlaceholderInstanceCreate {{
+        func := scriptextension_uplaceholder_instance_create[T]
+        ci.virtual_methods["_placeholder_instance_create"] = func
+    }}
+    $if T is IScriptExtensionInstanceHas {{
+        func := scriptextension_uinstance_has[T]
+        ci.virtual_methods["_instance_has"] = func
+    }}
+    $if T is IScriptExtensionHasSourceCode {{
+        func := scriptextension_uhas_source_code[T]
+        ci.virtual_methods["_has_source_code"] = func
+    }}
+    $if T is IScriptExtensionGetSourceCode {{
+        func := scriptextension_uget_source_code[T]
+        ci.virtual_methods["_get_source_code"] = func
+    }}
+    $if T is IScriptExtensionSetSourceCode {{
+        func := scriptextension_uset_source_code[T]
+        ci.virtual_methods["_set_source_code"] = func
+    }}
+    $if T is IScriptExtensionReload {{
+        func := scriptextension_ureload[T]
+        ci.virtual_methods["_reload"] = func
+    }}
+    $if T is IScriptExtensionGetDocumentation {{
+        func := scriptextension_uget_documentation[T]
+        ci.virtual_methods["_get_documentation"] = func
+    }}
+    $if T is IScriptExtensionGetClassIconPath {{
+        func := scriptextension_uget_class_icon_path[T]
+        ci.virtual_methods["_get_class_icon_path"] = func
+    }}
+    $if T is IScriptExtensionHasMethod {{
+        func := scriptextension_uhas_method[T]
+        ci.virtual_methods["_has_method"] = func
+    }}
+    $if T is IScriptExtensionHasStaticMethod {{
+        func := scriptextension_uhas_static_method[T]
+        ci.virtual_methods["_has_static_method"] = func
+    }}
+    $if T is IScriptExtensionGetMethodInfo {{
+        func := scriptextension_uget_method_info[T]
+        ci.virtual_methods["_get_method_info"] = func
+    }}
+    $if T is IScriptExtensionIsTool {{
+        func := scriptextension_uis_tool[T]
+        ci.virtual_methods["_is_tool"] = func
+    }}
+    $if T is IScriptExtensionIsValid {{
+        func := scriptextension_uis_valid[T]
+        ci.virtual_methods["_is_valid"] = func
+    }}
+    $if T is IScriptExtensionIsAbstract {{
+        func := scriptextension_uis_abstract[T]
+        ci.virtual_methods["_is_abstract"] = func
+    }}
+    $if T is IScriptExtensionGetLanguage {{
+        func := scriptextension_uget_language[T]
+        ci.virtual_methods["_get_language"] = func
+    }}
+    $if T is IScriptExtensionHasScriptSignal {{
+        func := scriptextension_uhas_script_signal[T]
+        ci.virtual_methods["_has_script_signal"] = func
+    }}
+    $if T is IScriptExtensionGetScriptSignalList {{
+        func := scriptextension_uget_script_signal_list[T]
+        ci.virtual_methods["_get_script_signal_list"] = func
+    }}
+    $if T is IScriptExtensionHasPropertyDefaultValue {{
+        func := scriptextension_uhas_property_default_value[T]
+        ci.virtual_methods["_has_property_default_value"] = func
+    }}
+    $if T is IScriptExtensionGetPropertyDefaultValue {{
+        func := scriptextension_uget_property_default_value[T]
+        ci.virtual_methods["_get_property_default_value"] = func
+    }}
+    $if T is IScriptExtensionUpdateExports {{
+        func := scriptextension_uupdate_exports[T]
+        ci.virtual_methods["_update_exports"] = func
+    }}
+    $if T is IScriptExtensionGetScriptMethodList {{
+        func := scriptextension_uget_script_method_list[T]
+        ci.virtual_methods["_get_script_method_list"] = func
+    }}
+    $if T is IScriptExtensionGetScriptPropertyList {{
+        func := scriptextension_uget_script_property_list[T]
+        ci.virtual_methods["_get_script_property_list"] = func
+    }}
+    $if T is IScriptExtensionGetMemberLine {{
+        func := scriptextension_uget_member_line[T]
+        ci.virtual_methods["_get_member_line"] = func
+    }}
+    $if T is IScriptExtensionGetConstants {{
+        func := scriptextension_uget_constants[T]
+        ci.virtual_methods["_get_constants"] = func
+    }}
+    $if T is IScriptExtensionGetMembers {{
+        func := scriptextension_uget_members[T]
+        ci.virtual_methods["_get_members"] = func
+    }}
+    $if T is IScriptExtensionIsPlaceholderFallbackEnabled {{
+        func := scriptextension_uis_placeholder_fallback_enabled[T]
+        ci.virtual_methods["_is_placeholder_fallback_enabled"] = func
+    }}
+    $if T is IScriptExtensionGetRpcConfig {{
+        func := scriptextension_uget_rpc_config[T]
+        ci.virtual_methods["_get_rpc_config"] = func
+    }}
+    $if T is IScriptLanguageExtensionGetName {{
+        func := scriptlanguageextension_uget_name[T]
+        ci.virtual_methods["_get_name"] = func
+    }}
+    $if T is IScriptLanguageExtensionInit {{
+        func := scriptlanguageextension_uinit[T]
+        ci.virtual_methods["_init"] = func
+    }}
+    $if T is IScriptLanguageExtensionGetType {{
+        func := scriptlanguageextension_uget_type[T]
+        ci.virtual_methods["_get_type"] = func
+    }}
+    $if T is IScriptLanguageExtensionGetExtension {{
+        func := scriptlanguageextension_uget_extension[T]
+        ci.virtual_methods["_get_extension"] = func
+    }}
+    $if T is IScriptLanguageExtensionFinish {{
+        func := scriptlanguageextension_ufinish[T]
+        ci.virtual_methods["_finish"] = func
+    }}
+    $if T is IScriptLanguageExtensionGetReservedWords {{
+        func := scriptlanguageextension_uget_reserved_words[T]
+        ci.virtual_methods["_get_reserved_words"] = func
+    }}
+    $if T is IScriptLanguageExtensionIsControlFlowKeyword {{
+        func := scriptlanguageextension_uis_control_flow_keyword[T]
+        ci.virtual_methods["_is_control_flow_keyword"] = func
+    }}
+    $if T is IScriptLanguageExtensionGetCommentDelimiters {{
+        func := scriptlanguageextension_uget_comment_delimiters[T]
+        ci.virtual_methods["_get_comment_delimiters"] = func
+    }}
+    $if T is IScriptLanguageExtensionGetDocCommentDelimiters {{
+        func := scriptlanguageextension_uget_doc_comment_delimiters[T]
+        ci.virtual_methods["_get_doc_comment_delimiters"] = func
+    }}
+    $if T is IScriptLanguageExtensionGetStringDelimiters {{
+        func := scriptlanguageextension_uget_string_delimiters[T]
+        ci.virtual_methods["_get_string_delimiters"] = func
+    }}
+    $if T is IScriptLanguageExtensionMakeTemplate {{
+        func := scriptlanguageextension_umake_template[T]
+        ci.virtual_methods["_make_template"] = func
+    }}
+    $if T is IScriptLanguageExtensionGetBuiltInTemplates {{
+        func := scriptlanguageextension_uget_built_in_templates[T]
+        ci.virtual_methods["_get_built_in_templates"] = func
+    }}
+    $if T is IScriptLanguageExtensionIsUsingTemplates {{
+        func := scriptlanguageextension_uis_using_templates[T]
+        ci.virtual_methods["_is_using_templates"] = func
+    }}
+    $if T is IScriptLanguageExtensionValidate {{
+        func := scriptlanguageextension_uvalidate[T]
+        ci.virtual_methods["_validate"] = func
+    }}
+    $if T is IScriptLanguageExtensionValidatePath {{
+        func := scriptlanguageextension_uvalidate_path[T]
+        ci.virtual_methods["_validate_path"] = func
+    }}
+    $if T is IScriptLanguageExtensionCreateScript {{
+        func := scriptlanguageextension_ucreate_script[T]
+        ci.virtual_methods["_create_script"] = func
+    }}
+    $if T is IScriptLanguageExtensionHasNamedClasses {{
+        func := scriptlanguageextension_uhas_named_classes[T]
+        ci.virtual_methods["_has_named_classes"] = func
+    }}
+    $if T is IScriptLanguageExtensionSupportsBuiltinMode {{
+        func := scriptlanguageextension_usupports_builtin_mode[T]
+        ci.virtual_methods["_supports_builtin_mode"] = func
+    }}
+    $if T is IScriptLanguageExtensionSupportsDocumentation {{
+        func := scriptlanguageextension_usupports_documentation[T]
+        ci.virtual_methods["_supports_documentation"] = func
+    }}
+    $if T is IScriptLanguageExtensionCanInheritFromFile {{
+        func := scriptlanguageextension_ucan_inherit_from_file[T]
+        ci.virtual_methods["_can_inherit_from_file"] = func
+    }}
+    $if T is IScriptLanguageExtensionFindFunction {{
+        func := scriptlanguageextension_ufind_function[T]
+        ci.virtual_methods["_find_function"] = func
+    }}
+    $if T is IScriptLanguageExtensionMakeFunction {{
+        func := scriptlanguageextension_umake_function[T]
+        ci.virtual_methods["_make_function"] = func
+    }}
+    $if T is IScriptLanguageExtensionOpenInExternalEditor {{
+        func := scriptlanguageextension_uopen_in_external_editor[T]
+        ci.virtual_methods["_open_in_external_editor"] = func
+    }}
+    $if T is IScriptLanguageExtensionOverridesExternalEditor {{
+        func := scriptlanguageextension_uoverrides_external_editor[T]
+        ci.virtual_methods["_overrides_external_editor"] = func
+    }}
+    $if T is IScriptLanguageExtensionCompleteCode {{
+        func := scriptlanguageextension_ucomplete_code[T]
+        ci.virtual_methods["_complete_code"] = func
+    }}
+    $if T is IScriptLanguageExtensionLookupCode {{
+        func := scriptlanguageextension_ulookup_code[T]
+        ci.virtual_methods["_lookup_code"] = func
+    }}
+    $if T is IScriptLanguageExtensionAutoIndentCode {{
+        func := scriptlanguageextension_uauto_indent_code[T]
+        ci.virtual_methods["_auto_indent_code"] = func
+    }}
+    $if T is IScriptLanguageExtensionAddGlobalConstant {{
+        func := scriptlanguageextension_uadd_global_constant[T]
+        ci.virtual_methods["_add_global_constant"] = func
+    }}
+    $if T is IScriptLanguageExtensionAddNamedGlobalConstant {{
+        func := scriptlanguageextension_uadd_named_global_constant[T]
+        ci.virtual_methods["_add_named_global_constant"] = func
+    }}
+    $if T is IScriptLanguageExtensionRemoveNamedGlobalConstant {{
+        func := scriptlanguageextension_uremove_named_global_constant[T]
+        ci.virtual_methods["_remove_named_global_constant"] = func
+    }}
+    $if T is IScriptLanguageExtensionThreadEnter {{
+        func := scriptlanguageextension_uthread_enter[T]
+        ci.virtual_methods["_thread_enter"] = func
+    }}
+    $if T is IScriptLanguageExtensionThreadExit {{
+        func := scriptlanguageextension_uthread_exit[T]
+        ci.virtual_methods["_thread_exit"] = func
+    }}
+    $if T is IScriptLanguageExtensionDebugGetError {{
+        func := scriptlanguageextension_udebug_get_error[T]
+        ci.virtual_methods["_debug_get_error"] = func
+    }}
+    $if T is IScriptLanguageExtensionDebugGetStackLevelCount {{
+        func := scriptlanguageextension_udebug_get_stack_level_count[T]
+        ci.virtual_methods["_debug_get_stack_level_count"] = func
+    }}
+    $if T is IScriptLanguageExtensionDebugGetStackLevelLine {{
+        func := scriptlanguageextension_udebug_get_stack_level_line[T]
+        ci.virtual_methods["_debug_get_stack_level_line"] = func
+    }}
+    $if T is IScriptLanguageExtensionDebugGetStackLevelFunction {{
+        func := scriptlanguageextension_udebug_get_stack_level_function[T]
+        ci.virtual_methods["_debug_get_stack_level_function"] = func
+    }}
+    $if T is IScriptLanguageExtensionDebugGetStackLevelLocals {{
+        func := scriptlanguageextension_udebug_get_stack_level_locals[T]
+        ci.virtual_methods["_debug_get_stack_level_locals"] = func
+    }}
+    $if T is IScriptLanguageExtensionDebugGetStackLevelMembers {{
+        func := scriptlanguageextension_udebug_get_stack_level_members[T]
+        ci.virtual_methods["_debug_get_stack_level_members"] = func
+    }}
+    $if T is IScriptLanguageExtensionDebugGetStackLevelInstance {{
+        func := scriptlanguageextension_udebug_get_stack_level_instance[T]
+        ci.virtual_methods["_debug_get_stack_level_instance"] = func
+    }}
+    $if T is IScriptLanguageExtensionDebugGetGlobals {{
+        func := scriptlanguageextension_udebug_get_globals[T]
+        ci.virtual_methods["_debug_get_globals"] = func
+    }}
+    $if T is IScriptLanguageExtensionDebugParseStackLevelExpression {{
+        func := scriptlanguageextension_udebug_parse_stack_level_expression[T]
+        ci.virtual_methods["_debug_parse_stack_level_expression"] = func
+    }}
+    $if T is IScriptLanguageExtensionDebugGetCurrentStackInfo {{
+        func := scriptlanguageextension_udebug_get_current_stack_info[T]
+        ci.virtual_methods["_debug_get_current_stack_info"] = func
+    }}
+    $if T is IScriptLanguageExtensionReloadAllScripts {{
+        func := scriptlanguageextension_ureload_all_scripts[T]
+        ci.virtual_methods["_reload_all_scripts"] = func
+    }}
+    $if T is IScriptLanguageExtensionReloadToolScript {{
+        func := scriptlanguageextension_ureload_tool_script[T]
+        ci.virtual_methods["_reload_tool_script"] = func
+    }}
+    $if T is IScriptLanguageExtensionGetRecognizedExtensions {{
+        func := scriptlanguageextension_uget_recognized_extensions[T]
+        ci.virtual_methods["_get_recognized_extensions"] = func
+    }}
+    $if T is IScriptLanguageExtensionGetPublicFunctions {{
+        func := scriptlanguageextension_uget_public_functions[T]
+        ci.virtual_methods["_get_public_functions"] = func
+    }}
+    $if T is IScriptLanguageExtensionGetPublicConstants {{
+        func := scriptlanguageextension_uget_public_constants[T]
+        ci.virtual_methods["_get_public_constants"] = func
+    }}
+    $if T is IScriptLanguageExtensionGetPublicAnnotations {{
+        func := scriptlanguageextension_uget_public_annotations[T]
+        ci.virtual_methods["_get_public_annotations"] = func
+    }}
+    $if T is IScriptLanguageExtensionProfilingStart {{
+        func := scriptlanguageextension_uprofiling_start[T]
+        ci.virtual_methods["_profiling_start"] = func
+    }}
+    $if T is IScriptLanguageExtensionProfilingStop {{
+        func := scriptlanguageextension_uprofiling_stop[T]
+        ci.virtual_methods["_profiling_stop"] = func
+    }}
+    $if T is IScriptLanguageExtensionProfilingGetAccumulatedData {{
+        func := scriptlanguageextension_uprofiling_get_accumulated_data[T]
+        ci.virtual_methods["_profiling_get_accumulated_data"] = func
+    }}
+    $if T is IScriptLanguageExtensionProfilingGetFrameData {{
+        func := scriptlanguageextension_uprofiling_get_frame_data[T]
+        ci.virtual_methods["_profiling_get_frame_data"] = func
+    }}
+    $if T is IScriptLanguageExtensionFrame {{
+        func := scriptlanguageextension_uframe[T]
+        ci.virtual_methods["_frame"] = func
+    }}
+    $if T is IScriptLanguageExtensionHandlesGlobalClassType {{
+        func := scriptlanguageextension_uhandles_global_class_type[T]
+        ci.virtual_methods["_handles_global_class_type"] = func
+    }}
+    $if T is IScriptLanguageExtensionGetGlobalClassName {{
+        func := scriptlanguageextension_uget_global_class_name[T]
+        ci.virtual_methods["_get_global_class_name"] = func
+    }}
+    $if T is ISkeletonModification2DExecute {{
+        func := skeletonmodification2d_uexecute[T]
+        ci.virtual_methods["_execute"] = func
+    }}
+    $if T is ISkeletonModification2DSetupModification {{
+        func := skeletonmodification2d_usetup_modification[T]
+        ci.virtual_methods["_setup_modification"] = func
+    }}
+    $if T is ISkeletonModification2DDrawEditorGizmo {{
+        func := skeletonmodification2d_udraw_editor_gizmo[T]
+        ci.virtual_methods["_draw_editor_gizmo"] = func
+    }}
+    $if T is IStreamPeerExtensionGetData {{
+        func := streampeerextension_uget_data[T]
+        ci.virtual_methods["_get_data"] = func
+    }}
+    $if T is IStreamPeerExtensionGetPartialData {{
+        func := streampeerextension_uget_partial_data[T]
+        ci.virtual_methods["_get_partial_data"] = func
+    }}
+    $if T is IStreamPeerExtensionPutData {{
+        func := streampeerextension_uput_data[T]
+        ci.virtual_methods["_put_data"] = func
+    }}
+    $if T is IStreamPeerExtensionPutPartialData {{
+        func := streampeerextension_uput_partial_data[T]
+        ci.virtual_methods["_put_partial_data"] = func
+    }}
+    $if T is IStreamPeerExtensionGetAvailableBytes {{
+        func := streampeerextension_uget_available_bytes[T]
+        ci.virtual_methods["_get_available_bytes"] = func
+    }}
+    $if T is IStyleBoxDraw {{
+        func := stylebox_udraw[T]
+        ci.virtual_methods["_draw"] = func
+    }}
+    $if T is IStyleBoxGetDrawRect {{
+        func := stylebox_uget_draw_rect[T]
+        ci.virtual_methods["_get_draw_rect"] = func
+    }}
+    $if T is IStyleBoxGetMinimumSize {{
+        func := stylebox_uget_minimum_size[T]
+        ci.virtual_methods["_get_minimum_size"] = func
+    }}
+    $if T is IStyleBoxTestMask {{
+        func := stylebox_utest_mask[T]
+        ci.virtual_methods["_test_mask"] = func
+    }}
+    $if T is ISubViewportContainerPropagateInputEvent {{
+        func := subviewportcontainer_upropagate_input_event[T]
+        ci.virtual_methods["_propagate_input_event"] = func
+    }}
+    $if T is ISyntaxHighlighterGetLineSyntaxHighlighting {{
+        func := syntaxhighlighter_uget_line_syntax_highlighting[T]
+        ci.virtual_methods["_get_line_syntax_highlighting"] = func
+    }}
+    $if T is ISyntaxHighlighterClearHighlightingCache {{
+        func := syntaxhighlighter_uclear_highlighting_cache[T]
+        ci.virtual_methods["_clear_highlighting_cache"] = func
+    }}
+    $if T is ISyntaxHighlighterUpdateCache {{
+        func := syntaxhighlighter_uupdate_cache[T]
+        ci.virtual_methods["_update_cache"] = func
+    }}
+    $if T is ITextEditHandleUnicodeInput {{
+        func := textedit_uhandle_unicode_input[T]
+        ci.virtual_methods["_handle_unicode_input"] = func
+    }}
+    $if T is ITextEditBackspace {{
+        func := textedit_ubackspace[T]
+        ci.virtual_methods["_backspace"] = func
+    }}
+    $if T is ITextEditCut {{
+        func := textedit_ucut[T]
+        ci.virtual_methods["_cut"] = func
+    }}
+    $if T is ITextEditCopy {{
+        func := textedit_ucopy[T]
+        ci.virtual_methods["_copy"] = func
+    }}
+    $if T is ITextEditPaste {{
+        func := textedit_upaste[T]
+        ci.virtual_methods["_paste"] = func
+    }}
+    $if T is ITextEditPastePrimaryClipboard {{
+        func := textedit_upaste_primary_clipboard[T]
+        ci.virtual_methods["_paste_primary_clipboard"] = func
+    }}
+    $if T is ITextServerExtensionHasFeature {{
+        func := textserverextension_uhas_feature[T]
+        ci.virtual_methods["_has_feature"] = func
+    }}
+    $if T is ITextServerExtensionGetName {{
+        func := textserverextension_uget_name[T]
+        ci.virtual_methods["_get_name"] = func
+    }}
+    $if T is ITextServerExtensionGetFeatures {{
+        func := textserverextension_uget_features[T]
+        ci.virtual_methods["_get_features"] = func
+    }}
+    $if T is ITextServerExtensionFreeRid {{
+        func := textserverextension_ufree_rid[T]
+        ci.virtual_methods["_free_rid"] = func
+    }}
+    $if T is ITextServerExtensionHas {{
+        func := textserverextension_uhas[T]
+        ci.virtual_methods["_has"] = func
+    }}
+    $if T is ITextServerExtensionLoadSupportData {{
+        func := textserverextension_uload_support_data[T]
+        ci.virtual_methods["_load_support_data"] = func
+    }}
+    $if T is ITextServerExtensionGetSupportDataFilename {{
+        func := textserverextension_uget_support_data_filename[T]
+        ci.virtual_methods["_get_support_data_filename"] = func
+    }}
+    $if T is ITextServerExtensionGetSupportDataInfo {{
+        func := textserverextension_uget_support_data_info[T]
+        ci.virtual_methods["_get_support_data_info"] = func
+    }}
+    $if T is ITextServerExtensionSaveSupportData {{
+        func := textserverextension_usave_support_data[T]
+        ci.virtual_methods["_save_support_data"] = func
+    }}
+    $if T is ITextServerExtensionIsLocaleRightToLeft {{
+        func := textserverextension_uis_locale_right_to_left[T]
+        ci.virtual_methods["_is_locale_right_to_left"] = func
+    }}
+    $if T is ITextServerExtensionNameToTag {{
+        func := textserverextension_uname_to_tag[T]
+        ci.virtual_methods["_name_to_tag"] = func
+    }}
+    $if T is ITextServerExtensionTagToName {{
+        func := textserverextension_utag_to_name[T]
+        ci.virtual_methods["_tag_to_name"] = func
+    }}
+    $if T is ITextServerExtensionCreateFont {{
+        func := textserverextension_ucreate_font[T]
+        ci.virtual_methods["_create_font"] = func
+    }}
+    $if T is ITextServerExtensionCreateFontLinkedVariation {{
+        func := textserverextension_ucreate_font_linked_variation[T]
+        ci.virtual_methods["_create_font_linked_variation"] = func
+    }}
+    $if T is ITextServerExtensionFontSetData {{
+        func := textserverextension_ufont_set_data[T]
+        ci.virtual_methods["_font_set_data"] = func
+    }}
+    $if T is ITextServerExtensionFontSetDataPtr {{
+        func := textserverextension_ufont_set_data_ptr[T]
+        ci.virtual_methods["_font_set_data_ptr"] = func
+    }}
+    $if T is ITextServerExtensionFontSetFaceIndex {{
+        func := textserverextension_ufont_set_face_index[T]
+        ci.virtual_methods["_font_set_face_index"] = func
+    }}
+    $if T is ITextServerExtensionFontGetFaceIndex {{
+        func := textserverextension_ufont_get_face_index[T]
+        ci.virtual_methods["_font_get_face_index"] = func
+    }}
+    $if T is ITextServerExtensionFontGetFaceCount {{
+        func := textserverextension_ufont_get_face_count[T]
+        ci.virtual_methods["_font_get_face_count"] = func
+    }}
+    $if T is ITextServerExtensionFontSetStyle {{
+        func := textserverextension_ufont_set_style[T]
+        ci.virtual_methods["_font_set_style"] = func
+    }}
+    $if T is ITextServerExtensionFontGetStyle {{
+        func := textserverextension_ufont_get_style[T]
+        ci.virtual_methods["_font_get_style"] = func
+    }}
+    $if T is ITextServerExtensionFontSetName {{
+        func := textserverextension_ufont_set_name[T]
+        ci.virtual_methods["_font_set_name"] = func
+    }}
+    $if T is ITextServerExtensionFontGetName {{
+        func := textserverextension_ufont_get_name[T]
+        ci.virtual_methods["_font_get_name"] = func
+    }}
+    $if T is ITextServerExtensionFontGetOtNameStrings {{
+        func := textserverextension_ufont_get_ot_name_strings[T]
+        ci.virtual_methods["_font_get_ot_name_strings"] = func
+    }}
+    $if T is ITextServerExtensionFontSetStyleName {{
+        func := textserverextension_ufont_set_style_name[T]
+        ci.virtual_methods["_font_set_style_name"] = func
+    }}
+    $if T is ITextServerExtensionFontGetStyleName {{
+        func := textserverextension_ufont_get_style_name[T]
+        ci.virtual_methods["_font_get_style_name"] = func
+    }}
+    $if T is ITextServerExtensionFontSetWeight {{
+        func := textserverextension_ufont_set_weight[T]
+        ci.virtual_methods["_font_set_weight"] = func
+    }}
+    $if T is ITextServerExtensionFontGetWeight {{
+        func := textserverextension_ufont_get_weight[T]
+        ci.virtual_methods["_font_get_weight"] = func
+    }}
+    $if T is ITextServerExtensionFontSetStretch {{
+        func := textserverextension_ufont_set_stretch[T]
+        ci.virtual_methods["_font_set_stretch"] = func
+    }}
+    $if T is ITextServerExtensionFontGetStretch {{
+        func := textserverextension_ufont_get_stretch[T]
+        ci.virtual_methods["_font_get_stretch"] = func
+    }}
+    $if T is ITextServerExtensionFontSetAntialiasing {{
+        func := textserverextension_ufont_set_antialiasing[T]
+        ci.virtual_methods["_font_set_antialiasing"] = func
+    }}
+    $if T is ITextServerExtensionFontGetAntialiasing {{
+        func := textserverextension_ufont_get_antialiasing[T]
+        ci.virtual_methods["_font_get_antialiasing"] = func
+    }}
+    $if T is ITextServerExtensionFontSetGenerateMipmaps {{
+        func := textserverextension_ufont_set_generate_mipmaps[T]
+        ci.virtual_methods["_font_set_generate_mipmaps"] = func
+    }}
+    $if T is ITextServerExtensionFontGetGenerateMipmaps {{
+        func := textserverextension_ufont_get_generate_mipmaps[T]
+        ci.virtual_methods["_font_get_generate_mipmaps"] = func
+    }}
+    $if T is ITextServerExtensionFontSetMultichannelSignedDistanceField {{
+        func := textserverextension_ufont_set_multichannel_signed_distance_field[T]
+        ci.virtual_methods["_font_set_multichannel_signed_distance_field"] = func
+    }}
+    $if T is ITextServerExtensionFontIsMultichannelSignedDistanceField {{
+        func := textserverextension_ufont_is_multichannel_signed_distance_field[T]
+        ci.virtual_methods["_font_is_multichannel_signed_distance_field"] = func
+    }}
+    $if T is ITextServerExtensionFontSetMsdfPixelRange {{
+        func := textserverextension_ufont_set_msdf_pixel_range[T]
+        ci.virtual_methods["_font_set_msdf_pixel_range"] = func
+    }}
+    $if T is ITextServerExtensionFontGetMsdfPixelRange {{
+        func := textserverextension_ufont_get_msdf_pixel_range[T]
+        ci.virtual_methods["_font_get_msdf_pixel_range"] = func
+    }}
+    $if T is ITextServerExtensionFontSetMsdfSize {{
+        func := textserverextension_ufont_set_msdf_size[T]
+        ci.virtual_methods["_font_set_msdf_size"] = func
+    }}
+    $if T is ITextServerExtensionFontGetMsdfSize {{
+        func := textserverextension_ufont_get_msdf_size[T]
+        ci.virtual_methods["_font_get_msdf_size"] = func
+    }}
+    $if T is ITextServerExtensionFontSetFixedSize {{
+        func := textserverextension_ufont_set_fixed_size[T]
+        ci.virtual_methods["_font_set_fixed_size"] = func
+    }}
+    $if T is ITextServerExtensionFontGetFixedSize {{
+        func := textserverextension_ufont_get_fixed_size[T]
+        ci.virtual_methods["_font_get_fixed_size"] = func
+    }}
+    $if T is ITextServerExtensionFontSetFixedSizeScaleMode {{
+        func := textserverextension_ufont_set_fixed_size_scale_mode[T]
+        ci.virtual_methods["_font_set_fixed_size_scale_mode"] = func
+    }}
+    $if T is ITextServerExtensionFontGetFixedSizeScaleMode {{
+        func := textserverextension_ufont_get_fixed_size_scale_mode[T]
+        ci.virtual_methods["_font_get_fixed_size_scale_mode"] = func
+    }}
+    $if T is ITextServerExtensionFontSetAllowSystemFallback {{
+        func := textserverextension_ufont_set_allow_system_fallback[T]
+        ci.virtual_methods["_font_set_allow_system_fallback"] = func
+    }}
+    $if T is ITextServerExtensionFontIsAllowSystemFallback {{
+        func := textserverextension_ufont_is_allow_system_fallback[T]
+        ci.virtual_methods["_font_is_allow_system_fallback"] = func
+    }}
+    $if T is ITextServerExtensionFontSetForceAutohinter {{
+        func := textserverextension_ufont_set_force_autohinter[T]
+        ci.virtual_methods["_font_set_force_autohinter"] = func
+    }}
+    $if T is ITextServerExtensionFontIsForceAutohinter {{
+        func := textserverextension_ufont_is_force_autohinter[T]
+        ci.virtual_methods["_font_is_force_autohinter"] = func
+    }}
+    $if T is ITextServerExtensionFontSetHinting {{
+        func := textserverextension_ufont_set_hinting[T]
+        ci.virtual_methods["_font_set_hinting"] = func
+    }}
+    $if T is ITextServerExtensionFontGetHinting {{
+        func := textserverextension_ufont_get_hinting[T]
+        ci.virtual_methods["_font_get_hinting"] = func
+    }}
+    $if T is ITextServerExtensionFontSetSubpixelPositioning {{
+        func := textserverextension_ufont_set_subpixel_positioning[T]
+        ci.virtual_methods["_font_set_subpixel_positioning"] = func
+    }}
+    $if T is ITextServerExtensionFontGetSubpixelPositioning {{
+        func := textserverextension_ufont_get_subpixel_positioning[T]
+        ci.virtual_methods["_font_get_subpixel_positioning"] = func
+    }}
+    $if T is ITextServerExtensionFontSetEmbolden {{
+        func := textserverextension_ufont_set_embolden[T]
+        ci.virtual_methods["_font_set_embolden"] = func
+    }}
+    $if T is ITextServerExtensionFontGetEmbolden {{
+        func := textserverextension_ufont_get_embolden[T]
+        ci.virtual_methods["_font_get_embolden"] = func
+    }}
+    $if T is ITextServerExtensionFontSetSpacing {{
+        func := textserverextension_ufont_set_spacing[T]
+        ci.virtual_methods["_font_set_spacing"] = func
+    }}
+    $if T is ITextServerExtensionFontGetSpacing {{
+        func := textserverextension_ufont_get_spacing[T]
+        ci.virtual_methods["_font_get_spacing"] = func
+    }}
+    $if T is ITextServerExtensionFontSetTransform {{
+        func := textserverextension_ufont_set_transform[T]
+        ci.virtual_methods["_font_set_transform"] = func
+    }}
+    $if T is ITextServerExtensionFontGetTransform {{
+        func := textserverextension_ufont_get_transform[T]
+        ci.virtual_methods["_font_get_transform"] = func
+    }}
+    $if T is ITextServerExtensionFontSetVariationCoordinates {{
+        func := textserverextension_ufont_set_variation_coordinates[T]
+        ci.virtual_methods["_font_set_variation_coordinates"] = func
+    }}
+    $if T is ITextServerExtensionFontGetVariationCoordinates {{
+        func := textserverextension_ufont_get_variation_coordinates[T]
+        ci.virtual_methods["_font_get_variation_coordinates"] = func
+    }}
+    $if T is ITextServerExtensionFontSetOversampling {{
+        func := textserverextension_ufont_set_oversampling[T]
+        ci.virtual_methods["_font_set_oversampling"] = func
+    }}
+    $if T is ITextServerExtensionFontGetOversampling {{
+        func := textserverextension_ufont_get_oversampling[T]
+        ci.virtual_methods["_font_get_oversampling"] = func
+    }}
+    $if T is ITextServerExtensionFontGetSizeCacheList {{
+        func := textserverextension_ufont_get_size_cache_list[T]
+        ci.virtual_methods["_font_get_size_cache_list"] = func
+    }}
+    $if T is ITextServerExtensionFontClearSizeCache {{
+        func := textserverextension_ufont_clear_size_cache[T]
+        ci.virtual_methods["_font_clear_size_cache"] = func
+    }}
+    $if T is ITextServerExtensionFontRemoveSizeCache {{
+        func := textserverextension_ufont_remove_size_cache[T]
+        ci.virtual_methods["_font_remove_size_cache"] = func
+    }}
+    $if T is ITextServerExtensionFontSetAscent {{
+        func := textserverextension_ufont_set_ascent[T]
+        ci.virtual_methods["_font_set_ascent"] = func
+    }}
+    $if T is ITextServerExtensionFontGetAscent {{
+        func := textserverextension_ufont_get_ascent[T]
+        ci.virtual_methods["_font_get_ascent"] = func
+    }}
+    $if T is ITextServerExtensionFontSetDescent {{
+        func := textserverextension_ufont_set_descent[T]
+        ci.virtual_methods["_font_set_descent"] = func
+    }}
+    $if T is ITextServerExtensionFontGetDescent {{
+        func := textserverextension_ufont_get_descent[T]
+        ci.virtual_methods["_font_get_descent"] = func
+    }}
+    $if T is ITextServerExtensionFontSetUnderlinePosition {{
+        func := textserverextension_ufont_set_underline_position[T]
+        ci.virtual_methods["_font_set_underline_position"] = func
+    }}
+    $if T is ITextServerExtensionFontGetUnderlinePosition {{
+        func := textserverextension_ufont_get_underline_position[T]
+        ci.virtual_methods["_font_get_underline_position"] = func
+    }}
+    $if T is ITextServerExtensionFontSetUnderlineThickness {{
+        func := textserverextension_ufont_set_underline_thickness[T]
+        ci.virtual_methods["_font_set_underline_thickness"] = func
+    }}
+    $if T is ITextServerExtensionFontGetUnderlineThickness {{
+        func := textserverextension_ufont_get_underline_thickness[T]
+        ci.virtual_methods["_font_get_underline_thickness"] = func
+    }}
+    $if T is ITextServerExtensionFontSetScale {{
+        func := textserverextension_ufont_set_scale[T]
+        ci.virtual_methods["_font_set_scale"] = func
+    }}
+    $if T is ITextServerExtensionFontGetScale {{
+        func := textserverextension_ufont_get_scale[T]
+        ci.virtual_methods["_font_get_scale"] = func
+    }}
+    $if T is ITextServerExtensionFontGetTextureCount {{
+        func := textserverextension_ufont_get_texture_count[T]
+        ci.virtual_methods["_font_get_texture_count"] = func
+    }}
+    $if T is ITextServerExtensionFontClearTextures {{
+        func := textserverextension_ufont_clear_textures[T]
+        ci.virtual_methods["_font_clear_textures"] = func
+    }}
+    $if T is ITextServerExtensionFontRemoveTexture {{
+        func := textserverextension_ufont_remove_texture[T]
+        ci.virtual_methods["_font_remove_texture"] = func
+    }}
+    $if T is ITextServerExtensionFontSetTextureImage {{
+        func := textserverextension_ufont_set_texture_image[T]
+        ci.virtual_methods["_font_set_texture_image"] = func
+    }}
+    $if T is ITextServerExtensionFontGetTextureImage {{
+        func := textserverextension_ufont_get_texture_image[T]
+        ci.virtual_methods["_font_get_texture_image"] = func
+    }}
+    $if T is ITextServerExtensionFontSetTextureOffsets {{
+        func := textserverextension_ufont_set_texture_offsets[T]
+        ci.virtual_methods["_font_set_texture_offsets"] = func
+    }}
+    $if T is ITextServerExtensionFontGetTextureOffsets {{
+        func := textserverextension_ufont_get_texture_offsets[T]
+        ci.virtual_methods["_font_get_texture_offsets"] = func
+    }}
+    $if T is ITextServerExtensionFontGetGlyphList {{
+        func := textserverextension_ufont_get_glyph_list[T]
+        ci.virtual_methods["_font_get_glyph_list"] = func
+    }}
+    $if T is ITextServerExtensionFontClearGlyphs {{
+        func := textserverextension_ufont_clear_glyphs[T]
+        ci.virtual_methods["_font_clear_glyphs"] = func
+    }}
+    $if T is ITextServerExtensionFontRemoveGlyph {{
+        func := textserverextension_ufont_remove_glyph[T]
+        ci.virtual_methods["_font_remove_glyph"] = func
+    }}
+    $if T is ITextServerExtensionFontGetGlyphAdvance {{
+        func := textserverextension_ufont_get_glyph_advance[T]
+        ci.virtual_methods["_font_get_glyph_advance"] = func
+    }}
+    $if T is ITextServerExtensionFontSetGlyphAdvance {{
+        func := textserverextension_ufont_set_glyph_advance[T]
+        ci.virtual_methods["_font_set_glyph_advance"] = func
+    }}
+    $if T is ITextServerExtensionFontGetGlyphOffset {{
+        func := textserverextension_ufont_get_glyph_offset[T]
+        ci.virtual_methods["_font_get_glyph_offset"] = func
+    }}
+    $if T is ITextServerExtensionFontSetGlyphOffset {{
+        func := textserverextension_ufont_set_glyph_offset[T]
+        ci.virtual_methods["_font_set_glyph_offset"] = func
+    }}
+    $if T is ITextServerExtensionFontGetGlyphSize {{
+        func := textserverextension_ufont_get_glyph_size[T]
+        ci.virtual_methods["_font_get_glyph_size"] = func
+    }}
+    $if T is ITextServerExtensionFontSetGlyphSize {{
+        func := textserverextension_ufont_set_glyph_size[T]
+        ci.virtual_methods["_font_set_glyph_size"] = func
+    }}
+    $if T is ITextServerExtensionFontGetGlyphUvRect {{
+        func := textserverextension_ufont_get_glyph_uv_rect[T]
+        ci.virtual_methods["_font_get_glyph_uv_rect"] = func
+    }}
+    $if T is ITextServerExtensionFontSetGlyphUvRect {{
+        func := textserverextension_ufont_set_glyph_uv_rect[T]
+        ci.virtual_methods["_font_set_glyph_uv_rect"] = func
+    }}
+    $if T is ITextServerExtensionFontGetGlyphTextureIdx {{
+        func := textserverextension_ufont_get_glyph_texture_idx[T]
+        ci.virtual_methods["_font_get_glyph_texture_idx"] = func
+    }}
+    $if T is ITextServerExtensionFontSetGlyphTextureIdx {{
+        func := textserverextension_ufont_set_glyph_texture_idx[T]
+        ci.virtual_methods["_font_set_glyph_texture_idx"] = func
+    }}
+    $if T is ITextServerExtensionFontGetGlyphTextureRid {{
+        func := textserverextension_ufont_get_glyph_texture_rid[T]
+        ci.virtual_methods["_font_get_glyph_texture_rid"] = func
+    }}
+    $if T is ITextServerExtensionFontGetGlyphTextureSize {{
+        func := textserverextension_ufont_get_glyph_texture_size[T]
+        ci.virtual_methods["_font_get_glyph_texture_size"] = func
+    }}
+    $if T is ITextServerExtensionFontGetGlyphContours {{
+        func := textserverextension_ufont_get_glyph_contours[T]
+        ci.virtual_methods["_font_get_glyph_contours"] = func
+    }}
+    $if T is ITextServerExtensionFontGetKerningList {{
+        func := textserverextension_ufont_get_kerning_list[T]
+        ci.virtual_methods["_font_get_kerning_list"] = func
+    }}
+    $if T is ITextServerExtensionFontClearKerningMap {{
+        func := textserverextension_ufont_clear_kerning_map[T]
+        ci.virtual_methods["_font_clear_kerning_map"] = func
+    }}
+    $if T is ITextServerExtensionFontRemoveKerning {{
+        func := textserverextension_ufont_remove_kerning[T]
+        ci.virtual_methods["_font_remove_kerning"] = func
+    }}
+    $if T is ITextServerExtensionFontSetKerning {{
+        func := textserverextension_ufont_set_kerning[T]
+        ci.virtual_methods["_font_set_kerning"] = func
+    }}
+    $if T is ITextServerExtensionFontGetKerning {{
+        func := textserverextension_ufont_get_kerning[T]
+        ci.virtual_methods["_font_get_kerning"] = func
+    }}
+    $if T is ITextServerExtensionFontGetGlyphIndex {{
+        func := textserverextension_ufont_get_glyph_index[T]
+        ci.virtual_methods["_font_get_glyph_index"] = func
+    }}
+    $if T is ITextServerExtensionFontGetCharFromGlyphIndex {{
+        func := textserverextension_ufont_get_char_from_glyph_index[T]
+        ci.virtual_methods["_font_get_char_from_glyph_index"] = func
+    }}
+    $if T is ITextServerExtensionFontHasChar {{
+        func := textserverextension_ufont_has_char[T]
+        ci.virtual_methods["_font_has_char"] = func
+    }}
+    $if T is ITextServerExtensionFontGetSupportedChars {{
+        func := textserverextension_ufont_get_supported_chars[T]
+        ci.virtual_methods["_font_get_supported_chars"] = func
+    }}
+    $if T is ITextServerExtensionFontRenderRange {{
+        func := textserverextension_ufont_render_range[T]
+        ci.virtual_methods["_font_render_range"] = func
+    }}
+    $if T is ITextServerExtensionFontRenderGlyph {{
+        func := textserverextension_ufont_render_glyph[T]
+        ci.virtual_methods["_font_render_glyph"] = func
+    }}
+    $if T is ITextServerExtensionFontDrawGlyph {{
+        func := textserverextension_ufont_draw_glyph[T]
+        ci.virtual_methods["_font_draw_glyph"] = func
+    }}
+    $if T is ITextServerExtensionFontDrawGlyphOutline {{
+        func := textserverextension_ufont_draw_glyph_outline[T]
+        ci.virtual_methods["_font_draw_glyph_outline"] = func
+    }}
+    $if T is ITextServerExtensionFontIsLanguageSupported {{
+        func := textserverextension_ufont_is_language_supported[T]
+        ci.virtual_methods["_font_is_language_supported"] = func
+    }}
+    $if T is ITextServerExtensionFontSetLanguageSupportOverride {{
+        func := textserverextension_ufont_set_language_support_override[T]
+        ci.virtual_methods["_font_set_language_support_override"] = func
+    }}
+    $if T is ITextServerExtensionFontGetLanguageSupportOverride {{
+        func := textserverextension_ufont_get_language_support_override[T]
+        ci.virtual_methods["_font_get_language_support_override"] = func
+    }}
+    $if T is ITextServerExtensionFontRemoveLanguageSupportOverride {{
+        func := textserverextension_ufont_remove_language_support_override[T]
+        ci.virtual_methods["_font_remove_language_support_override"] = func
+    }}
+    $if T is ITextServerExtensionFontGetLanguageSupportOverrides {{
+        func := textserverextension_ufont_get_language_support_overrides[T]
+        ci.virtual_methods["_font_get_language_support_overrides"] = func
+    }}
+    $if T is ITextServerExtensionFontIsScriptSupported {{
+        func := textserverextension_ufont_is_script_supported[T]
+        ci.virtual_methods["_font_is_script_supported"] = func
+    }}
+    $if T is ITextServerExtensionFontSetScriptSupportOverride {{
+        func := textserverextension_ufont_set_script_support_override[T]
+        ci.virtual_methods["_font_set_script_support_override"] = func
+    }}
+    $if T is ITextServerExtensionFontGetScriptSupportOverride {{
+        func := textserverextension_ufont_get_script_support_override[T]
+        ci.virtual_methods["_font_get_script_support_override"] = func
+    }}
+    $if T is ITextServerExtensionFontRemoveScriptSupportOverride {{
+        func := textserverextension_ufont_remove_script_support_override[T]
+        ci.virtual_methods["_font_remove_script_support_override"] = func
+    }}
+    $if T is ITextServerExtensionFontGetScriptSupportOverrides {{
+        func := textserverextension_ufont_get_script_support_overrides[T]
+        ci.virtual_methods["_font_get_script_support_overrides"] = func
+    }}
+    $if T is ITextServerExtensionFontSetOpentypeFeatureOverrides {{
+        func := textserverextension_ufont_set_opentype_feature_overrides[T]
+        ci.virtual_methods["_font_set_opentype_feature_overrides"] = func
+    }}
+    $if T is ITextServerExtensionFontGetOpentypeFeatureOverrides {{
+        func := textserverextension_ufont_get_opentype_feature_overrides[T]
+        ci.virtual_methods["_font_get_opentype_feature_overrides"] = func
+    }}
+    $if T is ITextServerExtensionFontSupportedFeatureList {{
+        func := textserverextension_ufont_supported_feature_list[T]
+        ci.virtual_methods["_font_supported_feature_list"] = func
+    }}
+    $if T is ITextServerExtensionFontSupportedVariationList {{
+        func := textserverextension_ufont_supported_variation_list[T]
+        ci.virtual_methods["_font_supported_variation_list"] = func
+    }}
+    $if T is ITextServerExtensionFontGetGlobalOversampling {{
+        func := textserverextension_ufont_get_global_oversampling[T]
+        ci.virtual_methods["_font_get_global_oversampling"] = func
+    }}
+    $if T is ITextServerExtensionFontSetGlobalOversampling {{
+        func := textserverextension_ufont_set_global_oversampling[T]
+        ci.virtual_methods["_font_set_global_oversampling"] = func
+    }}
+    $if T is ITextServerExtensionGetHexCodeBoxSize {{
+        func := textserverextension_uget_hex_code_box_size[T]
+        ci.virtual_methods["_get_hex_code_box_size"] = func
+    }}
+    $if T is ITextServerExtensionDrawHexCodeBox {{
+        func := textserverextension_udraw_hex_code_box[T]
+        ci.virtual_methods["_draw_hex_code_box"] = func
+    }}
+    $if T is ITextServerExtensionCreateShapedText {{
+        func := textserverextension_ucreate_shaped_text[T]
+        ci.virtual_methods["_create_shaped_text"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextClear {{
+        func := textserverextension_ushaped_text_clear[T]
+        ci.virtual_methods["_shaped_text_clear"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextSetDirection {{
+        func := textserverextension_ushaped_text_set_direction[T]
+        ci.virtual_methods["_shaped_text_set_direction"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextGetDirection {{
+        func := textserverextension_ushaped_text_get_direction[T]
+        ci.virtual_methods["_shaped_text_get_direction"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextGetInferredDirection {{
+        func := textserverextension_ushaped_text_get_inferred_direction[T]
+        ci.virtual_methods["_shaped_text_get_inferred_direction"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextSetBidiOverride {{
+        func := textserverextension_ushaped_text_set_bidi_override[T]
+        ci.virtual_methods["_shaped_text_set_bidi_override"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextSetCustomPunctuation {{
+        func := textserverextension_ushaped_text_set_custom_punctuation[T]
+        ci.virtual_methods["_shaped_text_set_custom_punctuation"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextGetCustomPunctuation {{
+        func := textserverextension_ushaped_text_get_custom_punctuation[T]
+        ci.virtual_methods["_shaped_text_get_custom_punctuation"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextSetOrientation {{
+        func := textserverextension_ushaped_text_set_orientation[T]
+        ci.virtual_methods["_shaped_text_set_orientation"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextGetOrientation {{
+        func := textserverextension_ushaped_text_get_orientation[T]
+        ci.virtual_methods["_shaped_text_get_orientation"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextSetPreserveInvalid {{
+        func := textserverextension_ushaped_text_set_preserve_invalid[T]
+        ci.virtual_methods["_shaped_text_set_preserve_invalid"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextGetPreserveInvalid {{
+        func := textserverextension_ushaped_text_get_preserve_invalid[T]
+        ci.virtual_methods["_shaped_text_get_preserve_invalid"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextSetPreserveControl {{
+        func := textserverextension_ushaped_text_set_preserve_control[T]
+        ci.virtual_methods["_shaped_text_set_preserve_control"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextGetPreserveControl {{
+        func := textserverextension_ushaped_text_get_preserve_control[T]
+        ci.virtual_methods["_shaped_text_get_preserve_control"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextSetSpacing {{
+        func := textserverextension_ushaped_text_set_spacing[T]
+        ci.virtual_methods["_shaped_text_set_spacing"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextGetSpacing {{
+        func := textserverextension_ushaped_text_get_spacing[T]
+        ci.virtual_methods["_shaped_text_get_spacing"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextAddString {{
+        func := textserverextension_ushaped_text_add_string[T]
+        ci.virtual_methods["_shaped_text_add_string"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextAddObject {{
+        func := textserverextension_ushaped_text_add_object[T]
+        ci.virtual_methods["_shaped_text_add_object"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextResizeObject {{
+        func := textserverextension_ushaped_text_resize_object[T]
+        ci.virtual_methods["_shaped_text_resize_object"] = func
+    }}
+    $if T is ITextServerExtensionShapedGetSpanCount {{
+        func := textserverextension_ushaped_get_span_count[T]
+        ci.virtual_methods["_shaped_get_span_count"] = func
+    }}
+    $if T is ITextServerExtensionShapedGetSpanMeta {{
+        func := textserverextension_ushaped_get_span_meta[T]
+        ci.virtual_methods["_shaped_get_span_meta"] = func
+    }}
+    $if T is ITextServerExtensionShapedSetSpanUpdateFont {{
+        func := textserverextension_ushaped_set_span_update_font[T]
+        ci.virtual_methods["_shaped_set_span_update_font"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextSubstr {{
+        func := textserverextension_ushaped_text_substr[T]
+        ci.virtual_methods["_shaped_text_substr"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextGetParent {{
+        func := textserverextension_ushaped_text_get_parent[T]
+        ci.virtual_methods["_shaped_text_get_parent"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextFitToWidth {{
+        func := textserverextension_ushaped_text_fit_to_width[T]
+        ci.virtual_methods["_shaped_text_fit_to_width"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextTabAlign {{
+        func := textserverextension_ushaped_text_tab_align[T]
+        ci.virtual_methods["_shaped_text_tab_align"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextShape {{
+        func := textserverextension_ushaped_text_shape[T]
+        ci.virtual_methods["_shaped_text_shape"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextUpdateBreaks {{
+        func := textserverextension_ushaped_text_update_breaks[T]
+        ci.virtual_methods["_shaped_text_update_breaks"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextUpdateJustificationOps {{
+        func := textserverextension_ushaped_text_update_justification_ops[T]
+        ci.virtual_methods["_shaped_text_update_justification_ops"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextIsReady {{
+        func := textserverextension_ushaped_text_is_ready[T]
+        ci.virtual_methods["_shaped_text_is_ready"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextGetGlyphs {{
+        func := textserverextension_ushaped_text_get_glyphs[T]
+        ci.virtual_methods["_shaped_text_get_glyphs"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextSortLogical {{
+        func := textserverextension_ushaped_text_sort_logical[T]
+        ci.virtual_methods["_shaped_text_sort_logical"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextGetGlyphCount {{
+        func := textserverextension_ushaped_text_get_glyph_count[T]
+        ci.virtual_methods["_shaped_text_get_glyph_count"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextGetRange {{
+        func := textserverextension_ushaped_text_get_range[T]
+        ci.virtual_methods["_shaped_text_get_range"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextGetLineBreaksAdv {{
+        func := textserverextension_ushaped_text_get_line_breaks_adv[T]
+        ci.virtual_methods["_shaped_text_get_line_breaks_adv"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextGetLineBreaks {{
+        func := textserverextension_ushaped_text_get_line_breaks[T]
+        ci.virtual_methods["_shaped_text_get_line_breaks"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextGetWordBreaks {{
+        func := textserverextension_ushaped_text_get_word_breaks[T]
+        ci.virtual_methods["_shaped_text_get_word_breaks"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextGetTrimPos {{
+        func := textserverextension_ushaped_text_get_trim_pos[T]
+        ci.virtual_methods["_shaped_text_get_trim_pos"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextGetEllipsisPos {{
+        func := textserverextension_ushaped_text_get_ellipsis_pos[T]
+        ci.virtual_methods["_shaped_text_get_ellipsis_pos"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextGetEllipsisGlyphCount {{
+        func := textserverextension_ushaped_text_get_ellipsis_glyph_count[T]
+        ci.virtual_methods["_shaped_text_get_ellipsis_glyph_count"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextGetEllipsisGlyphs {{
+        func := textserverextension_ushaped_text_get_ellipsis_glyphs[T]
+        ci.virtual_methods["_shaped_text_get_ellipsis_glyphs"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextOverrunTrimToWidth {{
+        func := textserverextension_ushaped_text_overrun_trim_to_width[T]
+        ci.virtual_methods["_shaped_text_overrun_trim_to_width"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextGetObjects {{
+        func := textserverextension_ushaped_text_get_objects[T]
+        ci.virtual_methods["_shaped_text_get_objects"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextGetObjectRect {{
+        func := textserverextension_ushaped_text_get_object_rect[T]
+        ci.virtual_methods["_shaped_text_get_object_rect"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextGetSize {{
+        func := textserverextension_ushaped_text_get_size[T]
+        ci.virtual_methods["_shaped_text_get_size"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextGetAscent {{
+        func := textserverextension_ushaped_text_get_ascent[T]
+        ci.virtual_methods["_shaped_text_get_ascent"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextGetDescent {{
+        func := textserverextension_ushaped_text_get_descent[T]
+        ci.virtual_methods["_shaped_text_get_descent"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextGetWidth {{
+        func := textserverextension_ushaped_text_get_width[T]
+        ci.virtual_methods["_shaped_text_get_width"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextGetUnderlinePosition {{
+        func := textserverextension_ushaped_text_get_underline_position[T]
+        ci.virtual_methods["_shaped_text_get_underline_position"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextGetUnderlineThickness {{
+        func := textserverextension_ushaped_text_get_underline_thickness[T]
+        ci.virtual_methods["_shaped_text_get_underline_thickness"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextGetDominantDirectionInRange {{
+        func := textserverextension_ushaped_text_get_dominant_direction_in_range[T]
+        ci.virtual_methods["_shaped_text_get_dominant_direction_in_range"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextGetCarets {{
+        func := textserverextension_ushaped_text_get_carets[T]
+        ci.virtual_methods["_shaped_text_get_carets"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextGetSelection {{
+        func := textserverextension_ushaped_text_get_selection[T]
+        ci.virtual_methods["_shaped_text_get_selection"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextHitTestGrapheme {{
+        func := textserverextension_ushaped_text_hit_test_grapheme[T]
+        ci.virtual_methods["_shaped_text_hit_test_grapheme"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextHitTestPosition {{
+        func := textserverextension_ushaped_text_hit_test_position[T]
+        ci.virtual_methods["_shaped_text_hit_test_position"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextDraw {{
+        func := textserverextension_ushaped_text_draw[T]
+        ci.virtual_methods["_shaped_text_draw"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextDrawOutline {{
+        func := textserverextension_ushaped_text_draw_outline[T]
+        ci.virtual_methods["_shaped_text_draw_outline"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextGetGraphemeBounds {{
+        func := textserverextension_ushaped_text_get_grapheme_bounds[T]
+        ci.virtual_methods["_shaped_text_get_grapheme_bounds"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextNextGraphemePos {{
+        func := textserverextension_ushaped_text_next_grapheme_pos[T]
+        ci.virtual_methods["_shaped_text_next_grapheme_pos"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextPrevGraphemePos {{
+        func := textserverextension_ushaped_text_prev_grapheme_pos[T]
+        ci.virtual_methods["_shaped_text_prev_grapheme_pos"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextGetCharacterBreaks {{
+        func := textserverextension_ushaped_text_get_character_breaks[T]
+        ci.virtual_methods["_shaped_text_get_character_breaks"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextNextCharacterPos {{
+        func := textserverextension_ushaped_text_next_character_pos[T]
+        ci.virtual_methods["_shaped_text_next_character_pos"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextPrevCharacterPos {{
+        func := textserverextension_ushaped_text_prev_character_pos[T]
+        ci.virtual_methods["_shaped_text_prev_character_pos"] = func
+    }}
+    $if T is ITextServerExtensionShapedTextClosestCharacterPos {{
+        func := textserverextension_ushaped_text_closest_character_pos[T]
+        ci.virtual_methods["_shaped_text_closest_character_pos"] = func
+    }}
+    $if T is ITextServerExtensionFormatNumber {{
+        func := textserverextension_uformat_number[T]
+        ci.virtual_methods["_format_number"] = func
+    }}
+    $if T is ITextServerExtensionParseNumber {{
+        func := textserverextension_uparse_number[T]
+        ci.virtual_methods["_parse_number"] = func
+    }}
+    $if T is ITextServerExtensionPercentSign {{
+        func := textserverextension_upercent_sign[T]
+        ci.virtual_methods["_percent_sign"] = func
+    }}
+    $if T is ITextServerExtensionStripDiacritics {{
+        func := textserverextension_ustrip_diacritics[T]
+        ci.virtual_methods["_strip_diacritics"] = func
+    }}
+    $if T is ITextServerExtensionIsValidIdentifier {{
+        func := textserverextension_uis_valid_identifier[T]
+        ci.virtual_methods["_is_valid_identifier"] = func
+    }}
+    $if T is ITextServerExtensionStringGetWordBreaks {{
+        func := textserverextension_ustring_get_word_breaks[T]
+        ci.virtual_methods["_string_get_word_breaks"] = func
+    }}
+    $if T is ITextServerExtensionStringGetCharacterBreaks {{
+        func := textserverextension_ustring_get_character_breaks[T]
+        ci.virtual_methods["_string_get_character_breaks"] = func
+    }}
+    $if T is ITextServerExtensionIsConfusable {{
+        func := textserverextension_uis_confusable[T]
+        ci.virtual_methods["_is_confusable"] = func
+    }}
+    $if T is ITextServerExtensionSpoofCheck {{
+        func := textserverextension_uspoof_check[T]
+        ci.virtual_methods["_spoof_check"] = func
+    }}
+    $if T is ITextServerExtensionStringToUpper {{
+        func := textserverextension_ustring_to_upper[T]
+        ci.virtual_methods["_string_to_upper"] = func
+    }}
+    $if T is ITextServerExtensionStringToLower {{
+        func := textserverextension_ustring_to_lower[T]
+        ci.virtual_methods["_string_to_lower"] = func
+    }}
+    $if T is ITextServerExtensionParseStructuredText {{
+        func := textserverextension_uparse_structured_text[T]
+        ci.virtual_methods["_parse_structured_text"] = func
+    }}
+    $if T is ITextServerExtensionCleanup {{
+        func := textserverextension_ucleanup[T]
+        ci.virtual_methods["_cleanup"] = func
+    }}
+    $if T is ITexture2DGetWidth {{
+        func := texture2d_uget_width[T]
+        ci.virtual_methods["_get_width"] = func
+    }}
+    $if T is ITexture2DGetHeight {{
+        func := texture2d_uget_height[T]
+        ci.virtual_methods["_get_height"] = func
+    }}
+    $if T is ITexture2DIsPixelOpaque {{
+        func := texture2d_uis_pixel_opaque[T]
+        ci.virtual_methods["_is_pixel_opaque"] = func
+    }}
+    $if T is ITexture2DHasAlpha {{
+        func := texture2d_uhas_alpha[T]
+        ci.virtual_methods["_has_alpha"] = func
+    }}
+    $if T is ITexture2DDraw {{
+        func := texture2d_udraw[T]
+        ci.virtual_methods["_draw"] = func
+    }}
+    $if T is ITexture2DDrawRect {{
+        func := texture2d_udraw_rect[T]
+        ci.virtual_methods["_draw_rect"] = func
+    }}
+    $if T is ITexture2DDrawRectRegion {{
+        func := texture2d_udraw_rect_region[T]
+        ci.virtual_methods["_draw_rect_region"] = func
+    }}
+    $if T is ITexture3DGetFormat {{
+        func := texture3d_uget_format[T]
+        ci.virtual_methods["_get_format"] = func
+    }}
+    $if T is ITexture3DGetWidth {{
+        func := texture3d_uget_width[T]
+        ci.virtual_methods["_get_width"] = func
+    }}
+    $if T is ITexture3DGetHeight {{
+        func := texture3d_uget_height[T]
+        ci.virtual_methods["_get_height"] = func
+    }}
+    $if T is ITexture3DGetDepth {{
+        func := texture3d_uget_depth[T]
+        ci.virtual_methods["_get_depth"] = func
+    }}
+    $if T is ITexture3DHasMipmaps {{
+        func := texture3d_uhas_mipmaps[T]
+        ci.virtual_methods["_has_mipmaps"] = func
+    }}
+    $if T is ITexture3DGetData {{
+        func := texture3d_uget_data[T]
+        ci.virtual_methods["_get_data"] = func
+    }}
+    $if T is ITextureLayeredGetFormat {{
+        func := texturelayered_uget_format[T]
+        ci.virtual_methods["_get_format"] = func
+    }}
+    $if T is ITextureLayeredGetLayeredType {{
+        func := texturelayered_uget_layered_type[T]
+        ci.virtual_methods["_get_layered_type"] = func
+    }}
+    $if T is ITextureLayeredGetWidth {{
+        func := texturelayered_uget_width[T]
+        ci.virtual_methods["_get_width"] = func
+    }}
+    $if T is ITextureLayeredGetHeight {{
+        func := texturelayered_uget_height[T]
+        ci.virtual_methods["_get_height"] = func
+    }}
+    $if T is ITextureLayeredGetLayers {{
+        func := texturelayered_uget_layers[T]
+        ci.virtual_methods["_get_layers"] = func
+    }}
+    $if T is ITextureLayeredHasMipmaps {{
+        func := texturelayered_uhas_mipmaps[T]
+        ci.virtual_methods["_has_mipmaps"] = func
+    }}
+    $if T is ITextureLayeredGetLayerData {{
+        func := texturelayered_uget_layer_data[T]
+        ci.virtual_methods["_get_layer_data"] = func
+    }}
+    $if T is ITileMapUseTileDataRuntimeUpdate {{
+        func := tilemap_uuse_tile_data_runtime_update[T]
+        ci.virtual_methods["_use_tile_data_runtime_update"] = func
+    }}
+    $if T is ITileMapTileDataRuntimeUpdate {{
+        func := tilemap_utile_data_runtime_update[T]
+        ci.virtual_methods["_tile_data_runtime_update"] = func
+    }}
+    $if T is ITranslationGetPluralMessage {{
+        func := translation_uget_plural_message[T]
+        ci.virtual_methods["_get_plural_message"] = func
+    }}
+    $if T is ITranslationGetMessage {{
+        func := translation_uget_message[T]
+        ci.virtual_methods["_get_message"] = func
+    }}
+    $if T is IVideoStreamInstantiatePlayback {{
+        func := videostream_uinstantiate_playback[T]
+        ci.virtual_methods["_instantiate_playback"] = func
+    }}
+    $if T is IVideoStreamPlaybackStop {{
+        func := videostreamplayback_ustop[T]
+        ci.virtual_methods["_stop"] = func
+    }}
+    $if T is IVideoStreamPlaybackPlay {{
+        func := videostreamplayback_uplay[T]
+        ci.virtual_methods["_play"] = func
+    }}
+    $if T is IVideoStreamPlaybackIsPlaying {{
+        func := videostreamplayback_uis_playing[T]
+        ci.virtual_methods["_is_playing"] = func
+    }}
+    $if T is IVideoStreamPlaybackSetPaused {{
+        func := videostreamplayback_uset_paused[T]
+        ci.virtual_methods["_set_paused"] = func
+    }}
+    $if T is IVideoStreamPlaybackIsPaused {{
+        func := videostreamplayback_uis_paused[T]
+        ci.virtual_methods["_is_paused"] = func
+    }}
+    $if T is IVideoStreamPlaybackGetLength {{
+        func := videostreamplayback_uget_length[T]
+        ci.virtual_methods["_get_length"] = func
+    }}
+    $if T is IVideoStreamPlaybackGetPlaybackPosition {{
+        func := videostreamplayback_uget_playback_position[T]
+        ci.virtual_methods["_get_playback_position"] = func
+    }}
+    $if T is IVideoStreamPlaybackSeek {{
+        func := videostreamplayback_useek[T]
+        ci.virtual_methods["_seek"] = func
+    }}
+    $if T is IVideoStreamPlaybackSetAudioTrack {{
+        func := videostreamplayback_uset_audio_track[T]
+        ci.virtual_methods["_set_audio_track"] = func
+    }}
+    $if T is IVideoStreamPlaybackGetTexture {{
+        func := videostreamplayback_uget_texture[T]
+        ci.virtual_methods["_get_texture"] = func
+    }}
+    $if T is IVideoStreamPlaybackUpdate {{
+        func := videostreamplayback_uupdate[T]
+        ci.virtual_methods["_update"] = func
+    }}
+    $if T is IVideoStreamPlaybackGetChannels {{
+        func := videostreamplayback_uget_channels[T]
+        ci.virtual_methods["_get_channels"] = func
+    }}
+    $if T is IVideoStreamPlaybackGetMixRate {{
+        func := videostreamplayback_uget_mix_rate[T]
+        ci.virtual_methods["_get_mix_rate"] = func
+    }}
+    $if T is IVisualInstance3DGetAabb {{
+        func := visualinstance3d_uget_aabb[T]
+        ci.virtual_methods["_get_aabb"] = func
+    }}
+    $if T is IVisualShaderNodeCustomGetName {{
+        func := visualshadernodecustom_uget_name[T]
+        ci.virtual_methods["_get_name"] = func
+    }}
+    $if T is IVisualShaderNodeCustomGetDescription {{
+        func := visualshadernodecustom_uget_description[T]
+        ci.virtual_methods["_get_description"] = func
+    }}
+    $if T is IVisualShaderNodeCustomGetCategory {{
+        func := visualshadernodecustom_uget_category[T]
+        ci.virtual_methods["_get_category"] = func
+    }}
+    $if T is IVisualShaderNodeCustomGetReturnIconType {{
+        func := visualshadernodecustom_uget_return_icon_type[T]
+        ci.virtual_methods["_get_return_icon_type"] = func
+    }}
+    $if T is IVisualShaderNodeCustomGetInputPortCount {{
+        func := visualshadernodecustom_uget_input_port_count[T]
+        ci.virtual_methods["_get_input_port_count"] = func
+    }}
+    $if T is IVisualShaderNodeCustomGetInputPortType {{
+        func := visualshadernodecustom_uget_input_port_type[T]
+        ci.virtual_methods["_get_input_port_type"] = func
+    }}
+    $if T is IVisualShaderNodeCustomGetInputPortName {{
+        func := visualshadernodecustom_uget_input_port_name[T]
+        ci.virtual_methods["_get_input_port_name"] = func
+    }}
+    $if T is IVisualShaderNodeCustomGetInputPortDefaultValue {{
+        func := visualshadernodecustom_uget_input_port_default_value[T]
+        ci.virtual_methods["_get_input_port_default_value"] = func
+    }}
+    $if T is IVisualShaderNodeCustomGetDefaultInputPort {{
+        func := visualshadernodecustom_uget_default_input_port[T]
+        ci.virtual_methods["_get_default_input_port"] = func
+    }}
+    $if T is IVisualShaderNodeCustomGetOutputPortCount {{
+        func := visualshadernodecustom_uget_output_port_count[T]
+        ci.virtual_methods["_get_output_port_count"] = func
+    }}
+    $if T is IVisualShaderNodeCustomGetOutputPortType {{
+        func := visualshadernodecustom_uget_output_port_type[T]
+        ci.virtual_methods["_get_output_port_type"] = func
+    }}
+    $if T is IVisualShaderNodeCustomGetOutputPortName {{
+        func := visualshadernodecustom_uget_output_port_name[T]
+        ci.virtual_methods["_get_output_port_name"] = func
+    }}
+    $if T is IVisualShaderNodeCustomGetPropertyCount {{
+        func := visualshadernodecustom_uget_property_count[T]
+        ci.virtual_methods["_get_property_count"] = func
+    }}
+    $if T is IVisualShaderNodeCustomGetPropertyName {{
+        func := visualshadernodecustom_uget_property_name[T]
+        ci.virtual_methods["_get_property_name"] = func
+    }}
+    $if T is IVisualShaderNodeCustomGetPropertyDefaultIndex {{
+        func := visualshadernodecustom_uget_property_default_index[T]
+        ci.virtual_methods["_get_property_default_index"] = func
+    }}
+    $if T is IVisualShaderNodeCustomGetPropertyOptions {{
+        func := visualshadernodecustom_uget_property_options[T]
+        ci.virtual_methods["_get_property_options"] = func
+    }}
+    $if T is IVisualShaderNodeCustomGetCode {{
+        func := visualshadernodecustom_uget_code[T]
+        ci.virtual_methods["_get_code"] = func
+    }}
+    $if T is IVisualShaderNodeCustomGetFuncCode {{
+        func := visualshadernodecustom_uget_func_code[T]
+        ci.virtual_methods["_get_func_code"] = func
+    }}
+    $if T is IVisualShaderNodeCustomGetGlobalCode {{
+        func := visualshadernodecustom_uget_global_code[T]
+        ci.virtual_methods["_get_global_code"] = func
+    }}
+    $if T is IVisualShaderNodeCustomIsHighend {{
+        func := visualshadernodecustom_uis_highend[T]
+        ci.virtual_methods["_is_highend"] = func
+    }}
+    $if T is IVisualShaderNodeCustomIsAvailable {{
+        func := visualshadernodecustom_uis_available[T]
+        ci.virtual_methods["_is_available"] = func
+    }}
+    $if T is IWebRTCDataChannelExtensionGetPacket {{
+        func := webrtcdatachannelextension_uget_packet[T]
+        ci.virtual_methods["_get_packet"] = func
+    }}
+    $if T is IWebRTCDataChannelExtensionPutPacket {{
+        func := webrtcdatachannelextension_uput_packet[T]
+        ci.virtual_methods["_put_packet"] = func
+    }}
+    $if T is IWebRTCDataChannelExtensionGetAvailablePacketCount {{
+        func := webrtcdatachannelextension_uget_available_packet_count[T]
+        ci.virtual_methods["_get_available_packet_count"] = func
+    }}
+    $if T is IWebRTCDataChannelExtensionGetMaxPacketSize {{
+        func := webrtcdatachannelextension_uget_max_packet_size[T]
+        ci.virtual_methods["_get_max_packet_size"] = func
+    }}
+    $if T is IWebRTCDataChannelExtensionPoll {{
+        func := webrtcdatachannelextension_upoll[T]
+        ci.virtual_methods["_poll"] = func
+    }}
+    $if T is IWebRTCDataChannelExtensionClose {{
+        func := webrtcdatachannelextension_uclose[T]
+        ci.virtual_methods["_close"] = func
+    }}
+    $if T is IWebRTCDataChannelExtensionSetWriteMode {{
+        func := webrtcdatachannelextension_uset_write_mode[T]
+        ci.virtual_methods["_set_write_mode"] = func
+    }}
+    $if T is IWebRTCDataChannelExtensionGetWriteMode {{
+        func := webrtcdatachannelextension_uget_write_mode[T]
+        ci.virtual_methods["_get_write_mode"] = func
+    }}
+    $if T is IWebRTCDataChannelExtensionWasStringPacket {{
+        func := webrtcdatachannelextension_uwas_string_packet[T]
+        ci.virtual_methods["_was_string_packet"] = func
+    }}
+    $if T is IWebRTCDataChannelExtensionGetReadyState {{
+        func := webrtcdatachannelextension_uget_ready_state[T]
+        ci.virtual_methods["_get_ready_state"] = func
+    }}
+    $if T is IWebRTCDataChannelExtensionGetLabel {{
+        func := webrtcdatachannelextension_uget_label[T]
+        ci.virtual_methods["_get_label"] = func
+    }}
+    $if T is IWebRTCDataChannelExtensionIsOrdered {{
+        func := webrtcdatachannelextension_uis_ordered[T]
+        ci.virtual_methods["_is_ordered"] = func
+    }}
+    $if T is IWebRTCDataChannelExtensionGetId {{
+        func := webrtcdatachannelextension_uget_id[T]
+        ci.virtual_methods["_get_id"] = func
+    }}
+    $if T is IWebRTCDataChannelExtensionGetMaxPacketLifeTime {{
+        func := webrtcdatachannelextension_uget_max_packet_life_time[T]
+        ci.virtual_methods["_get_max_packet_life_time"] = func
+    }}
+    $if T is IWebRTCDataChannelExtensionGetMaxRetransmits {{
+        func := webrtcdatachannelextension_uget_max_retransmits[T]
+        ci.virtual_methods["_get_max_retransmits"] = func
+    }}
+    $if T is IWebRTCDataChannelExtensionGetProtocol {{
+        func := webrtcdatachannelextension_uget_protocol[T]
+        ci.virtual_methods["_get_protocol"] = func
+    }}
+    $if T is IWebRTCDataChannelExtensionIsNegotiated {{
+        func := webrtcdatachannelextension_uis_negotiated[T]
+        ci.virtual_methods["_is_negotiated"] = func
+    }}
+    $if T is IWebRTCDataChannelExtensionGetBufferedAmount {{
+        func := webrtcdatachannelextension_uget_buffered_amount[T]
+        ci.virtual_methods["_get_buffered_amount"] = func
+    }}
+    $if T is IWebRTCPeerConnectionExtensionGetConnectionState {{
+        func := webrtcpeerconnectionextension_uget_connection_state[T]
+        ci.virtual_methods["_get_connection_state"] = func
+    }}
+    $if T is IWebRTCPeerConnectionExtensionGetGatheringState {{
+        func := webrtcpeerconnectionextension_uget_gathering_state[T]
+        ci.virtual_methods["_get_gathering_state"] = func
+    }}
+    $if T is IWebRTCPeerConnectionExtensionGetSignalingState {{
+        func := webrtcpeerconnectionextension_uget_signaling_state[T]
+        ci.virtual_methods["_get_signaling_state"] = func
+    }}
+    $if T is IWebRTCPeerConnectionExtensionInitialize {{
+        func := webrtcpeerconnectionextension_uinitialize[T]
+        ci.virtual_methods["_initialize"] = func
+    }}
+    $if T is IWebRTCPeerConnectionExtensionCreateDataChannel {{
+        func := webrtcpeerconnectionextension_ucreate_data_channel[T]
+        ci.virtual_methods["_create_data_channel"] = func
+    }}
+    $if T is IWebRTCPeerConnectionExtensionCreateOffer {{
+        func := webrtcpeerconnectionextension_ucreate_offer[T]
+        ci.virtual_methods["_create_offer"] = func
+    }}
+    $if T is IWebRTCPeerConnectionExtensionSetRemoteDescription {{
+        func := webrtcpeerconnectionextension_uset_remote_description[T]
+        ci.virtual_methods["_set_remote_description"] = func
+    }}
+    $if T is IWebRTCPeerConnectionExtensionSetLocalDescription {{
+        func := webrtcpeerconnectionextension_uset_local_description[T]
+        ci.virtual_methods["_set_local_description"] = func
+    }}
+    $if T is IWebRTCPeerConnectionExtensionAddIceCandidate {{
+        func := webrtcpeerconnectionextension_uadd_ice_candidate[T]
+        ci.virtual_methods["_add_ice_candidate"] = func
+    }}
+    $if T is IWebRTCPeerConnectionExtensionPoll {{
+        func := webrtcpeerconnectionextension_upoll[T]
+        ci.virtual_methods["_poll"] = func
+    }}
+    $if T is IWebRTCPeerConnectionExtensionClose {{
+        func := webrtcpeerconnectionextension_uclose[T]
+        ci.virtual_methods["_close"] = func
+    }}
+    $if T is IWindowGetContentsMinimumSize {{
+        func := window_uget_contents_minimum_size[T]
+        ci.virtual_methods["_get_contents_minimum_size"] = func
+    }}
+    $if T is IXRInterfaceExtensionGetName {{
+        func := xrinterfaceextension_uget_name[T]
+        ci.virtual_methods["_get_name"] = func
+    }}
+    $if T is IXRInterfaceExtensionGetCapabilities {{
+        func := xrinterfaceextension_uget_capabilities[T]
+        ci.virtual_methods["_get_capabilities"] = func
+    }}
+    $if T is IXRInterfaceExtensionIsInitialized {{
+        func := xrinterfaceextension_uis_initialized[T]
+        ci.virtual_methods["_is_initialized"] = func
+    }}
+    $if T is IXRInterfaceExtensionInitialize {{
+        func := xrinterfaceextension_uinitialize[T]
+        ci.virtual_methods["_initialize"] = func
+    }}
+    $if T is IXRInterfaceExtensionUninitialize {{
+        func := xrinterfaceextension_uuninitialize[T]
+        ci.virtual_methods["_uninitialize"] = func
+    }}
+    $if T is IXRInterfaceExtensionGetSystemInfo {{
+        func := xrinterfaceextension_uget_system_info[T]
+        ci.virtual_methods["_get_system_info"] = func
+    }}
+    $if T is IXRInterfaceExtensionSupportsPlayAreaMode {{
+        func := xrinterfaceextension_usupports_play_area_mode[T]
+        ci.virtual_methods["_supports_play_area_mode"] = func
+    }}
+    $if T is IXRInterfaceExtensionGetPlayAreaMode {{
+        func := xrinterfaceextension_uget_play_area_mode[T]
+        ci.virtual_methods["_get_play_area_mode"] = func
+    }}
+    $if T is IXRInterfaceExtensionSetPlayAreaMode {{
+        func := xrinterfaceextension_uset_play_area_mode[T]
+        ci.virtual_methods["_set_play_area_mode"] = func
+    }}
+    $if T is IXRInterfaceExtensionGetPlayArea {{
+        func := xrinterfaceextension_uget_play_area[T]
+        ci.virtual_methods["_get_play_area"] = func
+    }}
+    $if T is IXRInterfaceExtensionGetRenderTargetSize {{
+        func := xrinterfaceextension_uget_render_target_size[T]
+        ci.virtual_methods["_get_render_target_size"] = func
+    }}
+    $if T is IXRInterfaceExtensionGetViewCount {{
+        func := xrinterfaceextension_uget_view_count[T]
+        ci.virtual_methods["_get_view_count"] = func
+    }}
+    $if T is IXRInterfaceExtensionGetCameraTransform {{
+        func := xrinterfaceextension_uget_camera_transform[T]
+        ci.virtual_methods["_get_camera_transform"] = func
+    }}
+    $if T is IXRInterfaceExtensionGetTransformForView {{
+        func := xrinterfaceextension_uget_transform_for_view[T]
+        ci.virtual_methods["_get_transform_for_view"] = func
+    }}
+    $if T is IXRInterfaceExtensionGetProjectionForView {{
+        func := xrinterfaceextension_uget_projection_for_view[T]
+        ci.virtual_methods["_get_projection_for_view"] = func
+    }}
+    $if T is IXRInterfaceExtensionGetVrsTexture {{
+        func := xrinterfaceextension_uget_vrs_texture[T]
+        ci.virtual_methods["_get_vrs_texture"] = func
+    }}
+    $if T is IXRInterfaceExtensionProcess {{
+        func := xrinterfaceextension_uprocess[T]
+        ci.virtual_methods["_process"] = func
+    }}
+    $if T is IXRInterfaceExtensionPreRender {{
+        func := xrinterfaceextension_upre_render[T]
+        ci.virtual_methods["_pre_render"] = func
+    }}
+    $if T is IXRInterfaceExtensionPreDrawViewport {{
+        func := xrinterfaceextension_upre_draw_viewport[T]
+        ci.virtual_methods["_pre_draw_viewport"] = func
+    }}
+    $if T is IXRInterfaceExtensionPostDrawViewport {{
+        func := xrinterfaceextension_upost_draw_viewport[T]
+        ci.virtual_methods["_post_draw_viewport"] = func
+    }}
+    $if T is IXRInterfaceExtensionEndFrame {{
+        func := xrinterfaceextension_uend_frame[T]
+        ci.virtual_methods["_end_frame"] = func
+    }}
+    $if T is IXRInterfaceExtensionGetSuggestedTrackerNames {{
+        func := xrinterfaceextension_uget_suggested_tracker_names[T]
+        ci.virtual_methods["_get_suggested_tracker_names"] = func
+    }}
+    $if T is IXRInterfaceExtensionGetSuggestedPoseNames {{
+        func := xrinterfaceextension_uget_suggested_pose_names[T]
+        ci.virtual_methods["_get_suggested_pose_names"] = func
+    }}
+    $if T is IXRInterfaceExtensionGetTrackingStatus {{
+        func := xrinterfaceextension_uget_tracking_status[T]
+        ci.virtual_methods["_get_tracking_status"] = func
+    }}
+    $if T is IXRInterfaceExtensionTriggerHapticPulse {{
+        func := xrinterfaceextension_utrigger_haptic_pulse[T]
+        ci.virtual_methods["_trigger_haptic_pulse"] = func
+    }}
+    $if T is IXRInterfaceExtensionGetAnchorDetectionIsEnabled {{
+        func := xrinterfaceextension_uget_anchor_detection_is_enabled[T]
+        ci.virtual_methods["_get_anchor_detection_is_enabled"] = func
+    }}
+    $if T is IXRInterfaceExtensionSetAnchorDetectionIsEnabled {{
+        func := xrinterfaceextension_uset_anchor_detection_is_enabled[T]
+        ci.virtual_methods["_set_anchor_detection_is_enabled"] = func
+    }}
+    $if T is IXRInterfaceExtensionGetCameraFeedId {{
+        func := xrinterfaceextension_uget_camera_feed_id[T]
+        ci.virtual_methods["_get_camera_feed_id"] = func
+    }}
+    $if T is IXRInterfaceExtensionGetColorTexture {{
+        func := xrinterfaceextension_uget_color_texture[T]
+        ci.virtual_methods["_get_color_texture"] = func
+    }}
+    $if T is IXRInterfaceExtensionGetDepthTexture {{
+        func := xrinterfaceextension_uget_depth_texture[T]
+        ci.virtual_methods["_get_depth_texture"] = func
+    }}
+    $if T is IXRInterfaceExtensionGetVelocityTexture {{
+        func := xrinterfaceextension_uget_velocity_texture[T]
+        ci.virtual_methods["_get_velocity_texture"] = func
+    }}
 }

@@ -319,10 +319,11 @@ fn gen_virtual_bind(ea &ExtensionApi) ! {
 
 			virt_name := virtual_method_name(class.name, method.name)
 
-			f.write_string('    \$if T is ${virt_name} {\n')!
-			f.write_string('        ci.virtual_methods["${method.name}"] = ${convert_type(class.name,
+			f.write_string('    \$if T is ${virt_name} {{\n')!
+			f.write_string('        func := ${convert_type(class.name,
 				'').to_lower()}_${convert_name(method.name)}[T]\n')!
-			f.write_string('    }\n')!
+			f.write_string('        ci.virtual_methods["${method.name}"] = func\n')!
+			f.write_string('    }}\n')!
 		}
 	}
 

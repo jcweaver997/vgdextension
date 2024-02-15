@@ -28,23 +28,33 @@ pub fn register_class[T](parent_class string) {
 		parent_name: pn
 	}
 	
+	set_func := class_set_func[T]
+	get_func := class_get_func[T]
+	get_property_list_func := class_get_property_list[T]
+	free_property_list_func := class_free_property_list[T]
+	to_string_func := class_to_string[T]
+	reference_func := class_reference[T]
+	unreference_func := class_unreference[T]
+	create_instance_func := class_create_instance[T]
+	free_instance_func := class_free_instance[T]
+	get_virtual_func := class_get_virtual_func[T]
 
 	info := GDExtensionClassCreationInfo{
 		is_virtual: GDExtensionBool(false)
 		is_abstract: GDExtensionBool(false)
-		set_func: class_set_func[T]
-		get_func: class_get_func[T]
-		get_property_list_func: class_get_property_list[T]
-		free_property_list_func: class_free_property_list[T]
+		set_func: set_func
+		get_func: get_func
+		get_property_list_func: get_property_list_func
+		free_property_list_func: free_property_list_func
 		// property_can_revert_func: class_property_can_revert[T]
 		// property_get_revert_func GDExtensionClassPropertyGetRevert = unsafe { nil }
 		// notification_func GDExtensionClassNotification = unsafe { nil }
-		to_string_func: class_to_string[T]
-		reference_func: class_reference[T]
-		unreference_func: class_unreference[T]
-		create_instance_func: class_create_instance[T]
-		free_instance_func: class_free_instance[T]
-		get_virtual_func: class_get_virtual_func[T]
+		to_string_func: to_string_func
+		reference_func: reference_func
+		unreference_func: unreference_func
+		create_instance_func: create_instance_func
+		free_instance_func: free_instance_func
+		get_virtual_func: get_virtual_func
 		// get_rid_func GDExtensionClassGetRID = unsafe { nil }
 		class_userdata: ci
 	}
