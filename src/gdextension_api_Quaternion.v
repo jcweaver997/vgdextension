@@ -3,10 +3,10 @@ module vgdextension
 @[heap; packed]
 pub struct Quaternion {
     pub mut:
-        x f64 // offset 0
-        y f64 // offset 4
-        z f64 // offset 8
-        w f64 // offset 12
+        x f32 // offset 0
+        y f32 // offset 4
+        z f32 // offset 8
+        w f32 // offset 12
 }
 
 pub fn Quaternion.new0 () Quaternion {

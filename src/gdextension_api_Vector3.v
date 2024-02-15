@@ -9,9 +9,9 @@ pub enum Vector3Axis as i64 {
 @[heap; packed]
 pub struct Vector3 {
     pub mut:
-        x f64 // offset 0
-        y f64 // offset 4
-        z f64 // offset 8
+        x f32 // offset 0
+        y f32 // offset 4
+        z f32 // offset 8
 }
 
 pub fn Vector3.new0 () Vector3 {

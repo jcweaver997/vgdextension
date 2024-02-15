@@ -4,7 +4,7 @@ module vgdextension
 pub struct Plane {
     pub mut:
         normal Vector3 // offset 0
-        d f64 // offset 12
+        d f32 // offset 12
 }
 
 pub fn Plane.new0 () Plane {

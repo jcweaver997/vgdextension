@@ -3,10 +3,10 @@ module vgdextension
 @[heap; packed]
 pub struct Color {
     pub mut:
-        r f64 // offset 0
-        g f64 // offset 4
-        b f64 // offset 8
-        a f64 // offset 12
+        r f32 // offset 0
+        g f32 // offset 4
+        b f32 // offset 8
+        a f32 // offset 12
 }
 
 pub fn Color.new0 () Color {

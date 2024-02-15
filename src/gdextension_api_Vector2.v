@@ -8,8 +8,8 @@ pub enum Vector2Axis as i64 {
 @[heap; packed]
 pub struct Vector2 {
     pub mut:
-        x f64 // offset 0
-        y f64 // offset 4
+        x f32 // offset 0
+        y f32 // offset 4
 }
 
 pub fn Vector2.new0 () Vector2 {

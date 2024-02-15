@@ -320,8 +320,7 @@ fn gen_virtual_bind(ea &ExtensionApi) ! {
 			virt_name := virtual_method_name(class.name, method.name)
 
 			f.write_string('    \$if T is ${virt_name} {{\n')!
-			f.write_string('        func := ${convert_type(class.name,
-				'').to_lower()}_${convert_name(method.name)}[T]\n')!
+			f.write_string('        func := ${convert_type(class.name, '').to_lower()}_${convert_name(method.name)}[T]\n')!
 			f.write_string('        ci.virtual_methods["${method.name}"] = func\n')!
 			f.write_string('    }}\n')!
 		}
@@ -403,12 +402,16 @@ fn gen_builtin_classes(ea &ExtensionApi) ! {
 			f.write_string('    pub mut:\n')!
 
 			for m in sorted_mem {
-				if m.meta == 'int32' {
+				if m.meta in ['int32', 'float'] {
 					defined_size += 4
 				} else {
 					defined_size += ea.builtin_class_sizes[platform_index].sizes.filter(it.name == m.meta).first().size
 				}
-				f.write_string('        ${m.member} ${convert_type(m.meta, '')} // offset ${m.offset}\n')!
+				if m.meta == 'float' {
+					f.write_string('        ${m.member} f32 // offset ${m.offset}\n')!
+				} else {
+					f.write_string('        ${m.member} ${convert_type(m.meta, '')} // offset ${m.offset}\n')!
+				}
 			}
 		}
 		class_size := ea.builtin_class_sizes[platform_index].sizes.filter(it.name == class.name).first().size
