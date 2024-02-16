@@ -45,3 +45,18 @@ pub fn f64_from_var(var &Variant) f64 {
     var_to_type(voidptr(&t), var)
 	return t
 }
+
+pub fn (o &Object) cast_to[T]() ?T {
+    sn := StringName.new(T.name.split(".").last())
+    class_tag := gdf.classdb_get_class_tag(sn)
+    sn.deinit()
+    t := T{
+        ptr: gdf.object_cast_to(o.ptr, class_tag)
+    }
+    
+    if t.ptr == unsafe{nil} {
+        return none
+    }else{
+        return t
+    }
+}

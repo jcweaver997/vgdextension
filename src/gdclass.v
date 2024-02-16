@@ -18,10 +18,9 @@ pub interface ClassDeinitable {
 }
 
 
-pub fn register_class[T](parent_class string) {
-	C.printf(c'registering class %s...\n', T.name.str)
-
-	sn := StringName.new(T.name)
+pub fn register_class_with_name[T](parent_class string, class_name string) {
+	println("registering class ${T.name} as ${class_name}")
+	sn := StringName.new(class_name)
 	pn := StringName.new(parent_class)
 	mut ci := &ClassInfo{
 		class_name: sn
@@ -61,6 +60,10 @@ pub fn register_class[T](parent_class string) {
 
 	register_virtual_methods[T](mut ci)
 	gdf.classdb_register_extension_class(gdf.clp, &sn, &pn, &info)
+}
+
+pub fn register_class[T](parent_class string) {
+	register_class_with_name[T](parent_class, T.name.replace('.', '_'))
 }
 
 
