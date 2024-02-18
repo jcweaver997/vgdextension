@@ -178,3 +178,31 @@ pub fn (a Dictionary) == (b Dictionary) bool {
      return res
 }
 
+pub fn (a Dictionary) eq_dictionary(b Dictionary) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_equal, GDExtensionVariantType.type_dictionary, GDExtensionVariantType.type_dictionary)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Dictionary) ne_dictionary(b Dictionary) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_not_equal, GDExtensionVariantType.type_dictionary, GDExtensionVariantType.type_dictionary)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Dictionary) in_dictionary(b Dictionary) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_in, GDExtensionVariantType.type_dictionary, GDExtensionVariantType.type_dictionary)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Dictionary) in_array(b Array) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_in, GDExtensionVariantType.type_dictionary, GDExtensionVariantType.type_array)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+

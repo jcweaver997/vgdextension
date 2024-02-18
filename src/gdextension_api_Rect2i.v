@@ -199,3 +199,31 @@ pub fn (a Rect2i) == (b Rect2i) bool {
      return res
 }
 
+pub fn (a Rect2i) eq_rect2i(b Rect2i) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_equal, GDExtensionVariantType.type_rect2i, GDExtensionVariantType.type_rect2i)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Rect2i) ne_rect2i(b Rect2i) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_not_equal, GDExtensionVariantType.type_rect2i, GDExtensionVariantType.type_rect2i)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Rect2i) in_dictionary(b Dictionary) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_in, GDExtensionVariantType.type_rect2i, GDExtensionVariantType.type_dictionary)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Rect2i) in_array(b Array) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_in, GDExtensionVariantType.type_rect2i, GDExtensionVariantType.type_array)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+

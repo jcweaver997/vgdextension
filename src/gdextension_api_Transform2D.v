@@ -266,8 +266,50 @@ pub fn (v &Transform2D) index(i i64) Vector2 {
     index_fn(GDExtensionConstTypePtr(v), GDExtensionInt(i), GDExtensionTypePtr(&output))
     return output}
 
+pub fn (a Transform2D) mul_i64(b i64) Transform2D {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_multiply, GDExtensionVariantType.type_transform2d, GDExtensionVariantType.type_i64)
+    res := Transform2D{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Transform2D) mul_f64(b f64) Transform2D {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_multiply, GDExtensionVariantType.type_transform2d, GDExtensionVariantType.type_f64)
+    res := Transform2D{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Transform2D) mul_vector2(b Vector2) Vector2 {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_multiply, GDExtensionVariantType.type_transform2d, GDExtensionVariantType.type_vector2)
+    res := Vector2{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Transform2D) mul_rect2(b Rect2) Rect2 {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_multiply, GDExtensionVariantType.type_transform2d, GDExtensionVariantType.type_rect2)
+    res := Rect2{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
 pub fn (a Transform2D) == (b Transform2D) bool {
      e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_equal, GDExtensionVariantType.type_transform2d, GDExtensionVariantType.type_transform2d)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Transform2D) eq_transform2d(b Transform2D) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_equal, GDExtensionVariantType.type_transform2d, GDExtensionVariantType.type_transform2d)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Transform2D) ne_transform2d(b Transform2D) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_not_equal, GDExtensionVariantType.type_transform2d, GDExtensionVariantType.type_transform2d)
      res := false
      e(voidptr(&a), voidptr(&b), voidptr(&res))
      return res
@@ -276,6 +318,34 @@ pub fn (a Transform2D) == (b Transform2D) bool {
 pub fn (a Transform2D) * (b Transform2D) Transform2D {
      e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_multiply, GDExtensionVariantType.type_transform2d, GDExtensionVariantType.type_transform2d)
      res := Transform2D{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Transform2D) mul_transform2d(b Transform2D) Transform2D {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_multiply, GDExtensionVariantType.type_transform2d, GDExtensionVariantType.type_transform2d)
+    res := Transform2D{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Transform2D) in_dictionary(b Dictionary) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_in, GDExtensionVariantType.type_transform2d, GDExtensionVariantType.type_dictionary)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Transform2D) in_array(b Array) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_in, GDExtensionVariantType.type_transform2d, GDExtensionVariantType.type_array)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Transform2D) mul_packedvector2array(b PackedVector2Array) PackedVector2Array {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_multiply, GDExtensionVariantType.type_transform2d, GDExtensionVariantType.type_packedvector2array)
+    res := PackedVector2Array{}
      e(voidptr(&a), voidptr(&b), voidptr(&res))
      return res
 }

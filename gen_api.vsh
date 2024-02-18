@@ -558,32 +558,83 @@ fn gen_builtin_classes(ea &ExtensionApi) ! {
 		// gen operators
 		// +
 		for op in class.operators {
-			if op.right_type != class.name {
-				continue
+			if op.right_type == classname {
+				match op.name {
+					'+' {
+						gen_builtin_class_op(mut f, classname, '+', '.op_add')!
+					}
+					'-' {
+						gen_builtin_class_op(mut f, classname, '-', '.op_subtract')!
+					}
+					'*' {
+						gen_builtin_class_op(mut f, classname, '*', '.op_multiply')!
+					}
+					'/' {
+						gen_builtin_class_op(mut f, classname, '/', '.op_divide')!
+					}
+					'%' {
+						gen_builtin_class_op(mut f, classname, '%', '.op_module')!
+					}
+					'<' {
+						gen_builtin_class_bin_op(mut f, classname, '<', '.op_less')!
+					}
+					'==' {
+						gen_builtin_class_bin_op(mut f, classname, '==', '.op_equal')!
+					}
+					else {}
+				}
 			}
-			match op.name {
-				'+' {
-					gen_builtin_class_op(mut f, class.name, '+', '.op_add')!
+			if op.right_type != 'Variant' {
+				match op.name {
+					'+' {
+						gen_builtin_class_op_fn(mut f, classname, 'add_', '.op_add', op)!
+					}
+					'-' {
+						gen_builtin_class_op_fn(mut f, classname, 'sub_', '.op_subtract',
+							op)!
+					}
+					'*' {
+						gen_builtin_class_op_fn(mut f, classname, 'mul_', '.op_multiply',
+							op)!
+					}
+					'/' {
+						gen_builtin_class_op_fn(mut f, classname, 'div_', '.op_divide',
+							op)!
+					}
+					'%' {
+						gen_builtin_class_op_fn(mut f, classname, 'mod_', '.op_module',
+							op)!
+					}
+					'<' {
+						gen_builtin_class_bin_op_fn(mut f, classname, 'lt_', '.op_less',
+							op)!
+					}
+					'>' {
+						gen_builtin_class_bin_op_fn(mut f, classname, 'gt_', '.op_greater',
+							op)!
+					}
+					'==' {
+						gen_builtin_class_bin_op_fn(mut f, classname, 'eq_', '.op_equal',
+							op)!
+					}
+					'!=' {
+						gen_builtin_class_bin_op_fn(mut f, classname, 'ne_', '.op_not_equal',
+							op)!
+					}
+					'<=' {
+						gen_builtin_class_bin_op_fn(mut f, classname, 'le_', '.op_less_equal',
+							op)!
+					}
+					'>=' {
+						gen_builtin_class_bin_op_fn(mut f, classname, 'ge_', '.op_greater_equal',
+							op)!
+					}
+					'in' {
+						gen_builtin_class_bin_op_fn(mut f, classname, 'in_', '.op_in',
+							op)!
+					}
+					else {}
 				}
-				'-' {
-					gen_builtin_class_op(mut f, class.name, '-', '.op_subtract')!
-				}
-				'*' {
-					gen_builtin_class_op(mut f, class.name, '*', '.op_multiply')!
-				}
-				'/' {
-					gen_builtin_class_op(mut f, class.name, '/', '.op_divide')!
-				}
-				'%' {
-					gen_builtin_class_op(mut f, class.name, '%', '.op_module')!
-				}
-				'<' {
-					gen_builtin_class_bin_op(mut f, class.name, '<', '.op_less')!
-				}
-				'==' {
-					gen_builtin_class_bin_op(mut f, class.name, '==', '.op_equal')!
-				}
-				else {}
 			}
 		}
 	}
@@ -601,6 +652,34 @@ fn gen_builtin_class_op(mut f os.File, class_name string, op string, op_type str
 fn gen_builtin_class_bin_op(mut f os.File, class_name string, op string, op_type string) ! {
 	f.write_string('pub fn (a ${class_name}) ${op} (b ${class_name}) bool {\n')!
 	f.write_string('     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator${op_type}, GDExtensionVariantType.type_${class_name.to_lower()}, GDExtensionVariantType.type_${class_name.to_lower()})\n')!
+	f.write_string('     res := false\n')!
+	f.write_string('     e(voidptr(&a), voidptr(&b), voidptr(&res))\n')!
+	f.write_string('     return res\n')!
+	f.write_string('}\n\n')!
+}
+
+fn gen_builtin_class_op_fn(mut f os.File, class_name string, op_fn_name string, op_type string, op ExtensionApiOperator) ! {
+	right_type := convert_type(op.right_type, '')
+	f.write_string('pub fn (a ${class_name}) ${op_fn_name}${right_type.to_lower()}(b ${right_type}) ${op.return_type} {\n')!
+	f.write_string('     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator${op_type}, GDExtensionVariantType.type_${class_name.to_lower()}, GDExtensionVariantType.type_${right_type.to_lower()})\n')!
+
+	ret_type := convert_type(op.return_type, '')
+	if ret_type in ['f32', 'f64', 'i8', 'u8', 'i16', 'u16', 'i32', 'u32', 'i64', 'u64'] {
+		f.write_string('    res := ${ret_type}(0)\n')!
+	} else if ret_type == 'voidptr' {
+		f.write_string('    res := unsafe{nil}\n')!
+	} else {
+		f.write_string('    res := ${ret_type}{}\n')!
+	}
+	f.write_string('     e(voidptr(&a), voidptr(&b), voidptr(&res))\n')!
+	f.write_string('     return res\n')!
+	f.write_string('}\n\n')!
+}
+
+fn gen_builtin_class_bin_op_fn(mut f os.File, class_name string, op_fn_name string, op_type string, op ExtensionApiOperator) ! {
+	right_type := convert_type(op.right_type, '')
+	f.write_string('pub fn (a ${class_name}) ${op_fn_name}${right_type.to_lower()}(b ${right_type}) bool {\n')!
+	f.write_string('     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator${op_type}, GDExtensionVariantType.type_${class_name.to_lower()}, GDExtensionVariantType.type_${right_type.to_lower()})\n')!
 	f.write_string('     res := false\n')!
 	f.write_string('     e(voidptr(&a), voidptr(&b), voidptr(&res))\n')!
 	f.write_string('     return res\n')!

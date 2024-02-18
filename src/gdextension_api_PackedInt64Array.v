@@ -232,8 +232,36 @@ pub fn (v &PackedInt64Array) index(i i64) i64 {
     index_fn(GDExtensionConstTypePtr(v), GDExtensionInt(i), GDExtensionTypePtr(&output))
     return output}
 
+pub fn (a PackedInt64Array) in_dictionary(b Dictionary) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_in, GDExtensionVariantType.type_packedint64array, GDExtensionVariantType.type_dictionary)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a PackedInt64Array) in_array(b Array) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_in, GDExtensionVariantType.type_packedint64array, GDExtensionVariantType.type_array)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
 pub fn (a PackedInt64Array) == (b PackedInt64Array) bool {
      e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_equal, GDExtensionVariantType.type_packedint64array, GDExtensionVariantType.type_packedint64array)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a PackedInt64Array) eq_packedint64array(b PackedInt64Array) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_equal, GDExtensionVariantType.type_packedint64array, GDExtensionVariantType.type_packedint64array)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a PackedInt64Array) ne_packedint64array(b PackedInt64Array) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_not_equal, GDExtensionVariantType.type_packedint64array, GDExtensionVariantType.type_packedint64array)
      res := false
      e(voidptr(&a), voidptr(&b), voidptr(&res))
      return res
@@ -242,6 +270,13 @@ pub fn (a PackedInt64Array) == (b PackedInt64Array) bool {
 pub fn (a PackedInt64Array) + (b PackedInt64Array) PackedInt64Array {
      e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_add, GDExtensionVariantType.type_packedint64array, GDExtensionVariantType.type_packedint64array)
      res := PackedInt64Array{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a PackedInt64Array) add_packedint64array(b PackedInt64Array) PackedInt64Array {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_add, GDExtensionVariantType.type_packedint64array, GDExtensionVariantType.type_packedint64array)
+    res := PackedInt64Array{}
      e(voidptr(&a), voidptr(&b), voidptr(&res))
      return res
 }

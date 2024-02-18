@@ -142,8 +142,57 @@ pub fn (v &Vector2i) index(i i64) i64 {
     index_fn(GDExtensionConstTypePtr(v), GDExtensionInt(i), GDExtensionTypePtr(&output))
     return output}
 
+pub fn (a Vector2i) mul_i64(b i64) Vector2i {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_multiply, GDExtensionVariantType.type_vector2i, GDExtensionVariantType.type_i64)
+    res := Vector2i{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Vector2i) div_i64(b i64) Vector2i {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_divide, GDExtensionVariantType.type_vector2i, GDExtensionVariantType.type_i64)
+    res := Vector2i{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Vector2i) mod_i64(b i64) Vector2i {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_module, GDExtensionVariantType.type_vector2i, GDExtensionVariantType.type_i64)
+    res := Vector2i{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Vector2i) mul_f64(b f64) Vector2 {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_multiply, GDExtensionVariantType.type_vector2i, GDExtensionVariantType.type_f64)
+    res := Vector2{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Vector2i) div_f64(b f64) Vector2 {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_divide, GDExtensionVariantType.type_vector2i, GDExtensionVariantType.type_f64)
+    res := Vector2{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
 pub fn (a Vector2i) == (b Vector2i) bool {
      e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_equal, GDExtensionVariantType.type_vector2i, GDExtensionVariantType.type_vector2i)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Vector2i) eq_vector2i(b Vector2i) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_equal, GDExtensionVariantType.type_vector2i, GDExtensionVariantType.type_vector2i)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Vector2i) ne_vector2i(b Vector2i) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_not_equal, GDExtensionVariantType.type_vector2i, GDExtensionVariantType.type_vector2i)
      res := false
      e(voidptr(&a), voidptr(&b), voidptr(&res))
      return res
@@ -156,9 +205,44 @@ pub fn (a Vector2i) < (b Vector2i) bool {
      return res
 }
 
+pub fn (a Vector2i) lt_vector2i(b Vector2i) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_less, GDExtensionVariantType.type_vector2i, GDExtensionVariantType.type_vector2i)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Vector2i) le_vector2i(b Vector2i) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_less_equal, GDExtensionVariantType.type_vector2i, GDExtensionVariantType.type_vector2i)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Vector2i) gt_vector2i(b Vector2i) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_greater, GDExtensionVariantType.type_vector2i, GDExtensionVariantType.type_vector2i)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Vector2i) ge_vector2i(b Vector2i) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_greater_equal, GDExtensionVariantType.type_vector2i, GDExtensionVariantType.type_vector2i)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
 pub fn (a Vector2i) + (b Vector2i) Vector2i {
      e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_add, GDExtensionVariantType.type_vector2i, GDExtensionVariantType.type_vector2i)
      res := Vector2i{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Vector2i) add_vector2i(b Vector2i) Vector2i {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_add, GDExtensionVariantType.type_vector2i, GDExtensionVariantType.type_vector2i)
+    res := Vector2i{}
      e(voidptr(&a), voidptr(&b), voidptr(&res))
      return res
 }
@@ -170,9 +254,23 @@ pub fn (a Vector2i) - (b Vector2i) Vector2i {
      return res
 }
 
+pub fn (a Vector2i) sub_vector2i(b Vector2i) Vector2i {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_subtract, GDExtensionVariantType.type_vector2i, GDExtensionVariantType.type_vector2i)
+    res := Vector2i{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
 pub fn (a Vector2i) * (b Vector2i) Vector2i {
      e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_multiply, GDExtensionVariantType.type_vector2i, GDExtensionVariantType.type_vector2i)
      res := Vector2i{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Vector2i) mul_vector2i(b Vector2i) Vector2i {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_multiply, GDExtensionVariantType.type_vector2i, GDExtensionVariantType.type_vector2i)
+    res := Vector2i{}
      e(voidptr(&a), voidptr(&b), voidptr(&res))
      return res
 }
@@ -184,9 +282,37 @@ pub fn (a Vector2i) / (b Vector2i) Vector2i {
      return res
 }
 
+pub fn (a Vector2i) div_vector2i(b Vector2i) Vector2i {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_divide, GDExtensionVariantType.type_vector2i, GDExtensionVariantType.type_vector2i)
+    res := Vector2i{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
 pub fn (a Vector2i) % (b Vector2i) Vector2i {
      e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_module, GDExtensionVariantType.type_vector2i, GDExtensionVariantType.type_vector2i)
      res := Vector2i{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Vector2i) mod_vector2i(b Vector2i) Vector2i {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_module, GDExtensionVariantType.type_vector2i, GDExtensionVariantType.type_vector2i)
+    res := Vector2i{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Vector2i) in_dictionary(b Dictionary) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_in, GDExtensionVariantType.type_vector2i, GDExtensionVariantType.type_dictionary)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Vector2i) in_array(b Array) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_in, GDExtensionVariantType.type_vector2i, GDExtensionVariantType.type_array)
+     res := false
      e(voidptr(&a), voidptr(&b), voidptr(&res))
      return res
 }

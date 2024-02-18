@@ -232,8 +232,43 @@ pub fn (v &PackedVector3Array) index(i i64) Vector3 {
     index_fn(GDExtensionConstTypePtr(v), GDExtensionInt(i), GDExtensionTypePtr(&output))
     return output}
 
+pub fn (a PackedVector3Array) mul_transform3d(b Transform3D) PackedVector3Array {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_multiply, GDExtensionVariantType.type_packedvector3array, GDExtensionVariantType.type_transform3d)
+    res := PackedVector3Array{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a PackedVector3Array) in_dictionary(b Dictionary) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_in, GDExtensionVariantType.type_packedvector3array, GDExtensionVariantType.type_dictionary)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a PackedVector3Array) in_array(b Array) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_in, GDExtensionVariantType.type_packedvector3array, GDExtensionVariantType.type_array)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
 pub fn (a PackedVector3Array) == (b PackedVector3Array) bool {
      e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_equal, GDExtensionVariantType.type_packedvector3array, GDExtensionVariantType.type_packedvector3array)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a PackedVector3Array) eq_packedvector3array(b PackedVector3Array) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_equal, GDExtensionVariantType.type_packedvector3array, GDExtensionVariantType.type_packedvector3array)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a PackedVector3Array) ne_packedvector3array(b PackedVector3Array) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_not_equal, GDExtensionVariantType.type_packedvector3array, GDExtensionVariantType.type_packedvector3array)
      res := false
      e(voidptr(&a), voidptr(&b), voidptr(&res))
      return res
@@ -242,6 +277,13 @@ pub fn (a PackedVector3Array) == (b PackedVector3Array) bool {
 pub fn (a PackedVector3Array) + (b PackedVector3Array) PackedVector3Array {
      e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_add, GDExtensionVariantType.type_packedvector3array, GDExtensionVariantType.type_packedvector3array)
      res := PackedVector3Array{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a PackedVector3Array) add_packedvector3array(b PackedVector3Array) PackedVector3Array {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_add, GDExtensionVariantType.type_packedvector3array, GDExtensionVariantType.type_packedvector3array)
+    res := PackedVector3Array{}
      e(voidptr(&a), voidptr(&b), voidptr(&res))
      return res
 }

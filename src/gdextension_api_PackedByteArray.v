@@ -557,8 +557,36 @@ pub fn (v &PackedByteArray) index(i i64) i64 {
     index_fn(GDExtensionConstTypePtr(v), GDExtensionInt(i), GDExtensionTypePtr(&output))
     return output}
 
+pub fn (a PackedByteArray) in_dictionary(b Dictionary) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_in, GDExtensionVariantType.type_packedbytearray, GDExtensionVariantType.type_dictionary)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a PackedByteArray) in_array(b Array) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_in, GDExtensionVariantType.type_packedbytearray, GDExtensionVariantType.type_array)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
 pub fn (a PackedByteArray) == (b PackedByteArray) bool {
      e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_equal, GDExtensionVariantType.type_packedbytearray, GDExtensionVariantType.type_packedbytearray)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a PackedByteArray) eq_packedbytearray(b PackedByteArray) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_equal, GDExtensionVariantType.type_packedbytearray, GDExtensionVariantType.type_packedbytearray)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a PackedByteArray) ne_packedbytearray(b PackedByteArray) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_not_equal, GDExtensionVariantType.type_packedbytearray, GDExtensionVariantType.type_packedbytearray)
      res := false
      e(voidptr(&a), voidptr(&b), voidptr(&res))
      return res
@@ -567,6 +595,13 @@ pub fn (a PackedByteArray) == (b PackedByteArray) bool {
 pub fn (a PackedByteArray) + (b PackedByteArray) PackedByteArray {
      e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_add, GDExtensionVariantType.type_packedbytearray, GDExtensionVariantType.type_packedbytearray)
      res := PackedByteArray{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a PackedByteArray) add_packedbytearray(b PackedByteArray) PackedByteArray {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_add, GDExtensionVariantType.type_packedbytearray, GDExtensionVariantType.type_packedbytearray)
+    res := PackedByteArray{}
      e(voidptr(&a), voidptr(&b), voidptr(&res))
      return res
 }

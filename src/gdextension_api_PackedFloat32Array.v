@@ -232,8 +232,36 @@ pub fn (v &PackedFloat32Array) index(i i64) f64 {
     index_fn(GDExtensionConstTypePtr(v), GDExtensionInt(i), GDExtensionTypePtr(&output))
     return output}
 
+pub fn (a PackedFloat32Array) in_dictionary(b Dictionary) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_in, GDExtensionVariantType.type_packedfloat32array, GDExtensionVariantType.type_dictionary)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a PackedFloat32Array) in_array(b Array) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_in, GDExtensionVariantType.type_packedfloat32array, GDExtensionVariantType.type_array)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
 pub fn (a PackedFloat32Array) == (b PackedFloat32Array) bool {
      e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_equal, GDExtensionVariantType.type_packedfloat32array, GDExtensionVariantType.type_packedfloat32array)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a PackedFloat32Array) eq_packedfloat32array(b PackedFloat32Array) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_equal, GDExtensionVariantType.type_packedfloat32array, GDExtensionVariantType.type_packedfloat32array)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a PackedFloat32Array) ne_packedfloat32array(b PackedFloat32Array) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_not_equal, GDExtensionVariantType.type_packedfloat32array, GDExtensionVariantType.type_packedfloat32array)
      res := false
      e(voidptr(&a), voidptr(&b), voidptr(&res))
      return res
@@ -242,6 +270,13 @@ pub fn (a PackedFloat32Array) == (b PackedFloat32Array) bool {
 pub fn (a PackedFloat32Array) + (b PackedFloat32Array) PackedFloat32Array {
      e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_add, GDExtensionVariantType.type_packedfloat32array, GDExtensionVariantType.type_packedfloat32array)
      res := PackedFloat32Array{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a PackedFloat32Array) add_packedfloat32array(b PackedFloat32Array) PackedFloat32Array {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_add, GDExtensionVariantType.type_packedfloat32array, GDExtensionVariantType.type_packedfloat32array)
+    res := PackedFloat32Array{}
      e(voidptr(&a), voidptr(&b), voidptr(&res))
      return res
 }

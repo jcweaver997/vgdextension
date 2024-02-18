@@ -265,8 +265,57 @@ pub fn (v &Quaternion) index(i i64) f64 {
     index_fn(GDExtensionConstTypePtr(v), GDExtensionInt(i), GDExtensionTypePtr(&output))
     return output}
 
+pub fn (a Quaternion) mul_i64(b i64) Quaternion {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_multiply, GDExtensionVariantType.type_quaternion, GDExtensionVariantType.type_i64)
+    res := Quaternion{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Quaternion) div_i64(b i64) Quaternion {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_divide, GDExtensionVariantType.type_quaternion, GDExtensionVariantType.type_i64)
+    res := Quaternion{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Quaternion) mul_f64(b f64) Quaternion {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_multiply, GDExtensionVariantType.type_quaternion, GDExtensionVariantType.type_f64)
+    res := Quaternion{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Quaternion) div_f64(b f64) Quaternion {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_divide, GDExtensionVariantType.type_quaternion, GDExtensionVariantType.type_f64)
+    res := Quaternion{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Quaternion) mul_vector3(b Vector3) Vector3 {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_multiply, GDExtensionVariantType.type_quaternion, GDExtensionVariantType.type_vector3)
+    res := Vector3{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
 pub fn (a Quaternion) == (b Quaternion) bool {
      e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_equal, GDExtensionVariantType.type_quaternion, GDExtensionVariantType.type_quaternion)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Quaternion) eq_quaternion(b Quaternion) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_equal, GDExtensionVariantType.type_quaternion, GDExtensionVariantType.type_quaternion)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Quaternion) ne_quaternion(b Quaternion) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_not_equal, GDExtensionVariantType.type_quaternion, GDExtensionVariantType.type_quaternion)
      res := false
      e(voidptr(&a), voidptr(&b), voidptr(&res))
      return res
@@ -279,6 +328,13 @@ pub fn (a Quaternion) + (b Quaternion) Quaternion {
      return res
 }
 
+pub fn (a Quaternion) add_quaternion(b Quaternion) Quaternion {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_add, GDExtensionVariantType.type_quaternion, GDExtensionVariantType.type_quaternion)
+    res := Quaternion{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
 pub fn (a Quaternion) - (b Quaternion) Quaternion {
      e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_subtract, GDExtensionVariantType.type_quaternion, GDExtensionVariantType.type_quaternion)
      res := Quaternion{}
@@ -286,9 +342,37 @@ pub fn (a Quaternion) - (b Quaternion) Quaternion {
      return res
 }
 
+pub fn (a Quaternion) sub_quaternion(b Quaternion) Quaternion {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_subtract, GDExtensionVariantType.type_quaternion, GDExtensionVariantType.type_quaternion)
+    res := Quaternion{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
 pub fn (a Quaternion) * (b Quaternion) Quaternion {
      e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_multiply, GDExtensionVariantType.type_quaternion, GDExtensionVariantType.type_quaternion)
      res := Quaternion{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Quaternion) mul_quaternion(b Quaternion) Quaternion {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_multiply, GDExtensionVariantType.type_quaternion, GDExtensionVariantType.type_quaternion)
+    res := Quaternion{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Quaternion) in_dictionary(b Dictionary) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_in, GDExtensionVariantType.type_quaternion, GDExtensionVariantType.type_dictionary)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Quaternion) in_array(b Array) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_in, GDExtensionVariantType.type_quaternion, GDExtensionVariantType.type_array)
+     res := false
      e(voidptr(&a), voidptr(&b), voidptr(&res))
      return res
 }

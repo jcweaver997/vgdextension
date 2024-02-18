@@ -232,8 +232,36 @@ pub fn (v &PackedColorArray) index(i i64) Color {
     index_fn(GDExtensionConstTypePtr(v), GDExtensionInt(i), GDExtensionTypePtr(&output))
     return output}
 
+pub fn (a PackedColorArray) in_dictionary(b Dictionary) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_in, GDExtensionVariantType.type_packedcolorarray, GDExtensionVariantType.type_dictionary)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a PackedColorArray) in_array(b Array) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_in, GDExtensionVariantType.type_packedcolorarray, GDExtensionVariantType.type_array)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
 pub fn (a PackedColorArray) == (b PackedColorArray) bool {
      e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_equal, GDExtensionVariantType.type_packedcolorarray, GDExtensionVariantType.type_packedcolorarray)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a PackedColorArray) eq_packedcolorarray(b PackedColorArray) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_equal, GDExtensionVariantType.type_packedcolorarray, GDExtensionVariantType.type_packedcolorarray)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a PackedColorArray) ne_packedcolorarray(b PackedColorArray) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_not_equal, GDExtensionVariantType.type_packedcolorarray, GDExtensionVariantType.type_packedcolorarray)
      res := false
      e(voidptr(&a), voidptr(&b), voidptr(&res))
      return res
@@ -242,6 +270,13 @@ pub fn (a PackedColorArray) == (b PackedColorArray) bool {
 pub fn (a PackedColorArray) + (b PackedColorArray) PackedColorArray {
      e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_add, GDExtensionVariantType.type_packedcolorarray, GDExtensionVariantType.type_packedcolorarray)
      res := PackedColorArray{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a PackedColorArray) add_packedcolorarray(b PackedColorArray) PackedColorArray {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_add, GDExtensionVariantType.type_packedcolorarray, GDExtensionVariantType.type_packedcolorarray)
+    res := PackedColorArray{}
      e(voidptr(&a), voidptr(&b), voidptr(&res))
      return res
 }

@@ -193,8 +193,57 @@ pub fn (mut t Transform3D) set_from_var(var &Variant) {
     var_to_type(voidptr(&t), var)
 }
 
+pub fn (a Transform3D) mul_i64(b i64) Transform3D {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_multiply, GDExtensionVariantType.type_transform3d, GDExtensionVariantType.type_i64)
+    res := Transform3D{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Transform3D) mul_f64(b f64) Transform3D {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_multiply, GDExtensionVariantType.type_transform3d, GDExtensionVariantType.type_f64)
+    res := Transform3D{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Transform3D) mul_vector3(b Vector3) Vector3 {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_multiply, GDExtensionVariantType.type_transform3d, GDExtensionVariantType.type_vector3)
+    res := Vector3{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Transform3D) mul_plane(b Plane) Plane {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_multiply, GDExtensionVariantType.type_transform3d, GDExtensionVariantType.type_plane)
+    res := Plane{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Transform3D) mul_aabb(b AABB) AABB {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_multiply, GDExtensionVariantType.type_transform3d, GDExtensionVariantType.type_aabb)
+    res := AABB{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
 pub fn (a Transform3D) == (b Transform3D) bool {
      e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_equal, GDExtensionVariantType.type_transform3d, GDExtensionVariantType.type_transform3d)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Transform3D) eq_transform3d(b Transform3D) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_equal, GDExtensionVariantType.type_transform3d, GDExtensionVariantType.type_transform3d)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Transform3D) ne_transform3d(b Transform3D) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_not_equal, GDExtensionVariantType.type_transform3d, GDExtensionVariantType.type_transform3d)
      res := false
      e(voidptr(&a), voidptr(&b), voidptr(&res))
      return res
@@ -203,6 +252,34 @@ pub fn (a Transform3D) == (b Transform3D) bool {
 pub fn (a Transform3D) * (b Transform3D) Transform3D {
      e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_multiply, GDExtensionVariantType.type_transform3d, GDExtensionVariantType.type_transform3d)
      res := Transform3D{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Transform3D) mul_transform3d(b Transform3D) Transform3D {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_multiply, GDExtensionVariantType.type_transform3d, GDExtensionVariantType.type_transform3d)
+    res := Transform3D{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Transform3D) in_dictionary(b Dictionary) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_in, GDExtensionVariantType.type_transform3d, GDExtensionVariantType.type_dictionary)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Transform3D) in_array(b Array) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_in, GDExtensionVariantType.type_transform3d, GDExtensionVariantType.type_array)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Transform3D) mul_packedvector3array(b PackedVector3Array) PackedVector3Array {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_multiply, GDExtensionVariantType.type_transform3d, GDExtensionVariantType.type_packedvector3array)
+    res := PackedVector3Array{}
      e(voidptr(&a), voidptr(&b), voidptr(&res))
      return res
 }
