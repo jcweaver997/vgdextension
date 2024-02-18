@@ -273,3 +273,10 @@ pub fn (mut t AABB) set_from_var(var &Variant) {
     var_to_type(voidptr(&t), var)
 }
 
+pub fn (a AABB) == (b AABB) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_equal, GDExtensionVariantType.type_aabb, GDExtensionVariantType.type_aabb)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+

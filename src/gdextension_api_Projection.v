@@ -349,3 +349,17 @@ pub fn (v &Projection) index(i i64) Vector4 {
     index_fn(GDExtensionConstTypePtr(v), GDExtensionInt(i), GDExtensionTypePtr(&output))
     return output}
 
+pub fn (a Projection) == (b Projection) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_equal, GDExtensionVariantType.type_projection, GDExtensionVariantType.type_projection)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Projection) * (b Projection) Projection {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_multiply, GDExtensionVariantType.type_projection, GDExtensionVariantType.type_projection)
+     res := Projection{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+

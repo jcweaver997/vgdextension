@@ -334,3 +334,38 @@ pub fn (v &Color) index(i i64) f64 {
     index_fn(GDExtensionConstTypePtr(v), GDExtensionInt(i), GDExtensionTypePtr(&output))
     return output}
 
+pub fn (a Color) == (b Color) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_equal, GDExtensionVariantType.type_color, GDExtensionVariantType.type_color)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Color) + (b Color) Color {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_add, GDExtensionVariantType.type_color, GDExtensionVariantType.type_color)
+     res := Color{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Color) - (b Color) Color {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_subtract, GDExtensionVariantType.type_color, GDExtensionVariantType.type_color)
+     res := Color{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Color) * (b Color) Color {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_multiply, GDExtensionVariantType.type_color, GDExtensionVariantType.type_color)
+     res := Color{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Color) / (b Color) Color {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_divide, GDExtensionVariantType.type_color, GDExtensionVariantType.type_color)
+     res := Color{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+

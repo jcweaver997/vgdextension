@@ -232,3 +232,17 @@ pub fn (v &PackedFloat64Array) index(i i64) f64 {
     index_fn(GDExtensionConstTypePtr(v), GDExtensionInt(i), GDExtensionTypePtr(&output))
     return output}
 
+pub fn (a PackedFloat64Array) == (b PackedFloat64Array) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_equal, GDExtensionVariantType.type_packedfloat64array, GDExtensionVariantType.type_packedfloat64array)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a PackedFloat64Array) + (b PackedFloat64Array) PackedFloat64Array {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_add, GDExtensionVariantType.type_packedfloat64array, GDExtensionVariantType.type_packedfloat64array)
+     res := PackedFloat64Array{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+

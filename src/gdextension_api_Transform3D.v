@@ -193,3 +193,17 @@ pub fn (mut t Transform3D) set_from_var(var &Variant) {
     var_to_type(voidptr(&t), var)
 }
 
+pub fn (a Transform3D) == (b Transform3D) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_equal, GDExtensionVariantType.type_transform3d, GDExtensionVariantType.type_transform3d)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Transform3D) * (b Transform3D) Transform3D {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_multiply, GDExtensionVariantType.type_transform3d, GDExtensionVariantType.type_transform3d)
+     res := Transform3D{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+

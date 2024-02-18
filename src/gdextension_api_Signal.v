@@ -121,3 +121,10 @@ pub fn (mut t Signal) set_from_var(var &Variant) {
     var_to_type(voidptr(&t), var)
 }
 
+pub fn (a Signal) == (b Signal) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_equal, GDExtensionVariantType.type_signal, GDExtensionVariantType.type_signal)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+

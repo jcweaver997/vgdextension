@@ -554,7 +554,57 @@ fn gen_builtin_classes(ea &ExtensionApi) ! {
 			f.write_string('    return output')!
 			f.write_string('}\n\n')!
 		}
+
+		// gen operators
+		// +
+		for op in class.operators {
+			if op.right_type != class.name {
+				continue
+			}
+			match op.name {
+				'+' {
+					gen_builtin_class_op(mut f, class.name, '+', '.op_add')!
+				}
+				'-' {
+					gen_builtin_class_op(mut f, class.name, '-', '.op_subtract')!
+				}
+				'*' {
+					gen_builtin_class_op(mut f, class.name, '*', '.op_multiply')!
+				}
+				'/' {
+					gen_builtin_class_op(mut f, class.name, '/', '.op_divide')!
+				}
+				'%' {
+					gen_builtin_class_op(mut f, class.name, '%', '.op_module')!
+				}
+				'<' {
+					gen_builtin_class_bin_op(mut f, class.name, '<', '.op_less')!
+				}
+				'==' {
+					gen_builtin_class_bin_op(mut f, class.name, '==', '.op_equal')!
+				}
+				else {}
+			}
+		}
 	}
+}
+
+fn gen_builtin_class_op(mut f os.File, class_name string, op string, op_type string) ! {
+	f.write_string('pub fn (a ${class_name}) ${op} (b ${class_name}) ${class_name} {\n')!
+	f.write_string('     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator${op_type}, GDExtensionVariantType.type_${class_name.to_lower()}, GDExtensionVariantType.type_${class_name.to_lower()})\n')!
+	f.write_string('     res := ${class_name}{}\n')!
+	f.write_string('     e(voidptr(&a), voidptr(&b), voidptr(&res))\n')!
+	f.write_string('     return res\n')!
+	f.write_string('}\n\n')!
+}
+
+fn gen_builtin_class_bin_op(mut f os.File, class_name string, op string, op_type string) ! {
+	f.write_string('pub fn (a ${class_name}) ${op} (b ${class_name}) bool {\n')!
+	f.write_string('     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator${op_type}, GDExtensionVariantType.type_${class_name.to_lower()}, GDExtensionVariantType.type_${class_name.to_lower()})\n')!
+	f.write_string('     res := false\n')!
+	f.write_string('     e(voidptr(&a), voidptr(&b), voidptr(&res))\n')!
+	f.write_string('     return res\n')!
+	f.write_string('}\n\n')!
 }
 
 fn gen_utility_functions(ea &ExtensionApi, mut f os.File) ! {

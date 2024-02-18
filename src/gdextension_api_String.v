@@ -1031,3 +1031,31 @@ pub fn (v &String) index(i i64) String {
     index_fn(GDExtensionConstTypePtr(v), GDExtensionInt(i), GDExtensionTypePtr(&output))
     return output}
 
+pub fn (a String) == (b String) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_equal, GDExtensionVariantType.type_string, GDExtensionVariantType.type_string)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a String) < (b String) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_less, GDExtensionVariantType.type_string, GDExtensionVariantType.type_string)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a String) + (b String) String {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_add, GDExtensionVariantType.type_string, GDExtensionVariantType.type_string)
+     res := String{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a String) % (b String) String {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_module, GDExtensionVariantType.type_string, GDExtensionVariantType.type_string)
+     res := String{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+

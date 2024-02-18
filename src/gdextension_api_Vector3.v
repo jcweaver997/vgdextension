@@ -479,3 +479,45 @@ pub fn (v &Vector3) index(i i64) f64 {
     index_fn(GDExtensionConstTypePtr(v), GDExtensionInt(i), GDExtensionTypePtr(&output))
     return output}
 
+pub fn (a Vector3) == (b Vector3) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_equal, GDExtensionVariantType.type_vector3, GDExtensionVariantType.type_vector3)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Vector3) < (b Vector3) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_less, GDExtensionVariantType.type_vector3, GDExtensionVariantType.type_vector3)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Vector3) + (b Vector3) Vector3 {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_add, GDExtensionVariantType.type_vector3, GDExtensionVariantType.type_vector3)
+     res := Vector3{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Vector3) - (b Vector3) Vector3 {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_subtract, GDExtensionVariantType.type_vector3, GDExtensionVariantType.type_vector3)
+     res := Vector3{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Vector3) * (b Vector3) Vector3 {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_multiply, GDExtensionVariantType.type_vector3, GDExtensionVariantType.type_vector3)
+     res := Vector3{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Vector3) / (b Vector3) Vector3 {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_divide, GDExtensionVariantType.type_vector3, GDExtensionVariantType.type_vector3)
+     res := Vector3{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+

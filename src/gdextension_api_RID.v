@@ -49,3 +49,17 @@ pub fn (mut t RID) set_from_var(var &Variant) {
     var_to_type(voidptr(&t), var)
 }
 
+pub fn (a RID) == (b RID) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_equal, GDExtensionVariantType.type_rid, GDExtensionVariantType.type_rid)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a RID) < (b RID) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_less, GDExtensionVariantType.type_rid, GDExtensionVariantType.type_rid)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+

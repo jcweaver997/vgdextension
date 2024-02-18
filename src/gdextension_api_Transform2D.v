@@ -266,3 +266,17 @@ pub fn (v &Transform2D) index(i i64) Vector2 {
     index_fn(GDExtensionConstTypePtr(v), GDExtensionInt(i), GDExtensionTypePtr(&output))
     return output}
 
+pub fn (a Transform2D) == (b Transform2D) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_equal, GDExtensionVariantType.type_transform2d, GDExtensionVariantType.type_transform2d)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Transform2D) * (b Transform2D) Transform2D {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_multiply, GDExtensionVariantType.type_transform2d, GDExtensionVariantType.type_transform2d)
+     res := Transform2D{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+

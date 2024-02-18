@@ -192,3 +192,10 @@ pub fn (mut t Rect2i) set_from_var(var &Variant) {
     var_to_type(voidptr(&t), var)
 }
 
+pub fn (a Rect2i) == (b Rect2i) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_equal, GDExtensionVariantType.type_rect2i, GDExtensionVariantType.type_rect2i)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+

@@ -140,3 +140,52 @@ pub fn (v &Vector4i) index(i i64) i64 {
     index_fn(GDExtensionConstTypePtr(v), GDExtensionInt(i), GDExtensionTypePtr(&output))
     return output}
 
+pub fn (a Vector4i) == (b Vector4i) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_equal, GDExtensionVariantType.type_vector4i, GDExtensionVariantType.type_vector4i)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Vector4i) < (b Vector4i) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_less, GDExtensionVariantType.type_vector4i, GDExtensionVariantType.type_vector4i)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Vector4i) + (b Vector4i) Vector4i {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_add, GDExtensionVariantType.type_vector4i, GDExtensionVariantType.type_vector4i)
+     res := Vector4i{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Vector4i) - (b Vector4i) Vector4i {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_subtract, GDExtensionVariantType.type_vector4i, GDExtensionVariantType.type_vector4i)
+     res := Vector4i{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Vector4i) * (b Vector4i) Vector4i {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_multiply, GDExtensionVariantType.type_vector4i, GDExtensionVariantType.type_vector4i)
+     res := Vector4i{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Vector4i) / (b Vector4i) Vector4i {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_divide, GDExtensionVariantType.type_vector4i, GDExtensionVariantType.type_vector4i)
+     res := Vector4i{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Vector4i) % (b Vector4i) Vector4i {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_module, GDExtensionVariantType.type_vector4i, GDExtensionVariantType.type_vector4i)
+     res := Vector4i{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+

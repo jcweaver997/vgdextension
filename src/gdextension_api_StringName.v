@@ -951,3 +951,31 @@ pub fn (mut t StringName) set_from_var(var &Variant) {
     var_to_type(voidptr(&t), var)
 }
 
+pub fn (a StringName) == (b StringName) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_equal, GDExtensionVariantType.type_stringname, GDExtensionVariantType.type_stringname)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a StringName) < (b StringName) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_less, GDExtensionVariantType.type_stringname, GDExtensionVariantType.type_stringname)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a StringName) + (b StringName) StringName {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_add, GDExtensionVariantType.type_stringname, GDExtensionVariantType.type_stringname)
+     res := StringName{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a StringName) % (b StringName) StringName {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_module, GDExtensionVariantType.type_stringname, GDExtensionVariantType.type_stringname)
+     res := StringName{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+

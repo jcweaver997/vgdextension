@@ -232,3 +232,17 @@ pub fn (v &PackedVector3Array) index(i i64) Vector3 {
     index_fn(GDExtensionConstTypePtr(v), GDExtensionInt(i), GDExtensionTypePtr(&output))
     return output}
 
+pub fn (a PackedVector3Array) == (b PackedVector3Array) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_equal, GDExtensionVariantType.type_packedvector3array, GDExtensionVariantType.type_packedvector3array)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a PackedVector3Array) + (b PackedVector3Array) PackedVector3Array {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_add, GDExtensionVariantType.type_packedvector3array, GDExtensionVariantType.type_packedvector3array)
+     res := PackedVector3Array{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+

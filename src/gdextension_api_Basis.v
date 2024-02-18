@@ -251,3 +251,17 @@ pub fn (v &Basis) index(i i64) Vector3 {
     index_fn(GDExtensionConstTypePtr(v), GDExtensionInt(i), GDExtensionTypePtr(&output))
     return output}
 
+pub fn (a Basis) == (b Basis) bool {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_equal, GDExtensionVariantType.type_basis, GDExtensionVariantType.type_basis)
+     res := false
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
+pub fn (a Basis) * (b Basis) Basis {
+     e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_multiply, GDExtensionVariantType.type_basis, GDExtensionVariantType.type_basis)
+     res := Basis{}
+     e(voidptr(&a), voidptr(&b), voidptr(&res))
+     return res
+}
+
