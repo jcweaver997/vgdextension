@@ -1,10 +1,10 @@
 module vgdextension
 
 pub struct ClassInfo {
+	mut:
 	class_name StringName
 	parent_name StringName
-	mut:
-	virtual_methods map[string]GDExtensionClassCallVirtual
+	virtual_methods Dictionary
 }
 
 pub interface ClassInitable {
@@ -17,23 +17,23 @@ pub interface ClassDeinitable {
 	deinit()
 }
 
-
 pub fn register_class_with_name[T](parent_class string, class_name string) {
 	println("registering class ${T.name} as ${class_name}")
 	sn := StringName.new(class_name)
 	pn := StringName.new(parent_class)
-	mut ci := &ClassInfo{
-		class_name: sn
-		parent_name: pn
-	}
+
+	mut ci := unsafe{&ClassInfo(gdf.mem_alloc(sizeof[ClassInfo]()))}
+	ci.class_name = sn
+	ci.parent_name = pn
+	ci.virtual_methods = Dictionary.new0()
 	
 	set_func := class_set_func[T]
 	get_func := class_get_func[T]
 	get_property_list_func := class_get_property_list[T]
 	free_property_list_func := class_free_property_list[T]
-	to_string_func := class_to_string[T]
-	reference_func := class_reference[T]
-	unreference_func := class_unreference[T]
+	// to_string_func := class_to_string[T]
+	// reference_func := class_reference[T]
+	// unreference_func := class_unreference[T]
 	create_instance_func := class_create_instance[T]
 	free_instance_func := class_free_instance[T]
 	get_virtual_func := class_get_virtual_func[T]
@@ -48,9 +48,9 @@ pub fn register_class_with_name[T](parent_class string, class_name string) {
 		// property_can_revert_func: class_property_can_revert[T]
 		// property_get_revert_func GDExtensionClassPropertyGetRevert = unsafe { nil }
 		// notification_func GDExtensionClassNotification = unsafe { nil }
-		to_string_func: to_string_func
-		reference_func: reference_func
-		unreference_func: unreference_func
+		// to_string_func: to_string_func
+		// reference_func: reference_func
+		// unreference_func: unreference_func
 		create_instance_func: create_instance_func
 		free_instance_func: free_instance_func
 		get_virtual_func: get_virtual_func
@@ -65,7 +65,6 @@ pub fn register_class_with_name[T](parent_class string, class_name string) {
 pub fn register_class[T](parent_class string) {
 	register_class_with_name[T](parent_class, T.name.replace('.', '_'))
 }
-
 
 fn class_set_func[T](instance GDExtensionClassInstancePtr, name &StringName, variant &Variant) GDExtensionBool {
 	vname := name.to_v()
@@ -307,6 +306,7 @@ fn class_property_can_revert[T](instance GDExtensionClassInstancePtr, prop_name 
 }
 
 fn class_to_string[T](instance GDExtensionClassInstancePtr, valid &GDExtensionBool, out &String){
+	println("class to string")
 	unsafe {
 		*valid = GDExtensionBool(true)
 		*out = String.new(T.name)
@@ -314,17 +314,18 @@ fn class_to_string[T](instance GDExtensionClassInstancePtr, valid &GDExtensionBo
 }
 
 fn class_reference[T](instance GDExtensionClassInstancePtr){
+	println("ref")
 	// what is this for?
 }
 
 fn class_unreference[T](instance GDExtensionClassInstancePtr){
+	println("unref")
 	// what is this for?
 }
 
-@[manualfree]
 fn class_create_instance[T](user_data voidptr) &Object {
 	ud := unsafe{&ClassInfo(user_data)}
-	t := &T{}
+	t := unsafe{&T(gdf.mem_alloc(sizeof[T]()))}
 	mut w := &Object(t)
 	w.ptr = gdf.classdb_construct_object(ud.parent_name)
 	gdf.object_set_instance(w.ptr, ud.class_name, t)
@@ -348,16 +349,22 @@ fn class_free_instance[T](user_data voidptr, instance GDExtensionClassInstancePt
 			mut cd := ClassDeinitable(t)
 			cd.deinit()
 		}
-		free(t)
+		gdf.mem_free(t)
 	}
 }
 
 fn class_get_virtual_func[T](user_data voidptr, method_name &StringName) GDExtensionClassCallVirtual {
-	
 	ud := unsafe{&ClassInfo(user_data)}
-	m_name := method_name.to_v()
-	if m_name in ud.virtual_methods {
-		return ud.virtual_methods[m_name]
+	if method_name.in_dictionary(ud.virtual_methods) {
+		r := ud.virtual_methods.index_get_named(method_name) or {
+			return GDExtensionClassCallVirtual(unsafe {nil})
+		}
+		virt := i64_from_var(r)
+		if virt == 0 {
+			return GDExtensionClassCallVirtual(unsafe {nil})
+		}
+		
+		return GDExtensionClassCallVirtual(virt)
 	}
 	return GDExtensionClassCallVirtual(unsafe {nil})
 }

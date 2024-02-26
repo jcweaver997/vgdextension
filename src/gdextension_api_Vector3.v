@@ -6,7 +6,7 @@ pub enum Vector3Axis as i64 {
     axis_z = 2
 }
 
-@[heap; packed]
+@[packed]
 pub struct Vector3 {
     pub mut:
         x f32 // offset 0

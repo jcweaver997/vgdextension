@@ -321,7 +321,11 @@ fn gen_virtual_bind(ea &ExtensionApi) ! {
 
 			f.write_string('    \$if T is ${virt_name} {{\n')!
 			f.write_string('        func := ${convert_type(class.name, '').to_lower()}_${convert_name(method.name)}[T]\n')!
-			f.write_string('        ci.virtual_methods["${method.name}"] = func\n')!
+			f.write_string('        ivar := i64(func)\n')!
+			f.write_string('        var := i64_to_var(ivar)\n')!
+			f.write_string('        sn := StringName.new("${method.name}")\n')!
+			f.write_string('        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}\n')!
+			f.write_string('        sn.deinit()\n')!
 			f.write_string('    }}\n')!
 		}
 	}
@@ -394,7 +398,7 @@ fn gen_builtin_classes(ea &ExtensionApi) ! {
 
 		// TODO
 
-		f.write_string('@[heap; packed]\n')!
+		f.write_string('@[packed]\n')!
 		f.write_string('pub struct ${class.name} {\n')!
 		mut defined_size := 0
 		if members := ea.builtin_class_member_offsets[platform_index].classes.filter(it.name == class.name)[0] {
@@ -539,20 +543,92 @@ fn gen_builtin_classes(ea &ExtensionApi) ! {
 		f.write_string('    var_to_type(voidptr(&t), var)\n')!
 		f.write_string('}\n\n')!
 
-		// index
+
 		if mut ret_type := class.indexing_return_type {
 			ret_type = convert_type(ret_type, '')
-			f.write_string('pub fn (v &${class.name}) index(i i64) ${ret_type} {\n')!
-			f.write_string('    index_fn := gdf.variant_get_ptr_indexed_getter(GDExtensionVariantType.type_${class.name.to_lower()})\n')!
+			// keyed
+			if class.is_keyed {
+				
+				// get
+				f.write_string('pub fn (v &${class.name}) index_get(i &Variant) ?Variant {\n')!
+				f.write_string('    as_var := v.to_var()\n')!
+				f.write_string('    ret := Variant{}\n')!
+				f.write_string('    suc := GDExtensionBool(false)\n')!
+				f.write_string('    gdf.variant_get(&as_var, i, voidptr(&ret), &suc)\n')!
+				f.write_string('    if suc != GDExtensionBool(true) {\n')!
+				f.write_string('    	return none\n')!
+				f.write_string('    }\n')!
+				f.write_string('    return ret\n')!
+				f.write_string('}\n\n')!
 
-			if ret_type in v_numbers {
-				f.write_string('    mut output := ${ret_type}(0)\n')!
-			} else {
-				f.write_string('    mut output := ${ret_type}{}\n')!
+				// get_named
+				f.write_string('pub fn (v &${class.name}) index_get_named(sn &StringName) ?Variant {\n')!
+				f.write_string('    as_var := v.to_var()\n')!
+				f.write_string('    ret := Variant{}\n')!
+				f.write_string('    suc := GDExtensionBool(false)\n')!
+				f.write_string('    gdf.variant_get_named(&as_var, sn, voidptr(&ret), &suc)\n')!
+				f.write_string('    if suc != GDExtensionBool(true) {\n')!
+				f.write_string('    	return none\n')!
+				f.write_string('    }\n')!
+				f.write_string('    return ret\n')!
+				f.write_string('}\n\n')!
+
+				// get_keyed
+				f.write_string('pub fn (v &${class.name}) index_get_keyed(i &Variant) ?Variant {\n')!
+				f.write_string('    as_var := v.to_var()\n')!
+				f.write_string('    ret := Variant{}\n')!
+				f.write_string('    suc := GDExtensionBool(false)\n')!
+				f.write_string('    gdf.variant_get_keyed(&as_var, i, voidptr(&ret), &suc)\n')!
+				f.write_string('    if suc != GDExtensionBool(true) {\n')!
+				f.write_string('    	return none\n')!
+				f.write_string('    }\n')!
+				f.write_string('    return ret\n')!
+				f.write_string('}\n\n')!
+
+				// set
+				f.write_string('pub fn (v &${class.name}) index_set(key &Variant, value &Variant) ! {\n')!
+				f.write_string('    as_var := v.to_var()\n')!
+				f.write_string('    suc := GDExtensionBool(false)\n')!
+				f.write_string('    gdf.variant_set(&as_var, key, value, &suc)\n')!
+				f.write_string('    if suc != GDExtensionBool(true) {\n')!
+				f.write_string('    	return error("invalid set on ${class.name}")\n')!
+				f.write_string('    }\n')!
+				f.write_string('}\n\n')!
+
+				// set_named
+				f.write_string('pub fn (v &${class.name}) index_set_named(key &StringName, value &Variant) ! {\n')!
+				f.write_string('    as_var := v.to_var()\n')!
+				f.write_string('    suc := GDExtensionBool(false)\n')!
+				f.write_string('    gdf.variant_set_named(&as_var, key, value, &suc)\n')!
+				f.write_string('    if suc != GDExtensionBool(true) {\n')!
+				f.write_string('    	return error("invalid set_named on ${class.name}")\n')!
+				f.write_string('    }\n')!
+				f.write_string('}\n\n')!
+
+				// set_keyed
+				f.write_string('pub fn (v &${class.name}) index_set_keyed(key &Variant, value &Variant) ! {\n')!
+				f.write_string('    as_var := v.to_var()\n')!
+				f.write_string('    suc := GDExtensionBool(false)\n')!
+				f.write_string('    gdf.variant_set_keyed(&as_var, key, value, &suc)\n')!
+				f.write_string('    if suc != GDExtensionBool(true) {\n')!
+				f.write_string('    	return error("invalid set_keyed on ${class.name}")\n')!
+				f.write_string('    }\n')!
+				f.write_string('}\n\n')!
+
+			// index
+			}else{
+				f.write_string('pub fn (v &${class.name}) index(i i64) ${ret_type} {\n')!
+				f.write_string('    index_fn := gdf.variant_get_ptr_indexed_getter(GDExtensionVariantType.type_${class.name.to_lower()})\n')!
+
+				if ret_type in v_numbers {
+					f.write_string('    mut output := ${ret_type}(0)\n')!
+				} else {
+					f.write_string('    mut output := ${ret_type}{}\n')!
+				}
+				f.write_string('    index_fn(GDExtensionConstTypePtr(v), GDExtensionInt(i), GDExtensionTypePtr(&output))\n')! // GDExtensionConstTypePtr, GDExtensionInt, GDExtensionTypePtr
+				f.write_string('    return output')!
+				f.write_string('}\n\n')!
 			}
-			f.write_string('    index_fn(GDExtensionConstTypePtr(v), GDExtensionInt(i), GDExtensionTypePtr(&output))\n')! // GDExtensionConstTypePtr, GDExtensionInt, GDExtensionTypePtr
-			f.write_string('    return output')!
-			f.write_string('}\n\n')!
 		}
 
 		// gen operators

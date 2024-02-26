@@ -9,7 +9,7 @@ pub enum ProjectionPlanes as i64 {
     plane_bottom = 5
 }
 
-@[heap; packed]
+@[packed]
 pub struct Projection {
     pub mut:
         x Vector4 // offset 0

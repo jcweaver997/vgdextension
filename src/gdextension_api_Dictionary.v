@@ -1,6 +1,6 @@
 module vgdextension
 
-@[heap; packed]
+@[packed]
 pub struct Dictionary {
         godot_data [8]u8 // filler
 }
@@ -165,11 +165,65 @@ pub fn (mut t Dictionary) set_from_var(var &Variant) {
     var_to_type(voidptr(&t), var)
 }
 
-pub fn (v &Dictionary) index(i i64) Variant {
-    index_fn := gdf.variant_get_ptr_indexed_getter(GDExtensionVariantType.type_dictionary)
-    mut output := Variant{}
-    index_fn(GDExtensionConstTypePtr(v), GDExtensionInt(i), GDExtensionTypePtr(&output))
-    return output}
+pub fn (v &Dictionary) index_get(i &Variant) ?Variant {
+    as_var := v.to_var()
+    ret := Variant{}
+    suc := GDExtensionBool(false)
+    gdf.variant_get(&as_var, i, voidptr(&ret), &suc)
+    if suc != GDExtensionBool(true) {
+    	return none
+    }
+    return ret
+}
+
+pub fn (v &Dictionary) index_get_named(sn &StringName) ?Variant {
+    as_var := v.to_var()
+    ret := Variant{}
+    suc := GDExtensionBool(false)
+    gdf.variant_get_named(&as_var, sn, voidptr(&ret), &suc)
+    if suc != GDExtensionBool(true) {
+    	return none
+    }
+    return ret
+}
+
+pub fn (v &Dictionary) index_get_keyed(i &Variant) ?Variant {
+    as_var := v.to_var()
+    ret := Variant{}
+    suc := GDExtensionBool(false)
+    gdf.variant_get_keyed(&as_var, i, voidptr(&ret), &suc)
+    if suc != GDExtensionBool(true) {
+    	return none
+    }
+    return ret
+}
+
+pub fn (v &Dictionary) index_set(key &Variant, value &Variant) ! {
+    as_var := v.to_var()
+    suc := GDExtensionBool(false)
+    gdf.variant_set(&as_var, key, value, &suc)
+    if suc != GDExtensionBool(true) {
+    	return error("invalid set on Dictionary")
+    }
+}
+
+pub fn (v &Dictionary) index_set_named(key &StringName, value &Variant) ! {
+    as_var := v.to_var()
+    suc := GDExtensionBool(false)
+    gdf.variant_set_named(&as_var, key, value, &suc)
+    if suc != GDExtensionBool(true) {
+    	return error("invalid set_named on Dictionary")
+    }
+}
+
+pub fn (v &Dictionary) index_set_keyed(key &Variant, value &Variant) ! {
+    as_var := v.to_var()
+    suc := GDExtensionBool(false)
+    gdf.variant_set_keyed(&as_var, key, value, &suc)
+    if suc != GDExtensionBool(true) {
+    	return error("invalid set_keyed on Dictionary")
+    }
+}
 
 pub fn (a Dictionary) == (b Dictionary) bool {
      e := gdf.variant_get_ptr_operator_evaluator(GDExtensionVariantOperator.op_equal, GDExtensionVariantType.type_dictionary, GDExtensionVariantType.type_dictionary)

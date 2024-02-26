@@ -1,6 +1,6 @@
 module vgdextension
 
-@[heap; packed]
+@[packed]
 pub struct Basis {
     pub mut:
         x Vector3 // offset 0
