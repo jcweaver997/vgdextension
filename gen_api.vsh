@@ -398,7 +398,7 @@ fn gen_builtin_classes(ea &ExtensionApi) ! {
 
 		// TODO
 
-		f.write_string('@[heap; packed]\n')!
+		f.write_string('@[packed]\n')!
 		f.write_string('pub struct ${class.name} {\n')!
 		mut defined_size := 0
 		if members := ea.builtin_class_member_offsets[platform_index].classes.filter(it.name == class.name)[0] {

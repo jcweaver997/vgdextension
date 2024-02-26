@@ -1,6 +1,6 @@
 module vgdextension
 
-@[heap; packed]
+@[packed]
 pub struct RID {
         godot_data [8]u8 // filler
 }

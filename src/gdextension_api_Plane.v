@@ -1,6 +1,6 @@
 module vgdextension
 
-@[heap; packed]
+@[packed]
 pub struct Plane {
     pub mut:
         normal Vector3 // offset 0

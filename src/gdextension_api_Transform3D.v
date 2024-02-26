@@ -1,6 +1,6 @@
 module vgdextension
 
-@[heap; packed]
+@[packed]
 pub struct Transform3D {
     pub mut:
         basis Basis // offset 0

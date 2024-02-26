@@ -1,6 +1,6 @@
 module vgdextension
 
-@[heap; packed]
+@[packed]
 pub struct Dictionary {
         godot_data [8]u8 // filler
 }

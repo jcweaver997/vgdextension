@@ -1,6 +1,6 @@
 module vgdextension
 
-@[heap; packed]
+@[packed]
 pub struct PackedInt32Array {
         godot_data [16]u8 // filler
 }

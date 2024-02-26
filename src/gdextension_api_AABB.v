@@ -1,6 +1,6 @@
 module vgdextension
 
-@[heap; packed]
+@[packed]
 pub struct AABB {
     pub mut:
         position Vector3 // offset 0

@@ -1,6 +1,6 @@
 module vgdextension
 
-@[heap; packed]
+@[packed]
 pub struct Rect2i {
     pub mut:
         position Vector2i // offset 0

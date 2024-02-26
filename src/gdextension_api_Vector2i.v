@@ -5,7 +5,7 @@ pub enum Vector2iAxis as i64 {
     axis_y = 1
 }
 
-@[heap; packed]
+@[packed]
 pub struct Vector2i {
     pub mut:
         x i32 // offset 0

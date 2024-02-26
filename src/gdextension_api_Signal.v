@@ -1,6 +1,6 @@
 module vgdextension
 
-@[heap; packed]
+@[packed]
 pub struct Signal {
         godot_data [16]u8 // filler
 }

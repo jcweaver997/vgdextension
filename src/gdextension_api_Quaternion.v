@@ -1,6 +1,6 @@
 module vgdextension
 
-@[heap; packed]
+@[packed]
 pub struct Quaternion {
     pub mut:
         x f32 // offset 0

@@ -1,10 +1,9 @@
 module vgdextension
 
-@[heap]
 pub struct ClassInfo {
+	mut:
 	class_name StringName
 	parent_name StringName
-	mut:
 	virtual_methods Dictionary
 }
 
@@ -22,11 +21,11 @@ pub fn register_class_with_name[T](parent_class string, class_name string) {
 	println("registering class ${T.name} as ${class_name}")
 	sn := StringName.new(class_name)
 	pn := StringName.new(parent_class)
-	mut ci := &ClassInfo{
-		class_name: sn
-		parent_name: pn
-		virtual_methods: Dictionary.new0()
-	}
+
+	mut ci := unsafe{&ClassInfo(gdf.mem_alloc(sizeof[ClassInfo]()))}
+	ci.class_name = sn
+	ci.parent_name = pn
+	ci.virtual_methods = Dictionary.new0()
 	
 	set_func := class_set_func[T]
 	get_func := class_get_func[T]
@@ -121,7 +120,6 @@ fn class_get_func[T](instance GDExtensionClassInstancePtr, name &StringName, mut
 }
 
 fn class_get_property_list[T](instance GDExtensionClassInstancePtr, return_count &u32) &GDExtensionPropertyInfo {
-	println("get prop")
 	mut infos := []GDExtensionPropertyInfo{}
 	$for field in T.fields {
 		$if field.typ is ToVariant {
@@ -287,11 +285,9 @@ fn class_get_property_list[T](instance GDExtensionClassInstancePtr, return_count
 			return nil
 		}
 	}
-	println("got prop")
 }
 
 fn class_free_property_list[T](instance GDExtensionClassInstancePtr, info &GDExtensionPropertyInfo) {
-	println("free prop list")
 	mut index := 0
 	unsafe {
 		$for field in T.fields {
@@ -303,11 +299,9 @@ fn class_free_property_list[T](instance GDExtensionClassInstancePtr, info &GDExt
 			}
 		}
 	}
-	println("freed prop list")
 }
 
 fn class_property_can_revert[T](instance GDExtensionClassInstancePtr, prop_name &StringName) GDExtensionBool {
-	println("can revert")
 	return GDExtensionBool(false)
 }
 
@@ -330,9 +324,8 @@ fn class_unreference[T](instance GDExtensionClassInstancePtr){
 }
 
 fn class_create_instance[T](user_data voidptr) &Object {
-	println("create instance")
 	ud := unsafe{&ClassInfo(user_data)}
-	t := &T{}
+	t := unsafe{&T(gdf.mem_alloc(sizeof[T]()))}
 	mut w := &Object(t)
 	w.ptr = gdf.classdb_construct_object(ud.parent_name)
 	gdf.object_set_instance(w.ptr, ud.class_name, t)
@@ -346,47 +339,32 @@ fn class_create_instance[T](user_data voidptr) &Object {
 		mut ci := ClassInitable(t)
 		ci.init()
 	}
-	println("created instance")
 	return w.ptr
 }
 
 fn class_free_instance[T](user_data voidptr, instance GDExtensionClassInstancePtr) {
-	println("free instance")
 	unsafe {
 		t := &T(instance)
 		$if T is ClassDeinitable {
-			println("instance deinit")
 			mut cd := ClassDeinitable(t)
 			cd.deinit()
-			println("instance deinited")
 		}
-		free(t)
+		gdf.mem_free(t)
 	}
-	println("freed instance")
 }
 
 fn class_get_virtual_func[T](user_data voidptr, method_name &StringName) GDExtensionClassCallVirtual {
-	println("get virt ${method_name.to_v()}")
-	println("get virt user_data ${user_data:p}")
 	ud := unsafe{&ClassInfo(user_data)}
-	println("get virt1")
-	println("get virt1 ${ud.virtual_methods}")
 	if method_name.in_dictionary(ud.virtual_methods) {
-		println("get virt2")
 		r := ud.virtual_methods.index_get_named(method_name) or {
-			println("get_named failed")
 			return GDExtensionClassCallVirtual(unsafe {nil})
 		}
-		println("get virt4")
 		virt := i64_from_var(r)
 		if virt == 0 {
-			println("dict was 0")
 			return GDExtensionClassCallVirtual(unsafe {nil})
 		}
 		
-		println("got virt")
 		return GDExtensionClassCallVirtual(virt)
 	}
-	println("didnt virt")
 	return GDExtensionClassCallVirtual(unsafe {nil})
 }

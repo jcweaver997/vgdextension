@@ -1,6 +1,6 @@
 module vgdextension
 
-@[heap; packed]
+@[packed]
 pub struct Transform2D {
     pub mut:
         x Vector2 // offset 0
