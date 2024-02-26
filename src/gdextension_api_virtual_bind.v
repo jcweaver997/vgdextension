@@ -7977,4946 +7977,9890 @@ fn xrinterfaceextension_uget_velocity_texture[T] (inst GDExtensionClassInstanceP
 fn register_virtual_methods[T](mut ci ClassInfo) {
     $if T is IAStar2DEstimateCost {{
         func := astar2d_uestimate_cost[T]
-        ci.virtual_methods["_estimate_cost"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_estimate_cost")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IAStar2DComputeCost {{
         func := astar2d_ucompute_cost[T]
-        ci.virtual_methods["_compute_cost"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_compute_cost")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IAStar3DEstimateCost {{
         func := astar3d_uestimate_cost[T]
-        ci.virtual_methods["_estimate_cost"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_estimate_cost")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IAStar3DComputeCost {{
         func := astar3d_ucompute_cost[T]
-        ci.virtual_methods["_compute_cost"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_compute_cost")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IAStarGrid2DEstimateCost {{
         func := astargrid2d_uestimate_cost[T]
-        ci.virtual_methods["_estimate_cost"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_estimate_cost")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IAStarGrid2DComputeCost {{
         func := astargrid2d_ucompute_cost[T]
-        ci.virtual_methods["_compute_cost"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_compute_cost")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IAnimationMixerPostProcessKeyValue {{
         func := animationmixer_upost_process_key_value[T]
-        ci.virtual_methods["_post_process_key_value"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_post_process_key_value")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IAnimationNodeGetChildNodes {{
         func := animationnode_uget_child_nodes[T]
-        ci.virtual_methods["_get_child_nodes"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_child_nodes")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IAnimationNodeGetParameterList {{
         func := animationnode_uget_parameter_list[T]
-        ci.virtual_methods["_get_parameter_list"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_parameter_list")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IAnimationNodeGetChildByName {{
         func := animationnode_uget_child_by_name[T]
-        ci.virtual_methods["_get_child_by_name"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_child_by_name")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IAnimationNodeGetParameterDefaultValue {{
         func := animationnode_uget_parameter_default_value[T]
-        ci.virtual_methods["_get_parameter_default_value"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_parameter_default_value")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IAnimationNodeIsParameterReadOnly {{
         func := animationnode_uis_parameter_read_only[T]
-        ci.virtual_methods["_is_parameter_read_only"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_is_parameter_read_only")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IAnimationNodeProcess {{
         func := animationnode_uprocess[T]
-        ci.virtual_methods["_process"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_process")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IAnimationNodeGetCaption {{
         func := animationnode_uget_caption[T]
-        ci.virtual_methods["_get_caption"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_caption")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IAnimationNodeHasFilter {{
         func := animationnode_uhas_filter[T]
-        ci.virtual_methods["_has_filter"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_has_filter")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IAudioEffectInstantiate {{
         func := audioeffect_uinstantiate[T]
-        ci.virtual_methods["_instantiate"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_instantiate")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IAudioEffectInstanceProcess {{
         func := audioeffectinstance_uprocess[T]
-        ci.virtual_methods["_process"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_process")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IAudioEffectInstanceProcessSilence {{
         func := audioeffectinstance_uprocess_silence[T]
-        ci.virtual_methods["_process_silence"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_process_silence")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IAudioStreamInstantiatePlayback {{
         func := audiostream_uinstantiate_playback[T]
-        ci.virtual_methods["_instantiate_playback"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_instantiate_playback")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IAudioStreamGetStreamName {{
         func := audiostream_uget_stream_name[T]
-        ci.virtual_methods["_get_stream_name"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_stream_name")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IAudioStreamGetLength {{
         func := audiostream_uget_length[T]
-        ci.virtual_methods["_get_length"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_length")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IAudioStreamIsMonophonic {{
         func := audiostream_uis_monophonic[T]
-        ci.virtual_methods["_is_monophonic"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_is_monophonic")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IAudioStreamGetBpm {{
         func := audiostream_uget_bpm[T]
-        ci.virtual_methods["_get_bpm"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_bpm")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IAudioStreamGetBeatCount {{
         func := audiostream_uget_beat_count[T]
-        ci.virtual_methods["_get_beat_count"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_beat_count")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IAudioStreamPlaybackStart {{
         func := audiostreamplayback_ustart[T]
-        ci.virtual_methods["_start"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_start")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IAudioStreamPlaybackStop {{
         func := audiostreamplayback_ustop[T]
-        ci.virtual_methods["_stop"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_stop")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IAudioStreamPlaybackIsPlaying {{
         func := audiostreamplayback_uis_playing[T]
-        ci.virtual_methods["_is_playing"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_is_playing")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IAudioStreamPlaybackGetLoopCount {{
         func := audiostreamplayback_uget_loop_count[T]
-        ci.virtual_methods["_get_loop_count"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_loop_count")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IAudioStreamPlaybackGetPlaybackPosition {{
         func := audiostreamplayback_uget_playback_position[T]
-        ci.virtual_methods["_get_playback_position"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_playback_position")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IAudioStreamPlaybackSeek {{
         func := audiostreamplayback_useek[T]
-        ci.virtual_methods["_seek"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_seek")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IAudioStreamPlaybackMix {{
         func := audiostreamplayback_umix[T]
-        ci.virtual_methods["_mix"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_mix")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IAudioStreamPlaybackTagUsedStreams {{
         func := audiostreamplayback_utag_used_streams[T]
-        ci.virtual_methods["_tag_used_streams"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_tag_used_streams")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IAudioStreamPlaybackResampledMixResampled {{
         func := audiostreamplaybackresampled_umix_resampled[T]
-        ci.virtual_methods["_mix_resampled"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_mix_resampled")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IAudioStreamPlaybackResampledGetStreamSamplingRate {{
         func := audiostreamplaybackresampled_uget_stream_sampling_rate[T]
-        ci.virtual_methods["_get_stream_sampling_rate"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_stream_sampling_rate")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IBaseButtonPressed {{
         func := basebutton_upressed[T]
-        ci.virtual_methods["_pressed"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_pressed")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IBaseButtonToggled {{
         func := basebutton_utoggled[T]
-        ci.virtual_methods["_toggled"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_toggled")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ICanvasItemDraw {{
         func := canvasitem_udraw[T]
-        ci.virtual_methods["_draw"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_draw")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ICodeEditConfirmCodeCompletion {{
         func := codeedit_uconfirm_code_completion[T]
-        ci.virtual_methods["_confirm_code_completion"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_confirm_code_completion")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ICodeEditRequestCodeCompletion {{
         func := codeedit_urequest_code_completion[T]
-        ci.virtual_methods["_request_code_completion"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_request_code_completion")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ICodeEditFilterCodeCompletionCandidates {{
         func := codeedit_ufilter_code_completion_candidates[T]
-        ci.virtual_methods["_filter_code_completion_candidates"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_filter_code_completion_candidates")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ICollisionObject2DInputEvent {{
         func := collisionobject2d_uinput_event[T]
-        ci.virtual_methods["_input_event"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_input_event")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ICollisionObject2DMouseEnter {{
         func := collisionobject2d_umouse_enter[T]
-        ci.virtual_methods["_mouse_enter"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_mouse_enter")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ICollisionObject2DMouseExit {{
         func := collisionobject2d_umouse_exit[T]
-        ci.virtual_methods["_mouse_exit"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_mouse_exit")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ICollisionObject2DMouseShapeEnter {{
         func := collisionobject2d_umouse_shape_enter[T]
-        ci.virtual_methods["_mouse_shape_enter"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_mouse_shape_enter")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ICollisionObject2DMouseShapeExit {{
         func := collisionobject2d_umouse_shape_exit[T]
-        ci.virtual_methods["_mouse_shape_exit"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_mouse_shape_exit")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ICollisionObject3DInputEvent {{
         func := collisionobject3d_uinput_event[T]
-        ci.virtual_methods["_input_event"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_input_event")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ICollisionObject3DMouseEnter {{
         func := collisionobject3d_umouse_enter[T]
-        ci.virtual_methods["_mouse_enter"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_mouse_enter")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ICollisionObject3DMouseExit {{
         func := collisionobject3d_umouse_exit[T]
-        ci.virtual_methods["_mouse_exit"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_mouse_exit")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IContainerGetAllowedSizeFlagsHorizontal {{
         func := container_uget_allowed_size_flags_horizontal[T]
-        ci.virtual_methods["_get_allowed_size_flags_horizontal"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_allowed_size_flags_horizontal")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IContainerGetAllowedSizeFlagsVertical {{
         func := container_uget_allowed_size_flags_vertical[T]
-        ci.virtual_methods["_get_allowed_size_flags_vertical"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_allowed_size_flags_vertical")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IControlHasPoint {{
         func := control_uhas_point[T]
-        ci.virtual_methods["_has_point"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_has_point")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IControlStructuredTextParser {{
         func := control_ustructured_text_parser[T]
-        ci.virtual_methods["_structured_text_parser"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_structured_text_parser")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IControlGetMinimumSize {{
         func := control_uget_minimum_size[T]
-        ci.virtual_methods["_get_minimum_size"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_minimum_size")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IControlGetTooltip {{
         func := control_uget_tooltip[T]
-        ci.virtual_methods["_get_tooltip"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_tooltip")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IControlGetDragData {{
         func := control_uget_drag_data[T]
-        ci.virtual_methods["_get_drag_data"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_drag_data")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IControlCanDropData {{
         func := control_ucan_drop_data[T]
-        ci.virtual_methods["_can_drop_data"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_can_drop_data")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IControlDropData {{
         func := control_udrop_data[T]
-        ci.virtual_methods["_drop_data"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_drop_data")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IControlMakeCustomTooltip {{
         func := control_umake_custom_tooltip[T]
-        ci.virtual_methods["_make_custom_tooltip"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_make_custom_tooltip")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IControlGuiInput {{
         func := control_ugui_input[T]
-        ci.virtual_methods["_gui_input"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_gui_input")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorDebuggerPluginSetupSession {{
         func := editordebuggerplugin_usetup_session[T]
-        ci.virtual_methods["_setup_session"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_setup_session")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorDebuggerPluginHasCapture {{
         func := editordebuggerplugin_uhas_capture[T]
-        ci.virtual_methods["_has_capture"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_has_capture")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorDebuggerPluginCapture {{
         func := editordebuggerplugin_ucapture[T]
-        ci.virtual_methods["_capture"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_capture")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorExportPluginExportFile {{
         func := editorexportplugin_uexport_file[T]
-        ci.virtual_methods["_export_file"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_export_file")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorExportPluginExportBegin {{
         func := editorexportplugin_uexport_begin[T]
-        ci.virtual_methods["_export_begin"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_export_begin")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorExportPluginExportEnd {{
         func := editorexportplugin_uexport_end[T]
-        ci.virtual_methods["_export_end"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_export_end")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorExportPluginBeginCustomizeResources {{
         func := editorexportplugin_ubegin_customize_resources[T]
-        ci.virtual_methods["_begin_customize_resources"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_begin_customize_resources")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorExportPluginCustomizeResource {{
         func := editorexportplugin_ucustomize_resource[T]
-        ci.virtual_methods["_customize_resource"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_customize_resource")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorExportPluginBeginCustomizeScenes {{
         func := editorexportplugin_ubegin_customize_scenes[T]
-        ci.virtual_methods["_begin_customize_scenes"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_begin_customize_scenes")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorExportPluginCustomizeScene {{
         func := editorexportplugin_ucustomize_scene[T]
-        ci.virtual_methods["_customize_scene"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_customize_scene")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorExportPluginGetCustomizationConfigurationHash {{
         func := editorexportplugin_uget_customization_configuration_hash[T]
-        ci.virtual_methods["_get_customization_configuration_hash"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_customization_configuration_hash")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorExportPluginEndCustomizeScenes {{
         func := editorexportplugin_uend_customize_scenes[T]
-        ci.virtual_methods["_end_customize_scenes"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_end_customize_scenes")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorExportPluginEndCustomizeResources {{
         func := editorexportplugin_uend_customize_resources[T]
-        ci.virtual_methods["_end_customize_resources"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_end_customize_resources")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorExportPluginGetExportOptions {{
         func := editorexportplugin_uget_export_options[T]
-        ci.virtual_methods["_get_export_options"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_export_options")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorExportPluginShouldUpdateExportOptions {{
         func := editorexportplugin_ushould_update_export_options[T]
-        ci.virtual_methods["_should_update_export_options"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_should_update_export_options")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorExportPluginGetExportOptionWarning {{
         func := editorexportplugin_uget_export_option_warning[T]
-        ci.virtual_methods["_get_export_option_warning"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_export_option_warning")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorExportPluginGetExportFeatures {{
         func := editorexportplugin_uget_export_features[T]
-        ci.virtual_methods["_get_export_features"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_export_features")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorExportPluginGetName {{
         func := editorexportplugin_uget_name[T]
-        ci.virtual_methods["_get_name"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_name")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorExportPluginSupportsPlatform {{
         func := editorexportplugin_usupports_platform[T]
-        ci.virtual_methods["_supports_platform"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_supports_platform")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorExportPluginGetAndroidDependencies {{
         func := editorexportplugin_uget_android_dependencies[T]
-        ci.virtual_methods["_get_android_dependencies"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_android_dependencies")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorExportPluginGetAndroidDependenciesMavenRepos {{
         func := editorexportplugin_uget_android_dependencies_maven_repos[T]
-        ci.virtual_methods["_get_android_dependencies_maven_repos"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_android_dependencies_maven_repos")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorExportPluginGetAndroidLibraries {{
         func := editorexportplugin_uget_android_libraries[T]
-        ci.virtual_methods["_get_android_libraries"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_android_libraries")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorExportPluginGetAndroidManifestActivityElementContents {{
         func := editorexportplugin_uget_android_manifest_activity_element_contents[T]
-        ci.virtual_methods["_get_android_manifest_activity_element_contents"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_android_manifest_activity_element_contents")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorExportPluginGetAndroidManifestApplicationElementContents {{
         func := editorexportplugin_uget_android_manifest_application_element_contents[T]
-        ci.virtual_methods["_get_android_manifest_application_element_contents"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_android_manifest_application_element_contents")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorExportPluginGetAndroidManifestElementContents {{
         func := editorexportplugin_uget_android_manifest_element_contents[T]
-        ci.virtual_methods["_get_android_manifest_element_contents"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_android_manifest_element_contents")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorFileSystemImportFormatSupportQueryIsActive {{
         func := editorfilesystemimportformatsupportquery_uis_active[T]
-        ci.virtual_methods["_is_active"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_is_active")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorFileSystemImportFormatSupportQueryGetFileExtensions {{
         func := editorfilesystemimportformatsupportquery_uget_file_extensions[T]
-        ci.virtual_methods["_get_file_extensions"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_file_extensions")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorFileSystemImportFormatSupportQueryQuery {{
         func := editorfilesystemimportformatsupportquery_uquery[T]
-        ci.virtual_methods["_query"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_query")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorImportPluginGetImporterName {{
         func := editorimportplugin_uget_importer_name[T]
-        ci.virtual_methods["_get_importer_name"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_importer_name")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorImportPluginGetVisibleName {{
         func := editorimportplugin_uget_visible_name[T]
-        ci.virtual_methods["_get_visible_name"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_visible_name")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorImportPluginGetPresetCount {{
         func := editorimportplugin_uget_preset_count[T]
-        ci.virtual_methods["_get_preset_count"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_preset_count")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorImportPluginGetPresetName {{
         func := editorimportplugin_uget_preset_name[T]
-        ci.virtual_methods["_get_preset_name"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_preset_name")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorImportPluginGetRecognizedExtensions {{
         func := editorimportplugin_uget_recognized_extensions[T]
-        ci.virtual_methods["_get_recognized_extensions"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_recognized_extensions")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorImportPluginGetImportOptions {{
         func := editorimportplugin_uget_import_options[T]
-        ci.virtual_methods["_get_import_options"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_import_options")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorImportPluginGetSaveExtension {{
         func := editorimportplugin_uget_save_extension[T]
-        ci.virtual_methods["_get_save_extension"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_save_extension")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorImportPluginGetResourceType {{
         func := editorimportplugin_uget_resource_type[T]
-        ci.virtual_methods["_get_resource_type"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_resource_type")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorImportPluginGetPriority {{
         func := editorimportplugin_uget_priority[T]
-        ci.virtual_methods["_get_priority"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_priority")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorImportPluginGetImportOrder {{
         func := editorimportplugin_uget_import_order[T]
-        ci.virtual_methods["_get_import_order"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_import_order")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorImportPluginGetOptionVisibility {{
         func := editorimportplugin_uget_option_visibility[T]
-        ci.virtual_methods["_get_option_visibility"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_option_visibility")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorImportPluginImport {{
         func := editorimportplugin_uimport[T]
-        ci.virtual_methods["_import"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_import")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorInspectorPluginCanHandle {{
         func := editorinspectorplugin_ucan_handle[T]
-        ci.virtual_methods["_can_handle"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_can_handle")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorInspectorPluginParseBegin {{
         func := editorinspectorplugin_uparse_begin[T]
-        ci.virtual_methods["_parse_begin"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_parse_begin")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorInspectorPluginParseCategory {{
         func := editorinspectorplugin_uparse_category[T]
-        ci.virtual_methods["_parse_category"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_parse_category")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorInspectorPluginParseGroup {{
         func := editorinspectorplugin_uparse_group[T]
-        ci.virtual_methods["_parse_group"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_parse_group")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorInspectorPluginParseProperty {{
         func := editorinspectorplugin_uparse_property[T]
-        ci.virtual_methods["_parse_property"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_parse_property")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorInspectorPluginParseEnd {{
         func := editorinspectorplugin_uparse_end[T]
-        ci.virtual_methods["_parse_end"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_parse_end")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorNode3DGizmoRedraw {{
         func := editornode3dgizmo_uredraw[T]
-        ci.virtual_methods["_redraw"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_redraw")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorNode3DGizmoGetHandleName {{
         func := editornode3dgizmo_uget_handle_name[T]
-        ci.virtual_methods["_get_handle_name"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_handle_name")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorNode3DGizmoIsHandleHighlighted {{
         func := editornode3dgizmo_uis_handle_highlighted[T]
-        ci.virtual_methods["_is_handle_highlighted"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_is_handle_highlighted")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorNode3DGizmoGetHandleValue {{
         func := editornode3dgizmo_uget_handle_value[T]
-        ci.virtual_methods["_get_handle_value"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_handle_value")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorNode3DGizmoSetHandle {{
         func := editornode3dgizmo_uset_handle[T]
-        ci.virtual_methods["_set_handle"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_handle")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorNode3DGizmoCommitHandle {{
         func := editornode3dgizmo_ucommit_handle[T]
-        ci.virtual_methods["_commit_handle"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_commit_handle")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorNode3DGizmoSubgizmosIntersectRay {{
         func := editornode3dgizmo_usubgizmos_intersect_ray[T]
-        ci.virtual_methods["_subgizmos_intersect_ray"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_subgizmos_intersect_ray")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorNode3DGizmoSubgizmosIntersectFrustum {{
         func := editornode3dgizmo_usubgizmos_intersect_frustum[T]
-        ci.virtual_methods["_subgizmos_intersect_frustum"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_subgizmos_intersect_frustum")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorNode3DGizmoSetSubgizmoTransform {{
         func := editornode3dgizmo_uset_subgizmo_transform[T]
-        ci.virtual_methods["_set_subgizmo_transform"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_subgizmo_transform")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorNode3DGizmoGetSubgizmoTransform {{
         func := editornode3dgizmo_uget_subgizmo_transform[T]
-        ci.virtual_methods["_get_subgizmo_transform"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_subgizmo_transform")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorNode3DGizmoCommitSubgizmos {{
         func := editornode3dgizmo_ucommit_subgizmos[T]
-        ci.virtual_methods["_commit_subgizmos"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_commit_subgizmos")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorNode3DGizmoPluginHasGizmo {{
         func := editornode3dgizmoplugin_uhas_gizmo[T]
-        ci.virtual_methods["_has_gizmo"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_has_gizmo")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorNode3DGizmoPluginCreateGizmo {{
         func := editornode3dgizmoplugin_ucreate_gizmo[T]
-        ci.virtual_methods["_create_gizmo"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_create_gizmo")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorNode3DGizmoPluginGetGizmoName {{
         func := editornode3dgizmoplugin_uget_gizmo_name[T]
-        ci.virtual_methods["_get_gizmo_name"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_gizmo_name")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorNode3DGizmoPluginGetPriority {{
         func := editornode3dgizmoplugin_uget_priority[T]
-        ci.virtual_methods["_get_priority"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_priority")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorNode3DGizmoPluginCanBeHidden {{
         func := editornode3dgizmoplugin_ucan_be_hidden[T]
-        ci.virtual_methods["_can_be_hidden"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_can_be_hidden")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorNode3DGizmoPluginIsSelectableWhenHidden {{
         func := editornode3dgizmoplugin_uis_selectable_when_hidden[T]
-        ci.virtual_methods["_is_selectable_when_hidden"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_is_selectable_when_hidden")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorNode3DGizmoPluginRedraw {{
         func := editornode3dgizmoplugin_uredraw[T]
-        ci.virtual_methods["_redraw"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_redraw")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorNode3DGizmoPluginGetHandleName {{
         func := editornode3dgizmoplugin_uget_handle_name[T]
-        ci.virtual_methods["_get_handle_name"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_handle_name")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorNode3DGizmoPluginIsHandleHighlighted {{
         func := editornode3dgizmoplugin_uis_handle_highlighted[T]
-        ci.virtual_methods["_is_handle_highlighted"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_is_handle_highlighted")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorNode3DGizmoPluginGetHandleValue {{
         func := editornode3dgizmoplugin_uget_handle_value[T]
-        ci.virtual_methods["_get_handle_value"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_handle_value")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorNode3DGizmoPluginSetHandle {{
         func := editornode3dgizmoplugin_uset_handle[T]
-        ci.virtual_methods["_set_handle"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_handle")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorNode3DGizmoPluginCommitHandle {{
         func := editornode3dgizmoplugin_ucommit_handle[T]
-        ci.virtual_methods["_commit_handle"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_commit_handle")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorNode3DGizmoPluginSubgizmosIntersectRay {{
         func := editornode3dgizmoplugin_usubgizmos_intersect_ray[T]
-        ci.virtual_methods["_subgizmos_intersect_ray"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_subgizmos_intersect_ray")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorNode3DGizmoPluginSubgizmosIntersectFrustum {{
         func := editornode3dgizmoplugin_usubgizmos_intersect_frustum[T]
-        ci.virtual_methods["_subgizmos_intersect_frustum"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_subgizmos_intersect_frustum")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorNode3DGizmoPluginGetSubgizmoTransform {{
         func := editornode3dgizmoplugin_uget_subgizmo_transform[T]
-        ci.virtual_methods["_get_subgizmo_transform"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_subgizmo_transform")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorNode3DGizmoPluginSetSubgizmoTransform {{
         func := editornode3dgizmoplugin_uset_subgizmo_transform[T]
-        ci.virtual_methods["_set_subgizmo_transform"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_subgizmo_transform")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorNode3DGizmoPluginCommitSubgizmos {{
         func := editornode3dgizmoplugin_ucommit_subgizmos[T]
-        ci.virtual_methods["_commit_subgizmos"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_commit_subgizmos")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorPluginForwardCanvasGuiInput {{
         func := editorplugin_uforward_canvas_gui_input[T]
-        ci.virtual_methods["_forward_canvas_gui_input"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_forward_canvas_gui_input")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorPluginForwardCanvasDrawOverViewport {{
         func := editorplugin_uforward_canvas_draw_over_viewport[T]
-        ci.virtual_methods["_forward_canvas_draw_over_viewport"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_forward_canvas_draw_over_viewport")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorPluginForwardCanvasForceDrawOverViewport {{
         func := editorplugin_uforward_canvas_force_draw_over_viewport[T]
-        ci.virtual_methods["_forward_canvas_force_draw_over_viewport"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_forward_canvas_force_draw_over_viewport")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorPluginForward3dGuiInput {{
         func := editorplugin_uforward_3d_gui_input[T]
-        ci.virtual_methods["_forward_3d_gui_input"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_forward_3d_gui_input")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorPluginForward3dDrawOverViewport {{
         func := editorplugin_uforward_3d_draw_over_viewport[T]
-        ci.virtual_methods["_forward_3d_draw_over_viewport"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_forward_3d_draw_over_viewport")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorPluginForward3dForceDrawOverViewport {{
         func := editorplugin_uforward_3d_force_draw_over_viewport[T]
-        ci.virtual_methods["_forward_3d_force_draw_over_viewport"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_forward_3d_force_draw_over_viewport")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorPluginGetPluginName {{
         func := editorplugin_uget_plugin_name[T]
-        ci.virtual_methods["_get_plugin_name"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_plugin_name")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorPluginGetPluginIcon {{
         func := editorplugin_uget_plugin_icon[T]
-        ci.virtual_methods["_get_plugin_icon"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_plugin_icon")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorPluginHasMainScreen {{
         func := editorplugin_uhas_main_screen[T]
-        ci.virtual_methods["_has_main_screen"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_has_main_screen")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorPluginMakeVisible {{
         func := editorplugin_umake_visible[T]
-        ci.virtual_methods["_make_visible"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_make_visible")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorPluginEdit {{
         func := editorplugin_uedit[T]
-        ci.virtual_methods["_edit"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_edit")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorPluginHandles {{
         func := editorplugin_uhandles[T]
-        ci.virtual_methods["_handles"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_handles")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorPluginGetState {{
         func := editorplugin_uget_state[T]
-        ci.virtual_methods["_get_state"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_state")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorPluginSetState {{
         func := editorplugin_uset_state[T]
-        ci.virtual_methods["_set_state"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_state")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorPluginClear {{
         func := editorplugin_uclear[T]
-        ci.virtual_methods["_clear"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_clear")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorPluginGetUnsavedStatus {{
         func := editorplugin_uget_unsaved_status[T]
-        ci.virtual_methods["_get_unsaved_status"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_unsaved_status")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorPluginSaveExternalData {{
         func := editorplugin_usave_external_data[T]
-        ci.virtual_methods["_save_external_data"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_save_external_data")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorPluginApplyChanges {{
         func := editorplugin_uapply_changes[T]
-        ci.virtual_methods["_apply_changes"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_apply_changes")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorPluginGetBreakpoints {{
         func := editorplugin_uget_breakpoints[T]
-        ci.virtual_methods["_get_breakpoints"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_breakpoints")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorPluginSetWindowLayout {{
         func := editorplugin_uset_window_layout[T]
-        ci.virtual_methods["_set_window_layout"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_window_layout")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorPluginGetWindowLayout {{
         func := editorplugin_uget_window_layout[T]
-        ci.virtual_methods["_get_window_layout"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_window_layout")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorPluginBuild {{
         func := editorplugin_ubuild[T]
-        ci.virtual_methods["_build"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_build")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorPluginEnablePlugin {{
         func := editorplugin_uenable_plugin[T]
-        ci.virtual_methods["_enable_plugin"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_enable_plugin")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorPluginDisablePlugin {{
         func := editorplugin_udisable_plugin[T]
-        ci.virtual_methods["_disable_plugin"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_disable_plugin")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorPropertyUpdateProperty {{
         func := editorproperty_uupdate_property[T]
-        ci.virtual_methods["_update_property"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_update_property")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorPropertySetReadOnly {{
         func := editorproperty_uset_read_only[T]
-        ci.virtual_methods["_set_read_only"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_read_only")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorResourceConversionPluginConvertsTo {{
         func := editorresourceconversionplugin_uconverts_to[T]
-        ci.virtual_methods["_converts_to"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_converts_to")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorResourceConversionPluginHandles {{
         func := editorresourceconversionplugin_uhandles[T]
-        ci.virtual_methods["_handles"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_handles")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorResourceConversionPluginConvert {{
         func := editorresourceconversionplugin_uconvert[T]
-        ci.virtual_methods["_convert"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_convert")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorResourcePickerSetCreateOptions {{
         func := editorresourcepicker_uset_create_options[T]
-        ci.virtual_methods["_set_create_options"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_create_options")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorResourcePickerHandleMenuSelected {{
         func := editorresourcepicker_uhandle_menu_selected[T]
-        ci.virtual_methods["_handle_menu_selected"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_handle_menu_selected")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorResourcePreviewGeneratorHandles {{
         func := editorresourcepreviewgenerator_uhandles[T]
-        ci.virtual_methods["_handles"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_handles")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorResourcePreviewGeneratorGenerate {{
         func := editorresourcepreviewgenerator_ugenerate[T]
-        ci.virtual_methods["_generate"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_generate")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorResourcePreviewGeneratorGenerateFromPath {{
         func := editorresourcepreviewgenerator_ugenerate_from_path[T]
-        ci.virtual_methods["_generate_from_path"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_generate_from_path")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorResourcePreviewGeneratorGenerateSmallPreviewAutomatically {{
         func := editorresourcepreviewgenerator_ugenerate_small_preview_automatically[T]
-        ci.virtual_methods["_generate_small_preview_automatically"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_generate_small_preview_automatically")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorResourcePreviewGeneratorCanGenerateSmallPreview {{
         func := editorresourcepreviewgenerator_ucan_generate_small_preview[T]
-        ci.virtual_methods["_can_generate_small_preview"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_can_generate_small_preview")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorResourceTooltipPluginHandles {{
         func := editorresourcetooltipplugin_uhandles[T]
-        ci.virtual_methods["_handles"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_handles")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorResourceTooltipPluginMakeTooltipForPath {{
         func := editorresourcetooltipplugin_umake_tooltip_for_path[T]
-        ci.virtual_methods["_make_tooltip_for_path"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_make_tooltip_for_path")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorSceneFormatImporterGetImportFlags {{
         func := editorsceneformatimporter_uget_import_flags[T]
-        ci.virtual_methods["_get_import_flags"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_import_flags")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorSceneFormatImporterGetExtensions {{
         func := editorsceneformatimporter_uget_extensions[T]
-        ci.virtual_methods["_get_extensions"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_extensions")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorSceneFormatImporterImportScene {{
         func := editorsceneformatimporter_uimport_scene[T]
-        ci.virtual_methods["_import_scene"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_import_scene")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorSceneFormatImporterGetImportOptions {{
         func := editorsceneformatimporter_uget_import_options[T]
-        ci.virtual_methods["_get_import_options"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_import_options")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorSceneFormatImporterGetOptionVisibility {{
         func := editorsceneformatimporter_uget_option_visibility[T]
-        ci.virtual_methods["_get_option_visibility"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_option_visibility")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorScenePostImportPostImport {{
         func := editorscenepostimport_upost_import[T]
-        ci.virtual_methods["_post_import"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_post_import")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorScenePostImportPluginGetInternalImportOptions {{
         func := editorscenepostimportplugin_uget_internal_import_options[T]
-        ci.virtual_methods["_get_internal_import_options"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_internal_import_options")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorScenePostImportPluginGetInternalOptionVisibility {{
         func := editorscenepostimportplugin_uget_internal_option_visibility[T]
-        ci.virtual_methods["_get_internal_option_visibility"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_internal_option_visibility")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorScenePostImportPluginGetInternalOptionUpdateViewRequired {{
         func := editorscenepostimportplugin_uget_internal_option_update_view_required[T]
-        ci.virtual_methods["_get_internal_option_update_view_required"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_internal_option_update_view_required")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorScenePostImportPluginInternalProcess {{
         func := editorscenepostimportplugin_uinternal_process[T]
-        ci.virtual_methods["_internal_process"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_internal_process")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorScenePostImportPluginGetImportOptions {{
         func := editorscenepostimportplugin_uget_import_options[T]
-        ci.virtual_methods["_get_import_options"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_import_options")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorScenePostImportPluginGetOptionVisibility {{
         func := editorscenepostimportplugin_uget_option_visibility[T]
-        ci.virtual_methods["_get_option_visibility"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_option_visibility")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorScenePostImportPluginPreProcess {{
         func := editorscenepostimportplugin_upre_process[T]
-        ci.virtual_methods["_pre_process"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_pre_process")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorScenePostImportPluginPostProcess {{
         func := editorscenepostimportplugin_upost_process[T]
-        ci.virtual_methods["_post_process"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_post_process")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorScriptRun {{
         func := editorscript_urun[T]
-        ci.virtual_methods["_run"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_run")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorSyntaxHighlighterGetName {{
         func := editorsyntaxhighlighter_uget_name[T]
-        ci.virtual_methods["_get_name"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_name")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorSyntaxHighlighterGetSupportedLanguages {{
         func := editorsyntaxhighlighter_uget_supported_languages[T]
-        ci.virtual_methods["_get_supported_languages"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_supported_languages")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorTranslationParserPluginParseFile {{
         func := editortranslationparserplugin_uparse_file[T]
-        ci.virtual_methods["_parse_file"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_parse_file")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorTranslationParserPluginGetRecognizedExtensions {{
         func := editortranslationparserplugin_uget_recognized_extensions[T]
-        ci.virtual_methods["_get_recognized_extensions"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_recognized_extensions")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorVCSInterfaceInitialize {{
         func := editorvcsinterface_uinitialize[T]
-        ci.virtual_methods["_initialize"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_initialize")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorVCSInterfaceSetCredentials {{
         func := editorvcsinterface_uset_credentials[T]
-        ci.virtual_methods["_set_credentials"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_credentials")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorVCSInterfaceGetModifiedFilesData {{
         func := editorvcsinterface_uget_modified_files_data[T]
-        ci.virtual_methods["_get_modified_files_data"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_modified_files_data")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorVCSInterfaceStageFile {{
         func := editorvcsinterface_ustage_file[T]
-        ci.virtual_methods["_stage_file"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_stage_file")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorVCSInterfaceUnstageFile {{
         func := editorvcsinterface_uunstage_file[T]
-        ci.virtual_methods["_unstage_file"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_unstage_file")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorVCSInterfaceDiscardFile {{
         func := editorvcsinterface_udiscard_file[T]
-        ci.virtual_methods["_discard_file"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_discard_file")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorVCSInterfaceCommit {{
         func := editorvcsinterface_ucommit[T]
-        ci.virtual_methods["_commit"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_commit")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorVCSInterfaceGetDiff {{
         func := editorvcsinterface_uget_diff[T]
-        ci.virtual_methods["_get_diff"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_diff")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorVCSInterfaceShutDown {{
         func := editorvcsinterface_ushut_down[T]
-        ci.virtual_methods["_shut_down"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shut_down")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorVCSInterfaceGetVcsName {{
         func := editorvcsinterface_uget_vcs_name[T]
-        ci.virtual_methods["_get_vcs_name"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_vcs_name")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorVCSInterfaceGetPreviousCommits {{
         func := editorvcsinterface_uget_previous_commits[T]
-        ci.virtual_methods["_get_previous_commits"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_previous_commits")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorVCSInterfaceGetBranchList {{
         func := editorvcsinterface_uget_branch_list[T]
-        ci.virtual_methods["_get_branch_list"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_branch_list")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorVCSInterfaceGetRemotes {{
         func := editorvcsinterface_uget_remotes[T]
-        ci.virtual_methods["_get_remotes"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_remotes")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorVCSInterfaceCreateBranch {{
         func := editorvcsinterface_ucreate_branch[T]
-        ci.virtual_methods["_create_branch"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_create_branch")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorVCSInterfaceRemoveBranch {{
         func := editorvcsinterface_uremove_branch[T]
-        ci.virtual_methods["_remove_branch"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_remove_branch")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorVCSInterfaceCreateRemote {{
         func := editorvcsinterface_ucreate_remote[T]
-        ci.virtual_methods["_create_remote"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_create_remote")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorVCSInterfaceRemoveRemote {{
         func := editorvcsinterface_uremove_remote[T]
-        ci.virtual_methods["_remove_remote"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_remove_remote")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorVCSInterfaceGetCurrentBranchName {{
         func := editorvcsinterface_uget_current_branch_name[T]
-        ci.virtual_methods["_get_current_branch_name"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_current_branch_name")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorVCSInterfaceCheckoutBranch {{
         func := editorvcsinterface_ucheckout_branch[T]
-        ci.virtual_methods["_checkout_branch"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_checkout_branch")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorVCSInterfacePull {{
         func := editorvcsinterface_upull[T]
-        ci.virtual_methods["_pull"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_pull")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorVCSInterfacePush {{
         func := editorvcsinterface_upush[T]
-        ci.virtual_methods["_push"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_push")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorVCSInterfaceFetch {{
         func := editorvcsinterface_ufetch[T]
-        ci.virtual_methods["_fetch"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_fetch")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEditorVCSInterfaceGetLineDiff {{
         func := editorvcsinterface_uget_line_diff[T]
-        ci.virtual_methods["_get_line_diff"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_line_diff")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEngineProfilerToggle {{
         func := engineprofiler_utoggle[T]
-        ci.virtual_methods["_toggle"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_toggle")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEngineProfilerAddFrame {{
         func := engineprofiler_uadd_frame[T]
-        ci.virtual_methods["_add_frame"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_add_frame")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IEngineProfilerTick {{
         func := engineprofiler_utick[T]
-        ci.virtual_methods["_tick"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_tick")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IGLTFDocumentExtensionImportPreflight {{
         func := gltfdocumentextension_uimport_preflight[T]
-        ci.virtual_methods["_import_preflight"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_import_preflight")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IGLTFDocumentExtensionGetSupportedExtensions {{
         func := gltfdocumentextension_uget_supported_extensions[T]
-        ci.virtual_methods["_get_supported_extensions"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_supported_extensions")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IGLTFDocumentExtensionParseNodeExtensions {{
         func := gltfdocumentextension_uparse_node_extensions[T]
-        ci.virtual_methods["_parse_node_extensions"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_parse_node_extensions")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IGLTFDocumentExtensionParseImageData {{
         func := gltfdocumentextension_uparse_image_data[T]
-        ci.virtual_methods["_parse_image_data"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_parse_image_data")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IGLTFDocumentExtensionGetImageFileExtension {{
         func := gltfdocumentextension_uget_image_file_extension[T]
-        ci.virtual_methods["_get_image_file_extension"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_image_file_extension")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IGLTFDocumentExtensionParseTextureJson {{
         func := gltfdocumentextension_uparse_texture_json[T]
-        ci.virtual_methods["_parse_texture_json"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_parse_texture_json")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IGLTFDocumentExtensionGenerateSceneNode {{
         func := gltfdocumentextension_ugenerate_scene_node[T]
-        ci.virtual_methods["_generate_scene_node"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_generate_scene_node")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IGLTFDocumentExtensionImportPostParse {{
         func := gltfdocumentextension_uimport_post_parse[T]
-        ci.virtual_methods["_import_post_parse"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_import_post_parse")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IGLTFDocumentExtensionImportNode {{
         func := gltfdocumentextension_uimport_node[T]
-        ci.virtual_methods["_import_node"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_import_node")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IGLTFDocumentExtensionImportPost {{
         func := gltfdocumentextension_uimport_post[T]
-        ci.virtual_methods["_import_post"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_import_post")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IGLTFDocumentExtensionExportPreflight {{
         func := gltfdocumentextension_uexport_preflight[T]
-        ci.virtual_methods["_export_preflight"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_export_preflight")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IGLTFDocumentExtensionConvertSceneNode {{
         func := gltfdocumentextension_uconvert_scene_node[T]
-        ci.virtual_methods["_convert_scene_node"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_convert_scene_node")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IGLTFDocumentExtensionExportPreserialize {{
         func := gltfdocumentextension_uexport_preserialize[T]
-        ci.virtual_methods["_export_preserialize"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_export_preserialize")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IGLTFDocumentExtensionGetSaveableImageFormats {{
         func := gltfdocumentextension_uget_saveable_image_formats[T]
-        ci.virtual_methods["_get_saveable_image_formats"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_saveable_image_formats")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IGLTFDocumentExtensionSerializeImageToBytes {{
         func := gltfdocumentextension_userialize_image_to_bytes[T]
-        ci.virtual_methods["_serialize_image_to_bytes"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_serialize_image_to_bytes")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IGLTFDocumentExtensionSaveImageAtPath {{
         func := gltfdocumentextension_usave_image_at_path[T]
-        ci.virtual_methods["_save_image_at_path"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_save_image_at_path")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IGLTFDocumentExtensionSerializeTextureJson {{
         func := gltfdocumentextension_userialize_texture_json[T]
-        ci.virtual_methods["_serialize_texture_json"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_serialize_texture_json")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IGLTFDocumentExtensionExportNode {{
         func := gltfdocumentextension_uexport_node[T]
-        ci.virtual_methods["_export_node"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_export_node")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IGLTFDocumentExtensionExportPost {{
         func := gltfdocumentextension_uexport_post[T]
-        ci.virtual_methods["_export_post"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_export_post")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IGraphEditIsInInputHotzone {{
         func := graphedit_uis_in_input_hotzone[T]
-        ci.virtual_methods["_is_in_input_hotzone"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_is_in_input_hotzone")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IGraphEditIsInOutputHotzone {{
         func := graphedit_uis_in_output_hotzone[T]
-        ci.virtual_methods["_is_in_output_hotzone"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_is_in_output_hotzone")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IGraphEditGetConnectionLine {{
         func := graphedit_uget_connection_line[T]
-        ci.virtual_methods["_get_connection_line"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_connection_line")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IGraphEditIsNodeHoverValid {{
         func := graphedit_uis_node_hover_valid[T]
-        ci.virtual_methods["_is_node_hover_valid"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_is_node_hover_valid")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IGraphNodeDrawPort {{
         func := graphnode_udraw_port[T]
-        ci.virtual_methods["_draw_port"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_draw_port")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IImageFormatLoaderExtensionGetRecognizedExtensions {{
         func := imageformatloaderextension_uget_recognized_extensions[T]
-        ci.virtual_methods["_get_recognized_extensions"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_recognized_extensions")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IImageFormatLoaderExtensionLoadImage {{
         func := imageformatloaderextension_uload_image[T]
-        ci.virtual_methods["_load_image"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_load_image")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMainLoopInitialize {{
         func := mainloop_uinitialize[T]
-        ci.virtual_methods["_initialize"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_initialize")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMainLoopPhysicsProcess {{
         func := mainloop_uphysics_process[T]
-        ci.virtual_methods["_physics_process"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_physics_process")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMainLoopProcess {{
         func := mainloop_uprocess[T]
-        ci.virtual_methods["_process"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_process")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMainLoopFinalize {{
         func := mainloop_ufinalize[T]
-        ci.virtual_methods["_finalize"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_finalize")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMaterialGetShaderRid {{
         func := material_uget_shader_rid[T]
-        ci.virtual_methods["_get_shader_rid"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_shader_rid")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMaterialGetShaderMode {{
         func := material_uget_shader_mode[T]
-        ci.virtual_methods["_get_shader_mode"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_shader_mode")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMaterialCanDoNextPass {{
         func := material_ucan_do_next_pass[T]
-        ci.virtual_methods["_can_do_next_pass"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_can_do_next_pass")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMaterialCanUseRenderPriority {{
         func := material_ucan_use_render_priority[T]
-        ci.virtual_methods["_can_use_render_priority"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_can_use_render_priority")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMeshGetSurfaceCount {{
         func := mesh_uget_surface_count[T]
-        ci.virtual_methods["_get_surface_count"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_surface_count")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMeshSurfaceGetArrayLen {{
         func := mesh_usurface_get_array_len[T]
-        ci.virtual_methods["_surface_get_array_len"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_surface_get_array_len")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMeshSurfaceGetArrayIndexLen {{
         func := mesh_usurface_get_array_index_len[T]
-        ci.virtual_methods["_surface_get_array_index_len"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_surface_get_array_index_len")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMeshSurfaceGetArrays {{
         func := mesh_usurface_get_arrays[T]
-        ci.virtual_methods["_surface_get_arrays"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_surface_get_arrays")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMeshSurfaceGetBlendShapeArrays {{
         func := mesh_usurface_get_blend_shape_arrays[T]
-        ci.virtual_methods["_surface_get_blend_shape_arrays"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_surface_get_blend_shape_arrays")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMeshSurfaceGetLods {{
         func := mesh_usurface_get_lods[T]
-        ci.virtual_methods["_surface_get_lods"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_surface_get_lods")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMeshSurfaceGetFormat {{
         func := mesh_usurface_get_format[T]
-        ci.virtual_methods["_surface_get_format"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_surface_get_format")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMeshSurfaceGetPrimitiveType {{
         func := mesh_usurface_get_primitive_type[T]
-        ci.virtual_methods["_surface_get_primitive_type"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_surface_get_primitive_type")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMeshSurfaceSetMaterial {{
         func := mesh_usurface_set_material[T]
-        ci.virtual_methods["_surface_set_material"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_surface_set_material")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMeshSurfaceGetMaterial {{
         func := mesh_usurface_get_material[T]
-        ci.virtual_methods["_surface_get_material"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_surface_get_material")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMeshGetBlendShapeCount {{
         func := mesh_uget_blend_shape_count[T]
-        ci.virtual_methods["_get_blend_shape_count"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_blend_shape_count")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMeshGetBlendShapeName {{
         func := mesh_uget_blend_shape_name[T]
-        ci.virtual_methods["_get_blend_shape_name"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_blend_shape_name")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMeshSetBlendShapeName {{
         func := mesh_uset_blend_shape_name[T]
-        ci.virtual_methods["_set_blend_shape_name"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_blend_shape_name")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMeshGetAabb {{
         func := mesh_uget_aabb[T]
-        ci.virtual_methods["_get_aabb"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_aabb")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMovieWriterGetAudioMixRate {{
         func := moviewriter_uget_audio_mix_rate[T]
-        ci.virtual_methods["_get_audio_mix_rate"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_audio_mix_rate")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMovieWriterGetAudioSpeakerMode {{
         func := moviewriter_uget_audio_speaker_mode[T]
-        ci.virtual_methods["_get_audio_speaker_mode"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_audio_speaker_mode")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMovieWriterHandlesFile {{
         func := moviewriter_uhandles_file[T]
-        ci.virtual_methods["_handles_file"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_handles_file")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMovieWriterWriteBegin {{
         func := moviewriter_uwrite_begin[T]
-        ci.virtual_methods["_write_begin"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_write_begin")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMovieWriterWriteFrame {{
         func := moviewriter_uwrite_frame[T]
-        ci.virtual_methods["_write_frame"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_write_frame")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMovieWriterWriteEnd {{
         func := moviewriter_uwrite_end[T]
-        ci.virtual_methods["_write_end"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_write_end")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMultiplayerAPIExtensionPoll {{
         func := multiplayerapiextension_upoll[T]
-        ci.virtual_methods["_poll"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_poll")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMultiplayerAPIExtensionSetMultiplayerPeer {{
         func := multiplayerapiextension_uset_multiplayer_peer[T]
-        ci.virtual_methods["_set_multiplayer_peer"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_multiplayer_peer")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMultiplayerAPIExtensionGetMultiplayerPeer {{
         func := multiplayerapiextension_uget_multiplayer_peer[T]
-        ci.virtual_methods["_get_multiplayer_peer"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_multiplayer_peer")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMultiplayerAPIExtensionGetUniqueId {{
         func := multiplayerapiextension_uget_unique_id[T]
-        ci.virtual_methods["_get_unique_id"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_unique_id")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMultiplayerAPIExtensionGetPeerIds {{
         func := multiplayerapiextension_uget_peer_ids[T]
-        ci.virtual_methods["_get_peer_ids"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_peer_ids")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMultiplayerAPIExtensionRpc {{
         func := multiplayerapiextension_urpc[T]
-        ci.virtual_methods["_rpc"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_rpc")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMultiplayerAPIExtensionGetRemoteSenderId {{
         func := multiplayerapiextension_uget_remote_sender_id[T]
-        ci.virtual_methods["_get_remote_sender_id"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_remote_sender_id")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMultiplayerAPIExtensionObjectConfigurationAdd {{
         func := multiplayerapiextension_uobject_configuration_add[T]
-        ci.virtual_methods["_object_configuration_add"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_object_configuration_add")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMultiplayerAPIExtensionObjectConfigurationRemove {{
         func := multiplayerapiextension_uobject_configuration_remove[T]
-        ci.virtual_methods["_object_configuration_remove"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_object_configuration_remove")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMultiplayerPeerExtensionGetPacket {{
         func := multiplayerpeerextension_uget_packet[T]
-        ci.virtual_methods["_get_packet"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_packet")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMultiplayerPeerExtensionPutPacket {{
         func := multiplayerpeerextension_uput_packet[T]
-        ci.virtual_methods["_put_packet"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_put_packet")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMultiplayerPeerExtensionGetAvailablePacketCount {{
         func := multiplayerpeerextension_uget_available_packet_count[T]
-        ci.virtual_methods["_get_available_packet_count"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_available_packet_count")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMultiplayerPeerExtensionGetMaxPacketSize {{
         func := multiplayerpeerextension_uget_max_packet_size[T]
-        ci.virtual_methods["_get_max_packet_size"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_max_packet_size")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMultiplayerPeerExtensionGetPacketScript {{
         func := multiplayerpeerextension_uget_packet_script[T]
-        ci.virtual_methods["_get_packet_script"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_packet_script")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMultiplayerPeerExtensionPutPacketScript {{
         func := multiplayerpeerextension_uput_packet_script[T]
-        ci.virtual_methods["_put_packet_script"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_put_packet_script")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMultiplayerPeerExtensionGetPacketChannel {{
         func := multiplayerpeerextension_uget_packet_channel[T]
-        ci.virtual_methods["_get_packet_channel"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_packet_channel")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMultiplayerPeerExtensionGetPacketMode {{
         func := multiplayerpeerextension_uget_packet_mode[T]
-        ci.virtual_methods["_get_packet_mode"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_packet_mode")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMultiplayerPeerExtensionSetTransferChannel {{
         func := multiplayerpeerextension_uset_transfer_channel[T]
-        ci.virtual_methods["_set_transfer_channel"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_transfer_channel")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMultiplayerPeerExtensionGetTransferChannel {{
         func := multiplayerpeerextension_uget_transfer_channel[T]
-        ci.virtual_methods["_get_transfer_channel"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_transfer_channel")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMultiplayerPeerExtensionSetTransferMode {{
         func := multiplayerpeerextension_uset_transfer_mode[T]
-        ci.virtual_methods["_set_transfer_mode"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_transfer_mode")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMultiplayerPeerExtensionGetTransferMode {{
         func := multiplayerpeerextension_uget_transfer_mode[T]
-        ci.virtual_methods["_get_transfer_mode"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_transfer_mode")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMultiplayerPeerExtensionSetTargetPeer {{
         func := multiplayerpeerextension_uset_target_peer[T]
-        ci.virtual_methods["_set_target_peer"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_target_peer")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMultiplayerPeerExtensionGetPacketPeer {{
         func := multiplayerpeerextension_uget_packet_peer[T]
-        ci.virtual_methods["_get_packet_peer"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_packet_peer")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMultiplayerPeerExtensionIsServer {{
         func := multiplayerpeerextension_uis_server[T]
-        ci.virtual_methods["_is_server"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_is_server")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMultiplayerPeerExtensionPoll {{
         func := multiplayerpeerextension_upoll[T]
-        ci.virtual_methods["_poll"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_poll")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMultiplayerPeerExtensionClose {{
         func := multiplayerpeerextension_uclose[T]
-        ci.virtual_methods["_close"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_close")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMultiplayerPeerExtensionDisconnectPeer {{
         func := multiplayerpeerextension_udisconnect_peer[T]
-        ci.virtual_methods["_disconnect_peer"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_disconnect_peer")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMultiplayerPeerExtensionGetUniqueId {{
         func := multiplayerpeerextension_uget_unique_id[T]
-        ci.virtual_methods["_get_unique_id"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_unique_id")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMultiplayerPeerExtensionSetRefuseNewConnections {{
         func := multiplayerpeerextension_uset_refuse_new_connections[T]
-        ci.virtual_methods["_set_refuse_new_connections"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_refuse_new_connections")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMultiplayerPeerExtensionIsRefusingNewConnections {{
         func := multiplayerpeerextension_uis_refusing_new_connections[T]
-        ci.virtual_methods["_is_refusing_new_connections"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_is_refusing_new_connections")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMultiplayerPeerExtensionIsServerRelaySupported {{
         func := multiplayerpeerextension_uis_server_relay_supported[T]
-        ci.virtual_methods["_is_server_relay_supported"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_is_server_relay_supported")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IMultiplayerPeerExtensionGetConnectionStatus {{
         func := multiplayerpeerextension_uget_connection_status[T]
-        ci.virtual_methods["_get_connection_status"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_connection_status")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is INodeProcess {{
         func := node_uprocess[T]
-        ci.virtual_methods["_process"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_process")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is INodePhysicsProcess {{
         func := node_uphysics_process[T]
-        ci.virtual_methods["_physics_process"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_physics_process")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is INodeEnterTree {{
         func := node_uenter_tree[T]
-        ci.virtual_methods["_enter_tree"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_enter_tree")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is INodeExitTree {{
         func := node_uexit_tree[T]
-        ci.virtual_methods["_exit_tree"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_exit_tree")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is INodeReady {{
         func := node_uready[T]
-        ci.virtual_methods["_ready"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_ready")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is INodeGetConfigurationWarnings {{
         func := node_uget_configuration_warnings[T]
-        ci.virtual_methods["_get_configuration_warnings"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_configuration_warnings")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is INodeInput {{
         func := node_uinput[T]
-        ci.virtual_methods["_input"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_input")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is INodeShortcutInput {{
         func := node_ushortcut_input[T]
-        ci.virtual_methods["_shortcut_input"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shortcut_input")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is INodeUnhandledInput {{
         func := node_uunhandled_input[T]
-        ci.virtual_methods["_unhandled_input"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_unhandled_input")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is INodeUnhandledKeyInput {{
         func := node_uunhandled_key_input[T]
-        ci.virtual_methods["_unhandled_key_input"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_unhandled_key_input")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IOpenXRExtensionWrapperExtensionGetRequestedExtensions {{
         func := openxrextensionwrapperextension_uget_requested_extensions[T]
-        ci.virtual_methods["_get_requested_extensions"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_requested_extensions")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IOpenXRExtensionWrapperExtensionSetSystemPropertiesAndGetNextPointer {{
         func := openxrextensionwrapperextension_uset_system_properties_and_get_next_pointer[T]
-        ci.virtual_methods["_set_system_properties_and_get_next_pointer"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_system_properties_and_get_next_pointer")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IOpenXRExtensionWrapperExtensionSetInstanceCreateInfoAndGetNextPointer {{
         func := openxrextensionwrapperextension_uset_instance_create_info_and_get_next_pointer[T]
-        ci.virtual_methods["_set_instance_create_info_and_get_next_pointer"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_instance_create_info_and_get_next_pointer")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IOpenXRExtensionWrapperExtensionSetSessionCreateAndGetNextPointer {{
         func := openxrextensionwrapperextension_uset_session_create_and_get_next_pointer[T]
-        ci.virtual_methods["_set_session_create_and_get_next_pointer"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_session_create_and_get_next_pointer")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IOpenXRExtensionWrapperExtensionSetSwapchainCreateInfoAndGetNextPointer {{
         func := openxrextensionwrapperextension_uset_swapchain_create_info_and_get_next_pointer[T]
-        ci.virtual_methods["_set_swapchain_create_info_and_get_next_pointer"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_swapchain_create_info_and_get_next_pointer")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IOpenXRExtensionWrapperExtensionOnRegisterMetadata {{
         func := openxrextensionwrapperextension_uon_register_metadata[T]
-        ci.virtual_methods["_on_register_metadata"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_on_register_metadata")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IOpenXRExtensionWrapperExtensionOnBeforeInstanceCreated {{
         func := openxrextensionwrapperextension_uon_before_instance_created[T]
-        ci.virtual_methods["_on_before_instance_created"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_on_before_instance_created")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IOpenXRExtensionWrapperExtensionOnInstanceCreated {{
         func := openxrextensionwrapperextension_uon_instance_created[T]
-        ci.virtual_methods["_on_instance_created"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_on_instance_created")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IOpenXRExtensionWrapperExtensionOnInstanceDestroyed {{
         func := openxrextensionwrapperextension_uon_instance_destroyed[T]
-        ci.virtual_methods["_on_instance_destroyed"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_on_instance_destroyed")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IOpenXRExtensionWrapperExtensionOnSessionCreated {{
         func := openxrextensionwrapperextension_uon_session_created[T]
-        ci.virtual_methods["_on_session_created"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_on_session_created")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IOpenXRExtensionWrapperExtensionOnProcess {{
         func := openxrextensionwrapperextension_uon_process[T]
-        ci.virtual_methods["_on_process"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_on_process")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IOpenXRExtensionWrapperExtensionOnPreRender {{
         func := openxrextensionwrapperextension_uon_pre_render[T]
-        ci.virtual_methods["_on_pre_render"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_on_pre_render")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IOpenXRExtensionWrapperExtensionOnSessionDestroyed {{
         func := openxrextensionwrapperextension_uon_session_destroyed[T]
-        ci.virtual_methods["_on_session_destroyed"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_on_session_destroyed")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IOpenXRExtensionWrapperExtensionOnStateIdle {{
         func := openxrextensionwrapperextension_uon_state_idle[T]
-        ci.virtual_methods["_on_state_idle"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_on_state_idle")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IOpenXRExtensionWrapperExtensionOnStateReady {{
         func := openxrextensionwrapperextension_uon_state_ready[T]
-        ci.virtual_methods["_on_state_ready"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_on_state_ready")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IOpenXRExtensionWrapperExtensionOnStateSynchronized {{
         func := openxrextensionwrapperextension_uon_state_synchronized[T]
-        ci.virtual_methods["_on_state_synchronized"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_on_state_synchronized")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IOpenXRExtensionWrapperExtensionOnStateVisible {{
         func := openxrextensionwrapperextension_uon_state_visible[T]
-        ci.virtual_methods["_on_state_visible"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_on_state_visible")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IOpenXRExtensionWrapperExtensionOnStateFocused {{
         func := openxrextensionwrapperextension_uon_state_focused[T]
-        ci.virtual_methods["_on_state_focused"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_on_state_focused")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IOpenXRExtensionWrapperExtensionOnStateStopping {{
         func := openxrextensionwrapperextension_uon_state_stopping[T]
-        ci.virtual_methods["_on_state_stopping"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_on_state_stopping")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IOpenXRExtensionWrapperExtensionOnStateLossPending {{
         func := openxrextensionwrapperextension_uon_state_loss_pending[T]
-        ci.virtual_methods["_on_state_loss_pending"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_on_state_loss_pending")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IOpenXRExtensionWrapperExtensionOnStateExiting {{
         func := openxrextensionwrapperextension_uon_state_exiting[T]
-        ci.virtual_methods["_on_state_exiting"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_on_state_exiting")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IOpenXRExtensionWrapperExtensionOnEventPolled {{
         func := openxrextensionwrapperextension_uon_event_polled[T]
-        ci.virtual_methods["_on_event_polled"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_on_event_polled")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPacketPeerExtensionGetPacket {{
         func := packetpeerextension_uget_packet[T]
-        ci.virtual_methods["_get_packet"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_packet")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPacketPeerExtensionPutPacket {{
         func := packetpeerextension_uput_packet[T]
-        ci.virtual_methods["_put_packet"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_put_packet")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPacketPeerExtensionGetAvailablePacketCount {{
         func := packetpeerextension_uget_available_packet_count[T]
-        ci.virtual_methods["_get_available_packet_count"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_available_packet_count")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPacketPeerExtensionGetMaxPacketSize {{
         func := packetpeerextension_uget_max_packet_size[T]
-        ci.virtual_methods["_get_max_packet_size"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_max_packet_size")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicalBone3DIntegrateForces {{
         func := physicalbone3d_uintegrate_forces[T]
-        ci.virtual_methods["_integrate_forces"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_integrate_forces")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionGetTotalGravity {{
         func := physicsdirectbodystate2dextension_uget_total_gravity[T]
-        ci.virtual_methods["_get_total_gravity"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_total_gravity")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionGetTotalLinearDamp {{
         func := physicsdirectbodystate2dextension_uget_total_linear_damp[T]
-        ci.virtual_methods["_get_total_linear_damp"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_total_linear_damp")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionGetTotalAngularDamp {{
         func := physicsdirectbodystate2dextension_uget_total_angular_damp[T]
-        ci.virtual_methods["_get_total_angular_damp"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_total_angular_damp")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionGetCenterOfMass {{
         func := physicsdirectbodystate2dextension_uget_center_of_mass[T]
-        ci.virtual_methods["_get_center_of_mass"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_center_of_mass")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionGetCenterOfMassLocal {{
         func := physicsdirectbodystate2dextension_uget_center_of_mass_local[T]
-        ci.virtual_methods["_get_center_of_mass_local"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_center_of_mass_local")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionGetInverseMass {{
         func := physicsdirectbodystate2dextension_uget_inverse_mass[T]
-        ci.virtual_methods["_get_inverse_mass"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_inverse_mass")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionGetInverseInertia {{
         func := physicsdirectbodystate2dextension_uget_inverse_inertia[T]
-        ci.virtual_methods["_get_inverse_inertia"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_inverse_inertia")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionSetLinearVelocity {{
         func := physicsdirectbodystate2dextension_uset_linear_velocity[T]
-        ci.virtual_methods["_set_linear_velocity"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_linear_velocity")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionGetLinearVelocity {{
         func := physicsdirectbodystate2dextension_uget_linear_velocity[T]
-        ci.virtual_methods["_get_linear_velocity"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_linear_velocity")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionSetAngularVelocity {{
         func := physicsdirectbodystate2dextension_uset_angular_velocity[T]
-        ci.virtual_methods["_set_angular_velocity"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_angular_velocity")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionGetAngularVelocity {{
         func := physicsdirectbodystate2dextension_uget_angular_velocity[T]
-        ci.virtual_methods["_get_angular_velocity"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_angular_velocity")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionSetTransform {{
         func := physicsdirectbodystate2dextension_uset_transform[T]
-        ci.virtual_methods["_set_transform"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_transform")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionGetTransform {{
         func := physicsdirectbodystate2dextension_uget_transform[T]
-        ci.virtual_methods["_get_transform"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_transform")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionGetVelocityAtLocalPosition {{
         func := physicsdirectbodystate2dextension_uget_velocity_at_local_position[T]
-        ci.virtual_methods["_get_velocity_at_local_position"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_velocity_at_local_position")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionApplyCentralImpulse {{
         func := physicsdirectbodystate2dextension_uapply_central_impulse[T]
-        ci.virtual_methods["_apply_central_impulse"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_apply_central_impulse")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionApplyImpulse {{
         func := physicsdirectbodystate2dextension_uapply_impulse[T]
-        ci.virtual_methods["_apply_impulse"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_apply_impulse")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionApplyTorqueImpulse {{
         func := physicsdirectbodystate2dextension_uapply_torque_impulse[T]
-        ci.virtual_methods["_apply_torque_impulse"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_apply_torque_impulse")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionApplyCentralForce {{
         func := physicsdirectbodystate2dextension_uapply_central_force[T]
-        ci.virtual_methods["_apply_central_force"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_apply_central_force")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionApplyForce {{
         func := physicsdirectbodystate2dextension_uapply_force[T]
-        ci.virtual_methods["_apply_force"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_apply_force")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionApplyTorque {{
         func := physicsdirectbodystate2dextension_uapply_torque[T]
-        ci.virtual_methods["_apply_torque"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_apply_torque")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionAddConstantCentralForce {{
         func := physicsdirectbodystate2dextension_uadd_constant_central_force[T]
-        ci.virtual_methods["_add_constant_central_force"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_add_constant_central_force")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionAddConstantForce {{
         func := physicsdirectbodystate2dextension_uadd_constant_force[T]
-        ci.virtual_methods["_add_constant_force"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_add_constant_force")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionAddConstantTorque {{
         func := physicsdirectbodystate2dextension_uadd_constant_torque[T]
-        ci.virtual_methods["_add_constant_torque"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_add_constant_torque")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionSetConstantForce {{
         func := physicsdirectbodystate2dextension_uset_constant_force[T]
-        ci.virtual_methods["_set_constant_force"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_constant_force")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionGetConstantForce {{
         func := physicsdirectbodystate2dextension_uget_constant_force[T]
-        ci.virtual_methods["_get_constant_force"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_constant_force")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionSetConstantTorque {{
         func := physicsdirectbodystate2dextension_uset_constant_torque[T]
-        ci.virtual_methods["_set_constant_torque"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_constant_torque")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionGetConstantTorque {{
         func := physicsdirectbodystate2dextension_uget_constant_torque[T]
-        ci.virtual_methods["_get_constant_torque"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_constant_torque")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionSetSleepState {{
         func := physicsdirectbodystate2dextension_uset_sleep_state[T]
-        ci.virtual_methods["_set_sleep_state"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_sleep_state")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionIsSleeping {{
         func := physicsdirectbodystate2dextension_uis_sleeping[T]
-        ci.virtual_methods["_is_sleeping"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_is_sleeping")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionGetContactCount {{
         func := physicsdirectbodystate2dextension_uget_contact_count[T]
-        ci.virtual_methods["_get_contact_count"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_contact_count")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionGetContactLocalPosition {{
         func := physicsdirectbodystate2dextension_uget_contact_local_position[T]
-        ci.virtual_methods["_get_contact_local_position"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_contact_local_position")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionGetContactLocalNormal {{
         func := physicsdirectbodystate2dextension_uget_contact_local_normal[T]
-        ci.virtual_methods["_get_contact_local_normal"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_contact_local_normal")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionGetContactLocalShape {{
         func := physicsdirectbodystate2dextension_uget_contact_local_shape[T]
-        ci.virtual_methods["_get_contact_local_shape"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_contact_local_shape")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionGetContactLocalVelocityAtPosition {{
         func := physicsdirectbodystate2dextension_uget_contact_local_velocity_at_position[T]
-        ci.virtual_methods["_get_contact_local_velocity_at_position"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_contact_local_velocity_at_position")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionGetContactCollider {{
         func := physicsdirectbodystate2dextension_uget_contact_collider[T]
-        ci.virtual_methods["_get_contact_collider"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_contact_collider")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionGetContactColliderPosition {{
         func := physicsdirectbodystate2dextension_uget_contact_collider_position[T]
-        ci.virtual_methods["_get_contact_collider_position"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_contact_collider_position")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionGetContactColliderId {{
         func := physicsdirectbodystate2dextension_uget_contact_collider_id[T]
-        ci.virtual_methods["_get_contact_collider_id"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_contact_collider_id")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionGetContactColliderObject {{
         func := physicsdirectbodystate2dextension_uget_contact_collider_object[T]
-        ci.virtual_methods["_get_contact_collider_object"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_contact_collider_object")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionGetContactColliderShape {{
         func := physicsdirectbodystate2dextension_uget_contact_collider_shape[T]
-        ci.virtual_methods["_get_contact_collider_shape"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_contact_collider_shape")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionGetContactColliderVelocityAtPosition {{
         func := physicsdirectbodystate2dextension_uget_contact_collider_velocity_at_position[T]
-        ci.virtual_methods["_get_contact_collider_velocity_at_position"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_contact_collider_velocity_at_position")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionGetContactImpulse {{
         func := physicsdirectbodystate2dextension_uget_contact_impulse[T]
-        ci.virtual_methods["_get_contact_impulse"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_contact_impulse")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionGetStep {{
         func := physicsdirectbodystate2dextension_uget_step[T]
-        ci.virtual_methods["_get_step"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_step")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionIntegrateForces {{
         func := physicsdirectbodystate2dextension_uintegrate_forces[T]
-        ci.virtual_methods["_integrate_forces"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_integrate_forces")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState2DExtensionGetSpaceState {{
         func := physicsdirectbodystate2dextension_uget_space_state[T]
-        ci.virtual_methods["_get_space_state"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_space_state")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionGetTotalGravity {{
         func := physicsdirectbodystate3dextension_uget_total_gravity[T]
-        ci.virtual_methods["_get_total_gravity"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_total_gravity")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionGetTotalLinearDamp {{
         func := physicsdirectbodystate3dextension_uget_total_linear_damp[T]
-        ci.virtual_methods["_get_total_linear_damp"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_total_linear_damp")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionGetTotalAngularDamp {{
         func := physicsdirectbodystate3dextension_uget_total_angular_damp[T]
-        ci.virtual_methods["_get_total_angular_damp"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_total_angular_damp")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionGetCenterOfMass {{
         func := physicsdirectbodystate3dextension_uget_center_of_mass[T]
-        ci.virtual_methods["_get_center_of_mass"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_center_of_mass")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionGetCenterOfMassLocal {{
         func := physicsdirectbodystate3dextension_uget_center_of_mass_local[T]
-        ci.virtual_methods["_get_center_of_mass_local"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_center_of_mass_local")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionGetPrincipalInertiaAxes {{
         func := physicsdirectbodystate3dextension_uget_principal_inertia_axes[T]
-        ci.virtual_methods["_get_principal_inertia_axes"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_principal_inertia_axes")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionGetInverseMass {{
         func := physicsdirectbodystate3dextension_uget_inverse_mass[T]
-        ci.virtual_methods["_get_inverse_mass"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_inverse_mass")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionGetInverseInertia {{
         func := physicsdirectbodystate3dextension_uget_inverse_inertia[T]
-        ci.virtual_methods["_get_inverse_inertia"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_inverse_inertia")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionGetInverseInertiaTensor {{
         func := physicsdirectbodystate3dextension_uget_inverse_inertia_tensor[T]
-        ci.virtual_methods["_get_inverse_inertia_tensor"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_inverse_inertia_tensor")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionSetLinearVelocity {{
         func := physicsdirectbodystate3dextension_uset_linear_velocity[T]
-        ci.virtual_methods["_set_linear_velocity"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_linear_velocity")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionGetLinearVelocity {{
         func := physicsdirectbodystate3dextension_uget_linear_velocity[T]
-        ci.virtual_methods["_get_linear_velocity"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_linear_velocity")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionSetAngularVelocity {{
         func := physicsdirectbodystate3dextension_uset_angular_velocity[T]
-        ci.virtual_methods["_set_angular_velocity"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_angular_velocity")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionGetAngularVelocity {{
         func := physicsdirectbodystate3dextension_uget_angular_velocity[T]
-        ci.virtual_methods["_get_angular_velocity"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_angular_velocity")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionSetTransform {{
         func := physicsdirectbodystate3dextension_uset_transform[T]
-        ci.virtual_methods["_set_transform"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_transform")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionGetTransform {{
         func := physicsdirectbodystate3dextension_uget_transform[T]
-        ci.virtual_methods["_get_transform"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_transform")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionGetVelocityAtLocalPosition {{
         func := physicsdirectbodystate3dextension_uget_velocity_at_local_position[T]
-        ci.virtual_methods["_get_velocity_at_local_position"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_velocity_at_local_position")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionApplyCentralImpulse {{
         func := physicsdirectbodystate3dextension_uapply_central_impulse[T]
-        ci.virtual_methods["_apply_central_impulse"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_apply_central_impulse")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionApplyImpulse {{
         func := physicsdirectbodystate3dextension_uapply_impulse[T]
-        ci.virtual_methods["_apply_impulse"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_apply_impulse")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionApplyTorqueImpulse {{
         func := physicsdirectbodystate3dextension_uapply_torque_impulse[T]
-        ci.virtual_methods["_apply_torque_impulse"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_apply_torque_impulse")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionApplyCentralForce {{
         func := physicsdirectbodystate3dextension_uapply_central_force[T]
-        ci.virtual_methods["_apply_central_force"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_apply_central_force")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionApplyForce {{
         func := physicsdirectbodystate3dextension_uapply_force[T]
-        ci.virtual_methods["_apply_force"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_apply_force")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionApplyTorque {{
         func := physicsdirectbodystate3dextension_uapply_torque[T]
-        ci.virtual_methods["_apply_torque"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_apply_torque")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionAddConstantCentralForce {{
         func := physicsdirectbodystate3dextension_uadd_constant_central_force[T]
-        ci.virtual_methods["_add_constant_central_force"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_add_constant_central_force")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionAddConstantForce {{
         func := physicsdirectbodystate3dextension_uadd_constant_force[T]
-        ci.virtual_methods["_add_constant_force"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_add_constant_force")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionAddConstantTorque {{
         func := physicsdirectbodystate3dextension_uadd_constant_torque[T]
-        ci.virtual_methods["_add_constant_torque"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_add_constant_torque")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionSetConstantForce {{
         func := physicsdirectbodystate3dextension_uset_constant_force[T]
-        ci.virtual_methods["_set_constant_force"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_constant_force")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionGetConstantForce {{
         func := physicsdirectbodystate3dextension_uget_constant_force[T]
-        ci.virtual_methods["_get_constant_force"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_constant_force")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionSetConstantTorque {{
         func := physicsdirectbodystate3dextension_uset_constant_torque[T]
-        ci.virtual_methods["_set_constant_torque"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_constant_torque")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionGetConstantTorque {{
         func := physicsdirectbodystate3dextension_uget_constant_torque[T]
-        ci.virtual_methods["_get_constant_torque"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_constant_torque")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionSetSleepState {{
         func := physicsdirectbodystate3dextension_uset_sleep_state[T]
-        ci.virtual_methods["_set_sleep_state"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_sleep_state")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionIsSleeping {{
         func := physicsdirectbodystate3dextension_uis_sleeping[T]
-        ci.virtual_methods["_is_sleeping"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_is_sleeping")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionGetContactCount {{
         func := physicsdirectbodystate3dextension_uget_contact_count[T]
-        ci.virtual_methods["_get_contact_count"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_contact_count")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionGetContactLocalPosition {{
         func := physicsdirectbodystate3dextension_uget_contact_local_position[T]
-        ci.virtual_methods["_get_contact_local_position"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_contact_local_position")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionGetContactLocalNormal {{
         func := physicsdirectbodystate3dextension_uget_contact_local_normal[T]
-        ci.virtual_methods["_get_contact_local_normal"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_contact_local_normal")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionGetContactImpulse {{
         func := physicsdirectbodystate3dextension_uget_contact_impulse[T]
-        ci.virtual_methods["_get_contact_impulse"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_contact_impulse")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionGetContactLocalShape {{
         func := physicsdirectbodystate3dextension_uget_contact_local_shape[T]
-        ci.virtual_methods["_get_contact_local_shape"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_contact_local_shape")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionGetContactLocalVelocityAtPosition {{
         func := physicsdirectbodystate3dextension_uget_contact_local_velocity_at_position[T]
-        ci.virtual_methods["_get_contact_local_velocity_at_position"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_contact_local_velocity_at_position")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionGetContactCollider {{
         func := physicsdirectbodystate3dextension_uget_contact_collider[T]
-        ci.virtual_methods["_get_contact_collider"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_contact_collider")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionGetContactColliderPosition {{
         func := physicsdirectbodystate3dextension_uget_contact_collider_position[T]
-        ci.virtual_methods["_get_contact_collider_position"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_contact_collider_position")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionGetContactColliderId {{
         func := physicsdirectbodystate3dextension_uget_contact_collider_id[T]
-        ci.virtual_methods["_get_contact_collider_id"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_contact_collider_id")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionGetContactColliderObject {{
         func := physicsdirectbodystate3dextension_uget_contact_collider_object[T]
-        ci.virtual_methods["_get_contact_collider_object"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_contact_collider_object")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionGetContactColliderShape {{
         func := physicsdirectbodystate3dextension_uget_contact_collider_shape[T]
-        ci.virtual_methods["_get_contact_collider_shape"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_contact_collider_shape")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionGetContactColliderVelocityAtPosition {{
         func := physicsdirectbodystate3dextension_uget_contact_collider_velocity_at_position[T]
-        ci.virtual_methods["_get_contact_collider_velocity_at_position"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_contact_collider_velocity_at_position")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionGetStep {{
         func := physicsdirectbodystate3dextension_uget_step[T]
-        ci.virtual_methods["_get_step"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_step")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionIntegrateForces {{
         func := physicsdirectbodystate3dextension_uintegrate_forces[T]
-        ci.virtual_methods["_integrate_forces"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_integrate_forces")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectBodyState3DExtensionGetSpaceState {{
         func := physicsdirectbodystate3dextension_uget_space_state[T]
-        ci.virtual_methods["_get_space_state"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_space_state")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectSpaceState2DExtensionIntersectRay {{
         func := physicsdirectspacestate2dextension_uintersect_ray[T]
-        ci.virtual_methods["_intersect_ray"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_intersect_ray")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectSpaceState2DExtensionIntersectPoint {{
         func := physicsdirectspacestate2dextension_uintersect_point[T]
-        ci.virtual_methods["_intersect_point"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_intersect_point")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectSpaceState2DExtensionIntersectShape {{
         func := physicsdirectspacestate2dextension_uintersect_shape[T]
-        ci.virtual_methods["_intersect_shape"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_intersect_shape")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectSpaceState2DExtensionCastMotion {{
         func := physicsdirectspacestate2dextension_ucast_motion[T]
-        ci.virtual_methods["_cast_motion"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_cast_motion")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectSpaceState2DExtensionCollideShape {{
         func := physicsdirectspacestate2dextension_ucollide_shape[T]
-        ci.virtual_methods["_collide_shape"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_collide_shape")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectSpaceState2DExtensionRestInfo {{
         func := physicsdirectspacestate2dextension_urest_info[T]
-        ci.virtual_methods["_rest_info"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_rest_info")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectSpaceState3DExtensionIntersectRay {{
         func := physicsdirectspacestate3dextension_uintersect_ray[T]
-        ci.virtual_methods["_intersect_ray"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_intersect_ray")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectSpaceState3DExtensionIntersectPoint {{
         func := physicsdirectspacestate3dextension_uintersect_point[T]
-        ci.virtual_methods["_intersect_point"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_intersect_point")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectSpaceState3DExtensionIntersectShape {{
         func := physicsdirectspacestate3dextension_uintersect_shape[T]
-        ci.virtual_methods["_intersect_shape"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_intersect_shape")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectSpaceState3DExtensionCastMotion {{
         func := physicsdirectspacestate3dextension_ucast_motion[T]
-        ci.virtual_methods["_cast_motion"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_cast_motion")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectSpaceState3DExtensionCollideShape {{
         func := physicsdirectspacestate3dextension_ucollide_shape[T]
-        ci.virtual_methods["_collide_shape"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_collide_shape")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectSpaceState3DExtensionRestInfo {{
         func := physicsdirectspacestate3dextension_urest_info[T]
-        ci.virtual_methods["_rest_info"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_rest_info")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsDirectSpaceState3DExtensionGetClosestPointToObjectVolume {{
         func := physicsdirectspacestate3dextension_uget_closest_point_to_object_volume[T]
-        ci.virtual_methods["_get_closest_point_to_object_volume"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_closest_point_to_object_volume")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionWorldBoundaryShapeCreate {{
         func := physicsserver2dextension_uworld_boundary_shape_create[T]
-        ci.virtual_methods["_world_boundary_shape_create"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_world_boundary_shape_create")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionSeparationRayShapeCreate {{
         func := physicsserver2dextension_useparation_ray_shape_create[T]
-        ci.virtual_methods["_separation_ray_shape_create"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_separation_ray_shape_create")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionSegmentShapeCreate {{
         func := physicsserver2dextension_usegment_shape_create[T]
-        ci.virtual_methods["_segment_shape_create"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_segment_shape_create")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionCircleShapeCreate {{
         func := physicsserver2dextension_ucircle_shape_create[T]
-        ci.virtual_methods["_circle_shape_create"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_circle_shape_create")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionRectangleShapeCreate {{
         func := physicsserver2dextension_urectangle_shape_create[T]
-        ci.virtual_methods["_rectangle_shape_create"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_rectangle_shape_create")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionCapsuleShapeCreate {{
         func := physicsserver2dextension_ucapsule_shape_create[T]
-        ci.virtual_methods["_capsule_shape_create"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_capsule_shape_create")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionConvexPolygonShapeCreate {{
         func := physicsserver2dextension_uconvex_polygon_shape_create[T]
-        ci.virtual_methods["_convex_polygon_shape_create"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_convex_polygon_shape_create")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionConcavePolygonShapeCreate {{
         func := physicsserver2dextension_uconcave_polygon_shape_create[T]
-        ci.virtual_methods["_concave_polygon_shape_create"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_concave_polygon_shape_create")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionShapeSetData {{
         func := physicsserver2dextension_ushape_set_data[T]
-        ci.virtual_methods["_shape_set_data"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shape_set_data")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionShapeSetCustomSolverBias {{
         func := physicsserver2dextension_ushape_set_custom_solver_bias[T]
-        ci.virtual_methods["_shape_set_custom_solver_bias"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shape_set_custom_solver_bias")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionShapeGetType {{
         func := physicsserver2dextension_ushape_get_type[T]
-        ci.virtual_methods["_shape_get_type"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shape_get_type")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionShapeGetData {{
         func := physicsserver2dextension_ushape_get_data[T]
-        ci.virtual_methods["_shape_get_data"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shape_get_data")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionShapeGetCustomSolverBias {{
         func := physicsserver2dextension_ushape_get_custom_solver_bias[T]
-        ci.virtual_methods["_shape_get_custom_solver_bias"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shape_get_custom_solver_bias")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionShapeCollide {{
         func := physicsserver2dextension_ushape_collide[T]
-        ci.virtual_methods["_shape_collide"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shape_collide")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionSpaceCreate {{
         func := physicsserver2dextension_uspace_create[T]
-        ci.virtual_methods["_space_create"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_space_create")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionSpaceSetActive {{
         func := physicsserver2dextension_uspace_set_active[T]
-        ci.virtual_methods["_space_set_active"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_space_set_active")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionSpaceIsActive {{
         func := physicsserver2dextension_uspace_is_active[T]
-        ci.virtual_methods["_space_is_active"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_space_is_active")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionSpaceSetParam {{
         func := physicsserver2dextension_uspace_set_param[T]
-        ci.virtual_methods["_space_set_param"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_space_set_param")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionSpaceGetParam {{
         func := physicsserver2dextension_uspace_get_param[T]
-        ci.virtual_methods["_space_get_param"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_space_get_param")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionSpaceGetDirectState {{
         func := physicsserver2dextension_uspace_get_direct_state[T]
-        ci.virtual_methods["_space_get_direct_state"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_space_get_direct_state")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionSpaceSetDebugContacts {{
         func := physicsserver2dextension_uspace_set_debug_contacts[T]
-        ci.virtual_methods["_space_set_debug_contacts"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_space_set_debug_contacts")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionSpaceGetContacts {{
         func := physicsserver2dextension_uspace_get_contacts[T]
-        ci.virtual_methods["_space_get_contacts"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_space_get_contacts")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionSpaceGetContactCount {{
         func := physicsserver2dextension_uspace_get_contact_count[T]
-        ci.virtual_methods["_space_get_contact_count"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_space_get_contact_count")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionAreaCreate {{
         func := physicsserver2dextension_uarea_create[T]
-        ci.virtual_methods["_area_create"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_create")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionAreaSetSpace {{
         func := physicsserver2dextension_uarea_set_space[T]
-        ci.virtual_methods["_area_set_space"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_set_space")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionAreaGetSpace {{
         func := physicsserver2dextension_uarea_get_space[T]
-        ci.virtual_methods["_area_get_space"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_get_space")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionAreaAddShape {{
         func := physicsserver2dextension_uarea_add_shape[T]
-        ci.virtual_methods["_area_add_shape"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_add_shape")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionAreaSetShape {{
         func := physicsserver2dextension_uarea_set_shape[T]
-        ci.virtual_methods["_area_set_shape"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_set_shape")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionAreaSetShapeTransform {{
         func := physicsserver2dextension_uarea_set_shape_transform[T]
-        ci.virtual_methods["_area_set_shape_transform"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_set_shape_transform")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionAreaSetShapeDisabled {{
         func := physicsserver2dextension_uarea_set_shape_disabled[T]
-        ci.virtual_methods["_area_set_shape_disabled"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_set_shape_disabled")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionAreaGetShapeCount {{
         func := physicsserver2dextension_uarea_get_shape_count[T]
-        ci.virtual_methods["_area_get_shape_count"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_get_shape_count")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionAreaGetShape {{
         func := physicsserver2dextension_uarea_get_shape[T]
-        ci.virtual_methods["_area_get_shape"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_get_shape")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionAreaGetShapeTransform {{
         func := physicsserver2dextension_uarea_get_shape_transform[T]
-        ci.virtual_methods["_area_get_shape_transform"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_get_shape_transform")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionAreaRemoveShape {{
         func := physicsserver2dextension_uarea_remove_shape[T]
-        ci.virtual_methods["_area_remove_shape"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_remove_shape")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionAreaClearShapes {{
         func := physicsserver2dextension_uarea_clear_shapes[T]
-        ci.virtual_methods["_area_clear_shapes"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_clear_shapes")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionAreaAttachObjectInstanceId {{
         func := physicsserver2dextension_uarea_attach_object_instance_id[T]
-        ci.virtual_methods["_area_attach_object_instance_id"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_attach_object_instance_id")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionAreaGetObjectInstanceId {{
         func := physicsserver2dextension_uarea_get_object_instance_id[T]
-        ci.virtual_methods["_area_get_object_instance_id"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_get_object_instance_id")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionAreaAttachCanvasInstanceId {{
         func := physicsserver2dextension_uarea_attach_canvas_instance_id[T]
-        ci.virtual_methods["_area_attach_canvas_instance_id"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_attach_canvas_instance_id")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionAreaGetCanvasInstanceId {{
         func := physicsserver2dextension_uarea_get_canvas_instance_id[T]
-        ci.virtual_methods["_area_get_canvas_instance_id"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_get_canvas_instance_id")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionAreaSetParam {{
         func := physicsserver2dextension_uarea_set_param[T]
-        ci.virtual_methods["_area_set_param"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_set_param")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionAreaSetTransform {{
         func := physicsserver2dextension_uarea_set_transform[T]
-        ci.virtual_methods["_area_set_transform"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_set_transform")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionAreaGetParam {{
         func := physicsserver2dextension_uarea_get_param[T]
-        ci.virtual_methods["_area_get_param"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_get_param")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionAreaGetTransform {{
         func := physicsserver2dextension_uarea_get_transform[T]
-        ci.virtual_methods["_area_get_transform"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_get_transform")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionAreaSetCollisionLayer {{
         func := physicsserver2dextension_uarea_set_collision_layer[T]
-        ci.virtual_methods["_area_set_collision_layer"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_set_collision_layer")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionAreaGetCollisionLayer {{
         func := physicsserver2dextension_uarea_get_collision_layer[T]
-        ci.virtual_methods["_area_get_collision_layer"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_get_collision_layer")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionAreaSetCollisionMask {{
         func := physicsserver2dextension_uarea_set_collision_mask[T]
-        ci.virtual_methods["_area_set_collision_mask"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_set_collision_mask")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionAreaGetCollisionMask {{
         func := physicsserver2dextension_uarea_get_collision_mask[T]
-        ci.virtual_methods["_area_get_collision_mask"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_get_collision_mask")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionAreaSetMonitorable {{
         func := physicsserver2dextension_uarea_set_monitorable[T]
-        ci.virtual_methods["_area_set_monitorable"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_set_monitorable")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionAreaSetPickable {{
         func := physicsserver2dextension_uarea_set_pickable[T]
-        ci.virtual_methods["_area_set_pickable"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_set_pickable")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionAreaSetMonitorCallback {{
         func := physicsserver2dextension_uarea_set_monitor_callback[T]
-        ci.virtual_methods["_area_set_monitor_callback"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_set_monitor_callback")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionAreaSetAreaMonitorCallback {{
         func := physicsserver2dextension_uarea_set_area_monitor_callback[T]
-        ci.virtual_methods["_area_set_area_monitor_callback"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_set_area_monitor_callback")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyCreate {{
         func := physicsserver2dextension_ubody_create[T]
-        ci.virtual_methods["_body_create"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_create")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodySetSpace {{
         func := physicsserver2dextension_ubody_set_space[T]
-        ci.virtual_methods["_body_set_space"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_space")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyGetSpace {{
         func := physicsserver2dextension_ubody_get_space[T]
-        ci.virtual_methods["_body_get_space"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_get_space")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodySetMode {{
         func := physicsserver2dextension_ubody_set_mode[T]
-        ci.virtual_methods["_body_set_mode"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_mode")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyGetMode {{
         func := physicsserver2dextension_ubody_get_mode[T]
-        ci.virtual_methods["_body_get_mode"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_get_mode")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyAddShape {{
         func := physicsserver2dextension_ubody_add_shape[T]
-        ci.virtual_methods["_body_add_shape"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_add_shape")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodySetShape {{
         func := physicsserver2dextension_ubody_set_shape[T]
-        ci.virtual_methods["_body_set_shape"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_shape")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodySetShapeTransform {{
         func := physicsserver2dextension_ubody_set_shape_transform[T]
-        ci.virtual_methods["_body_set_shape_transform"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_shape_transform")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyGetShapeCount {{
         func := physicsserver2dextension_ubody_get_shape_count[T]
-        ci.virtual_methods["_body_get_shape_count"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_get_shape_count")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyGetShape {{
         func := physicsserver2dextension_ubody_get_shape[T]
-        ci.virtual_methods["_body_get_shape"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_get_shape")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyGetShapeTransform {{
         func := physicsserver2dextension_ubody_get_shape_transform[T]
-        ci.virtual_methods["_body_get_shape_transform"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_get_shape_transform")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodySetShapeDisabled {{
         func := physicsserver2dextension_ubody_set_shape_disabled[T]
-        ci.virtual_methods["_body_set_shape_disabled"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_shape_disabled")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodySetShapeAsOneWayCollision {{
         func := physicsserver2dextension_ubody_set_shape_as_one_way_collision[T]
-        ci.virtual_methods["_body_set_shape_as_one_way_collision"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_shape_as_one_way_collision")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyRemoveShape {{
         func := physicsserver2dextension_ubody_remove_shape[T]
-        ci.virtual_methods["_body_remove_shape"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_remove_shape")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyClearShapes {{
         func := physicsserver2dextension_ubody_clear_shapes[T]
-        ci.virtual_methods["_body_clear_shapes"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_clear_shapes")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyAttachObjectInstanceId {{
         func := physicsserver2dextension_ubody_attach_object_instance_id[T]
-        ci.virtual_methods["_body_attach_object_instance_id"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_attach_object_instance_id")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyGetObjectInstanceId {{
         func := physicsserver2dextension_ubody_get_object_instance_id[T]
-        ci.virtual_methods["_body_get_object_instance_id"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_get_object_instance_id")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyAttachCanvasInstanceId {{
         func := physicsserver2dextension_ubody_attach_canvas_instance_id[T]
-        ci.virtual_methods["_body_attach_canvas_instance_id"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_attach_canvas_instance_id")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyGetCanvasInstanceId {{
         func := physicsserver2dextension_ubody_get_canvas_instance_id[T]
-        ci.virtual_methods["_body_get_canvas_instance_id"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_get_canvas_instance_id")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodySetContinuousCollisionDetectionMode {{
         func := physicsserver2dextension_ubody_set_continuous_collision_detection_mode[T]
-        ci.virtual_methods["_body_set_continuous_collision_detection_mode"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_continuous_collision_detection_mode")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyGetContinuousCollisionDetectionMode {{
         func := physicsserver2dextension_ubody_get_continuous_collision_detection_mode[T]
-        ci.virtual_methods["_body_get_continuous_collision_detection_mode"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_get_continuous_collision_detection_mode")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodySetCollisionLayer {{
         func := physicsserver2dextension_ubody_set_collision_layer[T]
-        ci.virtual_methods["_body_set_collision_layer"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_collision_layer")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyGetCollisionLayer {{
         func := physicsserver2dextension_ubody_get_collision_layer[T]
-        ci.virtual_methods["_body_get_collision_layer"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_get_collision_layer")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodySetCollisionMask {{
         func := physicsserver2dextension_ubody_set_collision_mask[T]
-        ci.virtual_methods["_body_set_collision_mask"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_collision_mask")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyGetCollisionMask {{
         func := physicsserver2dextension_ubody_get_collision_mask[T]
-        ci.virtual_methods["_body_get_collision_mask"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_get_collision_mask")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodySetCollisionPriority {{
         func := physicsserver2dextension_ubody_set_collision_priority[T]
-        ci.virtual_methods["_body_set_collision_priority"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_collision_priority")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyGetCollisionPriority {{
         func := physicsserver2dextension_ubody_get_collision_priority[T]
-        ci.virtual_methods["_body_get_collision_priority"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_get_collision_priority")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodySetParam {{
         func := physicsserver2dextension_ubody_set_param[T]
-        ci.virtual_methods["_body_set_param"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_param")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyGetParam {{
         func := physicsserver2dextension_ubody_get_param[T]
-        ci.virtual_methods["_body_get_param"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_get_param")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyResetMassProperties {{
         func := physicsserver2dextension_ubody_reset_mass_properties[T]
-        ci.virtual_methods["_body_reset_mass_properties"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_reset_mass_properties")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodySetState {{
         func := physicsserver2dextension_ubody_set_state[T]
-        ci.virtual_methods["_body_set_state"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_state")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyGetState {{
         func := physicsserver2dextension_ubody_get_state[T]
-        ci.virtual_methods["_body_get_state"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_get_state")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyApplyCentralImpulse {{
         func := physicsserver2dextension_ubody_apply_central_impulse[T]
-        ci.virtual_methods["_body_apply_central_impulse"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_apply_central_impulse")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyApplyTorqueImpulse {{
         func := physicsserver2dextension_ubody_apply_torque_impulse[T]
-        ci.virtual_methods["_body_apply_torque_impulse"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_apply_torque_impulse")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyApplyImpulse {{
         func := physicsserver2dextension_ubody_apply_impulse[T]
-        ci.virtual_methods["_body_apply_impulse"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_apply_impulse")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyApplyCentralForce {{
         func := physicsserver2dextension_ubody_apply_central_force[T]
-        ci.virtual_methods["_body_apply_central_force"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_apply_central_force")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyApplyForce {{
         func := physicsserver2dextension_ubody_apply_force[T]
-        ci.virtual_methods["_body_apply_force"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_apply_force")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyApplyTorque {{
         func := physicsserver2dextension_ubody_apply_torque[T]
-        ci.virtual_methods["_body_apply_torque"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_apply_torque")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyAddConstantCentralForce {{
         func := physicsserver2dextension_ubody_add_constant_central_force[T]
-        ci.virtual_methods["_body_add_constant_central_force"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_add_constant_central_force")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyAddConstantForce {{
         func := physicsserver2dextension_ubody_add_constant_force[T]
-        ci.virtual_methods["_body_add_constant_force"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_add_constant_force")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyAddConstantTorque {{
         func := physicsserver2dextension_ubody_add_constant_torque[T]
-        ci.virtual_methods["_body_add_constant_torque"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_add_constant_torque")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodySetConstantForce {{
         func := physicsserver2dextension_ubody_set_constant_force[T]
-        ci.virtual_methods["_body_set_constant_force"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_constant_force")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyGetConstantForce {{
         func := physicsserver2dextension_ubody_get_constant_force[T]
-        ci.virtual_methods["_body_get_constant_force"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_get_constant_force")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodySetConstantTorque {{
         func := physicsserver2dextension_ubody_set_constant_torque[T]
-        ci.virtual_methods["_body_set_constant_torque"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_constant_torque")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyGetConstantTorque {{
         func := physicsserver2dextension_ubody_get_constant_torque[T]
-        ci.virtual_methods["_body_get_constant_torque"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_get_constant_torque")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodySetAxisVelocity {{
         func := physicsserver2dextension_ubody_set_axis_velocity[T]
-        ci.virtual_methods["_body_set_axis_velocity"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_axis_velocity")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyAddCollisionException {{
         func := physicsserver2dextension_ubody_add_collision_exception[T]
-        ci.virtual_methods["_body_add_collision_exception"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_add_collision_exception")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyRemoveCollisionException {{
         func := physicsserver2dextension_ubody_remove_collision_exception[T]
-        ci.virtual_methods["_body_remove_collision_exception"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_remove_collision_exception")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyGetCollisionExceptions {{
         func := physicsserver2dextension_ubody_get_collision_exceptions[T]
-        ci.virtual_methods["_body_get_collision_exceptions"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_get_collision_exceptions")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodySetMaxContactsReported {{
         func := physicsserver2dextension_ubody_set_max_contacts_reported[T]
-        ci.virtual_methods["_body_set_max_contacts_reported"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_max_contacts_reported")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyGetMaxContactsReported {{
         func := physicsserver2dextension_ubody_get_max_contacts_reported[T]
-        ci.virtual_methods["_body_get_max_contacts_reported"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_get_max_contacts_reported")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodySetContactsReportedDepthThreshold {{
         func := physicsserver2dextension_ubody_set_contacts_reported_depth_threshold[T]
-        ci.virtual_methods["_body_set_contacts_reported_depth_threshold"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_contacts_reported_depth_threshold")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyGetContactsReportedDepthThreshold {{
         func := physicsserver2dextension_ubody_get_contacts_reported_depth_threshold[T]
-        ci.virtual_methods["_body_get_contacts_reported_depth_threshold"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_get_contacts_reported_depth_threshold")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodySetOmitForceIntegration {{
         func := physicsserver2dextension_ubody_set_omit_force_integration[T]
-        ci.virtual_methods["_body_set_omit_force_integration"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_omit_force_integration")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyIsOmittingForceIntegration {{
         func := physicsserver2dextension_ubody_is_omitting_force_integration[T]
-        ci.virtual_methods["_body_is_omitting_force_integration"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_is_omitting_force_integration")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodySetStateSyncCallback {{
         func := physicsserver2dextension_ubody_set_state_sync_callback[T]
-        ci.virtual_methods["_body_set_state_sync_callback"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_state_sync_callback")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodySetForceIntegrationCallback {{
         func := physicsserver2dextension_ubody_set_force_integration_callback[T]
-        ci.virtual_methods["_body_set_force_integration_callback"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_force_integration_callback")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyCollideShape {{
         func := physicsserver2dextension_ubody_collide_shape[T]
-        ci.virtual_methods["_body_collide_shape"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_collide_shape")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodySetPickable {{
         func := physicsserver2dextension_ubody_set_pickable[T]
-        ci.virtual_methods["_body_set_pickable"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_pickable")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyGetDirectState {{
         func := physicsserver2dextension_ubody_get_direct_state[T]
-        ci.virtual_methods["_body_get_direct_state"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_get_direct_state")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionBodyTestMotion {{
         func := physicsserver2dextension_ubody_test_motion[T]
-        ci.virtual_methods["_body_test_motion"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_test_motion")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionJointCreate {{
         func := physicsserver2dextension_ujoint_create[T]
-        ci.virtual_methods["_joint_create"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_joint_create")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionJointClear {{
         func := physicsserver2dextension_ujoint_clear[T]
-        ci.virtual_methods["_joint_clear"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_joint_clear")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionJointSetParam {{
         func := physicsserver2dextension_ujoint_set_param[T]
-        ci.virtual_methods["_joint_set_param"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_joint_set_param")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionJointGetParam {{
         func := physicsserver2dextension_ujoint_get_param[T]
-        ci.virtual_methods["_joint_get_param"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_joint_get_param")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionJointDisableCollisionsBetweenBodies {{
         func := physicsserver2dextension_ujoint_disable_collisions_between_bodies[T]
-        ci.virtual_methods["_joint_disable_collisions_between_bodies"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_joint_disable_collisions_between_bodies")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionJointIsDisabledCollisionsBetweenBodies {{
         func := physicsserver2dextension_ujoint_is_disabled_collisions_between_bodies[T]
-        ci.virtual_methods["_joint_is_disabled_collisions_between_bodies"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_joint_is_disabled_collisions_between_bodies")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionJointMakePin {{
         func := physicsserver2dextension_ujoint_make_pin[T]
-        ci.virtual_methods["_joint_make_pin"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_joint_make_pin")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionJointMakeGroove {{
         func := physicsserver2dextension_ujoint_make_groove[T]
-        ci.virtual_methods["_joint_make_groove"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_joint_make_groove")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionJointMakeDampedSpring {{
         func := physicsserver2dextension_ujoint_make_damped_spring[T]
-        ci.virtual_methods["_joint_make_damped_spring"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_joint_make_damped_spring")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionPinJointSetFlag {{
         func := physicsserver2dextension_upin_joint_set_flag[T]
-        ci.virtual_methods["_pin_joint_set_flag"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_pin_joint_set_flag")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionPinJointGetFlag {{
         func := physicsserver2dextension_upin_joint_get_flag[T]
-        ci.virtual_methods["_pin_joint_get_flag"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_pin_joint_get_flag")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionPinJointSetParam {{
         func := physicsserver2dextension_upin_joint_set_param[T]
-        ci.virtual_methods["_pin_joint_set_param"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_pin_joint_set_param")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionPinJointGetParam {{
         func := physicsserver2dextension_upin_joint_get_param[T]
-        ci.virtual_methods["_pin_joint_get_param"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_pin_joint_get_param")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionDampedSpringJointSetParam {{
         func := physicsserver2dextension_udamped_spring_joint_set_param[T]
-        ci.virtual_methods["_damped_spring_joint_set_param"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_damped_spring_joint_set_param")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionDampedSpringJointGetParam {{
         func := physicsserver2dextension_udamped_spring_joint_get_param[T]
-        ci.virtual_methods["_damped_spring_joint_get_param"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_damped_spring_joint_get_param")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionJointGetType {{
         func := physicsserver2dextension_ujoint_get_type[T]
-        ci.virtual_methods["_joint_get_type"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_joint_get_type")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionFreeRid {{
         func := physicsserver2dextension_ufree_rid[T]
-        ci.virtual_methods["_free_rid"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_free_rid")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionSetActive {{
         func := physicsserver2dextension_uset_active[T]
-        ci.virtual_methods["_set_active"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_active")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionInit {{
         func := physicsserver2dextension_uinit[T]
-        ci.virtual_methods["_init"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_init")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionStep {{
         func := physicsserver2dextension_ustep[T]
-        ci.virtual_methods["_step"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_step")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionSync {{
         func := physicsserver2dextension_usync[T]
-        ci.virtual_methods["_sync"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_sync")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionFlushQueries {{
         func := physicsserver2dextension_uflush_queries[T]
-        ci.virtual_methods["_flush_queries"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_flush_queries")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionEndSync {{
         func := physicsserver2dextension_uend_sync[T]
-        ci.virtual_methods["_end_sync"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_end_sync")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionFinish {{
         func := physicsserver2dextension_ufinish[T]
-        ci.virtual_methods["_finish"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_finish")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionIsFlushingQueries {{
         func := physicsserver2dextension_uis_flushing_queries[T]
-        ci.virtual_methods["_is_flushing_queries"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_is_flushing_queries")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer2DExtensionGetProcessInfo {{
         func := physicsserver2dextension_uget_process_info[T]
-        ci.virtual_methods["_get_process_info"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_process_info")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionWorldBoundaryShapeCreate {{
         func := physicsserver3dextension_uworld_boundary_shape_create[T]
-        ci.virtual_methods["_world_boundary_shape_create"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_world_boundary_shape_create")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSeparationRayShapeCreate {{
         func := physicsserver3dextension_useparation_ray_shape_create[T]
-        ci.virtual_methods["_separation_ray_shape_create"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_separation_ray_shape_create")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSphereShapeCreate {{
         func := physicsserver3dextension_usphere_shape_create[T]
-        ci.virtual_methods["_sphere_shape_create"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_sphere_shape_create")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBoxShapeCreate {{
         func := physicsserver3dextension_ubox_shape_create[T]
-        ci.virtual_methods["_box_shape_create"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_box_shape_create")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionCapsuleShapeCreate {{
         func := physicsserver3dextension_ucapsule_shape_create[T]
-        ci.virtual_methods["_capsule_shape_create"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_capsule_shape_create")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionCylinderShapeCreate {{
         func := physicsserver3dextension_ucylinder_shape_create[T]
-        ci.virtual_methods["_cylinder_shape_create"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_cylinder_shape_create")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionConvexPolygonShapeCreate {{
         func := physicsserver3dextension_uconvex_polygon_shape_create[T]
-        ci.virtual_methods["_convex_polygon_shape_create"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_convex_polygon_shape_create")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionConcavePolygonShapeCreate {{
         func := physicsserver3dextension_uconcave_polygon_shape_create[T]
-        ci.virtual_methods["_concave_polygon_shape_create"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_concave_polygon_shape_create")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionHeightmapShapeCreate {{
         func := physicsserver3dextension_uheightmap_shape_create[T]
-        ci.virtual_methods["_heightmap_shape_create"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_heightmap_shape_create")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionCustomShapeCreate {{
         func := physicsserver3dextension_ucustom_shape_create[T]
-        ci.virtual_methods["_custom_shape_create"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_custom_shape_create")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionShapeSetData {{
         func := physicsserver3dextension_ushape_set_data[T]
-        ci.virtual_methods["_shape_set_data"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shape_set_data")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionShapeSetCustomSolverBias {{
         func := physicsserver3dextension_ushape_set_custom_solver_bias[T]
-        ci.virtual_methods["_shape_set_custom_solver_bias"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shape_set_custom_solver_bias")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionShapeSetMargin {{
         func := physicsserver3dextension_ushape_set_margin[T]
-        ci.virtual_methods["_shape_set_margin"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shape_set_margin")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionShapeGetMargin {{
         func := physicsserver3dextension_ushape_get_margin[T]
-        ci.virtual_methods["_shape_get_margin"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shape_get_margin")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionShapeGetType {{
         func := physicsserver3dextension_ushape_get_type[T]
-        ci.virtual_methods["_shape_get_type"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shape_get_type")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionShapeGetData {{
         func := physicsserver3dextension_ushape_get_data[T]
-        ci.virtual_methods["_shape_get_data"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shape_get_data")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionShapeGetCustomSolverBias {{
         func := physicsserver3dextension_ushape_get_custom_solver_bias[T]
-        ci.virtual_methods["_shape_get_custom_solver_bias"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shape_get_custom_solver_bias")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSpaceCreate {{
         func := physicsserver3dextension_uspace_create[T]
-        ci.virtual_methods["_space_create"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_space_create")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSpaceSetActive {{
         func := physicsserver3dextension_uspace_set_active[T]
-        ci.virtual_methods["_space_set_active"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_space_set_active")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSpaceIsActive {{
         func := physicsserver3dextension_uspace_is_active[T]
-        ci.virtual_methods["_space_is_active"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_space_is_active")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSpaceSetParam {{
         func := physicsserver3dextension_uspace_set_param[T]
-        ci.virtual_methods["_space_set_param"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_space_set_param")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSpaceGetParam {{
         func := physicsserver3dextension_uspace_get_param[T]
-        ci.virtual_methods["_space_get_param"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_space_get_param")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSpaceGetDirectState {{
         func := physicsserver3dextension_uspace_get_direct_state[T]
-        ci.virtual_methods["_space_get_direct_state"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_space_get_direct_state")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSpaceSetDebugContacts {{
         func := physicsserver3dextension_uspace_set_debug_contacts[T]
-        ci.virtual_methods["_space_set_debug_contacts"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_space_set_debug_contacts")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSpaceGetContacts {{
         func := physicsserver3dextension_uspace_get_contacts[T]
-        ci.virtual_methods["_space_get_contacts"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_space_get_contacts")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSpaceGetContactCount {{
         func := physicsserver3dextension_uspace_get_contact_count[T]
-        ci.virtual_methods["_space_get_contact_count"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_space_get_contact_count")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionAreaCreate {{
         func := physicsserver3dextension_uarea_create[T]
-        ci.virtual_methods["_area_create"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_create")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionAreaSetSpace {{
         func := physicsserver3dextension_uarea_set_space[T]
-        ci.virtual_methods["_area_set_space"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_set_space")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionAreaGetSpace {{
         func := physicsserver3dextension_uarea_get_space[T]
-        ci.virtual_methods["_area_get_space"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_get_space")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionAreaAddShape {{
         func := physicsserver3dextension_uarea_add_shape[T]
-        ci.virtual_methods["_area_add_shape"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_add_shape")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionAreaSetShape {{
         func := physicsserver3dextension_uarea_set_shape[T]
-        ci.virtual_methods["_area_set_shape"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_set_shape")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionAreaSetShapeTransform {{
         func := physicsserver3dextension_uarea_set_shape_transform[T]
-        ci.virtual_methods["_area_set_shape_transform"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_set_shape_transform")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionAreaSetShapeDisabled {{
         func := physicsserver3dextension_uarea_set_shape_disabled[T]
-        ci.virtual_methods["_area_set_shape_disabled"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_set_shape_disabled")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionAreaGetShapeCount {{
         func := physicsserver3dextension_uarea_get_shape_count[T]
-        ci.virtual_methods["_area_get_shape_count"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_get_shape_count")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionAreaGetShape {{
         func := physicsserver3dextension_uarea_get_shape[T]
-        ci.virtual_methods["_area_get_shape"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_get_shape")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionAreaGetShapeTransform {{
         func := physicsserver3dextension_uarea_get_shape_transform[T]
-        ci.virtual_methods["_area_get_shape_transform"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_get_shape_transform")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionAreaRemoveShape {{
         func := physicsserver3dextension_uarea_remove_shape[T]
-        ci.virtual_methods["_area_remove_shape"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_remove_shape")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionAreaClearShapes {{
         func := physicsserver3dextension_uarea_clear_shapes[T]
-        ci.virtual_methods["_area_clear_shapes"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_clear_shapes")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionAreaAttachObjectInstanceId {{
         func := physicsserver3dextension_uarea_attach_object_instance_id[T]
-        ci.virtual_methods["_area_attach_object_instance_id"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_attach_object_instance_id")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionAreaGetObjectInstanceId {{
         func := physicsserver3dextension_uarea_get_object_instance_id[T]
-        ci.virtual_methods["_area_get_object_instance_id"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_get_object_instance_id")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionAreaSetParam {{
         func := physicsserver3dextension_uarea_set_param[T]
-        ci.virtual_methods["_area_set_param"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_set_param")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionAreaSetTransform {{
         func := physicsserver3dextension_uarea_set_transform[T]
-        ci.virtual_methods["_area_set_transform"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_set_transform")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionAreaGetParam {{
         func := physicsserver3dextension_uarea_get_param[T]
-        ci.virtual_methods["_area_get_param"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_get_param")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionAreaGetTransform {{
         func := physicsserver3dextension_uarea_get_transform[T]
-        ci.virtual_methods["_area_get_transform"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_get_transform")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionAreaSetCollisionLayer {{
         func := physicsserver3dextension_uarea_set_collision_layer[T]
-        ci.virtual_methods["_area_set_collision_layer"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_set_collision_layer")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionAreaGetCollisionLayer {{
         func := physicsserver3dextension_uarea_get_collision_layer[T]
-        ci.virtual_methods["_area_get_collision_layer"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_get_collision_layer")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionAreaSetCollisionMask {{
         func := physicsserver3dextension_uarea_set_collision_mask[T]
-        ci.virtual_methods["_area_set_collision_mask"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_set_collision_mask")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionAreaGetCollisionMask {{
         func := physicsserver3dextension_uarea_get_collision_mask[T]
-        ci.virtual_methods["_area_get_collision_mask"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_get_collision_mask")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionAreaSetMonitorable {{
         func := physicsserver3dextension_uarea_set_monitorable[T]
-        ci.virtual_methods["_area_set_monitorable"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_set_monitorable")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionAreaSetRayPickable {{
         func := physicsserver3dextension_uarea_set_ray_pickable[T]
-        ci.virtual_methods["_area_set_ray_pickable"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_set_ray_pickable")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionAreaSetMonitorCallback {{
         func := physicsserver3dextension_uarea_set_monitor_callback[T]
-        ci.virtual_methods["_area_set_monitor_callback"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_set_monitor_callback")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionAreaSetAreaMonitorCallback {{
         func := physicsserver3dextension_uarea_set_area_monitor_callback[T]
-        ci.virtual_methods["_area_set_area_monitor_callback"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_area_set_area_monitor_callback")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyCreate {{
         func := physicsserver3dextension_ubody_create[T]
-        ci.virtual_methods["_body_create"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_create")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodySetSpace {{
         func := physicsserver3dextension_ubody_set_space[T]
-        ci.virtual_methods["_body_set_space"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_space")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyGetSpace {{
         func := physicsserver3dextension_ubody_get_space[T]
-        ci.virtual_methods["_body_get_space"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_get_space")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodySetMode {{
         func := physicsserver3dextension_ubody_set_mode[T]
-        ci.virtual_methods["_body_set_mode"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_mode")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyGetMode {{
         func := physicsserver3dextension_ubody_get_mode[T]
-        ci.virtual_methods["_body_get_mode"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_get_mode")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyAddShape {{
         func := physicsserver3dextension_ubody_add_shape[T]
-        ci.virtual_methods["_body_add_shape"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_add_shape")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodySetShape {{
         func := physicsserver3dextension_ubody_set_shape[T]
-        ci.virtual_methods["_body_set_shape"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_shape")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodySetShapeTransform {{
         func := physicsserver3dextension_ubody_set_shape_transform[T]
-        ci.virtual_methods["_body_set_shape_transform"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_shape_transform")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodySetShapeDisabled {{
         func := physicsserver3dextension_ubody_set_shape_disabled[T]
-        ci.virtual_methods["_body_set_shape_disabled"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_shape_disabled")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyGetShapeCount {{
         func := physicsserver3dextension_ubody_get_shape_count[T]
-        ci.virtual_methods["_body_get_shape_count"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_get_shape_count")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyGetShape {{
         func := physicsserver3dextension_ubody_get_shape[T]
-        ci.virtual_methods["_body_get_shape"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_get_shape")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyGetShapeTransform {{
         func := physicsserver3dextension_ubody_get_shape_transform[T]
-        ci.virtual_methods["_body_get_shape_transform"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_get_shape_transform")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyRemoveShape {{
         func := physicsserver3dextension_ubody_remove_shape[T]
-        ci.virtual_methods["_body_remove_shape"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_remove_shape")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyClearShapes {{
         func := physicsserver3dextension_ubody_clear_shapes[T]
-        ci.virtual_methods["_body_clear_shapes"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_clear_shapes")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyAttachObjectInstanceId {{
         func := physicsserver3dextension_ubody_attach_object_instance_id[T]
-        ci.virtual_methods["_body_attach_object_instance_id"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_attach_object_instance_id")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyGetObjectInstanceId {{
         func := physicsserver3dextension_ubody_get_object_instance_id[T]
-        ci.virtual_methods["_body_get_object_instance_id"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_get_object_instance_id")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodySetEnableContinuousCollisionDetection {{
         func := physicsserver3dextension_ubody_set_enable_continuous_collision_detection[T]
-        ci.virtual_methods["_body_set_enable_continuous_collision_detection"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_enable_continuous_collision_detection")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyIsContinuousCollisionDetectionEnabled {{
         func := physicsserver3dextension_ubody_is_continuous_collision_detection_enabled[T]
-        ci.virtual_methods["_body_is_continuous_collision_detection_enabled"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_is_continuous_collision_detection_enabled")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodySetCollisionLayer {{
         func := physicsserver3dextension_ubody_set_collision_layer[T]
-        ci.virtual_methods["_body_set_collision_layer"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_collision_layer")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyGetCollisionLayer {{
         func := physicsserver3dextension_ubody_get_collision_layer[T]
-        ci.virtual_methods["_body_get_collision_layer"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_get_collision_layer")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodySetCollisionMask {{
         func := physicsserver3dextension_ubody_set_collision_mask[T]
-        ci.virtual_methods["_body_set_collision_mask"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_collision_mask")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyGetCollisionMask {{
         func := physicsserver3dextension_ubody_get_collision_mask[T]
-        ci.virtual_methods["_body_get_collision_mask"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_get_collision_mask")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodySetCollisionPriority {{
         func := physicsserver3dextension_ubody_set_collision_priority[T]
-        ci.virtual_methods["_body_set_collision_priority"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_collision_priority")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyGetCollisionPriority {{
         func := physicsserver3dextension_ubody_get_collision_priority[T]
-        ci.virtual_methods["_body_get_collision_priority"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_get_collision_priority")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodySetUserFlags {{
         func := physicsserver3dextension_ubody_set_user_flags[T]
-        ci.virtual_methods["_body_set_user_flags"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_user_flags")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyGetUserFlags {{
         func := physicsserver3dextension_ubody_get_user_flags[T]
-        ci.virtual_methods["_body_get_user_flags"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_get_user_flags")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodySetParam {{
         func := physicsserver3dextension_ubody_set_param[T]
-        ci.virtual_methods["_body_set_param"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_param")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyGetParam {{
         func := physicsserver3dextension_ubody_get_param[T]
-        ci.virtual_methods["_body_get_param"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_get_param")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyResetMassProperties {{
         func := physicsserver3dextension_ubody_reset_mass_properties[T]
-        ci.virtual_methods["_body_reset_mass_properties"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_reset_mass_properties")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodySetState {{
         func := physicsserver3dextension_ubody_set_state[T]
-        ci.virtual_methods["_body_set_state"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_state")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyGetState {{
         func := physicsserver3dextension_ubody_get_state[T]
-        ci.virtual_methods["_body_get_state"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_get_state")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyApplyCentralImpulse {{
         func := physicsserver3dextension_ubody_apply_central_impulse[T]
-        ci.virtual_methods["_body_apply_central_impulse"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_apply_central_impulse")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyApplyImpulse {{
         func := physicsserver3dextension_ubody_apply_impulse[T]
-        ci.virtual_methods["_body_apply_impulse"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_apply_impulse")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyApplyTorqueImpulse {{
         func := physicsserver3dextension_ubody_apply_torque_impulse[T]
-        ci.virtual_methods["_body_apply_torque_impulse"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_apply_torque_impulse")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyApplyCentralForce {{
         func := physicsserver3dextension_ubody_apply_central_force[T]
-        ci.virtual_methods["_body_apply_central_force"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_apply_central_force")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyApplyForce {{
         func := physicsserver3dextension_ubody_apply_force[T]
-        ci.virtual_methods["_body_apply_force"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_apply_force")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyApplyTorque {{
         func := physicsserver3dextension_ubody_apply_torque[T]
-        ci.virtual_methods["_body_apply_torque"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_apply_torque")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyAddConstantCentralForce {{
         func := physicsserver3dextension_ubody_add_constant_central_force[T]
-        ci.virtual_methods["_body_add_constant_central_force"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_add_constant_central_force")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyAddConstantForce {{
         func := physicsserver3dextension_ubody_add_constant_force[T]
-        ci.virtual_methods["_body_add_constant_force"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_add_constant_force")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyAddConstantTorque {{
         func := physicsserver3dextension_ubody_add_constant_torque[T]
-        ci.virtual_methods["_body_add_constant_torque"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_add_constant_torque")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodySetConstantForce {{
         func := physicsserver3dextension_ubody_set_constant_force[T]
-        ci.virtual_methods["_body_set_constant_force"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_constant_force")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyGetConstantForce {{
         func := physicsserver3dextension_ubody_get_constant_force[T]
-        ci.virtual_methods["_body_get_constant_force"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_get_constant_force")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodySetConstantTorque {{
         func := physicsserver3dextension_ubody_set_constant_torque[T]
-        ci.virtual_methods["_body_set_constant_torque"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_constant_torque")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyGetConstantTorque {{
         func := physicsserver3dextension_ubody_get_constant_torque[T]
-        ci.virtual_methods["_body_get_constant_torque"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_get_constant_torque")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodySetAxisVelocity {{
         func := physicsserver3dextension_ubody_set_axis_velocity[T]
-        ci.virtual_methods["_body_set_axis_velocity"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_axis_velocity")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodySetAxisLock {{
         func := physicsserver3dextension_ubody_set_axis_lock[T]
-        ci.virtual_methods["_body_set_axis_lock"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_axis_lock")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyIsAxisLocked {{
         func := physicsserver3dextension_ubody_is_axis_locked[T]
-        ci.virtual_methods["_body_is_axis_locked"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_is_axis_locked")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyAddCollisionException {{
         func := physicsserver3dextension_ubody_add_collision_exception[T]
-        ci.virtual_methods["_body_add_collision_exception"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_add_collision_exception")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyRemoveCollisionException {{
         func := physicsserver3dextension_ubody_remove_collision_exception[T]
-        ci.virtual_methods["_body_remove_collision_exception"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_remove_collision_exception")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyGetCollisionExceptions {{
         func := physicsserver3dextension_ubody_get_collision_exceptions[T]
-        ci.virtual_methods["_body_get_collision_exceptions"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_get_collision_exceptions")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodySetMaxContactsReported {{
         func := physicsserver3dextension_ubody_set_max_contacts_reported[T]
-        ci.virtual_methods["_body_set_max_contacts_reported"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_max_contacts_reported")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyGetMaxContactsReported {{
         func := physicsserver3dextension_ubody_get_max_contacts_reported[T]
-        ci.virtual_methods["_body_get_max_contacts_reported"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_get_max_contacts_reported")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodySetContactsReportedDepthThreshold {{
         func := physicsserver3dextension_ubody_set_contacts_reported_depth_threshold[T]
-        ci.virtual_methods["_body_set_contacts_reported_depth_threshold"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_contacts_reported_depth_threshold")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyGetContactsReportedDepthThreshold {{
         func := physicsserver3dextension_ubody_get_contacts_reported_depth_threshold[T]
-        ci.virtual_methods["_body_get_contacts_reported_depth_threshold"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_get_contacts_reported_depth_threshold")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodySetOmitForceIntegration {{
         func := physicsserver3dextension_ubody_set_omit_force_integration[T]
-        ci.virtual_methods["_body_set_omit_force_integration"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_omit_force_integration")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyIsOmittingForceIntegration {{
         func := physicsserver3dextension_ubody_is_omitting_force_integration[T]
-        ci.virtual_methods["_body_is_omitting_force_integration"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_is_omitting_force_integration")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodySetStateSyncCallback {{
         func := physicsserver3dextension_ubody_set_state_sync_callback[T]
-        ci.virtual_methods["_body_set_state_sync_callback"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_state_sync_callback")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodySetForceIntegrationCallback {{
         func := physicsserver3dextension_ubody_set_force_integration_callback[T]
-        ci.virtual_methods["_body_set_force_integration_callback"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_force_integration_callback")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodySetRayPickable {{
         func := physicsserver3dextension_ubody_set_ray_pickable[T]
-        ci.virtual_methods["_body_set_ray_pickable"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_set_ray_pickable")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyTestMotion {{
         func := physicsserver3dextension_ubody_test_motion[T]
-        ci.virtual_methods["_body_test_motion"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_test_motion")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionBodyGetDirectState {{
         func := physicsserver3dextension_ubody_get_direct_state[T]
-        ci.virtual_methods["_body_get_direct_state"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_body_get_direct_state")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSoftBodyCreate {{
         func := physicsserver3dextension_usoft_body_create[T]
-        ci.virtual_methods["_soft_body_create"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_soft_body_create")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSoftBodyUpdateRenderingServer {{
         func := physicsserver3dextension_usoft_body_update_rendering_server[T]
-        ci.virtual_methods["_soft_body_update_rendering_server"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_soft_body_update_rendering_server")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSoftBodySetSpace {{
         func := physicsserver3dextension_usoft_body_set_space[T]
-        ci.virtual_methods["_soft_body_set_space"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_soft_body_set_space")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSoftBodyGetSpace {{
         func := physicsserver3dextension_usoft_body_get_space[T]
-        ci.virtual_methods["_soft_body_get_space"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_soft_body_get_space")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSoftBodySetRayPickable {{
         func := physicsserver3dextension_usoft_body_set_ray_pickable[T]
-        ci.virtual_methods["_soft_body_set_ray_pickable"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_soft_body_set_ray_pickable")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSoftBodySetCollisionLayer {{
         func := physicsserver3dextension_usoft_body_set_collision_layer[T]
-        ci.virtual_methods["_soft_body_set_collision_layer"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_soft_body_set_collision_layer")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSoftBodyGetCollisionLayer {{
         func := physicsserver3dextension_usoft_body_get_collision_layer[T]
-        ci.virtual_methods["_soft_body_get_collision_layer"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_soft_body_get_collision_layer")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSoftBodySetCollisionMask {{
         func := physicsserver3dextension_usoft_body_set_collision_mask[T]
-        ci.virtual_methods["_soft_body_set_collision_mask"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_soft_body_set_collision_mask")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSoftBodyGetCollisionMask {{
         func := physicsserver3dextension_usoft_body_get_collision_mask[T]
-        ci.virtual_methods["_soft_body_get_collision_mask"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_soft_body_get_collision_mask")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSoftBodyAddCollisionException {{
         func := physicsserver3dextension_usoft_body_add_collision_exception[T]
-        ci.virtual_methods["_soft_body_add_collision_exception"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_soft_body_add_collision_exception")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSoftBodyRemoveCollisionException {{
         func := physicsserver3dextension_usoft_body_remove_collision_exception[T]
-        ci.virtual_methods["_soft_body_remove_collision_exception"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_soft_body_remove_collision_exception")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSoftBodyGetCollisionExceptions {{
         func := physicsserver3dextension_usoft_body_get_collision_exceptions[T]
-        ci.virtual_methods["_soft_body_get_collision_exceptions"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_soft_body_get_collision_exceptions")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSoftBodySetState {{
         func := physicsserver3dextension_usoft_body_set_state[T]
-        ci.virtual_methods["_soft_body_set_state"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_soft_body_set_state")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSoftBodyGetState {{
         func := physicsserver3dextension_usoft_body_get_state[T]
-        ci.virtual_methods["_soft_body_get_state"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_soft_body_get_state")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSoftBodySetTransform {{
         func := physicsserver3dextension_usoft_body_set_transform[T]
-        ci.virtual_methods["_soft_body_set_transform"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_soft_body_set_transform")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSoftBodySetSimulationPrecision {{
         func := physicsserver3dextension_usoft_body_set_simulation_precision[T]
-        ci.virtual_methods["_soft_body_set_simulation_precision"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_soft_body_set_simulation_precision")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSoftBodyGetSimulationPrecision {{
         func := physicsserver3dextension_usoft_body_get_simulation_precision[T]
-        ci.virtual_methods["_soft_body_get_simulation_precision"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_soft_body_get_simulation_precision")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSoftBodySetTotalMass {{
         func := physicsserver3dextension_usoft_body_set_total_mass[T]
-        ci.virtual_methods["_soft_body_set_total_mass"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_soft_body_set_total_mass")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSoftBodyGetTotalMass {{
         func := physicsserver3dextension_usoft_body_get_total_mass[T]
-        ci.virtual_methods["_soft_body_get_total_mass"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_soft_body_get_total_mass")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSoftBodySetLinearStiffness {{
         func := physicsserver3dextension_usoft_body_set_linear_stiffness[T]
-        ci.virtual_methods["_soft_body_set_linear_stiffness"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_soft_body_set_linear_stiffness")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSoftBodyGetLinearStiffness {{
         func := physicsserver3dextension_usoft_body_get_linear_stiffness[T]
-        ci.virtual_methods["_soft_body_get_linear_stiffness"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_soft_body_get_linear_stiffness")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSoftBodySetPressureCoefficient {{
         func := physicsserver3dextension_usoft_body_set_pressure_coefficient[T]
-        ci.virtual_methods["_soft_body_set_pressure_coefficient"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_soft_body_set_pressure_coefficient")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSoftBodyGetPressureCoefficient {{
         func := physicsserver3dextension_usoft_body_get_pressure_coefficient[T]
-        ci.virtual_methods["_soft_body_get_pressure_coefficient"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_soft_body_get_pressure_coefficient")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSoftBodySetDampingCoefficient {{
         func := physicsserver3dextension_usoft_body_set_damping_coefficient[T]
-        ci.virtual_methods["_soft_body_set_damping_coefficient"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_soft_body_set_damping_coefficient")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSoftBodyGetDampingCoefficient {{
         func := physicsserver3dextension_usoft_body_get_damping_coefficient[T]
-        ci.virtual_methods["_soft_body_get_damping_coefficient"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_soft_body_get_damping_coefficient")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSoftBodySetDragCoefficient {{
         func := physicsserver3dextension_usoft_body_set_drag_coefficient[T]
-        ci.virtual_methods["_soft_body_set_drag_coefficient"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_soft_body_set_drag_coefficient")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSoftBodyGetDragCoefficient {{
         func := physicsserver3dextension_usoft_body_get_drag_coefficient[T]
-        ci.virtual_methods["_soft_body_get_drag_coefficient"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_soft_body_get_drag_coefficient")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSoftBodySetMesh {{
         func := physicsserver3dextension_usoft_body_set_mesh[T]
-        ci.virtual_methods["_soft_body_set_mesh"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_soft_body_set_mesh")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSoftBodyGetBounds {{
         func := physicsserver3dextension_usoft_body_get_bounds[T]
-        ci.virtual_methods["_soft_body_get_bounds"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_soft_body_get_bounds")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSoftBodyMovePoint {{
         func := physicsserver3dextension_usoft_body_move_point[T]
-        ci.virtual_methods["_soft_body_move_point"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_soft_body_move_point")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSoftBodyGetPointGlobalPosition {{
         func := physicsserver3dextension_usoft_body_get_point_global_position[T]
-        ci.virtual_methods["_soft_body_get_point_global_position"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_soft_body_get_point_global_position")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSoftBodyRemoveAllPinnedPoints {{
         func := physicsserver3dextension_usoft_body_remove_all_pinned_points[T]
-        ci.virtual_methods["_soft_body_remove_all_pinned_points"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_soft_body_remove_all_pinned_points")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSoftBodyPinPoint {{
         func := physicsserver3dextension_usoft_body_pin_point[T]
-        ci.virtual_methods["_soft_body_pin_point"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_soft_body_pin_point")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSoftBodyIsPointPinned {{
         func := physicsserver3dextension_usoft_body_is_point_pinned[T]
-        ci.virtual_methods["_soft_body_is_point_pinned"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_soft_body_is_point_pinned")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionJointCreate {{
         func := physicsserver3dextension_ujoint_create[T]
-        ci.virtual_methods["_joint_create"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_joint_create")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionJointClear {{
         func := physicsserver3dextension_ujoint_clear[T]
-        ci.virtual_methods["_joint_clear"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_joint_clear")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionJointMakePin {{
         func := physicsserver3dextension_ujoint_make_pin[T]
-        ci.virtual_methods["_joint_make_pin"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_joint_make_pin")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionPinJointSetParam {{
         func := physicsserver3dextension_upin_joint_set_param[T]
-        ci.virtual_methods["_pin_joint_set_param"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_pin_joint_set_param")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionPinJointGetParam {{
         func := physicsserver3dextension_upin_joint_get_param[T]
-        ci.virtual_methods["_pin_joint_get_param"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_pin_joint_get_param")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionPinJointSetLocalA {{
         func := physicsserver3dextension_upin_joint_set_local_a[T]
-        ci.virtual_methods["_pin_joint_set_local_a"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_pin_joint_set_local_a")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionPinJointGetLocalA {{
         func := physicsserver3dextension_upin_joint_get_local_a[T]
-        ci.virtual_methods["_pin_joint_get_local_a"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_pin_joint_get_local_a")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionPinJointSetLocalB {{
         func := physicsserver3dextension_upin_joint_set_local_b[T]
-        ci.virtual_methods["_pin_joint_set_local_b"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_pin_joint_set_local_b")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionPinJointGetLocalB {{
         func := physicsserver3dextension_upin_joint_get_local_b[T]
-        ci.virtual_methods["_pin_joint_get_local_b"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_pin_joint_get_local_b")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionJointMakeHinge {{
         func := physicsserver3dextension_ujoint_make_hinge[T]
-        ci.virtual_methods["_joint_make_hinge"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_joint_make_hinge")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionJointMakeHingeSimple {{
         func := physicsserver3dextension_ujoint_make_hinge_simple[T]
-        ci.virtual_methods["_joint_make_hinge_simple"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_joint_make_hinge_simple")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionHingeJointSetParam {{
         func := physicsserver3dextension_uhinge_joint_set_param[T]
-        ci.virtual_methods["_hinge_joint_set_param"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_hinge_joint_set_param")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionHingeJointGetParam {{
         func := physicsserver3dextension_uhinge_joint_get_param[T]
-        ci.virtual_methods["_hinge_joint_get_param"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_hinge_joint_get_param")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionHingeJointSetFlag {{
         func := physicsserver3dextension_uhinge_joint_set_flag[T]
-        ci.virtual_methods["_hinge_joint_set_flag"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_hinge_joint_set_flag")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionHingeJointGetFlag {{
         func := physicsserver3dextension_uhinge_joint_get_flag[T]
-        ci.virtual_methods["_hinge_joint_get_flag"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_hinge_joint_get_flag")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionJointMakeSlider {{
         func := physicsserver3dextension_ujoint_make_slider[T]
-        ci.virtual_methods["_joint_make_slider"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_joint_make_slider")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSliderJointSetParam {{
         func := physicsserver3dextension_uslider_joint_set_param[T]
-        ci.virtual_methods["_slider_joint_set_param"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_slider_joint_set_param")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSliderJointGetParam {{
         func := physicsserver3dextension_uslider_joint_get_param[T]
-        ci.virtual_methods["_slider_joint_get_param"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_slider_joint_get_param")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionJointMakeConeTwist {{
         func := physicsserver3dextension_ujoint_make_cone_twist[T]
-        ci.virtual_methods["_joint_make_cone_twist"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_joint_make_cone_twist")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionConeTwistJointSetParam {{
         func := physicsserver3dextension_ucone_twist_joint_set_param[T]
-        ci.virtual_methods["_cone_twist_joint_set_param"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_cone_twist_joint_set_param")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionConeTwistJointGetParam {{
         func := physicsserver3dextension_ucone_twist_joint_get_param[T]
-        ci.virtual_methods["_cone_twist_joint_get_param"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_cone_twist_joint_get_param")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionJointMakeGeneric6dof {{
         func := physicsserver3dextension_ujoint_make_generic_6dof[T]
-        ci.virtual_methods["_joint_make_generic_6dof"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_joint_make_generic_6dof")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionGeneric6dofJointSetParam {{
         func := physicsserver3dextension_ugeneric_6dof_joint_set_param[T]
-        ci.virtual_methods["_generic_6dof_joint_set_param"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_generic_6dof_joint_set_param")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionGeneric6dofJointGetParam {{
         func := physicsserver3dextension_ugeneric_6dof_joint_get_param[T]
-        ci.virtual_methods["_generic_6dof_joint_get_param"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_generic_6dof_joint_get_param")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionGeneric6dofJointSetFlag {{
         func := physicsserver3dextension_ugeneric_6dof_joint_set_flag[T]
-        ci.virtual_methods["_generic_6dof_joint_set_flag"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_generic_6dof_joint_set_flag")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionGeneric6dofJointGetFlag {{
         func := physicsserver3dextension_ugeneric_6dof_joint_get_flag[T]
-        ci.virtual_methods["_generic_6dof_joint_get_flag"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_generic_6dof_joint_get_flag")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionJointGetType {{
         func := physicsserver3dextension_ujoint_get_type[T]
-        ci.virtual_methods["_joint_get_type"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_joint_get_type")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionJointSetSolverPriority {{
         func := physicsserver3dextension_ujoint_set_solver_priority[T]
-        ci.virtual_methods["_joint_set_solver_priority"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_joint_set_solver_priority")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionJointGetSolverPriority {{
         func := physicsserver3dextension_ujoint_get_solver_priority[T]
-        ci.virtual_methods["_joint_get_solver_priority"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_joint_get_solver_priority")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionJointDisableCollisionsBetweenBodies {{
         func := physicsserver3dextension_ujoint_disable_collisions_between_bodies[T]
-        ci.virtual_methods["_joint_disable_collisions_between_bodies"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_joint_disable_collisions_between_bodies")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionJointIsDisabledCollisionsBetweenBodies {{
         func := physicsserver3dextension_ujoint_is_disabled_collisions_between_bodies[T]
-        ci.virtual_methods["_joint_is_disabled_collisions_between_bodies"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_joint_is_disabled_collisions_between_bodies")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionFreeRid {{
         func := physicsserver3dextension_ufree_rid[T]
-        ci.virtual_methods["_free_rid"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_free_rid")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSetActive {{
         func := physicsserver3dextension_uset_active[T]
-        ci.virtual_methods["_set_active"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_active")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionInit {{
         func := physicsserver3dextension_uinit[T]
-        ci.virtual_methods["_init"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_init")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionStep {{
         func := physicsserver3dextension_ustep[T]
-        ci.virtual_methods["_step"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_step")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionSync {{
         func := physicsserver3dextension_usync[T]
-        ci.virtual_methods["_sync"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_sync")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionFlushQueries {{
         func := physicsserver3dextension_uflush_queries[T]
-        ci.virtual_methods["_flush_queries"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_flush_queries")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionEndSync {{
         func := physicsserver3dextension_uend_sync[T]
-        ci.virtual_methods["_end_sync"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_end_sync")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionFinish {{
         func := physicsserver3dextension_ufinish[T]
-        ci.virtual_methods["_finish"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_finish")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionIsFlushingQueries {{
         func := physicsserver3dextension_uis_flushing_queries[T]
-        ci.virtual_methods["_is_flushing_queries"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_is_flushing_queries")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DExtensionGetProcessInfo {{
         func := physicsserver3dextension_uget_process_info[T]
-        ci.virtual_methods["_get_process_info"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_process_info")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DRenderingServerHandlerSetVertex {{
         func := physicsserver3drenderingserverhandler_uset_vertex[T]
-        ci.virtual_methods["_set_vertex"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_vertex")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DRenderingServerHandlerSetNormal {{
         func := physicsserver3drenderingserverhandler_uset_normal[T]
-        ci.virtual_methods["_set_normal"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_normal")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPhysicsServer3DRenderingServerHandlerSetAabb {{
         func := physicsserver3drenderingserverhandler_uset_aabb[T]
-        ci.virtual_methods["_set_aabb"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_aabb")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IPrimitiveMeshCreateMeshArray {{
         func := primitivemesh_ucreate_mesh_array[T]
-        ci.virtual_methods["_create_mesh_array"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_create_mesh_array")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IRangeValueChanged {{
         func := range_uvalue_changed[T]
-        ci.virtual_methods["_value_changed"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_value_changed")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IRenderSceneBuffersExtensionConfigure {{
         func := renderscenebuffersextension_uconfigure[T]
-        ci.virtual_methods["_configure"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_configure")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IRenderSceneBuffersExtensionSetFsrSharpness {{
         func := renderscenebuffersextension_uset_fsr_sharpness[T]
-        ci.virtual_methods["_set_fsr_sharpness"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_fsr_sharpness")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IRenderSceneBuffersExtensionSetTextureMipmapBias {{
         func := renderscenebuffersextension_uset_texture_mipmap_bias[T]
-        ci.virtual_methods["_set_texture_mipmap_bias"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_texture_mipmap_bias")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IRenderSceneBuffersExtensionSetUseDebanding {{
         func := renderscenebuffersextension_uset_use_debanding[T]
-        ci.virtual_methods["_set_use_debanding"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_use_debanding")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IResourceSetupLocalToScene {{
         func := resource_usetup_local_to_scene[T]
-        ci.virtual_methods["_setup_local_to_scene"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_setup_local_to_scene")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IResourceFormatLoaderGetRecognizedExtensions {{
         func := resourceformatloader_uget_recognized_extensions[T]
-        ci.virtual_methods["_get_recognized_extensions"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_recognized_extensions")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IResourceFormatLoaderRecognizePath {{
         func := resourceformatloader_urecognize_path[T]
-        ci.virtual_methods["_recognize_path"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_recognize_path")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IResourceFormatLoaderHandlesType {{
         func := resourceformatloader_uhandles_type[T]
-        ci.virtual_methods["_handles_type"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_handles_type")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IResourceFormatLoaderGetResourceType {{
         func := resourceformatloader_uget_resource_type[T]
-        ci.virtual_methods["_get_resource_type"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_resource_type")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IResourceFormatLoaderGetResourceScriptClass {{
         func := resourceformatloader_uget_resource_script_class[T]
-        ci.virtual_methods["_get_resource_script_class"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_resource_script_class")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IResourceFormatLoaderGetResourceUid {{
         func := resourceformatloader_uget_resource_uid[T]
-        ci.virtual_methods["_get_resource_uid"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_resource_uid")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IResourceFormatLoaderGetDependencies {{
         func := resourceformatloader_uget_dependencies[T]
-        ci.virtual_methods["_get_dependencies"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_dependencies")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IResourceFormatLoaderRenameDependencies {{
         func := resourceformatloader_urename_dependencies[T]
-        ci.virtual_methods["_rename_dependencies"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_rename_dependencies")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IResourceFormatLoaderExists {{
         func := resourceformatloader_uexists[T]
-        ci.virtual_methods["_exists"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_exists")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IResourceFormatLoaderGetClassesUsed {{
         func := resourceformatloader_uget_classes_used[T]
-        ci.virtual_methods["_get_classes_used"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_classes_used")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IResourceFormatLoaderLoad {{
         func := resourceformatloader_uload[T]
-        ci.virtual_methods["_load"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_load")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IResourceFormatSaverSave {{
         func := resourceformatsaver_usave[T]
-        ci.virtual_methods["_save"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_save")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IResourceFormatSaverSetUid {{
         func := resourceformatsaver_uset_uid[T]
-        ci.virtual_methods["_set_uid"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_uid")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IResourceFormatSaverRecognize {{
         func := resourceformatsaver_urecognize[T]
-        ci.virtual_methods["_recognize"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_recognize")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IResourceFormatSaverGetRecognizedExtensions {{
         func := resourceformatsaver_uget_recognized_extensions[T]
-        ci.virtual_methods["_get_recognized_extensions"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_recognized_extensions")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IResourceFormatSaverRecognizePath {{
         func := resourceformatsaver_urecognize_path[T]
-        ci.virtual_methods["_recognize_path"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_recognize_path")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IRichTextEffectProcessCustomFx {{
         func := richtexteffect_uprocess_custom_fx[T]
-        ci.virtual_methods["_process_custom_fx"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_process_custom_fx")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IRigidBody2DIntegrateForces {{
         func := rigidbody2d_uintegrate_forces[T]
-        ci.virtual_methods["_integrate_forces"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_integrate_forces")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IRigidBody3DIntegrateForces {{
         func := rigidbody3d_uintegrate_forces[T]
-        ci.virtual_methods["_integrate_forces"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_integrate_forces")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptExtensionEditorCanReloadFromFile {{
         func := scriptextension_ueditor_can_reload_from_file[T]
-        ci.virtual_methods["_editor_can_reload_from_file"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_editor_can_reload_from_file")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptExtensionPlaceholderErased {{
         func := scriptextension_uplaceholder_erased[T]
-        ci.virtual_methods["_placeholder_erased"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_placeholder_erased")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptExtensionCanInstantiate {{
         func := scriptextension_ucan_instantiate[T]
-        ci.virtual_methods["_can_instantiate"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_can_instantiate")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptExtensionGetBaseScript {{
         func := scriptextension_uget_base_script[T]
-        ci.virtual_methods["_get_base_script"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_base_script")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptExtensionGetGlobalName {{
         func := scriptextension_uget_global_name[T]
-        ci.virtual_methods["_get_global_name"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_global_name")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptExtensionInheritsScript {{
         func := scriptextension_uinherits_script[T]
-        ci.virtual_methods["_inherits_script"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_inherits_script")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptExtensionGetInstanceBaseType {{
         func := scriptextension_uget_instance_base_type[T]
-        ci.virtual_methods["_get_instance_base_type"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_instance_base_type")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptExtensionInstanceCreate {{
         func := scriptextension_uinstance_create[T]
-        ci.virtual_methods["_instance_create"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_instance_create")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptExtensionPlaceholderInstanceCreate {{
         func := scriptextension_uplaceholder_instance_create[T]
-        ci.virtual_methods["_placeholder_instance_create"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_placeholder_instance_create")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptExtensionInstanceHas {{
         func := scriptextension_uinstance_has[T]
-        ci.virtual_methods["_instance_has"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_instance_has")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptExtensionHasSourceCode {{
         func := scriptextension_uhas_source_code[T]
-        ci.virtual_methods["_has_source_code"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_has_source_code")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptExtensionGetSourceCode {{
         func := scriptextension_uget_source_code[T]
-        ci.virtual_methods["_get_source_code"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_source_code")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptExtensionSetSourceCode {{
         func := scriptextension_uset_source_code[T]
-        ci.virtual_methods["_set_source_code"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_source_code")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptExtensionReload {{
         func := scriptextension_ureload[T]
-        ci.virtual_methods["_reload"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_reload")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptExtensionGetDocumentation {{
         func := scriptextension_uget_documentation[T]
-        ci.virtual_methods["_get_documentation"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_documentation")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptExtensionGetClassIconPath {{
         func := scriptextension_uget_class_icon_path[T]
-        ci.virtual_methods["_get_class_icon_path"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_class_icon_path")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptExtensionHasMethod {{
         func := scriptextension_uhas_method[T]
-        ci.virtual_methods["_has_method"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_has_method")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptExtensionHasStaticMethod {{
         func := scriptextension_uhas_static_method[T]
-        ci.virtual_methods["_has_static_method"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_has_static_method")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptExtensionGetMethodInfo {{
         func := scriptextension_uget_method_info[T]
-        ci.virtual_methods["_get_method_info"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_method_info")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptExtensionIsTool {{
         func := scriptextension_uis_tool[T]
-        ci.virtual_methods["_is_tool"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_is_tool")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptExtensionIsValid {{
         func := scriptextension_uis_valid[T]
-        ci.virtual_methods["_is_valid"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_is_valid")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptExtensionIsAbstract {{
         func := scriptextension_uis_abstract[T]
-        ci.virtual_methods["_is_abstract"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_is_abstract")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptExtensionGetLanguage {{
         func := scriptextension_uget_language[T]
-        ci.virtual_methods["_get_language"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_language")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptExtensionHasScriptSignal {{
         func := scriptextension_uhas_script_signal[T]
-        ci.virtual_methods["_has_script_signal"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_has_script_signal")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptExtensionGetScriptSignalList {{
         func := scriptextension_uget_script_signal_list[T]
-        ci.virtual_methods["_get_script_signal_list"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_script_signal_list")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptExtensionHasPropertyDefaultValue {{
         func := scriptextension_uhas_property_default_value[T]
-        ci.virtual_methods["_has_property_default_value"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_has_property_default_value")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptExtensionGetPropertyDefaultValue {{
         func := scriptextension_uget_property_default_value[T]
-        ci.virtual_methods["_get_property_default_value"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_property_default_value")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptExtensionUpdateExports {{
         func := scriptextension_uupdate_exports[T]
-        ci.virtual_methods["_update_exports"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_update_exports")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptExtensionGetScriptMethodList {{
         func := scriptextension_uget_script_method_list[T]
-        ci.virtual_methods["_get_script_method_list"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_script_method_list")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptExtensionGetScriptPropertyList {{
         func := scriptextension_uget_script_property_list[T]
-        ci.virtual_methods["_get_script_property_list"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_script_property_list")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptExtensionGetMemberLine {{
         func := scriptextension_uget_member_line[T]
-        ci.virtual_methods["_get_member_line"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_member_line")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptExtensionGetConstants {{
         func := scriptextension_uget_constants[T]
-        ci.virtual_methods["_get_constants"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_constants")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptExtensionGetMembers {{
         func := scriptextension_uget_members[T]
-        ci.virtual_methods["_get_members"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_members")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptExtensionIsPlaceholderFallbackEnabled {{
         func := scriptextension_uis_placeholder_fallback_enabled[T]
-        ci.virtual_methods["_is_placeholder_fallback_enabled"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_is_placeholder_fallback_enabled")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptExtensionGetRpcConfig {{
         func := scriptextension_uget_rpc_config[T]
-        ci.virtual_methods["_get_rpc_config"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_rpc_config")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionGetName {{
         func := scriptlanguageextension_uget_name[T]
-        ci.virtual_methods["_get_name"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_name")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionInit {{
         func := scriptlanguageextension_uinit[T]
-        ci.virtual_methods["_init"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_init")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionGetType {{
         func := scriptlanguageextension_uget_type[T]
-        ci.virtual_methods["_get_type"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_type")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionGetExtension {{
         func := scriptlanguageextension_uget_extension[T]
-        ci.virtual_methods["_get_extension"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_extension")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionFinish {{
         func := scriptlanguageextension_ufinish[T]
-        ci.virtual_methods["_finish"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_finish")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionGetReservedWords {{
         func := scriptlanguageextension_uget_reserved_words[T]
-        ci.virtual_methods["_get_reserved_words"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_reserved_words")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionIsControlFlowKeyword {{
         func := scriptlanguageextension_uis_control_flow_keyword[T]
-        ci.virtual_methods["_is_control_flow_keyword"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_is_control_flow_keyword")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionGetCommentDelimiters {{
         func := scriptlanguageextension_uget_comment_delimiters[T]
-        ci.virtual_methods["_get_comment_delimiters"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_comment_delimiters")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionGetDocCommentDelimiters {{
         func := scriptlanguageextension_uget_doc_comment_delimiters[T]
-        ci.virtual_methods["_get_doc_comment_delimiters"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_doc_comment_delimiters")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionGetStringDelimiters {{
         func := scriptlanguageextension_uget_string_delimiters[T]
-        ci.virtual_methods["_get_string_delimiters"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_string_delimiters")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionMakeTemplate {{
         func := scriptlanguageextension_umake_template[T]
-        ci.virtual_methods["_make_template"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_make_template")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionGetBuiltInTemplates {{
         func := scriptlanguageextension_uget_built_in_templates[T]
-        ci.virtual_methods["_get_built_in_templates"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_built_in_templates")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionIsUsingTemplates {{
         func := scriptlanguageextension_uis_using_templates[T]
-        ci.virtual_methods["_is_using_templates"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_is_using_templates")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionValidate {{
         func := scriptlanguageextension_uvalidate[T]
-        ci.virtual_methods["_validate"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_validate")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionValidatePath {{
         func := scriptlanguageextension_uvalidate_path[T]
-        ci.virtual_methods["_validate_path"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_validate_path")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionCreateScript {{
         func := scriptlanguageextension_ucreate_script[T]
-        ci.virtual_methods["_create_script"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_create_script")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionHasNamedClasses {{
         func := scriptlanguageextension_uhas_named_classes[T]
-        ci.virtual_methods["_has_named_classes"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_has_named_classes")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionSupportsBuiltinMode {{
         func := scriptlanguageextension_usupports_builtin_mode[T]
-        ci.virtual_methods["_supports_builtin_mode"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_supports_builtin_mode")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionSupportsDocumentation {{
         func := scriptlanguageextension_usupports_documentation[T]
-        ci.virtual_methods["_supports_documentation"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_supports_documentation")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionCanInheritFromFile {{
         func := scriptlanguageextension_ucan_inherit_from_file[T]
-        ci.virtual_methods["_can_inherit_from_file"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_can_inherit_from_file")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionFindFunction {{
         func := scriptlanguageextension_ufind_function[T]
-        ci.virtual_methods["_find_function"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_find_function")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionMakeFunction {{
         func := scriptlanguageextension_umake_function[T]
-        ci.virtual_methods["_make_function"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_make_function")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionOpenInExternalEditor {{
         func := scriptlanguageextension_uopen_in_external_editor[T]
-        ci.virtual_methods["_open_in_external_editor"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_open_in_external_editor")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionOverridesExternalEditor {{
         func := scriptlanguageextension_uoverrides_external_editor[T]
-        ci.virtual_methods["_overrides_external_editor"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_overrides_external_editor")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionCompleteCode {{
         func := scriptlanguageextension_ucomplete_code[T]
-        ci.virtual_methods["_complete_code"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_complete_code")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionLookupCode {{
         func := scriptlanguageextension_ulookup_code[T]
-        ci.virtual_methods["_lookup_code"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_lookup_code")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionAutoIndentCode {{
         func := scriptlanguageextension_uauto_indent_code[T]
-        ci.virtual_methods["_auto_indent_code"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_auto_indent_code")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionAddGlobalConstant {{
         func := scriptlanguageextension_uadd_global_constant[T]
-        ci.virtual_methods["_add_global_constant"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_add_global_constant")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionAddNamedGlobalConstant {{
         func := scriptlanguageextension_uadd_named_global_constant[T]
-        ci.virtual_methods["_add_named_global_constant"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_add_named_global_constant")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionRemoveNamedGlobalConstant {{
         func := scriptlanguageextension_uremove_named_global_constant[T]
-        ci.virtual_methods["_remove_named_global_constant"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_remove_named_global_constant")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionThreadEnter {{
         func := scriptlanguageextension_uthread_enter[T]
-        ci.virtual_methods["_thread_enter"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_thread_enter")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionThreadExit {{
         func := scriptlanguageextension_uthread_exit[T]
-        ci.virtual_methods["_thread_exit"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_thread_exit")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionDebugGetError {{
         func := scriptlanguageextension_udebug_get_error[T]
-        ci.virtual_methods["_debug_get_error"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_debug_get_error")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionDebugGetStackLevelCount {{
         func := scriptlanguageextension_udebug_get_stack_level_count[T]
-        ci.virtual_methods["_debug_get_stack_level_count"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_debug_get_stack_level_count")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionDebugGetStackLevelLine {{
         func := scriptlanguageextension_udebug_get_stack_level_line[T]
-        ci.virtual_methods["_debug_get_stack_level_line"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_debug_get_stack_level_line")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionDebugGetStackLevelFunction {{
         func := scriptlanguageextension_udebug_get_stack_level_function[T]
-        ci.virtual_methods["_debug_get_stack_level_function"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_debug_get_stack_level_function")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionDebugGetStackLevelLocals {{
         func := scriptlanguageextension_udebug_get_stack_level_locals[T]
-        ci.virtual_methods["_debug_get_stack_level_locals"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_debug_get_stack_level_locals")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionDebugGetStackLevelMembers {{
         func := scriptlanguageextension_udebug_get_stack_level_members[T]
-        ci.virtual_methods["_debug_get_stack_level_members"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_debug_get_stack_level_members")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionDebugGetStackLevelInstance {{
         func := scriptlanguageextension_udebug_get_stack_level_instance[T]
-        ci.virtual_methods["_debug_get_stack_level_instance"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_debug_get_stack_level_instance")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionDebugGetGlobals {{
         func := scriptlanguageextension_udebug_get_globals[T]
-        ci.virtual_methods["_debug_get_globals"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_debug_get_globals")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionDebugParseStackLevelExpression {{
         func := scriptlanguageextension_udebug_parse_stack_level_expression[T]
-        ci.virtual_methods["_debug_parse_stack_level_expression"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_debug_parse_stack_level_expression")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionDebugGetCurrentStackInfo {{
         func := scriptlanguageextension_udebug_get_current_stack_info[T]
-        ci.virtual_methods["_debug_get_current_stack_info"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_debug_get_current_stack_info")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionReloadAllScripts {{
         func := scriptlanguageextension_ureload_all_scripts[T]
-        ci.virtual_methods["_reload_all_scripts"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_reload_all_scripts")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionReloadToolScript {{
         func := scriptlanguageextension_ureload_tool_script[T]
-        ci.virtual_methods["_reload_tool_script"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_reload_tool_script")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionGetRecognizedExtensions {{
         func := scriptlanguageextension_uget_recognized_extensions[T]
-        ci.virtual_methods["_get_recognized_extensions"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_recognized_extensions")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionGetPublicFunctions {{
         func := scriptlanguageextension_uget_public_functions[T]
-        ci.virtual_methods["_get_public_functions"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_public_functions")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionGetPublicConstants {{
         func := scriptlanguageextension_uget_public_constants[T]
-        ci.virtual_methods["_get_public_constants"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_public_constants")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionGetPublicAnnotations {{
         func := scriptlanguageextension_uget_public_annotations[T]
-        ci.virtual_methods["_get_public_annotations"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_public_annotations")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionProfilingStart {{
         func := scriptlanguageextension_uprofiling_start[T]
-        ci.virtual_methods["_profiling_start"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_profiling_start")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionProfilingStop {{
         func := scriptlanguageextension_uprofiling_stop[T]
-        ci.virtual_methods["_profiling_stop"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_profiling_stop")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionProfilingGetAccumulatedData {{
         func := scriptlanguageextension_uprofiling_get_accumulated_data[T]
-        ci.virtual_methods["_profiling_get_accumulated_data"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_profiling_get_accumulated_data")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionProfilingGetFrameData {{
         func := scriptlanguageextension_uprofiling_get_frame_data[T]
-        ci.virtual_methods["_profiling_get_frame_data"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_profiling_get_frame_data")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionFrame {{
         func := scriptlanguageextension_uframe[T]
-        ci.virtual_methods["_frame"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_frame")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionHandlesGlobalClassType {{
         func := scriptlanguageextension_uhandles_global_class_type[T]
-        ci.virtual_methods["_handles_global_class_type"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_handles_global_class_type")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IScriptLanguageExtensionGetGlobalClassName {{
         func := scriptlanguageextension_uget_global_class_name[T]
-        ci.virtual_methods["_get_global_class_name"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_global_class_name")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ISkeletonModification2DExecute {{
         func := skeletonmodification2d_uexecute[T]
-        ci.virtual_methods["_execute"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_execute")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ISkeletonModification2DSetupModification {{
         func := skeletonmodification2d_usetup_modification[T]
-        ci.virtual_methods["_setup_modification"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_setup_modification")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ISkeletonModification2DDrawEditorGizmo {{
         func := skeletonmodification2d_udraw_editor_gizmo[T]
-        ci.virtual_methods["_draw_editor_gizmo"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_draw_editor_gizmo")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IStreamPeerExtensionGetData {{
         func := streampeerextension_uget_data[T]
-        ci.virtual_methods["_get_data"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_data")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IStreamPeerExtensionGetPartialData {{
         func := streampeerextension_uget_partial_data[T]
-        ci.virtual_methods["_get_partial_data"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_partial_data")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IStreamPeerExtensionPutData {{
         func := streampeerextension_uput_data[T]
-        ci.virtual_methods["_put_data"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_put_data")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IStreamPeerExtensionPutPartialData {{
         func := streampeerextension_uput_partial_data[T]
-        ci.virtual_methods["_put_partial_data"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_put_partial_data")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IStreamPeerExtensionGetAvailableBytes {{
         func := streampeerextension_uget_available_bytes[T]
-        ci.virtual_methods["_get_available_bytes"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_available_bytes")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IStyleBoxDraw {{
         func := stylebox_udraw[T]
-        ci.virtual_methods["_draw"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_draw")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IStyleBoxGetDrawRect {{
         func := stylebox_uget_draw_rect[T]
-        ci.virtual_methods["_get_draw_rect"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_draw_rect")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IStyleBoxGetMinimumSize {{
         func := stylebox_uget_minimum_size[T]
-        ci.virtual_methods["_get_minimum_size"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_minimum_size")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IStyleBoxTestMask {{
         func := stylebox_utest_mask[T]
-        ci.virtual_methods["_test_mask"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_test_mask")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ISubViewportContainerPropagateInputEvent {{
         func := subviewportcontainer_upropagate_input_event[T]
-        ci.virtual_methods["_propagate_input_event"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_propagate_input_event")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ISyntaxHighlighterGetLineSyntaxHighlighting {{
         func := syntaxhighlighter_uget_line_syntax_highlighting[T]
-        ci.virtual_methods["_get_line_syntax_highlighting"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_line_syntax_highlighting")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ISyntaxHighlighterClearHighlightingCache {{
         func := syntaxhighlighter_uclear_highlighting_cache[T]
-        ci.virtual_methods["_clear_highlighting_cache"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_clear_highlighting_cache")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ISyntaxHighlighterUpdateCache {{
         func := syntaxhighlighter_uupdate_cache[T]
-        ci.virtual_methods["_update_cache"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_update_cache")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextEditHandleUnicodeInput {{
         func := textedit_uhandle_unicode_input[T]
-        ci.virtual_methods["_handle_unicode_input"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_handle_unicode_input")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextEditBackspace {{
         func := textedit_ubackspace[T]
-        ci.virtual_methods["_backspace"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_backspace")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextEditCut {{
         func := textedit_ucut[T]
-        ci.virtual_methods["_cut"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_cut")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextEditCopy {{
         func := textedit_ucopy[T]
-        ci.virtual_methods["_copy"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_copy")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextEditPaste {{
         func := textedit_upaste[T]
-        ci.virtual_methods["_paste"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_paste")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextEditPastePrimaryClipboard {{
         func := textedit_upaste_primary_clipboard[T]
-        ci.virtual_methods["_paste_primary_clipboard"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_paste_primary_clipboard")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionHasFeature {{
         func := textserverextension_uhas_feature[T]
-        ci.virtual_methods["_has_feature"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_has_feature")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionGetName {{
         func := textserverextension_uget_name[T]
-        ci.virtual_methods["_get_name"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_name")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionGetFeatures {{
         func := textserverextension_uget_features[T]
-        ci.virtual_methods["_get_features"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_features")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFreeRid {{
         func := textserverextension_ufree_rid[T]
-        ci.virtual_methods["_free_rid"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_free_rid")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionHas {{
         func := textserverextension_uhas[T]
-        ci.virtual_methods["_has"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_has")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionLoadSupportData {{
         func := textserverextension_uload_support_data[T]
-        ci.virtual_methods["_load_support_data"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_load_support_data")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionGetSupportDataFilename {{
         func := textserverextension_uget_support_data_filename[T]
-        ci.virtual_methods["_get_support_data_filename"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_support_data_filename")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionGetSupportDataInfo {{
         func := textserverextension_uget_support_data_info[T]
-        ci.virtual_methods["_get_support_data_info"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_support_data_info")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionSaveSupportData {{
         func := textserverextension_usave_support_data[T]
-        ci.virtual_methods["_save_support_data"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_save_support_data")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionIsLocaleRightToLeft {{
         func := textserverextension_uis_locale_right_to_left[T]
-        ci.virtual_methods["_is_locale_right_to_left"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_is_locale_right_to_left")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionNameToTag {{
         func := textserverextension_uname_to_tag[T]
-        ci.virtual_methods["_name_to_tag"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_name_to_tag")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionTagToName {{
         func := textserverextension_utag_to_name[T]
-        ci.virtual_methods["_tag_to_name"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_tag_to_name")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionCreateFont {{
         func := textserverextension_ucreate_font[T]
-        ci.virtual_methods["_create_font"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_create_font")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionCreateFontLinkedVariation {{
         func := textserverextension_ucreate_font_linked_variation[T]
-        ci.virtual_methods["_create_font_linked_variation"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_create_font_linked_variation")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetData {{
         func := textserverextension_ufont_set_data[T]
-        ci.virtual_methods["_font_set_data"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_data")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetDataPtr {{
         func := textserverextension_ufont_set_data_ptr[T]
-        ci.virtual_methods["_font_set_data_ptr"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_data_ptr")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetFaceIndex {{
         func := textserverextension_ufont_set_face_index[T]
-        ci.virtual_methods["_font_set_face_index"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_face_index")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetFaceIndex {{
         func := textserverextension_ufont_get_face_index[T]
-        ci.virtual_methods["_font_get_face_index"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_face_index")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetFaceCount {{
         func := textserverextension_ufont_get_face_count[T]
-        ci.virtual_methods["_font_get_face_count"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_face_count")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetStyle {{
         func := textserverextension_ufont_set_style[T]
-        ci.virtual_methods["_font_set_style"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_style")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetStyle {{
         func := textserverextension_ufont_get_style[T]
-        ci.virtual_methods["_font_get_style"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_style")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetName {{
         func := textserverextension_ufont_set_name[T]
-        ci.virtual_methods["_font_set_name"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_name")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetName {{
         func := textserverextension_ufont_get_name[T]
-        ci.virtual_methods["_font_get_name"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_name")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetOtNameStrings {{
         func := textserverextension_ufont_get_ot_name_strings[T]
-        ci.virtual_methods["_font_get_ot_name_strings"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_ot_name_strings")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetStyleName {{
         func := textserverextension_ufont_set_style_name[T]
-        ci.virtual_methods["_font_set_style_name"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_style_name")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetStyleName {{
         func := textserverextension_ufont_get_style_name[T]
-        ci.virtual_methods["_font_get_style_name"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_style_name")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetWeight {{
         func := textserverextension_ufont_set_weight[T]
-        ci.virtual_methods["_font_set_weight"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_weight")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetWeight {{
         func := textserverextension_ufont_get_weight[T]
-        ci.virtual_methods["_font_get_weight"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_weight")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetStretch {{
         func := textserverextension_ufont_set_stretch[T]
-        ci.virtual_methods["_font_set_stretch"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_stretch")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetStretch {{
         func := textserverextension_ufont_get_stretch[T]
-        ci.virtual_methods["_font_get_stretch"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_stretch")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetAntialiasing {{
         func := textserverextension_ufont_set_antialiasing[T]
-        ci.virtual_methods["_font_set_antialiasing"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_antialiasing")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetAntialiasing {{
         func := textserverextension_ufont_get_antialiasing[T]
-        ci.virtual_methods["_font_get_antialiasing"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_antialiasing")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetGenerateMipmaps {{
         func := textserverextension_ufont_set_generate_mipmaps[T]
-        ci.virtual_methods["_font_set_generate_mipmaps"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_generate_mipmaps")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetGenerateMipmaps {{
         func := textserverextension_ufont_get_generate_mipmaps[T]
-        ci.virtual_methods["_font_get_generate_mipmaps"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_generate_mipmaps")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetMultichannelSignedDistanceField {{
         func := textserverextension_ufont_set_multichannel_signed_distance_field[T]
-        ci.virtual_methods["_font_set_multichannel_signed_distance_field"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_multichannel_signed_distance_field")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontIsMultichannelSignedDistanceField {{
         func := textserverextension_ufont_is_multichannel_signed_distance_field[T]
-        ci.virtual_methods["_font_is_multichannel_signed_distance_field"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_is_multichannel_signed_distance_field")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetMsdfPixelRange {{
         func := textserverextension_ufont_set_msdf_pixel_range[T]
-        ci.virtual_methods["_font_set_msdf_pixel_range"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_msdf_pixel_range")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetMsdfPixelRange {{
         func := textserverextension_ufont_get_msdf_pixel_range[T]
-        ci.virtual_methods["_font_get_msdf_pixel_range"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_msdf_pixel_range")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetMsdfSize {{
         func := textserverextension_ufont_set_msdf_size[T]
-        ci.virtual_methods["_font_set_msdf_size"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_msdf_size")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetMsdfSize {{
         func := textserverextension_ufont_get_msdf_size[T]
-        ci.virtual_methods["_font_get_msdf_size"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_msdf_size")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetFixedSize {{
         func := textserverextension_ufont_set_fixed_size[T]
-        ci.virtual_methods["_font_set_fixed_size"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_fixed_size")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetFixedSize {{
         func := textserverextension_ufont_get_fixed_size[T]
-        ci.virtual_methods["_font_get_fixed_size"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_fixed_size")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetFixedSizeScaleMode {{
         func := textserverextension_ufont_set_fixed_size_scale_mode[T]
-        ci.virtual_methods["_font_set_fixed_size_scale_mode"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_fixed_size_scale_mode")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetFixedSizeScaleMode {{
         func := textserverextension_ufont_get_fixed_size_scale_mode[T]
-        ci.virtual_methods["_font_get_fixed_size_scale_mode"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_fixed_size_scale_mode")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetAllowSystemFallback {{
         func := textserverextension_ufont_set_allow_system_fallback[T]
-        ci.virtual_methods["_font_set_allow_system_fallback"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_allow_system_fallback")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontIsAllowSystemFallback {{
         func := textserverextension_ufont_is_allow_system_fallback[T]
-        ci.virtual_methods["_font_is_allow_system_fallback"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_is_allow_system_fallback")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetForceAutohinter {{
         func := textserverextension_ufont_set_force_autohinter[T]
-        ci.virtual_methods["_font_set_force_autohinter"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_force_autohinter")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontIsForceAutohinter {{
         func := textserverextension_ufont_is_force_autohinter[T]
-        ci.virtual_methods["_font_is_force_autohinter"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_is_force_autohinter")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetHinting {{
         func := textserverextension_ufont_set_hinting[T]
-        ci.virtual_methods["_font_set_hinting"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_hinting")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetHinting {{
         func := textserverextension_ufont_get_hinting[T]
-        ci.virtual_methods["_font_get_hinting"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_hinting")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetSubpixelPositioning {{
         func := textserverextension_ufont_set_subpixel_positioning[T]
-        ci.virtual_methods["_font_set_subpixel_positioning"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_subpixel_positioning")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetSubpixelPositioning {{
         func := textserverextension_ufont_get_subpixel_positioning[T]
-        ci.virtual_methods["_font_get_subpixel_positioning"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_subpixel_positioning")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetEmbolden {{
         func := textserverextension_ufont_set_embolden[T]
-        ci.virtual_methods["_font_set_embolden"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_embolden")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetEmbolden {{
         func := textserverextension_ufont_get_embolden[T]
-        ci.virtual_methods["_font_get_embolden"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_embolden")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetSpacing {{
         func := textserverextension_ufont_set_spacing[T]
-        ci.virtual_methods["_font_set_spacing"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_spacing")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetSpacing {{
         func := textserverextension_ufont_get_spacing[T]
-        ci.virtual_methods["_font_get_spacing"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_spacing")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetTransform {{
         func := textserverextension_ufont_set_transform[T]
-        ci.virtual_methods["_font_set_transform"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_transform")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetTransform {{
         func := textserverextension_ufont_get_transform[T]
-        ci.virtual_methods["_font_get_transform"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_transform")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetVariationCoordinates {{
         func := textserverextension_ufont_set_variation_coordinates[T]
-        ci.virtual_methods["_font_set_variation_coordinates"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_variation_coordinates")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetVariationCoordinates {{
         func := textserverextension_ufont_get_variation_coordinates[T]
-        ci.virtual_methods["_font_get_variation_coordinates"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_variation_coordinates")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetOversampling {{
         func := textserverextension_ufont_set_oversampling[T]
-        ci.virtual_methods["_font_set_oversampling"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_oversampling")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetOversampling {{
         func := textserverextension_ufont_get_oversampling[T]
-        ci.virtual_methods["_font_get_oversampling"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_oversampling")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetSizeCacheList {{
         func := textserverextension_ufont_get_size_cache_list[T]
-        ci.virtual_methods["_font_get_size_cache_list"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_size_cache_list")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontClearSizeCache {{
         func := textserverextension_ufont_clear_size_cache[T]
-        ci.virtual_methods["_font_clear_size_cache"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_clear_size_cache")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontRemoveSizeCache {{
         func := textserverextension_ufont_remove_size_cache[T]
-        ci.virtual_methods["_font_remove_size_cache"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_remove_size_cache")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetAscent {{
         func := textserverextension_ufont_set_ascent[T]
-        ci.virtual_methods["_font_set_ascent"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_ascent")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetAscent {{
         func := textserverextension_ufont_get_ascent[T]
-        ci.virtual_methods["_font_get_ascent"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_ascent")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetDescent {{
         func := textserverextension_ufont_set_descent[T]
-        ci.virtual_methods["_font_set_descent"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_descent")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetDescent {{
         func := textserverextension_ufont_get_descent[T]
-        ci.virtual_methods["_font_get_descent"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_descent")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetUnderlinePosition {{
         func := textserverextension_ufont_set_underline_position[T]
-        ci.virtual_methods["_font_set_underline_position"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_underline_position")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetUnderlinePosition {{
         func := textserverextension_ufont_get_underline_position[T]
-        ci.virtual_methods["_font_get_underline_position"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_underline_position")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetUnderlineThickness {{
         func := textserverextension_ufont_set_underline_thickness[T]
-        ci.virtual_methods["_font_set_underline_thickness"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_underline_thickness")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetUnderlineThickness {{
         func := textserverextension_ufont_get_underline_thickness[T]
-        ci.virtual_methods["_font_get_underline_thickness"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_underline_thickness")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetScale {{
         func := textserverextension_ufont_set_scale[T]
-        ci.virtual_methods["_font_set_scale"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_scale")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetScale {{
         func := textserverextension_ufont_get_scale[T]
-        ci.virtual_methods["_font_get_scale"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_scale")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetTextureCount {{
         func := textserverextension_ufont_get_texture_count[T]
-        ci.virtual_methods["_font_get_texture_count"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_texture_count")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontClearTextures {{
         func := textserverextension_ufont_clear_textures[T]
-        ci.virtual_methods["_font_clear_textures"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_clear_textures")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontRemoveTexture {{
         func := textserverextension_ufont_remove_texture[T]
-        ci.virtual_methods["_font_remove_texture"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_remove_texture")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetTextureImage {{
         func := textserverextension_ufont_set_texture_image[T]
-        ci.virtual_methods["_font_set_texture_image"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_texture_image")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetTextureImage {{
         func := textserverextension_ufont_get_texture_image[T]
-        ci.virtual_methods["_font_get_texture_image"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_texture_image")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetTextureOffsets {{
         func := textserverextension_ufont_set_texture_offsets[T]
-        ci.virtual_methods["_font_set_texture_offsets"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_texture_offsets")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetTextureOffsets {{
         func := textserverextension_ufont_get_texture_offsets[T]
-        ci.virtual_methods["_font_get_texture_offsets"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_texture_offsets")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetGlyphList {{
         func := textserverextension_ufont_get_glyph_list[T]
-        ci.virtual_methods["_font_get_glyph_list"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_glyph_list")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontClearGlyphs {{
         func := textserverextension_ufont_clear_glyphs[T]
-        ci.virtual_methods["_font_clear_glyphs"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_clear_glyphs")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontRemoveGlyph {{
         func := textserverextension_ufont_remove_glyph[T]
-        ci.virtual_methods["_font_remove_glyph"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_remove_glyph")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetGlyphAdvance {{
         func := textserverextension_ufont_get_glyph_advance[T]
-        ci.virtual_methods["_font_get_glyph_advance"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_glyph_advance")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetGlyphAdvance {{
         func := textserverextension_ufont_set_glyph_advance[T]
-        ci.virtual_methods["_font_set_glyph_advance"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_glyph_advance")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetGlyphOffset {{
         func := textserverextension_ufont_get_glyph_offset[T]
-        ci.virtual_methods["_font_get_glyph_offset"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_glyph_offset")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetGlyphOffset {{
         func := textserverextension_ufont_set_glyph_offset[T]
-        ci.virtual_methods["_font_set_glyph_offset"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_glyph_offset")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetGlyphSize {{
         func := textserverextension_ufont_get_glyph_size[T]
-        ci.virtual_methods["_font_get_glyph_size"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_glyph_size")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetGlyphSize {{
         func := textserverextension_ufont_set_glyph_size[T]
-        ci.virtual_methods["_font_set_glyph_size"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_glyph_size")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetGlyphUvRect {{
         func := textserverextension_ufont_get_glyph_uv_rect[T]
-        ci.virtual_methods["_font_get_glyph_uv_rect"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_glyph_uv_rect")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetGlyphUvRect {{
         func := textserverextension_ufont_set_glyph_uv_rect[T]
-        ci.virtual_methods["_font_set_glyph_uv_rect"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_glyph_uv_rect")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetGlyphTextureIdx {{
         func := textserverextension_ufont_get_glyph_texture_idx[T]
-        ci.virtual_methods["_font_get_glyph_texture_idx"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_glyph_texture_idx")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetGlyphTextureIdx {{
         func := textserverextension_ufont_set_glyph_texture_idx[T]
-        ci.virtual_methods["_font_set_glyph_texture_idx"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_glyph_texture_idx")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetGlyphTextureRid {{
         func := textserverextension_ufont_get_glyph_texture_rid[T]
-        ci.virtual_methods["_font_get_glyph_texture_rid"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_glyph_texture_rid")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetGlyphTextureSize {{
         func := textserverextension_ufont_get_glyph_texture_size[T]
-        ci.virtual_methods["_font_get_glyph_texture_size"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_glyph_texture_size")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetGlyphContours {{
         func := textserverextension_ufont_get_glyph_contours[T]
-        ci.virtual_methods["_font_get_glyph_contours"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_glyph_contours")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetKerningList {{
         func := textserverextension_ufont_get_kerning_list[T]
-        ci.virtual_methods["_font_get_kerning_list"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_kerning_list")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontClearKerningMap {{
         func := textserverextension_ufont_clear_kerning_map[T]
-        ci.virtual_methods["_font_clear_kerning_map"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_clear_kerning_map")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontRemoveKerning {{
         func := textserverextension_ufont_remove_kerning[T]
-        ci.virtual_methods["_font_remove_kerning"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_remove_kerning")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetKerning {{
         func := textserverextension_ufont_set_kerning[T]
-        ci.virtual_methods["_font_set_kerning"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_kerning")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetKerning {{
         func := textserverextension_ufont_get_kerning[T]
-        ci.virtual_methods["_font_get_kerning"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_kerning")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetGlyphIndex {{
         func := textserverextension_ufont_get_glyph_index[T]
-        ci.virtual_methods["_font_get_glyph_index"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_glyph_index")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetCharFromGlyphIndex {{
         func := textserverextension_ufont_get_char_from_glyph_index[T]
-        ci.virtual_methods["_font_get_char_from_glyph_index"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_char_from_glyph_index")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontHasChar {{
         func := textserverextension_ufont_has_char[T]
-        ci.virtual_methods["_font_has_char"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_has_char")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetSupportedChars {{
         func := textserverextension_ufont_get_supported_chars[T]
-        ci.virtual_methods["_font_get_supported_chars"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_supported_chars")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontRenderRange {{
         func := textserverextension_ufont_render_range[T]
-        ci.virtual_methods["_font_render_range"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_render_range")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontRenderGlyph {{
         func := textserverextension_ufont_render_glyph[T]
-        ci.virtual_methods["_font_render_glyph"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_render_glyph")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontDrawGlyph {{
         func := textserverextension_ufont_draw_glyph[T]
-        ci.virtual_methods["_font_draw_glyph"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_draw_glyph")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontDrawGlyphOutline {{
         func := textserverextension_ufont_draw_glyph_outline[T]
-        ci.virtual_methods["_font_draw_glyph_outline"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_draw_glyph_outline")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontIsLanguageSupported {{
         func := textserverextension_ufont_is_language_supported[T]
-        ci.virtual_methods["_font_is_language_supported"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_is_language_supported")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetLanguageSupportOverride {{
         func := textserverextension_ufont_set_language_support_override[T]
-        ci.virtual_methods["_font_set_language_support_override"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_language_support_override")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetLanguageSupportOverride {{
         func := textserverextension_ufont_get_language_support_override[T]
-        ci.virtual_methods["_font_get_language_support_override"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_language_support_override")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontRemoveLanguageSupportOverride {{
         func := textserverextension_ufont_remove_language_support_override[T]
-        ci.virtual_methods["_font_remove_language_support_override"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_remove_language_support_override")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetLanguageSupportOverrides {{
         func := textserverextension_ufont_get_language_support_overrides[T]
-        ci.virtual_methods["_font_get_language_support_overrides"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_language_support_overrides")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontIsScriptSupported {{
         func := textserverextension_ufont_is_script_supported[T]
-        ci.virtual_methods["_font_is_script_supported"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_is_script_supported")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetScriptSupportOverride {{
         func := textserverextension_ufont_set_script_support_override[T]
-        ci.virtual_methods["_font_set_script_support_override"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_script_support_override")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetScriptSupportOverride {{
         func := textserverextension_ufont_get_script_support_override[T]
-        ci.virtual_methods["_font_get_script_support_override"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_script_support_override")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontRemoveScriptSupportOverride {{
         func := textserverextension_ufont_remove_script_support_override[T]
-        ci.virtual_methods["_font_remove_script_support_override"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_remove_script_support_override")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetScriptSupportOverrides {{
         func := textserverextension_ufont_get_script_support_overrides[T]
-        ci.virtual_methods["_font_get_script_support_overrides"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_script_support_overrides")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetOpentypeFeatureOverrides {{
         func := textserverextension_ufont_set_opentype_feature_overrides[T]
-        ci.virtual_methods["_font_set_opentype_feature_overrides"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_opentype_feature_overrides")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetOpentypeFeatureOverrides {{
         func := textserverextension_ufont_get_opentype_feature_overrides[T]
-        ci.virtual_methods["_font_get_opentype_feature_overrides"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_opentype_feature_overrides")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSupportedFeatureList {{
         func := textserverextension_ufont_supported_feature_list[T]
-        ci.virtual_methods["_font_supported_feature_list"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_supported_feature_list")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSupportedVariationList {{
         func := textserverextension_ufont_supported_variation_list[T]
-        ci.virtual_methods["_font_supported_variation_list"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_supported_variation_list")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontGetGlobalOversampling {{
         func := textserverextension_ufont_get_global_oversampling[T]
-        ci.virtual_methods["_font_get_global_oversampling"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_get_global_oversampling")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFontSetGlobalOversampling {{
         func := textserverextension_ufont_set_global_oversampling[T]
-        ci.virtual_methods["_font_set_global_oversampling"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_font_set_global_oversampling")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionGetHexCodeBoxSize {{
         func := textserverextension_uget_hex_code_box_size[T]
-        ci.virtual_methods["_get_hex_code_box_size"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_hex_code_box_size")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionDrawHexCodeBox {{
         func := textserverextension_udraw_hex_code_box[T]
-        ci.virtual_methods["_draw_hex_code_box"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_draw_hex_code_box")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionCreateShapedText {{
         func := textserverextension_ucreate_shaped_text[T]
-        ci.virtual_methods["_create_shaped_text"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_create_shaped_text")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextClear {{
         func := textserverextension_ushaped_text_clear[T]
-        ci.virtual_methods["_shaped_text_clear"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_clear")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextSetDirection {{
         func := textserverextension_ushaped_text_set_direction[T]
-        ci.virtual_methods["_shaped_text_set_direction"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_set_direction")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextGetDirection {{
         func := textserverextension_ushaped_text_get_direction[T]
-        ci.virtual_methods["_shaped_text_get_direction"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_get_direction")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextGetInferredDirection {{
         func := textserverextension_ushaped_text_get_inferred_direction[T]
-        ci.virtual_methods["_shaped_text_get_inferred_direction"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_get_inferred_direction")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextSetBidiOverride {{
         func := textserverextension_ushaped_text_set_bidi_override[T]
-        ci.virtual_methods["_shaped_text_set_bidi_override"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_set_bidi_override")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextSetCustomPunctuation {{
         func := textserverextension_ushaped_text_set_custom_punctuation[T]
-        ci.virtual_methods["_shaped_text_set_custom_punctuation"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_set_custom_punctuation")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextGetCustomPunctuation {{
         func := textserverextension_ushaped_text_get_custom_punctuation[T]
-        ci.virtual_methods["_shaped_text_get_custom_punctuation"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_get_custom_punctuation")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextSetOrientation {{
         func := textserverextension_ushaped_text_set_orientation[T]
-        ci.virtual_methods["_shaped_text_set_orientation"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_set_orientation")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextGetOrientation {{
         func := textserverextension_ushaped_text_get_orientation[T]
-        ci.virtual_methods["_shaped_text_get_orientation"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_get_orientation")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextSetPreserveInvalid {{
         func := textserverextension_ushaped_text_set_preserve_invalid[T]
-        ci.virtual_methods["_shaped_text_set_preserve_invalid"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_set_preserve_invalid")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextGetPreserveInvalid {{
         func := textserverextension_ushaped_text_get_preserve_invalid[T]
-        ci.virtual_methods["_shaped_text_get_preserve_invalid"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_get_preserve_invalid")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextSetPreserveControl {{
         func := textserverextension_ushaped_text_set_preserve_control[T]
-        ci.virtual_methods["_shaped_text_set_preserve_control"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_set_preserve_control")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextGetPreserveControl {{
         func := textserverextension_ushaped_text_get_preserve_control[T]
-        ci.virtual_methods["_shaped_text_get_preserve_control"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_get_preserve_control")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextSetSpacing {{
         func := textserverextension_ushaped_text_set_spacing[T]
-        ci.virtual_methods["_shaped_text_set_spacing"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_set_spacing")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextGetSpacing {{
         func := textserverextension_ushaped_text_get_spacing[T]
-        ci.virtual_methods["_shaped_text_get_spacing"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_get_spacing")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextAddString {{
         func := textserverextension_ushaped_text_add_string[T]
-        ci.virtual_methods["_shaped_text_add_string"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_add_string")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextAddObject {{
         func := textserverextension_ushaped_text_add_object[T]
-        ci.virtual_methods["_shaped_text_add_object"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_add_object")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextResizeObject {{
         func := textserverextension_ushaped_text_resize_object[T]
-        ci.virtual_methods["_shaped_text_resize_object"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_resize_object")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedGetSpanCount {{
         func := textserverextension_ushaped_get_span_count[T]
-        ci.virtual_methods["_shaped_get_span_count"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_get_span_count")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedGetSpanMeta {{
         func := textserverextension_ushaped_get_span_meta[T]
-        ci.virtual_methods["_shaped_get_span_meta"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_get_span_meta")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedSetSpanUpdateFont {{
         func := textserverextension_ushaped_set_span_update_font[T]
-        ci.virtual_methods["_shaped_set_span_update_font"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_set_span_update_font")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextSubstr {{
         func := textserverextension_ushaped_text_substr[T]
-        ci.virtual_methods["_shaped_text_substr"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_substr")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextGetParent {{
         func := textserverextension_ushaped_text_get_parent[T]
-        ci.virtual_methods["_shaped_text_get_parent"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_get_parent")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextFitToWidth {{
         func := textserverextension_ushaped_text_fit_to_width[T]
-        ci.virtual_methods["_shaped_text_fit_to_width"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_fit_to_width")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextTabAlign {{
         func := textserverextension_ushaped_text_tab_align[T]
-        ci.virtual_methods["_shaped_text_tab_align"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_tab_align")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextShape {{
         func := textserverextension_ushaped_text_shape[T]
-        ci.virtual_methods["_shaped_text_shape"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_shape")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextUpdateBreaks {{
         func := textserverextension_ushaped_text_update_breaks[T]
-        ci.virtual_methods["_shaped_text_update_breaks"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_update_breaks")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextUpdateJustificationOps {{
         func := textserverextension_ushaped_text_update_justification_ops[T]
-        ci.virtual_methods["_shaped_text_update_justification_ops"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_update_justification_ops")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextIsReady {{
         func := textserverextension_ushaped_text_is_ready[T]
-        ci.virtual_methods["_shaped_text_is_ready"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_is_ready")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextGetGlyphs {{
         func := textserverextension_ushaped_text_get_glyphs[T]
-        ci.virtual_methods["_shaped_text_get_glyphs"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_get_glyphs")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextSortLogical {{
         func := textserverextension_ushaped_text_sort_logical[T]
-        ci.virtual_methods["_shaped_text_sort_logical"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_sort_logical")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextGetGlyphCount {{
         func := textserverextension_ushaped_text_get_glyph_count[T]
-        ci.virtual_methods["_shaped_text_get_glyph_count"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_get_glyph_count")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextGetRange {{
         func := textserverextension_ushaped_text_get_range[T]
-        ci.virtual_methods["_shaped_text_get_range"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_get_range")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextGetLineBreaksAdv {{
         func := textserverextension_ushaped_text_get_line_breaks_adv[T]
-        ci.virtual_methods["_shaped_text_get_line_breaks_adv"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_get_line_breaks_adv")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextGetLineBreaks {{
         func := textserverextension_ushaped_text_get_line_breaks[T]
-        ci.virtual_methods["_shaped_text_get_line_breaks"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_get_line_breaks")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextGetWordBreaks {{
         func := textserverextension_ushaped_text_get_word_breaks[T]
-        ci.virtual_methods["_shaped_text_get_word_breaks"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_get_word_breaks")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextGetTrimPos {{
         func := textserverextension_ushaped_text_get_trim_pos[T]
-        ci.virtual_methods["_shaped_text_get_trim_pos"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_get_trim_pos")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextGetEllipsisPos {{
         func := textserverextension_ushaped_text_get_ellipsis_pos[T]
-        ci.virtual_methods["_shaped_text_get_ellipsis_pos"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_get_ellipsis_pos")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextGetEllipsisGlyphCount {{
         func := textserverextension_ushaped_text_get_ellipsis_glyph_count[T]
-        ci.virtual_methods["_shaped_text_get_ellipsis_glyph_count"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_get_ellipsis_glyph_count")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextGetEllipsisGlyphs {{
         func := textserverextension_ushaped_text_get_ellipsis_glyphs[T]
-        ci.virtual_methods["_shaped_text_get_ellipsis_glyphs"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_get_ellipsis_glyphs")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextOverrunTrimToWidth {{
         func := textserverextension_ushaped_text_overrun_trim_to_width[T]
-        ci.virtual_methods["_shaped_text_overrun_trim_to_width"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_overrun_trim_to_width")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextGetObjects {{
         func := textserverextension_ushaped_text_get_objects[T]
-        ci.virtual_methods["_shaped_text_get_objects"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_get_objects")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextGetObjectRect {{
         func := textserverextension_ushaped_text_get_object_rect[T]
-        ci.virtual_methods["_shaped_text_get_object_rect"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_get_object_rect")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextGetSize {{
         func := textserverextension_ushaped_text_get_size[T]
-        ci.virtual_methods["_shaped_text_get_size"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_get_size")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextGetAscent {{
         func := textserverextension_ushaped_text_get_ascent[T]
-        ci.virtual_methods["_shaped_text_get_ascent"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_get_ascent")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextGetDescent {{
         func := textserverextension_ushaped_text_get_descent[T]
-        ci.virtual_methods["_shaped_text_get_descent"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_get_descent")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextGetWidth {{
         func := textserverextension_ushaped_text_get_width[T]
-        ci.virtual_methods["_shaped_text_get_width"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_get_width")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextGetUnderlinePosition {{
         func := textserverextension_ushaped_text_get_underline_position[T]
-        ci.virtual_methods["_shaped_text_get_underline_position"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_get_underline_position")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextGetUnderlineThickness {{
         func := textserverextension_ushaped_text_get_underline_thickness[T]
-        ci.virtual_methods["_shaped_text_get_underline_thickness"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_get_underline_thickness")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextGetDominantDirectionInRange {{
         func := textserverextension_ushaped_text_get_dominant_direction_in_range[T]
-        ci.virtual_methods["_shaped_text_get_dominant_direction_in_range"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_get_dominant_direction_in_range")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextGetCarets {{
         func := textserverextension_ushaped_text_get_carets[T]
-        ci.virtual_methods["_shaped_text_get_carets"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_get_carets")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextGetSelection {{
         func := textserverextension_ushaped_text_get_selection[T]
-        ci.virtual_methods["_shaped_text_get_selection"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_get_selection")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextHitTestGrapheme {{
         func := textserverextension_ushaped_text_hit_test_grapheme[T]
-        ci.virtual_methods["_shaped_text_hit_test_grapheme"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_hit_test_grapheme")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextHitTestPosition {{
         func := textserverextension_ushaped_text_hit_test_position[T]
-        ci.virtual_methods["_shaped_text_hit_test_position"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_hit_test_position")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextDraw {{
         func := textserverextension_ushaped_text_draw[T]
-        ci.virtual_methods["_shaped_text_draw"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_draw")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextDrawOutline {{
         func := textserverextension_ushaped_text_draw_outline[T]
-        ci.virtual_methods["_shaped_text_draw_outline"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_draw_outline")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextGetGraphemeBounds {{
         func := textserverextension_ushaped_text_get_grapheme_bounds[T]
-        ci.virtual_methods["_shaped_text_get_grapheme_bounds"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_get_grapheme_bounds")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextNextGraphemePos {{
         func := textserverextension_ushaped_text_next_grapheme_pos[T]
-        ci.virtual_methods["_shaped_text_next_grapheme_pos"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_next_grapheme_pos")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextPrevGraphemePos {{
         func := textserverextension_ushaped_text_prev_grapheme_pos[T]
-        ci.virtual_methods["_shaped_text_prev_grapheme_pos"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_prev_grapheme_pos")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextGetCharacterBreaks {{
         func := textserverextension_ushaped_text_get_character_breaks[T]
-        ci.virtual_methods["_shaped_text_get_character_breaks"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_get_character_breaks")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextNextCharacterPos {{
         func := textserverextension_ushaped_text_next_character_pos[T]
-        ci.virtual_methods["_shaped_text_next_character_pos"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_next_character_pos")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextPrevCharacterPos {{
         func := textserverextension_ushaped_text_prev_character_pos[T]
-        ci.virtual_methods["_shaped_text_prev_character_pos"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_prev_character_pos")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionShapedTextClosestCharacterPos {{
         func := textserverextension_ushaped_text_closest_character_pos[T]
-        ci.virtual_methods["_shaped_text_closest_character_pos"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_shaped_text_closest_character_pos")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionFormatNumber {{
         func := textserverextension_uformat_number[T]
-        ci.virtual_methods["_format_number"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_format_number")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionParseNumber {{
         func := textserverextension_uparse_number[T]
-        ci.virtual_methods["_parse_number"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_parse_number")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionPercentSign {{
         func := textserverextension_upercent_sign[T]
-        ci.virtual_methods["_percent_sign"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_percent_sign")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionStripDiacritics {{
         func := textserverextension_ustrip_diacritics[T]
-        ci.virtual_methods["_strip_diacritics"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_strip_diacritics")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionIsValidIdentifier {{
         func := textserverextension_uis_valid_identifier[T]
-        ci.virtual_methods["_is_valid_identifier"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_is_valid_identifier")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionStringGetWordBreaks {{
         func := textserverextension_ustring_get_word_breaks[T]
-        ci.virtual_methods["_string_get_word_breaks"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_string_get_word_breaks")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionStringGetCharacterBreaks {{
         func := textserverextension_ustring_get_character_breaks[T]
-        ci.virtual_methods["_string_get_character_breaks"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_string_get_character_breaks")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionIsConfusable {{
         func := textserverextension_uis_confusable[T]
-        ci.virtual_methods["_is_confusable"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_is_confusable")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionSpoofCheck {{
         func := textserverextension_uspoof_check[T]
-        ci.virtual_methods["_spoof_check"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_spoof_check")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionStringToUpper {{
         func := textserverextension_ustring_to_upper[T]
-        ci.virtual_methods["_string_to_upper"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_string_to_upper")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionStringToLower {{
         func := textserverextension_ustring_to_lower[T]
-        ci.virtual_methods["_string_to_lower"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_string_to_lower")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionParseStructuredText {{
         func := textserverextension_uparse_structured_text[T]
-        ci.virtual_methods["_parse_structured_text"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_parse_structured_text")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextServerExtensionCleanup {{
         func := textserverextension_ucleanup[T]
-        ci.virtual_methods["_cleanup"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_cleanup")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITexture2DGetWidth {{
         func := texture2d_uget_width[T]
-        ci.virtual_methods["_get_width"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_width")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITexture2DGetHeight {{
         func := texture2d_uget_height[T]
-        ci.virtual_methods["_get_height"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_height")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITexture2DIsPixelOpaque {{
         func := texture2d_uis_pixel_opaque[T]
-        ci.virtual_methods["_is_pixel_opaque"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_is_pixel_opaque")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITexture2DHasAlpha {{
         func := texture2d_uhas_alpha[T]
-        ci.virtual_methods["_has_alpha"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_has_alpha")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITexture2DDraw {{
         func := texture2d_udraw[T]
-        ci.virtual_methods["_draw"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_draw")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITexture2DDrawRect {{
         func := texture2d_udraw_rect[T]
-        ci.virtual_methods["_draw_rect"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_draw_rect")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITexture2DDrawRectRegion {{
         func := texture2d_udraw_rect_region[T]
-        ci.virtual_methods["_draw_rect_region"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_draw_rect_region")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITexture3DGetFormat {{
         func := texture3d_uget_format[T]
-        ci.virtual_methods["_get_format"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_format")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITexture3DGetWidth {{
         func := texture3d_uget_width[T]
-        ci.virtual_methods["_get_width"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_width")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITexture3DGetHeight {{
         func := texture3d_uget_height[T]
-        ci.virtual_methods["_get_height"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_height")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITexture3DGetDepth {{
         func := texture3d_uget_depth[T]
-        ci.virtual_methods["_get_depth"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_depth")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITexture3DHasMipmaps {{
         func := texture3d_uhas_mipmaps[T]
-        ci.virtual_methods["_has_mipmaps"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_has_mipmaps")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITexture3DGetData {{
         func := texture3d_uget_data[T]
-        ci.virtual_methods["_get_data"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_data")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextureLayeredGetFormat {{
         func := texturelayered_uget_format[T]
-        ci.virtual_methods["_get_format"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_format")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextureLayeredGetLayeredType {{
         func := texturelayered_uget_layered_type[T]
-        ci.virtual_methods["_get_layered_type"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_layered_type")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextureLayeredGetWidth {{
         func := texturelayered_uget_width[T]
-        ci.virtual_methods["_get_width"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_width")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextureLayeredGetHeight {{
         func := texturelayered_uget_height[T]
-        ci.virtual_methods["_get_height"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_height")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextureLayeredGetLayers {{
         func := texturelayered_uget_layers[T]
-        ci.virtual_methods["_get_layers"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_layers")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextureLayeredHasMipmaps {{
         func := texturelayered_uhas_mipmaps[T]
-        ci.virtual_methods["_has_mipmaps"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_has_mipmaps")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITextureLayeredGetLayerData {{
         func := texturelayered_uget_layer_data[T]
-        ci.virtual_methods["_get_layer_data"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_layer_data")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITileMapUseTileDataRuntimeUpdate {{
         func := tilemap_uuse_tile_data_runtime_update[T]
-        ci.virtual_methods["_use_tile_data_runtime_update"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_use_tile_data_runtime_update")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITileMapTileDataRuntimeUpdate {{
         func := tilemap_utile_data_runtime_update[T]
-        ci.virtual_methods["_tile_data_runtime_update"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_tile_data_runtime_update")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITranslationGetPluralMessage {{
         func := translation_uget_plural_message[T]
-        ci.virtual_methods["_get_plural_message"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_plural_message")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is ITranslationGetMessage {{
         func := translation_uget_message[T]
-        ci.virtual_methods["_get_message"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_message")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IVideoStreamInstantiatePlayback {{
         func := videostream_uinstantiate_playback[T]
-        ci.virtual_methods["_instantiate_playback"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_instantiate_playback")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IVideoStreamPlaybackStop {{
         func := videostreamplayback_ustop[T]
-        ci.virtual_methods["_stop"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_stop")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IVideoStreamPlaybackPlay {{
         func := videostreamplayback_uplay[T]
-        ci.virtual_methods["_play"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_play")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IVideoStreamPlaybackIsPlaying {{
         func := videostreamplayback_uis_playing[T]
-        ci.virtual_methods["_is_playing"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_is_playing")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IVideoStreamPlaybackSetPaused {{
         func := videostreamplayback_uset_paused[T]
-        ci.virtual_methods["_set_paused"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_paused")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IVideoStreamPlaybackIsPaused {{
         func := videostreamplayback_uis_paused[T]
-        ci.virtual_methods["_is_paused"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_is_paused")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IVideoStreamPlaybackGetLength {{
         func := videostreamplayback_uget_length[T]
-        ci.virtual_methods["_get_length"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_length")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IVideoStreamPlaybackGetPlaybackPosition {{
         func := videostreamplayback_uget_playback_position[T]
-        ci.virtual_methods["_get_playback_position"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_playback_position")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IVideoStreamPlaybackSeek {{
         func := videostreamplayback_useek[T]
-        ci.virtual_methods["_seek"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_seek")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IVideoStreamPlaybackSetAudioTrack {{
         func := videostreamplayback_uset_audio_track[T]
-        ci.virtual_methods["_set_audio_track"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_audio_track")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IVideoStreamPlaybackGetTexture {{
         func := videostreamplayback_uget_texture[T]
-        ci.virtual_methods["_get_texture"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_texture")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IVideoStreamPlaybackUpdate {{
         func := videostreamplayback_uupdate[T]
-        ci.virtual_methods["_update"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_update")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IVideoStreamPlaybackGetChannels {{
         func := videostreamplayback_uget_channels[T]
-        ci.virtual_methods["_get_channels"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_channels")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IVideoStreamPlaybackGetMixRate {{
         func := videostreamplayback_uget_mix_rate[T]
-        ci.virtual_methods["_get_mix_rate"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_mix_rate")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IVisualInstance3DGetAabb {{
         func := visualinstance3d_uget_aabb[T]
-        ci.virtual_methods["_get_aabb"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_aabb")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IVisualShaderNodeCustomGetName {{
         func := visualshadernodecustom_uget_name[T]
-        ci.virtual_methods["_get_name"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_name")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IVisualShaderNodeCustomGetDescription {{
         func := visualshadernodecustom_uget_description[T]
-        ci.virtual_methods["_get_description"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_description")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IVisualShaderNodeCustomGetCategory {{
         func := visualshadernodecustom_uget_category[T]
-        ci.virtual_methods["_get_category"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_category")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IVisualShaderNodeCustomGetReturnIconType {{
         func := visualshadernodecustom_uget_return_icon_type[T]
-        ci.virtual_methods["_get_return_icon_type"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_return_icon_type")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IVisualShaderNodeCustomGetInputPortCount {{
         func := visualshadernodecustom_uget_input_port_count[T]
-        ci.virtual_methods["_get_input_port_count"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_input_port_count")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IVisualShaderNodeCustomGetInputPortType {{
         func := visualshadernodecustom_uget_input_port_type[T]
-        ci.virtual_methods["_get_input_port_type"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_input_port_type")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IVisualShaderNodeCustomGetInputPortName {{
         func := visualshadernodecustom_uget_input_port_name[T]
-        ci.virtual_methods["_get_input_port_name"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_input_port_name")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IVisualShaderNodeCustomGetInputPortDefaultValue {{
         func := visualshadernodecustom_uget_input_port_default_value[T]
-        ci.virtual_methods["_get_input_port_default_value"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_input_port_default_value")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IVisualShaderNodeCustomGetDefaultInputPort {{
         func := visualshadernodecustom_uget_default_input_port[T]
-        ci.virtual_methods["_get_default_input_port"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_default_input_port")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IVisualShaderNodeCustomGetOutputPortCount {{
         func := visualshadernodecustom_uget_output_port_count[T]
-        ci.virtual_methods["_get_output_port_count"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_output_port_count")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IVisualShaderNodeCustomGetOutputPortType {{
         func := visualshadernodecustom_uget_output_port_type[T]
-        ci.virtual_methods["_get_output_port_type"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_output_port_type")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IVisualShaderNodeCustomGetOutputPortName {{
         func := visualshadernodecustom_uget_output_port_name[T]
-        ci.virtual_methods["_get_output_port_name"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_output_port_name")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IVisualShaderNodeCustomGetPropertyCount {{
         func := visualshadernodecustom_uget_property_count[T]
-        ci.virtual_methods["_get_property_count"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_property_count")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IVisualShaderNodeCustomGetPropertyName {{
         func := visualshadernodecustom_uget_property_name[T]
-        ci.virtual_methods["_get_property_name"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_property_name")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IVisualShaderNodeCustomGetPropertyDefaultIndex {{
         func := visualshadernodecustom_uget_property_default_index[T]
-        ci.virtual_methods["_get_property_default_index"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_property_default_index")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IVisualShaderNodeCustomGetPropertyOptions {{
         func := visualshadernodecustom_uget_property_options[T]
-        ci.virtual_methods["_get_property_options"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_property_options")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IVisualShaderNodeCustomGetCode {{
         func := visualshadernodecustom_uget_code[T]
-        ci.virtual_methods["_get_code"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_code")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IVisualShaderNodeCustomGetFuncCode {{
         func := visualshadernodecustom_uget_func_code[T]
-        ci.virtual_methods["_get_func_code"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_func_code")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IVisualShaderNodeCustomGetGlobalCode {{
         func := visualshadernodecustom_uget_global_code[T]
-        ci.virtual_methods["_get_global_code"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_global_code")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IVisualShaderNodeCustomIsHighend {{
         func := visualshadernodecustom_uis_highend[T]
-        ci.virtual_methods["_is_highend"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_is_highend")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IVisualShaderNodeCustomIsAvailable {{
         func := visualshadernodecustom_uis_available[T]
-        ci.virtual_methods["_is_available"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_is_available")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IWebRTCDataChannelExtensionGetPacket {{
         func := webrtcdatachannelextension_uget_packet[T]
-        ci.virtual_methods["_get_packet"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_packet")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IWebRTCDataChannelExtensionPutPacket {{
         func := webrtcdatachannelextension_uput_packet[T]
-        ci.virtual_methods["_put_packet"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_put_packet")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IWebRTCDataChannelExtensionGetAvailablePacketCount {{
         func := webrtcdatachannelextension_uget_available_packet_count[T]
-        ci.virtual_methods["_get_available_packet_count"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_available_packet_count")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IWebRTCDataChannelExtensionGetMaxPacketSize {{
         func := webrtcdatachannelextension_uget_max_packet_size[T]
-        ci.virtual_methods["_get_max_packet_size"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_max_packet_size")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IWebRTCDataChannelExtensionPoll {{
         func := webrtcdatachannelextension_upoll[T]
-        ci.virtual_methods["_poll"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_poll")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IWebRTCDataChannelExtensionClose {{
         func := webrtcdatachannelextension_uclose[T]
-        ci.virtual_methods["_close"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_close")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IWebRTCDataChannelExtensionSetWriteMode {{
         func := webrtcdatachannelextension_uset_write_mode[T]
-        ci.virtual_methods["_set_write_mode"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_write_mode")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IWebRTCDataChannelExtensionGetWriteMode {{
         func := webrtcdatachannelextension_uget_write_mode[T]
-        ci.virtual_methods["_get_write_mode"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_write_mode")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IWebRTCDataChannelExtensionWasStringPacket {{
         func := webrtcdatachannelextension_uwas_string_packet[T]
-        ci.virtual_methods["_was_string_packet"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_was_string_packet")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IWebRTCDataChannelExtensionGetReadyState {{
         func := webrtcdatachannelextension_uget_ready_state[T]
-        ci.virtual_methods["_get_ready_state"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_ready_state")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IWebRTCDataChannelExtensionGetLabel {{
         func := webrtcdatachannelextension_uget_label[T]
-        ci.virtual_methods["_get_label"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_label")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IWebRTCDataChannelExtensionIsOrdered {{
         func := webrtcdatachannelextension_uis_ordered[T]
-        ci.virtual_methods["_is_ordered"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_is_ordered")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IWebRTCDataChannelExtensionGetId {{
         func := webrtcdatachannelextension_uget_id[T]
-        ci.virtual_methods["_get_id"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_id")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IWebRTCDataChannelExtensionGetMaxPacketLifeTime {{
         func := webrtcdatachannelextension_uget_max_packet_life_time[T]
-        ci.virtual_methods["_get_max_packet_life_time"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_max_packet_life_time")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IWebRTCDataChannelExtensionGetMaxRetransmits {{
         func := webrtcdatachannelextension_uget_max_retransmits[T]
-        ci.virtual_methods["_get_max_retransmits"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_max_retransmits")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IWebRTCDataChannelExtensionGetProtocol {{
         func := webrtcdatachannelextension_uget_protocol[T]
-        ci.virtual_methods["_get_protocol"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_protocol")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IWebRTCDataChannelExtensionIsNegotiated {{
         func := webrtcdatachannelextension_uis_negotiated[T]
-        ci.virtual_methods["_is_negotiated"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_is_negotiated")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IWebRTCDataChannelExtensionGetBufferedAmount {{
         func := webrtcdatachannelextension_uget_buffered_amount[T]
-        ci.virtual_methods["_get_buffered_amount"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_buffered_amount")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IWebRTCPeerConnectionExtensionGetConnectionState {{
         func := webrtcpeerconnectionextension_uget_connection_state[T]
-        ci.virtual_methods["_get_connection_state"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_connection_state")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IWebRTCPeerConnectionExtensionGetGatheringState {{
         func := webrtcpeerconnectionextension_uget_gathering_state[T]
-        ci.virtual_methods["_get_gathering_state"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_gathering_state")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IWebRTCPeerConnectionExtensionGetSignalingState {{
         func := webrtcpeerconnectionextension_uget_signaling_state[T]
-        ci.virtual_methods["_get_signaling_state"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_signaling_state")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IWebRTCPeerConnectionExtensionInitialize {{
         func := webrtcpeerconnectionextension_uinitialize[T]
-        ci.virtual_methods["_initialize"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_initialize")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IWebRTCPeerConnectionExtensionCreateDataChannel {{
         func := webrtcpeerconnectionextension_ucreate_data_channel[T]
-        ci.virtual_methods["_create_data_channel"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_create_data_channel")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IWebRTCPeerConnectionExtensionCreateOffer {{
         func := webrtcpeerconnectionextension_ucreate_offer[T]
-        ci.virtual_methods["_create_offer"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_create_offer")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IWebRTCPeerConnectionExtensionSetRemoteDescription {{
         func := webrtcpeerconnectionextension_uset_remote_description[T]
-        ci.virtual_methods["_set_remote_description"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_remote_description")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IWebRTCPeerConnectionExtensionSetLocalDescription {{
         func := webrtcpeerconnectionextension_uset_local_description[T]
-        ci.virtual_methods["_set_local_description"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_local_description")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IWebRTCPeerConnectionExtensionAddIceCandidate {{
         func := webrtcpeerconnectionextension_uadd_ice_candidate[T]
-        ci.virtual_methods["_add_ice_candidate"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_add_ice_candidate")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IWebRTCPeerConnectionExtensionPoll {{
         func := webrtcpeerconnectionextension_upoll[T]
-        ci.virtual_methods["_poll"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_poll")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IWebRTCPeerConnectionExtensionClose {{
         func := webrtcpeerconnectionextension_uclose[T]
-        ci.virtual_methods["_close"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_close")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IWindowGetContentsMinimumSize {{
         func := window_uget_contents_minimum_size[T]
-        ci.virtual_methods["_get_contents_minimum_size"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_contents_minimum_size")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IXRInterfaceExtensionGetName {{
         func := xrinterfaceextension_uget_name[T]
-        ci.virtual_methods["_get_name"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_name")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IXRInterfaceExtensionGetCapabilities {{
         func := xrinterfaceextension_uget_capabilities[T]
-        ci.virtual_methods["_get_capabilities"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_capabilities")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IXRInterfaceExtensionIsInitialized {{
         func := xrinterfaceextension_uis_initialized[T]
-        ci.virtual_methods["_is_initialized"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_is_initialized")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IXRInterfaceExtensionInitialize {{
         func := xrinterfaceextension_uinitialize[T]
-        ci.virtual_methods["_initialize"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_initialize")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IXRInterfaceExtensionUninitialize {{
         func := xrinterfaceextension_uuninitialize[T]
-        ci.virtual_methods["_uninitialize"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_uninitialize")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IXRInterfaceExtensionGetSystemInfo {{
         func := xrinterfaceextension_uget_system_info[T]
-        ci.virtual_methods["_get_system_info"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_system_info")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IXRInterfaceExtensionSupportsPlayAreaMode {{
         func := xrinterfaceextension_usupports_play_area_mode[T]
-        ci.virtual_methods["_supports_play_area_mode"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_supports_play_area_mode")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IXRInterfaceExtensionGetPlayAreaMode {{
         func := xrinterfaceextension_uget_play_area_mode[T]
-        ci.virtual_methods["_get_play_area_mode"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_play_area_mode")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IXRInterfaceExtensionSetPlayAreaMode {{
         func := xrinterfaceextension_uset_play_area_mode[T]
-        ci.virtual_methods["_set_play_area_mode"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_play_area_mode")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IXRInterfaceExtensionGetPlayArea {{
         func := xrinterfaceextension_uget_play_area[T]
-        ci.virtual_methods["_get_play_area"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_play_area")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IXRInterfaceExtensionGetRenderTargetSize {{
         func := xrinterfaceextension_uget_render_target_size[T]
-        ci.virtual_methods["_get_render_target_size"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_render_target_size")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IXRInterfaceExtensionGetViewCount {{
         func := xrinterfaceextension_uget_view_count[T]
-        ci.virtual_methods["_get_view_count"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_view_count")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IXRInterfaceExtensionGetCameraTransform {{
         func := xrinterfaceextension_uget_camera_transform[T]
-        ci.virtual_methods["_get_camera_transform"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_camera_transform")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IXRInterfaceExtensionGetTransformForView {{
         func := xrinterfaceextension_uget_transform_for_view[T]
-        ci.virtual_methods["_get_transform_for_view"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_transform_for_view")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IXRInterfaceExtensionGetProjectionForView {{
         func := xrinterfaceextension_uget_projection_for_view[T]
-        ci.virtual_methods["_get_projection_for_view"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_projection_for_view")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IXRInterfaceExtensionGetVrsTexture {{
         func := xrinterfaceextension_uget_vrs_texture[T]
-        ci.virtual_methods["_get_vrs_texture"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_vrs_texture")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IXRInterfaceExtensionProcess {{
         func := xrinterfaceextension_uprocess[T]
-        ci.virtual_methods["_process"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_process")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IXRInterfaceExtensionPreRender {{
         func := xrinterfaceextension_upre_render[T]
-        ci.virtual_methods["_pre_render"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_pre_render")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IXRInterfaceExtensionPreDrawViewport {{
         func := xrinterfaceextension_upre_draw_viewport[T]
-        ci.virtual_methods["_pre_draw_viewport"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_pre_draw_viewport")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IXRInterfaceExtensionPostDrawViewport {{
         func := xrinterfaceextension_upost_draw_viewport[T]
-        ci.virtual_methods["_post_draw_viewport"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_post_draw_viewport")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IXRInterfaceExtensionEndFrame {{
         func := xrinterfaceextension_uend_frame[T]
-        ci.virtual_methods["_end_frame"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_end_frame")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IXRInterfaceExtensionGetSuggestedTrackerNames {{
         func := xrinterfaceextension_uget_suggested_tracker_names[T]
-        ci.virtual_methods["_get_suggested_tracker_names"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_suggested_tracker_names")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IXRInterfaceExtensionGetSuggestedPoseNames {{
         func := xrinterfaceextension_uget_suggested_pose_names[T]
-        ci.virtual_methods["_get_suggested_pose_names"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_suggested_pose_names")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IXRInterfaceExtensionGetTrackingStatus {{
         func := xrinterfaceextension_uget_tracking_status[T]
-        ci.virtual_methods["_get_tracking_status"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_tracking_status")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IXRInterfaceExtensionTriggerHapticPulse {{
         func := xrinterfaceextension_utrigger_haptic_pulse[T]
-        ci.virtual_methods["_trigger_haptic_pulse"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_trigger_haptic_pulse")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IXRInterfaceExtensionGetAnchorDetectionIsEnabled {{
         func := xrinterfaceextension_uget_anchor_detection_is_enabled[T]
-        ci.virtual_methods["_get_anchor_detection_is_enabled"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_anchor_detection_is_enabled")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IXRInterfaceExtensionSetAnchorDetectionIsEnabled {{
         func := xrinterfaceextension_uset_anchor_detection_is_enabled[T]
-        ci.virtual_methods["_set_anchor_detection_is_enabled"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_set_anchor_detection_is_enabled")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IXRInterfaceExtensionGetCameraFeedId {{
         func := xrinterfaceextension_uget_camera_feed_id[T]
-        ci.virtual_methods["_get_camera_feed_id"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_camera_feed_id")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IXRInterfaceExtensionGetColorTexture {{
         func := xrinterfaceextension_uget_color_texture[T]
-        ci.virtual_methods["_get_color_texture"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_color_texture")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IXRInterfaceExtensionGetDepthTexture {{
         func := xrinterfaceextension_uget_depth_texture[T]
-        ci.virtual_methods["_get_depth_texture"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_depth_texture")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
     $if T is IXRInterfaceExtensionGetVelocityTexture {{
         func := xrinterfaceextension_uget_velocity_texture[T]
-        ci.virtual_methods["_get_velocity_texture"] = func
+        ivar := i64(func)
+        var := i64_to_var(ivar)
+        sn := StringName.new("_get_velocity_texture")
+        ci.virtual_methods.index_set_named(sn, var) or {panic(err)}
+        sn.deinit()
     }}
 }
