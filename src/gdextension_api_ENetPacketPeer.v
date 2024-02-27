@@ -129,7 +129,7 @@ pub fn (mut r ENetPacketPeer) set_timeout(timeout i32, timeout_min i32, timeout_
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &ENetPacketPeer) get_remote_address() String {
+pub fn (r &ENetPacketPeer) get_remote_address() string {
     mut object_out := String{}
     classname := StringName.new("ENetPacketPeer")
     fnname := StringName.new("get_remote_address")
@@ -137,7 +137,9 @@ pub fn (r &ENetPacketPeer) get_remote_address() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &ENetPacketPeer) get_remote_port() i32 {
     mut object_out := i32(0)

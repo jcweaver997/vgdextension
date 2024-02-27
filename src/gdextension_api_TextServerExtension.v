@@ -28,7 +28,7 @@ pub interface ITextServerExtensionGetName {
     virt_get_name() String
 }
 
-pub fn (r &TextServerExtension) uget_name() String {
+pub fn (r &TextServerExtension) uget_name() string {
     mut object_out := String{}
     classname := StringName.new("TextServerExtension")
     fnname := StringName.new("_get_name")
@@ -36,7 +36,9 @@ pub fn (r &TextServerExtension) uget_name() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface ITextServerExtensionGetFeatures {
     mut:
@@ -90,14 +92,16 @@ pub interface ITextServerExtensionLoadSupportData {
     virt_load_support_data(filename String) bool
 }
 
-pub fn (mut r TextServerExtension) uload_support_data(filename String) bool {
+pub fn (mut r TextServerExtension) uload_support_data(filename string) bool {
     mut object_out := false
     classname := StringName.new("TextServerExtension")
     fnname := StringName.new("_load_support_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&filename)}
+    arg_sn0 := String.new(filename)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -107,7 +111,7 @@ pub interface ITextServerExtensionGetSupportDataFilename {
     virt_get_support_data_filename() String
 }
 
-pub fn (r &TextServerExtension) uget_support_data_filename() String {
+pub fn (r &TextServerExtension) uget_support_data_filename() string {
     mut object_out := String{}
     classname := StringName.new("TextServerExtension")
     fnname := StringName.new("_get_support_data_filename")
@@ -115,14 +119,16 @@ pub fn (r &TextServerExtension) uget_support_data_filename() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface ITextServerExtensionGetSupportDataInfo {
     mut:
     virt_get_support_data_info() String
 }
 
-pub fn (r &TextServerExtension) uget_support_data_info() String {
+pub fn (r &TextServerExtension) uget_support_data_info() string {
     mut object_out := String{}
     classname := StringName.new("TextServerExtension")
     fnname := StringName.new("_get_support_data_info")
@@ -130,21 +136,25 @@ pub fn (r &TextServerExtension) uget_support_data_info() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface ITextServerExtensionSaveSupportData {
     mut:
     virt_save_support_data(filename String) bool
 }
 
-pub fn (r &TextServerExtension) usave_support_data(filename String) bool {
+pub fn (r &TextServerExtension) usave_support_data(filename string) bool {
     mut object_out := false
     classname := StringName.new("TextServerExtension")
     fnname := StringName.new("_save_support_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&filename)}
+    arg_sn0 := String.new(filename)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -154,14 +164,16 @@ pub interface ITextServerExtensionIsLocaleRightToLeft {
     virt_is_locale_right_to_left(locale String) bool
 }
 
-pub fn (r &TextServerExtension) uis_locale_right_to_left(locale String) bool {
+pub fn (r &TextServerExtension) uis_locale_right_to_left(locale string) bool {
     mut object_out := false
     classname := StringName.new("TextServerExtension")
     fnname := StringName.new("_is_locale_right_to_left")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&locale)}
+    arg_sn0 := String.new(locale)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -171,14 +183,16 @@ pub interface ITextServerExtensionNameToTag {
     virt_name_to_tag(name String) i64
 }
 
-pub fn (r &TextServerExtension) uname_to_tag(name String) i64 {
+pub fn (r &TextServerExtension) uname_to_tag(name string) i64 {
     mut object_out := i64(0)
     classname := StringName.new("TextServerExtension")
     fnname := StringName.new("_name_to_tag")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -188,7 +202,7 @@ pub interface ITextServerExtensionTagToName {
     virt_tag_to_name(tag i64) String
 }
 
-pub fn (r &TextServerExtension) utag_to_name(tag i64) String {
+pub fn (r &TextServerExtension) utag_to_name(tag i64) string {
     mut object_out := String{}
     classname := StringName.new("TextServerExtension")
     fnname := StringName.new("_tag_to_name")
@@ -198,7 +212,9 @@ pub fn (r &TextServerExtension) utag_to_name(tag i64) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface ITextServerExtensionCreateFont {
     mut:
@@ -354,14 +370,16 @@ pub interface ITextServerExtensionFontSetName {
     virt_font_set_name(font_rid RID, name String)
 }
 
-pub fn (mut r TextServerExtension) ufont_set_name(font_rid RID, name String) {
+pub fn (mut r TextServerExtension) ufont_set_name(font_rid RID, name string) {
     classname := StringName.new("TextServerExtension")
     fnname := StringName.new("_font_set_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    args[1] = unsafe{voidptr(&name)}
+    arg_sn1 := String.new(name)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -370,7 +388,7 @@ pub interface ITextServerExtensionFontGetName {
     virt_font_get_name(font_rid RID) String
 }
 
-pub fn (r &TextServerExtension) ufont_get_name(font_rid RID) String {
+pub fn (r &TextServerExtension) ufont_get_name(font_rid RID) string {
     mut object_out := String{}
     classname := StringName.new("TextServerExtension")
     fnname := StringName.new("_font_get_name")
@@ -380,7 +398,9 @@ pub fn (r &TextServerExtension) ufont_get_name(font_rid RID) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface ITextServerExtensionFontGetOtNameStrings {
     mut:
@@ -404,14 +424,16 @@ pub interface ITextServerExtensionFontSetStyleName {
     virt_font_set_style_name(font_rid RID, name_style String)
 }
 
-pub fn (mut r TextServerExtension) ufont_set_style_name(font_rid RID, name_style String) {
+pub fn (mut r TextServerExtension) ufont_set_style_name(font_rid RID, name_style string) {
     classname := StringName.new("TextServerExtension")
     fnname := StringName.new("_font_set_style_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    args[1] = unsafe{voidptr(&name_style)}
+    arg_sn1 := String.new(name_style)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -420,7 +442,7 @@ pub interface ITextServerExtensionFontGetStyleName {
     virt_font_get_style_name(font_rid RID) String
 }
 
-pub fn (r &TextServerExtension) ufont_get_style_name(font_rid RID) String {
+pub fn (r &TextServerExtension) ufont_get_style_name(font_rid RID) string {
     mut object_out := String{}
     classname := StringName.new("TextServerExtension")
     fnname := StringName.new("_font_get_style_name")
@@ -430,7 +452,9 @@ pub fn (r &TextServerExtension) ufont_get_style_name(font_rid RID) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface ITextServerExtensionFontSetWeight {
     mut:
@@ -1825,7 +1849,7 @@ pub interface ITextServerExtensionFontGetSupportedChars {
     virt_font_get_supported_chars(font_rid RID) String
 }
 
-pub fn (r &TextServerExtension) ufont_get_supported_chars(font_rid RID) String {
+pub fn (r &TextServerExtension) ufont_get_supported_chars(font_rid RID) string {
     mut object_out := String{}
     classname := StringName.new("TextServerExtension")
     fnname := StringName.new("_font_get_supported_chars")
@@ -1835,7 +1859,9 @@ pub fn (r &TextServerExtension) ufont_get_supported_chars(font_rid RID) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface ITextServerExtensionFontRenderRange {
     mut:
@@ -1918,15 +1944,17 @@ pub interface ITextServerExtensionFontIsLanguageSupported {
     virt_font_is_language_supported(font_rid RID, language String) bool
 }
 
-pub fn (r &TextServerExtension) ufont_is_language_supported(font_rid RID, language String) bool {
+pub fn (r &TextServerExtension) ufont_is_language_supported(font_rid RID, language string) bool {
     mut object_out := false
     classname := StringName.new("TextServerExtension")
     fnname := StringName.new("_font_is_language_supported")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    args[1] = unsafe{voidptr(&language)}
+    arg_sn1 := String.new(language)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -1936,15 +1964,17 @@ pub interface ITextServerExtensionFontSetLanguageSupportOverride {
     virt_font_set_language_support_override(font_rid RID, language String, supported bool)
 }
 
-pub fn (mut r TextServerExtension) ufont_set_language_support_override(font_rid RID, language String, supported bool) {
+pub fn (mut r TextServerExtension) ufont_set_language_support_override(font_rid RID, language string, supported bool) {
     classname := StringName.new("TextServerExtension")
     fnname := StringName.new("_font_set_language_support_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    args[1] = unsafe{voidptr(&language)}
+    arg_sn1 := String.new(language)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&supported)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -1953,15 +1983,17 @@ pub interface ITextServerExtensionFontGetLanguageSupportOverride {
     virt_font_get_language_support_override(font_rid RID, language String) bool
 }
 
-pub fn (mut r TextServerExtension) ufont_get_language_support_override(font_rid RID, language String) bool {
+pub fn (mut r TextServerExtension) ufont_get_language_support_override(font_rid RID, language string) bool {
     mut object_out := false
     classname := StringName.new("TextServerExtension")
     fnname := StringName.new("_font_get_language_support_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    args[1] = unsafe{voidptr(&language)}
+    arg_sn1 := String.new(language)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -1971,14 +2003,16 @@ pub interface ITextServerExtensionFontRemoveLanguageSupportOverride {
     virt_font_remove_language_support_override(font_rid RID, language String)
 }
 
-pub fn (mut r TextServerExtension) ufont_remove_language_support_override(font_rid RID, language String) {
+pub fn (mut r TextServerExtension) ufont_remove_language_support_override(font_rid RID, language string) {
     classname := StringName.new("TextServerExtension")
     fnname := StringName.new("_font_remove_language_support_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    args[1] = unsafe{voidptr(&language)}
+    arg_sn1 := String.new(language)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -2004,15 +2038,17 @@ pub interface ITextServerExtensionFontIsScriptSupported {
     virt_font_is_script_supported(font_rid RID, script String) bool
 }
 
-pub fn (r &TextServerExtension) ufont_is_script_supported(font_rid RID, script String) bool {
+pub fn (r &TextServerExtension) ufont_is_script_supported(font_rid RID, script string) bool {
     mut object_out := false
     classname := StringName.new("TextServerExtension")
     fnname := StringName.new("_font_is_script_supported")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    args[1] = unsafe{voidptr(&script)}
+    arg_sn1 := String.new(script)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -2022,15 +2058,17 @@ pub interface ITextServerExtensionFontSetScriptSupportOverride {
     virt_font_set_script_support_override(font_rid RID, script String, supported bool)
 }
 
-pub fn (mut r TextServerExtension) ufont_set_script_support_override(font_rid RID, script String, supported bool) {
+pub fn (mut r TextServerExtension) ufont_set_script_support_override(font_rid RID, script string, supported bool) {
     classname := StringName.new("TextServerExtension")
     fnname := StringName.new("_font_set_script_support_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    args[1] = unsafe{voidptr(&script)}
+    arg_sn1 := String.new(script)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&supported)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -2039,15 +2077,17 @@ pub interface ITextServerExtensionFontGetScriptSupportOverride {
     virt_font_get_script_support_override(font_rid RID, script String) bool
 }
 
-pub fn (mut r TextServerExtension) ufont_get_script_support_override(font_rid RID, script String) bool {
+pub fn (mut r TextServerExtension) ufont_get_script_support_override(font_rid RID, script string) bool {
     mut object_out := false
     classname := StringName.new("TextServerExtension")
     fnname := StringName.new("_font_get_script_support_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    args[1] = unsafe{voidptr(&script)}
+    arg_sn1 := String.new(script)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -2057,14 +2097,16 @@ pub interface ITextServerExtensionFontRemoveScriptSupportOverride {
     virt_font_remove_script_support_override(font_rid RID, script String)
 }
 
-pub fn (mut r TextServerExtension) ufont_remove_script_support_override(font_rid RID, script String) {
+pub fn (mut r TextServerExtension) ufont_remove_script_support_override(font_rid RID, script string) {
     classname := StringName.new("TextServerExtension")
     fnname := StringName.new("_font_remove_script_support_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&font_rid)}
-    args[1] = unsafe{voidptr(&script)}
+    arg_sn1 := String.new(script)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -2326,14 +2368,16 @@ pub interface ITextServerExtensionShapedTextSetCustomPunctuation {
     virt_shaped_text_set_custom_punctuation(shaped RID, punct String)
 }
 
-pub fn (mut r TextServerExtension) ushaped_text_set_custom_punctuation(shaped RID, punct String) {
+pub fn (mut r TextServerExtension) ushaped_text_set_custom_punctuation(shaped RID, punct string) {
     classname := StringName.new("TextServerExtension")
     fnname := StringName.new("_shaped_text_set_custom_punctuation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
-    args[1] = unsafe{voidptr(&punct)}
+    arg_sn1 := String.new(punct)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -2342,7 +2386,7 @@ pub interface ITextServerExtensionShapedTextGetCustomPunctuation {
     virt_shaped_text_get_custom_punctuation(shaped RID) String
 }
 
-pub fn (r &TextServerExtension) ushaped_text_get_custom_punctuation(shaped RID) String {
+pub fn (r &TextServerExtension) ushaped_text_get_custom_punctuation(shaped RID) string {
     mut object_out := String{}
     classname := StringName.new("TextServerExtension")
     fnname := StringName.new("_shaped_text_get_custom_punctuation")
@@ -2352,7 +2396,9 @@ pub fn (r &TextServerExtension) ushaped_text_get_custom_punctuation(shaped RID) 
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface ITextServerExtensionShapedTextSetOrientation {
     mut:
@@ -2496,20 +2542,24 @@ pub interface ITextServerExtensionShapedTextAddString {
     virt_shaped_text_add_string(shaped RID, text String, fonts Array, size i64, opentype_features Dictionary, language String, meta Variant) bool
 }
 
-pub fn (mut r TextServerExtension) ushaped_text_add_string(shaped RID, text String, fonts Array, size i64, opentype_features Dictionary, language String, meta Variant) bool {
+pub fn (mut r TextServerExtension) ushaped_text_add_string(shaped RID, text string, fonts Array, size i64, opentype_features Dictionary, language string, meta Variant) bool {
     mut object_out := false
     classname := StringName.new("TextServerExtension")
     fnname := StringName.new("_shaped_text_add_string")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [7]voidptr{} }
     args[0] = unsafe{voidptr(&shaped)}
-    args[1] = unsafe{voidptr(&text)}
+    arg_sn1 := String.new(text)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&fonts)}
     args[3] = unsafe{voidptr(&size)}
     args[4] = unsafe{voidptr(&opentype_features)}
-    args[5] = unsafe{voidptr(&language)}
+    arg_sn5 := String.new(language)
+    args[5] = unsafe{voidptr(&arg_sn5)}
     args[6] = unsafe{voidptr(&meta)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn1.deinit()
+    arg_sn5.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -3370,84 +3420,106 @@ pub interface ITextServerExtensionFormatNumber {
     virt_format_number(gdstring String, language String) String
 }
 
-pub fn (r &TextServerExtension) uformat_number(gdstring String, language String) String {
+pub fn (r &TextServerExtension) uformat_number(gdstring string, language string) string {
     mut object_out := String{}
     classname := StringName.new("TextServerExtension")
     fnname := StringName.new("_format_number")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&gdstring)}
-    args[1] = unsafe{voidptr(&language)}
+    arg_sn0 := String.new(gdstring)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(language)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface ITextServerExtensionParseNumber {
     mut:
     virt_parse_number(gdstring String, language String) String
 }
 
-pub fn (r &TextServerExtension) uparse_number(gdstring String, language String) String {
+pub fn (r &TextServerExtension) uparse_number(gdstring string, language string) string {
     mut object_out := String{}
     classname := StringName.new("TextServerExtension")
     fnname := StringName.new("_parse_number")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&gdstring)}
-    args[1] = unsafe{voidptr(&language)}
+    arg_sn0 := String.new(gdstring)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(language)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface ITextServerExtensionPercentSign {
     mut:
     virt_percent_sign(language String) String
 }
 
-pub fn (r &TextServerExtension) upercent_sign(language String) String {
+pub fn (r &TextServerExtension) upercent_sign(language string) string {
     mut object_out := String{}
     classname := StringName.new("TextServerExtension")
     fnname := StringName.new("_percent_sign")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&language)}
+    arg_sn0 := String.new(language)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface ITextServerExtensionStripDiacritics {
     mut:
     virt_strip_diacritics(gdstring String) String
 }
 
-pub fn (r &TextServerExtension) ustrip_diacritics(gdstring String) String {
+pub fn (r &TextServerExtension) ustrip_diacritics(gdstring string) string {
     mut object_out := String{}
     classname := StringName.new("TextServerExtension")
     fnname := StringName.new("_strip_diacritics")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&gdstring)}
+    arg_sn0 := String.new(gdstring)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface ITextServerExtensionIsValidIdentifier {
     mut:
     virt_is_valid_identifier(gdstring String) bool
 }
 
-pub fn (r &TextServerExtension) uis_valid_identifier(gdstring String) bool {
+pub fn (r &TextServerExtension) uis_valid_identifier(gdstring string) bool {
     mut object_out := false
     classname := StringName.new("TextServerExtension")
     fnname := StringName.new("_is_valid_identifier")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&gdstring)}
+    arg_sn0 := String.new(gdstring)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -3457,16 +3529,20 @@ pub interface ITextServerExtensionStringGetWordBreaks {
     virt_string_get_word_breaks(gdstring String, language String, chars_per_line i64) PackedInt32Array
 }
 
-pub fn (r &TextServerExtension) ustring_get_word_breaks(gdstring String, language String, chars_per_line i64) PackedInt32Array {
+pub fn (r &TextServerExtension) ustring_get_word_breaks(gdstring string, language string, chars_per_line i64) PackedInt32Array {
     mut object_out := PackedInt32Array{}
     classname := StringName.new("TextServerExtension")
     fnname := StringName.new("_string_get_word_breaks")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&gdstring)}
-    args[1] = unsafe{voidptr(&language)}
+    arg_sn0 := String.new(gdstring)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(language)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&chars_per_line)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -3476,15 +3552,19 @@ pub interface ITextServerExtensionStringGetCharacterBreaks {
     virt_string_get_character_breaks(gdstring String, language String) PackedInt32Array
 }
 
-pub fn (r &TextServerExtension) ustring_get_character_breaks(gdstring String, language String) PackedInt32Array {
+pub fn (r &TextServerExtension) ustring_get_character_breaks(gdstring string, language string) PackedInt32Array {
     mut object_out := PackedInt32Array{}
     classname := StringName.new("TextServerExtension")
     fnname := StringName.new("_string_get_character_breaks")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&gdstring)}
-    args[1] = unsafe{voidptr(&language)}
+    arg_sn0 := String.new(gdstring)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(language)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -3494,15 +3574,17 @@ pub interface ITextServerExtensionIsConfusable {
     virt_is_confusable(gdstring String, dict PackedStringArray) i64
 }
 
-pub fn (r &TextServerExtension) uis_confusable(gdstring String, dict PackedStringArray) i64 {
+pub fn (r &TextServerExtension) uis_confusable(gdstring string, dict PackedStringArray) i64 {
     mut object_out := i64(0)
     classname := StringName.new("TextServerExtension")
     fnname := StringName.new("_is_confusable")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&gdstring)}
+    arg_sn0 := String.new(gdstring)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&dict)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -3512,14 +3594,16 @@ pub interface ITextServerExtensionSpoofCheck {
     virt_spoof_check(gdstring String) bool
 }
 
-pub fn (r &TextServerExtension) uspoof_check(gdstring String) bool {
+pub fn (r &TextServerExtension) uspoof_check(gdstring string) bool {
     mut object_out := false
     classname := StringName.new("TextServerExtension")
     fnname := StringName.new("_spoof_check")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&gdstring)}
+    arg_sn0 := String.new(gdstring)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -3529,43 +3613,55 @@ pub interface ITextServerExtensionStringToUpper {
     virt_string_to_upper(gdstring String, language String) String
 }
 
-pub fn (r &TextServerExtension) ustring_to_upper(gdstring String, language String) String {
+pub fn (r &TextServerExtension) ustring_to_upper(gdstring string, language string) string {
     mut object_out := String{}
     classname := StringName.new("TextServerExtension")
     fnname := StringName.new("_string_to_upper")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&gdstring)}
-    args[1] = unsafe{voidptr(&language)}
+    arg_sn0 := String.new(gdstring)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(language)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface ITextServerExtensionStringToLower {
     mut:
     virt_string_to_lower(gdstring String, language String) String
 }
 
-pub fn (r &TextServerExtension) ustring_to_lower(gdstring String, language String) String {
+pub fn (r &TextServerExtension) ustring_to_lower(gdstring string, language string) string {
     mut object_out := String{}
     classname := StringName.new("TextServerExtension")
     fnname := StringName.new("_string_to_lower")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&gdstring)}
-    args[1] = unsafe{voidptr(&language)}
+    arg_sn0 := String.new(gdstring)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(language)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface ITextServerExtensionParseStructuredText {
     mut:
     virt_parse_structured_text(parser_type TextServerStructuredTextParser, gdargs Array, text String) Array
 }
 
-pub fn (r &TextServerExtension) uparse_structured_text(parser_type TextServerStructuredTextParser, gdargs Array, text String) Array {
+pub fn (r &TextServerExtension) uparse_structured_text(parser_type TextServerStructuredTextParser, gdargs Array, text string) Array {
     mut object_out := Array{}
     classname := StringName.new("TextServerExtension")
     fnname := StringName.new("_parse_structured_text")
@@ -3574,8 +3670,10 @@ pub fn (r &TextServerExtension) uparse_structured_text(parser_type TextServerStr
     i64_parser_type := i64(parser_type)
     args[0] = unsafe{voidptr(&i64_parser_type)}
     args[1] = unsafe{voidptr(&gdargs)}
-    args[2] = unsafe{voidptr(&text)}
+    arg_sn2 := String.new(text)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out

@@ -25,55 +25,63 @@ pub fn (r &InputEvent) get_device() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (r &InputEvent) is_action(action StringName, exact_match bool) bool {
+pub fn (r &InputEvent) is_action(action string, exact_match bool) bool {
     mut object_out := false
     classname := StringName.new("InputEvent")
     fnname := StringName.new("is_action")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1558498928)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&action)}
+    arg_sn0 := StringName.new(action)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&exact_match)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &InputEvent) is_action_pressed(action StringName, allow_echo bool, exact_match bool) bool {
+pub fn (r &InputEvent) is_action_pressed(action string, allow_echo bool, exact_match bool) bool {
     mut object_out := false
     classname := StringName.new("InputEvent")
     fnname := StringName.new("is_action_pressed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1631499404)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&action)}
+    arg_sn0 := StringName.new(action)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&allow_echo)}
     args[2] = unsafe{voidptr(&exact_match)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &InputEvent) is_action_released(action StringName, exact_match bool) bool {
+pub fn (r &InputEvent) is_action_released(action string, exact_match bool) bool {
     mut object_out := false
     classname := StringName.new("InputEvent")
     fnname := StringName.new("is_action_released")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1558498928)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&action)}
+    arg_sn0 := StringName.new(action)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&exact_match)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &InputEvent) get_action_strength(action StringName, exact_match bool) f64 {
+pub fn (r &InputEvent) get_action_strength(action string, exact_match bool) f64 {
     mut object_out := f64(0)
     classname := StringName.new("InputEvent")
     fnname := StringName.new("get_action_strength")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 801543509)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&action)}
+    arg_sn0 := StringName.new(action)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&exact_match)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -118,7 +126,7 @@ pub fn (r &InputEvent) is_echo() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (r &InputEvent) as_text() String {
+pub fn (r &InputEvent) as_text() string {
     mut object_out := String{}
     classname := StringName.new("InputEvent")
     fnname := StringName.new("as_text")
@@ -126,7 +134,9 @@ pub fn (r &InputEvent) as_text() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &InputEvent) is_match(event InputEvent, exact_match bool) bool {
     mut object_out := false

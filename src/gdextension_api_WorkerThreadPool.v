@@ -14,7 +14,7 @@ pub fn WorkerThreadPool.get_singleton() WorkerThreadPool {
     return o
 }
 
-pub fn (mut r WorkerThreadPool) add_task(action Callable, high_priority bool, description String) i64 {
+pub fn (mut r WorkerThreadPool) add_task(action Callable, high_priority bool, description string) i64 {
     mut object_out := i64(0)
     classname := StringName.new("WorkerThreadPool")
     fnname := StringName.new("add_task")
@@ -22,8 +22,10 @@ pub fn (mut r WorkerThreadPool) add_task(action Callable, high_priority bool, de
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&action)}
     args[1] = unsafe{voidptr(&high_priority)}
-    args[2] = unsafe{voidptr(&description)}
+    arg_sn2 := String.new(description)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -52,7 +54,7 @@ pub fn (mut r WorkerThreadPool) wait_for_task_completion(task_id i64) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r WorkerThreadPool) add_group_task(action Callable, elements i32, tasks_needed i32, high_priority bool, description String) i64 {
+pub fn (mut r WorkerThreadPool) add_group_task(action Callable, elements i32, tasks_needed i32, high_priority bool, description string) i64 {
     mut object_out := i64(0)
     classname := StringName.new("WorkerThreadPool")
     fnname := StringName.new("add_group_task")
@@ -62,8 +64,10 @@ pub fn (mut r WorkerThreadPool) add_group_task(action Callable, elements i32, ta
     args[1] = unsafe{voidptr(&elements)}
     args[2] = unsafe{voidptr(&tasks_needed)}
     args[3] = unsafe{voidptr(&high_priority)}
-    args[4] = unsafe{voidptr(&description)}
+    arg_sn4 := String.new(description)
+    args[4] = unsafe{voidptr(&arg_sn4)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn4.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out

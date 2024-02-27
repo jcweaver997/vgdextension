@@ -15,16 +15,18 @@ pub struct ItemList {
     Control
 }
 
-pub fn (mut r ItemList) add_item(text String, icon Texture2D, selectable bool) i32 {
+pub fn (mut r ItemList) add_item(text string, icon Texture2D, selectable bool) i32 {
     mut object_out := i32(0)
     classname := StringName.new("ItemList")
     fnname := StringName.new("add_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 359861678)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&text)}
+    arg_sn0 := String.new(text)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = icon.ptr
     args[2] = unsafe{voidptr(&selectable)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -42,18 +44,20 @@ pub fn (mut r ItemList) add_icon_item(icon Texture2D, selectable bool) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ItemList) set_item_text(idx i32, text String) {
+pub fn (mut r ItemList) set_item_text(idx i32, text string) {
     classname := StringName.new("ItemList")
     fnname := StringName.new("set_item_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    args[1] = unsafe{voidptr(&text)}
+    arg_sn1 := String.new(text)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &ItemList) get_item_text(idx i32) String {
+pub fn (r &ItemList) get_item_text(idx i32) string {
     mut object_out := String{}
     classname := StringName.new("ItemList")
     fnname := StringName.new("get_item_text")
@@ -63,7 +67,9 @@ pub fn (r &ItemList) get_item_text(idx i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r ItemList) set_item_icon(idx i32, icon Texture2D) {
     classname := StringName.new("ItemList")
@@ -112,18 +118,20 @@ pub fn (r &ItemList) get_item_text_direction(idx i32) ControlTextDirection {
     fnname.deinit()
    return unsafe{ControlTextDirection(object_out)}
 }
-pub fn (mut r ItemList) set_item_language(idx i32, language String) {
+pub fn (mut r ItemList) set_item_language(idx i32, language string) {
     classname := StringName.new("ItemList")
     fnname := StringName.new("set_item_language")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    args[1] = unsafe{voidptr(&language)}
+    arg_sn1 := String.new(language)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &ItemList) get_item_language(idx i32) String {
+pub fn (r &ItemList) get_item_language(idx i32) string {
     mut object_out := String{}
     classname := StringName.new("ItemList")
     fnname := StringName.new("get_item_language")
@@ -133,7 +141,9 @@ pub fn (r &ItemList) get_item_language(idx i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r ItemList) set_item_icon_transposed(idx i32, transposed bool) {
     classname := StringName.new("ItemList")
@@ -355,18 +365,20 @@ pub fn (r &ItemList) is_item_tooltip_enabled(idx i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ItemList) set_item_tooltip(idx i32, tooltip String) {
+pub fn (mut r ItemList) set_item_tooltip(idx i32, tooltip string) {
     classname := StringName.new("ItemList")
     fnname := StringName.new("set_item_tooltip")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    args[1] = unsafe{voidptr(&tooltip)}
+    arg_sn1 := String.new(tooltip)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &ItemList) get_item_tooltip(idx i32) String {
+pub fn (r &ItemList) get_item_tooltip(idx i32) string {
     mut object_out := String{}
     classname := StringName.new("ItemList")
     fnname := StringName.new("get_item_tooltip")
@@ -376,7 +388,9 @@ pub fn (r &ItemList) get_item_tooltip(idx i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r ItemList) gdselect(idx i32, single bool) {
     classname := StringName.new("ItemList")

@@ -10,15 +10,19 @@ pub interface IEditorExportPluginExportFile {
     virt_export_file(path String, type_name String, features PackedStringArray)
 }
 
-pub fn (mut r EditorExportPlugin) uexport_file(path String, type_name String, features PackedStringArray) {
+pub fn (mut r EditorExportPlugin) uexport_file(path string, type_name string, features PackedStringArray) {
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("_export_file")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
-    args[1] = unsafe{voidptr(&type_name)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(type_name)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&features)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -27,16 +31,18 @@ pub interface IEditorExportPluginExportBegin {
     virt_export_begin(features PackedStringArray, is_debug bool, path String, flags u32)
 }
 
-pub fn (mut r EditorExportPlugin) uexport_begin(features PackedStringArray, is_debug bool, path String, flags u32) {
+pub fn (mut r EditorExportPlugin) uexport_begin(features PackedStringArray, is_debug bool, path string, flags u32) {
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("_export_begin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [4]voidptr{} }
     args[0] = unsafe{voidptr(&features)}
     args[1] = unsafe{voidptr(&is_debug)}
-    args[2] = unsafe{voidptr(&path)}
+    arg_sn2 := String.new(path)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     args[3] = unsafe{voidptr(&flags)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -76,15 +82,17 @@ pub interface IEditorExportPluginCustomizeResource {
     virt_customize_resource(resource Resource, path String) Resource
 }
 
-pub fn (mut r EditorExportPlugin) ucustomize_resource(resource Resource, path String) Resource {
+pub fn (mut r EditorExportPlugin) ucustomize_resource(resource Resource, path string) Resource {
     mut object_out := Resource{}
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("_customize_resource")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = resource.ptr
-    args[1] = unsafe{voidptr(&path)}
+    arg_sn1 := String.new(path)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -112,15 +120,17 @@ pub interface IEditorExportPluginCustomizeScene {
     virt_customize_scene(scene Node, path String) Node
 }
 
-pub fn (mut r EditorExportPlugin) ucustomize_scene(scene Node, path String) Node {
+pub fn (mut r EditorExportPlugin) ucustomize_scene(scene Node, path string) Node {
     mut object_out := Node{}
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("_customize_scene")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = scene.ptr
-    args[1] = unsafe{voidptr(&path)}
+    arg_sn1 := String.new(path)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -205,18 +215,22 @@ pub interface IEditorExportPluginGetExportOptionWarning {
     virt_get_export_option_warning(platform EditorExportPlatform, option String) String
 }
 
-pub fn (r &EditorExportPlugin) uget_export_option_warning(platform EditorExportPlatform, option String) String {
+pub fn (r &EditorExportPlugin) uget_export_option_warning(platform EditorExportPlatform, option string) string {
     mut object_out := String{}
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("_get_export_option_warning")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = platform.ptr
-    args[1] = unsafe{voidptr(&option)}
+    arg_sn1 := String.new(option)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface IEditorExportPluginGetExportFeatures {
     mut:
@@ -241,7 +255,7 @@ pub interface IEditorExportPluginGetName {
     virt_get_name() String
 }
 
-pub fn (r &EditorExportPlugin) uget_name() String {
+pub fn (r &EditorExportPlugin) uget_name() string {
     mut object_out := String{}
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("_get_name")
@@ -249,7 +263,9 @@ pub fn (r &EditorExportPlugin) uget_name() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface IEditorExportPluginSupportsPlatform {
     mut:
@@ -327,7 +343,7 @@ pub interface IEditorExportPluginGetAndroidManifestActivityElementContents {
     virt_get_android_manifest_activity_element_contents(platform EditorExportPlatform, debug bool) String
 }
 
-pub fn (r &EditorExportPlugin) uget_android_manifest_activity_element_contents(platform EditorExportPlatform, debug bool) String {
+pub fn (r &EditorExportPlugin) uget_android_manifest_activity_element_contents(platform EditorExportPlatform, debug bool) string {
     mut object_out := String{}
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("_get_android_manifest_activity_element_contents")
@@ -338,14 +354,16 @@ pub fn (r &EditorExportPlugin) uget_android_manifest_activity_element_contents(p
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface IEditorExportPluginGetAndroidManifestApplicationElementContents {
     mut:
     virt_get_android_manifest_application_element_contents(platform EditorExportPlatform, debug bool) String
 }
 
-pub fn (r &EditorExportPlugin) uget_android_manifest_application_element_contents(platform EditorExportPlatform, debug bool) String {
+pub fn (r &EditorExportPlugin) uget_android_manifest_application_element_contents(platform EditorExportPlatform, debug bool) string {
     mut object_out := String{}
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("_get_android_manifest_application_element_contents")
@@ -356,14 +374,16 @@ pub fn (r &EditorExportPlugin) uget_android_manifest_application_element_content
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface IEditorExportPluginGetAndroidManifestElementContents {
     mut:
     virt_get_android_manifest_element_contents(platform EditorExportPlatform, debug bool) String
 }
 
-pub fn (r &EditorExportPlugin) uget_android_manifest_element_contents(platform EditorExportPlatform, debug bool) String {
+pub fn (r &EditorExportPlugin) uget_android_manifest_element_contents(platform EditorExportPlatform, debug bool) string {
     mut object_out := String{}
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("_get_android_manifest_element_contents")
@@ -374,109 +394,133 @@ pub fn (r &EditorExportPlugin) uget_android_manifest_element_contents(platform E
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r EditorExportPlugin) add_shared_object(path String, tags PackedStringArray, target String) {
+pub fn (mut r EditorExportPlugin) add_shared_object(path string, tags PackedStringArray, target string) {
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("add_shared_object")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3098291045)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&tags)}
-    args[2] = unsafe{voidptr(&target)}
+    arg_sn2 := String.new(target)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorExportPlugin) add_ios_project_static_lib(path String) {
+pub fn (mut r EditorExportPlugin) add_ios_project_static_lib(path string) {
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("add_ios_project_static_lib")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorExportPlugin) add_file(path String, file PackedByteArray, remap bool) {
+pub fn (mut r EditorExportPlugin) add_file(path string, file PackedByteArray, remap bool) {
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("add_file")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 527928637)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&file)}
     args[2] = unsafe{voidptr(&remap)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorExportPlugin) add_ios_framework(path String) {
+pub fn (mut r EditorExportPlugin) add_ios_framework(path string) {
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("add_ios_framework")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorExportPlugin) add_ios_embedded_framework(path String) {
+pub fn (mut r EditorExportPlugin) add_ios_embedded_framework(path string) {
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("add_ios_embedded_framework")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorExportPlugin) add_ios_plist_content(plist_content String) {
+pub fn (mut r EditorExportPlugin) add_ios_plist_content(plist_content string) {
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("add_ios_plist_content")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&plist_content)}
+    arg_sn0 := String.new(plist_content)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorExportPlugin) add_ios_linker_flags(flags String) {
+pub fn (mut r EditorExportPlugin) add_ios_linker_flags(flags string) {
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("add_ios_linker_flags")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&flags)}
+    arg_sn0 := String.new(flags)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorExportPlugin) add_ios_bundle_file(path String) {
+pub fn (mut r EditorExportPlugin) add_ios_bundle_file(path string) {
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("add_ios_bundle_file")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorExportPlugin) add_ios_cpp_code(code String) {
+pub fn (mut r EditorExportPlugin) add_ios_cpp_code(code string) {
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("add_ios_cpp_code")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&code)}
+    arg_sn0 := String.new(code)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorExportPlugin) add_macos_plugin_file(path String) {
+pub fn (mut r EditorExportPlugin) add_macos_plugin_file(path string) {
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("add_macos_plugin_file")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -488,14 +532,16 @@ pub fn (mut r EditorExportPlugin) skip() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &EditorExportPlugin) get_option(name StringName) Variant {
+pub fn (r &EditorExportPlugin) get_option(name string) Variant {
     mut object_out := Variant{}
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("get_option")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2760726917)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out

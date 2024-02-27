@@ -23,7 +23,7 @@ pub interface IEditorNode3DGizmoGetHandleName {
     virt_get_handle_name(id i32, secondary bool) String
 }
 
-pub fn (r &EditorNode3DGizmo) uget_handle_name(id i32, secondary bool) String {
+pub fn (r &EditorNode3DGizmo) uget_handle_name(id i32, secondary bool) string {
     mut object_out := String{}
     classname := StringName.new("EditorNode3DGizmo")
     fnname := StringName.new("_get_handle_name")
@@ -34,7 +34,9 @@ pub fn (r &EditorNode3DGizmo) uget_handle_name(id i32, secondary bool) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface IEditorNode3DGizmoIsHandleHighlighted {
     mut:

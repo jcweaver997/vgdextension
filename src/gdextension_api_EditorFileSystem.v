@@ -51,39 +51,47 @@ pub fn (mut r EditorFileSystem) scan_sources() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorFileSystem) update_file(path String) {
+pub fn (mut r EditorFileSystem) update_file(path string) {
     classname := StringName.new("EditorFileSystem")
     fnname := StringName.new("update_file")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorFileSystem) get_filesystem_path(path String) EditorFileSystemDirectory {
+pub fn (mut r EditorFileSystem) get_filesystem_path(path string) EditorFileSystemDirectory {
     mut object_out := EditorFileSystemDirectory{}
     classname := StringName.new("EditorFileSystem")
     fnname := StringName.new("get_filesystem_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3188521125)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &EditorFileSystem) get_file_type(path String) String {
+pub fn (r &EditorFileSystem) get_file_type(path string) string {
     mut object_out := String{}
     classname := StringName.new("EditorFileSystem")
     fnname := StringName.new("get_file_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3135753539)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r EditorFileSystem) reimport_files(files PackedStringArray) {
     classname := StringName.new("EditorFileSystem")

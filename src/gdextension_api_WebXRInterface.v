@@ -12,27 +12,31 @@ pub struct WebXRInterface {
     XRInterface
 }
 
-pub fn (mut r WebXRInterface) is_session_supported(session_mode String) {
+pub fn (mut r WebXRInterface) is_session_supported(session_mode string) {
     classname := StringName.new("WebXRInterface")
     fnname := StringName.new("is_session_supported")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&session_mode)}
+    arg_sn0 := String.new(session_mode)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r WebXRInterface) set_session_mode(session_mode String) {
+pub fn (mut r WebXRInterface) set_session_mode(session_mode string) {
     classname := StringName.new("WebXRInterface")
     fnname := StringName.new("set_session_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&session_mode)}
+    arg_sn0 := String.new(session_mode)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &WebXRInterface) get_session_mode() String {
+pub fn (r &WebXRInterface) get_session_mode() string {
     mut object_out := String{}
     classname := StringName.new("WebXRInterface")
     fnname := StringName.new("get_session_mode")
@@ -40,19 +44,23 @@ pub fn (r &WebXRInterface) get_session_mode() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r WebXRInterface) set_required_features(required_features String) {
+pub fn (mut r WebXRInterface) set_required_features(required_features string) {
     classname := StringName.new("WebXRInterface")
     fnname := StringName.new("set_required_features")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&required_features)}
+    arg_sn0 := String.new(required_features)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &WebXRInterface) get_required_features() String {
+pub fn (r &WebXRInterface) get_required_features() string {
     mut object_out := String{}
     classname := StringName.new("WebXRInterface")
     fnname := StringName.new("get_required_features")
@@ -60,19 +68,23 @@ pub fn (r &WebXRInterface) get_required_features() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r WebXRInterface) set_optional_features(optional_features String) {
+pub fn (mut r WebXRInterface) set_optional_features(optional_features string) {
     classname := StringName.new("WebXRInterface")
     fnname := StringName.new("set_optional_features")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&optional_features)}
+    arg_sn0 := String.new(optional_features)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &WebXRInterface) get_optional_features() String {
+pub fn (r &WebXRInterface) get_optional_features() string {
     mut object_out := String{}
     classname := StringName.new("WebXRInterface")
     fnname := StringName.new("get_optional_features")
@@ -80,9 +92,11 @@ pub fn (r &WebXRInterface) get_optional_features() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &WebXRInterface) get_reference_space_type() String {
+pub fn (r &WebXRInterface) get_reference_space_type() string {
     mut object_out := String{}
     classname := StringName.new("WebXRInterface")
     fnname := StringName.new("get_reference_space_type")
@@ -90,19 +104,23 @@ pub fn (r &WebXRInterface) get_reference_space_type() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r WebXRInterface) set_requested_reference_space_types(requested_reference_space_types String) {
+pub fn (mut r WebXRInterface) set_requested_reference_space_types(requested_reference_space_types string) {
     classname := StringName.new("WebXRInterface")
     fnname := StringName.new("set_requested_reference_space_types")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&requested_reference_space_types)}
+    arg_sn0 := String.new(requested_reference_space_types)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &WebXRInterface) get_requested_reference_space_types() String {
+pub fn (r &WebXRInterface) get_requested_reference_space_types() string {
     mut object_out := String{}
     classname := StringName.new("WebXRInterface")
     fnname := StringName.new("get_requested_reference_space_types")
@@ -110,7 +128,9 @@ pub fn (r &WebXRInterface) get_requested_reference_space_types() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &WebXRInterface) is_input_source_active(input_source_id i32) bool {
     mut object_out := false
@@ -148,7 +168,7 @@ pub fn (r &WebXRInterface) get_input_source_target_ray_mode(input_source_id i32)
     fnname.deinit()
    return unsafe{WebXRInterfaceTargetRayMode(object_out)}
 }
-pub fn (r &WebXRInterface) get_visibility_state() String {
+pub fn (r &WebXRInterface) get_visibility_state() string {
     mut object_out := String{}
     classname := StringName.new("WebXRInterface")
     fnname := StringName.new("get_visibility_state")
@@ -156,7 +176,9 @@ pub fn (r &WebXRInterface) get_visibility_state() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &WebXRInterface) get_display_refresh_rate() f64 {
     mut object_out := f64(0)

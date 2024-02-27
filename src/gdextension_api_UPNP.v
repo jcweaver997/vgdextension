@@ -108,7 +108,7 @@ pub fn (r &UPNP) get_gateway() UPNPDevice {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r UPNP) discover(timeout i32, ttl i32, device_filter String) i32 {
+pub fn (mut r UPNP) discover(timeout i32, ttl i32, device_filter string) i32 {
     mut object_out := i32(0)
     classname := StringName.new("UPNP")
     fnname := StringName.new("discover")
@@ -116,13 +116,15 @@ pub fn (mut r UPNP) discover(timeout i32, ttl i32, device_filter String) i32 {
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&timeout)}
     args[1] = unsafe{voidptr(&ttl)}
-    args[2] = unsafe{voidptr(&device_filter)}
+    arg_sn2 := String.new(device_filter)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &UPNP) query_external_address() String {
+pub fn (r &UPNP) query_external_address() string {
     mut object_out := String{}
     classname := StringName.new("UPNP")
     fnname := StringName.new("query_external_address")
@@ -130,9 +132,11 @@ pub fn (r &UPNP) query_external_address() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &UPNP) add_port_mapping(port i32, port_internal i32, desc String, proto String, duration i32) i32 {
+pub fn (r &UPNP) add_port_mapping(port i32, port_internal i32, desc string, proto string, duration i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("UPNP")
     fnname := StringName.new("add_port_mapping")
@@ -140,38 +144,46 @@ pub fn (r &UPNP) add_port_mapping(port i32, port_internal i32, desc String, prot
     mut args := unsafe { [5]voidptr{} }
     args[0] = unsafe{voidptr(&port)}
     args[1] = unsafe{voidptr(&port_internal)}
-    args[2] = unsafe{voidptr(&desc)}
-    args[3] = unsafe{voidptr(&proto)}
+    arg_sn2 := String.new(desc)
+    args[2] = unsafe{voidptr(&arg_sn2)}
+    arg_sn3 := String.new(proto)
+    args[3] = unsafe{voidptr(&arg_sn3)}
     args[4] = unsafe{voidptr(&duration)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn2.deinit()
+    arg_sn3.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &UPNP) delete_port_mapping(port i32, proto String) i32 {
+pub fn (r &UPNP) delete_port_mapping(port i32, proto string) i32 {
     mut object_out := i32(0)
     classname := StringName.new("UPNP")
     fnname := StringName.new("delete_port_mapping")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3444187325)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&port)}
-    args[1] = unsafe{voidptr(&proto)}
+    arg_sn1 := String.new(proto)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r UPNP) set_discover_multicast_if(m_if String) {
+pub fn (mut r UPNP) set_discover_multicast_if(m_if string) {
     classname := StringName.new("UPNP")
     fnname := StringName.new("set_discover_multicast_if")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&m_if)}
+    arg_sn0 := String.new(m_if)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &UPNP) get_discover_multicast_if() String {
+pub fn (r &UPNP) get_discover_multicast_if() string {
     mut object_out := String{}
     classname := StringName.new("UPNP")
     fnname := StringName.new("get_discover_multicast_if")
@@ -179,7 +191,9 @@ pub fn (r &UPNP) get_discover_multicast_if() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r UPNP) set_discover_local_port(port i32) {
     classname := StringName.new("UPNP")

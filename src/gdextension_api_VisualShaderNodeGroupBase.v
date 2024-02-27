@@ -5,17 +5,19 @@ pub struct VisualShaderNodeGroupBase {
     VisualShaderNodeResizableBase
 }
 
-pub fn (mut r VisualShaderNodeGroupBase) set_inputs(inputs String) {
+pub fn (mut r VisualShaderNodeGroupBase) set_inputs(inputs string) {
     classname := StringName.new("VisualShaderNodeGroupBase")
     fnname := StringName.new("set_inputs")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&inputs)}
+    arg_sn0 := String.new(inputs)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &VisualShaderNodeGroupBase) get_inputs() String {
+pub fn (r &VisualShaderNodeGroupBase) get_inputs() string {
     mut object_out := String{}
     classname := StringName.new("VisualShaderNodeGroupBase")
     fnname := StringName.new("get_inputs")
@@ -23,19 +25,23 @@ pub fn (r &VisualShaderNodeGroupBase) get_inputs() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r VisualShaderNodeGroupBase) set_outputs(outputs String) {
+pub fn (mut r VisualShaderNodeGroupBase) set_outputs(outputs string) {
     classname := StringName.new("VisualShaderNodeGroupBase")
     fnname := StringName.new("set_outputs")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&outputs)}
+    arg_sn0 := String.new(outputs)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &VisualShaderNodeGroupBase) get_outputs() String {
+pub fn (r &VisualShaderNodeGroupBase) get_outputs() string {
     mut object_out := String{}
     classname := StringName.new("VisualShaderNodeGroupBase")
     fnname := StringName.new("get_outputs")
@@ -43,29 +49,35 @@ pub fn (r &VisualShaderNodeGroupBase) get_outputs() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &VisualShaderNodeGroupBase) is_valid_port_name(name String) bool {
+pub fn (r &VisualShaderNodeGroupBase) is_valid_port_name(name string) bool {
     mut object_out := false
     classname := StringName.new("VisualShaderNodeGroupBase")
     fnname := StringName.new("is_valid_port_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3927539163)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VisualShaderNodeGroupBase) add_input_port(id i32, type_name i32, name String) {
+pub fn (mut r VisualShaderNodeGroupBase) add_input_port(id i32, type_name i32, name string) {
     classname := StringName.new("VisualShaderNodeGroupBase")
     fnname := StringName.new("add_input_port")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2285447957)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&id)}
     args[1] = unsafe{voidptr(&type_name)}
-    args[2] = unsafe{voidptr(&name)}
+    arg_sn2 := String.new(name)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -109,15 +121,17 @@ pub fn (mut r VisualShaderNodeGroupBase) clear_input_ports() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r VisualShaderNodeGroupBase) add_output_port(id i32, type_name i32, name String) {
+pub fn (mut r VisualShaderNodeGroupBase) add_output_port(id i32, type_name i32, name string) {
     classname := StringName.new("VisualShaderNodeGroupBase")
     fnname := StringName.new("add_output_port")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2285447957)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&id)}
     args[1] = unsafe{voidptr(&type_name)}
-    args[2] = unsafe{voidptr(&name)}
+    arg_sn2 := String.new(name)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -161,14 +175,16 @@ pub fn (mut r VisualShaderNodeGroupBase) clear_output_ports() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r VisualShaderNodeGroupBase) set_input_port_name(id i32, name String) {
+pub fn (mut r VisualShaderNodeGroupBase) set_input_port_name(id i32, name string) {
     classname := StringName.new("VisualShaderNodeGroupBase")
     fnname := StringName.new("set_input_port_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&id)}
-    args[1] = unsafe{voidptr(&name)}
+    arg_sn1 := String.new(name)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -183,14 +199,16 @@ pub fn (mut r VisualShaderNodeGroupBase) set_input_port_type(id i32, type_name i
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r VisualShaderNodeGroupBase) set_output_port_name(id i32, name String) {
+pub fn (mut r VisualShaderNodeGroupBase) set_output_port_name(id i32, name string) {
     classname := StringName.new("VisualShaderNodeGroupBase")
     fnname := StringName.new("set_output_port_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&id)}
-    args[1] = unsafe{voidptr(&name)}
+    arg_sn1 := String.new(name)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }

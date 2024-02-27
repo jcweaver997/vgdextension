@@ -5,26 +5,30 @@ pub struct FontFile {
     Font
 }
 
-pub fn (mut r FontFile) load_bitmap_font(path String) GDError {
+pub fn (mut r FontFile) load_bitmap_font(path string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("FontFile")
     fnname := StringName.new("load_bitmap_font")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 166001499)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r FontFile) load_dynamic_font(path String) GDError {
+pub fn (mut r FontFile) load_dynamic_font(path string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("FontFile")
     fnname := StringName.new("load_dynamic_font")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 166001499)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
@@ -49,23 +53,27 @@ pub fn (r &FontFile) get_data() PackedByteArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontFile) set_font_name(name String) {
+pub fn (mut r FontFile) set_font_name(name string) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_font_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FontFile) set_font_style_name(name String) {
+pub fn (mut r FontFile) set_font_style_name(name string) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_font_style_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -998,36 +1006,42 @@ pub fn (mut r FontFile) render_glyph(cache_index i32, size Vector2i, index i32) 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FontFile) set_language_support_override(language String, supported bool) {
+pub fn (mut r FontFile) set_language_support_override(language string, supported bool) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_language_support_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2678287736)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&language)}
+    arg_sn0 := String.new(language)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&supported)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &FontFile) get_language_support_override(language String) bool {
+pub fn (r &FontFile) get_language_support_override(language string) bool {
     mut object_out := false
     classname := StringName.new("FontFile")
     fnname := StringName.new("get_language_support_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3927539163)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&language)}
+    arg_sn0 := String.new(language)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontFile) remove_language_support_override(language String) {
+pub fn (mut r FontFile) remove_language_support_override(language string) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("remove_language_support_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&language)}
+    arg_sn0 := String.new(language)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -1041,36 +1055,42 @@ pub fn (r &FontFile) get_language_support_overrides() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontFile) set_script_support_override(script String, supported bool) {
+pub fn (mut r FontFile) set_script_support_override(script string, supported bool) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_script_support_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2678287736)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&script)}
+    arg_sn0 := String.new(script)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&supported)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &FontFile) get_script_support_override(script String) bool {
+pub fn (r &FontFile) get_script_support_override(script string) bool {
     mut object_out := false
     classname := StringName.new("FontFile")
     fnname := StringName.new("get_script_support_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3927539163)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&script)}
+    arg_sn0 := String.new(script)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontFile) remove_script_support_override(script String) {
+pub fn (mut r FontFile) remove_script_support_override(script string) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("remove_script_support_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&script)}
+    arg_sn0 := String.new(script)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }

@@ -5,14 +5,16 @@ pub struct GLTFState {
     Resource
 }
 
-pub fn (mut r GLTFState) add_used_extension(extension_name String, required bool) {
+pub fn (mut r GLTFState) add_used_extension(extension_name string, required bool) {
     classname := StringName.new("GLTFState")
     fnname := StringName.new("add_used_extension")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2678287736)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&extension_name)}
+    arg_sn0 := String.new(extension_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&required)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -76,7 +78,7 @@ pub fn (mut r GLTFState) set_minor_version(minor_version i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &GLTFState) get_copyright() String {
+pub fn (r &GLTFState) get_copyright() string {
     mut object_out := String{}
     classname := StringName.new("GLTFState")
     fnname := StringName.new("get_copyright")
@@ -84,15 +86,19 @@ pub fn (r &GLTFState) get_copyright() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r GLTFState) set_copyright(copyright String) {
+pub fn (mut r GLTFState) set_copyright(copyright string) {
     classname := StringName.new("GLTFState")
     fnname := StringName.new("set_copyright")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&copyright)}
+    arg_sn0 := String.new(copyright)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -280,7 +286,7 @@ pub fn (mut r GLTFState) set_materials(materials Array) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFState) get_scene_name() String {
+pub fn (mut r GLTFState) get_scene_name() string {
     mut object_out := String{}
     classname := StringName.new("GLTFState")
     fnname := StringName.new("get_scene_name")
@@ -288,19 +294,23 @@ pub fn (mut r GLTFState) get_scene_name() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r GLTFState) set_scene_name(scene_name String) {
+pub fn (mut r GLTFState) set_scene_name(scene_name string) {
     classname := StringName.new("GLTFState")
     fnname := StringName.new("set_scene_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&scene_name)}
+    arg_sn0 := String.new(scene_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFState) get_base_path() String {
+pub fn (mut r GLTFState) get_base_path() string {
     mut object_out := String{}
     classname := StringName.new("GLTFState")
     fnname := StringName.new("get_base_path")
@@ -308,19 +318,23 @@ pub fn (mut r GLTFState) get_base_path() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r GLTFState) set_base_path(base_path String) {
+pub fn (mut r GLTFState) set_base_path(base_path string) {
     classname := StringName.new("GLTFState")
     fnname := StringName.new("set_base_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&base_path)}
+    arg_sn0 := String.new(base_path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &GLTFState) get_filename() String {
+pub fn (r &GLTFState) get_filename() string {
     mut object_out := String{}
     classname := StringName.new("GLTFState")
     fnname := StringName.new("get_filename")
@@ -328,15 +342,19 @@ pub fn (r &GLTFState) get_filename() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r GLTFState) set_filename(filename String) {
+pub fn (mut r GLTFState) set_filename(filename string) {
     classname := StringName.new("GLTFState")
     fnname := StringName.new("set_filename")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&filename)}
+    arg_sn0 := String.new(filename)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -604,26 +622,30 @@ pub fn (mut r GLTFState) get_node_index(scene_node Node) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFState) get_additional_data(extension_name StringName) Variant {
+pub fn (mut r GLTFState) get_additional_data(extension_name string) Variant {
     mut object_out := Variant{}
     classname := StringName.new("GLTFState")
     fnname := StringName.new("get_additional_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2138907829)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&extension_name)}
+    arg_sn0 := StringName.new(extension_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFState) set_additional_data(extension_name StringName, additional_data Variant) {
+pub fn (mut r GLTFState) set_additional_data(extension_name string, additional_data Variant) {
     classname := StringName.new("GLTFState")
     fnname := StringName.new("set_additional_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3776071444)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&extension_name)}
+    arg_sn0 := StringName.new(extension_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&additional_data)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }

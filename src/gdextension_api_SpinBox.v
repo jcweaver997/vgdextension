@@ -26,17 +26,19 @@ pub fn (r &SpinBox) get_horizontal_alignment() HorizontalAlignment {
     fnname.deinit()
    return unsafe{HorizontalAlignment(object_out)}
 }
-pub fn (mut r SpinBox) set_suffix(suffix String) {
+pub fn (mut r SpinBox) set_suffix(suffix string) {
     classname := StringName.new("SpinBox")
     fnname := StringName.new("set_suffix")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&suffix)}
+    arg_sn0 := String.new(suffix)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &SpinBox) get_suffix() String {
+pub fn (r &SpinBox) get_suffix() string {
     mut object_out := String{}
     classname := StringName.new("SpinBox")
     fnname := StringName.new("get_suffix")
@@ -44,19 +46,23 @@ pub fn (r &SpinBox) get_suffix() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r SpinBox) set_prefix(prefix String) {
+pub fn (mut r SpinBox) set_prefix(prefix string) {
     classname := StringName.new("SpinBox")
     fnname := StringName.new("set_prefix")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&prefix)}
+    arg_sn0 := String.new(prefix)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &SpinBox) get_prefix() String {
+pub fn (r &SpinBox) get_prefix() string {
     mut object_out := String{}
     classname := StringName.new("SpinBox")
     fnname := StringName.new("get_prefix")
@@ -64,7 +70,9 @@ pub fn (r &SpinBox) get_prefix() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r SpinBox) set_editable(enabled bool) {
     classname := StringName.new("SpinBox")

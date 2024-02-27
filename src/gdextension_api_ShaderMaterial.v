@@ -25,25 +25,29 @@ pub fn (r &ShaderMaterial) get_shader() Shader {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ShaderMaterial) set_shader_parameter(param StringName, value Variant) {
+pub fn (mut r ShaderMaterial) set_shader_parameter(param string, value Variant) {
     classname := StringName.new("ShaderMaterial")
     fnname := StringName.new("set_shader_parameter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3776071444)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&param)}
+    arg_sn0 := StringName.new(param)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&value)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &ShaderMaterial) get_shader_parameter(param StringName) Variant {
+pub fn (r &ShaderMaterial) get_shader_parameter(param string) Variant {
     mut object_out := Variant{}
     classname := StringName.new("ShaderMaterial")
     fnname := StringName.new("get_shader_parameter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2760726917)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&param)}
+    arg_sn0 := StringName.new(param)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out

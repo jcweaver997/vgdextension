@@ -183,23 +183,27 @@ pub fn (mut r StreamPeer) put_double(value f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r StreamPeer) put_string(value String) {
+pub fn (mut r StreamPeer) put_string(value string) {
     classname := StringName.new("StreamPeer")
     fnname := StringName.new("put_string")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&value)}
+    arg_sn0 := String.new(value)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r StreamPeer) put_utf8_string(value String) {
+pub fn (mut r StreamPeer) put_utf8_string(value string) {
     classname := StringName.new("StreamPeer")
     fnname := StringName.new("put_utf8_string")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&value)}
+    arg_sn0 := String.new(value)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -314,7 +318,7 @@ pub fn (mut r StreamPeer) get_double() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r StreamPeer) get_string(bytes i32) String {
+pub fn (mut r StreamPeer) get_string(bytes i32) string {
     mut object_out := String{}
     classname := StringName.new("StreamPeer")
     fnname := StringName.new("get_string")
@@ -324,9 +328,11 @@ pub fn (mut r StreamPeer) get_string(bytes i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r StreamPeer) get_utf8_string(bytes i32) String {
+pub fn (mut r StreamPeer) get_utf8_string(bytes i32) string {
     mut object_out := String{}
     classname := StringName.new("StreamPeer")
     fnname := StringName.new("get_utf8_string")
@@ -336,7 +342,9 @@ pub fn (mut r StreamPeer) get_utf8_string(bytes i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r StreamPeer) get_var(allow_objects bool) Variant {
     mut object_out := Variant{}

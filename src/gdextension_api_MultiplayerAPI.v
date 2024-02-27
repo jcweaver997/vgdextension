@@ -81,7 +81,7 @@ pub fn (mut r MultiplayerAPI) poll() GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r MultiplayerAPI) rpc(peer i32, object Object, method StringName, arguments Array) GDError {
+pub fn (mut r MultiplayerAPI) rpc(peer i32, object Object, method string, arguments Array) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("MultiplayerAPI")
     fnname := StringName.new("rpc")
@@ -89,9 +89,11 @@ pub fn (mut r MultiplayerAPI) rpc(peer i32, object Object, method StringName, ar
     mut args := unsafe { [4]voidptr{} }
     args[0] = unsafe{voidptr(&peer)}
     args[1] = object.ptr
-    args[2] = unsafe{voidptr(&method)}
+    arg_sn2 := StringName.new(method)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     args[3] = unsafe{voidptr(&arguments)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
@@ -132,17 +134,19 @@ pub fn (mut r MultiplayerAPI) get_peers() PackedInt32Array {
     fnname.deinit()
    return object_out
 }
-pub fn MultiplayerAPI.set_default_interface(interface_name StringName) {
+pub fn MultiplayerAPI.set_default_interface(interface_name string) {
     classname := StringName.new("MultiplayerAPI")
     fnname := StringName.new("set_default_interface")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&interface_name)}
+    arg_sn0 := StringName.new(interface_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, unsafe{nil}, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn MultiplayerAPI.get_default_interface() StringName {
+pub fn MultiplayerAPI.get_default_interface() string {
     mut object_out := StringName{}
     classname := StringName.new("MultiplayerAPI")
     fnname := StringName.new("get_default_interface")
@@ -150,7 +154,9 @@ pub fn MultiplayerAPI.get_default_interface() StringName {
     gdf.object_method_bind_ptrcall(mb, unsafe{nil}, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn MultiplayerAPI.create_default_interface() MultiplayerAPI {
     mut object_out := MultiplayerAPI{}

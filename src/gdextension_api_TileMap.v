@@ -160,18 +160,20 @@ pub fn (mut r TileMap) remove_layer(layer i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileMap) set_layer_name(layer i32, name String) {
+pub fn (mut r TileMap) set_layer_name(layer i32, name string) {
     classname := StringName.new("TileMap")
     fnname := StringName.new("set_layer_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&layer)}
-    args[1] = unsafe{voidptr(&name)}
+    arg_sn1 := String.new(name)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &TileMap) get_layer_name(layer i32) String {
+pub fn (r &TileMap) get_layer_name(layer i32) string {
     mut object_out := String{}
     classname := StringName.new("TileMap")
     fnname := StringName.new("get_layer_name")
@@ -181,7 +183,9 @@ pub fn (r &TileMap) get_layer_name(layer i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r TileMap) set_layer_enabled(layer i32, enabled bool) {
     classname := StringName.new("TileMap")

@@ -5,13 +5,15 @@ pub struct MultiplayerSpawner {
     Node
 }
 
-pub fn (mut r MultiplayerSpawner) add_spawnable_scene(path String) {
+pub fn (mut r MultiplayerSpawner) add_spawnable_scene(path string) {
     classname := StringName.new("MultiplayerSpawner")
     fnname := StringName.new("add_spawnable_scene")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -25,7 +27,7 @@ pub fn (r &MultiplayerSpawner) get_spawnable_scene_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (r &MultiplayerSpawner) get_spawnable_scene(index i32) String {
+pub fn (r &MultiplayerSpawner) get_spawnable_scene(index i32) string {
     mut object_out := String{}
     classname := StringName.new("MultiplayerSpawner")
     fnname := StringName.new("get_spawnable_scene")
@@ -35,7 +37,9 @@ pub fn (r &MultiplayerSpawner) get_spawnable_scene(index i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r MultiplayerSpawner) clear_spawnable_scenes() {
     classname := StringName.new("MultiplayerSpawner")

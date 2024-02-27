@@ -21,19 +21,21 @@ pub fn (mut r ENetMultiplayerPeer) create_server(port i32, max_clients i32, max_
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r ENetMultiplayerPeer) create_client(address String, port i32, channel_count i32, in_bandwidth i32, out_bandwidth i32, local_port i32) GDError {
+pub fn (mut r ENetMultiplayerPeer) create_client(address string, port i32, channel_count i32, in_bandwidth i32, out_bandwidth i32, local_port i32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ENetMultiplayerPeer")
     fnname := StringName.new("create_client")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2327163476)
     mut args := unsafe { [6]voidptr{} }
-    args[0] = unsafe{voidptr(&address)}
+    arg_sn0 := String.new(address)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&port)}
     args[2] = unsafe{voidptr(&channel_count)}
     args[3] = unsafe{voidptr(&in_bandwidth)}
     args[4] = unsafe{voidptr(&out_bandwidth)}
     args[5] = unsafe{voidptr(&local_port)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
@@ -63,13 +65,15 @@ pub fn (mut r ENetMultiplayerPeer) add_mesh_peer(peer_id i32, host ENetConnectio
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r ENetMultiplayerPeer) set_bind_ip(ip String) {
+pub fn (mut r ENetMultiplayerPeer) set_bind_ip(ip string) {
     classname := StringName.new("ENetMultiplayerPeer")
     fnname := StringName.new("set_bind_ip")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&ip)}
+    arg_sn0 := String.new(ip)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }

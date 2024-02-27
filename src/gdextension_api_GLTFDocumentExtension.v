@@ -62,7 +62,7 @@ pub interface IGLTFDocumentExtensionParseImageData {
     virt_parse_image_data(state GLTFState, image_data PackedByteArray, mime_type String, ret_image Image) GDError
 }
 
-pub fn (mut r GLTFDocumentExtension) uparse_image_data(state GLTFState, image_data PackedByteArray, mime_type String, ret_image Image) GDError {
+pub fn (mut r GLTFDocumentExtension) uparse_image_data(state GLTFState, image_data PackedByteArray, mime_type string, ret_image Image) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("GLTFDocumentExtension")
     fnname := StringName.new("_parse_image_data")
@@ -70,9 +70,11 @@ pub fn (mut r GLTFDocumentExtension) uparse_image_data(state GLTFState, image_da
     mut args := unsafe { [4]voidptr{} }
     args[0] = state.ptr
     args[1] = unsafe{voidptr(&image_data)}
-    args[2] = unsafe{voidptr(&mime_type)}
+    arg_sn2 := String.new(mime_type)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     args[3] = ret_image.ptr
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
@@ -82,7 +84,7 @@ pub interface IGLTFDocumentExtensionGetImageFileExtension {
     virt_get_image_file_extension() String
 }
 
-pub fn (mut r GLTFDocumentExtension) uget_image_file_extension() String {
+pub fn (mut r GLTFDocumentExtension) uget_image_file_extension() string {
     mut object_out := String{}
     classname := StringName.new("GLTFDocumentExtension")
     fnname := StringName.new("_get_image_file_extension")
@@ -90,7 +92,9 @@ pub fn (mut r GLTFDocumentExtension) uget_image_file_extension() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface IGLTFDocumentExtensionParseTextureJson {
     mut:
@@ -257,7 +261,7 @@ pub interface IGLTFDocumentExtensionSerializeImageToBytes {
     virt_serialize_image_to_bytes(state GLTFState, image Image, image_dict Dictionary, image_format String, lossy_quality f64) PackedByteArray
 }
 
-pub fn (mut r GLTFDocumentExtension) userialize_image_to_bytes(state GLTFState, image Image, image_dict Dictionary, image_format String, lossy_quality f64) PackedByteArray {
+pub fn (mut r GLTFDocumentExtension) userialize_image_to_bytes(state GLTFState, image Image, image_dict Dictionary, image_format string, lossy_quality f64) PackedByteArray {
     mut object_out := PackedByteArray{}
     classname := StringName.new("GLTFDocumentExtension")
     fnname := StringName.new("_serialize_image_to_bytes")
@@ -266,9 +270,11 @@ pub fn (mut r GLTFDocumentExtension) userialize_image_to_bytes(state GLTFState, 
     args[0] = state.ptr
     args[1] = image.ptr
     args[2] = unsafe{voidptr(&image_dict)}
-    args[3] = unsafe{voidptr(&image_format)}
+    arg_sn3 := String.new(image_format)
+    args[3] = unsafe{voidptr(&arg_sn3)}
     args[4] = unsafe{voidptr(&lossy_quality)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn3.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -278,7 +284,7 @@ pub interface IGLTFDocumentExtensionSaveImageAtPath {
     virt_save_image_at_path(state GLTFState, image Image, file_path String, image_format String, lossy_quality f64) GDError
 }
 
-pub fn (mut r GLTFDocumentExtension) usave_image_at_path(state GLTFState, image Image, file_path String, image_format String, lossy_quality f64) GDError {
+pub fn (mut r GLTFDocumentExtension) usave_image_at_path(state GLTFState, image Image, file_path string, image_format string, lossy_quality f64) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("GLTFDocumentExtension")
     fnname := StringName.new("_save_image_at_path")
@@ -286,10 +292,14 @@ pub fn (mut r GLTFDocumentExtension) usave_image_at_path(state GLTFState, image 
     mut args := unsafe { [5]voidptr{} }
     args[0] = state.ptr
     args[1] = image.ptr
-    args[2] = unsafe{voidptr(&file_path)}
-    args[3] = unsafe{voidptr(&image_format)}
+    arg_sn2 := String.new(file_path)
+    args[2] = unsafe{voidptr(&arg_sn2)}
+    arg_sn3 := String.new(image_format)
+    args[3] = unsafe{voidptr(&arg_sn3)}
     args[4] = unsafe{voidptr(&lossy_quality)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn2.deinit()
+    arg_sn3.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
@@ -299,7 +309,7 @@ pub interface IGLTFDocumentExtensionSerializeTextureJson {
     virt_serialize_texture_json(state GLTFState, texture_json Dictionary, gltf_texture GLTFTexture, image_format String) GDError
 }
 
-pub fn (mut r GLTFDocumentExtension) userialize_texture_json(state GLTFState, texture_json Dictionary, gltf_texture GLTFTexture, image_format String) GDError {
+pub fn (mut r GLTFDocumentExtension) userialize_texture_json(state GLTFState, texture_json Dictionary, gltf_texture GLTFTexture, image_format string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("GLTFDocumentExtension")
     fnname := StringName.new("_serialize_texture_json")
@@ -308,8 +318,10 @@ pub fn (mut r GLTFDocumentExtension) userialize_texture_json(state GLTFState, te
     args[0] = state.ptr
     args[1] = unsafe{voidptr(&texture_json)}
     args[2] = gltf_texture.ptr
-    args[3] = unsafe{voidptr(&image_format)}
+    arg_sn3 := String.new(image_format)
+    args[3] = unsafe{voidptr(&arg_sn3)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn3.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}

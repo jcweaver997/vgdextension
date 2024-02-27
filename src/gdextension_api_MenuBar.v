@@ -96,17 +96,19 @@ pub fn (r &MenuBar) get_text_direction() ControlTextDirection {
     fnname.deinit()
    return unsafe{ControlTextDirection(object_out)}
 }
-pub fn (mut r MenuBar) set_language(language String) {
+pub fn (mut r MenuBar) set_language(language string) {
     classname := StringName.new("MenuBar")
     fnname := StringName.new("set_language")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&language)}
+    arg_sn0 := String.new(language)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &MenuBar) get_language() String {
+pub fn (r &MenuBar) get_language() string {
     mut object_out := String{}
     classname := StringName.new("MenuBar")
     fnname := StringName.new("get_language")
@@ -114,7 +116,9 @@ pub fn (r &MenuBar) get_language() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r MenuBar) set_flat(enabled bool) {
     classname := StringName.new("MenuBar")
@@ -156,18 +160,20 @@ pub fn (r &MenuBar) get_start_index() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MenuBar) set_menu_title(menu i32, title String) {
+pub fn (mut r MenuBar) set_menu_title(menu i32, title string) {
     classname := StringName.new("MenuBar")
     fnname := StringName.new("set_menu_title")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&menu)}
-    args[1] = unsafe{voidptr(&title)}
+    arg_sn1 := String.new(title)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &MenuBar) get_menu_title(menu i32) String {
+pub fn (r &MenuBar) get_menu_title(menu i32) string {
     mut object_out := String{}
     classname := StringName.new("MenuBar")
     fnname := StringName.new("get_menu_title")
@@ -177,20 +183,24 @@ pub fn (r &MenuBar) get_menu_title(menu i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r MenuBar) set_menu_tooltip(menu i32, tooltip String) {
+pub fn (mut r MenuBar) set_menu_tooltip(menu i32, tooltip string) {
     classname := StringName.new("MenuBar")
     fnname := StringName.new("set_menu_tooltip")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&menu)}
-    args[1] = unsafe{voidptr(&tooltip)}
+    arg_sn1 := String.new(tooltip)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &MenuBar) get_menu_tooltip(menu i32) String {
+pub fn (r &MenuBar) get_menu_tooltip(menu i32) string {
     mut object_out := String{}
     classname := StringName.new("MenuBar")
     fnname := StringName.new("get_menu_tooltip")
@@ -200,7 +210,9 @@ pub fn (r &MenuBar) get_menu_tooltip(menu i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r MenuBar) set_menu_disabled(menu i32, disabled bool) {
     classname := StringName.new("MenuBar")

@@ -60,3 +60,10 @@ pub fn (o &Object) cast_to[T]() ?T {
         return t
     }
 }
+
+pub fn (r &Node) get_node_v(path string) Node {
+    np := NodePath.new(path)
+    node := r.get_node(np)
+    np.deinit()
+    return node
+}

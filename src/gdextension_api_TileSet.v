@@ -552,19 +552,21 @@ pub fn (mut r TileSet) remove_terrain(terrain_set i32, terrain_index i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileSet) set_terrain_name(terrain_set i32, terrain_index i32, name String) {
+pub fn (mut r TileSet) set_terrain_name(terrain_set i32, terrain_index i32, name string) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("set_terrain_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2285447957)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&terrain_set)}
     args[1] = unsafe{voidptr(&terrain_index)}
-    args[2] = unsafe{voidptr(&name)}
+    arg_sn2 := String.new(name)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &TileSet) get_terrain_name(terrain_set i32, terrain_index i32) String {
+pub fn (r &TileSet) get_terrain_name(terrain_set i32, terrain_index i32) string {
     mut object_out := String{}
     classname := StringName.new("TileSet")
     fnname := StringName.new("get_terrain_name")
@@ -575,7 +577,9 @@ pub fn (r &TileSet) get_terrain_name(terrain_set i32, terrain_index i32) String 
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r TileSet) set_terrain_color(terrain_set i32, terrain_index i32, color Color) {
     classname := StringName.new("TileSet")
@@ -732,30 +736,34 @@ pub fn (mut r TileSet) remove_custom_data_layer(layer_index i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &TileSet) get_custom_data_layer_by_name(layer_name String) i32 {
+pub fn (r &TileSet) get_custom_data_layer_by_name(layer_name string) i32 {
     mut object_out := i32(0)
     classname := StringName.new("TileSet")
     fnname := StringName.new("get_custom_data_layer_by_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1321353865)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&layer_name)}
+    arg_sn0 := String.new(layer_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSet) set_custom_data_layer_name(layer_index i32, layer_name String) {
+pub fn (mut r TileSet) set_custom_data_layer_name(layer_index i32, layer_name string) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("set_custom_data_layer_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&layer_index)}
-    args[1] = unsafe{voidptr(&layer_name)}
+    arg_sn1 := String.new(layer_name)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &TileSet) get_custom_data_layer_name(layer_index i32) String {
+pub fn (r &TileSet) get_custom_data_layer_name(layer_index i32) string {
     mut object_out := String{}
     classname := StringName.new("TileSet")
     fnname := StringName.new("get_custom_data_layer_name")
@@ -765,7 +773,9 @@ pub fn (r &TileSet) get_custom_data_layer_name(layer_index i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r TileSet) set_custom_data_layer_type(layer_index i32, layer_type VariantType) {
     classname := StringName.new("TileSet")

@@ -119,15 +119,17 @@ pub interface IControlStructuredTextParser {
     virt_structured_text_parser(gdargs Array, text String) Array
 }
 
-pub fn (r &Control) ustructured_text_parser(gdargs Array, text String) Array {
+pub fn (r &Control) ustructured_text_parser(gdargs Array, text string) Array {
     mut object_out := Array{}
     classname := StringName.new("Control")
     fnname := StringName.new("_structured_text_parser")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&gdargs)}
-    args[1] = unsafe{voidptr(&text)}
+    arg_sn1 := String.new(text)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -152,7 +154,7 @@ pub interface IControlGetTooltip {
     virt_get_tooltip(at_position Vector2) String
 }
 
-pub fn (r &Control) uget_tooltip(at_position Vector2) String {
+pub fn (r &Control) uget_tooltip(at_position Vector2) string {
     mut object_out := String{}
     classname := StringName.new("Control")
     fnname := StringName.new("_get_tooltip")
@@ -162,7 +164,9 @@ pub fn (r &Control) uget_tooltip(at_position Vector2) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface IControlGetDragData {
     mut:
@@ -220,14 +224,16 @@ pub interface IControlMakeCustomTooltip {
     virt_make_custom_tooltip(for_text String) Object
 }
 
-pub fn (r &Control) umake_custom_tooltip(for_text String) Object {
+pub fn (r &Control) umake_custom_tooltip(for_text string) Object {
     mut object_out := Object{}
     classname := StringName.new("Control")
     fnname := StringName.new("_make_custom_tooltip")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&for_text)}
+    arg_sn0 := String.new(for_text)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -794,17 +800,19 @@ pub fn (r &Control) get_theme() Theme {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Control) set_theme_type_variation(theme_type StringName) {
+pub fn (mut r Control) set_theme_type_variation(theme_type string) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_theme_type_variation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&theme_type)}
+    arg_sn0 := StringName.new(theme_type)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &Control) get_theme_type_variation() StringName {
+pub fn (r &Control) get_theme_type_variation() string {
     mut object_out := StringName{}
     classname := StringName.new("Control")
     fnname := StringName.new("get_theme_type_variation")
@@ -812,7 +820,9 @@ pub fn (r &Control) get_theme_type_variation() StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r Control) begin_bulk_theme_override() {
     classname := StringName.new("Control")
@@ -830,356 +840,440 @@ pub fn (mut r Control) end_bulk_theme_override() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) add_theme_icon_override(name StringName, texture Texture2D) {
+pub fn (mut r Control) add_theme_icon_override(name string, texture Texture2D) {
     classname := StringName.new("Control")
     fnname := StringName.new("add_theme_icon_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1373065600)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = texture.ptr
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) add_theme_stylebox_override(name StringName, stylebox StyleBox) {
+pub fn (mut r Control) add_theme_stylebox_override(name string, stylebox StyleBox) {
     classname := StringName.new("Control")
     fnname := StringName.new("add_theme_stylebox_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4188838905)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = stylebox.ptr
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) add_theme_font_override(name StringName, font Font) {
+pub fn (mut r Control) add_theme_font_override(name string, font Font) {
     classname := StringName.new("Control")
     fnname := StringName.new("add_theme_font_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3518018674)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = font.ptr
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) add_theme_font_size_override(name StringName, font_size i32) {
+pub fn (mut r Control) add_theme_font_size_override(name string, font_size i32) {
     classname := StringName.new("Control")
     fnname := StringName.new("add_theme_font_size_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2415702435)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&font_size)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) add_theme_color_override(name StringName, color Color) {
+pub fn (mut r Control) add_theme_color_override(name string, color Color) {
     classname := StringName.new("Control")
     fnname := StringName.new("add_theme_color_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4260178595)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&color)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) add_theme_constant_override(name StringName, constant i32) {
+pub fn (mut r Control) add_theme_constant_override(name string, constant i32) {
     classname := StringName.new("Control")
     fnname := StringName.new("add_theme_constant_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2415702435)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&constant)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) remove_theme_icon_override(name StringName) {
+pub fn (mut r Control) remove_theme_icon_override(name string) {
     classname := StringName.new("Control")
     fnname := StringName.new("remove_theme_icon_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) remove_theme_stylebox_override(name StringName) {
+pub fn (mut r Control) remove_theme_stylebox_override(name string) {
     classname := StringName.new("Control")
     fnname := StringName.new("remove_theme_stylebox_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) remove_theme_font_override(name StringName) {
+pub fn (mut r Control) remove_theme_font_override(name string) {
     classname := StringName.new("Control")
     fnname := StringName.new("remove_theme_font_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) remove_theme_font_size_override(name StringName) {
+pub fn (mut r Control) remove_theme_font_size_override(name string) {
     classname := StringName.new("Control")
     fnname := StringName.new("remove_theme_font_size_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) remove_theme_color_override(name StringName) {
+pub fn (mut r Control) remove_theme_color_override(name string) {
     classname := StringName.new("Control")
     fnname := StringName.new("remove_theme_color_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) remove_theme_constant_override(name StringName) {
+pub fn (mut r Control) remove_theme_constant_override(name string) {
     classname := StringName.new("Control")
     fnname := StringName.new("remove_theme_constant_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &Control) get_theme_icon(name StringName, theme_type StringName) Texture2D {
+pub fn (r &Control) get_theme_icon(name string, theme_type string) Texture2D {
     mut object_out := Texture2D{}
     classname := StringName.new("Control")
     fnname := StringName.new("get_theme_icon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3163973443)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
-    args[1] = unsafe{voidptr(&theme_type)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := StringName.new(theme_type)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &Control) get_theme_stylebox(name StringName, theme_type StringName) StyleBox {
+pub fn (r &Control) get_theme_stylebox(name string, theme_type string) StyleBox {
     mut object_out := StyleBox{}
     classname := StringName.new("Control")
     fnname := StringName.new("get_theme_stylebox")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 604739069)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
-    args[1] = unsafe{voidptr(&theme_type)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := StringName.new(theme_type)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &Control) get_theme_font(name StringName, theme_type StringName) Font {
+pub fn (r &Control) get_theme_font(name string, theme_type string) Font {
     mut object_out := Font{}
     classname := StringName.new("Control")
     fnname := StringName.new("get_theme_font")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2826986490)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
-    args[1] = unsafe{voidptr(&theme_type)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := StringName.new(theme_type)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &Control) get_theme_font_size(name StringName, theme_type StringName) i32 {
+pub fn (r &Control) get_theme_font_size(name string, theme_type string) i32 {
     mut object_out := i32(0)
     classname := StringName.new("Control")
     fnname := StringName.new("get_theme_font_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1327056374)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
-    args[1] = unsafe{voidptr(&theme_type)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := StringName.new(theme_type)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &Control) get_theme_color(name StringName, theme_type StringName) Color {
+pub fn (r &Control) get_theme_color(name string, theme_type string) Color {
     mut object_out := Color{}
     classname := StringName.new("Control")
     fnname := StringName.new("get_theme_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2798751242)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
-    args[1] = unsafe{voidptr(&theme_type)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := StringName.new(theme_type)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &Control) get_theme_constant(name StringName, theme_type StringName) i32 {
+pub fn (r &Control) get_theme_constant(name string, theme_type string) i32 {
     mut object_out := i32(0)
     classname := StringName.new("Control")
     fnname := StringName.new("get_theme_constant")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1327056374)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
-    args[1] = unsafe{voidptr(&theme_type)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := StringName.new(theme_type)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &Control) has_theme_icon_override(name StringName) bool {
+pub fn (r &Control) has_theme_icon_override(name string) bool {
     mut object_out := false
     classname := StringName.new("Control")
     fnname := StringName.new("has_theme_icon_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2619796661)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &Control) has_theme_stylebox_override(name StringName) bool {
+pub fn (r &Control) has_theme_stylebox_override(name string) bool {
     mut object_out := false
     classname := StringName.new("Control")
     fnname := StringName.new("has_theme_stylebox_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2619796661)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &Control) has_theme_font_override(name StringName) bool {
+pub fn (r &Control) has_theme_font_override(name string) bool {
     mut object_out := false
     classname := StringName.new("Control")
     fnname := StringName.new("has_theme_font_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2619796661)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &Control) has_theme_font_size_override(name StringName) bool {
+pub fn (r &Control) has_theme_font_size_override(name string) bool {
     mut object_out := false
     classname := StringName.new("Control")
     fnname := StringName.new("has_theme_font_size_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2619796661)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &Control) has_theme_color_override(name StringName) bool {
+pub fn (r &Control) has_theme_color_override(name string) bool {
     mut object_out := false
     classname := StringName.new("Control")
     fnname := StringName.new("has_theme_color_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2619796661)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &Control) has_theme_constant_override(name StringName) bool {
+pub fn (r &Control) has_theme_constant_override(name string) bool {
     mut object_out := false
     classname := StringName.new("Control")
     fnname := StringName.new("has_theme_constant_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2619796661)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &Control) has_theme_icon(name StringName, theme_type StringName) bool {
+pub fn (r &Control) has_theme_icon(name string, theme_type string) bool {
     mut object_out := false
     classname := StringName.new("Control")
     fnname := StringName.new("has_theme_icon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 866386512)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
-    args[1] = unsafe{voidptr(&theme_type)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := StringName.new(theme_type)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &Control) has_theme_stylebox(name StringName, theme_type StringName) bool {
+pub fn (r &Control) has_theme_stylebox(name string, theme_type string) bool {
     mut object_out := false
     classname := StringName.new("Control")
     fnname := StringName.new("has_theme_stylebox")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 866386512)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
-    args[1] = unsafe{voidptr(&theme_type)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := StringName.new(theme_type)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &Control) has_theme_font(name StringName, theme_type StringName) bool {
+pub fn (r &Control) has_theme_font(name string, theme_type string) bool {
     mut object_out := false
     classname := StringName.new("Control")
     fnname := StringName.new("has_theme_font")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 866386512)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
-    args[1] = unsafe{voidptr(&theme_type)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := StringName.new(theme_type)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &Control) has_theme_font_size(name StringName, theme_type StringName) bool {
+pub fn (r &Control) has_theme_font_size(name string, theme_type string) bool {
     mut object_out := false
     classname := StringName.new("Control")
     fnname := StringName.new("has_theme_font_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 866386512)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
-    args[1] = unsafe{voidptr(&theme_type)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := StringName.new(theme_type)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &Control) has_theme_color(name StringName, theme_type StringName) bool {
+pub fn (r &Control) has_theme_color(name string, theme_type string) bool {
     mut object_out := false
     classname := StringName.new("Control")
     fnname := StringName.new("has_theme_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 866386512)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
-    args[1] = unsafe{voidptr(&theme_type)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := StringName.new(theme_type)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &Control) has_theme_constant(name StringName, theme_type StringName) bool {
+pub fn (r &Control) has_theme_constant(name string, theme_type string) bool {
     mut object_out := false
     classname := StringName.new("Control")
     fnname := StringName.new("has_theme_constant")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 866386512)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
-    args[1] = unsafe{voidptr(&theme_type)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := StringName.new(theme_type)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -1266,17 +1360,19 @@ pub fn (r &Control) get_v_grow_direction() ControlGrowDirection {
     fnname.deinit()
    return unsafe{ControlGrowDirection(object_out)}
 }
-pub fn (mut r Control) set_tooltip_text(hint String) {
+pub fn (mut r Control) set_tooltip_text(hint string) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_tooltip_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&hint)}
+    arg_sn0 := String.new(hint)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &Control) get_tooltip_text() String {
+pub fn (r &Control) get_tooltip_text() string {
     mut object_out := String{}
     classname := StringName.new("Control")
     fnname := StringName.new("get_tooltip_text")
@@ -1284,9 +1380,11 @@ pub fn (r &Control) get_tooltip_text() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &Control) get_tooltip(at_position Vector2) String {
+pub fn (r &Control) get_tooltip(at_position Vector2) string {
     mut object_out := String{}
     classname := StringName.new("Control")
     fnname := StringName.new("get_tooltip")
@@ -1296,7 +1394,9 @@ pub fn (r &Control) get_tooltip(at_position Vector2) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r Control) set_default_cursor_shape(shape ControlCursorShape) {
     classname := StringName.new("Control")

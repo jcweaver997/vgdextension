@@ -23,17 +23,19 @@ pub fn (mut r GraphNode) udraw_port(slot_index i32, position Vector2i, left bool
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GraphNode) set_title(title String) {
+pub fn (mut r GraphNode) set_title(title string) {
     classname := StringName.new("GraphNode")
     fnname := StringName.new("set_title")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&title)}
+    arg_sn0 := String.new(title)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &GraphNode) get_title() String {
+pub fn (r &GraphNode) get_title() string {
     mut object_out := String{}
     classname := StringName.new("GraphNode")
     fnname := StringName.new("get_title")
@@ -41,7 +43,9 @@ pub fn (r &GraphNode) get_title() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r GraphNode) get_titlebar_hbox() HBoxContainer {
     mut object_out := HBoxContainer{}

@@ -32,14 +32,18 @@ pub fn (mut r EditorFileDialog) clear_filters() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorFileDialog) add_filter(filter String, description String) {
+pub fn (mut r EditorFileDialog) add_filter(filter string, description string) {
     classname := StringName.new("EditorFileDialog")
     fnname := StringName.new("add_filter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3388804757)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&filter)}
-    args[1] = unsafe{voidptr(&description)}
+    arg_sn0 := String.new(filter)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(description)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -63,7 +67,7 @@ pub fn (r &EditorFileDialog) get_filters() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (r &EditorFileDialog) get_current_dir() String {
+pub fn (r &EditorFileDialog) get_current_dir() string {
     mut object_out := String{}
     classname := StringName.new("EditorFileDialog")
     fnname := StringName.new("get_current_dir")
@@ -71,9 +75,11 @@ pub fn (r &EditorFileDialog) get_current_dir() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &EditorFileDialog) get_current_file() String {
+pub fn (r &EditorFileDialog) get_current_file() string {
     mut object_out := String{}
     classname := StringName.new("EditorFileDialog")
     fnname := StringName.new("get_current_file")
@@ -81,9 +87,11 @@ pub fn (r &EditorFileDialog) get_current_file() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &EditorFileDialog) get_current_path() String {
+pub fn (r &EditorFileDialog) get_current_path() string {
     mut object_out := String{}
     classname := StringName.new("EditorFileDialog")
     fnname := StringName.new("get_current_path")
@@ -91,35 +99,43 @@ pub fn (r &EditorFileDialog) get_current_path() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r EditorFileDialog) set_current_dir(dir String) {
+pub fn (mut r EditorFileDialog) set_current_dir(dir string) {
     classname := StringName.new("EditorFileDialog")
     fnname := StringName.new("set_current_dir")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&dir)}
+    arg_sn0 := String.new(dir)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorFileDialog) set_current_file(file String) {
+pub fn (mut r EditorFileDialog) set_current_file(file string) {
     classname := StringName.new("EditorFileDialog")
     fnname := StringName.new("set_current_file")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&file)}
+    arg_sn0 := String.new(file)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorFileDialog) set_current_path(path String) {
+pub fn (mut r EditorFileDialog) set_current_path(path string) {
     classname := StringName.new("EditorFileDialog")
     fnname := StringName.new("set_current_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -246,14 +262,16 @@ pub fn (r &EditorFileDialog) is_overwrite_warning_disabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorFileDialog) add_side_menu(menu Control, title String) {
+pub fn (mut r EditorFileDialog) add_side_menu(menu Control, title string) {
     classname := StringName.new("EditorFileDialog")
     fnname := StringName.new("add_side_menu")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 402368861)
     mut args := unsafe { [2]voidptr{} }
     args[0] = menu.ptr
-    args[1] = unsafe{voidptr(&title)}
+    arg_sn1 := String.new(title)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }

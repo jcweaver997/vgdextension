@@ -22,7 +22,7 @@ pub fn (r &SceneState) get_node_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (r &SceneState) get_node_type(idx i32) StringName {
+pub fn (r &SceneState) get_node_type(idx i32) string {
     mut object_out := StringName{}
     classname := StringName.new("SceneState")
     fnname := StringName.new("get_node_type")
@@ -32,9 +32,11 @@ pub fn (r &SceneState) get_node_type(idx i32) StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &SceneState) get_node_name(idx i32) StringName {
+pub fn (r &SceneState) get_node_name(idx i32) string {
     mut object_out := StringName{}
     classname := StringName.new("SceneState")
     fnname := StringName.new("get_node_name")
@@ -44,7 +46,9 @@ pub fn (r &SceneState) get_node_name(idx i32) StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &SceneState) get_node_path(idx i32, for_parent bool) NodePath {
     mut object_out := NodePath{}
@@ -83,7 +87,7 @@ pub fn (r &SceneState) is_node_instance_placeholder(idx i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (r &SceneState) get_node_instance_placeholder(idx i32) String {
+pub fn (r &SceneState) get_node_instance_placeholder(idx i32) string {
     mut object_out := String{}
     classname := StringName.new("SceneState")
     fnname := StringName.new("get_node_instance_placeholder")
@@ -93,7 +97,9 @@ pub fn (r &SceneState) get_node_instance_placeholder(idx i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &SceneState) get_node_instance(idx i32) PackedScene {
     mut object_out := PackedScene{}
@@ -143,7 +149,7 @@ pub fn (r &SceneState) get_node_property_count(idx i32) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (r &SceneState) get_node_property_name(idx i32, prop_idx i32) StringName {
+pub fn (r &SceneState) get_node_property_name(idx i32, prop_idx i32) string {
     mut object_out := StringName{}
     classname := StringName.new("SceneState")
     fnname := StringName.new("get_node_property_name")
@@ -154,7 +160,9 @@ pub fn (r &SceneState) get_node_property_name(idx i32, prop_idx i32) StringName 
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &SceneState) get_node_property_value(idx i32, prop_idx i32) Variant {
     mut object_out := Variant{}
@@ -191,7 +199,7 @@ pub fn (r &SceneState) get_connection_source(idx i32) NodePath {
     fnname.deinit()
    return object_out
 }
-pub fn (r &SceneState) get_connection_signal(idx i32) StringName {
+pub fn (r &SceneState) get_connection_signal(idx i32) string {
     mut object_out := StringName{}
     classname := StringName.new("SceneState")
     fnname := StringName.new("get_connection_signal")
@@ -201,7 +209,9 @@ pub fn (r &SceneState) get_connection_signal(idx i32) StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &SceneState) get_connection_target(idx i32) NodePath {
     mut object_out := NodePath{}
@@ -215,7 +225,7 @@ pub fn (r &SceneState) get_connection_target(idx i32) NodePath {
     fnname.deinit()
    return object_out
 }
-pub fn (r &SceneState) get_connection_method(idx i32) StringName {
+pub fn (r &SceneState) get_connection_method(idx i32) string {
     mut object_out := StringName{}
     classname := StringName.new("SceneState")
     fnname := StringName.new("get_connection_method")
@@ -225,7 +235,9 @@ pub fn (r &SceneState) get_connection_method(idx i32) StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &SceneState) get_connection_flags(idx i32) i32 {
     mut object_out := i32(0)

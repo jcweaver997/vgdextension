@@ -5,28 +5,32 @@ pub struct CryptoKey {
     Resource
 }
 
-pub fn (mut r CryptoKey) save(path String, public_only bool) GDError {
+pub fn (mut r CryptoKey) save(path string, public_only bool) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("CryptoKey")
     fnname := StringName.new("save")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 885841341)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&public_only)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r CryptoKey) load(path String, public_only bool) GDError {
+pub fn (mut r CryptoKey) load(path string, public_only bool) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("CryptoKey")
     fnname := StringName.new("load")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 885841341)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&public_only)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
@@ -41,7 +45,7 @@ pub fn (r &CryptoKey) is_public_only() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CryptoKey) save_to_string(public_only bool) String {
+pub fn (mut r CryptoKey) save_to_string(public_only bool) string {
     mut object_out := String{}
     classname := StringName.new("CryptoKey")
     fnname := StringName.new("save_to_string")
@@ -51,17 +55,21 @@ pub fn (mut r CryptoKey) save_to_string(public_only bool) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r CryptoKey) load_from_string(string_key String, public_only bool) GDError {
+pub fn (mut r CryptoKey) load_from_string(string_key string, public_only bool) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("CryptoKey")
     fnname := StringName.new("load_from_string")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 885841341)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&string_key)}
+    arg_sn0 := String.new(string_key)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&public_only)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}

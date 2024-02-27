@@ -517,14 +517,15 @@ pub fn (mut r CanvasItem) draw_colored_polygon(points PackedVector2Array, color 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &CanvasItem) draw_string(font Font, pos Vector2, text String, alignment HorizontalAlignment, width f64, font_size i32, modulate Color, justification_flags TextServerJustificationFlag, direction TextServerDirection, orientation TextServerOrientation) {
+pub fn (r &CanvasItem) draw_string(font Font, pos Vector2, text string, alignment HorizontalAlignment, width f64, font_size i32, modulate Color, justification_flags TextServerJustificationFlag, direction TextServerDirection, orientation TextServerOrientation) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("draw_string")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 728290553)
     mut args := unsafe { [10]voidptr{} }
     args[0] = font.ptr
     args[1] = unsafe{voidptr(&pos)}
-    args[2] = unsafe{voidptr(&text)}
+    arg_sn2 := String.new(text)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     i64_alignment := i64(alignment)
     args[3] = unsafe{voidptr(&i64_alignment)}
     args[4] = unsafe{voidptr(&width)}
@@ -537,17 +538,19 @@ pub fn (r &CanvasItem) draw_string(font Font, pos Vector2, text String, alignmen
     i64_orientation := i64(orientation)
     args[9] = unsafe{voidptr(&i64_orientation)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &CanvasItem) draw_multiline_string(font Font, pos Vector2, text String, alignment HorizontalAlignment, width f64, font_size i32, max_lines i32, modulate Color, brk_flags TextServerLineBreakFlag, justification_flags TextServerJustificationFlag, direction TextServerDirection, orientation TextServerOrientation) {
+pub fn (r &CanvasItem) draw_multiline_string(font Font, pos Vector2, text string, alignment HorizontalAlignment, width f64, font_size i32, max_lines i32, modulate Color, brk_flags TextServerLineBreakFlag, justification_flags TextServerJustificationFlag, direction TextServerDirection, orientation TextServerOrientation) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("draw_multiline_string")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1927038192)
     mut args := unsafe { [12]voidptr{} }
     args[0] = font.ptr
     args[1] = unsafe{voidptr(&pos)}
-    args[2] = unsafe{voidptr(&text)}
+    arg_sn2 := String.new(text)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     i64_alignment := i64(alignment)
     args[3] = unsafe{voidptr(&i64_alignment)}
     args[4] = unsafe{voidptr(&width)}
@@ -563,17 +566,19 @@ pub fn (r &CanvasItem) draw_multiline_string(font Font, pos Vector2, text String
     i64_orientation := i64(orientation)
     args[11] = unsafe{voidptr(&i64_orientation)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &CanvasItem) draw_string_outline(font Font, pos Vector2, text String, alignment HorizontalAlignment, width f64, font_size i32, size i32, modulate Color, justification_flags TextServerJustificationFlag, direction TextServerDirection, orientation TextServerOrientation) {
+pub fn (r &CanvasItem) draw_string_outline(font Font, pos Vector2, text string, alignment HorizontalAlignment, width f64, font_size i32, size i32, modulate Color, justification_flags TextServerJustificationFlag, direction TextServerDirection, orientation TextServerOrientation) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("draw_string_outline")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 340562381)
     mut args := unsafe { [11]voidptr{} }
     args[0] = font.ptr
     args[1] = unsafe{voidptr(&pos)}
-    args[2] = unsafe{voidptr(&text)}
+    arg_sn2 := String.new(text)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     i64_alignment := i64(alignment)
     args[3] = unsafe{voidptr(&i64_alignment)}
     args[4] = unsafe{voidptr(&width)}
@@ -587,17 +592,19 @@ pub fn (r &CanvasItem) draw_string_outline(font Font, pos Vector2, text String, 
     i64_orientation := i64(orientation)
     args[10] = unsafe{voidptr(&i64_orientation)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &CanvasItem) draw_multiline_string_outline(font Font, pos Vector2, text String, alignment HorizontalAlignment, width f64, font_size i32, max_lines i32, size i32, modulate Color, brk_flags TextServerLineBreakFlag, justification_flags TextServerJustificationFlag, direction TextServerDirection, orientation TextServerOrientation) {
+pub fn (r &CanvasItem) draw_multiline_string_outline(font Font, pos Vector2, text string, alignment HorizontalAlignment, width f64, font_size i32, max_lines i32, size i32, modulate Color, brk_flags TextServerLineBreakFlag, justification_flags TextServerJustificationFlag, direction TextServerDirection, orientation TextServerOrientation) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("draw_multiline_string_outline")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1912318525)
     mut args := unsafe { [13]voidptr{} }
     args[0] = font.ptr
     args[1] = unsafe{voidptr(&pos)}
-    args[2] = unsafe{voidptr(&text)}
+    arg_sn2 := String.new(text)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     i64_alignment := i64(alignment)
     args[3] = unsafe{voidptr(&i64_alignment)}
     args[4] = unsafe{voidptr(&width)}
@@ -614,35 +621,40 @@ pub fn (r &CanvasItem) draw_multiline_string_outline(font Font, pos Vector2, tex
     i64_orientation := i64(orientation)
     args[12] = unsafe{voidptr(&i64_orientation)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &CanvasItem) draw_char(font Font, pos Vector2, gdchar String, font_size i32, modulate Color) {
+pub fn (r &CanvasItem) draw_char(font Font, pos Vector2, gdchar string, font_size i32, modulate Color) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("draw_char")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3339793283)
     mut args := unsafe { [5]voidptr{} }
     args[0] = font.ptr
     args[1] = unsafe{voidptr(&pos)}
-    args[2] = unsafe{voidptr(&gdchar)}
+    arg_sn2 := String.new(gdchar)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     args[3] = unsafe{voidptr(&font_size)}
     args[4] = unsafe{voidptr(&modulate)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &CanvasItem) draw_char_outline(font Font, pos Vector2, gdchar String, font_size i32, size i32, modulate Color) {
+pub fn (r &CanvasItem) draw_char_outline(font Font, pos Vector2, gdchar string, font_size i32, size i32, modulate Color) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("draw_char_outline")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3302344391)
     mut args := unsafe { [6]voidptr{} }
     args[0] = font.ptr
     args[1] = unsafe{voidptr(&pos)}
-    args[2] = unsafe{voidptr(&gdchar)}
+    arg_sn2 := String.new(gdchar)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     args[3] = unsafe{voidptr(&font_size)}
     args[4] = unsafe{voidptr(&size)}
     args[5] = unsafe{voidptr(&modulate)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
 }

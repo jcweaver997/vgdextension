@@ -34,16 +34,18 @@ pub fn (mut r StreamPeerTLS) accept_stream(stream StreamPeer, server_options TLS
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r StreamPeerTLS) connect_to_stream(stream StreamPeer, common_name String, client_options TLSOptions) GDError {
+pub fn (mut r StreamPeerTLS) connect_to_stream(stream StreamPeer, common_name string, client_options TLSOptions) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("StreamPeerTLS")
     fnname := StringName.new("connect_to_stream")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 57169517)
     mut args := unsafe { [3]voidptr{} }
     args[0] = stream.ptr
-    args[1] = unsafe{voidptr(&common_name)}
+    arg_sn1 := String.new(common_name)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = client_options.ptr
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}

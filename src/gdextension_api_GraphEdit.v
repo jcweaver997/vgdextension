@@ -71,75 +71,95 @@ pub interface IGraphEditIsNodeHoverValid {
     virt_is_node_hover_valid(from_node StringName, from_port i32, to_node StringName, to_port i32) bool
 }
 
-pub fn (mut r GraphEdit) uis_node_hover_valid(from_node StringName, from_port i32, to_node StringName, to_port i32) bool {
+pub fn (mut r GraphEdit) uis_node_hover_valid(from_node string, from_port i32, to_node string, to_port i32) bool {
     mut object_out := false
     classname := StringName.new("GraphEdit")
     fnname := StringName.new("_is_node_hover_valid")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = unsafe{voidptr(&from_node)}
+    arg_sn0 := StringName.new(from_node)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&from_port)}
-    args[2] = unsafe{voidptr(&to_node)}
+    arg_sn2 := StringName.new(to_node)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     args[3] = unsafe{voidptr(&to_port)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GraphEdit) connect_node(from_node StringName, from_port i32, to_node StringName, to_port i32) GDError {
+pub fn (mut r GraphEdit) connect_node(from_node string, from_port i32, to_node string, to_port i32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("GraphEdit")
     fnname := StringName.new("connect_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 195065850)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = unsafe{voidptr(&from_node)}
+    arg_sn0 := StringName.new(from_node)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&from_port)}
-    args[2] = unsafe{voidptr(&to_node)}
+    arg_sn2 := StringName.new(to_node)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     args[3] = unsafe{voidptr(&to_port)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r GraphEdit) is_node_connected(from_node StringName, from_port i32, to_node StringName, to_port i32) bool {
+pub fn (mut r GraphEdit) is_node_connected(from_node string, from_port i32, to_node string, to_port i32) bool {
     mut object_out := false
     classname := StringName.new("GraphEdit")
     fnname := StringName.new("is_node_connected")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4216241294)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = unsafe{voidptr(&from_node)}
+    arg_sn0 := StringName.new(from_node)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&from_port)}
-    args[2] = unsafe{voidptr(&to_node)}
+    arg_sn2 := StringName.new(to_node)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     args[3] = unsafe{voidptr(&to_port)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GraphEdit) disconnect_node(from_node StringName, from_port i32, to_node StringName, to_port i32) {
+pub fn (mut r GraphEdit) disconnect_node(from_node string, from_port i32, to_node string, to_port i32) {
     classname := StringName.new("GraphEdit")
     fnname := StringName.new("disconnect_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1933654315)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = unsafe{voidptr(&from_node)}
+    arg_sn0 := StringName.new(from_node)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&from_port)}
-    args[2] = unsafe{voidptr(&to_node)}
+    arg_sn2 := StringName.new(to_node)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     args[3] = unsafe{voidptr(&to_port)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GraphEdit) set_connection_activity(from_node StringName, from_port i32, to_node StringName, to_port i32, amount f64) {
+pub fn (mut r GraphEdit) set_connection_activity(from_node string, from_port i32, to_node string, to_port i32, amount f64) {
     classname := StringName.new("GraphEdit")
     fnname := StringName.new("set_connection_activity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1141899943)
     mut args := unsafe { [5]voidptr{} }
-    args[0] = unsafe{voidptr(&from_node)}
+    arg_sn0 := StringName.new(from_node)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&from_port)}
-    args[2] = unsafe{voidptr(&to_node)}
+    arg_sn2 := StringName.new(to_node)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     args[3] = unsafe{voidptr(&to_port)}
     args[4] = unsafe{voidptr(&amount)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
 }

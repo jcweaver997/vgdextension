@@ -5,47 +5,55 @@ pub struct CodeHighlighter {
     SyntaxHighlighter
 }
 
-pub fn (mut r CodeHighlighter) add_keyword_color(keyword String, color Color) {
+pub fn (mut r CodeHighlighter) add_keyword_color(keyword string, color Color) {
     classname := StringName.new("CodeHighlighter")
     fnname := StringName.new("add_keyword_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1636512886)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&keyword)}
+    arg_sn0 := String.new(keyword)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&color)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CodeHighlighter) remove_keyword_color(keyword String) {
+pub fn (mut r CodeHighlighter) remove_keyword_color(keyword string) {
     classname := StringName.new("CodeHighlighter")
     fnname := StringName.new("remove_keyword_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&keyword)}
+    arg_sn0 := String.new(keyword)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &CodeHighlighter) has_keyword_color(keyword String) bool {
+pub fn (r &CodeHighlighter) has_keyword_color(keyword string) bool {
     mut object_out := false
     classname := StringName.new("CodeHighlighter")
     fnname := StringName.new("has_keyword_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3927539163)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&keyword)}
+    arg_sn0 := String.new(keyword)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &CodeHighlighter) get_keyword_color(keyword String) Color {
+pub fn (r &CodeHighlighter) get_keyword_color(keyword string) Color {
     mut object_out := Color{}
     classname := StringName.new("CodeHighlighter")
     fnname := StringName.new("get_keyword_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3855908743)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&keyword)}
+    arg_sn0 := String.new(keyword)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -78,47 +86,55 @@ pub fn (r &CodeHighlighter) get_keyword_colors() Dictionary {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeHighlighter) add_member_keyword_color(member_keyword String, color Color) {
+pub fn (mut r CodeHighlighter) add_member_keyword_color(member_keyword string, color Color) {
     classname := StringName.new("CodeHighlighter")
     fnname := StringName.new("add_member_keyword_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1636512886)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&member_keyword)}
+    arg_sn0 := String.new(member_keyword)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&color)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CodeHighlighter) remove_member_keyword_color(member_keyword String) {
+pub fn (mut r CodeHighlighter) remove_member_keyword_color(member_keyword string) {
     classname := StringName.new("CodeHighlighter")
     fnname := StringName.new("remove_member_keyword_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&member_keyword)}
+    arg_sn0 := String.new(member_keyword)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &CodeHighlighter) has_member_keyword_color(member_keyword String) bool {
+pub fn (r &CodeHighlighter) has_member_keyword_color(member_keyword string) bool {
     mut object_out := false
     classname := StringName.new("CodeHighlighter")
     fnname := StringName.new("has_member_keyword_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3927539163)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&member_keyword)}
+    arg_sn0 := String.new(member_keyword)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &CodeHighlighter) get_member_keyword_color(member_keyword String) Color {
+pub fn (r &CodeHighlighter) get_member_keyword_color(member_keyword string) Color {
     mut object_out := Color{}
     classname := StringName.new("CodeHighlighter")
     fnname := StringName.new("get_member_keyword_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3855908743)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&member_keyword)}
+    arg_sn0 := String.new(member_keyword)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -151,37 +167,45 @@ pub fn (r &CodeHighlighter) get_member_keyword_colors() Dictionary {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeHighlighter) add_color_region(start_key String, end_key String, color Color, line_only bool) {
+pub fn (mut r CodeHighlighter) add_color_region(start_key string, end_key string, color Color, line_only bool) {
     classname := StringName.new("CodeHighlighter")
     fnname := StringName.new("add_color_region")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2924977451)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = unsafe{voidptr(&start_key)}
-    args[1] = unsafe{voidptr(&end_key)}
+    arg_sn0 := String.new(start_key)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(end_key)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&color)}
     args[3] = unsafe{voidptr(&line_only)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CodeHighlighter) remove_color_region(start_key String) {
+pub fn (mut r CodeHighlighter) remove_color_region(start_key string) {
     classname := StringName.new("CodeHighlighter")
     fnname := StringName.new("remove_color_region")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&start_key)}
+    arg_sn0 := String.new(start_key)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &CodeHighlighter) has_color_region(start_key String) bool {
+pub fn (r &CodeHighlighter) has_color_region(start_key string) bool {
     mut object_out := false
     classname := StringName.new("CodeHighlighter")
     fnname := StringName.new("has_color_region")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3927539163)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&start_key)}
+    arg_sn0 := String.new(start_key)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out

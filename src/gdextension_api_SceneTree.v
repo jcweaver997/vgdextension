@@ -22,14 +22,16 @@ pub fn (r &SceneTree) get_root() Window {
     fnname.deinit()
    return object_out
 }
-pub fn (r &SceneTree) has_group(name StringName) bool {
+pub fn (r &SceneTree) has_group(name string) bool {
     mut object_out := false
     classname := StringName.new("SceneTree")
     fnname := StringName.new("has_group")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2619796661)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -249,74 +251,90 @@ pub fn (mut r SceneTree) queue_delete(obj Object) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SceneTree) notify_group_flags(call_flags u32, group StringName, notification i32) {
+pub fn (mut r SceneTree) notify_group_flags(call_flags u32, group string, notification i32) {
     classname := StringName.new("SceneTree")
     fnname := StringName.new("notify_group_flags")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1245489420)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&call_flags)}
-    args[1] = unsafe{voidptr(&group)}
+    arg_sn1 := StringName.new(group)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&notification)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SceneTree) set_group_flags(call_flags u32, group StringName, property String, value Variant) {
+pub fn (mut r SceneTree) set_group_flags(call_flags u32, group string, property string, value Variant) {
     classname := StringName.new("SceneTree")
     fnname := StringName.new("set_group_flags")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3497599527)
     mut args := unsafe { [4]voidptr{} }
     args[0] = unsafe{voidptr(&call_flags)}
-    args[1] = unsafe{voidptr(&group)}
-    args[2] = unsafe{voidptr(&property)}
+    arg_sn1 := StringName.new(group)
+    args[1] = unsafe{voidptr(&arg_sn1)}
+    arg_sn2 := String.new(property)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     args[3] = unsafe{voidptr(&value)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SceneTree) notify_group(group StringName, notification i32) {
+pub fn (mut r SceneTree) notify_group(group string, notification i32) {
     classname := StringName.new("SceneTree")
     fnname := StringName.new("notify_group")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2415702435)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&group)}
+    arg_sn0 := StringName.new(group)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&notification)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SceneTree) set_group(group StringName, property String, value Variant) {
+pub fn (mut r SceneTree) set_group(group string, property string, value Variant) {
     classname := StringName.new("SceneTree")
     fnname := StringName.new("set_group")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1279312029)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&group)}
-    args[1] = unsafe{voidptr(&property)}
+    arg_sn0 := StringName.new(group)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(property)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&value)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SceneTree) get_nodes_in_group(group StringName) Array {
+pub fn (mut r SceneTree) get_nodes_in_group(group string) Array {
     mut object_out := Array{}
     classname := StringName.new("SceneTree")
     fnname := StringName.new("get_nodes_in_group")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 689397652)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&group)}
+    arg_sn0 := StringName.new(group)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SceneTree) get_first_node_in_group(group StringName) Node {
+pub fn (mut r SceneTree) get_first_node_in_group(group string) Node {
     mut object_out := Node{}
     classname := StringName.new("SceneTree")
     fnname := StringName.new("get_first_node_in_group")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4071044623)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&group)}
+    arg_sn0 := StringName.new(group)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -341,14 +359,16 @@ pub fn (r &SceneTree) get_current_scene() Node {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SceneTree) change_scene_to_file(path String) GDError {
+pub fn (mut r SceneTree) change_scene_to_file(path string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("SceneTree")
     fnname := StringName.new("change_scene_to_file")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 166001499)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}

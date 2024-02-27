@@ -72,18 +72,20 @@ pub fn (mut r AudioServer) move_bus(index i32, to_index i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AudioServer) set_bus_name(bus_idx i32, name String) {
+pub fn (mut r AudioServer) set_bus_name(bus_idx i32, name string) {
     classname := StringName.new("AudioServer")
     fnname := StringName.new("set_bus_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&bus_idx)}
-    args[1] = unsafe{voidptr(&name)}
+    arg_sn1 := String.new(name)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &AudioServer) get_bus_name(bus_idx i32) String {
+pub fn (r &AudioServer) get_bus_name(bus_idx i32) string {
     mut object_out := String{}
     classname := StringName.new("AudioServer")
     fnname := StringName.new("get_bus_name")
@@ -93,16 +95,20 @@ pub fn (r &AudioServer) get_bus_name(bus_idx i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &AudioServer) get_bus_index(bus_name StringName) i32 {
+pub fn (r &AudioServer) get_bus_index(bus_name string) i32 {
     mut object_out := i32(0)
     classname := StringName.new("AudioServer")
     fnname := StringName.new("get_bus_index")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2458036349)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&bus_name)}
+    arg_sn0 := StringName.new(bus_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -142,18 +148,20 @@ pub fn (r &AudioServer) get_bus_volume_db(bus_idx i32) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioServer) set_bus_send(bus_idx i32, send StringName) {
+pub fn (mut r AudioServer) set_bus_send(bus_idx i32, send string) {
     classname := StringName.new("AudioServer")
     fnname := StringName.new("set_bus_send")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3780747571)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&bus_idx)}
-    args[1] = unsafe{voidptr(&send)}
+    arg_sn1 := StringName.new(send)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &AudioServer) get_bus_send(bus_idx i32) StringName {
+pub fn (r &AudioServer) get_bus_send(bus_idx i32) string {
     mut object_out := StringName{}
     classname := StringName.new("AudioServer")
     fnname := StringName.new("get_bus_send")
@@ -163,7 +171,9 @@ pub fn (r &AudioServer) get_bus_send(bus_idx i32) StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r AudioServer) set_bus_solo(bus_idx i32, enable bool) {
     classname := StringName.new("AudioServer")
@@ -425,7 +435,7 @@ pub fn (mut r AudioServer) get_output_device_list() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioServer) get_output_device() String {
+pub fn (mut r AudioServer) get_output_device() string {
     mut object_out := String{}
     classname := StringName.new("AudioServer")
     fnname := StringName.new("get_output_device")
@@ -433,15 +443,19 @@ pub fn (mut r AudioServer) get_output_device() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r AudioServer) set_output_device(name String) {
+pub fn (mut r AudioServer) set_output_device(name string) {
     classname := StringName.new("AudioServer")
     fnname := StringName.new("set_output_device")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -485,7 +499,7 @@ pub fn (mut r AudioServer) get_input_device_list() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioServer) get_input_device() String {
+pub fn (mut r AudioServer) get_input_device() string {
     mut object_out := String{}
     classname := StringName.new("AudioServer")
     fnname := StringName.new("get_input_device")
@@ -493,15 +507,19 @@ pub fn (mut r AudioServer) get_input_device() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r AudioServer) set_input_device(name String) {
+pub fn (mut r AudioServer) set_input_device(name string) {
     classname := StringName.new("AudioServer")
     fnname := StringName.new("set_input_device")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }

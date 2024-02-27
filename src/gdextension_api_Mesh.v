@@ -261,7 +261,7 @@ pub interface IMeshGetBlendShapeName {
     virt_get_blend_shape_name(index i32) StringName
 }
 
-pub fn (r &Mesh) uget_blend_shape_name(index i32) StringName {
+pub fn (r &Mesh) uget_blend_shape_name(index i32) string {
     mut object_out := StringName{}
     classname := StringName.new("Mesh")
     fnname := StringName.new("_get_blend_shape_name")
@@ -271,21 +271,25 @@ pub fn (r &Mesh) uget_blend_shape_name(index i32) StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface IMeshSetBlendShapeName {
     mut:
     virt_set_blend_shape_name(index i32, name StringName)
 }
 
-pub fn (mut r Mesh) uset_blend_shape_name(index i32, name StringName) {
+pub fn (mut r Mesh) uset_blend_shape_name(index i32, name string) {
     classname := StringName.new("Mesh")
     fnname := StringName.new("_set_blend_shape_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&index)}
-    args[1] = unsafe{voidptr(&name)}
+    arg_sn1 := StringName.new(name)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }

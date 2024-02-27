@@ -118,118 +118,144 @@ pub fn (r &Input) is_joy_button_pressed(device i32, button JoyButton) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (r &Input) is_action_pressed(action StringName, exact_match bool) bool {
+pub fn (r &Input) is_action_pressed(action string, exact_match bool) bool {
     mut object_out := false
     classname := StringName.new("Input")
     fnname := StringName.new("is_action_pressed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1558498928)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&action)}
+    arg_sn0 := StringName.new(action)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&exact_match)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &Input) is_action_just_pressed(action StringName, exact_match bool) bool {
+pub fn (r &Input) is_action_just_pressed(action string, exact_match bool) bool {
     mut object_out := false
     classname := StringName.new("Input")
     fnname := StringName.new("is_action_just_pressed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1558498928)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&action)}
+    arg_sn0 := StringName.new(action)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&exact_match)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &Input) is_action_just_released(action StringName, exact_match bool) bool {
+pub fn (r &Input) is_action_just_released(action string, exact_match bool) bool {
     mut object_out := false
     classname := StringName.new("Input")
     fnname := StringName.new("is_action_just_released")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1558498928)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&action)}
+    arg_sn0 := StringName.new(action)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&exact_match)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &Input) get_action_strength(action StringName, exact_match bool) f64 {
+pub fn (r &Input) get_action_strength(action string, exact_match bool) f64 {
     mut object_out := f64(0)
     classname := StringName.new("Input")
     fnname := StringName.new("get_action_strength")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 801543509)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&action)}
+    arg_sn0 := StringName.new(action)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&exact_match)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &Input) get_action_raw_strength(action StringName, exact_match bool) f64 {
+pub fn (r &Input) get_action_raw_strength(action string, exact_match bool) f64 {
     mut object_out := f64(0)
     classname := StringName.new("Input")
     fnname := StringName.new("get_action_raw_strength")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 801543509)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&action)}
+    arg_sn0 := StringName.new(action)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&exact_match)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &Input) get_axis(negative_action StringName, positive_action StringName) f64 {
+pub fn (r &Input) get_axis(negative_action string, positive_action string) f64 {
     mut object_out := f64(0)
     classname := StringName.new("Input")
     fnname := StringName.new("get_axis")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1958752504)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&negative_action)}
-    args[1] = unsafe{voidptr(&positive_action)}
+    arg_sn0 := StringName.new(negative_action)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := StringName.new(positive_action)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &Input) get_vector(negative_x StringName, positive_x StringName, negative_y StringName, positive_y StringName, deadzone f64) Vector2 {
+pub fn (r &Input) get_vector(negative_x string, positive_x string, negative_y string, positive_y string, deadzone f64) Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("Input")
     fnname := StringName.new("get_vector")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2479607902)
     mut args := unsafe { [5]voidptr{} }
-    args[0] = unsafe{voidptr(&negative_x)}
-    args[1] = unsafe{voidptr(&positive_x)}
-    args[2] = unsafe{voidptr(&negative_y)}
-    args[3] = unsafe{voidptr(&positive_y)}
+    arg_sn0 := StringName.new(negative_x)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := StringName.new(positive_x)
+    args[1] = unsafe{voidptr(&arg_sn1)}
+    arg_sn2 := StringName.new(negative_y)
+    args[2] = unsafe{voidptr(&arg_sn2)}
+    arg_sn3 := StringName.new(positive_y)
+    args[3] = unsafe{voidptr(&arg_sn3)}
     args[4] = unsafe{voidptr(&deadzone)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
+    arg_sn2.deinit()
+    arg_sn3.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Input) add_joy_mapping(mapping String, update_existing bool) {
+pub fn (mut r Input) add_joy_mapping(mapping string, update_existing bool) {
     classname := StringName.new("Input")
     fnname := StringName.new("add_joy_mapping")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1168363258)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&mapping)}
+    arg_sn0 := String.new(mapping)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&update_existing)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Input) remove_joy_mapping(guid String) {
+pub fn (mut r Input) remove_joy_mapping(guid string) {
     classname := StringName.new("Input")
     fnname := StringName.new("remove_joy_mapping")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&guid)}
+    arg_sn0 := String.new(guid)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -259,7 +285,7 @@ pub fn (r &Input) get_joy_axis(device i32, axis JoyAxis) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Input) get_joy_name(device i32) String {
+pub fn (mut r Input) get_joy_name(device i32) string {
     mut object_out := String{}
     classname := StringName.new("Input")
     fnname := StringName.new("get_joy_name")
@@ -269,9 +295,11 @@ pub fn (mut r Input) get_joy_name(device i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &Input) get_joy_guid(device i32) String {
+pub fn (r &Input) get_joy_guid(device i32) string {
     mut object_out := String{}
     classname := StringName.new("Input")
     fnname := StringName.new("get_joy_guid")
@@ -281,7 +309,9 @@ pub fn (r &Input) get_joy_guid(device i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &Input) get_joy_info(device i32) Dictionary {
     mut object_out := Dictionary{}
@@ -506,24 +536,28 @@ pub fn (mut r Input) warp_mouse(position Vector2) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Input) action_press(action StringName, strength f64) {
+pub fn (mut r Input) action_press(action string, strength f64) {
     classname := StringName.new("Input")
     fnname := StringName.new("action_press")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1713091165)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&action)}
+    arg_sn0 := StringName.new(action)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&strength)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Input) action_release(action StringName) {
+pub fn (mut r Input) action_release(action string) {
     classname := StringName.new("Input")
     fnname := StringName.new("action_release")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&action)}
+    arg_sn0 := StringName.new(action)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }

@@ -476,13 +476,15 @@ pub fn (r &Viewport) get_viewport_rid() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Viewport) push_text_input(text String) {
+pub fn (mut r Viewport) push_text_input(text string) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("push_text_input")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&text)}
+    arg_sn0 := String.new(text)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }

@@ -25,7 +25,7 @@ pub interface IAudioStreamGetStreamName {
     virt_get_stream_name() String
 }
 
-pub fn (r &AudioStream) uget_stream_name() String {
+pub fn (r &AudioStream) uget_stream_name() string {
     mut object_out := String{}
     classname := StringName.new("AudioStream")
     fnname := StringName.new("_get_stream_name")
@@ -33,7 +33,9 @@ pub fn (r &AudioStream) uget_stream_name() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface IAudioStreamGetLength {
     mut:

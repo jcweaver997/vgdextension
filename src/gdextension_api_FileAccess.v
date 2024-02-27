@@ -35,62 +35,72 @@ pub struct FileAccess {
     RefCounted
 }
 
-pub fn FileAccess.open(path String, flags FileAccessModeFlags) FileAccess {
+pub fn FileAccess.open(path string, flags FileAccessModeFlags) FileAccess {
     mut object_out := FileAccess{}
     classname := StringName.new("FileAccess")
     fnname := StringName.new("open")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1247358404)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     i64_flags := i64(flags)
     args[1] = unsafe{voidptr(&i64_flags)}
     gdf.object_method_bind_ptrcall(mb, unsafe{nil}, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn FileAccess.open_encrypted(path String, mode_flags FileAccessModeFlags, key PackedByteArray) FileAccess {
+pub fn FileAccess.open_encrypted(path string, mode_flags FileAccessModeFlags, key PackedByteArray) FileAccess {
     mut object_out := FileAccess{}
     classname := StringName.new("FileAccess")
     fnname := StringName.new("open_encrypted")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1482131466)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     i64_mode_flags := i64(mode_flags)
     args[1] = unsafe{voidptr(&i64_mode_flags)}
     args[2] = unsafe{voidptr(&key)}
     gdf.object_method_bind_ptrcall(mb, unsafe{nil}, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn FileAccess.open_encrypted_with_pass(path String, mode_flags FileAccessModeFlags, pass String) FileAccess {
+pub fn FileAccess.open_encrypted_with_pass(path string, mode_flags FileAccessModeFlags, pass string) FileAccess {
     mut object_out := FileAccess{}
     classname := StringName.new("FileAccess")
     fnname := StringName.new("open_encrypted_with_pass")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 790283377)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     i64_mode_flags := i64(mode_flags)
     args[1] = unsafe{voidptr(&i64_mode_flags)}
-    args[2] = unsafe{voidptr(&pass)}
+    arg_sn2 := String.new(pass)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     gdf.object_method_bind_ptrcall(mb, unsafe{nil}, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn FileAccess.open_compressed(path String, mode_flags FileAccessModeFlags, compression_mode FileAccessCompressionMode) FileAccess {
+pub fn FileAccess.open_compressed(path string, mode_flags FileAccessModeFlags, compression_mode FileAccessCompressionMode) FileAccess {
     mut object_out := FileAccess{}
     classname := StringName.new("FileAccess")
     fnname := StringName.new("open_compressed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3686439335)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     i64_mode_flags := i64(mode_flags)
     args[1] = unsafe{voidptr(&i64_mode_flags)}
     i64_compression_mode := i64(compression_mode)
     args[2] = unsafe{voidptr(&i64_compression_mode)}
     gdf.object_method_bind_ptrcall(mb, unsafe{nil}, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -105,29 +115,35 @@ pub fn FileAccess.get_open_error() GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn FileAccess.get_file_as_bytes(path String) PackedByteArray {
+pub fn FileAccess.get_file_as_bytes(path string) PackedByteArray {
     mut object_out := PackedByteArray{}
     classname := StringName.new("FileAccess")
     fnname := StringName.new("get_file_as_bytes")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 659035735)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, unsafe{nil}, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn FileAccess.get_file_as_string(path String) String {
+pub fn FileAccess.get_file_as_string(path string) string {
     mut object_out := String{}
     classname := StringName.new("FileAccess")
     fnname := StringName.new("get_file_as_string")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1703090593)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, unsafe{nil}, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r FileAccess) flush() {
     classname := StringName.new("FileAccess")
@@ -137,7 +153,7 @@ pub fn (mut r FileAccess) flush() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &FileAccess) get_path() String {
+pub fn (r &FileAccess) get_path() string {
     mut object_out := String{}
     classname := StringName.new("FileAccess")
     fnname := StringName.new("get_path")
@@ -145,9 +161,11 @@ pub fn (r &FileAccess) get_path() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &FileAccess) get_path_absolute() String {
+pub fn (r &FileAccess) get_path_absolute() string {
     mut object_out := String{}
     classname := StringName.new("FileAccess")
     fnname := StringName.new("get_path_absolute")
@@ -155,7 +173,9 @@ pub fn (r &FileAccess) get_path_absolute() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &FileAccess) is_open() bool {
     mut object_out := false
@@ -299,7 +319,7 @@ pub fn (r &FileAccess) get_buffer(length i64) PackedByteArray {
     fnname.deinit()
    return object_out
 }
-pub fn (r &FileAccess) get_line() String {
+pub fn (r &FileAccess) get_line() string {
     mut object_out := String{}
     classname := StringName.new("FileAccess")
     fnname := StringName.new("get_line")
@@ -307,21 +327,25 @@ pub fn (r &FileAccess) get_line() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &FileAccess) get_csv_line(delim String) PackedStringArray {
+pub fn (r &FileAccess) get_csv_line(delim string) PackedStringArray {
     mut object_out := PackedStringArray{}
     classname := StringName.new("FileAccess")
     fnname := StringName.new("get_csv_line")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2358116058)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&delim)}
+    arg_sn0 := String.new(delim)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &FileAccess) get_as_text(skip_cr bool) String {
+pub fn (r &FileAccess) get_as_text(skip_cr bool) string {
     mut object_out := String{}
     classname := StringName.new("FileAccess")
     fnname := StringName.new("get_as_text")
@@ -331,31 +355,41 @@ pub fn (r &FileAccess) get_as_text(skip_cr bool) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn FileAccess.get_md5(path String) String {
+pub fn FileAccess.get_md5(path string) string {
     mut object_out := String{}
     classname := StringName.new("FileAccess")
     fnname := StringName.new("get_md5")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1703090593)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, unsafe{nil}, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn FileAccess.get_sha256(path String) String {
+pub fn FileAccess.get_sha256(path string) string {
     mut object_out := String{}
     classname := StringName.new("FileAccess")
     fnname := StringName.new("get_sha256")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1703090593)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, unsafe{nil}, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &FileAccess) is_big_endian() bool {
     mut object_out := false
@@ -479,34 +513,40 @@ pub fn (mut r FileAccess) store_buffer(buffer PackedByteArray) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FileAccess) store_line(line String) {
+pub fn (mut r FileAccess) store_line(line string) {
     classname := StringName.new("FileAccess")
     fnname := StringName.new("store_line")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&line)}
+    arg_sn0 := String.new(line)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FileAccess) store_csv_line(values PackedStringArray, delim String) {
+pub fn (mut r FileAccess) store_csv_line(values PackedStringArray, delim string) {
     classname := StringName.new("FileAccess")
     fnname := StringName.new("store_csv_line")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2173791505)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&values)}
-    args[1] = unsafe{voidptr(&delim)}
+    arg_sn1 := String.new(delim)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FileAccess) store_string(gdstring String) {
+pub fn (mut r FileAccess) store_string(gdstring string) {
     classname := StringName.new("FileAccess")
     fnname := StringName.new("store_string")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&gdstring)}
+    arg_sn0 := String.new(gdstring)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -521,17 +561,19 @@ pub fn (mut r FileAccess) store_var(value Variant, full_objects bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FileAccess) store_pascal_string(gdstring String) {
+pub fn (mut r FileAccess) store_pascal_string(gdstring string) {
     classname := StringName.new("FileAccess")
     fnname := StringName.new("store_pascal_string")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&gdstring)}
+    arg_sn0 := String.new(gdstring)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FileAccess) get_pascal_string() String {
+pub fn (mut r FileAccess) get_pascal_string() string {
     mut object_out := String{}
     classname := StringName.new("FileAccess")
     fnname := StringName.new("get_pascal_string")
@@ -539,7 +581,9 @@ pub fn (mut r FileAccess) get_pascal_string() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r FileAccess) close() {
     classname := StringName.new("FileAccess")
@@ -549,102 +593,118 @@ pub fn (mut r FileAccess) close() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn FileAccess.file_exists(path String) bool {
+pub fn FileAccess.file_exists(path string) bool {
     mut object_out := false
     classname := StringName.new("FileAccess")
     fnname := StringName.new("file_exists")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2323990056)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, unsafe{nil}, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn FileAccess.get_modified_time(file String) u64 {
+pub fn FileAccess.get_modified_time(file string) u64 {
     mut object_out := u64(0)
     classname := StringName.new("FileAccess")
     fnname := StringName.new("get_modified_time")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1597066294)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&file)}
+    arg_sn0 := String.new(file)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, unsafe{nil}, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn FileAccess.get_unix_permissions(file String) FileAccessUnixPermissionFlags {
+pub fn FileAccess.get_unix_permissions(file string) FileAccessUnixPermissionFlags {
     mut object_out := i64(FileAccessUnixPermissionFlags.unix_read_owner)
     classname := StringName.new("FileAccess")
     fnname := StringName.new("get_unix_permissions")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 524341837)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&file)}
+    arg_sn0 := String.new(file)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, unsafe{nil}, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{FileAccessUnixPermissionFlags(object_out)}
 }
-pub fn FileAccess.set_unix_permissions(file String, permissions FileAccessUnixPermissionFlags) GDError {
+pub fn FileAccess.set_unix_permissions(file string, permissions FileAccessUnixPermissionFlags) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("FileAccess")
     fnname := StringName.new("set_unix_permissions")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 846038644)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&file)}
+    arg_sn0 := String.new(file)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     i64_permissions := i64(permissions)
     args[1] = unsafe{voidptr(&i64_permissions)}
     gdf.object_method_bind_ptrcall(mb, unsafe{nil}, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn FileAccess.get_hidden_attribute(file String) bool {
+pub fn FileAccess.get_hidden_attribute(file string) bool {
     mut object_out := false
     classname := StringName.new("FileAccess")
     fnname := StringName.new("get_hidden_attribute")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2323990056)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&file)}
+    arg_sn0 := String.new(file)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, unsafe{nil}, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn FileAccess.set_hidden_attribute(file String, hidden bool) GDError {
+pub fn FileAccess.set_hidden_attribute(file string, hidden bool) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("FileAccess")
     fnname := StringName.new("set_hidden_attribute")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2892558115)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&file)}
+    arg_sn0 := String.new(file)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&hidden)}
     gdf.object_method_bind_ptrcall(mb, unsafe{nil}, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn FileAccess.set_read_only_attribute(file String, ro bool) GDError {
+pub fn FileAccess.set_read_only_attribute(file string, ro bool) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("FileAccess")
     fnname := StringName.new("set_read_only_attribute")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2892558115)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&file)}
+    arg_sn0 := String.new(file)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&ro)}
     gdf.object_method_bind_ptrcall(mb, unsafe{nil}, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn FileAccess.get_read_only_attribute(file String) bool {
+pub fn FileAccess.get_read_only_attribute(file string) bool {
     mut object_out := false
     classname := StringName.new("FileAccess")
     fnname := StringName.new("get_read_only_attribute")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2323990056)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&file)}
+    arg_sn0 := String.new(file)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, unsafe{nil}, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out

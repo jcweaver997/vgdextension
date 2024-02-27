@@ -274,17 +274,19 @@ pub fn (r &NavigationPolygon) get_source_geometry_mode() NavigationPolygonSource
     fnname.deinit()
    return unsafe{NavigationPolygonSourceGeometryMode(object_out)}
 }
-pub fn (mut r NavigationPolygon) set_source_geometry_group_name(group_name StringName) {
+pub fn (mut r NavigationPolygon) set_source_geometry_group_name(group_name string) {
     classname := StringName.new("NavigationPolygon")
     fnname := StringName.new("set_source_geometry_group_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&group_name)}
+    arg_sn0 := StringName.new(group_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &NavigationPolygon) get_source_geometry_group_name() StringName {
+pub fn (r &NavigationPolygon) get_source_geometry_group_name() string {
     mut object_out := StringName{}
     classname := StringName.new("NavigationPolygon")
     fnname := StringName.new("get_source_geometry_group_name")
@@ -292,7 +294,9 @@ pub fn (r &NavigationPolygon) get_source_geometry_group_name() StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r NavigationPolygon) set_agent_radius(agent_radius f64) {
     classname := StringName.new("NavigationPolygon")

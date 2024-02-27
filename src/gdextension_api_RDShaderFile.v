@@ -5,25 +5,29 @@ pub struct RDShaderFile {
     Resource
 }
 
-pub fn (mut r RDShaderFile) set_bytecode(bytecode RDShaderSPIRV, version StringName) {
+pub fn (mut r RDShaderFile) set_bytecode(bytecode RDShaderSPIRV, version string) {
     classname := StringName.new("RDShaderFile")
     fnname := StringName.new("set_bytecode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1558064255)
     mut args := unsafe { [2]voidptr{} }
     args[0] = bytecode.ptr
-    args[1] = unsafe{voidptr(&version)}
+    arg_sn1 := StringName.new(version)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &RDShaderFile) get_spirv(version StringName) RDShaderSPIRV {
+pub fn (r &RDShaderFile) get_spirv(version string) RDShaderSPIRV {
     mut object_out := RDShaderSPIRV{}
     classname := StringName.new("RDShaderFile")
     fnname := StringName.new("get_spirv")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3340165340)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&version)}
+    arg_sn0 := StringName.new(version)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -38,17 +42,19 @@ pub fn (r &RDShaderFile) get_version_list() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDShaderFile) set_base_error(error String) {
+pub fn (mut r RDShaderFile) set_base_error(error string) {
     classname := StringName.new("RDShaderFile")
     fnname := StringName.new("set_base_error")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&error)}
+    arg_sn0 := String.new(error)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &RDShaderFile) get_base_error() String {
+pub fn (r &RDShaderFile) get_base_error() string {
     mut object_out := String{}
     classname := StringName.new("RDShaderFile")
     fnname := StringName.new("get_base_error")
@@ -56,5 +62,7 @@ pub fn (r &RDShaderFile) get_base_error() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }

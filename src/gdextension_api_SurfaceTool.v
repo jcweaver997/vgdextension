@@ -308,15 +308,17 @@ pub fn (mut r SurfaceTool) create_from(existing Mesh, surface i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SurfaceTool) create_from_blend_shape(existing Mesh, surface i32, blend_shape String) {
+pub fn (mut r SurfaceTool) create_from_blend_shape(existing Mesh, surface i32, blend_shape string) {
     classname := StringName.new("SurfaceTool")
     fnname := StringName.new("create_from_blend_shape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1306185582)
     mut args := unsafe { [3]voidptr{} }
     args[0] = existing.ptr
     args[1] = unsafe{voidptr(&surface)}
-    args[2] = unsafe{voidptr(&blend_shape)}
+    arg_sn2 := String.new(blend_shape)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
 }

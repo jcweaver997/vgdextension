@@ -65,28 +65,34 @@ pub fn (r &AcceptDialog) get_close_on_escape() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AcceptDialog) add_button(text String, right bool, action String) Button {
+pub fn (mut r AcceptDialog) add_button(text string, right bool, action string) Button {
     mut object_out := Button{}
     classname := StringName.new("AcceptDialog")
     fnname := StringName.new("add_button")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3328440682)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&text)}
+    arg_sn0 := String.new(text)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&right)}
-    args[2] = unsafe{voidptr(&action)}
+    arg_sn2 := String.new(action)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AcceptDialog) add_cancel_button(name String) Button {
+pub fn (mut r AcceptDialog) add_cancel_button(name string) Button {
     mut object_out := Button{}
     classname := StringName.new("AcceptDialog")
     fnname := StringName.new("add_cancel_button")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 242045556)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -111,17 +117,19 @@ pub fn (mut r AcceptDialog) register_text_enter(line_edit Control) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AcceptDialog) set_text(text String) {
+pub fn (mut r AcceptDialog) set_text(text string) {
     classname := StringName.new("AcceptDialog")
     fnname := StringName.new("set_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&text)}
+    arg_sn0 := String.new(text)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &AcceptDialog) get_text() String {
+pub fn (r &AcceptDialog) get_text() string {
     mut object_out := String{}
     classname := StringName.new("AcceptDialog")
     fnname := StringName.new("get_text")
@@ -129,7 +137,9 @@ pub fn (r &AcceptDialog) get_text() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r AcceptDialog) set_autowrap(autowrap bool) {
     classname := StringName.new("AcceptDialog")
@@ -151,17 +161,19 @@ pub fn (mut r AcceptDialog) has_autowrap() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AcceptDialog) set_ok_button_text(text String) {
+pub fn (mut r AcceptDialog) set_ok_button_text(text string) {
     classname := StringName.new("AcceptDialog")
     fnname := StringName.new("set_ok_button_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&text)}
+    arg_sn0 := String.new(text)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &AcceptDialog) get_ok_button_text() String {
+pub fn (r &AcceptDialog) get_ok_button_text() string {
     mut object_out := String{}
     classname := StringName.new("AcceptDialog")
     fnname := StringName.new("get_ok_button_text")
@@ -169,5 +181,7 @@ pub fn (r &AcceptDialog) get_ok_button_text() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }

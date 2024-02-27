@@ -37,7 +37,7 @@ pub struct XRInterface {
     RefCounted
 }
 
-pub fn (r &XRInterface) get_name() StringName {
+pub fn (r &XRInterface) get_name() string {
     mut object_out := StringName{}
     classname := StringName.new("XRInterface")
     fnname := StringName.new("get_name")
@@ -45,7 +45,9 @@ pub fn (r &XRInterface) get_name() StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &XRInterface) get_capabilities() u32 {
     mut object_out := u32(0)
@@ -145,18 +147,22 @@ pub fn (mut r XRInterface) get_view_count() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r XRInterface) trigger_haptic_pulse(action_name String, tracker_name StringName, frequency f64, amplitude f64, duration_sec f64, delay_sec f64) {
+pub fn (mut r XRInterface) trigger_haptic_pulse(action_name string, tracker_name string, frequency f64, amplitude f64, duration_sec f64, delay_sec f64) {
     classname := StringName.new("XRInterface")
     fnname := StringName.new("trigger_haptic_pulse")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3752640163)
     mut args := unsafe { [6]voidptr{} }
-    args[0] = unsafe{voidptr(&action_name)}
-    args[1] = unsafe{voidptr(&tracker_name)}
+    arg_sn0 := String.new(action_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := StringName.new(tracker_name)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&frequency)}
     args[3] = unsafe{voidptr(&amplitude)}
     args[4] = unsafe{voidptr(&duration_sec)}
     args[5] = unsafe{voidptr(&delay_sec)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }

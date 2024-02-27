@@ -114,7 +114,7 @@ pub fn (r &Font) get_underline_thickness(font_size i32) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (r &Font) get_font_name() String {
+pub fn (r &Font) get_font_name() string {
     mut object_out := String{}
     classname := StringName.new("Font")
     fnname := StringName.new("get_font_name")
@@ -122,9 +122,11 @@ pub fn (r &Font) get_font_name() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &Font) get_font_style_name() String {
+pub fn (r &Font) get_font_style_name() string {
     mut object_out := String{}
     classname := StringName.new("Font")
     fnname := StringName.new("get_font_style_name")
@@ -132,7 +134,9 @@ pub fn (r &Font) get_font_style_name() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &Font) get_ot_name_strings() Dictionary {
     mut object_out := Dictionary{}
@@ -208,13 +212,14 @@ pub fn (mut r Font) set_cache_capacity(single_line i32, multi_line i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &Font) get_string_size(text String, alignment HorizontalAlignment, width f64, font_size i32, justification_flags TextServerJustificationFlag, direction TextServerDirection, orientation TextServerOrientation) Vector2 {
+pub fn (r &Font) get_string_size(text string, alignment HorizontalAlignment, width f64, font_size i32, justification_flags TextServerJustificationFlag, direction TextServerDirection, orientation TextServerOrientation) Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("Font")
     fnname := StringName.new("get_string_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1868866121)
     mut args := unsafe { [7]voidptr{} }
-    args[0] = unsafe{voidptr(&text)}
+    arg_sn0 := String.new(text)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     i64_alignment := i64(alignment)
     args[1] = unsafe{voidptr(&i64_alignment)}
     args[2] = unsafe{voidptr(&width)}
@@ -226,17 +231,19 @@ pub fn (r &Font) get_string_size(text String, alignment HorizontalAlignment, wid
     i64_orientation := i64(orientation)
     args[6] = unsafe{voidptr(&i64_orientation)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &Font) get_multiline_string_size(text String, alignment HorizontalAlignment, width f64, font_size i32, max_lines i32, brk_flags TextServerLineBreakFlag, justification_flags TextServerJustificationFlag, direction TextServerDirection, orientation TextServerOrientation) Vector2 {
+pub fn (r &Font) get_multiline_string_size(text string, alignment HorizontalAlignment, width f64, font_size i32, max_lines i32, brk_flags TextServerLineBreakFlag, justification_flags TextServerJustificationFlag, direction TextServerDirection, orientation TextServerOrientation) Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("Font")
     fnname := StringName.new("get_multiline_string_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 519636710)
     mut args := unsafe { [9]voidptr{} }
-    args[0] = unsafe{voidptr(&text)}
+    arg_sn0 := String.new(text)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     i64_alignment := i64(alignment)
     args[1] = unsafe{voidptr(&i64_alignment)}
     args[2] = unsafe{voidptr(&width)}
@@ -251,18 +258,20 @@ pub fn (r &Font) get_multiline_string_size(text String, alignment HorizontalAlig
     i64_orientation := i64(orientation)
     args[8] = unsafe{voidptr(&i64_orientation)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &Font) draw_string(canvas_item RID, pos Vector2, text String, alignment HorizontalAlignment, width f64, font_size i32, modulate Color, justification_flags TextServerJustificationFlag, direction TextServerDirection, orientation TextServerOrientation) {
+pub fn (r &Font) draw_string(canvas_item RID, pos Vector2, text string, alignment HorizontalAlignment, width f64, font_size i32, modulate Color, justification_flags TextServerJustificationFlag, direction TextServerDirection, orientation TextServerOrientation) {
     classname := StringName.new("Font")
     fnname := StringName.new("draw_string")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1983721962)
     mut args := unsafe { [10]voidptr{} }
     args[0] = unsafe{voidptr(&canvas_item)}
     args[1] = unsafe{voidptr(&pos)}
-    args[2] = unsafe{voidptr(&text)}
+    arg_sn2 := String.new(text)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     i64_alignment := i64(alignment)
     args[3] = unsafe{voidptr(&i64_alignment)}
     args[4] = unsafe{voidptr(&width)}
@@ -275,17 +284,19 @@ pub fn (r &Font) draw_string(canvas_item RID, pos Vector2, text String, alignmen
     i64_orientation := i64(orientation)
     args[9] = unsafe{voidptr(&i64_orientation)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &Font) draw_multiline_string(canvas_item RID, pos Vector2, text String, alignment HorizontalAlignment, width f64, font_size i32, max_lines i32, modulate Color, brk_flags TextServerLineBreakFlag, justification_flags TextServerJustificationFlag, direction TextServerDirection, orientation TextServerOrientation) {
+pub fn (r &Font) draw_multiline_string(canvas_item RID, pos Vector2, text string, alignment HorizontalAlignment, width f64, font_size i32, max_lines i32, modulate Color, brk_flags TextServerLineBreakFlag, justification_flags TextServerJustificationFlag, direction TextServerDirection, orientation TextServerOrientation) {
     classname := StringName.new("Font")
     fnname := StringName.new("draw_multiline_string")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1171506176)
     mut args := unsafe { [12]voidptr{} }
     args[0] = unsafe{voidptr(&canvas_item)}
     args[1] = unsafe{voidptr(&pos)}
-    args[2] = unsafe{voidptr(&text)}
+    arg_sn2 := String.new(text)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     i64_alignment := i64(alignment)
     args[3] = unsafe{voidptr(&i64_alignment)}
     args[4] = unsafe{voidptr(&width)}
@@ -301,17 +312,19 @@ pub fn (r &Font) draw_multiline_string(canvas_item RID, pos Vector2, text String
     i64_orientation := i64(orientation)
     args[11] = unsafe{voidptr(&i64_orientation)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &Font) draw_string_outline(canvas_item RID, pos Vector2, text String, alignment HorizontalAlignment, width f64, font_size i32, size i32, modulate Color, justification_flags TextServerJustificationFlag, direction TextServerDirection, orientation TextServerOrientation) {
+pub fn (r &Font) draw_string_outline(canvas_item RID, pos Vector2, text string, alignment HorizontalAlignment, width f64, font_size i32, size i32, modulate Color, justification_flags TextServerJustificationFlag, direction TextServerDirection, orientation TextServerOrientation) {
     classname := StringName.new("Font")
     fnname := StringName.new("draw_string_outline")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 623754045)
     mut args := unsafe { [11]voidptr{} }
     args[0] = unsafe{voidptr(&canvas_item)}
     args[1] = unsafe{voidptr(&pos)}
-    args[2] = unsafe{voidptr(&text)}
+    arg_sn2 := String.new(text)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     i64_alignment := i64(alignment)
     args[3] = unsafe{voidptr(&i64_alignment)}
     args[4] = unsafe{voidptr(&width)}
@@ -325,17 +338,19 @@ pub fn (r &Font) draw_string_outline(canvas_item RID, pos Vector2, text String, 
     i64_orientation := i64(orientation)
     args[10] = unsafe{voidptr(&i64_orientation)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &Font) draw_multiline_string_outline(canvas_item RID, pos Vector2, text String, alignment HorizontalAlignment, width f64, font_size i32, max_lines i32, size i32, modulate Color, brk_flags TextServerLineBreakFlag, justification_flags TextServerJustificationFlag, direction TextServerDirection, orientation TextServerOrientation) {
+pub fn (r &Font) draw_multiline_string_outline(canvas_item RID, pos Vector2, text string, alignment HorizontalAlignment, width f64, font_size i32, max_lines i32, size i32, modulate Color, brk_flags TextServerLineBreakFlag, justification_flags TextServerJustificationFlag, direction TextServerDirection, orientation TextServerOrientation) {
     classname := StringName.new("Font")
     fnname := StringName.new("draw_multiline_string_outline")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3206388178)
     mut args := unsafe { [13]voidptr{} }
     args[0] = unsafe{voidptr(&canvas_item)}
     args[1] = unsafe{voidptr(&pos)}
-    args[2] = unsafe{voidptr(&text)}
+    arg_sn2 := String.new(text)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     i64_alignment := i64(alignment)
     args[3] = unsafe{voidptr(&i64_alignment)}
     args[4] = unsafe{voidptr(&width)}
@@ -352,6 +367,7 @@ pub fn (r &Font) draw_multiline_string_outline(canvas_item RID, pos Vector2, tex
     i64_orientation := i64(orientation)
     args[12] = unsafe{voidptr(&i64_orientation)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -413,7 +429,7 @@ pub fn (r &Font) has_char(gdchar i64) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (r &Font) get_supported_chars() String {
+pub fn (r &Font) get_supported_chars() string {
     mut object_out := String{}
     classname := StringName.new("Font")
     fnname := StringName.new("get_supported_chars")
@@ -421,28 +437,34 @@ pub fn (r &Font) get_supported_chars() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &Font) is_language_supported(language String) bool {
+pub fn (r &Font) is_language_supported(language string) bool {
     mut object_out := false
     classname := StringName.new("Font")
     fnname := StringName.new("is_language_supported")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3927539163)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&language)}
+    arg_sn0 := String.new(language)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &Font) is_script_supported(script String) bool {
+pub fn (r &Font) is_script_supported(script string) bool {
     mut object_out := false
     classname := StringName.new("Font")
     fnname := StringName.new("is_script_supported")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3927539163)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&script)}
+    arg_sn0 := String.new(script)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out

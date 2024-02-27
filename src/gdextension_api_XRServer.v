@@ -154,14 +154,16 @@ pub fn (r &XRServer) get_interfaces() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (r &XRServer) find_interface(name String) XRInterface {
+pub fn (r &XRServer) find_interface(name string) XRInterface {
     mut object_out := XRInterface{}
     classname := StringName.new("XRServer")
     fnname := StringName.new("find_interface")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1395192955)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -198,14 +200,16 @@ pub fn (mut r XRServer) get_trackers(tracker_types i32) Dictionary {
     fnname.deinit()
    return object_out
 }
-pub fn (r &XRServer) get_tracker(tracker_name StringName) XRPositionalTracker {
+pub fn (r &XRServer) get_tracker(tracker_name string) XRPositionalTracker {
     mut object_out := XRPositionalTracker{}
     classname := StringName.new("XRServer")
     fnname := StringName.new("get_tracker")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2742084544)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&tracker_name)}
+    arg_sn0 := StringName.new(tracker_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out

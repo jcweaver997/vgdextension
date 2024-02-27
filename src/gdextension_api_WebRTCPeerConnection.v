@@ -29,13 +29,15 @@ pub struct WebRTCPeerConnection {
     RefCounted
 }
 
-pub fn WebRTCPeerConnection.set_default_extension(extension_class StringName) {
+pub fn WebRTCPeerConnection.set_default_extension(extension_class string) {
     classname := StringName.new("WebRTCPeerConnection")
     fnname := StringName.new("set_default_extension")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&extension_class)}
+    arg_sn0 := StringName.new(extension_class)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, unsafe{nil}, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -51,15 +53,17 @@ pub fn (mut r WebRTCPeerConnection) initialize(configuration Dictionary) GDError
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r WebRTCPeerConnection) create_data_channel(label String, options Dictionary) WebRTCDataChannel {
+pub fn (mut r WebRTCPeerConnection) create_data_channel(label string, options Dictionary) WebRTCDataChannel {
     mut object_out := WebRTCDataChannel{}
     classname := StringName.new("WebRTCPeerConnection")
     fnname := StringName.new("create_data_channel")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1288557393)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&label)}
+    arg_sn0 := String.new(label)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&options)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -74,42 +78,54 @@ pub fn (mut r WebRTCPeerConnection) create_offer() GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r WebRTCPeerConnection) set_local_description(type_name String, sdp String) GDError {
+pub fn (mut r WebRTCPeerConnection) set_local_description(type_name string, sdp string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("WebRTCPeerConnection")
     fnname := StringName.new("set_local_description")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 852856452)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&type_name)}
-    args[1] = unsafe{voidptr(&sdp)}
+    arg_sn0 := String.new(type_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(sdp)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r WebRTCPeerConnection) set_remote_description(type_name String, sdp String) GDError {
+pub fn (mut r WebRTCPeerConnection) set_remote_description(type_name string, sdp string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("WebRTCPeerConnection")
     fnname := StringName.new("set_remote_description")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 852856452)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&type_name)}
-    args[1] = unsafe{voidptr(&sdp)}
+    arg_sn0 := String.new(type_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(sdp)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r WebRTCPeerConnection) add_ice_candidate(media String, index i32, name String) GDError {
+pub fn (mut r WebRTCPeerConnection) add_ice_candidate(media string, index i32, name string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("WebRTCPeerConnection")
     fnname := StringName.new("add_ice_candidate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3958950400)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&media)}
+    arg_sn0 := String.new(media)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&index)}
-    args[2] = unsafe{voidptr(&name)}
+    arg_sn2 := String.new(name)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}

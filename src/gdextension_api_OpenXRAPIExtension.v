@@ -47,16 +47,18 @@ pub fn (mut r OpenXRAPIExtension) transform_from_pose(pose voidptr) Transform3D 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OpenXRAPIExtension) xr_result(result u64, format String, gdargs Array) bool {
+pub fn (mut r OpenXRAPIExtension) xr_result(result u64, format string, gdargs Array) bool {
     mut object_out := false
     classname := StringName.new("OpenXRAPIExtension")
     fnname := StringName.new("xr_result")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3886436197)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&result)}
-    args[1] = unsafe{voidptr(&format)}
+    arg_sn1 := String.new(format)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&gdargs)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -73,19 +75,21 @@ pub fn OpenXRAPIExtension.openxr_is_enabled(check_run_in_editor bool) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OpenXRAPIExtension) get_instance_proc_addr(name String) u64 {
+pub fn (mut r OpenXRAPIExtension) get_instance_proc_addr(name string) u64 {
     mut object_out := u64(0)
     classname := StringName.new("OpenXRAPIExtension")
     fnname := StringName.new("get_instance_proc_addr")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1597066294)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OpenXRAPIExtension) get_error_string(result u64) String {
+pub fn (mut r OpenXRAPIExtension) get_error_string(result u64) string {
     mut object_out := String{}
     classname := StringName.new("OpenXRAPIExtension")
     fnname := StringName.new("get_error_string")
@@ -95,9 +99,11 @@ pub fn (mut r OpenXRAPIExtension) get_error_string(result u64) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r OpenXRAPIExtension) get_swapchain_format_name(swapchain_format i64) String {
+pub fn (mut r OpenXRAPIExtension) get_swapchain_format_name(swapchain_format i64) string {
     mut object_out := String{}
     classname := StringName.new("OpenXRAPIExtension")
     fnname := StringName.new("get_swapchain_format_name")
@@ -107,7 +113,9 @@ pub fn (mut r OpenXRAPIExtension) get_swapchain_format_name(swapchain_format i64
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r OpenXRAPIExtension) is_initialized() bool {
     mut object_out := false

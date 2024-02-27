@@ -138,7 +138,7 @@ pub fn (r &InputEventKey) get_key_label_with_modifiers() Key {
     fnname.deinit()
    return unsafe{Key(object_out)}
 }
-pub fn (r &InputEventKey) as_text_keycode() String {
+pub fn (r &InputEventKey) as_text_keycode() string {
     mut object_out := String{}
     classname := StringName.new("InputEventKey")
     fnname := StringName.new("as_text_keycode")
@@ -146,9 +146,11 @@ pub fn (r &InputEventKey) as_text_keycode() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &InputEventKey) as_text_physical_keycode() String {
+pub fn (r &InputEventKey) as_text_physical_keycode() string {
     mut object_out := String{}
     classname := StringName.new("InputEventKey")
     fnname := StringName.new("as_text_physical_keycode")
@@ -156,9 +158,11 @@ pub fn (r &InputEventKey) as_text_physical_keycode() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &InputEventKey) as_text_key_label() String {
+pub fn (r &InputEventKey) as_text_key_label() string {
     mut object_out := String{}
     classname := StringName.new("InputEventKey")
     fnname := StringName.new("as_text_key_label")
@@ -166,5 +170,7 @@ pub fn (r &InputEventKey) as_text_key_label() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }

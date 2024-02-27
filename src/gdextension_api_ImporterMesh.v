@@ -5,13 +5,15 @@ pub struct ImporterMesh {
     Resource
 }
 
-pub fn (mut r ImporterMesh) add_blend_shape(name String) {
+pub fn (mut r ImporterMesh) add_blend_shape(name string) {
     classname := StringName.new("ImporterMesh")
     fnname := StringName.new("add_blend_shape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -25,7 +27,7 @@ pub fn (r &ImporterMesh) get_blend_shape_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (r &ImporterMesh) get_blend_shape_name(blend_shape_idx i32) String {
+pub fn (r &ImporterMesh) get_blend_shape_name(blend_shape_idx i32) string {
     mut object_out := String{}
     classname := StringName.new("ImporterMesh")
     fnname := StringName.new("get_blend_shape_name")
@@ -35,7 +37,9 @@ pub fn (r &ImporterMesh) get_blend_shape_name(blend_shape_idx i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r ImporterMesh) set_blend_shape_mode(mode MeshBlendShapeMode) {
     classname := StringName.new("ImporterMesh")
@@ -58,7 +62,7 @@ pub fn (r &ImporterMesh) get_blend_shape_mode() MeshBlendShapeMode {
     fnname.deinit()
    return unsafe{MeshBlendShapeMode(object_out)}
 }
-pub fn (mut r ImporterMesh) add_surface(primitive MeshPrimitiveType, arrays Array, blend_shapes Array, lods Dictionary, material Material, name String, flags u64) {
+pub fn (mut r ImporterMesh) add_surface(primitive MeshPrimitiveType, arrays Array, blend_shapes Array, lods Dictionary, material Material, name string, flags u64) {
     classname := StringName.new("ImporterMesh")
     fnname := StringName.new("add_surface")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740448849)
@@ -69,9 +73,11 @@ pub fn (mut r ImporterMesh) add_surface(primitive MeshPrimitiveType, arrays Arra
     args[2] = unsafe{voidptr(&blend_shapes)}
     args[3] = unsafe{voidptr(&lods)}
     args[4] = material.ptr
-    args[5] = unsafe{voidptr(&name)}
+    arg_sn5 := String.new(name)
+    args[5] = unsafe{voidptr(&arg_sn5)}
     args[6] = unsafe{voidptr(&flags)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn5.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -97,7 +103,7 @@ pub fn (mut r ImporterMesh) get_surface_primitive_type(surface_idx i32) MeshPrim
     fnname.deinit()
    return unsafe{MeshPrimitiveType(object_out)}
 }
-pub fn (r &ImporterMesh) get_surface_name(surface_idx i32) String {
+pub fn (r &ImporterMesh) get_surface_name(surface_idx i32) string {
     mut object_out := String{}
     classname := StringName.new("ImporterMesh")
     fnname := StringName.new("get_surface_name")
@@ -107,7 +113,9 @@ pub fn (r &ImporterMesh) get_surface_name(surface_idx i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &ImporterMesh) get_surface_arrays(surface_idx i32) Array {
     mut object_out := Array{}
@@ -196,14 +204,16 @@ pub fn (r &ImporterMesh) get_surface_format(surface_idx i32) u64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ImporterMesh) set_surface_name(surface_idx i32, name String) {
+pub fn (mut r ImporterMesh) set_surface_name(surface_idx i32, name string) {
     classname := StringName.new("ImporterMesh")
     fnname := StringName.new("set_surface_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&surface_idx)}
-    args[1] = unsafe{voidptr(&name)}
+    arg_sn1 := String.new(name)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }

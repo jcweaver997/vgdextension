@@ -845,18 +845,20 @@ pub fn (mut r RenderingServer) texture_set_size_override(texture RID, width i32,
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) texture_set_path(texture RID, path String) {
+pub fn (mut r RenderingServer) texture_set_path(texture RID, path string) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("texture_set_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2726140452)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&texture)}
-    args[1] = unsafe{voidptr(&path)}
+    arg_sn1 := String.new(path)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &RenderingServer) texture_get_path(texture RID) String {
+pub fn (r &RenderingServer) texture_get_path(texture RID) string {
     mut object_out := String{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("texture_get_path")
@@ -866,7 +868,9 @@ pub fn (r &RenderingServer) texture_get_path(texture RID) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &RenderingServer) texture_get_format(texture RID) ImageFormat {
     mut object_out := i64(ImageFormat.format_l8)
@@ -941,29 +945,33 @@ pub fn (mut r RenderingServer) shader_create() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) shader_set_code(shader RID, code String) {
+pub fn (mut r RenderingServer) shader_set_code(shader RID, code string) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("shader_set_code")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2726140452)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&shader)}
-    args[1] = unsafe{voidptr(&code)}
+    arg_sn1 := String.new(code)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) shader_set_path_hint(shader RID, path String) {
+pub fn (mut r RenderingServer) shader_set_path_hint(shader RID, path string) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("shader_set_path_hint")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2726140452)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&shader)}
-    args[1] = unsafe{voidptr(&path)}
+    arg_sn1 := String.new(path)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &RenderingServer) shader_get_code(shader RID) String {
+pub fn (r &RenderingServer) shader_get_code(shader RID) string {
     mut object_out := String{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("shader_get_code")
@@ -973,7 +981,9 @@ pub fn (r &RenderingServer) shader_get_code(shader RID) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &RenderingServer) get_shader_parameter_list(shader RID) Array {
     mut object_out := Array{}
@@ -987,42 +997,48 @@ pub fn (r &RenderingServer) get_shader_parameter_list(shader RID) Array {
     fnname.deinit()
    return object_out
 }
-pub fn (r &RenderingServer) shader_get_parameter_default(shader RID, name StringName) Variant {
+pub fn (r &RenderingServer) shader_get_parameter_default(shader RID, name string) Variant {
     mut object_out := Variant{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("shader_get_parameter_default")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2621281810)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&shader)}
-    args[1] = unsafe{voidptr(&name)}
+    arg_sn1 := StringName.new(name)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) shader_set_default_texture_parameter(shader RID, name StringName, texture RID, index i32) {
+pub fn (mut r RenderingServer) shader_set_default_texture_parameter(shader RID, name string, texture RID, index i32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("shader_set_default_texture_parameter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4094001817)
     mut args := unsafe { [4]voidptr{} }
     args[0] = unsafe{voidptr(&shader)}
-    args[1] = unsafe{voidptr(&name)}
+    arg_sn1 := StringName.new(name)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&texture)}
     args[3] = unsafe{voidptr(&index)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &RenderingServer) shader_get_default_texture_parameter(shader RID, name StringName, index i32) RID {
+pub fn (r &RenderingServer) shader_get_default_texture_parameter(shader RID, name string, index i32) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("shader_get_default_texture_parameter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1464608890)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&shader)}
-    args[1] = unsafe{voidptr(&name)}
+    arg_sn1 := StringName.new(name)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&index)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -1048,27 +1064,31 @@ pub fn (mut r RenderingServer) material_set_shader(shader_material RID, shader R
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) material_set_param(material RID, parameter StringName, value Variant) {
+pub fn (mut r RenderingServer) material_set_param(material RID, parameter string, value Variant) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("material_set_param")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3477296213)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&material)}
-    args[1] = unsafe{voidptr(&parameter)}
+    arg_sn1 := StringName.new(parameter)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&value)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &RenderingServer) material_get_param(material RID, parameter StringName) Variant {
+pub fn (r &RenderingServer) material_get_param(material RID, parameter string) Variant {
     mut object_out := Variant{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("material_get_param")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2621281810)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&material)}
-    args[1] = unsafe{voidptr(&parameter)}
+    arg_sn1 := StringName.new(parameter)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -4742,40 +4762,46 @@ pub fn (mut r RenderingServer) instance_geometry_set_lod_bias(instance RID, lod_
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) instance_geometry_set_shader_parameter(instance RID, parameter StringName, value Variant) {
+pub fn (mut r RenderingServer) instance_geometry_set_shader_parameter(instance RID, parameter string, value Variant) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("instance_geometry_set_shader_parameter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3477296213)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&instance)}
-    args[1] = unsafe{voidptr(&parameter)}
+    arg_sn1 := StringName.new(parameter)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&value)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &RenderingServer) instance_geometry_get_shader_parameter(instance RID, parameter StringName) Variant {
+pub fn (r &RenderingServer) instance_geometry_get_shader_parameter(instance RID, parameter string) Variant {
     mut object_out := Variant{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("instance_geometry_get_shader_parameter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2621281810)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&instance)}
-    args[1] = unsafe{voidptr(&parameter)}
+    arg_sn1 := StringName.new(parameter)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &RenderingServer) instance_geometry_get_shader_parameter_default_value(instance RID, parameter StringName) Variant {
+pub fn (r &RenderingServer) instance_geometry_get_shader_parameter_default_value(instance RID, parameter string) Variant {
     mut object_out := Variant{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("instance_geometry_get_shader_parameter_default_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2621281810)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&instance)}
-    args[1] = unsafe{voidptr(&parameter)}
+    arg_sn1 := StringName.new(parameter)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -5836,26 +5862,30 @@ pub fn (mut r RenderingServer) canvas_set_shadow_texture_size(size i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) global_shader_parameter_add(name StringName, type_name RenderingServerGlobalShaderParameterType, default_value Variant) {
+pub fn (mut r RenderingServer) global_shader_parameter_add(name string, type_name RenderingServerGlobalShaderParameterType, default_value Variant) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("global_shader_parameter_add")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 463390080)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     i64_type_name := i64(type_name)
     args[1] = unsafe{voidptr(&i64_type_name)}
     args[2] = unsafe{voidptr(&default_value)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) global_shader_parameter_remove(name StringName) {
+pub fn (mut r RenderingServer) global_shader_parameter_remove(name string) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("global_shader_parameter_remove")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -5869,48 +5899,56 @@ pub fn (r &RenderingServer) global_shader_parameter_get_list() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) global_shader_parameter_set(name StringName, value Variant) {
+pub fn (mut r RenderingServer) global_shader_parameter_set(name string, value Variant) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("global_shader_parameter_set")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3776071444)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&value)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) global_shader_parameter_set_override(name StringName, value Variant) {
+pub fn (mut r RenderingServer) global_shader_parameter_set_override(name string, value Variant) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("global_shader_parameter_set_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3776071444)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&value)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &RenderingServer) global_shader_parameter_get(name StringName) Variant {
+pub fn (r &RenderingServer) global_shader_parameter_get(name string) Variant {
     mut object_out := Variant{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("global_shader_parameter_get")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2760726917)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &RenderingServer) global_shader_parameter_get_type(name StringName) RenderingServerGlobalShaderParameterType {
+pub fn (r &RenderingServer) global_shader_parameter_get_type(name string) RenderingServerGlobalShaderParameterType {
     mut object_out := i64(RenderingServerGlobalShaderParameterType.global_var_type_bool)
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("global_shader_parameter_get_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1601414142)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{RenderingServerGlobalShaderParameterType(object_out)}
@@ -5958,7 +5996,7 @@ pub fn (mut r RenderingServer) get_rendering_info(info RenderingServerRenderingI
     fnname.deinit()
    return object_out
 }
-pub fn (r &RenderingServer) get_video_adapter_name() String {
+pub fn (r &RenderingServer) get_video_adapter_name() string {
     mut object_out := String{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("get_video_adapter_name")
@@ -5966,9 +6004,11 @@ pub fn (r &RenderingServer) get_video_adapter_name() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &RenderingServer) get_video_adapter_vendor() String {
+pub fn (r &RenderingServer) get_video_adapter_vendor() string {
     mut object_out := String{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("get_video_adapter_vendor")
@@ -5976,7 +6016,9 @@ pub fn (r &RenderingServer) get_video_adapter_vendor() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &RenderingServer) get_video_adapter_type() RenderingDeviceDeviceType {
     mut object_out := i64(RenderingDeviceDeviceType.device_type_other)
@@ -5988,7 +6030,7 @@ pub fn (r &RenderingServer) get_video_adapter_type() RenderingDeviceDeviceType {
     fnname.deinit()
    return unsafe{RenderingDeviceDeviceType(object_out)}
 }
-pub fn (r &RenderingServer) get_video_adapter_api_version() String {
+pub fn (r &RenderingServer) get_video_adapter_api_version() string {
     mut object_out := String{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("get_video_adapter_api_version")
@@ -5996,7 +6038,9 @@ pub fn (r &RenderingServer) get_video_adapter_api_version() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r RenderingServer) make_sphere_mesh(latitudes i32, longitudes i32, radius f64) RID {
     mut object_out := RID{}
@@ -6088,14 +6132,16 @@ pub fn (r &RenderingServer) has_feature(feature RenderingServerFeatures) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (r &RenderingServer) has_os_feature(feature String) bool {
+pub fn (r &RenderingServer) has_os_feature(feature string) bool {
     mut object_out := false
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("has_os_feature")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3927539163)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&feature)}
+    arg_sn0 := String.new(feature)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out

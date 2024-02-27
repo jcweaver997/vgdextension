@@ -11,17 +11,19 @@ pub struct LinkButton {
     BaseButton
 }
 
-pub fn (mut r LinkButton) set_text(text String) {
+pub fn (mut r LinkButton) set_text(text string) {
     classname := StringName.new("LinkButton")
     fnname := StringName.new("set_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&text)}
+    arg_sn0 := String.new(text)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &LinkButton) get_text() String {
+pub fn (r &LinkButton) get_text() string {
     mut object_out := String{}
     classname := StringName.new("LinkButton")
     fnname := StringName.new("get_text")
@@ -29,7 +31,9 @@ pub fn (r &LinkButton) get_text() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r LinkButton) set_text_direction(direction ControlTextDirection) {
     classname := StringName.new("LinkButton")
@@ -52,17 +56,19 @@ pub fn (r &LinkButton) get_text_direction() ControlTextDirection {
     fnname.deinit()
    return unsafe{ControlTextDirection(object_out)}
 }
-pub fn (mut r LinkButton) set_language(language String) {
+pub fn (mut r LinkButton) set_language(language string) {
     classname := StringName.new("LinkButton")
     fnname := StringName.new("set_language")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&language)}
+    arg_sn0 := String.new(language)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &LinkButton) get_language() String {
+pub fn (r &LinkButton) get_language() string {
     mut object_out := String{}
     classname := StringName.new("LinkButton")
     fnname := StringName.new("get_language")
@@ -70,19 +76,23 @@ pub fn (r &LinkButton) get_language() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r LinkButton) set_uri(uri String) {
+pub fn (mut r LinkButton) set_uri(uri string) {
     classname := StringName.new("LinkButton")
     fnname := StringName.new("set_uri")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&uri)}
+    arg_sn0 := String.new(uri)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &LinkButton) get_uri() String {
+pub fn (r &LinkButton) get_uri() string {
     mut object_out := String{}
     classname := StringName.new("LinkButton")
     fnname := StringName.new("get_uri")
@@ -90,7 +100,9 @@ pub fn (r &LinkButton) get_uri() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r LinkButton) set_underline_mode(underline_mode LinkButtonUnderlineMode) {
     classname := StringName.new("LinkButton")

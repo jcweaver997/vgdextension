@@ -36,14 +36,16 @@ pub fn (mut r Skin) add_bind(bone i32, pose Transform3D) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Skin) add_named_bind(name String, pose Transform3D) {
+pub fn (mut r Skin) add_named_bind(name string, pose Transform3D) {
     classname := StringName.new("Skin")
     fnname := StringName.new("add_named_bind")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3154712474)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&pose)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -70,18 +72,20 @@ pub fn (r &Skin) get_bind_pose(bind_index i32) Transform3D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Skin) set_bind_name(bind_index i32, name StringName) {
+pub fn (mut r Skin) set_bind_name(bind_index i32, name string) {
     classname := StringName.new("Skin")
     fnname := StringName.new("set_bind_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3780747571)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&bind_index)}
-    args[1] = unsafe{voidptr(&name)}
+    arg_sn1 := StringName.new(name)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &Skin) get_bind_name(bind_index i32) StringName {
+pub fn (r &Skin) get_bind_name(bind_index i32) string {
     mut object_out := StringName{}
     classname := StringName.new("Skin")
     fnname := StringName.new("get_bind_name")
@@ -91,7 +95,9 @@ pub fn (r &Skin) get_bind_name(bind_index i32) StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r Skin) set_bind_bone(bind_index i32, bone i32) {
     classname := StringName.new("Skin")

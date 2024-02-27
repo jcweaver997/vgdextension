@@ -40,16 +40,18 @@ pub interface IEditorSceneFormatImporterImportScene {
     virt_import_scene(path String, flags u32, options Dictionary) Object
 }
 
-pub fn (mut r EditorSceneFormatImporter) uimport_scene(path String, flags u32, options Dictionary) Object {
+pub fn (mut r EditorSceneFormatImporter) uimport_scene(path string, flags u32, options Dictionary) Object {
     mut object_out := Object{}
     classname := StringName.new("EditorSceneFormatImporter")
     fnname := StringName.new("_import_scene")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&flags)}
     args[2] = unsafe{voidptr(&options)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -59,13 +61,15 @@ pub interface IEditorSceneFormatImporterGetImportOptions {
     virt_get_import_options(path String)
 }
 
-pub fn (mut r EditorSceneFormatImporter) uget_import_options(path String) {
+pub fn (mut r EditorSceneFormatImporter) uget_import_options(path string) {
     classname := StringName.new("EditorSceneFormatImporter")
     fnname := StringName.new("_get_import_options")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -74,16 +78,20 @@ pub interface IEditorSceneFormatImporterGetOptionVisibility {
     virt_get_option_visibility(path String, for_animation bool, option String) Variant
 }
 
-pub fn (r &EditorSceneFormatImporter) uget_option_visibility(path String, for_animation bool, option String) Variant {
+pub fn (r &EditorSceneFormatImporter) uget_option_visibility(path string, for_animation bool, option string) Variant {
     mut object_out := Variant{}
     classname := StringName.new("EditorSceneFormatImporter")
     fnname := StringName.new("_get_option_visibility")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&for_animation)}
-    args[2] = unsafe{voidptr(&option)}
+    arg_sn2 := String.new(option)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out

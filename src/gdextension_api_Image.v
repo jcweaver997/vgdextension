@@ -322,38 +322,44 @@ pub fn (r &Image) is_empty() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Image) load(path String) GDError {
+pub fn (mut r Image) load(path string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("Image")
     fnname := StringName.new("load")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 166001499)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn Image.load_from_file(path String) Image {
+pub fn Image.load_from_file(path string) Image {
     mut object_out := Image{}
     classname := StringName.new("Image")
     fnname := StringName.new("load_from_file")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 736337515)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, unsafe{nil}, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &Image) save_png(path String) GDError {
+pub fn (r &Image) save_png(path string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("Image")
     fnname := StringName.new("save_png")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2113323047)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
@@ -368,15 +374,17 @@ pub fn (r &Image) save_png_to_buffer() PackedByteArray {
     fnname.deinit()
    return object_out
 }
-pub fn (r &Image) save_jpg(path String, quality f64) GDError {
+pub fn (r &Image) save_jpg(path string, quality f64) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("Image")
     fnname := StringName.new("save_jpg")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2800019068)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&quality)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
@@ -393,15 +401,17 @@ pub fn (r &Image) save_jpg_to_buffer(quality f64) PackedByteArray {
     fnname.deinit()
    return object_out
 }
-pub fn (r &Image) save_exr(path String, grayscale bool) GDError {
+pub fn (r &Image) save_exr(path string, grayscale bool) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("Image")
     fnname := StringName.new("save_exr")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3108122999)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&grayscale)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
@@ -418,16 +428,18 @@ pub fn (r &Image) save_exr_to_buffer(grayscale bool) PackedByteArray {
     fnname.deinit()
    return object_out
 }
-pub fn (r &Image) save_webp(path String, lossy bool, quality f64) GDError {
+pub fn (r &Image) save_webp(path string, lossy bool, quality f64) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("Image")
     fnname := StringName.new("save_webp")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2781156876)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&lossy)}
     args[2] = unsafe{voidptr(&quality)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
@@ -864,15 +876,17 @@ pub fn (mut r Image) load_svg_from_buffer(buffer PackedByteArray, scale f64) GDE
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r Image) load_svg_from_string(svg_str String, scale f64) GDError {
+pub fn (mut r Image) load_svg_from_string(svg_str string, scale f64) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("Image")
     fnname := StringName.new("load_svg_from_string")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3254053600)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&svg_str)}
+    arg_sn0 := String.new(svg_str)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&scale)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}

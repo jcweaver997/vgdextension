@@ -37,60 +37,72 @@ pub fn (r &AnimationMixer) upost_process_key_value(animation Animation, track i3
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationMixer) add_animation_library(name StringName, library AnimationLibrary) GDError {
+pub fn (mut r AnimationMixer) add_animation_library(name string, library AnimationLibrary) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("AnimationMixer")
     fnname := StringName.new("add_animation_library")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 618909818)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = library.ptr
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r AnimationMixer) remove_animation_library(name StringName) {
+pub fn (mut r AnimationMixer) remove_animation_library(name string) {
     classname := StringName.new("AnimationMixer")
     fnname := StringName.new("remove_animation_library")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AnimationMixer) rename_animation_library(name StringName, newname StringName) {
+pub fn (mut r AnimationMixer) rename_animation_library(name string, newname string) {
     classname := StringName.new("AnimationMixer")
     fnname := StringName.new("rename_animation_library")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3740211285)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
-    args[1] = unsafe{voidptr(&newname)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := StringName.new(newname)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &AnimationMixer) has_animation_library(name StringName) bool {
+pub fn (r &AnimationMixer) has_animation_library(name string) bool {
     mut object_out := false
     classname := StringName.new("AnimationMixer")
     fnname := StringName.new("has_animation_library")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2619796661)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &AnimationMixer) get_animation_library(name StringName) AnimationLibrary {
+pub fn (r &AnimationMixer) get_animation_library(name string) AnimationLibrary {
     mut object_out := AnimationLibrary{}
     classname := StringName.new("AnimationMixer")
     fnname := StringName.new("get_animation_library")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 147342321)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -105,26 +117,30 @@ pub fn (r &AnimationMixer) get_animation_library_list() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (r &AnimationMixer) has_animation(name StringName) bool {
+pub fn (r &AnimationMixer) has_animation(name string) bool {
     mut object_out := false
     classname := StringName.new("AnimationMixer")
     fnname := StringName.new("has_animation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2619796661)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &AnimationMixer) get_animation(name StringName) Animation {
+pub fn (r &AnimationMixer) get_animation(name string) Animation {
     mut object_out := Animation{}
     classname := StringName.new("AnimationMixer")
     fnname := StringName.new("get_animation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2933122410)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -379,7 +395,7 @@ pub fn (r &AnimationMixer) is_reset_on_save_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (r &AnimationMixer) find_animation(animation Animation) StringName {
+pub fn (r &AnimationMixer) find_animation(animation Animation) string {
     mut object_out := StringName{}
     classname := StringName.new("AnimationMixer")
     fnname := StringName.new("find_animation")
@@ -389,9 +405,11 @@ pub fn (r &AnimationMixer) find_animation(animation Animation) StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &AnimationMixer) find_animation_library(animation Animation) StringName {
+pub fn (r &AnimationMixer) find_animation_library(animation Animation) string {
     mut object_out := StringName{}
     classname := StringName.new("AnimationMixer")
     fnname := StringName.new("find_animation_library")
@@ -401,5 +419,7 @@ pub fn (r &AnimationMixer) find_animation_library(animation Animation) StringNam
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }

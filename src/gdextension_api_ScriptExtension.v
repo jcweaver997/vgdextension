@@ -70,7 +70,7 @@ pub interface IScriptExtensionGetGlobalName {
     virt_get_global_name() StringName
 }
 
-pub fn (r &ScriptExtension) uget_global_name() StringName {
+pub fn (r &ScriptExtension) uget_global_name() string {
     mut object_out := StringName{}
     classname := StringName.new("ScriptExtension")
     fnname := StringName.new("_get_global_name")
@@ -78,7 +78,9 @@ pub fn (r &ScriptExtension) uget_global_name() StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface IScriptExtensionInheritsScript {
     mut:
@@ -102,7 +104,7 @@ pub interface IScriptExtensionGetInstanceBaseType {
     virt_get_instance_base_type() StringName
 }
 
-pub fn (r &ScriptExtension) uget_instance_base_type() StringName {
+pub fn (r &ScriptExtension) uget_instance_base_type() string {
     mut object_out := StringName{}
     classname := StringName.new("ScriptExtension")
     fnname := StringName.new("_get_instance_base_type")
@@ -110,7 +112,9 @@ pub fn (r &ScriptExtension) uget_instance_base_type() StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface IScriptExtensionInstanceCreate {
     mut:
@@ -183,7 +187,7 @@ pub interface IScriptExtensionGetSourceCode {
     virt_get_source_code() String
 }
 
-pub fn (r &ScriptExtension) uget_source_code() String {
+pub fn (r &ScriptExtension) uget_source_code() string {
     mut object_out := String{}
     classname := StringName.new("ScriptExtension")
     fnname := StringName.new("_get_source_code")
@@ -191,20 +195,24 @@ pub fn (r &ScriptExtension) uget_source_code() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface IScriptExtensionSetSourceCode {
     mut:
     virt_set_source_code(code String)
 }
 
-pub fn (mut r ScriptExtension) uset_source_code(code String) {
+pub fn (mut r ScriptExtension) uset_source_code(code string) {
     classname := StringName.new("ScriptExtension")
     fnname := StringName.new("_set_source_code")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&code)}
+    arg_sn0 := String.new(code)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -245,7 +253,7 @@ pub interface IScriptExtensionGetClassIconPath {
     virt_get_class_icon_path() String
 }
 
-pub fn (r &ScriptExtension) uget_class_icon_path() String {
+pub fn (r &ScriptExtension) uget_class_icon_path() string {
     mut object_out := String{}
     classname := StringName.new("ScriptExtension")
     fnname := StringName.new("_get_class_icon_path")
@@ -253,21 +261,25 @@ pub fn (r &ScriptExtension) uget_class_icon_path() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface IScriptExtensionHasMethod {
     mut:
     virt_has_method(method StringName) bool
 }
 
-pub fn (r &ScriptExtension) uhas_method(method StringName) bool {
+pub fn (r &ScriptExtension) uhas_method(method string) bool {
     mut object_out := false
     classname := StringName.new("ScriptExtension")
     fnname := StringName.new("_has_method")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&method)}
+    arg_sn0 := StringName.new(method)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -277,14 +289,16 @@ pub interface IScriptExtensionHasStaticMethod {
     virt_has_static_method(method StringName) bool
 }
 
-pub fn (r &ScriptExtension) uhas_static_method(method StringName) bool {
+pub fn (r &ScriptExtension) uhas_static_method(method string) bool {
     mut object_out := false
     classname := StringName.new("ScriptExtension")
     fnname := StringName.new("_has_static_method")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&method)}
+    arg_sn0 := StringName.new(method)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -294,14 +308,16 @@ pub interface IScriptExtensionGetMethodInfo {
     virt_get_method_info(method StringName) Dictionary
 }
 
-pub fn (r &ScriptExtension) uget_method_info(method StringName) Dictionary {
+pub fn (r &ScriptExtension) uget_method_info(method string) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("ScriptExtension")
     fnname := StringName.new("_get_method_info")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&method)}
+    arg_sn0 := StringName.new(method)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -371,14 +387,16 @@ pub interface IScriptExtensionHasScriptSignal {
     virt_has_script_signal(signal StringName) bool
 }
 
-pub fn (r &ScriptExtension) uhas_script_signal(signal StringName) bool {
+pub fn (r &ScriptExtension) uhas_script_signal(signal string) bool {
     mut object_out := false
     classname := StringName.new("ScriptExtension")
     fnname := StringName.new("_has_script_signal")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&signal)}
+    arg_sn0 := StringName.new(signal)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -403,14 +421,16 @@ pub interface IScriptExtensionHasPropertyDefaultValue {
     virt_has_property_default_value(property StringName) bool
 }
 
-pub fn (r &ScriptExtension) uhas_property_default_value(property StringName) bool {
+pub fn (r &ScriptExtension) uhas_property_default_value(property string) bool {
     mut object_out := false
     classname := StringName.new("ScriptExtension")
     fnname := StringName.new("_has_property_default_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&property)}
+    arg_sn0 := StringName.new(property)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -420,14 +440,16 @@ pub interface IScriptExtensionGetPropertyDefaultValue {
     virt_get_property_default_value(property StringName) Variant
 }
 
-pub fn (r &ScriptExtension) uget_property_default_value(property StringName) Variant {
+pub fn (r &ScriptExtension) uget_property_default_value(property string) Variant {
     mut object_out := Variant{}
     classname := StringName.new("ScriptExtension")
     fnname := StringName.new("_get_property_default_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&property)}
+    arg_sn0 := StringName.new(property)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -480,14 +502,16 @@ pub interface IScriptExtensionGetMemberLine {
     virt_get_member_line(member StringName) i32
 }
 
-pub fn (r &ScriptExtension) uget_member_line(member StringName) i32 {
+pub fn (r &ScriptExtension) uget_member_line(member string) i32 {
     mut object_out := i32(0)
     classname := StringName.new("ScriptExtension")
     fnname := StringName.new("_get_member_line")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&member)}
+    arg_sn0 := StringName.new(member)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out

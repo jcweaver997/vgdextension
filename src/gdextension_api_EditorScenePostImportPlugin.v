@@ -36,7 +36,7 @@ pub interface IEditorScenePostImportPluginGetInternalOptionVisibility {
     virt_get_internal_option_visibility(category i32, for_animation bool, option String) Variant
 }
 
-pub fn (r &EditorScenePostImportPlugin) uget_internal_option_visibility(category i32, for_animation bool, option String) Variant {
+pub fn (r &EditorScenePostImportPlugin) uget_internal_option_visibility(category i32, for_animation bool, option string) Variant {
     mut object_out := Variant{}
     classname := StringName.new("EditorScenePostImportPlugin")
     fnname := StringName.new("_get_internal_option_visibility")
@@ -44,8 +44,10 @@ pub fn (r &EditorScenePostImportPlugin) uget_internal_option_visibility(category
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&category)}
     args[1] = unsafe{voidptr(&for_animation)}
-    args[2] = unsafe{voidptr(&option)}
+    arg_sn2 := String.new(option)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -55,15 +57,17 @@ pub interface IEditorScenePostImportPluginGetInternalOptionUpdateViewRequired {
     virt_get_internal_option_update_view_required(category i32, option String) Variant
 }
 
-pub fn (r &EditorScenePostImportPlugin) uget_internal_option_update_view_required(category i32, option String) Variant {
+pub fn (r &EditorScenePostImportPlugin) uget_internal_option_update_view_required(category i32, option string) Variant {
     mut object_out := Variant{}
     classname := StringName.new("EditorScenePostImportPlugin")
     fnname := StringName.new("_get_internal_option_update_view_required")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&category)}
-    args[1] = unsafe{voidptr(&option)}
+    arg_sn1 := String.new(option)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -91,13 +95,15 @@ pub interface IEditorScenePostImportPluginGetImportOptions {
     virt_get_import_options(path String)
 }
 
-pub fn (mut r EditorScenePostImportPlugin) uget_import_options(path String) {
+pub fn (mut r EditorScenePostImportPlugin) uget_import_options(path string) {
     classname := StringName.new("EditorScenePostImportPlugin")
     fnname := StringName.new("_get_import_options")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -106,16 +112,20 @@ pub interface IEditorScenePostImportPluginGetOptionVisibility {
     virt_get_option_visibility(path String, for_animation bool, option String) Variant
 }
 
-pub fn (r &EditorScenePostImportPlugin) uget_option_visibility(path String, for_animation bool, option String) Variant {
+pub fn (r &EditorScenePostImportPlugin) uget_option_visibility(path string, for_animation bool, option string) Variant {
     mut object_out := Variant{}
     classname := StringName.new("EditorScenePostImportPlugin")
     fnname := StringName.new("_get_option_visibility")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&for_animation)}
-    args[2] = unsafe{voidptr(&option)}
+    arg_sn2 := String.new(option)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -150,43 +160,51 @@ pub fn (mut r EditorScenePostImportPlugin) upost_process(scene Node) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &EditorScenePostImportPlugin) get_option_value(name StringName) Variant {
+pub fn (r &EditorScenePostImportPlugin) get_option_value(name string) Variant {
     mut object_out := Variant{}
     classname := StringName.new("EditorScenePostImportPlugin")
     fnname := StringName.new("get_option_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2760726917)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorScenePostImportPlugin) add_import_option(name String, value Variant) {
+pub fn (mut r EditorScenePostImportPlugin) add_import_option(name string, value Variant) {
     classname := StringName.new("EditorScenePostImportPlugin")
     fnname := StringName.new("add_import_option")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 402577236)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&value)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorScenePostImportPlugin) add_import_option_advanced(type_name VariantType, name String, default_value Variant, hint PropertyHint, hint_string String, usage_flags i32) {
+pub fn (mut r EditorScenePostImportPlugin) add_import_option_advanced(type_name VariantType, name string, default_value Variant, hint PropertyHint, hint_string string, usage_flags i32) {
     classname := StringName.new("EditorScenePostImportPlugin")
     fnname := StringName.new("add_import_option_advanced")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3674075649)
     mut args := unsafe { [6]voidptr{} }
     i64_type_name := i64(type_name)
     args[0] = unsafe{voidptr(&i64_type_name)}
-    args[1] = unsafe{voidptr(&name)}
+    arg_sn1 := String.new(name)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&default_value)}
     i64_hint := i64(hint)
     args[3] = unsafe{voidptr(&i64_hint)}
-    args[4] = unsafe{voidptr(&hint_string)}
+    arg_sn4 := String.new(hint_string)
+    args[4] = unsafe{voidptr(&arg_sn4)}
     args[5] = unsafe{voidptr(&usage_flags)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
+    arg_sn4.deinit()
     classname.deinit()
     fnname.deinit()
 }

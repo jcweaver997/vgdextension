@@ -105,18 +105,22 @@ pub fn (mut r TextLine) set_bidi_override(override Array) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextLine) add_string(text String, font Font, font_size i32, language String, meta Variant) bool {
+pub fn (mut r TextLine) add_string(text string, font Font, font_size i32, language string, meta Variant) bool {
     mut object_out := false
     classname := StringName.new("TextLine")
     fnname := StringName.new("add_string")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 621426851)
     mut args := unsafe { [5]voidptr{} }
-    args[0] = unsafe{voidptr(&text)}
+    arg_sn0 := String.new(text)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = font.ptr
     args[2] = unsafe{voidptr(&font_size)}
-    args[3] = unsafe{voidptr(&language)}
+    arg_sn3 := String.new(language)
+    args[3] = unsafe{voidptr(&arg_sn3)}
     args[4] = unsafe{voidptr(&meta)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn3.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out

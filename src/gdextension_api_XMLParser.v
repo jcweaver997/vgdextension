@@ -35,7 +35,7 @@ pub fn (mut r XMLParser) get_node_type() XMLParserNodeType {
     fnname.deinit()
    return unsafe{XMLParserNodeType(object_out)}
 }
-pub fn (r &XMLParser) get_node_name() String {
+pub fn (r &XMLParser) get_node_name() string {
     mut object_out := String{}
     classname := StringName.new("XMLParser")
     fnname := StringName.new("get_node_name")
@@ -43,9 +43,11 @@ pub fn (r &XMLParser) get_node_name() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &XMLParser) get_node_data() String {
+pub fn (r &XMLParser) get_node_data() string {
     mut object_out := String{}
     classname := StringName.new("XMLParser")
     fnname := StringName.new("get_node_data")
@@ -53,7 +55,9 @@ pub fn (r &XMLParser) get_node_data() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &XMLParser) get_node_offset() u64 {
     mut object_out := u64(0)
@@ -75,7 +79,7 @@ pub fn (r &XMLParser) get_attribute_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (r &XMLParser) get_attribute_name(idx i32) String {
+pub fn (r &XMLParser) get_attribute_name(idx i32) string {
     mut object_out := String{}
     classname := StringName.new("XMLParser")
     fnname := StringName.new("get_attribute_name")
@@ -85,9 +89,11 @@ pub fn (r &XMLParser) get_attribute_name(idx i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &XMLParser) get_attribute_value(idx i32) String {
+pub fn (r &XMLParser) get_attribute_value(idx i32) string {
     mut object_out := String{}
     classname := StringName.new("XMLParser")
     fnname := StringName.new("get_attribute_value")
@@ -97,43 +103,55 @@ pub fn (r &XMLParser) get_attribute_value(idx i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &XMLParser) has_attribute(name String) bool {
+pub fn (r &XMLParser) has_attribute(name string) bool {
     mut object_out := false
     classname := StringName.new("XMLParser")
     fnname := StringName.new("has_attribute")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3927539163)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &XMLParser) get_named_attribute_value(name String) String {
+pub fn (r &XMLParser) get_named_attribute_value(name string) string {
     mut object_out := String{}
     classname := StringName.new("XMLParser")
     fnname := StringName.new("get_named_attribute_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3135753539)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &XMLParser) get_named_attribute_value_safe(name String) String {
+pub fn (r &XMLParser) get_named_attribute_value_safe(name string) string {
     mut object_out := String{}
     classname := StringName.new("XMLParser")
     fnname := StringName.new("get_named_attribute_value_safe")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3135753539)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &XMLParser) is_empty() bool {
     mut object_out := false
@@ -175,14 +193,16 @@ pub fn (mut r XMLParser) seek(position u64) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r XMLParser) open(file String) GDError {
+pub fn (mut r XMLParser) open(file string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("XMLParser")
     fnname := StringName.new("open")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 166001499)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&file)}
+    arg_sn0 := String.new(file)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}

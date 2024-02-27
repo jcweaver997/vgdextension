@@ -37,7 +37,7 @@ pub fn (r &EditorFileSystemDirectory) get_file_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (r &EditorFileSystemDirectory) get_file(idx i32) String {
+pub fn (r &EditorFileSystemDirectory) get_file(idx i32) string {
     mut object_out := String{}
     classname := StringName.new("EditorFileSystemDirectory")
     fnname := StringName.new("get_file")
@@ -47,9 +47,11 @@ pub fn (r &EditorFileSystemDirectory) get_file(idx i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &EditorFileSystemDirectory) get_file_path(idx i32) String {
+pub fn (r &EditorFileSystemDirectory) get_file_path(idx i32) string {
     mut object_out := String{}
     classname := StringName.new("EditorFileSystemDirectory")
     fnname := StringName.new("get_file_path")
@@ -59,9 +61,11 @@ pub fn (r &EditorFileSystemDirectory) get_file_path(idx i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &EditorFileSystemDirectory) get_file_type(idx i32) StringName {
+pub fn (r &EditorFileSystemDirectory) get_file_type(idx i32) string {
     mut object_out := StringName{}
     classname := StringName.new("EditorFileSystemDirectory")
     fnname := StringName.new("get_file_type")
@@ -71,9 +75,11 @@ pub fn (r &EditorFileSystemDirectory) get_file_type(idx i32) StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &EditorFileSystemDirectory) get_file_script_class_name(idx i32) String {
+pub fn (r &EditorFileSystemDirectory) get_file_script_class_name(idx i32) string {
     mut object_out := String{}
     classname := StringName.new("EditorFileSystemDirectory")
     fnname := StringName.new("get_file_script_class_name")
@@ -83,9 +89,11 @@ pub fn (r &EditorFileSystemDirectory) get_file_script_class_name(idx i32) String
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &EditorFileSystemDirectory) get_file_script_class_extends(idx i32) String {
+pub fn (r &EditorFileSystemDirectory) get_file_script_class_extends(idx i32) string {
     mut object_out := String{}
     classname := StringName.new("EditorFileSystemDirectory")
     fnname := StringName.new("get_file_script_class_extends")
@@ -95,7 +103,9 @@ pub fn (r &EditorFileSystemDirectory) get_file_script_class_extends(idx i32) Str
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &EditorFileSystemDirectory) get_file_import_is_valid(idx i32) bool {
     mut object_out := false
@@ -109,7 +119,7 @@ pub fn (r &EditorFileSystemDirectory) get_file_import_is_valid(idx i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorFileSystemDirectory) get_name() String {
+pub fn (mut r EditorFileSystemDirectory) get_name() string {
     mut object_out := String{}
     classname := StringName.new("EditorFileSystemDirectory")
     fnname := StringName.new("get_name")
@@ -117,9 +127,11 @@ pub fn (mut r EditorFileSystemDirectory) get_name() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &EditorFileSystemDirectory) get_path() String {
+pub fn (r &EditorFileSystemDirectory) get_path() string {
     mut object_out := String{}
     classname := StringName.new("EditorFileSystemDirectory")
     fnname := StringName.new("get_path")
@@ -127,7 +139,9 @@ pub fn (r &EditorFileSystemDirectory) get_path() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r EditorFileSystemDirectory) get_parent() EditorFileSystemDirectory {
     mut object_out := EditorFileSystemDirectory{}
@@ -139,26 +153,30 @@ pub fn (mut r EditorFileSystemDirectory) get_parent() EditorFileSystemDirectory 
     fnname.deinit()
    return object_out
 }
-pub fn (r &EditorFileSystemDirectory) find_file_index(name String) i32 {
+pub fn (r &EditorFileSystemDirectory) find_file_index(name string) i32 {
     mut object_out := i32(0)
     classname := StringName.new("EditorFileSystemDirectory")
     fnname := StringName.new("find_file_index")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1321353865)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &EditorFileSystemDirectory) find_dir_index(name String) i32 {
+pub fn (r &EditorFileSystemDirectory) find_dir_index(name string) i32 {
     mut object_out := i32(0)
     classname := StringName.new("EditorFileSystemDirectory")
     fnname := StringName.new("find_dir_index")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1321353865)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out

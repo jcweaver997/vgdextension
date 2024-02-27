@@ -47,7 +47,7 @@ pub fn (r &Shortcut) matches_event(event InputEvent) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (r &Shortcut) get_as_text() String {
+pub fn (r &Shortcut) get_as_text() string {
     mut object_out := String{}
     classname := StringName.new("Shortcut")
     fnname := StringName.new("get_as_text")
@@ -55,5 +55,7 @@ pub fn (r &Shortcut) get_as_text() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }

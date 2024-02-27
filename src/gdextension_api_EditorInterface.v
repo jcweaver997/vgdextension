@@ -97,25 +97,29 @@ pub fn (mut r EditorInterface) make_mesh_previews(meshes Array, preview_size i32
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorInterface) set_plugin_enabled(plugin String, enabled bool) {
+pub fn (mut r EditorInterface) set_plugin_enabled(plugin string, enabled bool) {
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("set_plugin_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2678287736)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&plugin)}
+    arg_sn0 := String.new(plugin)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&enabled)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &EditorInterface) is_plugin_enabled(plugin String) bool {
+pub fn (r &EditorInterface) is_plugin_enabled(plugin string) bool {
     mut object_out := false
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("is_plugin_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3927539163)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&plugin)}
+    arg_sn0 := String.new(plugin)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -182,13 +186,15 @@ pub fn (r &EditorInterface) get_editor_viewport_3d(idx i32) SubViewport {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorInterface) set_main_screen_editor(name String) {
+pub fn (mut r EditorInterface) set_main_screen_editor(name string) {
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("set_main_screen_editor")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -267,7 +273,7 @@ pub fn (mut r EditorInterface) popup_dialog_centered_clamped(dialog Window, mins
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &EditorInterface) get_current_feature_profile() String {
+pub fn (r &EditorInterface) get_current_feature_profile() string {
     mut object_out := String{}
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("get_current_feature_profile")
@@ -275,15 +281,19 @@ pub fn (r &EditorInterface) get_current_feature_profile() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r EditorInterface) set_current_feature_profile(profile_name String) {
+pub fn (mut r EditorInterface) set_current_feature_profile(profile_name string) {
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("set_current_feature_profile")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&profile_name)}
+    arg_sn0 := String.new(profile_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -297,13 +307,15 @@ pub fn (r &EditorInterface) get_file_system_dock() FileSystemDock {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorInterface) select_file(file String) {
+pub fn (mut r EditorInterface) select_file(file string) {
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("select_file")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&file)}
+    arg_sn0 := String.new(file)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -317,7 +329,7 @@ pub fn (r &EditorInterface) get_selected_paths() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (r &EditorInterface) get_current_path() String {
+pub fn (r &EditorInterface) get_current_path() string {
     mut object_out := String{}
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("get_current_path")
@@ -325,9 +337,11 @@ pub fn (r &EditorInterface) get_current_path() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &EditorInterface) get_current_directory() String {
+pub fn (r &EditorInterface) get_current_directory() string {
     mut object_out := String{}
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("get_current_directory")
@@ -335,7 +349,9 @@ pub fn (r &EditorInterface) get_current_directory() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &EditorInterface) get_inspector() EditorInspector {
     mut object_out := EditorInspector{}
@@ -347,15 +363,17 @@ pub fn (r &EditorInterface) get_inspector() EditorInspector {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorInterface) inspect_object(object Object, for_property String, inspector_only bool) {
+pub fn (mut r EditorInterface) inspect_object(object Object, for_property string, inspector_only bool) {
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("inspect_object")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 127962172)
     mut args := unsafe { [3]voidptr{} }
     args[0] = object.ptr
-    args[1] = unsafe{voidptr(&for_property)}
+    arg_sn1 := String.new(for_property)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&inspector_only)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -392,23 +410,27 @@ pub fn (mut r EditorInterface) edit_script(script Script, line i32, column i32, 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorInterface) open_scene_from_path(scene_filepath String) {
+pub fn (mut r EditorInterface) open_scene_from_path(scene_filepath string) {
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("open_scene_from_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&scene_filepath)}
+    arg_sn0 := String.new(scene_filepath)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorInterface) reload_scene_from_path(scene_filepath String) {
+pub fn (mut r EditorInterface) reload_scene_from_path(scene_filepath string) {
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("reload_scene_from_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&scene_filepath)}
+    arg_sn0 := String.new(scene_filepath)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -442,14 +464,16 @@ pub fn (mut r EditorInterface) save_scene() GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r EditorInterface) save_scene_as(path String, with_preview bool) {
+pub fn (mut r EditorInterface) save_scene_as(path string, with_preview bool) {
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("save_scene_as")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3647332257)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&with_preview)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -485,13 +509,15 @@ pub fn (mut r EditorInterface) play_current_scene() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorInterface) play_custom_scene(scene_filepath String) {
+pub fn (mut r EditorInterface) play_custom_scene(scene_filepath string) {
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("play_custom_scene")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&scene_filepath)}
+    arg_sn0 := String.new(scene_filepath)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -513,7 +539,7 @@ pub fn (r &EditorInterface) is_playing_scene() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (r &EditorInterface) get_playing_scene() String {
+pub fn (r &EditorInterface) get_playing_scene() string {
     mut object_out := String{}
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("get_playing_scene")
@@ -521,7 +547,9 @@ pub fn (r &EditorInterface) get_playing_scene() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r EditorInterface) set_movie_maker_enabled(enabled bool) {
     classname := StringName.new("EditorInterface")

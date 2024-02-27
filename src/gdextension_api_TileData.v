@@ -461,25 +461,29 @@ pub fn (r &TileData) get_probability() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileData) set_custom_data(layer_name String, value Variant) {
+pub fn (mut r TileData) set_custom_data(layer_name string, value Variant) {
     classname := StringName.new("TileData")
     fnname := StringName.new("set_custom_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 402577236)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&layer_name)}
+    arg_sn0 := String.new(layer_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&value)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &TileData) get_custom_data(layer_name String) Variant {
+pub fn (r &TileData) get_custom_data(layer_name string) Variant {
     mut object_out := Variant{}
     classname := StringName.new("TileData")
     fnname := StringName.new("get_custom_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1868160156)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&layer_name)}
+    arg_sn0 := String.new(layer_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out

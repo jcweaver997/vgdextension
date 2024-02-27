@@ -76,7 +76,7 @@ pub fn (r &WebRTCDataChannel) get_ready_state() WebRTCDataChannelChannelState {
     fnname.deinit()
    return unsafe{WebRTCDataChannelChannelState(object_out)}
 }
-pub fn (r &WebRTCDataChannel) get_label() String {
+pub fn (r &WebRTCDataChannel) get_label() string {
     mut object_out := String{}
     classname := StringName.new("WebRTCDataChannel")
     fnname := StringName.new("get_label")
@@ -84,7 +84,9 @@ pub fn (r &WebRTCDataChannel) get_label() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &WebRTCDataChannel) is_ordered() bool {
     mut object_out := false
@@ -126,7 +128,7 @@ pub fn (r &WebRTCDataChannel) get_max_retransmits() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (r &WebRTCDataChannel) get_protocol() String {
+pub fn (r &WebRTCDataChannel) get_protocol() string {
     mut object_out := String{}
     classname := StringName.new("WebRTCDataChannel")
     fnname := StringName.new("get_protocol")
@@ -134,7 +136,9 @@ pub fn (r &WebRTCDataChannel) get_protocol() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &WebRTCDataChannel) is_negotiated() bool {
     mut object_out := false

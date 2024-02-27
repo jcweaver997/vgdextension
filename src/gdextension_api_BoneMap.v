@@ -25,38 +25,50 @@ pub fn (mut r BoneMap) set_profile(profile SkeletonProfile) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &BoneMap) get_skeleton_bone_name(profile_bone_name StringName) StringName {
+pub fn (r &BoneMap) get_skeleton_bone_name(profile_bone_name string) string {
     mut object_out := StringName{}
     classname := StringName.new("BoneMap")
     fnname := StringName.new("get_skeleton_bone_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1965194235)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&profile_bone_name)}
+    arg_sn0 := StringName.new(profile_bone_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r BoneMap) set_skeleton_bone_name(profile_bone_name StringName, skeleton_bone_name StringName) {
+pub fn (mut r BoneMap) set_skeleton_bone_name(profile_bone_name string, skeleton_bone_name string) {
     classname := StringName.new("BoneMap")
     fnname := StringName.new("set_skeleton_bone_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3740211285)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&profile_bone_name)}
-    args[1] = unsafe{voidptr(&skeleton_bone_name)}
+    arg_sn0 := StringName.new(profile_bone_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := StringName.new(skeleton_bone_name)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &BoneMap) find_profile_bone_name(skeleton_bone_name StringName) StringName {
+pub fn (r &BoneMap) find_profile_bone_name(skeleton_bone_name string) string {
     mut object_out := StringName{}
     classname := StringName.new("BoneMap")
     fnname := StringName.new("find_profile_bone_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1965194235)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&skeleton_bone_name)}
+    arg_sn0 := StringName.new(skeleton_bone_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }

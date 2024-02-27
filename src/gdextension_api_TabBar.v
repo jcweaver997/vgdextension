@@ -89,18 +89,20 @@ pub fn (mut r TabBar) select_next_available() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TabBar) set_tab_title(tab_idx i32, title String) {
+pub fn (mut r TabBar) set_tab_title(tab_idx i32, title string) {
     classname := StringName.new("TabBar")
     fnname := StringName.new("set_tab_title")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&tab_idx)}
-    args[1] = unsafe{voidptr(&title)}
+    arg_sn1 := String.new(title)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &TabBar) get_tab_title(tab_idx i32) String {
+pub fn (r &TabBar) get_tab_title(tab_idx i32) string {
     mut object_out := String{}
     classname := StringName.new("TabBar")
     fnname := StringName.new("get_tab_title")
@@ -110,7 +112,9 @@ pub fn (r &TabBar) get_tab_title(tab_idx i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r TabBar) set_tab_text_direction(tab_idx i32, direction ControlTextDirection) {
     classname := StringName.new("TabBar")
@@ -136,18 +140,20 @@ pub fn (r &TabBar) get_tab_text_direction(tab_idx i32) ControlTextDirection {
     fnname.deinit()
    return unsafe{ControlTextDirection(object_out)}
 }
-pub fn (mut r TabBar) set_tab_language(tab_idx i32, language String) {
+pub fn (mut r TabBar) set_tab_language(tab_idx i32, language string) {
     classname := StringName.new("TabBar")
     fnname := StringName.new("set_tab_language")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&tab_idx)}
-    args[1] = unsafe{voidptr(&language)}
+    arg_sn1 := String.new(language)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &TabBar) get_tab_language(tab_idx i32) String {
+pub fn (r &TabBar) get_tab_language(tab_idx i32) string {
     mut object_out := String{}
     classname := StringName.new("TabBar")
     fnname := StringName.new("get_tab_language")
@@ -157,7 +163,9 @@ pub fn (r &TabBar) get_tab_language(tab_idx i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r TabBar) set_tab_icon(tab_idx i32, icon Texture2D) {
     classname := StringName.new("TabBar")
@@ -307,14 +315,16 @@ pub fn (mut r TabBar) remove_tab(tab_idx i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TabBar) add_tab(title String, icon Texture2D) {
+pub fn (mut r TabBar) add_tab(title string, icon Texture2D) {
     classname := StringName.new("TabBar")
     fnname := StringName.new("add_tab")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1465444425)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&title)}
+    arg_sn0 := String.new(title)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = icon.ptr
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }

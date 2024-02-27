@@ -56,24 +56,30 @@ pub fn (mut r OS) close_midi_inputs() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r OS) alert(text String, title String) {
+pub fn (mut r OS) alert(text string, title string) {
     classname := StringName.new("OS")
     fnname := StringName.new("alert")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1783970740)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&text)}
-    args[1] = unsafe{voidptr(&title)}
+    arg_sn0 := String.new(text)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(title)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r OS) crash(message String) {
+pub fn (mut r OS) crash(message string) {
     classname := StringName.new("OS")
     fnname := StringName.new("crash")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&message)}
+    arg_sn0 := String.new(message)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -147,7 +153,7 @@ pub fn (r &OS) get_processor_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (r &OS) get_processor_name() String {
+pub fn (r &OS) get_processor_name() string {
     mut object_out := String{}
     classname := StringName.new("OS")
     fnname := StringName.new("get_processor_name")
@@ -155,7 +161,9 @@ pub fn (r &OS) get_processor_name() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &OS) get_system_fonts() PackedStringArray {
     mut object_out := PackedStringArray{}
@@ -167,40 +175,52 @@ pub fn (r &OS) get_system_fonts() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (r &OS) get_system_font_path(font_name String, weight i32, stretch i32, italic bool) String {
+pub fn (r &OS) get_system_font_path(font_name string, weight i32, stretch i32, italic bool) string {
     mut object_out := String{}
     classname := StringName.new("OS")
     fnname := StringName.new("get_system_font_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 626580860)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = unsafe{voidptr(&font_name)}
+    arg_sn0 := String.new(font_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&weight)}
     args[2] = unsafe{voidptr(&stretch)}
     args[3] = unsafe{voidptr(&italic)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &OS) get_system_font_path_for_text(font_name String, text String, locale String, script String, weight i32, stretch i32, italic bool) PackedStringArray {
+pub fn (r &OS) get_system_font_path_for_text(font_name string, text string, locale string, script string, weight i32, stretch i32, italic bool) PackedStringArray {
     mut object_out := PackedStringArray{}
     classname := StringName.new("OS")
     fnname := StringName.new("get_system_font_path_for_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 197317981)
     mut args := unsafe { [7]voidptr{} }
-    args[0] = unsafe{voidptr(&font_name)}
-    args[1] = unsafe{voidptr(&text)}
-    args[2] = unsafe{voidptr(&locale)}
-    args[3] = unsafe{voidptr(&script)}
+    arg_sn0 := String.new(font_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(text)
+    args[1] = unsafe{voidptr(&arg_sn1)}
+    arg_sn2 := String.new(locale)
+    args[2] = unsafe{voidptr(&arg_sn2)}
+    arg_sn3 := String.new(script)
+    args[3] = unsafe{voidptr(&arg_sn3)}
     args[4] = unsafe{voidptr(&weight)}
     args[5] = unsafe{voidptr(&stretch)}
     args[6] = unsafe{voidptr(&italic)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
+    arg_sn2.deinit()
+    arg_sn3.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &OS) get_executable_path() String {
+pub fn (r &OS) get_executable_path() string {
     mut object_out := String{}
     classname := StringName.new("OS")
     fnname := StringName.new("get_executable_path")
@@ -208,9 +228,11 @@ pub fn (r &OS) get_executable_path() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r OS) read_string_from_stdin() String {
+pub fn (mut r OS) read_string_from_stdin() string {
     mut object_out := String{}
     classname := StringName.new("OS")
     fnname := StringName.new("read_string_from_stdin")
@@ -218,34 +240,40 @@ pub fn (mut r OS) read_string_from_stdin() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r OS) execute(path String, arguments PackedStringArray, output Array, read_stderr bool, open_console bool) i32 {
+pub fn (mut r OS) execute(path string, arguments PackedStringArray, output Array, read_stderr bool, open_console bool) i32 {
     mut object_out := i32(0)
     classname := StringName.new("OS")
     fnname := StringName.new("execute")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1488299882)
     mut args := unsafe { [5]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&arguments)}
     args[2] = unsafe{voidptr(&output)}
     args[3] = unsafe{voidptr(&read_stderr)}
     args[4] = unsafe{voidptr(&open_console)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OS) create_process(path String, arguments PackedStringArray, open_console bool) i32 {
+pub fn (mut r OS) create_process(path string, arguments PackedStringArray, open_console bool) i32 {
     mut object_out := i32(0)
     classname := StringName.new("OS")
     fnname := StringName.new("create_process")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2903767230)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&arguments)}
     args[2] = unsafe{voidptr(&open_console)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -274,27 +302,31 @@ pub fn (mut r OS) kill(pid i32) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r OS) shell_open(uri String) GDError {
+pub fn (mut r OS) shell_open(uri string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("OS")
     fnname := StringName.new("shell_open")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 166001499)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&uri)}
+    arg_sn0 := String.new(uri)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r OS) shell_show_in_file_manager(file_or_dir_path String, open_folder bool) GDError {
+pub fn (mut r OS) shell_show_in_file_manager(file_or_dir_path string, open_folder bool) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("OS")
     fnname := StringName.new("shell_show_in_file_manager")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3565188097)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&file_or_dir_path)}
+    arg_sn0 := String.new(file_or_dir_path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&open_folder)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
@@ -321,52 +353,64 @@ pub fn (r &OS) get_process_id() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (r &OS) has_environment(variable String) bool {
+pub fn (r &OS) has_environment(variable string) bool {
     mut object_out := false
     classname := StringName.new("OS")
     fnname := StringName.new("has_environment")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3927539163)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&variable)}
+    arg_sn0 := String.new(variable)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &OS) get_environment(variable String) String {
+pub fn (r &OS) get_environment(variable string) string {
     mut object_out := String{}
     classname := StringName.new("OS")
     fnname := StringName.new("get_environment")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3135753539)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&variable)}
+    arg_sn0 := String.new(variable)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &OS) set_environment(variable String, value String) {
+pub fn (r &OS) set_environment(variable string, value string) {
     classname := StringName.new("OS")
     fnname := StringName.new("set_environment")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3605043004)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&variable)}
-    args[1] = unsafe{voidptr(&value)}
+    arg_sn0 := String.new(variable)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(value)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &OS) unset_environment(variable String) {
+pub fn (r &OS) unset_environment(variable string) {
     classname := StringName.new("OS")
     fnname := StringName.new("unset_environment")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3089850668)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&variable)}
+    arg_sn0 := String.new(variable)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &OS) get_name() String {
+pub fn (r &OS) get_name() string {
     mut object_out := String{}
     classname := StringName.new("OS")
     fnname := StringName.new("get_name")
@@ -374,9 +418,11 @@ pub fn (r &OS) get_name() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &OS) get_distribution_name() String {
+pub fn (r &OS) get_distribution_name() string {
     mut object_out := String{}
     classname := StringName.new("OS")
     fnname := StringName.new("get_distribution_name")
@@ -384,9 +430,11 @@ pub fn (r &OS) get_distribution_name() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &OS) get_version() String {
+pub fn (r &OS) get_version() string {
     mut object_out := String{}
     classname := StringName.new("OS")
     fnname := StringName.new("get_version")
@@ -394,7 +442,9 @@ pub fn (r &OS) get_version() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r OS) get_cmdline_args() PackedStringArray {
     mut object_out := PackedStringArray{}
@@ -477,7 +527,7 @@ pub fn (r &OS) delay_msec(msec i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &OS) get_locale() String {
+pub fn (r &OS) get_locale() string {
     mut object_out := String{}
     classname := StringName.new("OS")
     fnname := StringName.new("get_locale")
@@ -485,9 +535,11 @@ pub fn (r &OS) get_locale() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &OS) get_locale_language() String {
+pub fn (r &OS) get_locale_language() string {
     mut object_out := String{}
     classname := StringName.new("OS")
     fnname := StringName.new("get_locale_language")
@@ -495,9 +547,11 @@ pub fn (r &OS) get_locale_language() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &OS) get_model_name() String {
+pub fn (r &OS) get_model_name() string {
     mut object_out := String{}
     classname := StringName.new("OS")
     fnname := StringName.new("get_model_name")
@@ -505,7 +559,9 @@ pub fn (r &OS) get_model_name() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &OS) is_userfs_persistent() bool {
     mut object_out := false
@@ -567,19 +623,21 @@ pub fn (r &OS) get_memory_info() Dictionary {
     fnname.deinit()
    return object_out
 }
-pub fn (r &OS) move_to_trash(path String) GDError {
+pub fn (r &OS) move_to_trash(path string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("OS")
     fnname := StringName.new("move_to_trash")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2113323047)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (r &OS) get_user_data_dir() String {
+pub fn (r &OS) get_user_data_dir() string {
     mut object_out := String{}
     classname := StringName.new("OS")
     fnname := StringName.new("get_user_data_dir")
@@ -587,9 +645,11 @@ pub fn (r &OS) get_user_data_dir() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &OS) get_system_dir(dir OSSystemDir, shared_storage bool) String {
+pub fn (r &OS) get_system_dir(dir OSSystemDir, shared_storage bool) string {
     mut object_out := String{}
     classname := StringName.new("OS")
     fnname := StringName.new("get_system_dir")
@@ -601,9 +661,11 @@ pub fn (r &OS) get_system_dir(dir OSSystemDir, shared_storage bool) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &OS) get_config_dir() String {
+pub fn (r &OS) get_config_dir() string {
     mut object_out := String{}
     classname := StringName.new("OS")
     fnname := StringName.new("get_config_dir")
@@ -611,9 +673,11 @@ pub fn (r &OS) get_config_dir() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &OS) get_data_dir() String {
+pub fn (r &OS) get_data_dir() string {
     mut object_out := String{}
     classname := StringName.new("OS")
     fnname := StringName.new("get_data_dir")
@@ -621,9 +685,11 @@ pub fn (r &OS) get_data_dir() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &OS) get_cache_dir() String {
+pub fn (r &OS) get_cache_dir() string {
     mut object_out := String{}
     classname := StringName.new("OS")
     fnname := StringName.new("get_cache_dir")
@@ -631,9 +697,11 @@ pub fn (r &OS) get_cache_dir() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &OS) get_unique_id() String {
+pub fn (r &OS) get_unique_id() string {
     mut object_out := String{}
     classname := StringName.new("OS")
     fnname := StringName.new("get_unique_id")
@@ -641,9 +709,11 @@ pub fn (r &OS) get_unique_id() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &OS) get_keycode_string(code Key) String {
+pub fn (r &OS) get_keycode_string(code Key) string {
     mut object_out := String{}
     classname := StringName.new("OS")
     fnname := StringName.new("get_keycode_string")
@@ -654,7 +724,9 @@ pub fn (r &OS) get_keycode_string(code Key) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &OS) is_keycode_unicode(code i64) bool {
     mut object_out := false
@@ -668,14 +740,16 @@ pub fn (r &OS) is_keycode_unicode(code i64) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (r &OS) find_keycode_from_string(gdstring String) Key {
+pub fn (r &OS) find_keycode_from_string(gdstring string) Key {
     mut object_out := i64(Key.key_none)
     classname := StringName.new("OS")
     fnname := StringName.new("find_keycode_from_string")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1084858572)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&gdstring)}
+    arg_sn0 := String.new(gdstring)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{Key(object_out)}
@@ -690,14 +764,16 @@ pub fn (mut r OS) set_use_file_access_save_and_swap(enabled bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r OS) set_thread_name(name String) GDError {
+pub fn (mut r OS) set_thread_name(name string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("OS")
     fnname := StringName.new("set_thread_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 166001499)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
@@ -722,14 +798,16 @@ pub fn (r &OS) get_main_thread_id() u64 {
     fnname.deinit()
    return object_out
 }
-pub fn (r &OS) has_feature(tag_name String) bool {
+pub fn (r &OS) has_feature(tag_name string) bool {
     mut object_out := false
     classname := StringName.new("OS")
     fnname := StringName.new("has_feature")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3927539163)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&tag_name)}
+    arg_sn0 := String.new(tag_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -744,14 +822,16 @@ pub fn (r &OS) is_sandboxed() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OS) request_permission(name String) bool {
+pub fn (mut r OS) request_permission(name string) bool {
     mut object_out := false
     classname := StringName.new("OS")
     fnname := StringName.new("request_permission")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2323990056)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out

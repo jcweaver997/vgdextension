@@ -40,14 +40,16 @@ pub interface IMovieWriterHandlesFile {
     virt_handles_file(path String) bool
 }
 
-pub fn (r &MovieWriter) uhandles_file(path String) bool {
+pub fn (r &MovieWriter) uhandles_file(path string) bool {
     mut object_out := false
     classname := StringName.new("MovieWriter")
     fnname := StringName.new("_handles_file")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -57,7 +59,7 @@ pub interface IMovieWriterWriteBegin {
     virt_write_begin(movie_size Vector2i, fps u32, base_path String) GDError
 }
 
-pub fn (mut r MovieWriter) uwrite_begin(movie_size Vector2i, fps u32, base_path String) GDError {
+pub fn (mut r MovieWriter) uwrite_begin(movie_size Vector2i, fps u32, base_path string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("MovieWriter")
     fnname := StringName.new("_write_begin")
@@ -65,8 +67,10 @@ pub fn (mut r MovieWriter) uwrite_begin(movie_size Vector2i, fps u32, base_path 
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&movie_size)}
     args[1] = unsafe{voidptr(&fps)}
-    args[2] = unsafe{voidptr(&base_path)}
+    arg_sn2 := String.new(base_path)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}

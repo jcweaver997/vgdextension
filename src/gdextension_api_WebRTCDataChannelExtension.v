@@ -165,7 +165,7 @@ pub interface IWebRTCDataChannelExtensionGetLabel {
     virt_get_label() String
 }
 
-pub fn (r &WebRTCDataChannelExtension) uget_label() String {
+pub fn (r &WebRTCDataChannelExtension) uget_label() string {
     mut object_out := String{}
     classname := StringName.new("WebRTCDataChannelExtension")
     fnname := StringName.new("_get_label")
@@ -173,7 +173,9 @@ pub fn (r &WebRTCDataChannelExtension) uget_label() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface IWebRTCDataChannelExtensionIsOrdered {
     mut:
@@ -240,7 +242,7 @@ pub interface IWebRTCDataChannelExtensionGetProtocol {
     virt_get_protocol() String
 }
 
-pub fn (r &WebRTCDataChannelExtension) uget_protocol() String {
+pub fn (r &WebRTCDataChannelExtension) uget_protocol() string {
     mut object_out := String{}
     classname := StringName.new("WebRTCDataChannelExtension")
     fnname := StringName.new("_get_protocol")
@@ -248,7 +250,9 @@ pub fn (r &WebRTCDataChannelExtension) uget_protocol() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface IWebRTCDataChannelExtensionIsNegotiated {
     mut:

@@ -11,17 +11,19 @@ pub struct SkeletonProfile {
     Resource
 }
 
-pub fn (mut r SkeletonProfile) set_root_bone(bone_name StringName) {
+pub fn (mut r SkeletonProfile) set_root_bone(bone_name string) {
     classname := StringName.new("SkeletonProfile")
     fnname := StringName.new("set_root_bone")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&bone_name)}
+    arg_sn0 := StringName.new(bone_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SkeletonProfile) get_root_bone() StringName {
+pub fn (mut r SkeletonProfile) get_root_bone() string {
     mut object_out := StringName{}
     classname := StringName.new("SkeletonProfile")
     fnname := StringName.new("get_root_bone")
@@ -29,19 +31,23 @@ pub fn (mut r SkeletonProfile) get_root_bone() StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r SkeletonProfile) set_scale_base_bone(bone_name StringName) {
+pub fn (mut r SkeletonProfile) set_scale_base_bone(bone_name string) {
     classname := StringName.new("SkeletonProfile")
     fnname := StringName.new("set_scale_base_bone")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&bone_name)}
+    arg_sn0 := StringName.new(bone_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SkeletonProfile) get_scale_base_bone() StringName {
+pub fn (mut r SkeletonProfile) get_scale_base_bone() string {
     mut object_out := StringName{}
     classname := StringName.new("SkeletonProfile")
     fnname := StringName.new("get_scale_base_bone")
@@ -49,7 +55,9 @@ pub fn (mut r SkeletonProfile) get_scale_base_bone() StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r SkeletonProfile) set_group_size(size i32) {
     classname := StringName.new("SkeletonProfile")
@@ -71,7 +79,7 @@ pub fn (mut r SkeletonProfile) get_group_size() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (r &SkeletonProfile) get_group_name(group_idx i32) StringName {
+pub fn (r &SkeletonProfile) get_group_name(group_idx i32) string {
     mut object_out := StringName{}
     classname := StringName.new("SkeletonProfile")
     fnname := StringName.new("get_group_name")
@@ -81,16 +89,20 @@ pub fn (r &SkeletonProfile) get_group_name(group_idx i32) StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r SkeletonProfile) set_group_name(group_idx i32, group_name StringName) {
+pub fn (mut r SkeletonProfile) set_group_name(group_idx i32, group_name string) {
     classname := StringName.new("SkeletonProfile")
     fnname := StringName.new("set_group_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3780747571)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&group_idx)}
-    args[1] = unsafe{voidptr(&group_name)}
+    arg_sn1 := StringName.new(group_name)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -137,19 +149,21 @@ pub fn (mut r SkeletonProfile) get_bone_size() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (r &SkeletonProfile) find_bone(bone_name StringName) i32 {
+pub fn (r &SkeletonProfile) find_bone(bone_name string) i32 {
     mut object_out := i32(0)
     classname := StringName.new("SkeletonProfile")
     fnname := StringName.new("find_bone")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2458036349)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&bone_name)}
+    arg_sn0 := StringName.new(bone_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &SkeletonProfile) get_bone_name(bone_idx i32) StringName {
+pub fn (r &SkeletonProfile) get_bone_name(bone_idx i32) string {
     mut object_out := StringName{}
     classname := StringName.new("SkeletonProfile")
     fnname := StringName.new("get_bone_name")
@@ -159,20 +173,24 @@ pub fn (r &SkeletonProfile) get_bone_name(bone_idx i32) StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r SkeletonProfile) set_bone_name(bone_idx i32, bone_name StringName) {
+pub fn (mut r SkeletonProfile) set_bone_name(bone_idx i32, bone_name string) {
     classname := StringName.new("SkeletonProfile")
     fnname := StringName.new("set_bone_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3780747571)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&bone_idx)}
-    args[1] = unsafe{voidptr(&bone_name)}
+    arg_sn1 := StringName.new(bone_name)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &SkeletonProfile) get_bone_parent(bone_idx i32) StringName {
+pub fn (r &SkeletonProfile) get_bone_parent(bone_idx i32) string {
     mut object_out := StringName{}
     classname := StringName.new("SkeletonProfile")
     fnname := StringName.new("get_bone_parent")
@@ -182,16 +200,20 @@ pub fn (r &SkeletonProfile) get_bone_parent(bone_idx i32) StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r SkeletonProfile) set_bone_parent(bone_idx i32, bone_parent StringName) {
+pub fn (mut r SkeletonProfile) set_bone_parent(bone_idx i32, bone_parent string) {
     classname := StringName.new("SkeletonProfile")
     fnname := StringName.new("set_bone_parent")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3780747571)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&bone_idx)}
-    args[1] = unsafe{voidptr(&bone_parent)}
+    arg_sn1 := StringName.new(bone_parent)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -219,7 +241,7 @@ pub fn (mut r SkeletonProfile) set_tail_direction(bone_idx i32, tail_direction S
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &SkeletonProfile) get_bone_tail(bone_idx i32) StringName {
+pub fn (r &SkeletonProfile) get_bone_tail(bone_idx i32) string {
     mut object_out := StringName{}
     classname := StringName.new("SkeletonProfile")
     fnname := StringName.new("get_bone_tail")
@@ -229,16 +251,20 @@ pub fn (r &SkeletonProfile) get_bone_tail(bone_idx i32) StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r SkeletonProfile) set_bone_tail(bone_idx i32, bone_tail StringName) {
+pub fn (mut r SkeletonProfile) set_bone_tail(bone_idx i32, bone_tail string) {
     classname := StringName.new("SkeletonProfile")
     fnname := StringName.new("set_bone_tail")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3780747571)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&bone_idx)}
-    args[1] = unsafe{voidptr(&bone_tail)}
+    arg_sn1 := StringName.new(bone_tail)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -288,7 +314,7 @@ pub fn (mut r SkeletonProfile) set_handle_offset(bone_idx i32, handle_offset Vec
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &SkeletonProfile) get_group(bone_idx i32) StringName {
+pub fn (r &SkeletonProfile) get_group(bone_idx i32) string {
     mut object_out := StringName{}
     classname := StringName.new("SkeletonProfile")
     fnname := StringName.new("get_group")
@@ -298,16 +324,20 @@ pub fn (r &SkeletonProfile) get_group(bone_idx i32) StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r SkeletonProfile) set_group(bone_idx i32, group StringName) {
+pub fn (mut r SkeletonProfile) set_group(bone_idx i32, group string) {
     classname := StringName.new("SkeletonProfile")
     fnname := StringName.new("set_group")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3780747571)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&bone_idx)}
-    args[1] = unsafe{voidptr(&group)}
+    arg_sn1 := StringName.new(group)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }

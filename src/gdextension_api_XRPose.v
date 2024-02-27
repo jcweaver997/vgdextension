@@ -31,17 +31,19 @@ pub fn (r &XRPose) get_has_tracking_data() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r XRPose) set_name(name StringName) {
+pub fn (mut r XRPose) set_name(name string) {
     classname := StringName.new("XRPose")
     fnname := StringName.new("set_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &XRPose) get_name() StringName {
+pub fn (r &XRPose) get_name() string {
     mut object_out := StringName{}
     classname := StringName.new("XRPose")
     fnname := StringName.new("get_name")
@@ -49,7 +51,9 @@ pub fn (r &XRPose) get_name() StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r XRPose) set_transform(transform Transform3D) {
     classname := StringName.new("XRPose")

@@ -13,7 +13,7 @@ pub struct Object {
     ptr voidptr = unsafe{nil}
 }
 
-pub fn (r &Object) get_class() String {
+pub fn (r &Object) get_class() string {
     mut object_out := String{}
     classname := StringName.new("Object")
     fnname := StringName.new("get_class")
@@ -21,39 +21,47 @@ pub fn (r &Object) get_class() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &Object) is_class(class String) bool {
+pub fn (r &Object) is_class(class string) bool {
     mut object_out := false
     classname := StringName.new("Object")
     fnname := StringName.new("is_class")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3927539163)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&class)}
+    arg_sn0 := String.new(class)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Object) set(property StringName, value Variant) {
+pub fn (mut r Object) set(property string, value Variant) {
     classname := StringName.new("Object")
     fnname := StringName.new("set")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3776071444)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&property)}
+    arg_sn0 := StringName.new(property)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&value)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &Object) get(property StringName) Variant {
+pub fn (r &Object) get(property string) Variant {
     mut object_out := Variant{}
     classname := StringName.new("Object")
     fnname := StringName.new("get")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2760726917)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&property)}
+    arg_sn0 := StringName.new(property)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -101,26 +109,30 @@ pub fn (r &Object) get_method_list() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (r &Object) property_can_revert(property StringName) bool {
+pub fn (r &Object) property_can_revert(property string) bool {
     mut object_out := false
     classname := StringName.new("Object")
     fnname := StringName.new("property_can_revert")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2619796661)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&property)}
+    arg_sn0 := StringName.new(property)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &Object) property_get_revert(property StringName) Variant {
+pub fn (r &Object) property_get_revert(property string) Variant {
     mut object_out := Variant{}
     classname := StringName.new("Object")
     fnname := StringName.new("property_get_revert")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2760726917)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&property)}
+    arg_sn0 := StringName.new(property)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -136,7 +148,7 @@ pub fn (mut r Object) notification(what i32, reversed bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Object) to_string() String {
+pub fn (mut r Object) to_string() string {
     mut object_out := String{}
     classname := StringName.new("Object")
     fnname := StringName.new("to_string")
@@ -144,7 +156,9 @@ pub fn (mut r Object) to_string() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &Object) get_instance_id() u64 {
     mut object_out := u64(0)
@@ -176,48 +190,56 @@ pub fn (r &Object) get_script() Variant {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Object) set_meta(name StringName, value Variant) {
+pub fn (mut r Object) set_meta(name string, value Variant) {
     classname := StringName.new("Object")
     fnname := StringName.new("set_meta")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3776071444)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&value)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Object) remove_meta(name StringName) {
+pub fn (mut r Object) remove_meta(name string) {
     classname := StringName.new("Object")
     fnname := StringName.new("remove_meta")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &Object) get_meta(name StringName, default Variant) Variant {
+pub fn (r &Object) get_meta(name string, default Variant) Variant {
     mut object_out := Variant{}
     classname := StringName.new("Object")
     fnname := StringName.new("get_meta")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3990617847)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&default)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &Object) has_meta(name StringName) bool {
+pub fn (r &Object) has_meta(name string) bool {
     mut object_out := false
     classname := StringName.new("Object")
     fnname := StringName.new("has_meta")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2619796661)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -232,73 +254,85 @@ pub fn (r &Object) get_meta_list() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Object) add_user_signal(signal String, arguments Array) {
+pub fn (mut r Object) add_user_signal(signal string, arguments Array) {
     classname := StringName.new("Object")
     fnname := StringName.new("add_user_signal")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 85656714)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&signal)}
+    arg_sn0 := String.new(signal)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&arguments)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &Object) has_user_signal(signal StringName) bool {
+pub fn (r &Object) has_user_signal(signal string) bool {
     mut object_out := false
     classname := StringName.new("Object")
     fnname := StringName.new("has_user_signal")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2619796661)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&signal)}
+    arg_sn0 := StringName.new(signal)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Object) set_deferred(property StringName, value Variant) {
+pub fn (mut r Object) set_deferred(property string, value Variant) {
     classname := StringName.new("Object")
     fnname := StringName.new("set_deferred")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3776071444)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&property)}
+    arg_sn0 := StringName.new(property)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&value)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Object) callv(method StringName, arg_array Array) Variant {
+pub fn (mut r Object) callv(method string, arg_array Array) Variant {
     mut object_out := Variant{}
     classname := StringName.new("Object")
     fnname := StringName.new("callv")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1260104456)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&method)}
+    arg_sn0 := StringName.new(method)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&arg_array)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &Object) has_method(method StringName) bool {
+pub fn (r &Object) has_method(method string) bool {
     mut object_out := false
     classname := StringName.new("Object")
     fnname := StringName.new("has_method")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2619796661)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&method)}
+    arg_sn0 := StringName.new(method)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &Object) has_signal(signal StringName) bool {
+pub fn (r &Object) has_signal(signal string) bool {
     mut object_out := false
     classname := StringName.new("Object")
     fnname := StringName.new("has_signal")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2619796661)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&signal)}
+    arg_sn0 := StringName.new(signal)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -313,14 +347,16 @@ pub fn (r &Object) get_signal_list() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (r &Object) get_signal_connection_list(signal StringName) Array {
+pub fn (r &Object) get_signal_connection_list(signal string) Array {
     mut object_out := Array{}
     classname := StringName.new("Object")
     fnname := StringName.new("get_signal_connection_list")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3147814860)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&signal)}
+    arg_sn0 := StringName.new(signal)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -335,40 +371,46 @@ pub fn (r &Object) get_incoming_connections() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Object) connect(signal StringName, callable Callable, flags u32) GDError {
+pub fn (mut r Object) connect(signal string, callable Callable, flags u32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("Object")
     fnname := StringName.new("connect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1518946055)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&signal)}
+    arg_sn0 := StringName.new(signal)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&callable)}
     args[2] = unsafe{voidptr(&flags)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r Object) disconnect(signal StringName, callable Callable) {
+pub fn (mut r Object) disconnect(signal string, callable Callable) {
     classname := StringName.new("Object")
     fnname := StringName.new("disconnect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1874754934)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&signal)}
+    arg_sn0 := StringName.new(signal)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&callable)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &Object) is_connected(signal StringName, callable Callable) bool {
+pub fn (r &Object) is_connected(signal string, callable Callable) bool {
     mut object_out := false
     classname := StringName.new("Object")
     fnname := StringName.new("is_connected")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 768136979)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&signal)}
+    arg_sn0 := StringName.new(signal)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&callable)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -421,33 +463,47 @@ pub fn (r &Object) can_translate_messages() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (r &Object) tr(message StringName, context StringName) String {
+pub fn (r &Object) tr(message string, context string) string {
     mut object_out := String{}
     classname := StringName.new("Object")
     fnname := StringName.new("tr")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1195764410)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&message)}
-    args[1] = unsafe{voidptr(&context)}
+    arg_sn0 := StringName.new(message)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := StringName.new(context)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &Object) tr_n(message StringName, plural_message StringName, n i32, context StringName) String {
+pub fn (r &Object) tr_n(message string, plural_message string, n i32, context string) string {
     mut object_out := String{}
     classname := StringName.new("Object")
     fnname := StringName.new("tr_n")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 162698058)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = unsafe{voidptr(&message)}
-    args[1] = unsafe{voidptr(&plural_message)}
+    arg_sn0 := StringName.new(message)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := StringName.new(plural_message)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&n)}
-    args[3] = unsafe{voidptr(&context)}
+    arg_sn3 := StringName.new(context)
+    args[3] = unsafe{voidptr(&arg_sn3)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
+    arg_sn3.deinit()
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &Object) is_queued_for_deletion() bool {
     mut object_out := false

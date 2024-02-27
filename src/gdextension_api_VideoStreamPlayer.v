@@ -151,7 +151,7 @@ pub fn (r &VideoStreamPlayer) get_audio_track() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (r &VideoStreamPlayer) get_stream_name() String {
+pub fn (r &VideoStreamPlayer) get_stream_name() string {
     mut object_out := String{}
     classname := StringName.new("VideoStreamPlayer")
     fnname := StringName.new("get_stream_name")
@@ -159,7 +159,9 @@ pub fn (r &VideoStreamPlayer) get_stream_name() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &VideoStreamPlayer) get_stream_length() f64 {
     mut object_out := f64(0)
@@ -251,17 +253,19 @@ pub fn (r &VideoStreamPlayer) get_buffering_msec() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VideoStreamPlayer) set_bus(bus StringName) {
+pub fn (mut r VideoStreamPlayer) set_bus(bus string) {
     classname := StringName.new("VideoStreamPlayer")
     fnname := StringName.new("set_bus")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&bus)}
+    arg_sn0 := StringName.new(bus)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &VideoStreamPlayer) get_bus() StringName {
+pub fn (r &VideoStreamPlayer) get_bus() string {
     mut object_out := StringName{}
     classname := StringName.new("VideoStreamPlayer")
     fnname := StringName.new("get_bus")
@@ -269,7 +273,9 @@ pub fn (r &VideoStreamPlayer) get_bus() StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &VideoStreamPlayer) get_video_texture() Texture2D {
     mut object_out := Texture2D{}

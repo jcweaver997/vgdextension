@@ -34,17 +34,19 @@ pub fn (r &TextParagraph) get_direction() TextServerDirection {
     fnname.deinit()
    return unsafe{TextServerDirection(object_out)}
 }
-pub fn (mut r TextParagraph) set_custom_punctuation(custom_punctuation String) {
+pub fn (mut r TextParagraph) set_custom_punctuation(custom_punctuation string) {
     classname := StringName.new("TextParagraph")
     fnname := StringName.new("set_custom_punctuation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&custom_punctuation)}
+    arg_sn0 := String.new(custom_punctuation)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &TextParagraph) get_custom_punctuation() String {
+pub fn (r &TextParagraph) get_custom_punctuation() string {
     mut object_out := String{}
     classname := StringName.new("TextParagraph")
     fnname := StringName.new("get_custom_punctuation")
@@ -52,7 +54,9 @@ pub fn (r &TextParagraph) get_custom_punctuation() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r TextParagraph) set_orientation(orientation TextServerOrientation) {
     classname := StringName.new("TextParagraph")
@@ -125,18 +129,22 @@ pub fn (mut r TextParagraph) set_bidi_override(override Array) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextParagraph) set_dropcap(text String, font Font, font_size i32, dropcap_margins Rect2, language String) bool {
+pub fn (mut r TextParagraph) set_dropcap(text string, font Font, font_size i32, dropcap_margins Rect2, language string) bool {
     mut object_out := false
     classname := StringName.new("TextParagraph")
     fnname := StringName.new("set_dropcap")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2498990330)
     mut args := unsafe { [5]voidptr{} }
-    args[0] = unsafe{voidptr(&text)}
+    arg_sn0 := String.new(text)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = font.ptr
     args[2] = unsafe{voidptr(&font_size)}
     args[3] = unsafe{voidptr(&dropcap_margins)}
-    args[4] = unsafe{voidptr(&language)}
+    arg_sn4 := String.new(language)
+    args[4] = unsafe{voidptr(&arg_sn4)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn4.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -149,18 +157,22 @@ pub fn (mut r TextParagraph) clear_dropcap() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextParagraph) add_string(text String, font Font, font_size i32, language String, meta Variant) bool {
+pub fn (mut r TextParagraph) add_string(text string, font Font, font_size i32, language string, meta Variant) bool {
     mut object_out := false
     classname := StringName.new("TextParagraph")
     fnname := StringName.new("add_string")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 621426851)
     mut args := unsafe { [5]voidptr{} }
-    args[0] = unsafe{voidptr(&text)}
+    arg_sn0 := String.new(text)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = font.ptr
     args[2] = unsafe{voidptr(&font_size)}
-    args[3] = unsafe{voidptr(&language)}
+    arg_sn3 := String.new(language)
+    args[3] = unsafe{voidptr(&arg_sn3)}
     args[4] = unsafe{voidptr(&meta)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn3.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out

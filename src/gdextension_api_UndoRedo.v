@@ -11,16 +11,18 @@ pub struct UndoRedo {
     Object
 }
 
-pub fn (mut r UndoRedo) create_action(name String, merge_mode UndoRedoMergeMode, backward_undo_ops bool) {
+pub fn (mut r UndoRedo) create_action(name string, merge_mode UndoRedoMergeMode, backward_undo_ops bool) {
     classname := StringName.new("UndoRedo")
     fnname := StringName.new("create_action")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3171901514)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     i64_merge_mode := i64(merge_mode)
     args[1] = unsafe{voidptr(&i64_merge_mode)}
     args[2] = unsafe{voidptr(&backward_undo_ops)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -64,27 +66,31 @@ pub fn (mut r UndoRedo) add_undo_method(callable Callable) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r UndoRedo) add_do_property(object Object, property StringName, value Variant) {
+pub fn (mut r UndoRedo) add_do_property(object Object, property string, value Variant) {
     classname := StringName.new("UndoRedo")
     fnname := StringName.new("add_do_property")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1017172818)
     mut args := unsafe { [3]voidptr{} }
     args[0] = object.ptr
-    args[1] = unsafe{voidptr(&property)}
+    arg_sn1 := StringName.new(property)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&value)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r UndoRedo) add_undo_property(object Object, property StringName, value Variant) {
+pub fn (mut r UndoRedo) add_undo_property(object Object, property string, value Variant) {
     classname := StringName.new("UndoRedo")
     fnname := StringName.new("add_undo_property")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1017172818)
     mut args := unsafe { [3]voidptr{} }
     args[0] = object.ptr
-    args[1] = unsafe{voidptr(&property)}
+    arg_sn1 := StringName.new(property)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&value)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -144,7 +150,7 @@ pub fn (mut r UndoRedo) get_current_action() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r UndoRedo) get_action_name(id i32) String {
+pub fn (mut r UndoRedo) get_action_name(id i32) string {
     mut object_out := String{}
     classname := StringName.new("UndoRedo")
     fnname := StringName.new("get_action_name")
@@ -154,7 +160,9 @@ pub fn (mut r UndoRedo) get_action_name(id i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r UndoRedo) clear_history(increase_version bool) {
     classname := StringName.new("UndoRedo")
@@ -166,7 +174,7 @@ pub fn (mut r UndoRedo) clear_history(increase_version bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &UndoRedo) get_current_action_name() String {
+pub fn (r &UndoRedo) get_current_action_name() string {
     mut object_out := String{}
     classname := StringName.new("UndoRedo")
     fnname := StringName.new("get_current_action_name")
@@ -174,7 +182,9 @@ pub fn (r &UndoRedo) get_current_action_name() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &UndoRedo) has_undo() bool {
     mut object_out := false

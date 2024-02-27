@@ -25,17 +25,19 @@ pub fn (r &AnimatedSprite3D) get_sprite_frames() SpriteFrames {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimatedSprite3D) set_animation(name StringName) {
+pub fn (mut r AnimatedSprite3D) set_animation(name string) {
     classname := StringName.new("AnimatedSprite3D")
     fnname := StringName.new("set_animation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &AnimatedSprite3D) get_animation() StringName {
+pub fn (r &AnimatedSprite3D) get_animation() string {
     mut object_out := StringName{}
     classname := StringName.new("AnimatedSprite3D")
     fnname := StringName.new("get_animation")
@@ -43,19 +45,23 @@ pub fn (r &AnimatedSprite3D) get_animation() StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r AnimatedSprite3D) set_autoplay(name String) {
+pub fn (mut r AnimatedSprite3D) set_autoplay(name string) {
     classname := StringName.new("AnimatedSprite3D")
     fnname := StringName.new("set_autoplay")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &AnimatedSprite3D) get_autoplay() String {
+pub fn (r &AnimatedSprite3D) get_autoplay() string {
     mut object_out := String{}
     classname := StringName.new("AnimatedSprite3D")
     fnname := StringName.new("get_autoplay")
@@ -63,7 +69,9 @@ pub fn (r &AnimatedSprite3D) get_autoplay() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &AnimatedSprite3D) is_playing() bool {
     mut object_out := false
@@ -75,25 +83,29 @@ pub fn (r &AnimatedSprite3D) is_playing() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimatedSprite3D) play(name StringName, custom_speed f64, from_end bool) {
+pub fn (mut r AnimatedSprite3D) play(name string, custom_speed f64, from_end bool) {
     classname := StringName.new("AnimatedSprite3D")
     fnname := StringName.new("play")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2372066587)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&custom_speed)}
     args[2] = unsafe{voidptr(&from_end)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AnimatedSprite3D) play_backwards(name StringName) {
+pub fn (mut r AnimatedSprite3D) play_backwards(name string) {
     classname := StringName.new("AnimatedSprite3D")
     fnname := StringName.new("play_backwards")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1421762485)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }

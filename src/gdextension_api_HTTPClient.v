@@ -95,16 +95,18 @@ pub struct HTTPClient {
     RefCounted
 }
 
-pub fn (mut r HTTPClient) connect_to_host(host String, port i32, tls_options TLSOptions) GDError {
+pub fn (mut r HTTPClient) connect_to_host(host string, port i32, tls_options TLSOptions) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("HTTPClient")
     fnname := StringName.new("connect_to_host")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 504540374)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&host)}
+    arg_sn0 := String.new(host)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&port)}
     args[2] = tls_options.ptr
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
@@ -129,7 +131,7 @@ pub fn (r &HTTPClient) get_connection() StreamPeer {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r HTTPClient) request_raw(method HTTPClientMethod, url String, headers PackedStringArray, body PackedByteArray) GDError {
+pub fn (mut r HTTPClient) request_raw(method HTTPClientMethod, url string, headers PackedStringArray, body PackedByteArray) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("HTTPClient")
     fnname := StringName.new("request_raw")
@@ -137,15 +139,17 @@ pub fn (mut r HTTPClient) request_raw(method HTTPClientMethod, url String, heade
     mut args := unsafe { [4]voidptr{} }
     i64_method := i64(method)
     args[0] = unsafe{voidptr(&i64_method)}
-    args[1] = unsafe{voidptr(&url)}
+    arg_sn1 := String.new(url)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&headers)}
     args[3] = unsafe{voidptr(&body)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r HTTPClient) request(method HTTPClientMethod, url String, headers PackedStringArray, body String) GDError {
+pub fn (mut r HTTPClient) request(method HTTPClientMethod, url string, headers PackedStringArray, body string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("HTTPClient")
     fnname := StringName.new("request")
@@ -153,10 +157,14 @@ pub fn (mut r HTTPClient) request(method HTTPClientMethod, url String, headers P
     mut args := unsafe { [4]voidptr{} }
     i64_method := i64(method)
     args[0] = unsafe{voidptr(&i64_method)}
-    args[1] = unsafe{voidptr(&url)}
+    arg_sn1 := String.new(url)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&headers)}
-    args[3] = unsafe{voidptr(&body)}
+    arg_sn3 := String.new(body)
+    args[3] = unsafe{voidptr(&arg_sn3)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn1.deinit()
+    arg_sn3.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
@@ -299,29 +307,33 @@ pub fn (mut r HTTPClient) poll() GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r HTTPClient) set_http_proxy(host String, port i32) {
+pub fn (mut r HTTPClient) set_http_proxy(host string, port i32) {
     classname := StringName.new("HTTPClient")
     fnname := StringName.new("set_http_proxy")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2956805083)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&host)}
+    arg_sn0 := String.new(host)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&port)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r HTTPClient) set_https_proxy(host String, port i32) {
+pub fn (mut r HTTPClient) set_https_proxy(host string, port i32) {
     classname := StringName.new("HTTPClient")
     fnname := StringName.new("set_https_proxy")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2956805083)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&host)}
+    arg_sn0 := String.new(host)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&port)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r HTTPClient) query_string_from_dict(fields Dictionary) String {
+pub fn (mut r HTTPClient) query_string_from_dict(fields Dictionary) string {
     mut object_out := String{}
     classname := StringName.new("HTTPClient")
     fnname := StringName.new("query_string_from_dict")
@@ -331,5 +343,7 @@ pub fn (mut r HTTPClient) query_string_from_dict(fields Dictionary) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }

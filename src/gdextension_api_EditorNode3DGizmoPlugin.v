@@ -44,7 +44,7 @@ pub interface IEditorNode3DGizmoPluginGetGizmoName {
     virt_get_gizmo_name() String
 }
 
-pub fn (r &EditorNode3DGizmoPlugin) uget_gizmo_name() String {
+pub fn (r &EditorNode3DGizmoPlugin) uget_gizmo_name() string {
     mut object_out := String{}
     classname := StringName.new("EditorNode3DGizmoPlugin")
     fnname := StringName.new("_get_gizmo_name")
@@ -52,7 +52,9 @@ pub fn (r &EditorNode3DGizmoPlugin) uget_gizmo_name() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface IEditorNode3DGizmoPluginGetPriority {
     mut:
@@ -119,7 +121,7 @@ pub interface IEditorNode3DGizmoPluginGetHandleName {
     virt_get_handle_name(gizmo EditorNode3DGizmo, handle_id i32, secondary bool) String
 }
 
-pub fn (r &EditorNode3DGizmoPlugin) uget_handle_name(gizmo EditorNode3DGizmo, handle_id i32, secondary bool) String {
+pub fn (r &EditorNode3DGizmoPlugin) uget_handle_name(gizmo EditorNode3DGizmo, handle_id i32, secondary bool) string {
     mut object_out := String{}
     classname := StringName.new("EditorNode3DGizmoPlugin")
     fnname := StringName.new("_get_handle_name")
@@ -131,7 +133,9 @@ pub fn (r &EditorNode3DGizmoPlugin) uget_handle_name(gizmo EditorNode3DGizmo, ha
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface IEditorNode3DGizmoPluginIsHandleHighlighted {
     mut:
@@ -300,65 +304,75 @@ pub fn (mut r EditorNode3DGizmoPlugin) ucommit_subgizmos(gizmo EditorNode3DGizmo
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorNode3DGizmoPlugin) create_material(name String, color Color, billboard bool, on_top bool, use_vertex_color bool) {
+pub fn (mut r EditorNode3DGizmoPlugin) create_material(name string, color Color, billboard bool, on_top bool, use_vertex_color bool) {
     classname := StringName.new("EditorNode3DGizmoPlugin")
     fnname := StringName.new("create_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3486012546)
     mut args := unsafe { [5]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&color)}
     args[2] = unsafe{voidptr(&billboard)}
     args[3] = unsafe{voidptr(&on_top)}
     args[4] = unsafe{voidptr(&use_vertex_color)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorNode3DGizmoPlugin) create_icon_material(name String, texture Texture2D, on_top bool, color Color) {
+pub fn (mut r EditorNode3DGizmoPlugin) create_icon_material(name string, texture Texture2D, on_top bool, color Color) {
     classname := StringName.new("EditorNode3DGizmoPlugin")
     fnname := StringName.new("create_icon_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3804976916)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = texture.ptr
     args[2] = unsafe{voidptr(&on_top)}
     args[3] = unsafe{voidptr(&color)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorNode3DGizmoPlugin) create_handle_material(name String, billboard bool, texture Texture2D) {
+pub fn (mut r EditorNode3DGizmoPlugin) create_handle_material(name string, billboard bool, texture Texture2D) {
     classname := StringName.new("EditorNode3DGizmoPlugin")
     fnname := StringName.new("create_handle_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2486475223)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&billboard)}
     args[2] = texture.ptr
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorNode3DGizmoPlugin) add_material(name String, material StandardMaterial3D) {
+pub fn (mut r EditorNode3DGizmoPlugin) add_material(name string, material StandardMaterial3D) {
     classname := StringName.new("EditorNode3DGizmoPlugin")
     fnname := StringName.new("add_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1374068695)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = material.ptr
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorNode3DGizmoPlugin) get_material(name String, gizmo EditorNode3DGizmo) StandardMaterial3D {
+pub fn (mut r EditorNode3DGizmoPlugin) get_material(name string, gizmo EditorNode3DGizmo) StandardMaterial3D {
     mut object_out := StandardMaterial3D{}
     classname := StringName.new("EditorNode3DGizmoPlugin")
     fnname := StringName.new("get_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 974464017)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = gizmo.ptr
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out

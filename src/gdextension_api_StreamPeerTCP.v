@@ -12,28 +12,32 @@ pub struct StreamPeerTCP {
     StreamPeer
 }
 
-pub fn (mut r StreamPeerTCP) bind(port i32, host String) GDError {
+pub fn (mut r StreamPeerTCP) bind(port i32, host string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("StreamPeerTCP")
     fnname := StringName.new("bind")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3167955072)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&port)}
-    args[1] = unsafe{voidptr(&host)}
+    arg_sn1 := String.new(host)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r StreamPeerTCP) connect_to_host(host String, port i32) GDError {
+pub fn (mut r StreamPeerTCP) connect_to_host(host string, port i32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("StreamPeerTCP")
     fnname := StringName.new("connect_to_host")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 993915709)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&host)}
+    arg_sn0 := String.new(host)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&port)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
@@ -58,7 +62,7 @@ pub fn (r &StreamPeerTCP) get_status() StreamPeerTCPStatus {
     fnname.deinit()
    return unsafe{StreamPeerTCPStatus(object_out)}
 }
-pub fn (r &StreamPeerTCP) get_connected_host() String {
+pub fn (r &StreamPeerTCP) get_connected_host() string {
     mut object_out := String{}
     classname := StringName.new("StreamPeerTCP")
     fnname := StringName.new("get_connected_host")
@@ -66,7 +70,9 @@ pub fn (r &StreamPeerTCP) get_connected_host() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &StreamPeerTCP) get_connected_port() i32 {
     mut object_out := i32(0)

@@ -130,17 +130,19 @@ pub fn (r &TouchScreenButton) is_shape_visible() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TouchScreenButton) set_action(action String) {
+pub fn (mut r TouchScreenButton) set_action(action string) {
     classname := StringName.new("TouchScreenButton")
     fnname := StringName.new("set_action")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&action)}
+    arg_sn0 := String.new(action)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &TouchScreenButton) get_action() String {
+pub fn (r &TouchScreenButton) get_action() string {
     mut object_out := String{}
     classname := StringName.new("TouchScreenButton")
     fnname := StringName.new("get_action")
@@ -148,7 +150,9 @@ pub fn (r &TouchScreenButton) get_action() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r TouchScreenButton) set_visibility_mode(mode TouchScreenButtonVisibilityMode) {
     classname := StringName.new("TouchScreenButton")

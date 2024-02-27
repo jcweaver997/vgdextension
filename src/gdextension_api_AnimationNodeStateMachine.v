@@ -11,75 +11,89 @@ pub struct AnimationNodeStateMachine {
     AnimationRootNode
 }
 
-pub fn (mut r AnimationNodeStateMachine) add_node(name StringName, node AnimationNode, position Vector2) {
+pub fn (mut r AnimationNodeStateMachine) add_node(name string, node AnimationNode, position Vector2) {
     classname := StringName.new("AnimationNodeStateMachine")
     fnname := StringName.new("add_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1980270704)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = node.ptr
     args[2] = unsafe{voidptr(&position)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AnimationNodeStateMachine) replace_node(name StringName, node AnimationNode) {
+pub fn (mut r AnimationNodeStateMachine) replace_node(name string, node AnimationNode) {
     classname := StringName.new("AnimationNodeStateMachine")
     fnname := StringName.new("replace_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2559412862)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = node.ptr
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &AnimationNodeStateMachine) get_node(name StringName) AnimationNode {
+pub fn (r &AnimationNodeStateMachine) get_node(name string) AnimationNode {
     mut object_out := AnimationNode{}
     classname := StringName.new("AnimationNodeStateMachine")
     fnname := StringName.new("get_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 625644256)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNodeStateMachine) remove_node(name StringName) {
+pub fn (mut r AnimationNodeStateMachine) remove_node(name string) {
     classname := StringName.new("AnimationNodeStateMachine")
     fnname := StringName.new("remove_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AnimationNodeStateMachine) rename_node(name StringName, new_name StringName) {
+pub fn (mut r AnimationNodeStateMachine) rename_node(name string, new_name string) {
     classname := StringName.new("AnimationNodeStateMachine")
     fnname := StringName.new("rename_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3740211285)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
-    args[1] = unsafe{voidptr(&new_name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := StringName.new(new_name)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &AnimationNodeStateMachine) has_node(name StringName) bool {
+pub fn (r &AnimationNodeStateMachine) has_node(name string) bool {
     mut object_out := false
     classname := StringName.new("AnimationNodeStateMachine")
     fnname := StringName.new("has_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2619796661)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &AnimationNodeStateMachine) get_node_name(node AnimationNode) StringName {
+pub fn (r &AnimationNodeStateMachine) get_node_name(node AnimationNode) string {
     mut object_out := StringName{}
     classname := StringName.new("AnimationNodeStateMachine")
     fnname := StringName.new("get_node_name")
@@ -89,53 +103,67 @@ pub fn (r &AnimationNodeStateMachine) get_node_name(node AnimationNode) StringNa
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r AnimationNodeStateMachine) set_node_position(name StringName, position Vector2) {
+pub fn (mut r AnimationNodeStateMachine) set_node_position(name string, position Vector2) {
     classname := StringName.new("AnimationNodeStateMachine")
     fnname := StringName.new("set_node_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1999414630)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&position)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &AnimationNodeStateMachine) get_node_position(name StringName) Vector2 {
+pub fn (r &AnimationNodeStateMachine) get_node_position(name string) Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("AnimationNodeStateMachine")
     fnname := StringName.new("get_node_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3100822709)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &AnimationNodeStateMachine) has_transition(from StringName, to StringName) bool {
+pub fn (r &AnimationNodeStateMachine) has_transition(from string, to string) bool {
     mut object_out := false
     classname := StringName.new("AnimationNodeStateMachine")
     fnname := StringName.new("has_transition")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 471820014)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&from)}
-    args[1] = unsafe{voidptr(&to)}
+    arg_sn0 := StringName.new(from)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := StringName.new(to)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNodeStateMachine) add_transition(from StringName, to StringName, transition AnimationNodeStateMachineTransition) {
+pub fn (mut r AnimationNodeStateMachine) add_transition(from string, to string, transition AnimationNodeStateMachineTransition) {
     classname := StringName.new("AnimationNodeStateMachine")
     fnname := StringName.new("add_transition")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 795486887)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&from)}
-    args[1] = unsafe{voidptr(&to)}
+    arg_sn0 := StringName.new(from)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := StringName.new(to)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = transition.ptr
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -151,7 +179,7 @@ pub fn (r &AnimationNodeStateMachine) get_transition(idx i32) AnimationNodeState
     fnname.deinit()
    return object_out
 }
-pub fn (r &AnimationNodeStateMachine) get_transition_from(idx i32) StringName {
+pub fn (r &AnimationNodeStateMachine) get_transition_from(idx i32) string {
     mut object_out := StringName{}
     classname := StringName.new("AnimationNodeStateMachine")
     fnname := StringName.new("get_transition_from")
@@ -161,9 +189,11 @@ pub fn (r &AnimationNodeStateMachine) get_transition_from(idx i32) StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &AnimationNodeStateMachine) get_transition_to(idx i32) StringName {
+pub fn (r &AnimationNodeStateMachine) get_transition_to(idx i32) string {
     mut object_out := StringName{}
     classname := StringName.new("AnimationNodeStateMachine")
     fnname := StringName.new("get_transition_to")
@@ -173,7 +203,9 @@ pub fn (r &AnimationNodeStateMachine) get_transition_to(idx i32) StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &AnimationNodeStateMachine) get_transition_count() i32 {
     mut object_out := i32(0)
@@ -195,14 +227,18 @@ pub fn (mut r AnimationNodeStateMachine) remove_transition_by_index(idx i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AnimationNodeStateMachine) remove_transition(from StringName, to StringName) {
+pub fn (mut r AnimationNodeStateMachine) remove_transition(from string, to string) {
     classname := StringName.new("AnimationNodeStateMachine")
     fnname := StringName.new("remove_transition")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3740211285)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&from)}
-    args[1] = unsafe{voidptr(&to)}
+    arg_sn0 := StringName.new(from)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := StringName.new(to)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }

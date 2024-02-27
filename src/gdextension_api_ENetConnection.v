@@ -28,19 +28,21 @@ pub struct ENetConnection {
     RefCounted
 }
 
-pub fn (mut r ENetConnection) create_host_bound(bind_address String, bind_port i32, max_peers i32, max_channels i32, in_bandwidth i32, out_bandwidth i32) GDError {
+pub fn (mut r ENetConnection) create_host_bound(bind_address string, bind_port i32, max_peers i32, max_channels i32, in_bandwidth i32, out_bandwidth i32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ENetConnection")
     fnname := StringName.new("create_host_bound")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1515002313)
     mut args := unsafe { [6]voidptr{} }
-    args[0] = unsafe{voidptr(&bind_address)}
+    arg_sn0 := String.new(bind_address)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&bind_port)}
     args[2] = unsafe{voidptr(&max_peers)}
     args[3] = unsafe{voidptr(&max_channels)}
     args[4] = unsafe{voidptr(&in_bandwidth)}
     args[5] = unsafe{voidptr(&out_bandwidth)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
@@ -68,17 +70,19 @@ pub fn (mut r ENetConnection) destroy() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ENetConnection) connect_to_host(address String, port i32, channels i32, data i32) ENetPacketPeer {
+pub fn (mut r ENetConnection) connect_to_host(address string, port i32, channels i32, data i32) ENetPacketPeer {
     mut object_out := ENetPacketPeer{}
     classname := StringName.new("ENetConnection")
     fnname := StringName.new("connect_to_host")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2171300490)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = unsafe{voidptr(&address)}
+    arg_sn0 := String.new(address)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&port)}
     args[2] = unsafe{voidptr(&channels)}
     args[3] = unsafe{voidptr(&data)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -159,15 +163,17 @@ pub fn (mut r ENetConnection) dtls_server_setup(server_options TLSOptions) GDErr
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r ENetConnection) dtls_client_setup(hostname String, client_options TLSOptions) GDError {
+pub fn (mut r ENetConnection) dtls_client_setup(hostname string, client_options TLSOptions) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ENetConnection")
     fnname := StringName.new("dtls_client_setup")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1966198364)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&hostname)}
+    arg_sn0 := String.new(hostname)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = client_options.ptr
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
@@ -225,15 +231,17 @@ pub fn (mut r ENetConnection) get_peers() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ENetConnection) socket_send(destination_address String, destination_port i32, packet PackedByteArray) {
+pub fn (mut r ENetConnection) socket_send(destination_address string, destination_port i32, packet PackedByteArray) {
     classname := StringName.new("ENetConnection")
     fnname := StringName.new("socket_send")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1100646812)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&destination_address)}
+    arg_sn0 := String.new(destination_address)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&destination_port)}
     args[2] = unsafe{voidptr(&packet)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }

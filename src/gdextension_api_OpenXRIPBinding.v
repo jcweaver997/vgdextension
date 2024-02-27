@@ -55,35 +55,41 @@ pub fn (r &OpenXRIPBinding) get_paths() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (r &OpenXRIPBinding) has_path(path String) bool {
+pub fn (r &OpenXRIPBinding) has_path(path string) bool {
     mut object_out := false
     classname := StringName.new("OpenXRIPBinding")
     fnname := StringName.new("has_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3927539163)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OpenXRIPBinding) add_path(path String) {
+pub fn (mut r OpenXRIPBinding) add_path(path string) {
     classname := StringName.new("OpenXRIPBinding")
     fnname := StringName.new("add_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r OpenXRIPBinding) remove_path(path String) {
+pub fn (mut r OpenXRIPBinding) remove_path(path string) {
     classname := StringName.new("OpenXRIPBinding")
     fnname := StringName.new("remove_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }

@@ -28,7 +28,7 @@ pub fn (r &UPNPDevice) is_valid_gateway() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (r &UPNPDevice) query_external_address() String {
+pub fn (r &UPNPDevice) query_external_address() string {
     mut object_out := String{}
     classname := StringName.new("UPNPDevice")
     fnname := StringName.new("query_external_address")
@@ -36,9 +36,11 @@ pub fn (r &UPNPDevice) query_external_address() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &UPNPDevice) add_port_mapping(port i32, port_internal i32, desc String, proto String, duration i32) i32 {
+pub fn (r &UPNPDevice) add_port_mapping(port i32, port_internal i32, desc string, proto string, duration i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("UPNPDevice")
     fnname := StringName.new("add_port_mapping")
@@ -46,38 +48,46 @@ pub fn (r &UPNPDevice) add_port_mapping(port i32, port_internal i32, desc String
     mut args := unsafe { [5]voidptr{} }
     args[0] = unsafe{voidptr(&port)}
     args[1] = unsafe{voidptr(&port_internal)}
-    args[2] = unsafe{voidptr(&desc)}
-    args[3] = unsafe{voidptr(&proto)}
+    arg_sn2 := String.new(desc)
+    args[2] = unsafe{voidptr(&arg_sn2)}
+    arg_sn3 := String.new(proto)
+    args[3] = unsafe{voidptr(&arg_sn3)}
     args[4] = unsafe{voidptr(&duration)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn2.deinit()
+    arg_sn3.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &UPNPDevice) delete_port_mapping(port i32, proto String) i32 {
+pub fn (r &UPNPDevice) delete_port_mapping(port i32, proto string) i32 {
     mut object_out := i32(0)
     classname := StringName.new("UPNPDevice")
     fnname := StringName.new("delete_port_mapping")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3444187325)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&port)}
-    args[1] = unsafe{voidptr(&proto)}
+    arg_sn1 := String.new(proto)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r UPNPDevice) set_description_url(url String) {
+pub fn (mut r UPNPDevice) set_description_url(url string) {
     classname := StringName.new("UPNPDevice")
     fnname := StringName.new("set_description_url")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&url)}
+    arg_sn0 := String.new(url)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &UPNPDevice) get_description_url() String {
+pub fn (r &UPNPDevice) get_description_url() string {
     mut object_out := String{}
     classname := StringName.new("UPNPDevice")
     fnname := StringName.new("get_description_url")
@@ -85,19 +95,23 @@ pub fn (r &UPNPDevice) get_description_url() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r UPNPDevice) set_service_type(type_name String) {
+pub fn (mut r UPNPDevice) set_service_type(type_name string) {
     classname := StringName.new("UPNPDevice")
     fnname := StringName.new("set_service_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&type_name)}
+    arg_sn0 := String.new(type_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &UPNPDevice) get_service_type() String {
+pub fn (r &UPNPDevice) get_service_type() string {
     mut object_out := String{}
     classname := StringName.new("UPNPDevice")
     fnname := StringName.new("get_service_type")
@@ -105,19 +119,23 @@ pub fn (r &UPNPDevice) get_service_type() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r UPNPDevice) set_igd_control_url(url String) {
+pub fn (mut r UPNPDevice) set_igd_control_url(url string) {
     classname := StringName.new("UPNPDevice")
     fnname := StringName.new("set_igd_control_url")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&url)}
+    arg_sn0 := String.new(url)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &UPNPDevice) get_igd_control_url() String {
+pub fn (r &UPNPDevice) get_igd_control_url() string {
     mut object_out := String{}
     classname := StringName.new("UPNPDevice")
     fnname := StringName.new("get_igd_control_url")
@@ -125,19 +143,23 @@ pub fn (r &UPNPDevice) get_igd_control_url() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r UPNPDevice) set_igd_service_type(type_name String) {
+pub fn (mut r UPNPDevice) set_igd_service_type(type_name string) {
     classname := StringName.new("UPNPDevice")
     fnname := StringName.new("set_igd_service_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&type_name)}
+    arg_sn0 := String.new(type_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &UPNPDevice) get_igd_service_type() String {
+pub fn (r &UPNPDevice) get_igd_service_type() string {
     mut object_out := String{}
     classname := StringName.new("UPNPDevice")
     fnname := StringName.new("get_igd_service_type")
@@ -145,19 +167,23 @@ pub fn (r &UPNPDevice) get_igd_service_type() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r UPNPDevice) set_igd_our_addr(addr String) {
+pub fn (mut r UPNPDevice) set_igd_our_addr(addr string) {
     classname := StringName.new("UPNPDevice")
     fnname := StringName.new("set_igd_our_addr")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&addr)}
+    arg_sn0 := String.new(addr)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &UPNPDevice) get_igd_our_addr() String {
+pub fn (r &UPNPDevice) get_igd_our_addr() string {
     mut object_out := String{}
     classname := StringName.new("UPNPDevice")
     fnname := StringName.new("get_igd_our_addr")
@@ -165,7 +191,9 @@ pub fn (r &UPNPDevice) get_igd_our_addr() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r UPNPDevice) set_igd_status(status UPNPDeviceIGDStatus) {
     classname := StringName.new("UPNPDevice")

@@ -394,18 +394,20 @@ pub fn (r &Tree) are_column_titles_visible() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Tree) set_column_title(column i32, title String) {
+pub fn (mut r Tree) set_column_title(column i32, title string) {
     classname := StringName.new("Tree")
     fnname := StringName.new("set_column_title")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&column)}
-    args[1] = unsafe{voidptr(&title)}
+    arg_sn1 := String.new(title)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &Tree) get_column_title(column i32) String {
+pub fn (r &Tree) get_column_title(column i32) string {
     mut object_out := String{}
     classname := StringName.new("Tree")
     fnname := StringName.new("get_column_title")
@@ -415,7 +417,9 @@ pub fn (r &Tree) get_column_title(column i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r Tree) set_column_title_alignment(column i32, title_alignment HorizontalAlignment) {
     classname := StringName.new("Tree")
@@ -465,18 +469,20 @@ pub fn (r &Tree) get_column_title_direction(column i32) ControlTextDirection {
     fnname.deinit()
    return unsafe{ControlTextDirection(object_out)}
 }
-pub fn (mut r Tree) set_column_title_language(column i32, language String) {
+pub fn (mut r Tree) set_column_title_language(column i32, language string) {
     classname := StringName.new("Tree")
     fnname := StringName.new("set_column_title_language")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&column)}
-    args[1] = unsafe{voidptr(&language)}
+    arg_sn1 := String.new(language)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &Tree) get_column_title_language(column i32) String {
+pub fn (r &Tree) get_column_title_language(column i32) string {
     mut object_out := String{}
     classname := StringName.new("Tree")
     fnname := StringName.new("get_column_title_language")
@@ -486,7 +492,9 @@ pub fn (r &Tree) get_column_title_language(column i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &Tree) get_scroll() Vector2 {
     mut object_out := Vector2{}

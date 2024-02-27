@@ -25,14 +25,16 @@ pub interface IEditorVCSInterfaceInitialize {
     virt_initialize(project_path String) bool
 }
 
-pub fn (mut r EditorVCSInterface) uinitialize(project_path String) bool {
+pub fn (mut r EditorVCSInterface) uinitialize(project_path string) bool {
     mut object_out := false
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_initialize")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&project_path)}
+    arg_sn0 := String.new(project_path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -42,17 +44,27 @@ pub interface IEditorVCSInterfaceSetCredentials {
     virt_set_credentials(username String, password String, ssh_public_key_path String, ssh_private_key_path String, ssh_passphrase String)
 }
 
-pub fn (mut r EditorVCSInterface) uset_credentials(username String, password String, ssh_public_key_path String, ssh_private_key_path String, ssh_passphrase String) {
+pub fn (mut r EditorVCSInterface) uset_credentials(username string, password string, ssh_public_key_path string, ssh_private_key_path string, ssh_passphrase string) {
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_set_credentials")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [5]voidptr{} }
-    args[0] = unsafe{voidptr(&username)}
-    args[1] = unsafe{voidptr(&password)}
-    args[2] = unsafe{voidptr(&ssh_public_key_path)}
-    args[3] = unsafe{voidptr(&ssh_private_key_path)}
-    args[4] = unsafe{voidptr(&ssh_passphrase)}
+    arg_sn0 := String.new(username)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(password)
+    args[1] = unsafe{voidptr(&arg_sn1)}
+    arg_sn2 := String.new(ssh_public_key_path)
+    args[2] = unsafe{voidptr(&arg_sn2)}
+    arg_sn3 := String.new(ssh_private_key_path)
+    args[3] = unsafe{voidptr(&arg_sn3)}
+    arg_sn4 := String.new(ssh_passphrase)
+    args[4] = unsafe{voidptr(&arg_sn4)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
+    arg_sn1.deinit()
+    arg_sn2.deinit()
+    arg_sn3.deinit()
+    arg_sn4.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -76,13 +88,15 @@ pub interface IEditorVCSInterfaceStageFile {
     virt_stage_file(file_path String)
 }
 
-pub fn (mut r EditorVCSInterface) ustage_file(file_path String) {
+pub fn (mut r EditorVCSInterface) ustage_file(file_path string) {
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_stage_file")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&file_path)}
+    arg_sn0 := String.new(file_path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -91,13 +105,15 @@ pub interface IEditorVCSInterfaceUnstageFile {
     virt_unstage_file(file_path String)
 }
 
-pub fn (mut r EditorVCSInterface) uunstage_file(file_path String) {
+pub fn (mut r EditorVCSInterface) uunstage_file(file_path string) {
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_unstage_file")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&file_path)}
+    arg_sn0 := String.new(file_path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -106,13 +122,15 @@ pub interface IEditorVCSInterfaceDiscardFile {
     virt_discard_file(file_path String)
 }
 
-pub fn (mut r EditorVCSInterface) udiscard_file(file_path String) {
+pub fn (mut r EditorVCSInterface) udiscard_file(file_path string) {
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_discard_file")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&file_path)}
+    arg_sn0 := String.new(file_path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -121,13 +139,15 @@ pub interface IEditorVCSInterfaceCommit {
     virt_commit(msg String)
 }
 
-pub fn (mut r EditorVCSInterface) ucommit(msg String) {
+pub fn (mut r EditorVCSInterface) ucommit(msg string) {
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_commit")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&msg)}
+    arg_sn0 := String.new(msg)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -136,15 +156,17 @@ pub interface IEditorVCSInterfaceGetDiff {
     virt_get_diff(identifier String, area i32) Array
 }
 
-pub fn (mut r EditorVCSInterface) uget_diff(identifier String, area i32) Array {
+pub fn (mut r EditorVCSInterface) uget_diff(identifier string, area i32) Array {
     mut object_out := Array{}
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_get_diff")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&identifier)}
+    arg_sn0 := String.new(identifier)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&area)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -169,7 +191,7 @@ pub interface IEditorVCSInterfaceGetVcsName {
     virt_get_vcs_name() String
 }
 
-pub fn (mut r EditorVCSInterface) uget_vcs_name() String {
+pub fn (mut r EditorVCSInterface) uget_vcs_name() string {
     mut object_out := String{}
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_get_vcs_name")
@@ -177,7 +199,9 @@ pub fn (mut r EditorVCSInterface) uget_vcs_name() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface IEditorVCSInterfaceGetPreviousCommits {
     mut:
@@ -231,13 +255,15 @@ pub interface IEditorVCSInterfaceCreateBranch {
     virt_create_branch(branch_name String)
 }
 
-pub fn (mut r EditorVCSInterface) ucreate_branch(branch_name String) {
+pub fn (mut r EditorVCSInterface) ucreate_branch(branch_name string) {
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_create_branch")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&branch_name)}
+    arg_sn0 := String.new(branch_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -246,13 +272,15 @@ pub interface IEditorVCSInterfaceRemoveBranch {
     virt_remove_branch(branch_name String)
 }
 
-pub fn (mut r EditorVCSInterface) uremove_branch(branch_name String) {
+pub fn (mut r EditorVCSInterface) uremove_branch(branch_name string) {
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_remove_branch")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&branch_name)}
+    arg_sn0 := String.new(branch_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -261,14 +289,18 @@ pub interface IEditorVCSInterfaceCreateRemote {
     virt_create_remote(remote_name String, remote_url String)
 }
 
-pub fn (mut r EditorVCSInterface) ucreate_remote(remote_name String, remote_url String) {
+pub fn (mut r EditorVCSInterface) ucreate_remote(remote_name string, remote_url string) {
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_create_remote")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&remote_name)}
-    args[1] = unsafe{voidptr(&remote_url)}
+    arg_sn0 := String.new(remote_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(remote_url)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -277,13 +309,15 @@ pub interface IEditorVCSInterfaceRemoveRemote {
     virt_remove_remote(remote_name String)
 }
 
-pub fn (mut r EditorVCSInterface) uremove_remote(remote_name String) {
+pub fn (mut r EditorVCSInterface) uremove_remote(remote_name string) {
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_remove_remote")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&remote_name)}
+    arg_sn0 := String.new(remote_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -292,7 +326,7 @@ pub interface IEditorVCSInterfaceGetCurrentBranchName {
     virt_get_current_branch_name() String
 }
 
-pub fn (mut r EditorVCSInterface) uget_current_branch_name() String {
+pub fn (mut r EditorVCSInterface) uget_current_branch_name() string {
     mut object_out := String{}
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_get_current_branch_name")
@@ -300,21 +334,25 @@ pub fn (mut r EditorVCSInterface) uget_current_branch_name() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface IEditorVCSInterfaceCheckoutBranch {
     mut:
     virt_checkout_branch(branch_name String) bool
 }
 
-pub fn (mut r EditorVCSInterface) ucheckout_branch(branch_name String) bool {
+pub fn (mut r EditorVCSInterface) ucheckout_branch(branch_name string) bool {
     mut object_out := false
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_checkout_branch")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&branch_name)}
+    arg_sn0 := String.new(branch_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -324,13 +362,15 @@ pub interface IEditorVCSInterfacePull {
     virt_pull(remote String)
 }
 
-pub fn (mut r EditorVCSInterface) upull(remote String) {
+pub fn (mut r EditorVCSInterface) upull(remote string) {
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_pull")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&remote)}
+    arg_sn0 := String.new(remote)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -339,14 +379,16 @@ pub interface IEditorVCSInterfacePush {
     virt_push(remote String, force bool)
 }
 
-pub fn (mut r EditorVCSInterface) upush(remote String, force bool) {
+pub fn (mut r EditorVCSInterface) upush(remote string, force bool) {
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_push")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&remote)}
+    arg_sn0 := String.new(remote)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&force)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -355,13 +397,15 @@ pub interface IEditorVCSInterfaceFetch {
     virt_fetch(remote String)
 }
 
-pub fn (mut r EditorVCSInterface) ufetch(remote String) {
+pub fn (mut r EditorVCSInterface) ufetch(remote string) {
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_fetch")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&remote)}
+    arg_sn0 := String.new(remote)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -370,20 +414,24 @@ pub interface IEditorVCSInterfaceGetLineDiff {
     virt_get_line_diff(file_path String, text String) Array
 }
 
-pub fn (mut r EditorVCSInterface) uget_line_diff(file_path String, text String) Array {
+pub fn (mut r EditorVCSInterface) uget_line_diff(file_path string, text string) Array {
     mut object_out := Array{}
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_get_line_diff")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&file_path)}
-    args[1] = unsafe{voidptr(&text)}
+    arg_sn0 := String.new(file_path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(text)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorVCSInterface) create_diff_line(new_line_no i32, old_line_no i32, content String, status String) Dictionary {
+pub fn (mut r EditorVCSInterface) create_diff_line(new_line_no i32, old_line_no i32, content string, status string) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("create_diff_line")
@@ -391,9 +439,13 @@ pub fn (mut r EditorVCSInterface) create_diff_line(new_line_no i32, old_line_no 
     mut args := unsafe { [4]voidptr{} }
     args[0] = unsafe{voidptr(&new_line_no)}
     args[1] = unsafe{voidptr(&old_line_no)}
-    args[2] = unsafe{voidptr(&content)}
-    args[3] = unsafe{voidptr(&status)}
+    arg_sn2 := String.new(content)
+    args[2] = unsafe{voidptr(&arg_sn2)}
+    arg_sn3 := String.new(status)
+    args[3] = unsafe{voidptr(&arg_sn3)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn2.deinit()
+    arg_sn3.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -413,47 +465,59 @@ pub fn (mut r EditorVCSInterface) create_diff_hunk(old_start i32, new_start i32,
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorVCSInterface) create_diff_file(new_file String, old_file String) Dictionary {
+pub fn (mut r EditorVCSInterface) create_diff_file(new_file string, old_file string) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("create_diff_file")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2723227684)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&new_file)}
-    args[1] = unsafe{voidptr(&old_file)}
+    arg_sn0 := String.new(new_file)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(old_file)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorVCSInterface) create_commit(msg String, author String, id String, unix_timestamp i64, offset_minutes i64) Dictionary {
+pub fn (mut r EditorVCSInterface) create_commit(msg string, author string, id string, unix_timestamp i64, offset_minutes i64) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("create_commit")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1075983584)
     mut args := unsafe { [5]voidptr{} }
-    args[0] = unsafe{voidptr(&msg)}
-    args[1] = unsafe{voidptr(&author)}
-    args[2] = unsafe{voidptr(&id)}
+    arg_sn0 := String.new(msg)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(author)
+    args[1] = unsafe{voidptr(&arg_sn1)}
+    arg_sn2 := String.new(id)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     args[3] = unsafe{voidptr(&unix_timestamp)}
     args[4] = unsafe{voidptr(&offset_minutes)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorVCSInterface) create_status_file(file_path String, change_type EditorVCSInterfaceChangeType, area EditorVCSInterfaceTreeArea) Dictionary {
+pub fn (mut r EditorVCSInterface) create_status_file(file_path string, change_type EditorVCSInterfaceChangeType, area EditorVCSInterfaceTreeArea) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("create_status_file")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1083471673)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&file_path)}
+    arg_sn0 := String.new(file_path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     i64_change_type := i64(change_type)
     args[1] = unsafe{voidptr(&i64_change_type)}
     i64_area := i64(area)
     args[2] = unsafe{voidptr(&i64_area)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -484,13 +548,15 @@ pub fn (mut r EditorVCSInterface) add_line_diffs_into_diff_hunk(diff_hunk Dictio
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorVCSInterface) popup_error(msg String) {
+pub fn (mut r EditorVCSInterface) popup_error(msg string) {
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("popup_error")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&msg)}
+    arg_sn0 := String.new(msg)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }

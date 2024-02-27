@@ -141,7 +141,7 @@ pub fn (mut r VisualShader) remove_node(type_name VisualShaderType, id i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r VisualShader) replace_node(type_name VisualShaderType, id i32, new_class StringName) {
+pub fn (mut r VisualShader) replace_node(type_name VisualShaderType, id i32, new_class string) {
     classname := StringName.new("VisualShader")
     fnname := StringName.new("replace_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3144735253)
@@ -149,8 +149,10 @@ pub fn (mut r VisualShader) replace_node(type_name VisualShaderType, id i32, new
     i64_type_name := i64(type_name)
     args[0] = unsafe{voidptr(&i64_type_name)}
     args[1] = unsafe{voidptr(&id)}
-    args[2] = unsafe{voidptr(&new_class)}
+    arg_sn2 := StringName.new(new_class)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -268,38 +270,44 @@ pub fn (r &VisualShader) get_graph_offset() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VisualShader) add_varying(name String, mode VisualShaderVaryingMode, type_name VisualShaderVaryingType) {
+pub fn (mut r VisualShader) add_varying(name string, mode VisualShaderVaryingMode, type_name VisualShaderVaryingType) {
     classname := StringName.new("VisualShader")
     fnname := StringName.new("add_varying")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2084110726)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     i64_mode := i64(mode)
     args[1] = unsafe{voidptr(&i64_mode)}
     i64_type_name := i64(type_name)
     args[2] = unsafe{voidptr(&i64_type_name)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r VisualShader) remove_varying(name String) {
+pub fn (mut r VisualShader) remove_varying(name string) {
     classname := StringName.new("VisualShader")
     fnname := StringName.new("remove_varying")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &VisualShader) has_varying(name String) bool {
+pub fn (r &VisualShader) has_varying(name string) bool {
     mut object_out := false
     classname := StringName.new("VisualShader")
     fnname := StringName.new("has_varying")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3927539163)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out

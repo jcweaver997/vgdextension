@@ -51,7 +51,7 @@ pub fn (r &GLTFPhysicsShape) to_dictionary() Dictionary {
     fnname.deinit()
    return object_out
 }
-pub fn (r &GLTFPhysicsShape) get_shape_type() String {
+pub fn (r &GLTFPhysicsShape) get_shape_type() string {
     mut object_out := String{}
     classname := StringName.new("GLTFPhysicsShape")
     fnname := StringName.new("get_shape_type")
@@ -59,15 +59,19 @@ pub fn (r &GLTFPhysicsShape) get_shape_type() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r GLTFPhysicsShape) set_shape_type(shape_type String) {
+pub fn (mut r GLTFPhysicsShape) set_shape_type(shape_type string) {
     classname := StringName.new("GLTFPhysicsShape")
     fnname := StringName.new("set_shape_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&shape_type)}
+    arg_sn0 := String.new(shape_type)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }

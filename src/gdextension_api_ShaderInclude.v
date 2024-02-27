@@ -5,17 +5,19 @@ pub struct ShaderInclude {
     Resource
 }
 
-pub fn (mut r ShaderInclude) set_code(code String) {
+pub fn (mut r ShaderInclude) set_code(code string) {
     classname := StringName.new("ShaderInclude")
     fnname := StringName.new("set_code")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&code)}
+    arg_sn0 := String.new(code)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &ShaderInclude) get_code() String {
+pub fn (r &ShaderInclude) get_code() string {
     mut object_out := String{}
     classname := StringName.new("ShaderInclude")
     fnname := StringName.new("get_code")
@@ -23,5 +25,7 @@ pub fn (r &ShaderInclude) get_code() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }

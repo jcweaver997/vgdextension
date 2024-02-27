@@ -420,17 +420,19 @@ pub fn (r &Area3D) is_overriding_audio_bus() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Area3D) set_audio_bus_name(name StringName) {
+pub fn (mut r Area3D) set_audio_bus_name(name string) {
     classname := StringName.new("Area3D")
     fnname := StringName.new("set_audio_bus_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &Area3D) get_audio_bus_name() StringName {
+pub fn (r &Area3D) get_audio_bus_name() string {
     mut object_out := StringName{}
     classname := StringName.new("Area3D")
     fnname := StringName.new("get_audio_bus_name")
@@ -438,7 +440,9 @@ pub fn (r &Area3D) get_audio_bus_name() StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r Area3D) set_use_reverb_bus(enable bool) {
     classname := StringName.new("Area3D")
@@ -460,17 +464,19 @@ pub fn (r &Area3D) is_using_reverb_bus() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Area3D) set_reverb_bus_name(name StringName) {
+pub fn (mut r Area3D) set_reverb_bus_name(name string) {
     classname := StringName.new("Area3D")
     fnname := StringName.new("set_reverb_bus_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &Area3D) get_reverb_bus_name() StringName {
+pub fn (r &Area3D) get_reverb_bus_name() string {
     mut object_out := StringName{}
     classname := StringName.new("Area3D")
     fnname := StringName.new("get_reverb_bus_name")
@@ -478,7 +484,9 @@ pub fn (r &Area3D) get_reverb_bus_name() StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r Area3D) set_reverb_amount(amount f64) {
     classname := StringName.new("Area3D")

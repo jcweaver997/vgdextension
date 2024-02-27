@@ -10,7 +10,7 @@ pub interface IEditorResourceConversionPluginConvertsTo {
     virt_converts_to() String
 }
 
-pub fn (r &EditorResourceConversionPlugin) uconverts_to() String {
+pub fn (r &EditorResourceConversionPlugin) uconverts_to() string {
     mut object_out := String{}
     classname := StringName.new("EditorResourceConversionPlugin")
     fnname := StringName.new("_converts_to")
@@ -18,7 +18,9 @@ pub fn (r &EditorResourceConversionPlugin) uconverts_to() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface IEditorResourceConversionPluginHandles {
     mut:

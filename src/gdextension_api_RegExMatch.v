@@ -5,7 +5,7 @@ pub struct RegExMatch {
     RefCounted
 }
 
-pub fn (r &RegExMatch) get_subject() String {
+pub fn (r &RegExMatch) get_subject() string {
     mut object_out := String{}
     classname := StringName.new("RegExMatch")
     fnname := StringName.new("get_subject")
@@ -13,7 +13,9 @@ pub fn (r &RegExMatch) get_subject() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &RegExMatch) get_group_count() i32 {
     mut object_out := i32(0)
@@ -45,7 +47,7 @@ pub fn (r &RegExMatch) get_strings() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (r &RegExMatch) get_string(name Variant) String {
+pub fn (r &RegExMatch) get_string(name Variant) string {
     mut object_out := String{}
     classname := StringName.new("RegExMatch")
     fnname := StringName.new("get_string")
@@ -55,7 +57,9 @@ pub fn (r &RegExMatch) get_string(name Variant) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &RegExMatch) get_start(name Variant) i32 {
     mut object_out := i32(0)

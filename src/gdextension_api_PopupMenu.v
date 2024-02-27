@@ -18,99 +18,113 @@ pub fn (mut r PopupMenu) activate_item_by_event(event InputEvent, for_global_onl
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PopupMenu) add_item(label String, id i32, accel Key) {
+pub fn (mut r PopupMenu) add_item(label string, id i32, accel Key) {
     classname := StringName.new("PopupMenu")
     fnname := StringName.new("add_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3674230041)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&label)}
+    arg_sn0 := String.new(label)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&id)}
     i64_accel := i64(accel)
     args[2] = unsafe{voidptr(&i64_accel)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PopupMenu) add_icon_item(texture Texture2D, label String, id i32, accel Key) {
+pub fn (mut r PopupMenu) add_icon_item(texture Texture2D, label string, id i32, accel Key) {
     classname := StringName.new("PopupMenu")
     fnname := StringName.new("add_icon_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1086190128)
     mut args := unsafe { [4]voidptr{} }
     args[0] = texture.ptr
-    args[1] = unsafe{voidptr(&label)}
+    arg_sn1 := String.new(label)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&id)}
     i64_accel := i64(accel)
     args[3] = unsafe{voidptr(&i64_accel)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PopupMenu) add_check_item(label String, id i32, accel Key) {
+pub fn (mut r PopupMenu) add_check_item(label string, id i32, accel Key) {
     classname := StringName.new("PopupMenu")
     fnname := StringName.new("add_check_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3674230041)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&label)}
+    arg_sn0 := String.new(label)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&id)}
     i64_accel := i64(accel)
     args[2] = unsafe{voidptr(&i64_accel)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PopupMenu) add_icon_check_item(texture Texture2D, label String, id i32, accel Key) {
+pub fn (mut r PopupMenu) add_icon_check_item(texture Texture2D, label string, id i32, accel Key) {
     classname := StringName.new("PopupMenu")
     fnname := StringName.new("add_icon_check_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1086190128)
     mut args := unsafe { [4]voidptr{} }
     args[0] = texture.ptr
-    args[1] = unsafe{voidptr(&label)}
+    arg_sn1 := String.new(label)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&id)}
     i64_accel := i64(accel)
     args[3] = unsafe{voidptr(&i64_accel)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PopupMenu) add_radio_check_item(label String, id i32, accel Key) {
+pub fn (mut r PopupMenu) add_radio_check_item(label string, id i32, accel Key) {
     classname := StringName.new("PopupMenu")
     fnname := StringName.new("add_radio_check_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3674230041)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&label)}
+    arg_sn0 := String.new(label)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&id)}
     i64_accel := i64(accel)
     args[2] = unsafe{voidptr(&i64_accel)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PopupMenu) add_icon_radio_check_item(texture Texture2D, label String, id i32, accel Key) {
+pub fn (mut r PopupMenu) add_icon_radio_check_item(texture Texture2D, label string, id i32, accel Key) {
     classname := StringName.new("PopupMenu")
     fnname := StringName.new("add_icon_radio_check_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1086190128)
     mut args := unsafe { [4]voidptr{} }
     args[0] = texture.ptr
-    args[1] = unsafe{voidptr(&label)}
+    arg_sn1 := String.new(label)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&id)}
     i64_accel := i64(accel)
     args[3] = unsafe{voidptr(&i64_accel)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PopupMenu) add_multistate_item(label String, max_states i32, default_state i32, id i32, accel Key) {
+pub fn (mut r PopupMenu) add_multistate_item(label string, max_states i32, default_state i32, id i32, accel Key) {
     classname := StringName.new("PopupMenu")
     fnname := StringName.new("add_multistate_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 150780458)
     mut args := unsafe { [5]voidptr{} }
-    args[0] = unsafe{voidptr(&label)}
+    arg_sn0 := String.new(label)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&max_states)}
     args[2] = unsafe{voidptr(&default_state)}
     args[3] = unsafe{voidptr(&id)}
     i64_accel := i64(accel)
     args[4] = unsafe{voidptr(&i64_accel)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -191,26 +205,32 @@ pub fn (mut r PopupMenu) add_icon_radio_check_shortcut(texture Texture2D, shortc
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PopupMenu) add_submenu_item(label String, submenu String, id i32) {
+pub fn (mut r PopupMenu) add_submenu_item(label string, submenu string, id i32) {
     classname := StringName.new("PopupMenu")
     fnname := StringName.new("add_submenu_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2979222410)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&label)}
-    args[1] = unsafe{voidptr(&submenu)}
+    arg_sn0 := String.new(label)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(submenu)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&id)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PopupMenu) set_item_text(index i32, text String) {
+pub fn (mut r PopupMenu) set_item_text(index i32, text string) {
     classname := StringName.new("PopupMenu")
     fnname := StringName.new("set_item_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&index)}
-    args[1] = unsafe{voidptr(&text)}
+    arg_sn1 := String.new(text)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -226,14 +246,16 @@ pub fn (mut r PopupMenu) set_item_text_direction(index i32, direction ControlTex
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PopupMenu) set_item_language(index i32, language String) {
+pub fn (mut r PopupMenu) set_item_language(index i32, language string) {
     classname := StringName.new("PopupMenu")
     fnname := StringName.new("set_item_language")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&index)}
-    args[1] = unsafe{voidptr(&language)}
+    arg_sn1 := String.new(language)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -326,14 +348,16 @@ pub fn (mut r PopupMenu) set_item_disabled(index i32, disabled bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PopupMenu) set_item_submenu(index i32, submenu String) {
+pub fn (mut r PopupMenu) set_item_submenu(index i32, submenu string) {
     classname := StringName.new("PopupMenu")
     fnname := StringName.new("set_item_submenu")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&index)}
-    args[1] = unsafe{voidptr(&submenu)}
+    arg_sn1 := String.new(submenu)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -370,14 +394,16 @@ pub fn (mut r PopupMenu) set_item_as_radio_checkable(index i32, enable bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PopupMenu) set_item_tooltip(index i32, tooltip String) {
+pub fn (mut r PopupMenu) set_item_tooltip(index i32, tooltip string) {
     classname := StringName.new("PopupMenu")
     fnname := StringName.new("set_item_tooltip")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&index)}
-    args[1] = unsafe{voidptr(&tooltip)}
+    arg_sn1 := String.new(tooltip)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -446,7 +472,7 @@ pub fn (mut r PopupMenu) toggle_item_multistate(index i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &PopupMenu) get_item_text(index i32) String {
+pub fn (r &PopupMenu) get_item_text(index i32) string {
     mut object_out := String{}
     classname := StringName.new("PopupMenu")
     fnname := StringName.new("get_item_text")
@@ -456,7 +482,9 @@ pub fn (r &PopupMenu) get_item_text(index i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &PopupMenu) get_item_text_direction(index i32) ControlTextDirection {
     mut object_out := i64(ControlTextDirection.text_direction_inherited)
@@ -470,7 +498,7 @@ pub fn (r &PopupMenu) get_item_text_direction(index i32) ControlTextDirection {
     fnname.deinit()
    return unsafe{ControlTextDirection(object_out)}
 }
-pub fn (r &PopupMenu) get_item_language(index i32) String {
+pub fn (r &PopupMenu) get_item_language(index i32) string {
     mut object_out := String{}
     classname := StringName.new("PopupMenu")
     fnname := StringName.new("get_item_language")
@@ -480,7 +508,9 @@ pub fn (r &PopupMenu) get_item_language(index i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &PopupMenu) get_item_icon(index i32) Texture2D {
     mut object_out := Texture2D{}
@@ -590,7 +620,7 @@ pub fn (r &PopupMenu) is_item_disabled(index i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (r &PopupMenu) get_item_submenu(index i32) String {
+pub fn (r &PopupMenu) get_item_submenu(index i32) string {
     mut object_out := String{}
     classname := StringName.new("PopupMenu")
     fnname := StringName.new("get_item_submenu")
@@ -600,7 +630,9 @@ pub fn (r &PopupMenu) get_item_submenu(index i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &PopupMenu) is_item_separator(index i32) bool {
     mut object_out := false
@@ -650,7 +682,7 @@ pub fn (r &PopupMenu) is_item_shortcut_disabled(index i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (r &PopupMenu) get_item_tooltip(index i32) String {
+pub fn (r &PopupMenu) get_item_tooltip(index i32) string {
     mut object_out := String{}
     classname := StringName.new("PopupMenu")
     fnname := StringName.new("get_item_tooltip")
@@ -660,7 +692,9 @@ pub fn (r &PopupMenu) get_item_tooltip(index i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &PopupMenu) get_item_shortcut(index i32) Shortcut {
     mut object_out := Shortcut{}
@@ -746,14 +780,16 @@ pub fn (mut r PopupMenu) remove_item(index i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PopupMenu) add_separator(label String, id i32) {
+pub fn (mut r PopupMenu) add_separator(label string, id i32) {
     classname := StringName.new("PopupMenu")
     fnname := StringName.new("add_separator")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2266703459)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&label)}
+    arg_sn0 := String.new(label)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&id)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }

@@ -160,14 +160,16 @@ pub fn (r &AudioStreamWAV) is_stereo() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamWAV) save_to_wav(path String) GDError {
+pub fn (mut r AudioStreamWAV) save_to_wav(path string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("AudioStreamWAV")
     fnname := StringName.new("save_to_wav")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 166001499)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}

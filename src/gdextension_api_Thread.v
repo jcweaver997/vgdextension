@@ -25,7 +25,7 @@ pub fn (mut r Thread) start(callable Callable, priority ThreadPriority) GDError 
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (r &Thread) get_id() String {
+pub fn (r &Thread) get_id() string {
     mut object_out := String{}
     classname := StringName.new("Thread")
     fnname := StringName.new("get_id")
@@ -33,7 +33,9 @@ pub fn (r &Thread) get_id() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &Thread) is_started() bool {
     mut object_out := false

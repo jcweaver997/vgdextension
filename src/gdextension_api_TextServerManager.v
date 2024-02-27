@@ -66,14 +66,16 @@ pub fn (r &TextServerManager) get_interfaces() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (r &TextServerManager) find_interface(name String) TextServer {
+pub fn (r &TextServerManager) find_interface(name string) TextServer {
     mut object_out := TextServer{}
     classname := StringName.new("TextServerManager")
     fnname := StringName.new("find_interface")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2240905781)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out

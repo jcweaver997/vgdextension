@@ -5,29 +5,33 @@ pub struct WebSocketMultiplayerPeer {
     MultiplayerPeer
 }
 
-pub fn (mut r WebSocketMultiplayerPeer) create_client(url String, tls_client_options TLSOptions) GDError {
+pub fn (mut r WebSocketMultiplayerPeer) create_client(url string, tls_client_options TLSOptions) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("WebSocketMultiplayerPeer")
     fnname := StringName.new("create_client")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1966198364)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&url)}
+    arg_sn0 := String.new(url)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = tls_client_options.ptr
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r WebSocketMultiplayerPeer) create_server(port i32, bind_address String, tls_server_options TLSOptions) GDError {
+pub fn (mut r WebSocketMultiplayerPeer) create_server(port i32, bind_address string, tls_server_options TLSOptions) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("WebSocketMultiplayerPeer")
     fnname := StringName.new("create_server")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2400822951)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&port)}
-    args[1] = unsafe{voidptr(&bind_address)}
+    arg_sn1 := String.new(bind_address)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = tls_server_options.ptr
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
@@ -44,7 +48,7 @@ pub fn (r &WebSocketMultiplayerPeer) get_peer(peer_id i32) WebSocketPeer {
     fnname.deinit()
    return object_out
 }
-pub fn (r &WebSocketMultiplayerPeer) get_peer_address(id i32) String {
+pub fn (r &WebSocketMultiplayerPeer) get_peer_address(id i32) string {
     mut object_out := String{}
     classname := StringName.new("WebSocketMultiplayerPeer")
     fnname := StringName.new("get_peer_address")
@@ -54,7 +58,9 @@ pub fn (r &WebSocketMultiplayerPeer) get_peer_address(id i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &WebSocketMultiplayerPeer) get_peer_port(id i32) i32 {
     mut object_out := i32(0)

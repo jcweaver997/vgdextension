@@ -21,16 +21,18 @@ pub fn (mut r PacketPeerDTLS) poll() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PacketPeerDTLS) connect_to_peer(packet_peer PacketPeerUDP, hostname String, client_options TLSOptions) GDError {
+pub fn (mut r PacketPeerDTLS) connect_to_peer(packet_peer PacketPeerUDP, hostname string, client_options TLSOptions) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("PacketPeerDTLS")
     fnname := StringName.new("connect_to_peer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2880188099)
     mut args := unsafe { [3]voidptr{} }
     args[0] = packet_peer.ptr
-    args[1] = unsafe{voidptr(&hostname)}
+    arg_sn1 := String.new(hostname)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = client_options.ptr
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}

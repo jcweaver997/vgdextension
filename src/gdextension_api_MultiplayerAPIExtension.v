@@ -85,7 +85,7 @@ pub interface IMultiplayerAPIExtensionRpc {
     virt_rpc(peer i32, object Object, method StringName, gdargs Array) GDError
 }
 
-pub fn (mut r MultiplayerAPIExtension) urpc(peer i32, object Object, method StringName, gdargs Array) GDError {
+pub fn (mut r MultiplayerAPIExtension) urpc(peer i32, object Object, method string, gdargs Array) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("MultiplayerAPIExtension")
     fnname := StringName.new("_rpc")
@@ -93,9 +93,11 @@ pub fn (mut r MultiplayerAPIExtension) urpc(peer i32, object Object, method Stri
     mut args := unsafe { [4]voidptr{} }
     args[0] = unsafe{voidptr(&peer)}
     args[1] = object.ptr
-    args[2] = unsafe{voidptr(&method)}
+    arg_sn2 := StringName.new(method)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     args[3] = unsafe{voidptr(&gdargs)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}

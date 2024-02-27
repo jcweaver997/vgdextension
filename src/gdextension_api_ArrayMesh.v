@@ -5,13 +5,15 @@ pub struct ArrayMesh {
     Mesh
 }
 
-pub fn (mut r ArrayMesh) add_blend_shape(name StringName) {
+pub fn (mut r ArrayMesh) add_blend_shape(name string) {
     classname := StringName.new("ArrayMesh")
     fnname := StringName.new("add_blend_shape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -25,7 +27,7 @@ pub fn (r &ArrayMesh) get_blend_shape_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (r &ArrayMesh) get_blend_shape_name(index i32) StringName {
+pub fn (r &ArrayMesh) get_blend_shape_name(index i32) string {
     mut object_out := StringName{}
     classname := StringName.new("ArrayMesh")
     fnname := StringName.new("get_blend_shape_name")
@@ -35,16 +37,20 @@ pub fn (r &ArrayMesh) get_blend_shape_name(index i32) StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r ArrayMesh) set_blend_shape_name(index i32, name StringName) {
+pub fn (mut r ArrayMesh) set_blend_shape_name(index i32, name string) {
     classname := StringName.new("ArrayMesh")
     fnname := StringName.new("set_blend_shape_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3780747571)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&index)}
-    args[1] = unsafe{voidptr(&name)}
+    arg_sn1 := StringName.new(name)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -185,30 +191,34 @@ pub fn (r &ArrayMesh) surface_get_primitive_type(surf_idx i32) MeshPrimitiveType
     fnname.deinit()
    return unsafe{MeshPrimitiveType(object_out)}
 }
-pub fn (r &ArrayMesh) surface_find_by_name(name String) i32 {
+pub fn (r &ArrayMesh) surface_find_by_name(name string) i32 {
     mut object_out := i32(0)
     classname := StringName.new("ArrayMesh")
     fnname := StringName.new("surface_find_by_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1321353865)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ArrayMesh) surface_set_name(surf_idx i32, name String) {
+pub fn (mut r ArrayMesh) surface_set_name(surf_idx i32, name string) {
     classname := StringName.new("ArrayMesh")
     fnname := StringName.new("surface_set_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&surf_idx)}
-    args[1] = unsafe{voidptr(&name)}
+    arg_sn1 := String.new(name)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &ArrayMesh) surface_get_name(surf_idx i32) String {
+pub fn (r &ArrayMesh) surface_get_name(surf_idx i32) string {
     mut object_out := String{}
     classname := StringName.new("ArrayMesh")
     fnname := StringName.new("surface_get_name")
@@ -218,7 +228,9 @@ pub fn (r &ArrayMesh) surface_get_name(surf_idx i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r ArrayMesh) regen_normal_maps() {
     classname := StringName.new("ArrayMesh")

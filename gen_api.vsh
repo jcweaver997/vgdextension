@@ -950,12 +950,21 @@ fn gen_classes(ea &ExtensionApi) ! {
 				}
 
 				mut name := convert_name(arg.name)
-				f.write_string('${name} ${convert_type(arg.type_name, arg.meta)}')!
+				if arg.type_name in ["StringName", "String"] {
+					f.write_string('${name} string')!
+				}else{
+					f.write_string('${name} ${convert_type(arg.type_name, arg.meta)}')!
+				}
 			}
 			has_return := method.return_value.type_name != ''
 			if has_return {
 				ret_type := convert_type(method.return_value.type_name, method.return_value.meta)
-				f.write_string(') ${ret_type} {\n')!
+				if ret_type in ["StringName", "String"] {
+					f.write_string(') string {\n')!
+				}else {
+					f.write_string(') ${ret_type} {\n')!
+				}
+				
 				if ret_type in ['f32', 'f64', 'i8', 'u8', 'i16', 'u16', 'i32', 'u32', 'i64', 'u64'] {
 					f.write_string('    mut object_out := ${ret_type}(0)\n')!
 				} else if ret_type == 'bool' {
@@ -979,7 +988,13 @@ fn gen_classes(ea &ExtensionApi) ! {
 					f.write_string('    mut args := unsafe { [${method.arguments.len}]voidptr{} }\n')!
 					for i, a in method.arguments {
 						mut name := convert_name(a.name)
-						if convert_type(a.type_name, a.meta) in object_names {
+						if a.type_name == "StringName" {
+							f.write_string('    arg_sn${i} := StringName.new(${name})\n')!
+							f.write_string('    args[${i}] = unsafe{voidptr(&arg_sn${i})}\n')!
+						} else if a.type_name == "String" {
+							f.write_string('    arg_sn${i} := String.new(${name})\n')!
+							f.write_string('    args[${i}] = unsafe{voidptr(&arg_sn${i})}\n')!
+						} else if convert_type(a.type_name, a.meta) in object_names {
 							f.write_string('    args[${i}] = ${name}.ptr\n')!
 						} else {
 							if a.type_name.starts_with('enum::')
@@ -996,12 +1011,21 @@ fn gen_classes(ea &ExtensionApi) ! {
 				} else {
 					f.write_string('    gdf.object_method_bind_ptrcall(mb, ${p_base}, unsafe{nil}, voidptr(&object_out))\n')!
 				}
+				for i, a in method.arguments {
+					if a.type_name in ["StringName", "String"] {
+						f.write_string('    arg_sn${i}.deinit()\n')!
+					}
+				}
 				f.write_string('    classname.deinit()\n')!
 				f.write_string('    fnname.deinit()\n')!
 				if method.return_value.type_name.starts_with('enum::')
 					|| method.return_value.type_name.starts_with('bitfield::') {
 					f.write_string('   return unsafe{${ret_type}(object_out)}\n')!
-				} else {
+				} else if method.return_value.type_name in ["StringName", "String"] {
+					f.write_string('   object_out_v := object_out.to_v()\n')!
+					f.write_string('   object_out.deinit()\n')!
+					f.write_string('   return object_out_v\n')!
+				}else{
 					f.write_string('   return object_out\n')!
 				}
 			} else {
@@ -1015,7 +1039,13 @@ fn gen_classes(ea &ExtensionApi) ! {
 					f.write_string('    mut args := unsafe { [${method.arguments.len}]voidptr{} }\n')!
 					for i, a in method.arguments {
 						mut name := convert_name(a.name)
-						if convert_type(a.type_name, a.meta) in object_names {
+						if a.type_name == "StringName" {
+							f.write_string('    arg_sn${i} := StringName.new(${name})\n')!
+							f.write_string('    args[${i}] = unsafe{voidptr(&arg_sn${i})}\n')!
+						}else if a.type_name == "String" {
+							f.write_string('    arg_sn${i} := String.new(${name})\n')!
+							f.write_string('    args[${i}] = unsafe{voidptr(&arg_sn${i})}\n')!
+						}else if convert_type(a.type_name, a.meta) in object_names {
 							f.write_string('    args[${i}] = ${name}.ptr\n')!
 						} else {
 							if a.type_name.starts_with('enum::')
@@ -1031,6 +1061,11 @@ fn gen_classes(ea &ExtensionApi) ! {
 					f.write_string('    gdf.object_method_bind_ptrcall(mb, ${p_base}, voidptr(&args[0]), unsafe{nil})\n')!
 				} else {
 					f.write_string('    gdf.object_method_bind_ptrcall(mb, ${p_base}, unsafe{nil}, unsafe{nil})\n')!
+				}
+				for i, a in method.arguments {
+					if a.type_name in ["StringName", "String"] {
+						f.write_string('    arg_sn${i}.deinit()\n')!
+					}
 				}
 				f.write_string('    classname.deinit()\n')!
 				f.write_string('    fnname.deinit()\n')!

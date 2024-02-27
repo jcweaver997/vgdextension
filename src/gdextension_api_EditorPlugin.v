@@ -138,7 +138,7 @@ pub interface IEditorPluginGetPluginName {
     virt_get_plugin_name() String
 }
 
-pub fn (r &EditorPlugin) uget_plugin_name() String {
+pub fn (r &EditorPlugin) uget_plugin_name() string {
     mut object_out := String{}
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("_get_plugin_name")
@@ -146,7 +146,9 @@ pub fn (r &EditorPlugin) uget_plugin_name() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface IEditorPluginGetPluginIcon {
     mut:
@@ -273,17 +275,21 @@ pub interface IEditorPluginGetUnsavedStatus {
     virt_get_unsaved_status(for_scene String) String
 }
 
-pub fn (r &EditorPlugin) uget_unsaved_status(for_scene String) String {
+pub fn (r &EditorPlugin) uget_unsaved_status(for_scene string) string {
     mut object_out := String{}
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("_get_unsaved_status")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&for_scene)}
+    arg_sn0 := String.new(for_scene)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface IEditorPluginSaveExternalData {
     mut:
@@ -409,15 +415,17 @@ pub fn (mut r EditorPlugin) add_control_to_container(container EditorPluginCusto
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) add_control_to_bottom_panel(control Control, title String) Button {
+pub fn (mut r EditorPlugin) add_control_to_bottom_panel(control Control, title string) Button {
     mut object_out := Button{}
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("add_control_to_bottom_panel")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3526039376)
     mut args := unsafe { [2]voidptr{} }
     args[0] = control.ptr
-    args[1] = unsafe{voidptr(&title)}
+    arg_sn1 := String.new(title)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -466,35 +474,41 @@ pub fn (mut r EditorPlugin) remove_control_from_container(container EditorPlugin
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) add_tool_menu_item(name String, callable Callable) {
+pub fn (mut r EditorPlugin) add_tool_menu_item(name string, callable Callable) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("add_tool_menu_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2137474292)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&callable)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) add_tool_submenu_item(name String, submenu PopupMenu) {
+pub fn (mut r EditorPlugin) add_tool_submenu_item(name string, submenu PopupMenu) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("add_tool_submenu_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1019428915)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = submenu.ptr
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) remove_tool_menu_item(name String) {
+pub fn (mut r EditorPlugin) remove_tool_menu_item(name string) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("remove_tool_menu_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -508,47 +522,59 @@ pub fn (mut r EditorPlugin) get_export_as_menu() PopupMenu {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorPlugin) add_custom_type(type_name String, base String, script Script, icon Texture2D) {
+pub fn (mut r EditorPlugin) add_custom_type(type_name string, base string, script Script, icon Texture2D) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("add_custom_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1986814599)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = unsafe{voidptr(&type_name)}
-    args[1] = unsafe{voidptr(&base)}
+    arg_sn0 := String.new(type_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(base)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = script.ptr
     args[3] = icon.ptr
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) remove_custom_type(type_name String) {
+pub fn (mut r EditorPlugin) remove_custom_type(type_name string) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("remove_custom_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&type_name)}
+    arg_sn0 := String.new(type_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) add_autoload_singleton(name String, path String) {
+pub fn (mut r EditorPlugin) add_autoload_singleton(name string, path string) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("add_autoload_singleton")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3186203200)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
-    args[1] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(path)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) remove_autoload_singleton(name String) {
+pub fn (mut r EditorPlugin) remove_autoload_singleton(name string) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("remove_autoload_singleton")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -837,7 +863,7 @@ pub fn (mut r EditorPlugin) remove_debugger_plugin(script EditorDebuggerPlugin) 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &EditorPlugin) get_plugin_version() String {
+pub fn (r &EditorPlugin) get_plugin_version() string {
     mut object_out := String{}
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("get_plugin_version")
@@ -845,5 +871,7 @@ pub fn (r &EditorPlugin) get_plugin_version() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }

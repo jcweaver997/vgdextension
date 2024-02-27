@@ -10,7 +10,7 @@ pub interface IEditorSyntaxHighlighterGetName {
     virt_get_name() String
 }
 
-pub fn (r &EditorSyntaxHighlighter) uget_name() String {
+pub fn (r &EditorSyntaxHighlighter) uget_name() string {
     mut object_out := String{}
     classname := StringName.new("EditorSyntaxHighlighter")
     fnname := StringName.new("_get_name")
@@ -18,7 +18,9 @@ pub fn (r &EditorSyntaxHighlighter) uget_name() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface IEditorSyntaxHighlighterGetSupportedLanguages {
     mut:

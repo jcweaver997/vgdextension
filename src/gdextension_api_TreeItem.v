@@ -117,18 +117,20 @@ pub fn (mut r TreeItem) propagate_check(column i32, emit_signal bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TreeItem) set_text(column i32, text String) {
+pub fn (mut r TreeItem) set_text(column i32, text string) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&column)}
-    args[1] = unsafe{voidptr(&text)}
+    arg_sn1 := String.new(text)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &TreeItem) get_text(column i32) String {
+pub fn (r &TreeItem) get_text(column i32) string {
     mut object_out := String{}
     classname := StringName.new("TreeItem")
     fnname := StringName.new("get_text")
@@ -138,7 +140,9 @@ pub fn (r &TreeItem) get_text(column i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r TreeItem) set_text_direction(column i32, direction ControlTextDirection) {
     classname := StringName.new("TreeItem")
@@ -259,18 +263,20 @@ pub fn (r &TreeItem) get_structured_text_bidi_override_options(column i32) Array
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) set_language(column i32, language String) {
+pub fn (mut r TreeItem) set_language(column i32, language string) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_language")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&column)}
-    args[1] = unsafe{voidptr(&language)}
+    arg_sn1 := String.new(language)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &TreeItem) get_language(column i32) String {
+pub fn (r &TreeItem) get_language(column i32) string {
     mut object_out := String{}
     classname := StringName.new("TreeItem")
     fnname := StringName.new("get_language")
@@ -280,20 +286,24 @@ pub fn (r &TreeItem) get_language(column i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r TreeItem) set_suffix(column i32, text String) {
+pub fn (mut r TreeItem) set_suffix(column i32, text string) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_suffix")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&column)}
-    args[1] = unsafe{voidptr(&text)}
+    arg_sn1 := String.new(text)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &TreeItem) get_suffix(column i32) String {
+pub fn (r &TreeItem) get_suffix(column i32) string {
     mut object_out := String{}
     classname := StringName.new("TreeItem")
     fnname := StringName.new("get_suffix")
@@ -303,7 +313,9 @@ pub fn (r &TreeItem) get_suffix(column i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r TreeItem) set_icon(column i32, texture Texture2D) {
     classname := StringName.new("TreeItem")
@@ -469,15 +481,17 @@ pub fn (r &TreeItem) get_metadata(column i32) Variant {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) set_custom_draw(column i32, object Object, callback StringName) {
+pub fn (mut r TreeItem) set_custom_draw(column i32, object Object, callback string) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_custom_draw")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 272420368)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&column)}
     args[1] = object.ptr
-    args[2] = unsafe{voidptr(&callback)}
+    arg_sn2 := StringName.new(callback)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -785,7 +799,7 @@ pub fn (r &TreeItem) is_custom_set_as_button(column i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) add_button(column i32, button Texture2D, id i32, disabled bool, tooltip_text String) {
+pub fn (mut r TreeItem) add_button(column i32, button Texture2D, id i32, disabled bool, tooltip_text string) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("add_button")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1688223362)
@@ -794,8 +808,10 @@ pub fn (mut r TreeItem) add_button(column i32, button Texture2D, id i32, disable
     args[1] = button.ptr
     args[2] = unsafe{voidptr(&id)}
     args[3] = unsafe{voidptr(&disabled)}
-    args[4] = unsafe{voidptr(&tooltip_text)}
+    arg_sn4 := String.new(tooltip_text)
+    args[4] = unsafe{voidptr(&arg_sn4)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn4.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -811,7 +827,7 @@ pub fn (r &TreeItem) get_button_count(column i32) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (r &TreeItem) get_button_tooltip_text(column i32, button_index i32) String {
+pub fn (r &TreeItem) get_button_tooltip_text(column i32, button_index i32) string {
     mut object_out := String{}
     classname := StringName.new("TreeItem")
     fnname := StringName.new("get_button_tooltip_text")
@@ -822,7 +838,9 @@ pub fn (r &TreeItem) get_button_tooltip_text(column i32, button_index i32) Strin
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &TreeItem) get_button_id(column i32, button_index i32) i32 {
     mut object_out := i32(0)
@@ -863,15 +881,17 @@ pub fn (r &TreeItem) get_button(column i32, button_index i32) Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) set_button_tooltip_text(column i32, button_index i32, tooltip String) {
+pub fn (mut r TreeItem) set_button_tooltip_text(column i32, button_index i32, tooltip string) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_button_tooltip_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2285447957)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&column)}
     args[1] = unsafe{voidptr(&button_index)}
-    args[2] = unsafe{voidptr(&tooltip)}
+    arg_sn2 := String.new(tooltip)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -935,18 +955,20 @@ pub fn (r &TreeItem) is_button_disabled(column i32, button_index i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) set_tooltip_text(column i32, tooltip String) {
+pub fn (mut r TreeItem) set_tooltip_text(column i32, tooltip string) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_tooltip_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&column)}
-    args[1] = unsafe{voidptr(&tooltip)}
+    arg_sn1 := String.new(tooltip)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &TreeItem) get_tooltip_text(column i32) String {
+pub fn (r &TreeItem) get_tooltip_text(column i32) string {
     mut object_out := String{}
     classname := StringName.new("TreeItem")
     fnname := StringName.new("get_tooltip_text")
@@ -956,7 +978,9 @@ pub fn (r &TreeItem) get_tooltip_text(column i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r TreeItem) set_text_alignment(column i32, text_alignment HorizontalAlignment) {
     classname := StringName.new("TreeItem")

@@ -25,17 +25,19 @@ pub fn ResourceSaver.get_singleton() ResourceSaver {
     return o
 }
 
-pub fn (mut r ResourceSaver) save(resource Resource, path String, flags ResourceSaverSaverFlags) GDError {
+pub fn (mut r ResourceSaver) save(resource Resource, path string, flags ResourceSaverSaverFlags) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ResourceSaver")
     fnname := StringName.new("save")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2983274697)
     mut args := unsafe { [3]voidptr{} }
     args[0] = resource.ptr
-    args[1] = unsafe{voidptr(&path)}
+    arg_sn1 := String.new(path)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     i64_flags := i64(flags)
     args[2] = unsafe{voidptr(&i64_flags)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}

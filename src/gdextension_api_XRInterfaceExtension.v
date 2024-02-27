@@ -10,7 +10,7 @@ pub interface IXRInterfaceExtensionGetName {
     virt_get_name() StringName
 }
 
-pub fn (r &XRInterfaceExtension) uget_name() StringName {
+pub fn (r &XRInterfaceExtension) uget_name() string {
     mut object_out := StringName{}
     classname := StringName.new("XRInterfaceExtension")
     fnname := StringName.new("_get_name")
@@ -18,7 +18,9 @@ pub fn (r &XRInterfaceExtension) uget_name() StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface IXRInterfaceExtensionGetCapabilities {
     mut:
@@ -349,14 +351,16 @@ pub interface IXRInterfaceExtensionGetSuggestedPoseNames {
     virt_get_suggested_pose_names(tracker_name StringName) PackedStringArray
 }
 
-pub fn (r &XRInterfaceExtension) uget_suggested_pose_names(tracker_name StringName) PackedStringArray {
+pub fn (r &XRInterfaceExtension) uget_suggested_pose_names(tracker_name string) PackedStringArray {
     mut object_out := PackedStringArray{}
     classname := StringName.new("XRInterfaceExtension")
     fnname := StringName.new("_get_suggested_pose_names")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&tracker_name)}
+    arg_sn0 := StringName.new(tracker_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -381,18 +385,22 @@ pub interface IXRInterfaceExtensionTriggerHapticPulse {
     virt_trigger_haptic_pulse(action_name String, tracker_name StringName, frequency f64, amplitude f64, duration_sec f64, delay_sec f64)
 }
 
-pub fn (mut r XRInterfaceExtension) utrigger_haptic_pulse(action_name String, tracker_name StringName, frequency f64, amplitude f64, duration_sec f64, delay_sec f64) {
+pub fn (mut r XRInterfaceExtension) utrigger_haptic_pulse(action_name string, tracker_name string, frequency f64, amplitude f64, duration_sec f64, delay_sec f64) {
     classname := StringName.new("XRInterfaceExtension")
     fnname := StringName.new("_trigger_haptic_pulse")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [6]voidptr{} }
-    args[0] = unsafe{voidptr(&action_name)}
-    args[1] = unsafe{voidptr(&tracker_name)}
+    arg_sn0 := String.new(action_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := StringName.new(tracker_name)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&frequency)}
     args[3] = unsafe{voidptr(&amplitude)}
     args[4] = unsafe{voidptr(&duration_sec)}
     args[5] = unsafe{voidptr(&delay_sec)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }

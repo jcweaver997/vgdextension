@@ -224,7 +224,7 @@ pub fn (r &Engine) get_license_info() Dictionary {
     fnname.deinit()
    return object_out
 }
-pub fn (r &Engine) get_license_text() String {
+pub fn (r &Engine) get_license_text() string {
     mut object_out := String{}
     classname := StringName.new("Engine")
     fnname := StringName.new("get_license_text")
@@ -232,9 +232,11 @@ pub fn (r &Engine) get_license_text() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &Engine) get_architecture_name() String {
+pub fn (r &Engine) get_architecture_name() string {
     mut object_out := String{}
     classname := StringName.new("Engine")
     fnname := StringName.new("get_architecture_name")
@@ -242,7 +244,9 @@ pub fn (r &Engine) get_architecture_name() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &Engine) is_in_physics_frame() bool {
     mut object_out := false
@@ -254,48 +258,56 @@ pub fn (r &Engine) is_in_physics_frame() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (r &Engine) has_singleton(name StringName) bool {
+pub fn (r &Engine) has_singleton(name string) bool {
     mut object_out := false
     classname := StringName.new("Engine")
     fnname := StringName.new("has_singleton")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2619796661)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &Engine) get_singleton(name StringName) Object {
+pub fn (r &Engine) get_singleton(name string) Object {
     mut object_out := Object{}
     classname := StringName.new("Engine")
     fnname := StringName.new("get_singleton")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1371597918)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Engine) register_singleton(name StringName, instance Object) {
+pub fn (mut r Engine) register_singleton(name string, instance Object) {
     classname := StringName.new("Engine")
     fnname := StringName.new("register_singleton")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 965313290)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = instance.ptr
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Engine) unregister_singleton(name StringName) {
+pub fn (mut r Engine) unregister_singleton(name string) {
     classname := StringName.new("Engine")
     fnname := StringName.new("unregister_singleton")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -365,7 +377,7 @@ pub fn (r &Engine) is_editor_hint() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (r &Engine) get_write_movie_path() String {
+pub fn (r &Engine) get_write_movie_path() string {
     mut object_out := String{}
     classname := StringName.new("Engine")
     fnname := StringName.new("get_write_movie_path")
@@ -373,7 +385,9 @@ pub fn (r &Engine) get_write_movie_path() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r Engine) set_print_error_messages(enabled bool) {
     classname := StringName.new("Engine")

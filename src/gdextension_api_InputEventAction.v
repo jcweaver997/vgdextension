@@ -5,17 +5,19 @@ pub struct InputEventAction {
     InputEvent
 }
 
-pub fn (mut r InputEventAction) set_action(action StringName) {
+pub fn (mut r InputEventAction) set_action(action string) {
     classname := StringName.new("InputEventAction")
     fnname := StringName.new("set_action")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&action)}
+    arg_sn0 := StringName.new(action)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &InputEventAction) get_action() StringName {
+pub fn (r &InputEventAction) get_action() string {
     mut object_out := StringName{}
     classname := StringName.new("InputEventAction")
     fnname := StringName.new("get_action")
@@ -23,7 +25,9 @@ pub fn (r &InputEventAction) get_action() StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r InputEventAction) set_pressed(pressed bool) {
     classname := StringName.new("InputEventAction")

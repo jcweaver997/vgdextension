@@ -5,15 +5,17 @@ pub struct TLSOptions {
     RefCounted
 }
 
-pub fn TLSOptions.client(trusted_chain X509Certificate, common_name_override String) TLSOptions {
+pub fn TLSOptions.client(trusted_chain X509Certificate, common_name_override string) TLSOptions {
     mut object_out := TLSOptions{}
     classname := StringName.new("TLSOptions")
     fnname := StringName.new("client")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3565000357)
     mut args := unsafe { [2]voidptr{} }
     args[0] = trusted_chain.ptr
-    args[1] = unsafe{voidptr(&common_name_override)}
+    arg_sn1 := String.new(common_name_override)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, unsafe{nil}, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out

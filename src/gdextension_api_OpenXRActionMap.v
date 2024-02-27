@@ -35,14 +35,16 @@ pub fn (r &OpenXRActionMap) get_action_set_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (r &OpenXRActionMap) find_action_set(name String) OpenXRActionSet {
+pub fn (r &OpenXRActionMap) find_action_set(name string) OpenXRActionSet {
     mut object_out := OpenXRActionSet{}
     classname := StringName.new("OpenXRActionMap")
     fnname := StringName.new("find_action_set")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1888809267)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -109,14 +111,16 @@ pub fn (r &OpenXRActionMap) get_interaction_profile_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (r &OpenXRActionMap) find_interaction_profile(name String) OpenXRInteractionProfile {
+pub fn (r &OpenXRActionMap) find_interaction_profile(name string) OpenXRInteractionProfile {
     mut object_out := OpenXRInteractionProfile{}
     classname := StringName.new("OpenXRActionMap")
     fnname := StringName.new("find_interaction_profile")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3095875538)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out

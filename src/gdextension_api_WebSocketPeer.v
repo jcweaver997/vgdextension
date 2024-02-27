@@ -17,15 +17,17 @@ pub struct WebSocketPeer {
     PacketPeer
 }
 
-pub fn (mut r WebSocketPeer) connect_to_url(url String, tls_client_options TLSOptions) GDError {
+pub fn (mut r WebSocketPeer) connect_to_url(url string, tls_client_options TLSOptions) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("WebSocketPeer")
     fnname := StringName.new("connect_to_url")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1966198364)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&url)}
+    arg_sn0 := String.new(url)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = tls_client_options.ptr
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
@@ -56,14 +58,16 @@ pub fn (mut r WebSocketPeer) send(message PackedByteArray, write_mode WebSocketP
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r WebSocketPeer) send_text(message String) GDError {
+pub fn (mut r WebSocketPeer) send_text(message string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("WebSocketPeer")
     fnname := StringName.new("send_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 166001499)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&message)}
+    arg_sn0 := String.new(message)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
@@ -86,18 +90,20 @@ pub fn (mut r WebSocketPeer) poll() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r WebSocketPeer) close(code i32, reason String) {
+pub fn (mut r WebSocketPeer) close(code i32, reason string) {
     classname := StringName.new("WebSocketPeer")
     fnname := StringName.new("close")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1047156615)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&code)}
-    args[1] = unsafe{voidptr(&reason)}
+    arg_sn1 := String.new(reason)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &WebSocketPeer) get_connected_host() String {
+pub fn (r &WebSocketPeer) get_connected_host() string {
     mut object_out := String{}
     classname := StringName.new("WebSocketPeer")
     fnname := StringName.new("get_connected_host")
@@ -105,7 +111,9 @@ pub fn (r &WebSocketPeer) get_connected_host() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &WebSocketPeer) get_connected_port() u16 {
     mut object_out := u16(0)
@@ -117,7 +125,7 @@ pub fn (r &WebSocketPeer) get_connected_port() u16 {
     fnname.deinit()
    return object_out
 }
-pub fn (r &WebSocketPeer) get_selected_protocol() String {
+pub fn (r &WebSocketPeer) get_selected_protocol() string {
     mut object_out := String{}
     classname := StringName.new("WebSocketPeer")
     fnname := StringName.new("get_selected_protocol")
@@ -125,9 +133,11 @@ pub fn (r &WebSocketPeer) get_selected_protocol() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &WebSocketPeer) get_requested_url() String {
+pub fn (r &WebSocketPeer) get_requested_url() string {
     mut object_out := String{}
     classname := StringName.new("WebSocketPeer")
     fnname := StringName.new("get_requested_url")
@@ -135,7 +145,9 @@ pub fn (r &WebSocketPeer) get_requested_url() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r WebSocketPeer) set_no_delay(enabled bool) {
     classname := StringName.new("WebSocketPeer")
@@ -177,7 +189,7 @@ pub fn (r &WebSocketPeer) get_close_code() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (r &WebSocketPeer) get_close_reason() String {
+pub fn (r &WebSocketPeer) get_close_reason() string {
     mut object_out := String{}
     classname := StringName.new("WebSocketPeer")
     fnname := StringName.new("get_close_reason")
@@ -185,7 +197,9 @@ pub fn (r &WebSocketPeer) get_close_reason() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &WebSocketPeer) get_supported_protocols() PackedStringArray {
     mut object_out := PackedStringArray{}

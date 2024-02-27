@@ -15,14 +15,16 @@ pub fn (mut r MeshLibrary) create_item(id i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r MeshLibrary) set_item_name(id i32, name String) {
+pub fn (mut r MeshLibrary) set_item_name(id i32, name string) {
     classname := StringName.new("MeshLibrary")
     fnname := StringName.new("set_item_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&id)}
-    args[1] = unsafe{voidptr(&name)}
+    arg_sn1 := String.new(name)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -103,7 +105,7 @@ pub fn (mut r MeshLibrary) set_item_preview(id i32, texture Texture2D) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &MeshLibrary) get_item_name(id i32) String {
+pub fn (r &MeshLibrary) get_item_name(id i32) string {
     mut object_out := String{}
     classname := StringName.new("MeshLibrary")
     fnname := StringName.new("get_item_name")
@@ -113,7 +115,9 @@ pub fn (r &MeshLibrary) get_item_name(id i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &MeshLibrary) get_item_mesh(id i32) Mesh {
     mut object_out := Mesh{}
@@ -209,14 +213,16 @@ pub fn (mut r MeshLibrary) remove_item(id i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &MeshLibrary) find_item_by_name(name String) i32 {
+pub fn (r &MeshLibrary) find_item_by_name(name string) i32 {
     mut object_out := i32(0)
     classname := StringName.new("MeshLibrary")
     fnname := StringName.new("find_item_by_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1321353865)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out

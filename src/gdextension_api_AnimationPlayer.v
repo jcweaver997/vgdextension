@@ -16,50 +16,66 @@ pub struct AnimationPlayer {
     AnimationMixer
 }
 
-pub fn (mut r AnimationPlayer) animation_set_next(animation_from StringName, animation_to StringName) {
+pub fn (mut r AnimationPlayer) animation_set_next(animation_from string, animation_to string) {
     classname := StringName.new("AnimationPlayer")
     fnname := StringName.new("animation_set_next")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3740211285)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&animation_from)}
-    args[1] = unsafe{voidptr(&animation_to)}
+    arg_sn0 := StringName.new(animation_from)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := StringName.new(animation_to)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &AnimationPlayer) animation_get_next(animation_from StringName) StringName {
+pub fn (r &AnimationPlayer) animation_get_next(animation_from string) string {
     mut object_out := StringName{}
     classname := StringName.new("AnimationPlayer")
     fnname := StringName.new("animation_get_next")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1965194235)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&animation_from)}
+    arg_sn0 := StringName.new(animation_from)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r AnimationPlayer) set_blend_time(animation_from StringName, animation_to StringName, sec f64) {
+pub fn (mut r AnimationPlayer) set_blend_time(animation_from string, animation_to string, sec f64) {
     classname := StringName.new("AnimationPlayer")
     fnname := StringName.new("set_blend_time")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3231131886)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&animation_from)}
-    args[1] = unsafe{voidptr(&animation_to)}
+    arg_sn0 := StringName.new(animation_from)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := StringName.new(animation_to)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&sec)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &AnimationPlayer) get_blend_time(animation_from StringName, animation_to StringName) f64 {
+pub fn (r &AnimationPlayer) get_blend_time(animation_from string, animation_to string) f64 {
     mut object_out := f64(0)
     classname := StringName.new("AnimationPlayer")
     fnname := StringName.new("get_blend_time")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1958752504)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&animation_from)}
-    args[1] = unsafe{voidptr(&animation_to)}
+    arg_sn0 := StringName.new(animation_from)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := StringName.new(animation_to)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -84,27 +100,31 @@ pub fn (r &AnimationPlayer) get_default_blend_time() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationPlayer) play(name StringName, custom_blend f64, custom_speed f64, from_end bool) {
+pub fn (mut r AnimationPlayer) play(name string, custom_blend f64, custom_speed f64, from_end bool) {
     classname := StringName.new("AnimationPlayer")
     fnname := StringName.new("play")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3118260607)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&custom_blend)}
     args[2] = unsafe{voidptr(&custom_speed)}
     args[3] = unsafe{voidptr(&from_end)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AnimationPlayer) play_backwards(name StringName, custom_blend f64) {
+pub fn (mut r AnimationPlayer) play_backwards(name string, custom_blend f64) {
     classname := StringName.new("AnimationPlayer")
     fnname := StringName.new("play_backwards")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2787282401)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&custom_blend)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -136,17 +156,19 @@ pub fn (r &AnimationPlayer) is_playing() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationPlayer) set_current_animation(animation String) {
+pub fn (mut r AnimationPlayer) set_current_animation(animation string) {
     classname := StringName.new("AnimationPlayer")
     fnname := StringName.new("set_current_animation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&animation)}
+    arg_sn0 := String.new(animation)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &AnimationPlayer) get_current_animation() String {
+pub fn (r &AnimationPlayer) get_current_animation() string {
     mut object_out := String{}
     classname := StringName.new("AnimationPlayer")
     fnname := StringName.new("get_current_animation")
@@ -154,19 +176,23 @@ pub fn (r &AnimationPlayer) get_current_animation() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r AnimationPlayer) set_assigned_animation(animation String) {
+pub fn (mut r AnimationPlayer) set_assigned_animation(animation string) {
     classname := StringName.new("AnimationPlayer")
     fnname := StringName.new("set_assigned_animation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&animation)}
+    arg_sn0 := String.new(animation)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &AnimationPlayer) get_assigned_animation() String {
+pub fn (r &AnimationPlayer) get_assigned_animation() string {
     mut object_out := String{}
     classname := StringName.new("AnimationPlayer")
     fnname := StringName.new("get_assigned_animation")
@@ -174,15 +200,19 @@ pub fn (r &AnimationPlayer) get_assigned_animation() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r AnimationPlayer) queue(name StringName) {
+pub fn (mut r AnimationPlayer) queue(name string) {
     classname := StringName.new("AnimationPlayer")
     fnname := StringName.new("queue")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -234,17 +264,19 @@ pub fn (r &AnimationPlayer) get_playing_speed() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationPlayer) set_autoplay(name String) {
+pub fn (mut r AnimationPlayer) set_autoplay(name string) {
     classname := StringName.new("AnimationPlayer")
     fnname := StringName.new("set_autoplay")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &AnimationPlayer) get_autoplay() String {
+pub fn (r &AnimationPlayer) get_autoplay() string {
     mut object_out := String{}
     classname := StringName.new("AnimationPlayer")
     fnname := StringName.new("get_autoplay")
@@ -252,7 +284,9 @@ pub fn (r &AnimationPlayer) get_autoplay() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r AnimationPlayer) set_movie_quit_on_finish_enabled(enabled bool) {
     classname := StringName.new("AnimationPlayer")

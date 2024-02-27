@@ -5,29 +5,33 @@ pub struct Skeleton3D {
     Node3D
 }
 
-pub fn (mut r Skeleton3D) add_bone(name String) {
+pub fn (mut r Skeleton3D) add_bone(name string) {
     classname := StringName.new("Skeleton3D")
     fnname := StringName.new("add_bone")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &Skeleton3D) find_bone(name String) i32 {
+pub fn (r &Skeleton3D) find_bone(name string) i32 {
     mut object_out := i32(0)
     classname := StringName.new("Skeleton3D")
     fnname := StringName.new("find_bone")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1321353865)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &Skeleton3D) get_bone_name(bone_idx i32) String {
+pub fn (r &Skeleton3D) get_bone_name(bone_idx i32) string {
     mut object_out := String{}
     classname := StringName.new("Skeleton3D")
     fnname := StringName.new("get_bone_name")
@@ -37,16 +41,20 @@ pub fn (r &Skeleton3D) get_bone_name(bone_idx i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r Skeleton3D) set_bone_name(bone_idx i32, name String) {
+pub fn (mut r Skeleton3D) set_bone_name(bone_idx i32, name string) {
     classname := StringName.new("Skeleton3D")
     fnname := StringName.new("set_bone_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&bone_idx)}
-    args[1] = unsafe{voidptr(&name)}
+    arg_sn1 := String.new(name)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }

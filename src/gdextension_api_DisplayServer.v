@@ -161,7 +161,7 @@ pub fn (r &DisplayServer) has_feature(feature DisplayServerFeature) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (r &DisplayServer) get_name() String {
+pub fn (r &DisplayServer) get_name() string {
     mut object_out := String{}
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("get_name")
@@ -169,43 +169,55 @@ pub fn (r &DisplayServer) get_name() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r DisplayServer) global_menu_set_popup_callbacks(menu_root String, open_callback Callable, close_callback Callable) {
+pub fn (mut r DisplayServer) global_menu_set_popup_callbacks(menu_root string, open_callback Callable, close_callback Callable) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_set_popup_callbacks")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3893727526)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&open_callback)}
     args[2] = unsafe{voidptr(&close_callback)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) global_menu_add_submenu_item(menu_root String, label String, submenu String, index i32) i32 {
+pub fn (mut r DisplayServer) global_menu_add_submenu_item(menu_root string, label string, submenu string, index i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_add_submenu_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2828985934)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
-    args[1] = unsafe{voidptr(&label)}
-    args[2] = unsafe{voidptr(&submenu)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(label)
+    args[1] = unsafe{voidptr(&arg_sn1)}
+    arg_sn2 := String.new(submenu)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     args[3] = unsafe{voidptr(&index)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) global_menu_add_item(menu_root String, label String, callback Callable, key_callback Callable, tag Variant, accelerator Key, index i32) i32 {
+pub fn (mut r DisplayServer) global_menu_add_item(menu_root string, label string, callback Callable, key_callback Callable, tag Variant, accelerator Key, index i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_add_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3401266716)
     mut args := unsafe { [7]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
-    args[1] = unsafe{voidptr(&label)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(label)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&callback)}
     args[3] = unsafe{voidptr(&key_callback)}
     args[4] = unsafe{voidptr(&tag)}
@@ -213,18 +225,22 @@ pub fn (mut r DisplayServer) global_menu_add_item(menu_root String, label String
     args[5] = unsafe{voidptr(&i64_accelerator)}
     args[6] = unsafe{voidptr(&index)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) global_menu_add_check_item(menu_root String, label String, callback Callable, key_callback Callable, tag Variant, accelerator Key, index i32) i32 {
+pub fn (mut r DisplayServer) global_menu_add_check_item(menu_root string, label string, callback Callable, key_callback Callable, tag Variant, accelerator Key, index i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_add_check_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3401266716)
     mut args := unsafe { [7]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
-    args[1] = unsafe{voidptr(&label)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(label)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&callback)}
     args[3] = unsafe{voidptr(&key_callback)}
     args[4] = unsafe{voidptr(&tag)}
@@ -232,19 +248,23 @@ pub fn (mut r DisplayServer) global_menu_add_check_item(menu_root String, label 
     args[5] = unsafe{voidptr(&i64_accelerator)}
     args[6] = unsafe{voidptr(&index)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) global_menu_add_icon_item(menu_root String, icon Texture2D, label String, callback Callable, key_callback Callable, tag Variant, accelerator Key, index i32) i32 {
+pub fn (mut r DisplayServer) global_menu_add_icon_item(menu_root string, icon Texture2D, label string, callback Callable, key_callback Callable, tag Variant, accelerator Key, index i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_add_icon_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4245856523)
     mut args := unsafe { [8]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = icon.ptr
-    args[2] = unsafe{voidptr(&label)}
+    arg_sn2 := String.new(label)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     args[3] = unsafe{voidptr(&callback)}
     args[4] = unsafe{voidptr(&key_callback)}
     args[5] = unsafe{voidptr(&tag)}
@@ -252,19 +272,23 @@ pub fn (mut r DisplayServer) global_menu_add_icon_item(menu_root String, icon Te
     args[6] = unsafe{voidptr(&i64_accelerator)}
     args[7] = unsafe{voidptr(&index)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) global_menu_add_icon_check_item(menu_root String, icon Texture2D, label String, callback Callable, key_callback Callable, tag Variant, accelerator Key, index i32) i32 {
+pub fn (mut r DisplayServer) global_menu_add_icon_check_item(menu_root string, icon Texture2D, label string, callback Callable, key_callback Callable, tag Variant, accelerator Key, index i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_add_icon_check_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4245856523)
     mut args := unsafe { [8]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = icon.ptr
-    args[2] = unsafe{voidptr(&label)}
+    arg_sn2 := String.new(label)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     args[3] = unsafe{voidptr(&callback)}
     args[4] = unsafe{voidptr(&key_callback)}
     args[5] = unsafe{voidptr(&tag)}
@@ -272,18 +296,22 @@ pub fn (mut r DisplayServer) global_menu_add_icon_check_item(menu_root String, i
     args[6] = unsafe{voidptr(&i64_accelerator)}
     args[7] = unsafe{voidptr(&index)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) global_menu_add_radio_check_item(menu_root String, label String, callback Callable, key_callback Callable, tag Variant, accelerator Key, index i32) i32 {
+pub fn (mut r DisplayServer) global_menu_add_radio_check_item(menu_root string, label string, callback Callable, key_callback Callable, tag Variant, accelerator Key, index i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_add_radio_check_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3401266716)
     mut args := unsafe { [7]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
-    args[1] = unsafe{voidptr(&label)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(label)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&callback)}
     args[3] = unsafe{voidptr(&key_callback)}
     args[4] = unsafe{voidptr(&tag)}
@@ -291,19 +319,23 @@ pub fn (mut r DisplayServer) global_menu_add_radio_check_item(menu_root String, 
     args[5] = unsafe{voidptr(&i64_accelerator)}
     args[6] = unsafe{voidptr(&index)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) global_menu_add_icon_radio_check_item(menu_root String, icon Texture2D, label String, callback Callable, key_callback Callable, tag Variant, accelerator Key, index i32) i32 {
+pub fn (mut r DisplayServer) global_menu_add_icon_radio_check_item(menu_root string, icon Texture2D, label string, callback Callable, key_callback Callable, tag Variant, accelerator Key, index i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_add_icon_radio_check_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4245856523)
     mut args := unsafe { [8]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = icon.ptr
-    args[2] = unsafe{voidptr(&label)}
+    arg_sn2 := String.new(label)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     args[3] = unsafe{voidptr(&callback)}
     args[4] = unsafe{voidptr(&key_callback)}
     args[5] = unsafe{voidptr(&tag)}
@@ -311,18 +343,22 @@ pub fn (mut r DisplayServer) global_menu_add_icon_radio_check_item(menu_root Str
     args[6] = unsafe{voidptr(&i64_accelerator)}
     args[7] = unsafe{voidptr(&index)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) global_menu_add_multistate_item(menu_root String, label String, max_states i32, default_state i32, callback Callable, key_callback Callable, tag Variant, accelerator Key, index i32) i32 {
+pub fn (mut r DisplayServer) global_menu_add_multistate_item(menu_root string, label string, max_states i32, default_state i32, callback Callable, key_callback Callable, tag Variant, accelerator Key, index i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_add_multistate_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3431222859)
     mut args := unsafe { [9]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
-    args[1] = unsafe{voidptr(&label)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(label)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&max_states)}
     args[3] = unsafe{voidptr(&default_state)}
     args[4] = unsafe{voidptr(&callback)}
@@ -332,492 +368,586 @@ pub fn (mut r DisplayServer) global_menu_add_multistate_item(menu_root String, l
     args[7] = unsafe{voidptr(&i64_accelerator)}
     args[8] = unsafe{voidptr(&index)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) global_menu_add_separator(menu_root String, index i32) i32 {
+pub fn (mut r DisplayServer) global_menu_add_separator(menu_root string, index i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_add_separator")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3214812433)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&index)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &DisplayServer) global_menu_get_item_index_from_text(menu_root String, text String) i32 {
+pub fn (r &DisplayServer) global_menu_get_item_index_from_text(menu_root string, text string) i32 {
     mut object_out := i32(0)
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_get_item_index_from_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2878152881)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
-    args[1] = unsafe{voidptr(&text)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(text)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &DisplayServer) global_menu_get_item_index_from_tag(menu_root String, tag Variant) i32 {
+pub fn (r &DisplayServer) global_menu_get_item_index_from_tag(menu_root string, tag Variant) i32 {
     mut object_out := i32(0)
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_get_item_index_from_tag")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2941063483)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&tag)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &DisplayServer) global_menu_is_item_checked(menu_root String, idx i32) bool {
+pub fn (r &DisplayServer) global_menu_is_item_checked(menu_root string, idx i32) bool {
     mut object_out := false
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_is_item_checked")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3511468594)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&idx)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &DisplayServer) global_menu_is_item_checkable(menu_root String, idx i32) bool {
+pub fn (r &DisplayServer) global_menu_is_item_checkable(menu_root string, idx i32) bool {
     mut object_out := false
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_is_item_checkable")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3511468594)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&idx)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &DisplayServer) global_menu_is_item_radio_checkable(menu_root String, idx i32) bool {
+pub fn (r &DisplayServer) global_menu_is_item_radio_checkable(menu_root string, idx i32) bool {
     mut object_out := false
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_is_item_radio_checkable")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3511468594)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&idx)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &DisplayServer) global_menu_get_item_callback(menu_root String, idx i32) Callable {
+pub fn (r &DisplayServer) global_menu_get_item_callback(menu_root string, idx i32) Callable {
     mut object_out := Callable{}
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_get_item_callback")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 748666903)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&idx)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &DisplayServer) global_menu_get_item_key_callback(menu_root String, idx i32) Callable {
+pub fn (r &DisplayServer) global_menu_get_item_key_callback(menu_root string, idx i32) Callable {
     mut object_out := Callable{}
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_get_item_key_callback")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 748666903)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&idx)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &DisplayServer) global_menu_get_item_tag(menu_root String, idx i32) Variant {
+pub fn (r &DisplayServer) global_menu_get_item_tag(menu_root string, idx i32) Variant {
     mut object_out := Variant{}
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_get_item_tag")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 330672633)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&idx)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &DisplayServer) global_menu_get_item_text(menu_root String, idx i32) String {
+pub fn (r &DisplayServer) global_menu_get_item_text(menu_root string, idx i32) string {
     mut object_out := String{}
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_get_item_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 591067909)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&idx)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &DisplayServer) global_menu_get_item_submenu(menu_root String, idx i32) String {
+pub fn (r &DisplayServer) global_menu_get_item_submenu(menu_root string, idx i32) string {
     mut object_out := String{}
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_get_item_submenu")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 591067909)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&idx)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &DisplayServer) global_menu_get_item_accelerator(menu_root String, idx i32) Key {
+pub fn (r &DisplayServer) global_menu_get_item_accelerator(menu_root string, idx i32) Key {
     mut object_out := i64(Key.key_none)
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_get_item_accelerator")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 936065394)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&idx)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{Key(object_out)}
 }
-pub fn (r &DisplayServer) global_menu_is_item_disabled(menu_root String, idx i32) bool {
+pub fn (r &DisplayServer) global_menu_is_item_disabled(menu_root string, idx i32) bool {
     mut object_out := false
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_is_item_disabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3511468594)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&idx)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &DisplayServer) global_menu_is_item_hidden(menu_root String, idx i32) bool {
+pub fn (r &DisplayServer) global_menu_is_item_hidden(menu_root string, idx i32) bool {
     mut object_out := false
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_is_item_hidden")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3511468594)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&idx)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &DisplayServer) global_menu_get_item_tooltip(menu_root String, idx i32) String {
+pub fn (r &DisplayServer) global_menu_get_item_tooltip(menu_root string, idx i32) string {
     mut object_out := String{}
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_get_item_tooltip")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 591067909)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&idx)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &DisplayServer) global_menu_get_item_state(menu_root String, idx i32) i32 {
+pub fn (r &DisplayServer) global_menu_get_item_state(menu_root string, idx i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_get_item_state")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3422818498)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&idx)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &DisplayServer) global_menu_get_item_max_states(menu_root String, idx i32) i32 {
+pub fn (r &DisplayServer) global_menu_get_item_max_states(menu_root string, idx i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_get_item_max_states")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3422818498)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&idx)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &DisplayServer) global_menu_get_item_icon(menu_root String, idx i32) Texture2D {
+pub fn (r &DisplayServer) global_menu_get_item_icon(menu_root string, idx i32) Texture2D {
     mut object_out := Texture2D{}
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_get_item_icon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3591713183)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&idx)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &DisplayServer) global_menu_get_item_indentation_level(menu_root String, idx i32) i32 {
+pub fn (r &DisplayServer) global_menu_get_item_indentation_level(menu_root string, idx i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_get_item_indentation_level")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3422818498)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&idx)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) global_menu_set_item_checked(menu_root String, idx i32, checked bool) {
+pub fn (mut r DisplayServer) global_menu_set_item_checked(menu_root string, idx i32, checked bool) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_set_item_checked")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4108344793)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&idx)}
     args[2] = unsafe{voidptr(&checked)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) global_menu_set_item_checkable(menu_root String, idx i32, checkable bool) {
+pub fn (mut r DisplayServer) global_menu_set_item_checkable(menu_root string, idx i32, checkable bool) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_set_item_checkable")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4108344793)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&idx)}
     args[2] = unsafe{voidptr(&checkable)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) global_menu_set_item_radio_checkable(menu_root String, idx i32, checkable bool) {
+pub fn (mut r DisplayServer) global_menu_set_item_radio_checkable(menu_root string, idx i32, checkable bool) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_set_item_radio_checkable")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4108344793)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&idx)}
     args[2] = unsafe{voidptr(&checkable)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) global_menu_set_item_callback(menu_root String, idx i32, callback Callable) {
+pub fn (mut r DisplayServer) global_menu_set_item_callback(menu_root string, idx i32, callback Callable) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_set_item_callback")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3809915389)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&idx)}
     args[2] = unsafe{voidptr(&callback)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) global_menu_set_item_hover_callbacks(menu_root String, idx i32, callback Callable) {
+pub fn (mut r DisplayServer) global_menu_set_item_hover_callbacks(menu_root string, idx i32, callback Callable) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_set_item_hover_callbacks")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3809915389)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&idx)}
     args[2] = unsafe{voidptr(&callback)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) global_menu_set_item_key_callback(menu_root String, idx i32, key_callback Callable) {
+pub fn (mut r DisplayServer) global_menu_set_item_key_callback(menu_root string, idx i32, key_callback Callable) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_set_item_key_callback")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3809915389)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&idx)}
     args[2] = unsafe{voidptr(&key_callback)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) global_menu_set_item_tag(menu_root String, idx i32, tag Variant) {
+pub fn (mut r DisplayServer) global_menu_set_item_tag(menu_root string, idx i32, tag Variant) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_set_item_tag")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 453659863)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&idx)}
     args[2] = unsafe{voidptr(&tag)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) global_menu_set_item_text(menu_root String, idx i32, text String) {
+pub fn (mut r DisplayServer) global_menu_set_item_text(menu_root string, idx i32, text string) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_set_item_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 965966136)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&idx)}
-    args[2] = unsafe{voidptr(&text)}
+    arg_sn2 := String.new(text)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) global_menu_set_item_submenu(menu_root String, idx i32, submenu String) {
+pub fn (mut r DisplayServer) global_menu_set_item_submenu(menu_root string, idx i32, submenu string) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_set_item_submenu")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 965966136)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&idx)}
-    args[2] = unsafe{voidptr(&submenu)}
+    arg_sn2 := String.new(submenu)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) global_menu_set_item_accelerator(menu_root String, idx i32, keycode Key) {
+pub fn (mut r DisplayServer) global_menu_set_item_accelerator(menu_root string, idx i32, keycode Key) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_set_item_accelerator")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 566943293)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&idx)}
     i64_keycode := i64(keycode)
     args[2] = unsafe{voidptr(&i64_keycode)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) global_menu_set_item_disabled(menu_root String, idx i32, disabled bool) {
+pub fn (mut r DisplayServer) global_menu_set_item_disabled(menu_root string, idx i32, disabled bool) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_set_item_disabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4108344793)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&idx)}
     args[2] = unsafe{voidptr(&disabled)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) global_menu_set_item_hidden(menu_root String, idx i32, hidden bool) {
+pub fn (mut r DisplayServer) global_menu_set_item_hidden(menu_root string, idx i32, hidden bool) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_set_item_hidden")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4108344793)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&idx)}
     args[2] = unsafe{voidptr(&hidden)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) global_menu_set_item_tooltip(menu_root String, idx i32, tooltip String) {
+pub fn (mut r DisplayServer) global_menu_set_item_tooltip(menu_root string, idx i32, tooltip string) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_set_item_tooltip")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 965966136)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&idx)}
-    args[2] = unsafe{voidptr(&tooltip)}
+    arg_sn2 := String.new(tooltip)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) global_menu_set_item_state(menu_root String, idx i32, state i32) {
+pub fn (mut r DisplayServer) global_menu_set_item_state(menu_root string, idx i32, state i32) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_set_item_state")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3474840532)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&idx)}
     args[2] = unsafe{voidptr(&state)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) global_menu_set_item_max_states(menu_root String, idx i32, max_states i32) {
+pub fn (mut r DisplayServer) global_menu_set_item_max_states(menu_root string, idx i32, max_states i32) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_set_item_max_states")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3474840532)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&idx)}
     args[2] = unsafe{voidptr(&max_states)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) global_menu_set_item_icon(menu_root String, idx i32, icon Texture2D) {
+pub fn (mut r DisplayServer) global_menu_set_item_icon(menu_root string, idx i32, icon Texture2D) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_set_item_icon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3201338066)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&idx)}
     args[2] = icon.ptr
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) global_menu_set_item_indentation_level(menu_root String, idx i32, level i32) {
+pub fn (mut r DisplayServer) global_menu_set_item_indentation_level(menu_root string, idx i32, level i32) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_set_item_indentation_level")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3474840532)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&idx)}
     args[2] = unsafe{voidptr(&level)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &DisplayServer) global_menu_get_item_count(menu_root String) i32 {
+pub fn (r &DisplayServer) global_menu_get_item_count(menu_root string) i32 {
     mut object_out := i32(0)
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_get_item_count")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1321353865)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) global_menu_remove_item(menu_root String, idx i32) {
+pub fn (mut r DisplayServer) global_menu_remove_item(menu_root string, idx i32) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_remove_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2956805083)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&idx)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) global_menu_clear(menu_root String) {
+pub fn (mut r DisplayServer) global_menu_clear(menu_root string) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_clear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&menu_root)}
+    arg_sn0 := String.new(menu_root)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -851,31 +981,37 @@ pub fn (r &DisplayServer) tts_get_voices() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (r &DisplayServer) tts_get_voices_for_language(language String) PackedStringArray {
+pub fn (r &DisplayServer) tts_get_voices_for_language(language string) PackedStringArray {
     mut object_out := PackedStringArray{}
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("tts_get_voices_for_language")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4291131558)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&language)}
+    arg_sn0 := String.new(language)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) tts_speak(text String, voice String, volume i32, pitch f64, rate f64, utterance_id i32, interrupt bool) {
+pub fn (mut r DisplayServer) tts_speak(text string, voice string, volume i32, pitch f64, rate f64, utterance_id i32, interrupt bool) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("tts_speak")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 903992738)
     mut args := unsafe { [7]voidptr{} }
-    args[0] = unsafe{voidptr(&text)}
-    args[1] = unsafe{voidptr(&voice)}
+    arg_sn0 := String.new(text)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(voice)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&volume)}
     args[3] = unsafe{voidptr(&pitch)}
     args[4] = unsafe{voidptr(&rate)}
     args[5] = unsafe{voidptr(&utterance_id)}
     args[6] = unsafe{voidptr(&interrupt)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -996,17 +1132,19 @@ pub fn (r &DisplayServer) mouse_get_button_state() MouseButtonMask {
     fnname.deinit()
    return unsafe{MouseButtonMask(object_out)}
 }
-pub fn (mut r DisplayServer) clipboard_set(clipboard String) {
+pub fn (mut r DisplayServer) clipboard_set(clipboard string) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("clipboard_set")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&clipboard)}
+    arg_sn0 := String.new(clipboard)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &DisplayServer) clipboard_get() String {
+pub fn (r &DisplayServer) clipboard_get() string {
     mut object_out := String{}
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("clipboard_get")
@@ -1014,7 +1152,9 @@ pub fn (r &DisplayServer) clipboard_get() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &DisplayServer) clipboard_get_image() Image {
     mut object_out := Image{}
@@ -1046,17 +1186,19 @@ pub fn (r &DisplayServer) clipboard_has_image() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) clipboard_set_primary(clipboard_primary String) {
+pub fn (mut r DisplayServer) clipboard_set_primary(clipboard_primary string) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("clipboard_set_primary")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&clipboard_primary)}
+    arg_sn0 := String.new(clipboard_primary)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &DisplayServer) clipboard_get_primary() String {
+pub fn (r &DisplayServer) clipboard_get_primary() string {
     mut object_out := String{}
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("clipboard_get_primary")
@@ -1064,7 +1206,9 @@ pub fn (r &DisplayServer) clipboard_get_primary() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &DisplayServer) get_display_cutouts() Array {
     mut object_out := Array{}
@@ -1357,26 +1501,30 @@ pub fn (r &DisplayServer) window_get_popup_safe_rect(window i32) Rect2i {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) window_set_title(title String, window_id i32) {
+pub fn (mut r DisplayServer) window_set_title(title string, window_id i32) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("window_set_title")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 441246282)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&title)}
+    arg_sn0 := String.new(title)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&window_id)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &DisplayServer) window_get_title_size(title String, window_id i32) Vector2i {
+pub fn (r &DisplayServer) window_get_title_size(title string, window_id i32) Vector2i {
     mut object_out := Vector2i{}
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("window_get_title_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2925301799)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&title)}
+    arg_sn0 := String.new(title)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&window_id)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -1826,7 +1974,7 @@ pub fn (r &DisplayServer) ime_get_selection() Vector2i {
     fnname.deinit()
    return object_out
 }
-pub fn (r &DisplayServer) ime_get_text() String {
+pub fn (r &DisplayServer) ime_get_text() string {
     mut object_out := String{}
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("ime_get_text")
@@ -1834,14 +1982,17 @@ pub fn (r &DisplayServer) ime_get_text() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r DisplayServer) virtual_keyboard_show(existing_text String, position Rect2, type_name DisplayServerVirtualKeyboardType, max_length i32, cursor_start i32, cursor_end i32) {
+pub fn (mut r DisplayServer) virtual_keyboard_show(existing_text string, position Rect2, type_name DisplayServerVirtualKeyboardType, max_length i32, cursor_start i32, cursor_end i32) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("virtual_keyboard_show")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3042891259)
     mut args := unsafe { [6]voidptr{} }
-    args[0] = unsafe{voidptr(&existing_text)}
+    arg_sn0 := String.new(existing_text)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&position)}
     i64_type_name := i64(type_name)
     args[2] = unsafe{voidptr(&i64_type_name)}
@@ -1849,6 +2000,7 @@ pub fn (mut r DisplayServer) virtual_keyboard_show(existing_text String, positio
     args[4] = unsafe{voidptr(&cursor_start)}
     args[5] = unsafe{voidptr(&cursor_end)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -1924,51 +2076,67 @@ pub fn (mut r DisplayServer) enable_for_stealing_focus(process_id i64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) dialog_show(title String, description String, buttons PackedStringArray, callback Callable) GDError {
+pub fn (mut r DisplayServer) dialog_show(title string, description string, buttons PackedStringArray, callback Callable) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("dialog_show")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4115553226)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = unsafe{voidptr(&title)}
-    args[1] = unsafe{voidptr(&description)}
+    arg_sn0 := String.new(title)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(description)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&buttons)}
     args[3] = unsafe{voidptr(&callback)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r DisplayServer) dialog_input_text(title String, description String, existing_text String, callback Callable) GDError {
+pub fn (mut r DisplayServer) dialog_input_text(title string, description string, existing_text string, callback Callable) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("dialog_input_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3088703427)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = unsafe{voidptr(&title)}
-    args[1] = unsafe{voidptr(&description)}
-    args[2] = unsafe{voidptr(&existing_text)}
+    arg_sn0 := String.new(title)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(description)
+    args[1] = unsafe{voidptr(&arg_sn1)}
+    arg_sn2 := String.new(existing_text)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     args[3] = unsafe{voidptr(&callback)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r DisplayServer) file_dialog_show(title String, current_directory String, filename String, show_hidden bool, mode DisplayServerFileDialogMode, filters PackedStringArray, callback Callable) GDError {
+pub fn (mut r DisplayServer) file_dialog_show(title string, current_directory string, filename string, show_hidden bool, mode DisplayServerFileDialogMode, filters PackedStringArray, callback Callable) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("file_dialog_show")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1531299078)
     mut args := unsafe { [7]voidptr{} }
-    args[0] = unsafe{voidptr(&title)}
-    args[1] = unsafe{voidptr(&current_directory)}
-    args[2] = unsafe{voidptr(&filename)}
+    arg_sn0 := String.new(title)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(current_directory)
+    args[1] = unsafe{voidptr(&arg_sn1)}
+    arg_sn2 := String.new(filename)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     args[3] = unsafe{voidptr(&show_hidden)}
     i64_mode := i64(mode)
     args[4] = unsafe{voidptr(&i64_mode)}
     args[5] = unsafe{voidptr(&filters)}
     args[6] = unsafe{voidptr(&callback)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
@@ -2003,7 +2171,7 @@ pub fn (mut r DisplayServer) keyboard_set_current_layout(index i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &DisplayServer) keyboard_get_layout_language(index i32) String {
+pub fn (r &DisplayServer) keyboard_get_layout_language(index i32) string {
     mut object_out := String{}
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("keyboard_get_layout_language")
@@ -2013,9 +2181,11 @@ pub fn (r &DisplayServer) keyboard_get_layout_language(index i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &DisplayServer) keyboard_get_layout_name(index i32) String {
+pub fn (r &DisplayServer) keyboard_get_layout_name(index i32) string {
     mut object_out := String{}
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("keyboard_get_layout_name")
@@ -2025,7 +2195,9 @@ pub fn (r &DisplayServer) keyboard_get_layout_name(index i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &DisplayServer) keyboard_get_keycode_from_physical(keycode Key) Key {
     mut object_out := i64(Key.key_none)
@@ -2069,13 +2241,15 @@ pub fn (mut r DisplayServer) force_process_and_drop_events() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) set_native_icon(filename String) {
+pub fn (mut r DisplayServer) set_native_icon(filename string) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("set_native_icon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&filename)}
+    arg_sn0 := String.new(filename)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -2099,7 +2273,7 @@ pub fn (r &DisplayServer) tablet_get_driver_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (r &DisplayServer) tablet_get_driver_name(idx i32) String {
+pub fn (r &DisplayServer) tablet_get_driver_name(idx i32) string {
     mut object_out := String{}
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("tablet_get_driver_name")
@@ -2109,9 +2283,11 @@ pub fn (r &DisplayServer) tablet_get_driver_name(idx i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &DisplayServer) tablet_get_current_driver() String {
+pub fn (r &DisplayServer) tablet_get_current_driver() string {
     mut object_out := String{}
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("tablet_get_current_driver")
@@ -2119,15 +2295,19 @@ pub fn (r &DisplayServer) tablet_get_current_driver() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r DisplayServer) tablet_set_current_driver(name String) {
+pub fn (mut r DisplayServer) tablet_set_current_driver(name string) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("tablet_set_current_driver")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }

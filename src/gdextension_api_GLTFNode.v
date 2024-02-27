@@ -245,26 +245,30 @@ pub fn (mut r GLTFNode) set_light(light i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFNode) get_additional_data(extension_name StringName) Variant {
+pub fn (mut r GLTFNode) get_additional_data(extension_name string) Variant {
     mut object_out := Variant{}
     classname := StringName.new("GLTFNode")
     fnname := StringName.new("get_additional_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2138907829)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&extension_name)}
+    arg_sn0 := StringName.new(extension_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFNode) set_additional_data(extension_name StringName, additional_data Variant) {
+pub fn (mut r GLTFNode) set_additional_data(extension_name string, additional_data Variant) {
     classname := StringName.new("GLTFNode")
     fnname := StringName.new("set_additional_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3776071444)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&extension_name)}
+    arg_sn0 := StringName.new(extension_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&additional_data)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }

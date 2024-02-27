@@ -234,25 +234,29 @@ pub fn (r &GeometryInstance3D) get_visibility_range_fade_mode() GeometryInstance
     fnname.deinit()
    return unsafe{GeometryInstance3DVisibilityRangeFadeMode(object_out)}
 }
-pub fn (mut r GeometryInstance3D) set_instance_shader_parameter(name StringName, value Variant) {
+pub fn (mut r GeometryInstance3D) set_instance_shader_parameter(name string, value Variant) {
     classname := StringName.new("GeometryInstance3D")
     fnname := StringName.new("set_instance_shader_parameter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3776071444)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&value)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &GeometryInstance3D) get_instance_shader_parameter(name StringName) Variant {
+pub fn (r &GeometryInstance3D) get_instance_shader_parameter(name string) Variant {
     mut object_out := Variant{}
     classname := StringName.new("GeometryInstance3D")
     fnname := StringName.new("get_instance_shader_parameter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2760726917)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out

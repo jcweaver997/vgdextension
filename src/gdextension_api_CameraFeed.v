@@ -48,7 +48,7 @@ pub fn (mut r CameraFeed) set_active(active bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &CameraFeed) get_name() String {
+pub fn (r &CameraFeed) get_name() string {
     mut object_out := String{}
     classname := StringName.new("CameraFeed")
     fnname := StringName.new("get_name")
@@ -56,7 +56,9 @@ pub fn (r &CameraFeed) get_name() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &CameraFeed) get_position() CameraFeedFeedPosition {
     mut object_out := i64(CameraFeedFeedPosition.feed_unspecified)

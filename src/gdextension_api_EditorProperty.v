@@ -33,17 +33,19 @@ pub fn (mut r EditorProperty) uset_read_only(read_only bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorProperty) set_label(text String) {
+pub fn (mut r EditorProperty) set_label(text string) {
     classname := StringName.new("EditorProperty")
     fnname := StringName.new("set_label")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&text)}
+    arg_sn0 := String.new(text)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &EditorProperty) get_label() String {
+pub fn (r &EditorProperty) get_label() string {
     mut object_out := String{}
     classname := StringName.new("EditorProperty")
     fnname := StringName.new("get_label")
@@ -51,7 +53,9 @@ pub fn (r &EditorProperty) get_label() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r EditorProperty) set_read_only(read_only bool) {
     classname := StringName.new("EditorProperty")
@@ -173,7 +177,7 @@ pub fn (r &EditorProperty) is_deletable() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (r &EditorProperty) get_edited_property() StringName {
+pub fn (r &EditorProperty) get_edited_property() string {
     mut object_out := StringName{}
     classname := StringName.new("EditorProperty")
     fnname := StringName.new("get_edited_property")
@@ -181,7 +185,9 @@ pub fn (r &EditorProperty) get_edited_property() StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r EditorProperty) get_edited_object() Object {
     mut object_out := Object{}
@@ -221,16 +227,20 @@ pub fn (mut r EditorProperty) set_bottom_editor(editor Control) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorProperty) emit_changed(property StringName, value Variant, field StringName, changing bool) {
+pub fn (mut r EditorProperty) emit_changed(property string, value Variant, field string, changing bool) {
     classname := StringName.new("EditorProperty")
     fnname := StringName.new("emit_changed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3069422438)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = unsafe{voidptr(&property)}
+    arg_sn0 := StringName.new(property)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&value)}
-    args[2] = unsafe{voidptr(&field)}
+    arg_sn2 := StringName.new(field)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     args[3] = unsafe{voidptr(&changing)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
 }

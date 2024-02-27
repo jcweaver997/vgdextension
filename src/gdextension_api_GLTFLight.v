@@ -89,7 +89,7 @@ pub fn (mut r GLTFLight) set_intensity(intensity f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFLight) get_light_type() String {
+pub fn (mut r GLTFLight) get_light_type() string {
     mut object_out := String{}
     classname := StringName.new("GLTFLight")
     fnname := StringName.new("get_light_type")
@@ -97,15 +97,19 @@ pub fn (mut r GLTFLight) get_light_type() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r GLTFLight) set_light_type(light_type String) {
+pub fn (mut r GLTFLight) set_light_type(light_type string) {
     classname := StringName.new("GLTFLight")
     fnname := StringName.new("set_light_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&light_type)}
+    arg_sn0 := String.new(light_type)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }

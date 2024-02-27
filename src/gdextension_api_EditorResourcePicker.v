@@ -37,17 +37,19 @@ pub fn (mut r EditorResourcePicker) uhandle_menu_selected(id i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorResourcePicker) set_base_type(base_type String) {
+pub fn (mut r EditorResourcePicker) set_base_type(base_type string) {
     classname := StringName.new("EditorResourcePicker")
     fnname := StringName.new("set_base_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&base_type)}
+    arg_sn0 := String.new(base_type)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &EditorResourcePicker) get_base_type() String {
+pub fn (r &EditorResourcePicker) get_base_type() string {
     mut object_out := String{}
     classname := StringName.new("EditorResourcePicker")
     fnname := StringName.new("get_base_type")
@@ -55,7 +57,9 @@ pub fn (r &EditorResourcePicker) get_base_type() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &EditorResourcePicker) get_allowed_types() PackedStringArray {
     mut object_out := PackedStringArray{}

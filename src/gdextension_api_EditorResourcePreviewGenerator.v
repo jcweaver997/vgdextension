@@ -10,14 +10,16 @@ pub interface IEditorResourcePreviewGeneratorHandles {
     virt_handles(type_name String) bool
 }
 
-pub fn (r &EditorResourcePreviewGenerator) uhandles(type_name String) bool {
+pub fn (r &EditorResourcePreviewGenerator) uhandles(type_name string) bool {
     mut object_out := false
     classname := StringName.new("EditorResourcePreviewGenerator")
     fnname := StringName.new("_handles")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&type_name)}
+    arg_sn0 := String.new(type_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -46,16 +48,18 @@ pub interface IEditorResourcePreviewGeneratorGenerateFromPath {
     virt_generate_from_path(path String, size Vector2i, metadata Dictionary) Texture2D
 }
 
-pub fn (r &EditorResourcePreviewGenerator) ugenerate_from_path(path String, size Vector2i, metadata Dictionary) Texture2D {
+pub fn (r &EditorResourcePreviewGenerator) ugenerate_from_path(path string, size Vector2i, metadata Dictionary) Texture2D {
     mut object_out := Texture2D{}
     classname := StringName.new("EditorResourcePreviewGenerator")
     fnname := StringName.new("_generate_from_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&size)}
     args[2] = unsafe{voidptr(&metadata)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out

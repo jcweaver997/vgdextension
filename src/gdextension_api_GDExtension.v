@@ -12,15 +12,19 @@ pub struct GDExtension {
     Resource
 }
 
-pub fn (mut r GDExtension) open_library(path String, entry_symbol String) GDError {
+pub fn (mut r GDExtension) open_library(path string, entry_symbol string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("GDExtension")
     fnname := StringName.new("open_library")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 852856452)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
-    args[1] = unsafe{voidptr(&entry_symbol)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(entry_symbol)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}

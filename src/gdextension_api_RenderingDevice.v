@@ -1012,28 +1012,32 @@ pub fn (mut r RenderingDevice) shader_compile_spirv_from_source(shader_source RD
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) shader_compile_binary_from_spirv(spirv_data RDShaderSPIRV, name String) PackedByteArray {
+pub fn (mut r RenderingDevice) shader_compile_binary_from_spirv(spirv_data RDShaderSPIRV, name string) PackedByteArray {
     mut object_out := PackedByteArray{}
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("shader_compile_binary_from_spirv")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 134910450)
     mut args := unsafe { [2]voidptr{} }
     args[0] = spirv_data.ptr
-    args[1] = unsafe{voidptr(&name)}
+    arg_sn1 := String.new(name)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) shader_create_from_spirv(spirv_data RDShaderSPIRV, name String) RID {
+pub fn (mut r RenderingDevice) shader_create_from_spirv(spirv_data RDShaderSPIRV, name string) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("shader_create_from_spirv")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 342949005)
     mut args := unsafe { [2]voidptr{} }
     args[0] = spirv_data.ptr
-    args[1] = unsafe{voidptr(&name)}
+    arg_sn1 := String.new(name)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -1574,13 +1578,15 @@ pub fn (mut r RenderingDevice) free_rid(rid RID) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingDevice) capture_timestamp(name String) {
+pub fn (mut r RenderingDevice) capture_timestamp(name string) {
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("capture_timestamp")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -1628,7 +1634,7 @@ pub fn (r &RenderingDevice) get_captured_timestamp_cpu_time(index u32) u64 {
     fnname.deinit()
    return object_out
 }
-pub fn (r &RenderingDevice) get_captured_timestamp_name(index u32) String {
+pub fn (r &RenderingDevice) get_captured_timestamp_name(index u32) string {
     mut object_out := String{}
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("get_captured_timestamp_name")
@@ -1638,7 +1644,9 @@ pub fn (r &RenderingDevice) get_captured_timestamp_name(index u32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &RenderingDevice) limit_get(limit RenderingDeviceLimit) u64 {
     mut object_out := u64(0)
@@ -1710,36 +1718,42 @@ pub fn (mut r RenderingDevice) create_local_device() RenderingDevice {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) set_resource_name(id RID, name String) {
+pub fn (mut r RenderingDevice) set_resource_name(id RID, name string) {
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("set_resource_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2726140452)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&id)}
-    args[1] = unsafe{voidptr(&name)}
+    arg_sn1 := String.new(name)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingDevice) draw_command_begin_label(name String, color Color) {
+pub fn (mut r RenderingDevice) draw_command_begin_label(name string, color Color) {
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("draw_command_begin_label")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1636512886)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&color)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingDevice) draw_command_insert_label(name String, color Color) {
+pub fn (mut r RenderingDevice) draw_command_insert_label(name string, color Color) {
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("draw_command_insert_label")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1636512886)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&color)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -1751,7 +1765,7 @@ pub fn (mut r RenderingDevice) draw_command_end_label() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &RenderingDevice) get_device_vendor_name() String {
+pub fn (r &RenderingDevice) get_device_vendor_name() string {
     mut object_out := String{}
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("get_device_vendor_name")
@@ -1759,9 +1773,11 @@ pub fn (r &RenderingDevice) get_device_vendor_name() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &RenderingDevice) get_device_name() String {
+pub fn (r &RenderingDevice) get_device_name() string {
     mut object_out := String{}
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("get_device_name")
@@ -1769,9 +1785,11 @@ pub fn (r &RenderingDevice) get_device_name() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &RenderingDevice) get_device_pipeline_cache_uuid() String {
+pub fn (r &RenderingDevice) get_device_pipeline_cache_uuid() string {
     mut object_out := String{}
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("get_device_pipeline_cache_uuid")
@@ -1779,7 +1797,9 @@ pub fn (r &RenderingDevice) get_device_pipeline_cache_uuid() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &RenderingDevice) get_memory_usage(type_name RenderingDeviceMemoryType) u64 {
     mut object_out := u64(0)

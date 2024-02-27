@@ -125,17 +125,19 @@ pub fn (r &AudioEffectCompressor) get_mix() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectCompressor) set_sidechain(sidechain StringName) {
+pub fn (mut r AudioEffectCompressor) set_sidechain(sidechain string) {
     classname := StringName.new("AudioEffectCompressor")
     fnname := StringName.new("set_sidechain")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&sidechain)}
+    arg_sn0 := StringName.new(sidechain)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &AudioEffectCompressor) get_sidechain() StringName {
+pub fn (r &AudioEffectCompressor) get_sidechain() string {
     mut object_out := StringName{}
     classname := StringName.new("AudioEffectCompressor")
     fnname := StringName.new("get_sidechain")
@@ -143,5 +145,7 @@ pub fn (r &AudioEffectCompressor) get_sidechain() StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }

@@ -201,17 +201,19 @@ pub fn (mut r Node) add_sibling(sibling Node, force_readable_name bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node) set_name(name String) {
+pub fn (mut r Node) set_name(name string) {
     classname := StringName.new("Node")
     fnname := StringName.new("set_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &Node) get_name() StringName {
+pub fn (r &Node) get_name() string {
     mut object_out := StringName{}
     classname := StringName.new("Node")
     fnname := StringName.new("get_name")
@@ -219,7 +221,9 @@ pub fn (r &Node) get_name() StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r Node) add_child(node Node, force_readable_name bool, internal NodeInternalMode) {
     classname := StringName.new("Node")
@@ -338,43 +342,51 @@ pub fn (r &Node) get_parent() Node {
     fnname.deinit()
    return object_out
 }
-pub fn (r &Node) find_child(pattern String, recursive bool, owned bool) Node {
+pub fn (r &Node) find_child(pattern string, recursive bool, owned bool) Node {
     mut object_out := Node{}
     classname := StringName.new("Node")
     fnname := StringName.new("find_child")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2008217037)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&pattern)}
+    arg_sn0 := String.new(pattern)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&recursive)}
     args[2] = unsafe{voidptr(&owned)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &Node) find_children(pattern String, type_name String, recursive bool, owned bool) Array {
+pub fn (r &Node) find_children(pattern string, type_name string, recursive bool, owned bool) Array {
     mut object_out := Array{}
     classname := StringName.new("Node")
     fnname := StringName.new("find_children")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2560337219)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = unsafe{voidptr(&pattern)}
-    args[1] = unsafe{voidptr(&type_name)}
+    arg_sn0 := String.new(pattern)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(type_name)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&recursive)}
     args[3] = unsafe{voidptr(&owned)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &Node) find_parent(pattern String) Node {
+pub fn (r &Node) find_parent(pattern string) Node {
     mut object_out := Node{}
     classname := StringName.new("Node")
     fnname := StringName.new("find_parent")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1140089439)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&pattern)}
+    arg_sn0 := String.new(pattern)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -460,35 +472,41 @@ pub fn (r &Node) get_path_to(node Node, use_unique_path bool) NodePath {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node) add_to_group(group StringName, persistent bool) {
+pub fn (mut r Node) add_to_group(group string, persistent bool) {
     classname := StringName.new("Node")
     fnname := StringName.new("add_to_group")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3683006648)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&group)}
+    arg_sn0 := StringName.new(group)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&persistent)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node) remove_from_group(group StringName) {
+pub fn (mut r Node) remove_from_group(group string) {
     classname := StringName.new("Node")
     fnname := StringName.new("remove_from_group")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&group)}
+    arg_sn0 := StringName.new(group)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &Node) is_in_group(group StringName) bool {
+pub fn (r &Node) is_in_group(group string) bool {
     mut object_out := false
     classname := StringName.new("Node")
     fnname := StringName.new("is_in_group")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2619796661)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&group)}
+    arg_sn0 := StringName.new(group)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -562,7 +580,7 @@ pub fn (mut r Node) print_tree_pretty() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node) get_tree_string() String {
+pub fn (mut r Node) get_tree_string() string {
     mut object_out := String{}
     classname := StringName.new("Node")
     fnname := StringName.new("get_tree_string")
@@ -570,9 +588,11 @@ pub fn (mut r Node) get_tree_string() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r Node) get_tree_string_pretty() String {
+pub fn (mut r Node) get_tree_string_pretty() string {
     mut object_out := String{}
     classname := StringName.new("Node")
     fnname := StringName.new("get_tree_string_pretty")
@@ -580,19 +600,23 @@ pub fn (mut r Node) get_tree_string_pretty() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r Node) set_scene_file_path(scene_file_path String) {
+pub fn (mut r Node) set_scene_file_path(scene_file_path string) {
     classname := StringName.new("Node")
     fnname := StringName.new("set_scene_file_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&scene_file_path)}
+    arg_sn0 := String.new(scene_file_path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &Node) get_scene_file_path() String {
+pub fn (r &Node) get_scene_file_path() string {
     mut object_out := String{}
     classname := StringName.new("Node")
     fnname := StringName.new("get_scene_file_path")
@@ -600,7 +624,9 @@ pub fn (r &Node) get_scene_file_path() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r Node) propagate_notification(what i32) {
     classname := StringName.new("Node")
@@ -612,15 +638,17 @@ pub fn (mut r Node) propagate_notification(what i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node) propagate_call(method StringName, gdargs Array, parent_first bool) {
+pub fn (mut r Node) propagate_call(method string, gdargs Array, parent_first bool) {
     classname := StringName.new("Node")
     fnname := StringName.new("propagate_call")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1871007965)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&method)}
+    arg_sn0 := StringName.new(method)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&gdargs)}
     args[2] = unsafe{voidptr(&parent_first)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -1140,28 +1168,32 @@ pub fn (r &Node) get_multiplayer() MultiplayerAPI {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node) rpc_config(method StringName, config Variant) {
+pub fn (mut r Node) rpc_config(method string, config Variant) {
     classname := StringName.new("Node")
     fnname := StringName.new("rpc_config")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3776071444)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&method)}
+    arg_sn0 := StringName.new(method)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&config)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node) set_editor_description(editor_description String) {
+pub fn (mut r Node) set_editor_description(editor_description string) {
     classname := StringName.new("Node")
     fnname := StringName.new("set_editor_description")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&editor_description)}
+    arg_sn0 := String.new(editor_description)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &Node) get_editor_description() String {
+pub fn (r &Node) get_editor_description() string {
     mut object_out := String{}
     classname := StringName.new("Node")
     fnname := StringName.new("get_editor_description")
@@ -1169,7 +1201,9 @@ pub fn (r &Node) get_editor_description() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r Node) set_unique_name_in_owner(enable bool) {
     classname := StringName.new("Node")
@@ -1199,14 +1233,16 @@ pub fn (mut r Node) update_configuration_warnings() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node) set_deferred_thread_group(property StringName, value Variant) {
+pub fn (mut r Node) set_deferred_thread_group(property string, value Variant) {
     classname := StringName.new("Node")
     fnname := StringName.new("set_deferred_thread_group")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3776071444)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&property)}
+    arg_sn0 := StringName.new(property)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&value)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -1220,14 +1256,16 @@ pub fn (mut r Node) notify_deferred_thread_group(what i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node) set_thread_safe(property StringName, value Variant) {
+pub fn (mut r Node) set_thread_safe(property string, value Variant) {
     classname := StringName.new("Node")
     fnname := StringName.new("set_thread_safe")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3776071444)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&property)}
+    arg_sn0 := StringName.new(property)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&value)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }

@@ -47,17 +47,19 @@ pub fn (r &TextMesh) get_vertical_alignment() VerticalAlignment {
     fnname.deinit()
    return unsafe{VerticalAlignment(object_out)}
 }
-pub fn (mut r TextMesh) set_text(text String) {
+pub fn (mut r TextMesh) set_text(text string) {
     classname := StringName.new("TextMesh")
     fnname := StringName.new("set_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&text)}
+    arg_sn0 := String.new(text)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &TextMesh) get_text() String {
+pub fn (r &TextMesh) get_text() string {
     mut object_out := String{}
     classname := StringName.new("TextMesh")
     fnname := StringName.new("get_text")
@@ -65,7 +67,9 @@ pub fn (r &TextMesh) get_text() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r TextMesh) set_font(font Font) {
     classname := StringName.new("TextMesh")
@@ -290,17 +294,19 @@ pub fn (r &TextMesh) get_text_direction() TextServerDirection {
     fnname.deinit()
    return unsafe{TextServerDirection(object_out)}
 }
-pub fn (mut r TextMesh) set_language(language String) {
+pub fn (mut r TextMesh) set_language(language string) {
     classname := StringName.new("TextMesh")
     fnname := StringName.new("set_language")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&language)}
+    arg_sn0 := String.new(language)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &TextMesh) get_language() String {
+pub fn (r &TextMesh) get_language() string {
     mut object_out := String{}
     classname := StringName.new("TextMesh")
     fnname := StringName.new("get_language")
@@ -308,7 +314,9 @@ pub fn (r &TextMesh) get_language() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r TextMesh) set_structured_text_bidi_override(parser TextServerStructuredTextParser) {
     classname := StringName.new("TextMesh")

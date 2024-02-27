@@ -147,26 +147,30 @@ pub fn (mut r OpenXRInterface) set_foveation_dynamic(foveation_dynamic bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &OpenXRInterface) is_action_set_active(name String) bool {
+pub fn (r &OpenXRInterface) is_action_set_active(name string) bool {
     mut object_out := false
     classname := StringName.new("OpenXRInterface")
     fnname := StringName.new("is_action_set_active")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3927539163)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OpenXRInterface) set_action_set_active(name String, active bool) {
+pub fn (mut r OpenXRInterface) set_action_set_active(name string, active bool) {
     classname := StringName.new("OpenXRInterface")
     fnname := StringName.new("set_action_set_active")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2678287736)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&active)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }

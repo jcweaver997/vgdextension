@@ -10,17 +10,19 @@ pub struct AnimationNodeAnimation {
     AnimationRootNode
 }
 
-pub fn (mut r AnimationNodeAnimation) set_animation(name StringName) {
+pub fn (mut r AnimationNodeAnimation) set_animation(name string) {
     classname := StringName.new("AnimationNodeAnimation")
     fnname := StringName.new("set_animation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &AnimationNodeAnimation) get_animation() StringName {
+pub fn (r &AnimationNodeAnimation) get_animation() string {
     mut object_out := StringName{}
     classname := StringName.new("AnimationNodeAnimation")
     fnname := StringName.new("get_animation")
@@ -28,7 +30,9 @@ pub fn (r &AnimationNodeAnimation) get_animation() StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r AnimationNodeAnimation) set_play_mode(mode AnimationNodeAnimationPlayMode) {
     classname := StringName.new("AnimationNodeAnimation")

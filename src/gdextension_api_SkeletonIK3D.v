@@ -5,17 +5,19 @@ pub struct SkeletonIK3D {
     Node
 }
 
-pub fn (mut r SkeletonIK3D) set_root_bone(root_bone StringName) {
+pub fn (mut r SkeletonIK3D) set_root_bone(root_bone string) {
     classname := StringName.new("SkeletonIK3D")
     fnname := StringName.new("set_root_bone")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&root_bone)}
+    arg_sn0 := StringName.new(root_bone)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &SkeletonIK3D) get_root_bone() StringName {
+pub fn (r &SkeletonIK3D) get_root_bone() string {
     mut object_out := StringName{}
     classname := StringName.new("SkeletonIK3D")
     fnname := StringName.new("get_root_bone")
@@ -23,19 +25,23 @@ pub fn (r &SkeletonIK3D) get_root_bone() StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r SkeletonIK3D) set_tip_bone(tip_bone StringName) {
+pub fn (mut r SkeletonIK3D) set_tip_bone(tip_bone string) {
     classname := StringName.new("SkeletonIK3D")
     fnname := StringName.new("set_tip_bone")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&tip_bone)}
+    arg_sn0 := StringName.new(tip_bone)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &SkeletonIK3D) get_tip_bone() StringName {
+pub fn (r &SkeletonIK3D) get_tip_bone() string {
     mut object_out := StringName{}
     classname := StringName.new("SkeletonIK3D")
     fnname := StringName.new("get_tip_bone")
@@ -43,7 +49,9 @@ pub fn (r &SkeletonIK3D) get_tip_bone() StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r SkeletonIK3D) set_interpolation(interpolation f64) {
     classname := StringName.new("SkeletonIK3D")

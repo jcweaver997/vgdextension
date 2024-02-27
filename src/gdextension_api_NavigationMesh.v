@@ -132,17 +132,19 @@ pub fn (r &NavigationMesh) get_source_geometry_mode() NavigationMeshSourceGeomet
     fnname.deinit()
    return unsafe{NavigationMeshSourceGeometryMode(object_out)}
 }
-pub fn (mut r NavigationMesh) set_source_group_name(mask StringName) {
+pub fn (mut r NavigationMesh) set_source_group_name(mask string) {
     classname := StringName.new("NavigationMesh")
     fnname := StringName.new("set_source_group_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&mask)}
+    arg_sn0 := StringName.new(mask)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &NavigationMesh) get_source_group_name() StringName {
+pub fn (r &NavigationMesh) get_source_group_name() string {
     mut object_out := StringName{}
     classname := StringName.new("NavigationMesh")
     fnname := StringName.new("get_source_group_name")
@@ -150,7 +152,9 @@ pub fn (r &NavigationMesh) get_source_group_name() StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r NavigationMesh) set_cell_size(cell_size f64) {
     classname := StringName.new("NavigationMesh")

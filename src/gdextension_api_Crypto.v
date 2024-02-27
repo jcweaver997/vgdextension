@@ -29,17 +29,23 @@ pub fn (mut r Crypto) generate_rsa(size i32) CryptoKey {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Crypto) generate_self_signed_certificate(key CryptoKey, issuer_name String, not_before String, not_after String) X509Certificate {
+pub fn (mut r Crypto) generate_self_signed_certificate(key CryptoKey, issuer_name string, not_before string, not_after string) X509Certificate {
     mut object_out := X509Certificate{}
     classname := StringName.new("Crypto")
     fnname := StringName.new("generate_self_signed_certificate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 492266173)
     mut args := unsafe { [4]voidptr{} }
     args[0] = key.ptr
-    args[1] = unsafe{voidptr(&issuer_name)}
-    args[2] = unsafe{voidptr(&not_before)}
-    args[3] = unsafe{voidptr(&not_after)}
+    arg_sn1 := String.new(issuer_name)
+    args[1] = unsafe{voidptr(&arg_sn1)}
+    arg_sn2 := String.new(not_before)
+    args[2] = unsafe{voidptr(&arg_sn2)}
+    arg_sn3 := String.new(not_after)
+    args[3] = unsafe{voidptr(&arg_sn3)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn1.deinit()
+    arg_sn2.deinit()
+    arg_sn3.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out

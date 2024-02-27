@@ -5,15 +5,17 @@ pub struct UDPServer {
     RefCounted
 }
 
-pub fn (mut r UDPServer) listen(port u16, bind_address String) GDError {
+pub fn (mut r UDPServer) listen(port u16, bind_address string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("UDPServer")
     fnname := StringName.new("listen")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3167955072)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&port)}
-    args[1] = unsafe{voidptr(&bind_address)}
+    arg_sn1 := String.new(bind_address)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}

@@ -5,37 +5,43 @@ pub struct OptionButton {
     Button
 }
 
-pub fn (mut r OptionButton) add_item(label String, id i32) {
+pub fn (mut r OptionButton) add_item(label string, id i32) {
     classname := StringName.new("OptionButton")
     fnname := StringName.new("add_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2697778442)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&label)}
+    arg_sn0 := String.new(label)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&id)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r OptionButton) add_icon_item(texture Texture2D, label String, id i32) {
+pub fn (mut r OptionButton) add_icon_item(texture Texture2D, label string, id i32) {
     classname := StringName.new("OptionButton")
     fnname := StringName.new("add_icon_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3781678508)
     mut args := unsafe { [3]voidptr{} }
     args[0] = texture.ptr
-    args[1] = unsafe{voidptr(&label)}
+    arg_sn1 := String.new(label)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&id)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r OptionButton) set_item_text(idx i32, text String) {
+pub fn (mut r OptionButton) set_item_text(idx i32, text string) {
     classname := StringName.new("OptionButton")
     fnname := StringName.new("set_item_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    args[1] = unsafe{voidptr(&text)}
+    arg_sn1 := String.new(text)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -83,18 +89,20 @@ pub fn (mut r OptionButton) set_item_metadata(idx i32, metadata Variant) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r OptionButton) set_item_tooltip(idx i32, tooltip String) {
+pub fn (mut r OptionButton) set_item_tooltip(idx i32, tooltip string) {
     classname := StringName.new("OptionButton")
     fnname := StringName.new("set_item_tooltip")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    args[1] = unsafe{voidptr(&tooltip)}
+    arg_sn1 := String.new(tooltip)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &OptionButton) get_item_text(idx i32) String {
+pub fn (r &OptionButton) get_item_text(idx i32) string {
     mut object_out := String{}
     classname := StringName.new("OptionButton")
     fnname := StringName.new("get_item_text")
@@ -104,7 +112,9 @@ pub fn (r &OptionButton) get_item_text(idx i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &OptionButton) get_item_icon(idx i32) Texture2D {
     mut object_out := Texture2D{}
@@ -154,7 +164,7 @@ pub fn (r &OptionButton) get_item_metadata(idx i32) Variant {
     fnname.deinit()
    return object_out
 }
-pub fn (r &OptionButton) get_item_tooltip(idx i32) String {
+pub fn (r &OptionButton) get_item_tooltip(idx i32) string {
     mut object_out := String{}
     classname := StringName.new("OptionButton")
     fnname := StringName.new("get_item_tooltip")
@@ -164,7 +174,9 @@ pub fn (r &OptionButton) get_item_tooltip(idx i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &OptionButton) is_item_disabled(idx i32) bool {
     mut object_out := false
@@ -190,13 +202,15 @@ pub fn (r &OptionButton) is_item_separator(idx i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OptionButton) add_separator(text String) {
+pub fn (mut r OptionButton) add_separator(text string) {
     classname := StringName.new("OptionButton")
     fnname := StringName.new("add_separator")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3005725572)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&text)}
+    arg_sn0 := String.new(text)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }

@@ -11,32 +11,38 @@ pub struct GLTFDocument {
     Resource
 }
 
-pub fn (mut r GLTFDocument) append_from_file(path String, state GLTFState, flags u32, base_path String) GDError {
+pub fn (mut r GLTFDocument) append_from_file(path string, state GLTFState, flags u32, base_path string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("GLTFDocument")
     fnname := StringName.new("append_from_file")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 866380864)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = state.ptr
     args[2] = unsafe{voidptr(&flags)}
-    args[3] = unsafe{voidptr(&base_path)}
+    arg_sn3 := String.new(base_path)
+    args[3] = unsafe{voidptr(&arg_sn3)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn3.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r GLTFDocument) append_from_buffer(bytes PackedByteArray, base_path String, state GLTFState, flags u32) GDError {
+pub fn (mut r GLTFDocument) append_from_buffer(bytes PackedByteArray, base_path string, state GLTFState, flags u32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("GLTFDocument")
     fnname := StringName.new("append_from_buffer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1616081266)
     mut args := unsafe { [4]voidptr{} }
     args[0] = unsafe{voidptr(&bytes)}
-    args[1] = unsafe{voidptr(&base_path)}
+    arg_sn1 := String.new(base_path)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = state.ptr
     args[3] = unsafe{voidptr(&flags)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
@@ -82,30 +88,34 @@ pub fn (mut r GLTFDocument) generate_buffer(state GLTFState) PackedByteArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFDocument) write_to_filesystem(state GLTFState, path String) GDError {
+pub fn (mut r GLTFDocument) write_to_filesystem(state GLTFState, path string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("GLTFDocument")
     fnname := StringName.new("write_to_filesystem")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1784551478)
     mut args := unsafe { [2]voidptr{} }
     args[0] = state.ptr
-    args[1] = unsafe{voidptr(&path)}
+    arg_sn1 := String.new(path)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r GLTFDocument) set_image_format(image_format String) {
+pub fn (mut r GLTFDocument) set_image_format(image_format string) {
     classname := StringName.new("GLTFDocument")
     fnname := StringName.new("set_image_format")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&image_format)}
+    arg_sn0 := String.new(image_format)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &GLTFDocument) get_image_format() String {
+pub fn (r &GLTFDocument) get_image_format() string {
     mut object_out := String{}
     classname := StringName.new("GLTFDocument")
     fnname := StringName.new("get_image_format")
@@ -113,7 +123,9 @@ pub fn (r &GLTFDocument) get_image_format() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r GLTFDocument) set_lossy_quality(lossy_quality f64) {
     classname := StringName.new("GLTFDocument")

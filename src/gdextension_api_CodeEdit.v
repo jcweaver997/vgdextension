@@ -227,14 +227,18 @@ pub fn (r &CodeEdit) is_highlight_matching_braces_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeEdit) add_auto_brace_completion_pair(start_key String, end_key String) {
+pub fn (mut r CodeEdit) add_auto_brace_completion_pair(start_key string, end_key string) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("add_auto_brace_completion_pair")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3186203200)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&start_key)}
-    args[1] = unsafe{voidptr(&end_key)}
+    arg_sn0 := String.new(start_key)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(end_key)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -258,41 +262,49 @@ pub fn (r &CodeEdit) get_auto_brace_completion_pairs() Dictionary {
     fnname.deinit()
    return object_out
 }
-pub fn (r &CodeEdit) has_auto_brace_completion_open_key(open_key String) bool {
+pub fn (r &CodeEdit) has_auto_brace_completion_open_key(open_key string) bool {
     mut object_out := false
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("has_auto_brace_completion_open_key")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3927539163)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&open_key)}
+    arg_sn0 := String.new(open_key)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &CodeEdit) has_auto_brace_completion_close_key(close_key String) bool {
+pub fn (r &CodeEdit) has_auto_brace_completion_close_key(close_key string) bool {
     mut object_out := false
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("has_auto_brace_completion_close_key")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3927539163)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&close_key)}
+    arg_sn0 := String.new(close_key)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (r &CodeEdit) get_auto_brace_completion_close_key(open_key String) String {
+pub fn (r &CodeEdit) get_auto_brace_completion_close_key(open_key string) string {
     mut object_out := String{}
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("get_auto_brace_completion_close_key")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3135753539)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&open_key)}
+    arg_sn0 := String.new(open_key)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r CodeEdit) set_draw_breakpoints_gutter(enable bool) {
     classname := StringName.new("CodeEdit")
@@ -645,7 +657,7 @@ pub fn (mut r CodeEdit) create_code_region() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &CodeEdit) get_code_region_start_tag() String {
+pub fn (r &CodeEdit) get_code_region_start_tag() string {
     mut object_out := String{}
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("get_code_region_start_tag")
@@ -653,9 +665,11 @@ pub fn (r &CodeEdit) get_code_region_start_tag() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &CodeEdit) get_code_region_end_tag() String {
+pub fn (r &CodeEdit) get_code_region_end_tag() string {
     mut object_out := String{}
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("get_code_region_end_tag")
@@ -663,16 +677,22 @@ pub fn (r &CodeEdit) get_code_region_end_tag() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r CodeEdit) set_code_region_tags(start String, end String) {
+pub fn (mut r CodeEdit) set_code_region_tags(start string, end string) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("set_code_region_tags")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 708800718)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&start)}
-    args[1] = unsafe{voidptr(&end)}
+    arg_sn0 := String.new(start)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(end)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -700,36 +720,44 @@ pub fn (r &CodeEdit) is_line_code_region_end(line i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeEdit) add_string_delimiter(start_key String, end_key String, line_only bool) {
+pub fn (mut r CodeEdit) add_string_delimiter(start_key string, end_key string, line_only bool) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("add_string_delimiter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3146098955)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&start_key)}
-    args[1] = unsafe{voidptr(&end_key)}
+    arg_sn0 := String.new(start_key)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(end_key)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&line_only)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CodeEdit) remove_string_delimiter(start_key String) {
+pub fn (mut r CodeEdit) remove_string_delimiter(start_key string) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("remove_string_delimiter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&start_key)}
+    arg_sn0 := String.new(start_key)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &CodeEdit) has_string_delimiter(start_key String) bool {
+pub fn (r &CodeEdit) has_string_delimiter(start_key string) bool {
     mut object_out := false
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("has_string_delimiter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3927539163)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&start_key)}
+    arg_sn0 := String.new(start_key)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -775,36 +803,44 @@ pub fn (r &CodeEdit) is_in_string(line i32, column i32) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeEdit) add_comment_delimiter(start_key String, end_key String, line_only bool) {
+pub fn (mut r CodeEdit) add_comment_delimiter(start_key string, end_key string, line_only bool) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("add_comment_delimiter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3146098955)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&start_key)}
-    args[1] = unsafe{voidptr(&end_key)}
+    arg_sn0 := String.new(start_key)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(end_key)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&line_only)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CodeEdit) remove_comment_delimiter(start_key String) {
+pub fn (mut r CodeEdit) remove_comment_delimiter(start_key string) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("remove_comment_delimiter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&start_key)}
+    arg_sn0 := String.new(start_key)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &CodeEdit) has_comment_delimiter(start_key String) bool {
+pub fn (r &CodeEdit) has_comment_delimiter(start_key string) bool {
     mut object_out := false
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("has_comment_delimiter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3927539163)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&start_key)}
+    arg_sn0 := String.new(start_key)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -850,7 +886,7 @@ pub fn (r &CodeEdit) is_in_comment(line i32, column i32) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (r &CodeEdit) get_delimiter_start_key(delimiter_index i32) String {
+pub fn (r &CodeEdit) get_delimiter_start_key(delimiter_index i32) string {
     mut object_out := String{}
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("get_delimiter_start_key")
@@ -860,9 +896,11 @@ pub fn (r &CodeEdit) get_delimiter_start_key(delimiter_index i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &CodeEdit) get_delimiter_end_key(delimiter_index i32) String {
+pub fn (r &CodeEdit) get_delimiter_end_key(delimiter_index i32) string {
     mut object_out := String{}
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("get_delimiter_end_key")
@@ -872,7 +910,9 @@ pub fn (r &CodeEdit) get_delimiter_end_key(delimiter_index i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &CodeEdit) get_delimiter_start_position(line i32, column i32) Vector2 {
     mut object_out := Vector2{}
@@ -900,13 +940,15 @@ pub fn (r &CodeEdit) get_delimiter_end_position(line i32, column i32) Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeEdit) set_code_hint(code_hint String) {
+pub fn (mut r CodeEdit) set_code_hint(code_hint string) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("set_code_hint")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&code_hint)}
+    arg_sn0 := String.new(code_hint)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -920,7 +962,7 @@ pub fn (mut r CodeEdit) set_code_hint_draw_below(draw_below bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &CodeEdit) get_text_for_code_completion() String {
+pub fn (r &CodeEdit) get_text_for_code_completion() string {
     mut object_out := String{}
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("get_text_for_code_completion")
@@ -928,7 +970,9 @@ pub fn (r &CodeEdit) get_text_for_code_completion() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r CodeEdit) request_code_completion(force bool) {
     classname := StringName.new("CodeEdit")
@@ -940,20 +984,24 @@ pub fn (mut r CodeEdit) request_code_completion(force bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CodeEdit) add_code_completion_option(type_name CodeEditCodeCompletionKind, display_text String, insert_text String, text_color Color, icon Resource, value Variant, location i32) {
+pub fn (mut r CodeEdit) add_code_completion_option(type_name CodeEditCodeCompletionKind, display_text string, insert_text string, text_color Color, icon Resource, value Variant, location i32) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("add_code_completion_option")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 947964390)
     mut args := unsafe { [7]voidptr{} }
     i64_type_name := i64(type_name)
     args[0] = unsafe{voidptr(&i64_type_name)}
-    args[1] = unsafe{voidptr(&display_text)}
-    args[2] = unsafe{voidptr(&insert_text)}
+    arg_sn1 := String.new(display_text)
+    args[1] = unsafe{voidptr(&arg_sn1)}
+    arg_sn2 := String.new(insert_text)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     args[3] = unsafe{voidptr(&text_color)}
     args[4] = icon.ptr
     args[5] = unsafe{voidptr(&value)}
     args[6] = unsafe{voidptr(&location)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -1107,7 +1155,7 @@ pub fn (r &CodeEdit) is_symbol_lookup_on_click_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (r &CodeEdit) get_text_for_symbol_lookup() String {
+pub fn (r &CodeEdit) get_text_for_symbol_lookup() string {
     mut object_out := String{}
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("get_text_for_symbol_lookup")
@@ -1115,9 +1163,11 @@ pub fn (r &CodeEdit) get_text_for_symbol_lookup() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (r &CodeEdit) get_text_with_cursor_char(line i32, column i32) String {
+pub fn (r &CodeEdit) get_text_with_cursor_char(line i32, column i32) string {
     mut object_out := String{}
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("get_text_with_cursor_char")
@@ -1128,7 +1178,9 @@ pub fn (r &CodeEdit) get_text_with_cursor_char(line i32, column i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r CodeEdit) set_symbol_lookup_word_as_valid(valid bool) {
     classname := StringName.new("CodeEdit")

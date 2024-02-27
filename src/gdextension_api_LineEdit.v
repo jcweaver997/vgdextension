@@ -116,7 +116,7 @@ pub fn (r &LineEdit) has_selection() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LineEdit) get_selected_text() String {
+pub fn (mut r LineEdit) get_selected_text() string {
     mut object_out := String{}
     classname := StringName.new("LineEdit")
     fnname := StringName.new("get_selected_text")
@@ -124,7 +124,9 @@ pub fn (mut r LineEdit) get_selected_text() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &LineEdit) get_selection_from_column() i32 {
     mut object_out := i32(0)
@@ -146,17 +148,19 @@ pub fn (r &LineEdit) get_selection_to_column() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LineEdit) set_text(text String) {
+pub fn (mut r LineEdit) set_text(text string) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("set_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&text)}
+    arg_sn0 := String.new(text)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &LineEdit) get_text() String {
+pub fn (r &LineEdit) get_text() string {
     mut object_out := String{}
     classname := StringName.new("LineEdit")
     fnname := StringName.new("get_text")
@@ -164,7 +168,9 @@ pub fn (r &LineEdit) get_text() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &LineEdit) get_draw_control_chars() bool {
     mut object_out := false
@@ -207,17 +213,19 @@ pub fn (r &LineEdit) get_text_direction() ControlTextDirection {
     fnname.deinit()
    return unsafe{ControlTextDirection(object_out)}
 }
-pub fn (mut r LineEdit) set_language(language String) {
+pub fn (mut r LineEdit) set_language(language string) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("set_language")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&language)}
+    arg_sn0 := String.new(language)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &LineEdit) get_language() String {
+pub fn (r &LineEdit) get_language() string {
     mut object_out := String{}
     classname := StringName.new("LineEdit")
     fnname := StringName.new("get_language")
@@ -225,7 +233,9 @@ pub fn (r &LineEdit) get_language() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r LineEdit) set_structured_text_bidi_override(parser TextServerStructuredTextParser) {
     classname := StringName.new("LineEdit")
@@ -268,17 +278,19 @@ pub fn (r &LineEdit) get_structured_text_bidi_override_options() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LineEdit) set_placeholder(text String) {
+pub fn (mut r LineEdit) set_placeholder(text string) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("set_placeholder")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&text)}
+    arg_sn0 := String.new(text)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &LineEdit) get_placeholder() String {
+pub fn (r &LineEdit) get_placeholder() string {
     mut object_out := String{}
     classname := StringName.new("LineEdit")
     fnname := StringName.new("get_placeholder")
@@ -286,7 +298,9 @@ pub fn (r &LineEdit) get_placeholder() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r LineEdit) set_caret_column(position i32) {
     classname := StringName.new("LineEdit")
@@ -438,13 +452,15 @@ pub fn (r &LineEdit) get_max_length() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LineEdit) insert_text_at_caret(text String) {
+pub fn (mut r LineEdit) insert_text_at_caret(text string) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("insert_text_at_caret")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&text)}
+    arg_sn0 := String.new(text)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -507,17 +523,19 @@ pub fn (r &LineEdit) is_secret() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LineEdit) set_secret_character(character String) {
+pub fn (mut r LineEdit) set_secret_character(character string) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("set_secret_character")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&character)}
+    arg_sn0 := String.new(character)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &LineEdit) get_secret_character() String {
+pub fn (r &LineEdit) get_secret_character() string {
     mut object_out := String{}
     classname := StringName.new("LineEdit")
     fnname := StringName.new("get_secret_character")
@@ -525,7 +543,9 @@ pub fn (r &LineEdit) get_secret_character() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r LineEdit) menu_option(option i32) {
     classname := StringName.new("LineEdit")

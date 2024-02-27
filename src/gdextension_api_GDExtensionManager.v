@@ -22,50 +22,58 @@ pub fn GDExtensionManager.get_singleton() GDExtensionManager {
     return o
 }
 
-pub fn (mut r GDExtensionManager) load_extension(path String) GDExtensionManagerLoadStatus {
+pub fn (mut r GDExtensionManager) load_extension(path string) GDExtensionManagerLoadStatus {
     mut object_out := i64(GDExtensionManagerLoadStatus.load_status_ok)
     classname := StringName.new("GDExtensionManager")
     fnname := StringName.new("load_extension")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4024158731)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDExtensionManagerLoadStatus(object_out)}
 }
-pub fn (mut r GDExtensionManager) reload_extension(path String) GDExtensionManagerLoadStatus {
+pub fn (mut r GDExtensionManager) reload_extension(path string) GDExtensionManagerLoadStatus {
     mut object_out := i64(GDExtensionManagerLoadStatus.load_status_ok)
     classname := StringName.new("GDExtensionManager")
     fnname := StringName.new("reload_extension")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4024158731)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDExtensionManagerLoadStatus(object_out)}
 }
-pub fn (mut r GDExtensionManager) unload_extension(path String) GDExtensionManagerLoadStatus {
+pub fn (mut r GDExtensionManager) unload_extension(path string) GDExtensionManagerLoadStatus {
     mut object_out := i64(GDExtensionManagerLoadStatus.load_status_ok)
     classname := StringName.new("GDExtensionManager")
     fnname := StringName.new("unload_extension")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4024158731)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDExtensionManagerLoadStatus(object_out)}
 }
-pub fn (r &GDExtensionManager) is_extension_loaded(path String) bool {
+pub fn (r &GDExtensionManager) is_extension_loaded(path string) bool {
     mut object_out := false
     classname := StringName.new("GDExtensionManager")
     fnname := StringName.new("is_extension_loaded")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3927539163)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -80,14 +88,16 @@ pub fn (r &GDExtensionManager) get_loaded_extensions() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GDExtensionManager) get_extension(path String) GDExtension {
+pub fn (mut r GDExtensionManager) get_extension(path string) GDExtension {
     mut object_out := GDExtension{}
     classname := StringName.new("GDExtensionManager")
     fnname := StringName.new("get_extension")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 49743343)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out

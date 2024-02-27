@@ -178,18 +178,20 @@ pub fn (r &TabContainer) is_all_tabs_in_front() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TabContainer) set_tab_title(tab_idx i32, title String) {
+pub fn (mut r TabContainer) set_tab_title(tab_idx i32, title string) {
     classname := StringName.new("TabContainer")
     fnname := StringName.new("set_tab_title")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&tab_idx)}
-    args[1] = unsafe{voidptr(&title)}
+    arg_sn1 := String.new(title)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &TabContainer) get_tab_title(tab_idx i32) String {
+pub fn (r &TabContainer) get_tab_title(tab_idx i32) string {
     mut object_out := String{}
     classname := StringName.new("TabContainer")
     fnname := StringName.new("get_tab_title")
@@ -199,7 +201,9 @@ pub fn (r &TabContainer) get_tab_title(tab_idx i32) String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r TabContainer) set_tab_icon(tab_idx i32, icon Texture2D) {
     classname := StringName.new("TabContainer")

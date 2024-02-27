@@ -5,14 +5,16 @@ pub struct ZIPReader {
     RefCounted
 }
 
-pub fn (mut r ZIPReader) open(path String) GDError {
+pub fn (mut r ZIPReader) open(path string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ZIPReader")
     fnname := StringName.new("open")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 166001499)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
@@ -37,28 +39,32 @@ pub fn (mut r ZIPReader) get_files() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ZIPReader) read_file(path String, case_sensitive bool) PackedByteArray {
+pub fn (mut r ZIPReader) read_file(path string, case_sensitive bool) PackedByteArray {
     mut object_out := PackedByteArray{}
     classname := StringName.new("ZIPReader")
     fnname := StringName.new("read_file")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 740857591)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&case_sensitive)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ZIPReader) file_exists(path String, case_sensitive bool) bool {
+pub fn (mut r ZIPReader) file_exists(path string, case_sensitive bool) bool {
     mut object_out := false
     classname := StringName.new("ZIPReader")
     fnname := StringName.new("file_exists")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 35364943)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&case_sensitive)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out

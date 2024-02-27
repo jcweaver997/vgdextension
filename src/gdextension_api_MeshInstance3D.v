@@ -149,14 +149,16 @@ pub fn (r &MeshInstance3D) get_blend_shape_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MeshInstance3D) find_blend_shape_by_name(name StringName) i32 {
+pub fn (mut r MeshInstance3D) find_blend_shape_by_name(name string) i32 {
     mut object_out := i32(0)
     classname := StringName.new("MeshInstance3D")
     fnname := StringName.new("find_blend_shape_by_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4150868206)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out

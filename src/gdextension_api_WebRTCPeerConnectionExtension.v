@@ -72,15 +72,17 @@ pub interface IWebRTCPeerConnectionExtensionCreateDataChannel {
     virt_create_data_channel(p_label String, p_config Dictionary) WebRTCDataChannel
 }
 
-pub fn (mut r WebRTCPeerConnectionExtension) ucreate_data_channel(p_label String, p_config Dictionary) WebRTCDataChannel {
+pub fn (mut r WebRTCPeerConnectionExtension) ucreate_data_channel(p_label string, p_config Dictionary) WebRTCDataChannel {
     mut object_out := WebRTCDataChannel{}
     classname := StringName.new("WebRTCPeerConnectionExtension")
     fnname := StringName.new("_create_data_channel")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&p_label)}
+    arg_sn0 := String.new(p_label)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&p_config)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -105,15 +107,19 @@ pub interface IWebRTCPeerConnectionExtensionSetRemoteDescription {
     virt_set_remote_description(p_type String, p_sdp String) GDError
 }
 
-pub fn (mut r WebRTCPeerConnectionExtension) uset_remote_description(p_type String, p_sdp String) GDError {
+pub fn (mut r WebRTCPeerConnectionExtension) uset_remote_description(p_type string, p_sdp string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("WebRTCPeerConnectionExtension")
     fnname := StringName.new("_set_remote_description")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&p_type)}
-    args[1] = unsafe{voidptr(&p_sdp)}
+    arg_sn0 := String.new(p_type)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(p_sdp)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
@@ -123,15 +129,19 @@ pub interface IWebRTCPeerConnectionExtensionSetLocalDescription {
     virt_set_local_description(p_type String, p_sdp String) GDError
 }
 
-pub fn (mut r WebRTCPeerConnectionExtension) uset_local_description(p_type String, p_sdp String) GDError {
+pub fn (mut r WebRTCPeerConnectionExtension) uset_local_description(p_type string, p_sdp string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("WebRTCPeerConnectionExtension")
     fnname := StringName.new("_set_local_description")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&p_type)}
-    args[1] = unsafe{voidptr(&p_sdp)}
+    arg_sn0 := String.new(p_type)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(p_sdp)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}
@@ -141,16 +151,20 @@ pub interface IWebRTCPeerConnectionExtensionAddIceCandidate {
     virt_add_ice_candidate(p_sdp_mid_name String, p_sdp_mline_index i32, p_sdp_name String) GDError
 }
 
-pub fn (mut r WebRTCPeerConnectionExtension) uadd_ice_candidate(p_sdp_mid_name String, p_sdp_mline_index i32, p_sdp_name String) GDError {
+pub fn (mut r WebRTCPeerConnectionExtension) uadd_ice_candidate(p_sdp_mid_name string, p_sdp_mline_index i32, p_sdp_name string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("WebRTCPeerConnectionExtension")
     fnname := StringName.new("_add_ice_candidate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&p_sdp_mid_name)}
+    arg_sn0 := String.new(p_sdp_mid_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&p_sdp_mline_index)}
-    args[2] = unsafe{voidptr(&p_sdp_name)}
+    arg_sn2 := String.new(p_sdp_name)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
    return unsafe{GDError(object_out)}

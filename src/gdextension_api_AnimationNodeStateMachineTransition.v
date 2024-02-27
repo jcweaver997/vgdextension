@@ -59,17 +59,19 @@ pub fn (r &AnimationNodeStateMachineTransition) get_advance_mode() AnimationNode
     fnname.deinit()
    return unsafe{AnimationNodeStateMachineTransitionAdvanceMode(object_out)}
 }
-pub fn (mut r AnimationNodeStateMachineTransition) set_advance_condition(name StringName) {
+pub fn (mut r AnimationNodeStateMachineTransition) set_advance_condition(name string) {
     classname := StringName.new("AnimationNodeStateMachineTransition")
     fnname := StringName.new("set_advance_condition")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &AnimationNodeStateMachineTransition) get_advance_condition() StringName {
+pub fn (r &AnimationNodeStateMachineTransition) get_advance_condition() string {
     mut object_out := StringName{}
     classname := StringName.new("AnimationNodeStateMachineTransition")
     fnname := StringName.new("get_advance_condition")
@@ -77,7 +79,9 @@ pub fn (r &AnimationNodeStateMachineTransition) get_advance_condition() StringNa
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r AnimationNodeStateMachineTransition) set_xfade_time(secs f64) {
     classname := StringName.new("AnimationNodeStateMachineTransition")
@@ -159,17 +163,19 @@ pub fn (r &AnimationNodeStateMachineTransition) get_priority() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNodeStateMachineTransition) set_advance_expression(text String) {
+pub fn (mut r AnimationNodeStateMachineTransition) set_advance_expression(text string) {
     classname := StringName.new("AnimationNodeStateMachineTransition")
     fnname := StringName.new("set_advance_expression")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&text)}
+    arg_sn0 := String.new(text)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &AnimationNodeStateMachineTransition) get_advance_expression() String {
+pub fn (r &AnimationNodeStateMachineTransition) get_advance_expression() string {
     mut object_out := String{}
     classname := StringName.new("AnimationNodeStateMachineTransition")
     fnname := StringName.new("get_advance_expression")
@@ -177,5 +183,7 @@ pub fn (r &AnimationNodeStateMachineTransition) get_advance_expression() String 
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }

@@ -29,7 +29,7 @@ pub struct RichTextLabel {
     Control
 }
 
-pub fn (r &RichTextLabel) get_parsed_text() String {
+pub fn (r &RichTextLabel) get_parsed_text() string {
     mut object_out := String{}
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("get_parsed_text")
@@ -37,29 +37,35 @@ pub fn (r &RichTextLabel) get_parsed_text() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
-pub fn (mut r RichTextLabel) add_text(text String) {
+pub fn (mut r RichTextLabel) add_text(text string) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("add_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&text)}
+    arg_sn0 := String.new(text)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) set_text(text String) {
+pub fn (mut r RichTextLabel) set_text(text string) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("set_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&text)}
+    arg_sn0 := String.new(text)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) add_image(image Texture2D, width i32, height i32, color Color, inline_align InlineAlignment, region Rect2, key Variant, pad bool, tooltip String, size_in_percent bool) {
+pub fn (mut r RichTextLabel) add_image(image Texture2D, width i32, height i32, color Color, inline_align InlineAlignment, region Rect2, key Variant, pad bool, tooltip string, size_in_percent bool) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("add_image")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3017663154)
@@ -73,13 +79,15 @@ pub fn (mut r RichTextLabel) add_image(image Texture2D, width i32, height i32, c
     args[5] = unsafe{voidptr(&region)}
     args[6] = unsafe{voidptr(&key)}
     args[7] = unsafe{voidptr(&pad)}
-    args[8] = unsafe{voidptr(&tooltip)}
+    arg_sn8 := String.new(tooltip)
+    args[8] = unsafe{voidptr(&arg_sn8)}
     args[9] = unsafe{voidptr(&size_in_percent)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn8.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) update_image(key Variant, mask RichTextLabelImageUpdateMask, image Texture2D, width i32, height i32, color Color, inline_align InlineAlignment, region Rect2, pad bool, tooltip String, size_in_percent bool) {
+pub fn (mut r RichTextLabel) update_image(key Variant, mask RichTextLabelImageUpdateMask, image Texture2D, width i32, height i32, color Color, inline_align InlineAlignment, region Rect2, pad bool, tooltip string, size_in_percent bool) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("update_image")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 815048486)
@@ -95,9 +103,11 @@ pub fn (mut r RichTextLabel) update_image(key Variant, mask RichTextLabelImageUp
     args[6] = unsafe{voidptr(&i64_inline_align)}
     args[7] = unsafe{voidptr(&region)}
     args[8] = unsafe{voidptr(&pad)}
-    args[9] = unsafe{voidptr(&tooltip)}
+    arg_sn9 := String.new(tooltip)
+    args[9] = unsafe{voidptr(&arg_sn9)}
     args[10] = unsafe{voidptr(&size_in_percent)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn9.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -212,7 +222,7 @@ pub fn (mut r RichTextLabel) push_outline_color(color Color) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) push_paragraph(alignment HorizontalAlignment, base_direction ControlTextDirection, language String, st_parser TextServerStructuredTextParser, justification_flags TextServerJustificationFlag, tab_stops PackedFloat32Array) {
+pub fn (mut r RichTextLabel) push_paragraph(alignment HorizontalAlignment, base_direction ControlTextDirection, language string, st_parser TextServerStructuredTextParser, justification_flags TextServerJustificationFlag, tab_stops PackedFloat32Array) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("push_paragraph")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3089306873)
@@ -221,13 +231,15 @@ pub fn (mut r RichTextLabel) push_paragraph(alignment HorizontalAlignment, base_
     args[0] = unsafe{voidptr(&i64_alignment)}
     i64_base_direction := i64(base_direction)
     args[1] = unsafe{voidptr(&i64_base_direction)}
-    args[2] = unsafe{voidptr(&language)}
+    arg_sn2 := String.new(language)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     i64_st_parser := i64(st_parser)
     args[3] = unsafe{voidptr(&i64_st_parser)}
     i64_justification_flags := i64(justification_flags)
     args[4] = unsafe{voidptr(&i64_justification_flags)}
     args[5] = unsafe{voidptr(&tab_stops)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -241,7 +253,7 @@ pub fn (mut r RichTextLabel) push_indent(level i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) push_list(level i32, type_name RichTextLabelListType, capitalize bool, bullet String) {
+pub fn (mut r RichTextLabel) push_list(level i32, type_name RichTextLabelListType, capitalize bool, bullet string) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("push_list")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3017143144)
@@ -250,8 +262,10 @@ pub fn (mut r RichTextLabel) push_list(level i32, type_name RichTextLabelListTyp
     i64_type_name := i64(type_name)
     args[1] = unsafe{voidptr(&i64_type_name)}
     args[2] = unsafe{voidptr(&capitalize)}
-    args[3] = unsafe{voidptr(&bullet)}
+    arg_sn3 := String.new(bullet)
+    args[3] = unsafe{voidptr(&arg_sn3)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn3.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -265,23 +279,27 @@ pub fn (mut r RichTextLabel) push_meta(data Variant) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) push_hint(description String) {
+pub fn (mut r RichTextLabel) push_hint(description string) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("push_hint")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&description)}
+    arg_sn0 := String.new(description)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) push_language(language String) {
+pub fn (mut r RichTextLabel) push_language(language string) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("push_language")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&language)}
+    arg_sn0 := String.new(language)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -314,12 +332,13 @@ pub fn (mut r RichTextLabel) push_table(columns i32, inline_align InlineAlignmen
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) push_dropcap(gdstring String, font Font, size i32, dropcap_margins Rect2, color Color, outline_size i32, outline_color Color) {
+pub fn (mut r RichTextLabel) push_dropcap(gdstring string, font Font, size i32, dropcap_margins Rect2, color Color, outline_size i32, outline_color Color) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("push_dropcap")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4061635501)
     mut args := unsafe { [7]voidptr{} }
-    args[0] = unsafe{voidptr(&gdstring)}
+    arg_sn0 := String.new(gdstring)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = font.ptr
     args[2] = unsafe{voidptr(&size)}
     args[3] = unsafe{voidptr(&dropcap_margins)}
@@ -327,6 +346,7 @@ pub fn (mut r RichTextLabel) push_dropcap(gdstring String, font Font, size i32, 
     args[5] = unsafe{voidptr(&outline_size)}
     args[6] = unsafe{voidptr(&outline_color)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -525,17 +545,19 @@ pub fn (r &RichTextLabel) get_text_direction() ControlTextDirection {
     fnname.deinit()
    return unsafe{ControlTextDirection(object_out)}
 }
-pub fn (mut r RichTextLabel) set_language(language String) {
+pub fn (mut r RichTextLabel) set_language(language string) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("set_language")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&language)}
+    arg_sn0 := String.new(language)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &RichTextLabel) get_language() String {
+pub fn (r &RichTextLabel) get_language() string {
     mut object_out := String{}
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("get_language")
@@ -543,7 +565,9 @@ pub fn (r &RichTextLabel) get_language() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r RichTextLabel) set_autowrap_mode(autowrap_mode TextServerAutowrapMode) {
     classname := StringName.new("RichTextLabel")
@@ -852,7 +876,7 @@ pub fn (mut r RichTextLabel) select_all() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &RichTextLabel) get_selected_text() String {
+pub fn (r &RichTextLabel) get_selected_text() string {
     mut object_out := String{}
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("get_selected_text")
@@ -860,7 +884,9 @@ pub fn (r &RichTextLabel) get_selected_text() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r RichTextLabel) deselect() {
     classname := StringName.new("RichTextLabel")
@@ -870,27 +896,31 @@ pub fn (mut r RichTextLabel) deselect() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) parse_bbcode(bbcode String) {
+pub fn (mut r RichTextLabel) parse_bbcode(bbcode string) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("parse_bbcode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&bbcode)}
+    arg_sn0 := String.new(bbcode)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) append_text(bbcode String) {
+pub fn (mut r RichTextLabel) append_text(bbcode string) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("append_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&bbcode)}
+    arg_sn0 := String.new(bbcode)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &RichTextLabel) get_text() String {
+pub fn (r &RichTextLabel) get_text() string {
     mut object_out := String{}
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("get_text")
@@ -898,7 +928,9 @@ pub fn (r &RichTextLabel) get_text() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (r &RichTextLabel) is_ready() bool {
     mut object_out := false

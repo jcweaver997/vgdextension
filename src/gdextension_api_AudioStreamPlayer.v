@@ -119,17 +119,19 @@ pub fn (mut r AudioStreamPlayer) get_playback_position() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer) set_bus(bus StringName) {
+pub fn (mut r AudioStreamPlayer) set_bus(bus string) {
     classname := StringName.new("AudioStreamPlayer")
     fnname := StringName.new("set_bus")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&bus)}
+    arg_sn0 := StringName.new(bus)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &AudioStreamPlayer) get_bus() StringName {
+pub fn (r &AudioStreamPlayer) get_bus() string {
     mut object_out := StringName{}
     classname := StringName.new("AudioStreamPlayer")
     fnname := StringName.new("get_bus")
@@ -137,7 +139,9 @@ pub fn (r &AudioStreamPlayer) get_bus() StringName {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r AudioStreamPlayer) set_autoplay(enable bool) {
     classname := StringName.new("AudioStreamPlayer")

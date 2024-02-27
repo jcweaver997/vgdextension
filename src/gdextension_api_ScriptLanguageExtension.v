@@ -44,7 +44,7 @@ pub interface IScriptLanguageExtensionGetName {
     virt_get_name() String
 }
 
-pub fn (r &ScriptLanguageExtension) uget_name() String {
+pub fn (r &ScriptLanguageExtension) uget_name() string {
     mut object_out := String{}
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_get_name")
@@ -52,7 +52,9 @@ pub fn (r &ScriptLanguageExtension) uget_name() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface IScriptLanguageExtensionInit {
     mut:
@@ -72,7 +74,7 @@ pub interface IScriptLanguageExtensionGetType {
     virt_get_type() String
 }
 
-pub fn (r &ScriptLanguageExtension) uget_type() String {
+pub fn (r &ScriptLanguageExtension) uget_type() string {
     mut object_out := String{}
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_get_type")
@@ -80,14 +82,16 @@ pub fn (r &ScriptLanguageExtension) uget_type() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface IScriptLanguageExtensionGetExtension {
     mut:
     virt_get_extension() String
 }
 
-pub fn (r &ScriptLanguageExtension) uget_extension() String {
+pub fn (r &ScriptLanguageExtension) uget_extension() string {
     mut object_out := String{}
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_get_extension")
@@ -95,7 +99,9 @@ pub fn (r &ScriptLanguageExtension) uget_extension() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface IScriptLanguageExtensionFinish {
     mut:
@@ -130,14 +136,16 @@ pub interface IScriptLanguageExtensionIsControlFlowKeyword {
     virt_is_control_flow_keyword(keyword String) bool
 }
 
-pub fn (r &ScriptLanguageExtension) uis_control_flow_keyword(keyword String) bool {
+pub fn (r &ScriptLanguageExtension) uis_control_flow_keyword(keyword string) bool {
     mut object_out := false
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_is_control_flow_keyword")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&keyword)}
+    arg_sn0 := String.new(keyword)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -192,16 +200,22 @@ pub interface IScriptLanguageExtensionMakeTemplate {
     virt_make_template(template String, class_name String, base_class_name String) Script
 }
 
-pub fn (r &ScriptLanguageExtension) umake_template(template String, class_name String, base_class_name String) Script {
+pub fn (r &ScriptLanguageExtension) umake_template(template string, class_name string, base_class_name string) Script {
     mut object_out := Script{}
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_make_template")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&template)}
-    args[1] = unsafe{voidptr(&class_name)}
-    args[2] = unsafe{voidptr(&base_class_name)}
+    arg_sn0 := String.new(template)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(class_name)
+    args[1] = unsafe{voidptr(&arg_sn1)}
+    arg_sn2 := String.new(base_class_name)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -211,14 +225,16 @@ pub interface IScriptLanguageExtensionGetBuiltInTemplates {
     virt_get_built_in_templates(object StringName) Array
 }
 
-pub fn (r &ScriptLanguageExtension) uget_built_in_templates(object StringName) Array {
+pub fn (r &ScriptLanguageExtension) uget_built_in_templates(object string) Array {
     mut object_out := Array{}
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_get_built_in_templates")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&object)}
+    arg_sn0 := StringName.new(object)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -243,19 +259,23 @@ pub interface IScriptLanguageExtensionValidate {
     virt_validate(script String, path String, validate_functions bool, validate_errors bool, validate_warnings bool, validate_safe_lines bool) Dictionary
 }
 
-pub fn (r &ScriptLanguageExtension) uvalidate(script String, path String, validate_functions bool, validate_errors bool, validate_warnings bool, validate_safe_lines bool) Dictionary {
+pub fn (r &ScriptLanguageExtension) uvalidate(script string, path string, validate_functions bool, validate_errors bool, validate_warnings bool, validate_safe_lines bool) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_validate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [6]voidptr{} }
-    args[0] = unsafe{voidptr(&script)}
-    args[1] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(script)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(path)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&validate_functions)}
     args[3] = unsafe{voidptr(&validate_errors)}
     args[4] = unsafe{voidptr(&validate_warnings)}
     args[5] = unsafe{voidptr(&validate_safe_lines)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -265,17 +285,21 @@ pub interface IScriptLanguageExtensionValidatePath {
     virt_validate_path(path String) String
 }
 
-pub fn (r &ScriptLanguageExtension) uvalidate_path(path String) String {
+pub fn (r &ScriptLanguageExtension) uvalidate_path(path string) string {
     mut object_out := String{}
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_validate_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface IScriptLanguageExtensionCreateScript {
     mut:
@@ -357,15 +381,19 @@ pub interface IScriptLanguageExtensionFindFunction {
     virt_find_function(class_name String, function_name String) i32
 }
 
-pub fn (r &ScriptLanguageExtension) ufind_function(class_name String, function_name String) i32 {
+pub fn (r &ScriptLanguageExtension) ufind_function(class_name string, function_name string) i32 {
     mut object_out := i32(0)
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_find_function")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&class_name)}
-    args[1] = unsafe{voidptr(&function_name)}
+    arg_sn0 := String.new(class_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(function_name)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -375,19 +403,25 @@ pub interface IScriptLanguageExtensionMakeFunction {
     virt_make_function(class_name String, function_name String, function_args PackedStringArray) String
 }
 
-pub fn (r &ScriptLanguageExtension) umake_function(class_name String, function_name String, function_args PackedStringArray) String {
+pub fn (r &ScriptLanguageExtension) umake_function(class_name string, function_name string, function_args PackedStringArray) string {
     mut object_out := String{}
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_make_function")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&class_name)}
-    args[1] = unsafe{voidptr(&function_name)}
+    arg_sn0 := String.new(class_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(function_name)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&function_args)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface IScriptLanguageExtensionOpenInExternalEditor {
     mut:
@@ -428,16 +462,20 @@ pub interface IScriptLanguageExtensionCompleteCode {
     virt_complete_code(code String, path String, owner Object) Dictionary
 }
 
-pub fn (r &ScriptLanguageExtension) ucomplete_code(code String, path String, owner Object) Dictionary {
+pub fn (r &ScriptLanguageExtension) ucomplete_code(code string, path string, owner Object) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_complete_code")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&code)}
-    args[1] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(code)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(path)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = owner.ptr
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -447,17 +485,23 @@ pub interface IScriptLanguageExtensionLookupCode {
     virt_lookup_code(code String, symbol String, path String, owner Object) Dictionary
 }
 
-pub fn (r &ScriptLanguageExtension) ulookup_code(code String, symbol String, path String, owner Object) Dictionary {
+pub fn (r &ScriptLanguageExtension) ulookup_code(code string, symbol string, path string, owner Object) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_lookup_code")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = unsafe{voidptr(&code)}
-    args[1] = unsafe{voidptr(&symbol)}
-    args[2] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(code)
+    args[0] = unsafe{voidptr(&arg_sn0)}
+    arg_sn1 := String.new(symbol)
+    args[1] = unsafe{voidptr(&arg_sn1)}
+    arg_sn2 := String.new(path)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     args[3] = owner.ptr
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
+    arg_sn1.deinit()
+    arg_sn2.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -467,33 +511,39 @@ pub interface IScriptLanguageExtensionAutoIndentCode {
     virt_auto_indent_code(code String, from_line i32, to_line i32) String
 }
 
-pub fn (r &ScriptLanguageExtension) uauto_indent_code(code String, from_line i32, to_line i32) String {
+pub fn (r &ScriptLanguageExtension) uauto_indent_code(code string, from_line i32, to_line i32) string {
     mut object_out := String{}
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_auto_indent_code")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&code)}
+    arg_sn0 := String.new(code)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&from_line)}
     args[2] = unsafe{voidptr(&to_line)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface IScriptLanguageExtensionAddGlobalConstant {
     mut:
     virt_add_global_constant(name StringName, value Variant)
 }
 
-pub fn (mut r ScriptLanguageExtension) uadd_global_constant(name StringName, value Variant) {
+pub fn (mut r ScriptLanguageExtension) uadd_global_constant(name string, value Variant) {
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_add_global_constant")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&value)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -502,14 +552,16 @@ pub interface IScriptLanguageExtensionAddNamedGlobalConstant {
     virt_add_named_global_constant(name StringName, value Variant)
 }
 
-pub fn (mut r ScriptLanguageExtension) uadd_named_global_constant(name StringName, value Variant) {
+pub fn (mut r ScriptLanguageExtension) uadd_named_global_constant(name string, value Variant) {
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_add_named_global_constant")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&value)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -518,13 +570,15 @@ pub interface IScriptLanguageExtensionRemoveNamedGlobalConstant {
     virt_remove_named_global_constant(name StringName)
 }
 
-pub fn (mut r ScriptLanguageExtension) uremove_named_global_constant(name StringName) {
+pub fn (mut r ScriptLanguageExtension) uremove_named_global_constant(name string) {
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_remove_named_global_constant")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := StringName.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -559,7 +613,7 @@ pub interface IScriptLanguageExtensionDebugGetError {
     virt_debug_get_error() String
 }
 
-pub fn (r &ScriptLanguageExtension) udebug_get_error() String {
+pub fn (r &ScriptLanguageExtension) udebug_get_error() string {
     mut object_out := String{}
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_debug_get_error")
@@ -567,7 +621,9 @@ pub fn (r &ScriptLanguageExtension) udebug_get_error() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface IScriptLanguageExtensionDebugGetStackLevelCount {
     mut:
@@ -606,7 +662,7 @@ pub interface IScriptLanguageExtensionDebugGetStackLevelFunction {
     virt_debug_get_stack_level_function(level i32) String
 }
 
-pub fn (r &ScriptLanguageExtension) udebug_get_stack_level_function(level i32) String {
+pub fn (r &ScriptLanguageExtension) udebug_get_stack_level_function(level i32) string {
     mut object_out := String{}
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_debug_get_stack_level_function")
@@ -616,7 +672,9 @@ pub fn (r &ScriptLanguageExtension) udebug_get_stack_level_function(level i32) S
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface IScriptLanguageExtensionDebugGetStackLevelLocals {
     mut:
@@ -696,20 +754,24 @@ pub interface IScriptLanguageExtensionDebugParseStackLevelExpression {
     virt_debug_parse_stack_level_expression(level i32, expression String, max_subitems i32, max_depth i32) String
 }
 
-pub fn (mut r ScriptLanguageExtension) udebug_parse_stack_level_expression(level i32, expression String, max_subitems i32, max_depth i32) String {
+pub fn (mut r ScriptLanguageExtension) udebug_parse_stack_level_expression(level i32, expression string, max_subitems i32, max_depth i32) string {
     mut object_out := String{}
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_debug_parse_stack_level_expression")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [4]voidptr{} }
     args[0] = unsafe{voidptr(&level)}
-    args[1] = unsafe{voidptr(&expression)}
+    arg_sn1 := String.new(expression)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&max_subitems)}
     args[3] = unsafe{voidptr(&max_depth)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub interface IScriptLanguageExtensionDebugGetCurrentStackInfo {
     mut:
@@ -895,14 +957,16 @@ pub interface IScriptLanguageExtensionHandlesGlobalClassType {
     virt_handles_global_class_type(type_name String) bool
 }
 
-pub fn (r &ScriptLanguageExtension) uhandles_global_class_type(type_name String) bool {
+pub fn (r &ScriptLanguageExtension) uhandles_global_class_type(type_name string) bool {
     mut object_out := false
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_handles_global_class_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&type_name)}
+    arg_sn0 := String.new(type_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -912,14 +976,16 @@ pub interface IScriptLanguageExtensionGetGlobalClassName {
     virt_get_global_class_name(path String) Dictionary
 }
 
-pub fn (r &ScriptLanguageExtension) uget_global_class_name(path String) Dictionary {
+pub fn (r &ScriptLanguageExtension) uget_global_class_name(path string) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_get_global_class_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&path)}
+    arg_sn0 := String.new(path)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out

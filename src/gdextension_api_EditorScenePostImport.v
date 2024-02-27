@@ -22,7 +22,7 @@ pub fn (mut r EditorScenePostImport) upost_import(scene Node) Object {
     fnname.deinit()
    return object_out
 }
-pub fn (r &EditorScenePostImport) get_source_file() String {
+pub fn (r &EditorScenePostImport) get_source_file() string {
     mut object_out := String{}
     classname := StringName.new("EditorScenePostImport")
     fnname := StringName.new("get_source_file")
@@ -30,5 +30,7 @@ pub fn (r &EditorScenePostImport) get_source_file() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }

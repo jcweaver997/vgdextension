@@ -12,17 +12,19 @@ pub struct OpenXRAction {
     Resource
 }
 
-pub fn (mut r OpenXRAction) set_localized_name(localized_name String) {
+pub fn (mut r OpenXRAction) set_localized_name(localized_name string) {
     classname := StringName.new("OpenXRAction")
     fnname := StringName.new("set_localized_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = unsafe{voidptr(&localized_name)}
+    arg_sn0 := String.new(localized_name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (r &OpenXRAction) get_localized_name() String {
+pub fn (r &OpenXRAction) get_localized_name() string {
     mut object_out := String{}
     classname := StringName.new("OpenXRAction")
     fnname := StringName.new("get_localized_name")
@@ -30,7 +32,9 @@ pub fn (r &OpenXRAction) get_localized_name() String {
     gdf.object_method_bind_ptrcall(mb, r.ptr, unsafe{nil}, voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
-   return object_out
+   object_out_v := object_out.to_v()
+   object_out.deinit()
+   return object_out_v
 }
 pub fn (mut r OpenXRAction) set_action_type(action_type OpenXRActionActionType) {
     classname := StringName.new("OpenXRAction")

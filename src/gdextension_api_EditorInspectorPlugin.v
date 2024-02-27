@@ -42,14 +42,16 @@ pub interface IEditorInspectorPluginParseCategory {
     virt_parse_category(object Object, category String)
 }
 
-pub fn (mut r EditorInspectorPlugin) uparse_category(object Object, category String) {
+pub fn (mut r EditorInspectorPlugin) uparse_category(object Object, category string) {
     classname := StringName.new("EditorInspectorPlugin")
     fnname := StringName.new("_parse_category")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = object.ptr
-    args[1] = unsafe{voidptr(&category)}
+    arg_sn1 := String.new(category)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -58,14 +60,16 @@ pub interface IEditorInspectorPluginParseGroup {
     virt_parse_group(object Object, group String)
 }
 
-pub fn (mut r EditorInspectorPlugin) uparse_group(object Object, group String) {
+pub fn (mut r EditorInspectorPlugin) uparse_group(object Object, group string) {
     classname := StringName.new("EditorInspectorPlugin")
     fnname := StringName.new("_parse_group")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = object.ptr
-    args[1] = unsafe{voidptr(&group)}
+    arg_sn1 := String.new(group)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -74,7 +78,7 @@ pub interface IEditorInspectorPluginParseProperty {
     virt_parse_property(object Object, type_name VariantType, name String, hint_type PropertyHint, hint_string String, usage_flags PropertyUsageFlags, wide bool) bool
 }
 
-pub fn (mut r EditorInspectorPlugin) uparse_property(object Object, type_name VariantType, name String, hint_type PropertyHint, hint_string String, usage_flags PropertyUsageFlags, wide bool) bool {
+pub fn (mut r EditorInspectorPlugin) uparse_property(object Object, type_name VariantType, name string, hint_type PropertyHint, hint_string string, usage_flags PropertyUsageFlags, wide bool) bool {
     mut object_out := false
     classname := StringName.new("EditorInspectorPlugin")
     fnname := StringName.new("_parse_property")
@@ -83,14 +87,18 @@ pub fn (mut r EditorInspectorPlugin) uparse_property(object Object, type_name Va
     args[0] = object.ptr
     i64_type_name := i64(type_name)
     args[1] = unsafe{voidptr(&i64_type_name)}
-    args[2] = unsafe{voidptr(&name)}
+    arg_sn2 := String.new(name)
+    args[2] = unsafe{voidptr(&arg_sn2)}
     i64_hint_type := i64(hint_type)
     args[3] = unsafe{voidptr(&i64_hint_type)}
-    args[4] = unsafe{voidptr(&hint_string)}
+    arg_sn4 := String.new(hint_string)
+    args[4] = unsafe{voidptr(&arg_sn4)}
     i64_usage_flags := i64(usage_flags)
     args[5] = unsafe{voidptr(&i64_usage_flags)}
     args[6] = unsafe{voidptr(&wide)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
+    arg_sn2.deinit()
+    arg_sn4.deinit()
     classname.deinit()
     fnname.deinit()
    return object_out
@@ -120,27 +128,31 @@ pub fn (mut r EditorInspectorPlugin) add_custom_control(control Control) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorInspectorPlugin) add_property_editor(property String, editor Control, add_to_end bool) {
+pub fn (mut r EditorInspectorPlugin) add_property_editor(property string, editor Control, add_to_end bool) {
     classname := StringName.new("EditorInspectorPlugin")
     fnname := StringName.new("add_property_editor")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3406284123)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&property)}
+    arg_sn0 := String.new(property)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = editor.ptr
     args[2] = unsafe{voidptr(&add_to_end)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorInspectorPlugin) add_property_editor_for_multiple_properties(label String, properties PackedStringArray, editor Control) {
+pub fn (mut r EditorInspectorPlugin) add_property_editor_for_multiple_properties(label string, properties PackedStringArray, editor Control) {
     classname := StringName.new("EditorInspectorPlugin")
     fnname := StringName.new("add_property_editor_for_multiple_properties")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 788598683)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = unsafe{voidptr(&label)}
+    arg_sn0 := String.new(label)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&properties)}
     args[2] = editor.ptr
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }

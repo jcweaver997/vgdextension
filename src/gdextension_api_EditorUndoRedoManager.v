@@ -11,17 +11,19 @@ pub struct EditorUndoRedoManager {
     Object
 }
 
-pub fn (mut r EditorUndoRedoManager) create_action(name String, merge_mode UndoRedoMergeMode, custom_context Object, backward_undo_ops bool) {
+pub fn (mut r EditorUndoRedoManager) create_action(name string, merge_mode UndoRedoMergeMode, custom_context Object, backward_undo_ops bool) {
     classname := StringName.new("EditorUndoRedoManager")
     fnname := StringName.new("create_action")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2107025470)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = unsafe{voidptr(&name)}
+    arg_sn0 := String.new(name)
+    args[0] = unsafe{voidptr(&arg_sn0)}
     i64_merge_mode := i64(merge_mode)
     args[1] = unsafe{voidptr(&i64_merge_mode)}
     args[2] = custom_context.ptr
     args[3] = unsafe{voidptr(&backward_undo_ops)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn0.deinit()
     classname.deinit()
     fnname.deinit()
 }
@@ -45,27 +47,31 @@ pub fn (r &EditorUndoRedoManager) is_committing_action() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorUndoRedoManager) add_do_property(object Object, property StringName, value Variant) {
+pub fn (mut r EditorUndoRedoManager) add_do_property(object Object, property string, value Variant) {
     classname := StringName.new("EditorUndoRedoManager")
     fnname := StringName.new("add_do_property")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1017172818)
     mut args := unsafe { [3]voidptr{} }
     args[0] = object.ptr
-    args[1] = unsafe{voidptr(&property)}
+    arg_sn1 := StringName.new(property)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&value)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorUndoRedoManager) add_undo_property(object Object, property StringName, value Variant) {
+pub fn (mut r EditorUndoRedoManager) add_undo_property(object Object, property string, value Variant) {
     classname := StringName.new("EditorUndoRedoManager")
     fnname := StringName.new("add_undo_property")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1017172818)
     mut args := unsafe { [3]voidptr{} }
     args[0] = object.ptr
-    args[1] = unsafe{voidptr(&property)}
+    arg_sn1 := StringName.new(property)
+    args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&value)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
+    arg_sn1.deinit()
     classname.deinit()
     fnname.deinit()
 }
