@@ -61,6 +61,25 @@ pub fn (o &Object) cast_to[T]() ?T {
     }
 }
 
+pub fn (o &Object) cast_to_v[T](type_name string) ?&T {
+    sn := StringName.new(type_name)
+    class_tag := gdf.classdb_get_class_tag(sn)
+    sn.deinit()
+    t := Object{
+        ptr: gdf.object_cast_to(o.ptr, class_tag)
+    }
+    
+    if t.ptr == unsafe{nil} {
+        return none
+    }
+    v_ptr := gdf.object_get_instance_binding(t.ptr, gdf.clp, unsafe{nil})
+    if v_ptr == unsafe{nil} {
+        return none
+    }
+    v := unsafe{&T(v_ptr)}
+    return v
+}
+
 pub fn (r &Node) get_node_v(path string) Node {
     np := NodePath.new(path)
     node := r.get_node(np)

@@ -23,6 +23,10 @@ pub fn register_class_with_name[T](parent_class string, class_name string) {
 	pn := StringName.new(parent_class)
 
 	mut ci := unsafe{&ClassInfo(gdf.mem_alloc(sizeof[ClassInfo]()))}
+	// copy default values:
+	ci_v := ClassInfo{}
+	C.memcpy(ci, &ci_v, sizeof[ClassInfo]())
+
 	ci.class_name = sn
 	ci.parent_name = pn
 	ci.virtual_methods = Dictionary.new0()
@@ -326,6 +330,10 @@ fn class_unreference[T](instance GDExtensionClassInstancePtr){
 fn class_create_instance[T](user_data voidptr) &Object {
 	ud := unsafe{&ClassInfo(user_data)}
 	t := unsafe{&T(gdf.mem_alloc(sizeof[T]()))}
+	// copy default values:
+	t_v := T{}
+	C.memcpy(t, &t_v, sizeof[T]())
+
 	mut w := &Object(t)
 	w.ptr = gdf.classdb_construct_object(ud.parent_name)
 	gdf.object_set_instance(w.ptr, ud.class_name, t)
