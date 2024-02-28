@@ -12,7 +12,7 @@ pub struct VisualShaderNodeParameter {
     VisualShaderNode
 }
 
-pub fn (mut r VisualShaderNodeParameter) set_parameter_name(name string) {
+pub fn (r &VisualShaderNodeParameter) set_parameter_name(name string) {
     classname := StringName.new("VisualShaderNodeParameter")
     fnname := StringName.new("set_parameter_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -36,7 +36,7 @@ pub fn (r &VisualShaderNodeParameter) get_parameter_name() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r VisualShaderNodeParameter) set_qualifier(qualifier VisualShaderNodeParameterQualifier) {
+pub fn (r &VisualShaderNodeParameter) set_qualifier(qualifier VisualShaderNodeParameterQualifier) {
     classname := StringName.new("VisualShaderNodeParameter")
     fnname := StringName.new("set_qualifier")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1276489447)

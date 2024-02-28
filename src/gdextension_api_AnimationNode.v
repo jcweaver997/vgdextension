@@ -151,7 +151,7 @@ pub fn (r &AnimationNode) uhas_filter() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNode) add_input(name string) bool {
+pub fn (r &AnimationNode) add_input(name string) bool {
     mut object_out := false
     classname := StringName.new("AnimationNode")
     fnname := StringName.new("add_input")
@@ -165,7 +165,7 @@ pub fn (mut r AnimationNode) add_input(name string) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNode) remove_input(index i32) {
+pub fn (r &AnimationNode) remove_input(index i32) {
     classname := StringName.new("AnimationNode")
     fnname := StringName.new("remove_input")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -175,7 +175,7 @@ pub fn (mut r AnimationNode) remove_input(index i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AnimationNode) set_input_name(input i32, name string) bool {
+pub fn (r &AnimationNode) set_input_name(input i32, name string) bool {
     mut object_out := false
     classname := StringName.new("AnimationNode")
     fnname := StringName.new("set_input_name")
@@ -228,7 +228,7 @@ pub fn (r &AnimationNode) find_input(name string) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNode) set_filter_path(path NodePath, enable bool) {
+pub fn (r &AnimationNode) set_filter_path(path NodePath, enable bool) {
     classname := StringName.new("AnimationNode")
     fnname := StringName.new("set_filter_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3868023870)
@@ -251,7 +251,7 @@ pub fn (r &AnimationNode) is_path_filtered(path NodePath) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNode) set_filter_enabled(enable bool) {
+pub fn (r &AnimationNode) set_filter_enabled(enable bool) {
     classname := StringName.new("AnimationNode")
     fnname := StringName.new("set_filter_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -271,7 +271,7 @@ pub fn (r &AnimationNode) is_filter_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNode) blend_animation(animation string, time f64, delta f64, seeked bool, is_external_seeking bool, blend f64, looped_flag AnimationLoopedFlag) {
+pub fn (r &AnimationNode) blend_animation(animation string, time f64, delta f64, seeked bool, is_external_seeking bool, blend f64, looped_flag AnimationLoopedFlag) {
     classname := StringName.new("AnimationNode")
     fnname := StringName.new("blend_animation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1630801826)
@@ -290,7 +290,7 @@ pub fn (mut r AnimationNode) blend_animation(animation string, time f64, delta f
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AnimationNode) blend_node(name string, node AnimationNode, time f64, seek bool, is_external_seeking bool, blend f64, filter AnimationNodeFilterAction, sync bool, test_only bool) f64 {
+pub fn (r &AnimationNode) blend_node(name string, node AnimationNode, time f64, seek bool, is_external_seeking bool, blend f64, filter AnimationNodeFilterAction, sync bool, test_only bool) f64 {
     mut object_out := f64(0)
     classname := StringName.new("AnimationNode")
     fnname := StringName.new("blend_node")
@@ -313,7 +313,7 @@ pub fn (mut r AnimationNode) blend_node(name string, node AnimationNode, time f6
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNode) blend_input(input_index i32, time f64, seek bool, is_external_seeking bool, blend f64, filter AnimationNodeFilterAction, sync bool, test_only bool) f64 {
+pub fn (r &AnimationNode) blend_input(input_index i32, time f64, seek bool, is_external_seeking bool, blend f64, filter AnimationNodeFilterAction, sync bool, test_only bool) f64 {
     mut object_out := f64(0)
     classname := StringName.new("AnimationNode")
     fnname := StringName.new("blend_input")
@@ -333,7 +333,7 @@ pub fn (mut r AnimationNode) blend_input(input_index i32, time f64, seek bool, i
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNode) set_parameter(name string, value Variant) {
+pub fn (r &AnimationNode) set_parameter(name string, value Variant) {
     classname := StringName.new("AnimationNode")
     fnname := StringName.new("set_parameter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3776071444)

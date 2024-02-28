@@ -5,7 +5,7 @@ pub struct VehicleWheel3D {
     Node3D
 }
 
-pub fn (mut r VehicleWheel3D) set_radius(length f64) {
+pub fn (r &VehicleWheel3D) set_radius(length f64) {
     classname := StringName.new("VehicleWheel3D")
     fnname := StringName.new("set_radius")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -25,7 +25,7 @@ pub fn (r &VehicleWheel3D) get_radius() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VehicleWheel3D) set_suspension_rest_length(length f64) {
+pub fn (r &VehicleWheel3D) set_suspension_rest_length(length f64) {
     classname := StringName.new("VehicleWheel3D")
     fnname := StringName.new("set_suspension_rest_length")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -45,7 +45,7 @@ pub fn (r &VehicleWheel3D) get_suspension_rest_length() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VehicleWheel3D) set_suspension_travel(length f64) {
+pub fn (r &VehicleWheel3D) set_suspension_travel(length f64) {
     classname := StringName.new("VehicleWheel3D")
     fnname := StringName.new("set_suspension_travel")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -65,7 +65,7 @@ pub fn (r &VehicleWheel3D) get_suspension_travel() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VehicleWheel3D) set_suspension_stiffness(length f64) {
+pub fn (r &VehicleWheel3D) set_suspension_stiffness(length f64) {
     classname := StringName.new("VehicleWheel3D")
     fnname := StringName.new("set_suspension_stiffness")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -85,7 +85,7 @@ pub fn (r &VehicleWheel3D) get_suspension_stiffness() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VehicleWheel3D) set_suspension_max_force(length f64) {
+pub fn (r &VehicleWheel3D) set_suspension_max_force(length f64) {
     classname := StringName.new("VehicleWheel3D")
     fnname := StringName.new("set_suspension_max_force")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -105,7 +105,7 @@ pub fn (r &VehicleWheel3D) get_suspension_max_force() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VehicleWheel3D) set_damping_compression(length f64) {
+pub fn (r &VehicleWheel3D) set_damping_compression(length f64) {
     classname := StringName.new("VehicleWheel3D")
     fnname := StringName.new("set_damping_compression")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -125,7 +125,7 @@ pub fn (r &VehicleWheel3D) get_damping_compression() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VehicleWheel3D) set_damping_relaxation(length f64) {
+pub fn (r &VehicleWheel3D) set_damping_relaxation(length f64) {
     classname := StringName.new("VehicleWheel3D")
     fnname := StringName.new("set_damping_relaxation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -145,7 +145,7 @@ pub fn (r &VehicleWheel3D) get_damping_relaxation() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VehicleWheel3D) set_use_as_traction(enable bool) {
+pub fn (r &VehicleWheel3D) set_use_as_traction(enable bool) {
     classname := StringName.new("VehicleWheel3D")
     fnname := StringName.new("set_use_as_traction")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -165,7 +165,7 @@ pub fn (r &VehicleWheel3D) is_used_as_traction() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VehicleWheel3D) set_use_as_steering(enable bool) {
+pub fn (r &VehicleWheel3D) set_use_as_steering(enable bool) {
     classname := StringName.new("VehicleWheel3D")
     fnname := StringName.new("set_use_as_steering")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -185,7 +185,7 @@ pub fn (r &VehicleWheel3D) is_used_as_steering() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VehicleWheel3D) set_friction_slip(length f64) {
+pub fn (r &VehicleWheel3D) set_friction_slip(length f64) {
     classname := StringName.new("VehicleWheel3D")
     fnname := StringName.new("set_friction_slip")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -225,7 +225,7 @@ pub fn (r &VehicleWheel3D) get_contact_body() Node3D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VehicleWheel3D) set_roll_influence(roll_influence f64) {
+pub fn (r &VehicleWheel3D) set_roll_influence(roll_influence f64) {
     classname := StringName.new("VehicleWheel3D")
     fnname := StringName.new("set_roll_influence")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -265,7 +265,7 @@ pub fn (r &VehicleWheel3D) get_rpm() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VehicleWheel3D) set_engine_force(engine_force f64) {
+pub fn (r &VehicleWheel3D) set_engine_force(engine_force f64) {
     classname := StringName.new("VehicleWheel3D")
     fnname := StringName.new("set_engine_force")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -285,7 +285,7 @@ pub fn (r &VehicleWheel3D) get_engine_force() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VehicleWheel3D) set_brake(brake f64) {
+pub fn (r &VehicleWheel3D) set_brake(brake f64) {
     classname := StringName.new("VehicleWheel3D")
     fnname := StringName.new("set_brake")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -305,7 +305,7 @@ pub fn (r &VehicleWheel3D) get_brake() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VehicleWheel3D) set_steering(steering f64) {
+pub fn (r &VehicleWheel3D) set_steering(steering f64) {
     classname := StringName.new("VehicleWheel3D")
     fnname := StringName.new("set_steering")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

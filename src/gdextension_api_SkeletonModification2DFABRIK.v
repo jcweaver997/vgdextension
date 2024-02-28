@@ -5,7 +5,7 @@ pub struct SkeletonModification2DFABRIK {
     SkeletonModification2D
 }
 
-pub fn (mut r SkeletonModification2DFABRIK) set_target_node(target_nodepath NodePath) {
+pub fn (r &SkeletonModification2DFABRIK) set_target_node(target_nodepath NodePath) {
     classname := StringName.new("SkeletonModification2DFABRIK")
     fnname := StringName.new("set_target_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1348162250)
@@ -25,7 +25,7 @@ pub fn (r &SkeletonModification2DFABRIK) get_target_node() NodePath {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonModification2DFABRIK) set_fabrik_data_chain_length(length i32) {
+pub fn (r &SkeletonModification2DFABRIK) set_fabrik_data_chain_length(length i32) {
     classname := StringName.new("SkeletonModification2DFABRIK")
     fnname := StringName.new("set_fabrik_data_chain_length")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -35,7 +35,7 @@ pub fn (mut r SkeletonModification2DFABRIK) set_fabrik_data_chain_length(length 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SkeletonModification2DFABRIK) get_fabrik_data_chain_length() i32 {
+pub fn (r &SkeletonModification2DFABRIK) get_fabrik_data_chain_length() i32 {
     mut object_out := i32(0)
     classname := StringName.new("SkeletonModification2DFABRIK")
     fnname := StringName.new("get_fabrik_data_chain_length")
@@ -45,7 +45,7 @@ pub fn (mut r SkeletonModification2DFABRIK) get_fabrik_data_chain_length() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonModification2DFABRIK) set_fabrik_joint_bone2d_node(joint_idx i32, bone2d_nodepath NodePath) {
+pub fn (r &SkeletonModification2DFABRIK) set_fabrik_joint_bone2d_node(joint_idx i32, bone2d_nodepath NodePath) {
     classname := StringName.new("SkeletonModification2DFABRIK")
     fnname := StringName.new("set_fabrik_joint_bone2d_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2761262315)
@@ -68,7 +68,7 @@ pub fn (r &SkeletonModification2DFABRIK) get_fabrik_joint_bone2d_node(joint_idx 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonModification2DFABRIK) set_fabrik_joint_bone_index(joint_idx i32, bone_idx i32) {
+pub fn (r &SkeletonModification2DFABRIK) set_fabrik_joint_bone_index(joint_idx i32, bone_idx i32) {
     classname := StringName.new("SkeletonModification2DFABRIK")
     fnname := StringName.new("set_fabrik_joint_bone_index")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -91,7 +91,7 @@ pub fn (r &SkeletonModification2DFABRIK) get_fabrik_joint_bone_index(joint_idx i
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonModification2DFABRIK) set_fabrik_joint_magnet_position(joint_idx i32, magnet_position Vector2) {
+pub fn (r &SkeletonModification2DFABRIK) set_fabrik_joint_magnet_position(joint_idx i32, magnet_position Vector2) {
     classname := StringName.new("SkeletonModification2DFABRIK")
     fnname := StringName.new("set_fabrik_joint_magnet_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 163021252)
@@ -114,7 +114,7 @@ pub fn (r &SkeletonModification2DFABRIK) get_fabrik_joint_magnet_position(joint_
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonModification2DFABRIK) set_fabrik_joint_use_target_rotation(joint_idx i32, use_target_rotation bool) {
+pub fn (r &SkeletonModification2DFABRIK) set_fabrik_joint_use_target_rotation(joint_idx i32, use_target_rotation bool) {
     classname := StringName.new("SkeletonModification2DFABRIK")
     fnname := StringName.new("set_fabrik_joint_use_target_rotation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)

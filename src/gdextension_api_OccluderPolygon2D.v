@@ -11,7 +11,7 @@ pub struct OccluderPolygon2D {
     Resource
 }
 
-pub fn (mut r OccluderPolygon2D) set_closed(closed bool) {
+pub fn (r &OccluderPolygon2D) set_closed(closed bool) {
     classname := StringName.new("OccluderPolygon2D")
     fnname := StringName.new("set_closed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -31,7 +31,7 @@ pub fn (r &OccluderPolygon2D) is_closed() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OccluderPolygon2D) set_cull_mode(cull_mode OccluderPolygon2DCullMode) {
+pub fn (r &OccluderPolygon2D) set_cull_mode(cull_mode OccluderPolygon2DCullMode) {
     classname := StringName.new("OccluderPolygon2D")
     fnname := StringName.new("set_cull_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3500863002)
@@ -52,7 +52,7 @@ pub fn (r &OccluderPolygon2D) get_cull_mode() OccluderPolygon2DCullMode {
     fnname.deinit()
    return unsafe{OccluderPolygon2DCullMode(object_out)}
 }
-pub fn (mut r OccluderPolygon2D) set_polygon(polygon PackedVector2Array) {
+pub fn (r &OccluderPolygon2D) set_polygon(polygon PackedVector2Array) {
     classname := StringName.new("OccluderPolygon2D")
     fnname := StringName.new("set_polygon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1509147220)

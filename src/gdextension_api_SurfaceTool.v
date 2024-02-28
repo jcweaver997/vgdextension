@@ -22,7 +22,7 @@ pub struct SurfaceTool {
     RefCounted
 }
 
-pub fn (mut r SurfaceTool) set_skin_weight_count(count SurfaceToolSkinWeightCount) {
+pub fn (r &SurfaceTool) set_skin_weight_count(count SurfaceToolSkinWeightCount) {
     classname := StringName.new("SurfaceTool")
     fnname := StringName.new("set_skin_weight_count")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 618679515)
@@ -43,7 +43,7 @@ pub fn (r &SurfaceTool) get_skin_weight_count() SurfaceToolSkinWeightCount {
     fnname.deinit()
    return unsafe{SurfaceToolSkinWeightCount(object_out)}
 }
-pub fn (mut r SurfaceTool) set_custom_format(channel_index i32, format SurfaceToolCustomFormat) {
+pub fn (r &SurfaceTool) set_custom_format(channel_index i32, format SurfaceToolCustomFormat) {
     classname := StringName.new("SurfaceTool")
     fnname := StringName.new("set_custom_format")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4087759856)
@@ -67,7 +67,7 @@ pub fn (r &SurfaceTool) get_custom_format(channel_index i32) SurfaceToolCustomFo
     fnname.deinit()
    return unsafe{SurfaceToolCustomFormat(object_out)}
 }
-pub fn (mut r SurfaceTool) begin(primitive MeshPrimitiveType) {
+pub fn (r &SurfaceTool) begin(primitive MeshPrimitiveType) {
     classname := StringName.new("SurfaceTool")
     fnname := StringName.new("begin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2230304113)
@@ -78,7 +78,7 @@ pub fn (mut r SurfaceTool) begin(primitive MeshPrimitiveType) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SurfaceTool) add_vertex(vertex Vector3) {
+pub fn (r &SurfaceTool) add_vertex(vertex Vector3) {
     classname := StringName.new("SurfaceTool")
     fnname := StringName.new("add_vertex")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -88,7 +88,7 @@ pub fn (mut r SurfaceTool) add_vertex(vertex Vector3) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SurfaceTool) set_color(color Color) {
+pub fn (r &SurfaceTool) set_color(color Color) {
     classname := StringName.new("SurfaceTool")
     fnname := StringName.new("set_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -98,7 +98,7 @@ pub fn (mut r SurfaceTool) set_color(color Color) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SurfaceTool) set_normal(normal Vector3) {
+pub fn (r &SurfaceTool) set_normal(normal Vector3) {
     classname := StringName.new("SurfaceTool")
     fnname := StringName.new("set_normal")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -108,7 +108,7 @@ pub fn (mut r SurfaceTool) set_normal(normal Vector3) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SurfaceTool) set_tangent(tangent Plane) {
+pub fn (r &SurfaceTool) set_tangent(tangent Plane) {
     classname := StringName.new("SurfaceTool")
     fnname := StringName.new("set_tangent")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3505987427)
@@ -118,7 +118,7 @@ pub fn (mut r SurfaceTool) set_tangent(tangent Plane) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SurfaceTool) set_uv(uv Vector2) {
+pub fn (r &SurfaceTool) set_uv(uv Vector2) {
     classname := StringName.new("SurfaceTool")
     fnname := StringName.new("set_uv")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -128,7 +128,7 @@ pub fn (mut r SurfaceTool) set_uv(uv Vector2) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SurfaceTool) set_uv2(uv2 Vector2) {
+pub fn (r &SurfaceTool) set_uv2(uv2 Vector2) {
     classname := StringName.new("SurfaceTool")
     fnname := StringName.new("set_uv2")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -138,7 +138,7 @@ pub fn (mut r SurfaceTool) set_uv2(uv2 Vector2) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SurfaceTool) set_bones(bones PackedInt32Array) {
+pub fn (r &SurfaceTool) set_bones(bones PackedInt32Array) {
     classname := StringName.new("SurfaceTool")
     fnname := StringName.new("set_bones")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3614634198)
@@ -148,7 +148,7 @@ pub fn (mut r SurfaceTool) set_bones(bones PackedInt32Array) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SurfaceTool) set_weights(weights PackedFloat32Array) {
+pub fn (r &SurfaceTool) set_weights(weights PackedFloat32Array) {
     classname := StringName.new("SurfaceTool")
     fnname := StringName.new("set_weights")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2899603908)
@@ -158,7 +158,7 @@ pub fn (mut r SurfaceTool) set_weights(weights PackedFloat32Array) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SurfaceTool) set_custom(channel_index i32, custom_color Color) {
+pub fn (r &SurfaceTool) set_custom(channel_index i32, custom_color Color) {
     classname := StringName.new("SurfaceTool")
     fnname := StringName.new("set_custom")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2878471219)
@@ -169,7 +169,7 @@ pub fn (mut r SurfaceTool) set_custom(channel_index i32, custom_color Color) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SurfaceTool) set_smooth_group(index u32) {
+pub fn (r &SurfaceTool) set_smooth_group(index u32) {
     classname := StringName.new("SurfaceTool")
     fnname := StringName.new("set_smooth_group")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -179,7 +179,7 @@ pub fn (mut r SurfaceTool) set_smooth_group(index u32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SurfaceTool) add_triangle_fan(vertices PackedVector3Array, uvs PackedVector2Array, colors PackedColorArray, uv2s PackedVector2Array, normals PackedVector3Array, tangents Array) {
+pub fn (r &SurfaceTool) add_triangle_fan(vertices PackedVector3Array, uvs PackedVector2Array, colors PackedColorArray, uv2s PackedVector2Array, normals PackedVector3Array, tangents Array) {
     classname := StringName.new("SurfaceTool")
     fnname := StringName.new("add_triangle_fan")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2235017613)
@@ -194,7 +194,7 @@ pub fn (mut r SurfaceTool) add_triangle_fan(vertices PackedVector3Array, uvs Pac
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SurfaceTool) add_index(index i32) {
+pub fn (r &SurfaceTool) add_index(index i32) {
     classname := StringName.new("SurfaceTool")
     fnname := StringName.new("add_index")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -204,7 +204,7 @@ pub fn (mut r SurfaceTool) add_index(index i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SurfaceTool) index() {
+pub fn (r &SurfaceTool) index() {
     classname := StringName.new("SurfaceTool")
     fnname := StringName.new("index")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -212,7 +212,7 @@ pub fn (mut r SurfaceTool) index() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SurfaceTool) deindex() {
+pub fn (r &SurfaceTool) deindex() {
     classname := StringName.new("SurfaceTool")
     fnname := StringName.new("deindex")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -220,7 +220,7 @@ pub fn (mut r SurfaceTool) deindex() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SurfaceTool) generate_normals(flip bool) {
+pub fn (r &SurfaceTool) generate_normals(flip bool) {
     classname := StringName.new("SurfaceTool")
     fnname := StringName.new("generate_normals")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 107499316)
@@ -230,7 +230,7 @@ pub fn (mut r SurfaceTool) generate_normals(flip bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SurfaceTool) generate_tangents() {
+pub fn (r &SurfaceTool) generate_tangents() {
     classname := StringName.new("SurfaceTool")
     fnname := StringName.new("generate_tangents")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -238,7 +238,7 @@ pub fn (mut r SurfaceTool) generate_tangents() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SurfaceTool) optimize_indices_for_cache() {
+pub fn (r &SurfaceTool) optimize_indices_for_cache() {
     classname := StringName.new("SurfaceTool")
     fnname := StringName.new("optimize_indices_for_cache")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -256,7 +256,7 @@ pub fn (r &SurfaceTool) get_aabb() AABB {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SurfaceTool) generate_lod(nd_threshold f64, target_index_count i32) PackedInt32Array {
+pub fn (r &SurfaceTool) generate_lod(nd_threshold f64, target_index_count i32) PackedInt32Array {
     mut object_out := PackedInt32Array{}
     classname := StringName.new("SurfaceTool")
     fnname := StringName.new("generate_lod")
@@ -269,7 +269,7 @@ pub fn (mut r SurfaceTool) generate_lod(nd_threshold f64, target_index_count i32
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SurfaceTool) set_material(material Material) {
+pub fn (r &SurfaceTool) set_material(material Material) {
     classname := StringName.new("SurfaceTool")
     fnname := StringName.new("set_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2757459619)
@@ -289,7 +289,7 @@ pub fn (r &SurfaceTool) get_primitive_type() MeshPrimitiveType {
     fnname.deinit()
    return unsafe{MeshPrimitiveType(object_out)}
 }
-pub fn (mut r SurfaceTool) clear() {
+pub fn (r &SurfaceTool) clear() {
     classname := StringName.new("SurfaceTool")
     fnname := StringName.new("clear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -297,7 +297,7 @@ pub fn (mut r SurfaceTool) clear() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SurfaceTool) create_from(existing Mesh, surface i32) {
+pub fn (r &SurfaceTool) create_from(existing Mesh, surface i32) {
     classname := StringName.new("SurfaceTool")
     fnname := StringName.new("create_from")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1767024570)
@@ -308,7 +308,7 @@ pub fn (mut r SurfaceTool) create_from(existing Mesh, surface i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SurfaceTool) create_from_blend_shape(existing Mesh, surface i32, blend_shape string) {
+pub fn (r &SurfaceTool) create_from_blend_shape(existing Mesh, surface i32, blend_shape string) {
     classname := StringName.new("SurfaceTool")
     fnname := StringName.new("create_from_blend_shape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1306185582)
@@ -322,7 +322,7 @@ pub fn (mut r SurfaceTool) create_from_blend_shape(existing Mesh, surface i32, b
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SurfaceTool) append_from(existing Mesh, surface i32, transform Transform3D) {
+pub fn (r &SurfaceTool) append_from(existing Mesh, surface i32, transform Transform3D) {
     classname := StringName.new("SurfaceTool")
     fnname := StringName.new("append_from")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2217967155)
@@ -334,7 +334,7 @@ pub fn (mut r SurfaceTool) append_from(existing Mesh, surface i32, transform Tra
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SurfaceTool) commit(existing ArrayMesh, flags u64) ArrayMesh {
+pub fn (r &SurfaceTool) commit(existing ArrayMesh, flags u64) ArrayMesh {
     mut object_out := ArrayMesh{}
     classname := StringName.new("SurfaceTool")
     fnname := StringName.new("commit")
@@ -347,7 +347,7 @@ pub fn (mut r SurfaceTool) commit(existing ArrayMesh, flags u64) ArrayMesh {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SurfaceTool) commit_to_arrays() Array {
+pub fn (r &SurfaceTool) commit_to_arrays() Array {
     mut object_out := Array{}
     classname := StringName.new("SurfaceTool")
     fnname := StringName.new("commit_to_arrays")

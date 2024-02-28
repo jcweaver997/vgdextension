@@ -5,7 +5,7 @@ pub struct GPUParticlesCollision3D {
     VisualInstance3D
 }
 
-pub fn (mut r GPUParticlesCollision3D) set_cull_mask(mask u32) {
+pub fn (r &GPUParticlesCollision3D) set_cull_mask(mask u32) {
     classname := StringName.new("GPUParticlesCollision3D")
     fnname := StringName.new("set_cull_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

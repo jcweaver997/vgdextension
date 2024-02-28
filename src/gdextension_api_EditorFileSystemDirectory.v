@@ -15,7 +15,7 @@ pub fn (r &EditorFileSystemDirectory) get_subdir_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorFileSystemDirectory) get_subdir(idx i32) EditorFileSystemDirectory {
+pub fn (r &EditorFileSystemDirectory) get_subdir(idx i32) EditorFileSystemDirectory {
     mut object_out := EditorFileSystemDirectory{}
     classname := StringName.new("EditorFileSystemDirectory")
     fnname := StringName.new("get_subdir")
@@ -119,7 +119,7 @@ pub fn (r &EditorFileSystemDirectory) get_file_import_is_valid(idx i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorFileSystemDirectory) get_name() string {
+pub fn (r &EditorFileSystemDirectory) get_name() string {
     mut object_out := String{}
     classname := StringName.new("EditorFileSystemDirectory")
     fnname := StringName.new("get_name")
@@ -143,7 +143,7 @@ pub fn (r &EditorFileSystemDirectory) get_path() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r EditorFileSystemDirectory) get_parent() EditorFileSystemDirectory {
+pub fn (r &EditorFileSystemDirectory) get_parent() EditorFileSystemDirectory {
     mut object_out := EditorFileSystemDirectory{}
     classname := StringName.new("EditorFileSystemDirectory")
     fnname := StringName.new("get_parent")

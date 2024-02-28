@@ -17,7 +17,7 @@ pub struct WebRTCDataChannel {
     PacketPeer
 }
 
-pub fn (mut r WebRTCDataChannel) poll() GDError {
+pub fn (r &WebRTCDataChannel) poll() GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("WebRTCDataChannel")
     fnname := StringName.new("poll")
@@ -27,7 +27,7 @@ pub fn (mut r WebRTCDataChannel) poll() GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r WebRTCDataChannel) close() {
+pub fn (r &WebRTCDataChannel) close() {
     classname := StringName.new("WebRTCDataChannel")
     fnname := StringName.new("close")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -45,7 +45,7 @@ pub fn (r &WebRTCDataChannel) was_string_packet() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r WebRTCDataChannel) set_write_mode(write_mode WebRTCDataChannelWriteMode) {
+pub fn (r &WebRTCDataChannel) set_write_mode(write_mode WebRTCDataChannelWriteMode) {
     classname := StringName.new("WebRTCDataChannel")
     fnname := StringName.new("set_write_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1999768052)

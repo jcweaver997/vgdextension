@@ -10,7 +10,7 @@ pub interface IRangeValueChanged {
     virt_value_changed(new_value f64)
 }
 
-pub fn (mut r Range) uvalue_changed(new_value f64) {
+pub fn (r &Range) uvalue_changed(new_value f64) {
     classname := StringName.new("Range")
     fnname := StringName.new("_value_changed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -80,7 +80,7 @@ pub fn (r &Range) get_as_ratio() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Range) set_value(value f64) {
+pub fn (r &Range) set_value(value f64) {
     classname := StringName.new("Range")
     fnname := StringName.new("set_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -90,7 +90,7 @@ pub fn (mut r Range) set_value(value f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Range) set_value_no_signal(value f64) {
+pub fn (r &Range) set_value_no_signal(value f64) {
     classname := StringName.new("Range")
     fnname := StringName.new("set_value_no_signal")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -100,7 +100,7 @@ pub fn (mut r Range) set_value_no_signal(value f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Range) set_min(minimum f64) {
+pub fn (r &Range) set_min(minimum f64) {
     classname := StringName.new("Range")
     fnname := StringName.new("set_min")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -110,7 +110,7 @@ pub fn (mut r Range) set_min(minimum f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Range) set_max(maximum f64) {
+pub fn (r &Range) set_max(maximum f64) {
     classname := StringName.new("Range")
     fnname := StringName.new("set_max")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -120,7 +120,7 @@ pub fn (mut r Range) set_max(maximum f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Range) set_step(step f64) {
+pub fn (r &Range) set_step(step f64) {
     classname := StringName.new("Range")
     fnname := StringName.new("set_step")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -130,7 +130,7 @@ pub fn (mut r Range) set_step(step f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Range) set_page(pagesize f64) {
+pub fn (r &Range) set_page(pagesize f64) {
     classname := StringName.new("Range")
     fnname := StringName.new("set_page")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -140,7 +140,7 @@ pub fn (mut r Range) set_page(pagesize f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Range) set_as_ratio(value f64) {
+pub fn (r &Range) set_as_ratio(value f64) {
     classname := StringName.new("Range")
     fnname := StringName.new("set_as_ratio")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -150,7 +150,7 @@ pub fn (mut r Range) set_as_ratio(value f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Range) set_use_rounded_values(enabled bool) {
+pub fn (r &Range) set_use_rounded_values(enabled bool) {
     classname := StringName.new("Range")
     fnname := StringName.new("set_use_rounded_values")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -170,7 +170,7 @@ pub fn (r &Range) is_using_rounded_values() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Range) set_exp_ratio(enabled bool) {
+pub fn (r &Range) set_exp_ratio(enabled bool) {
     classname := StringName.new("Range")
     fnname := StringName.new("set_exp_ratio")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -190,7 +190,7 @@ pub fn (r &Range) is_ratio_exp() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Range) set_allow_greater(allow bool) {
+pub fn (r &Range) set_allow_greater(allow bool) {
     classname := StringName.new("Range")
     fnname := StringName.new("set_allow_greater")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -210,7 +210,7 @@ pub fn (r &Range) is_greater_allowed() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Range) set_allow_lesser(allow bool) {
+pub fn (r &Range) set_allow_lesser(allow bool) {
     classname := StringName.new("Range")
     fnname := StringName.new("set_allow_lesser")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -230,7 +230,7 @@ pub fn (r &Range) is_lesser_allowed() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Range) share(with Node) {
+pub fn (r &Range) share(with Node) {
     classname := StringName.new("Range")
     fnname := StringName.new("share")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
@@ -240,7 +240,7 @@ pub fn (mut r Range) share(with Node) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Range) unshare() {
+pub fn (r &Range) unshare() {
     classname := StringName.new("Range")
     fnname := StringName.new("unshare")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

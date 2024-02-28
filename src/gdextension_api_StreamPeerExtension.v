@@ -10,7 +10,7 @@ pub interface IStreamPeerExtensionGetData {
     virt_get_data(r_buffer &u8, r_bytes i32, r_received &i32) GDError
 }
 
-pub fn (mut r StreamPeerExtension) uget_data(r_buffer &u8, r_bytes i32, r_received &i32) GDError {
+pub fn (r &StreamPeerExtension) uget_data(r_buffer &u8, r_bytes i32, r_received &i32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("StreamPeerExtension")
     fnname := StringName.new("_get_data")
@@ -29,7 +29,7 @@ pub interface IStreamPeerExtensionGetPartialData {
     virt_get_partial_data(r_buffer &u8, r_bytes i32, r_received &i32) GDError
 }
 
-pub fn (mut r StreamPeerExtension) uget_partial_data(r_buffer &u8, r_bytes i32, r_received &i32) GDError {
+pub fn (r &StreamPeerExtension) uget_partial_data(r_buffer &u8, r_bytes i32, r_received &i32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("StreamPeerExtension")
     fnname := StringName.new("_get_partial_data")
@@ -48,7 +48,7 @@ pub interface IStreamPeerExtensionPutData {
     virt_put_data(p_data &u8, p_bytes i32, r_sent &i32) GDError
 }
 
-pub fn (mut r StreamPeerExtension) uput_data(p_data &u8, p_bytes i32, r_sent &i32) GDError {
+pub fn (r &StreamPeerExtension) uput_data(p_data &u8, p_bytes i32, r_sent &i32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("StreamPeerExtension")
     fnname := StringName.new("_put_data")
@@ -67,7 +67,7 @@ pub interface IStreamPeerExtensionPutPartialData {
     virt_put_partial_data(p_data &u8, p_bytes i32, r_sent &i32) GDError
 }
 
-pub fn (mut r StreamPeerExtension) uput_partial_data(p_data &u8, p_bytes i32, r_sent &i32) GDError {
+pub fn (r &StreamPeerExtension) uput_partial_data(p_data &u8, p_bytes i32, r_sent &i32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("StreamPeerExtension")
     fnname := StringName.new("_put_partial_data")

@@ -5,7 +5,7 @@ pub struct ParallaxLayer {
     Node2D
 }
 
-pub fn (mut r ParallaxLayer) set_motion_scale(scale Vector2) {
+pub fn (r &ParallaxLayer) set_motion_scale(scale Vector2) {
     classname := StringName.new("ParallaxLayer")
     fnname := StringName.new("set_motion_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -25,7 +25,7 @@ pub fn (r &ParallaxLayer) get_motion_scale() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParallaxLayer) set_motion_offset(offset Vector2) {
+pub fn (r &ParallaxLayer) set_motion_offset(offset Vector2) {
     classname := StringName.new("ParallaxLayer")
     fnname := StringName.new("set_motion_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -45,7 +45,7 @@ pub fn (r &ParallaxLayer) get_motion_offset() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParallaxLayer) set_mirroring(mirror Vector2) {
+pub fn (r &ParallaxLayer) set_mirroring(mirror Vector2) {
     classname := StringName.new("ParallaxLayer")
     fnname := StringName.new("set_mirroring")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)

@@ -5,7 +5,7 @@ pub struct InputEventMIDI {
     InputEvent
 }
 
-pub fn (mut r InputEventMIDI) set_channel(channel i32) {
+pub fn (r &InputEventMIDI) set_channel(channel i32) {
     classname := StringName.new("InputEventMIDI")
     fnname := StringName.new("set_channel")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -25,7 +25,7 @@ pub fn (r &InputEventMIDI) get_channel() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r InputEventMIDI) set_message(message MIDIMessage) {
+pub fn (r &InputEventMIDI) set_message(message MIDIMessage) {
     classname := StringName.new("InputEventMIDI")
     fnname := StringName.new("set_message")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1064271510)
@@ -46,7 +46,7 @@ pub fn (r &InputEventMIDI) get_message() MIDIMessage {
     fnname.deinit()
    return unsafe{MIDIMessage(object_out)}
 }
-pub fn (mut r InputEventMIDI) set_pitch(pitch i32) {
+pub fn (r &InputEventMIDI) set_pitch(pitch i32) {
     classname := StringName.new("InputEventMIDI")
     fnname := StringName.new("set_pitch")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -66,7 +66,7 @@ pub fn (r &InputEventMIDI) get_pitch() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r InputEventMIDI) set_velocity(velocity i32) {
+pub fn (r &InputEventMIDI) set_velocity(velocity i32) {
     classname := StringName.new("InputEventMIDI")
     fnname := StringName.new("set_velocity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -86,7 +86,7 @@ pub fn (r &InputEventMIDI) get_velocity() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r InputEventMIDI) set_instrument(instrument i32) {
+pub fn (r &InputEventMIDI) set_instrument(instrument i32) {
     classname := StringName.new("InputEventMIDI")
     fnname := StringName.new("set_instrument")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -106,7 +106,7 @@ pub fn (r &InputEventMIDI) get_instrument() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r InputEventMIDI) set_pressure(pressure i32) {
+pub fn (r &InputEventMIDI) set_pressure(pressure i32) {
     classname := StringName.new("InputEventMIDI")
     fnname := StringName.new("set_pressure")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -126,7 +126,7 @@ pub fn (r &InputEventMIDI) get_pressure() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r InputEventMIDI) set_controller_number(controller_number i32) {
+pub fn (r &InputEventMIDI) set_controller_number(controller_number i32) {
     classname := StringName.new("InputEventMIDI")
     fnname := StringName.new("set_controller_number")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -146,7 +146,7 @@ pub fn (r &InputEventMIDI) get_controller_number() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r InputEventMIDI) set_controller_value(controller_value i32) {
+pub fn (r &InputEventMIDI) set_controller_value(controller_value i32) {
     classname := StringName.new("InputEventMIDI")
     fnname := StringName.new("set_controller_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

@@ -23,7 +23,7 @@ pub struct Line2D {
     Node2D
 }
 
-pub fn (mut r Line2D) set_points(points PackedVector2Array) {
+pub fn (r &Line2D) set_points(points PackedVector2Array) {
     classname := StringName.new("Line2D")
     fnname := StringName.new("set_points")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1509147220)
@@ -43,7 +43,7 @@ pub fn (r &Line2D) get_points() PackedVector2Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Line2D) set_point_position(index i32, position Vector2) {
+pub fn (r &Line2D) set_point_position(index i32, position Vector2) {
     classname := StringName.new("Line2D")
     fnname := StringName.new("set_point_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 163021252)
@@ -76,7 +76,7 @@ pub fn (r &Line2D) get_point_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Line2D) add_point(position Vector2, index i32) {
+pub fn (r &Line2D) add_point(position Vector2, index i32) {
     classname := StringName.new("Line2D")
     fnname := StringName.new("add_point")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2654014372)
@@ -87,7 +87,7 @@ pub fn (mut r Line2D) add_point(position Vector2, index i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Line2D) remove_point(index i32) {
+pub fn (r &Line2D) remove_point(index i32) {
     classname := StringName.new("Line2D")
     fnname := StringName.new("remove_point")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -97,7 +97,7 @@ pub fn (mut r Line2D) remove_point(index i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Line2D) clear_points() {
+pub fn (r &Line2D) clear_points() {
     classname := StringName.new("Line2D")
     fnname := StringName.new("clear_points")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -105,7 +105,7 @@ pub fn (mut r Line2D) clear_points() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Line2D) set_closed(closed bool) {
+pub fn (r &Line2D) set_closed(closed bool) {
     classname := StringName.new("Line2D")
     fnname := StringName.new("set_closed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -125,7 +125,7 @@ pub fn (r &Line2D) is_closed() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Line2D) set_width(width f64) {
+pub fn (r &Line2D) set_width(width f64) {
     classname := StringName.new("Line2D")
     fnname := StringName.new("set_width")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -145,7 +145,7 @@ pub fn (r &Line2D) get_width() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Line2D) set_curve(curve Curve) {
+pub fn (r &Line2D) set_curve(curve Curve) {
     classname := StringName.new("Line2D")
     fnname := StringName.new("set_curve")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 270443179)
@@ -165,7 +165,7 @@ pub fn (r &Line2D) get_curve() Curve {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Line2D) set_default_color(color Color) {
+pub fn (r &Line2D) set_default_color(color Color) {
     classname := StringName.new("Line2D")
     fnname := StringName.new("set_default_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -185,7 +185,7 @@ pub fn (r &Line2D) get_default_color() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Line2D) set_gradient(color Gradient) {
+pub fn (r &Line2D) set_gradient(color Gradient) {
     classname := StringName.new("Line2D")
     fnname := StringName.new("set_gradient")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2756054477)
@@ -205,7 +205,7 @@ pub fn (r &Line2D) get_gradient() Gradient {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Line2D) set_texture(texture Texture2D) {
+pub fn (r &Line2D) set_texture(texture Texture2D) {
     classname := StringName.new("Line2D")
     fnname := StringName.new("set_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
@@ -225,7 +225,7 @@ pub fn (r &Line2D) get_texture() Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Line2D) set_texture_mode(mode Line2DLineTextureMode) {
+pub fn (r &Line2D) set_texture_mode(mode Line2DLineTextureMode) {
     classname := StringName.new("Line2D")
     fnname := StringName.new("set_texture_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1952559516)
@@ -246,7 +246,7 @@ pub fn (r &Line2D) get_texture_mode() Line2DLineTextureMode {
     fnname.deinit()
    return unsafe{Line2DLineTextureMode(object_out)}
 }
-pub fn (mut r Line2D) set_joint_mode(mode Line2DLineJointMode) {
+pub fn (r &Line2D) set_joint_mode(mode Line2DLineJointMode) {
     classname := StringName.new("Line2D")
     fnname := StringName.new("set_joint_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 604292979)
@@ -267,7 +267,7 @@ pub fn (r &Line2D) get_joint_mode() Line2DLineJointMode {
     fnname.deinit()
    return unsafe{Line2DLineJointMode(object_out)}
 }
-pub fn (mut r Line2D) set_begin_cap_mode(mode Line2DLineCapMode) {
+pub fn (r &Line2D) set_begin_cap_mode(mode Line2DLineCapMode) {
     classname := StringName.new("Line2D")
     fnname := StringName.new("set_begin_cap_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1669024546)
@@ -288,7 +288,7 @@ pub fn (r &Line2D) get_begin_cap_mode() Line2DLineCapMode {
     fnname.deinit()
    return unsafe{Line2DLineCapMode(object_out)}
 }
-pub fn (mut r Line2D) set_end_cap_mode(mode Line2DLineCapMode) {
+pub fn (r &Line2D) set_end_cap_mode(mode Line2DLineCapMode) {
     classname := StringName.new("Line2D")
     fnname := StringName.new("set_end_cap_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1669024546)
@@ -309,7 +309,7 @@ pub fn (r &Line2D) get_end_cap_mode() Line2DLineCapMode {
     fnname.deinit()
    return unsafe{Line2DLineCapMode(object_out)}
 }
-pub fn (mut r Line2D) set_sharp_limit(limit f64) {
+pub fn (r &Line2D) set_sharp_limit(limit f64) {
     classname := StringName.new("Line2D")
     fnname := StringName.new("set_sharp_limit")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -329,7 +329,7 @@ pub fn (r &Line2D) get_sharp_limit() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Line2D) set_round_precision(precision i32) {
+pub fn (r &Line2D) set_round_precision(precision i32) {
     classname := StringName.new("Line2D")
     fnname := StringName.new("set_round_precision")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -349,7 +349,7 @@ pub fn (r &Line2D) get_round_precision() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Line2D) set_antialiased(antialiased bool) {
+pub fn (r &Line2D) set_antialiased(antialiased bool) {
     classname := StringName.new("Line2D")
     fnname := StringName.new("set_antialiased")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

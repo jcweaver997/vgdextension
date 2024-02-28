@@ -14,7 +14,7 @@ pub fn Engine.get_singleton() Engine {
     return o
 }
 
-pub fn (mut r Engine) set_physics_ticks_per_second(physics_ticks_per_second i32) {
+pub fn (r &Engine) set_physics_ticks_per_second(physics_ticks_per_second i32) {
     classname := StringName.new("Engine")
     fnname := StringName.new("set_physics_ticks_per_second")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -34,7 +34,7 @@ pub fn (r &Engine) get_physics_ticks_per_second() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Engine) set_max_physics_steps_per_frame(max_physics_steps i32) {
+pub fn (r &Engine) set_max_physics_steps_per_frame(max_physics_steps i32) {
     classname := StringName.new("Engine")
     fnname := StringName.new("set_max_physics_steps_per_frame")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -54,7 +54,7 @@ pub fn (r &Engine) get_max_physics_steps_per_frame() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Engine) set_physics_jitter_fix(physics_jitter_fix f64) {
+pub fn (r &Engine) set_physics_jitter_fix(physics_jitter_fix f64) {
     classname := StringName.new("Engine")
     fnname := StringName.new("set_physics_jitter_fix")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -84,7 +84,7 @@ pub fn (r &Engine) get_physics_interpolation_fraction() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Engine) set_max_fps(max_fps i32) {
+pub fn (r &Engine) set_max_fps(max_fps i32) {
     classname := StringName.new("Engine")
     fnname := StringName.new("set_max_fps")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -104,7 +104,7 @@ pub fn (r &Engine) get_max_fps() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Engine) set_time_scale(time_scale f64) {
+pub fn (r &Engine) set_time_scale(time_scale f64) {
     classname := StringName.new("Engine")
     fnname := StringName.new("set_time_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -114,7 +114,7 @@ pub fn (mut r Engine) set_time_scale(time_scale f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Engine) get_time_scale() f64 {
+pub fn (r &Engine) get_time_scale() f64 {
     mut object_out := f64(0)
     classname := StringName.new("Engine")
     fnname := StringName.new("get_time_scale")
@@ -124,7 +124,7 @@ pub fn (mut r Engine) get_time_scale() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Engine) get_frames_drawn() i32 {
+pub fn (r &Engine) get_frames_drawn() i32 {
     mut object_out := i32(0)
     classname := StringName.new("Engine")
     fnname := StringName.new("get_frames_drawn")
@@ -286,7 +286,7 @@ pub fn (r &Engine) get_singleton(name string) Object {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Engine) register_singleton(name string, instance Object) {
+pub fn (r &Engine) register_singleton(name string, instance Object) {
     classname := StringName.new("Engine")
     fnname := StringName.new("register_singleton")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 965313290)
@@ -299,7 +299,7 @@ pub fn (mut r Engine) register_singleton(name string, instance Object) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Engine) unregister_singleton(name string) {
+pub fn (r &Engine) unregister_singleton(name string) {
     classname := StringName.new("Engine")
     fnname := StringName.new("unregister_singleton")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -321,7 +321,7 @@ pub fn (r &Engine) get_singleton_list() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Engine) register_script_language(language ScriptLanguage) GDError {
+pub fn (r &Engine) register_script_language(language ScriptLanguage) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("Engine")
     fnname := StringName.new("register_script_language")
@@ -333,7 +333,7 @@ pub fn (mut r Engine) register_script_language(language ScriptLanguage) GDError 
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r Engine) unregister_script_language(language ScriptLanguage) GDError {
+pub fn (r &Engine) unregister_script_language(language ScriptLanguage) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("Engine")
     fnname := StringName.new("unregister_script_language")
@@ -345,7 +345,7 @@ pub fn (mut r Engine) unregister_script_language(language ScriptLanguage) GDErro
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r Engine) get_script_language_count() i32 {
+pub fn (r &Engine) get_script_language_count() i32 {
     mut object_out := i32(0)
     classname := StringName.new("Engine")
     fnname := StringName.new("get_script_language_count")
@@ -389,7 +389,7 @@ pub fn (r &Engine) get_write_movie_path() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r Engine) set_print_error_messages(enabled bool) {
+pub fn (r &Engine) set_print_error_messages(enabled bool) {
     classname := StringName.new("Engine")
     fnname := StringName.new("set_print_error_messages")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

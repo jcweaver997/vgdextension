@@ -57,7 +57,7 @@ pub interface IXRInterfaceExtensionInitialize {
     virt_initialize() bool
 }
 
-pub fn (mut r XRInterfaceExtension) uinitialize() bool {
+pub fn (r &XRInterfaceExtension) uinitialize() bool {
     mut object_out := false
     classname := StringName.new("XRInterfaceExtension")
     fnname := StringName.new("_initialize")
@@ -72,7 +72,7 @@ pub interface IXRInterfaceExtensionUninitialize {
     virt_uninitialize()
 }
 
-pub fn (mut r XRInterfaceExtension) uuninitialize() {
+pub fn (r &XRInterfaceExtension) uuninitialize() {
     classname := StringName.new("XRInterfaceExtension")
     fnname := StringName.new("_uninitialize")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -166,7 +166,7 @@ pub interface IXRInterfaceExtensionGetRenderTargetSize {
     virt_get_render_target_size() Vector2
 }
 
-pub fn (mut r XRInterfaceExtension) uget_render_target_size() Vector2 {
+pub fn (r &XRInterfaceExtension) uget_render_target_size() Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("XRInterfaceExtension")
     fnname := StringName.new("_get_render_target_size")
@@ -181,7 +181,7 @@ pub interface IXRInterfaceExtensionGetViewCount {
     virt_get_view_count() u32
 }
 
-pub fn (mut r XRInterfaceExtension) uget_view_count() u32 {
+pub fn (r &XRInterfaceExtension) uget_view_count() u32 {
     mut object_out := u32(0)
     classname := StringName.new("XRInterfaceExtension")
     fnname := StringName.new("_get_view_count")
@@ -196,7 +196,7 @@ pub interface IXRInterfaceExtensionGetCameraTransform {
     virt_get_camera_transform() Transform3D
 }
 
-pub fn (mut r XRInterfaceExtension) uget_camera_transform() Transform3D {
+pub fn (r &XRInterfaceExtension) uget_camera_transform() Transform3D {
     mut object_out := Transform3D{}
     classname := StringName.new("XRInterfaceExtension")
     fnname := StringName.new("_get_camera_transform")
@@ -211,7 +211,7 @@ pub interface IXRInterfaceExtensionGetTransformForView {
     virt_get_transform_for_view(view u32, cam_transform Transform3D) Transform3D
 }
 
-pub fn (mut r XRInterfaceExtension) uget_transform_for_view(view u32, cam_transform Transform3D) Transform3D {
+pub fn (r &XRInterfaceExtension) uget_transform_for_view(view u32, cam_transform Transform3D) Transform3D {
     mut object_out := Transform3D{}
     classname := StringName.new("XRInterfaceExtension")
     fnname := StringName.new("_get_transform_for_view")
@@ -229,7 +229,7 @@ pub interface IXRInterfaceExtensionGetProjectionForView {
     virt_get_projection_for_view(view u32, aspect f64, z_near f64, z_far f64) PackedFloat64Array
 }
 
-pub fn (mut r XRInterfaceExtension) uget_projection_for_view(view u32, aspect f64, z_near f64, z_far f64) PackedFloat64Array {
+pub fn (r &XRInterfaceExtension) uget_projection_for_view(view u32, aspect f64, z_near f64, z_far f64) PackedFloat64Array {
     mut object_out := PackedFloat64Array{}
     classname := StringName.new("XRInterfaceExtension")
     fnname := StringName.new("_get_projection_for_view")
@@ -249,7 +249,7 @@ pub interface IXRInterfaceExtensionGetVrsTexture {
     virt_get_vrs_texture() RID
 }
 
-pub fn (mut r XRInterfaceExtension) uget_vrs_texture() RID {
+pub fn (r &XRInterfaceExtension) uget_vrs_texture() RID {
     mut object_out := RID{}
     classname := StringName.new("XRInterfaceExtension")
     fnname := StringName.new("_get_vrs_texture")
@@ -264,7 +264,7 @@ pub interface IXRInterfaceExtensionProcess {
     virt_process()
 }
 
-pub fn (mut r XRInterfaceExtension) uprocess() {
+pub fn (r &XRInterfaceExtension) uprocess() {
     classname := StringName.new("XRInterfaceExtension")
     fnname := StringName.new("_process")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -277,7 +277,7 @@ pub interface IXRInterfaceExtensionPreRender {
     virt_pre_render()
 }
 
-pub fn (mut r XRInterfaceExtension) upre_render() {
+pub fn (r &XRInterfaceExtension) upre_render() {
     classname := StringName.new("XRInterfaceExtension")
     fnname := StringName.new("_pre_render")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -290,7 +290,7 @@ pub interface IXRInterfaceExtensionPreDrawViewport {
     virt_pre_draw_viewport(render_target RID) bool
 }
 
-pub fn (mut r XRInterfaceExtension) upre_draw_viewport(render_target RID) bool {
+pub fn (r &XRInterfaceExtension) upre_draw_viewport(render_target RID) bool {
     mut object_out := false
     classname := StringName.new("XRInterfaceExtension")
     fnname := StringName.new("_pre_draw_viewport")
@@ -307,7 +307,7 @@ pub interface IXRInterfaceExtensionPostDrawViewport {
     virt_post_draw_viewport(render_target RID, screen_rect Rect2)
 }
 
-pub fn (mut r XRInterfaceExtension) upost_draw_viewport(render_target RID, screen_rect Rect2) {
+pub fn (r &XRInterfaceExtension) upost_draw_viewport(render_target RID, screen_rect Rect2) {
     classname := StringName.new("XRInterfaceExtension")
     fnname := StringName.new("_post_draw_viewport")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -323,7 +323,7 @@ pub interface IXRInterfaceExtensionEndFrame {
     virt_end_frame()
 }
 
-pub fn (mut r XRInterfaceExtension) uend_frame() {
+pub fn (r &XRInterfaceExtension) uend_frame() {
     classname := StringName.new("XRInterfaceExtension")
     fnname := StringName.new("_end_frame")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -385,7 +385,7 @@ pub interface IXRInterfaceExtensionTriggerHapticPulse {
     virt_trigger_haptic_pulse(action_name String, tracker_name StringName, frequency f64, amplitude f64, duration_sec f64, delay_sec f64)
 }
 
-pub fn (mut r XRInterfaceExtension) utrigger_haptic_pulse(action_name string, tracker_name string, frequency f64, amplitude f64, duration_sec f64, delay_sec f64) {
+pub fn (r &XRInterfaceExtension) utrigger_haptic_pulse(action_name string, tracker_name string, frequency f64, amplitude f64, duration_sec f64, delay_sec f64) {
     classname := StringName.new("XRInterfaceExtension")
     fnname := StringName.new("_trigger_haptic_pulse")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -424,7 +424,7 @@ pub interface IXRInterfaceExtensionSetAnchorDetectionIsEnabled {
     virt_set_anchor_detection_is_enabled(enabled bool)
 }
 
-pub fn (mut r XRInterfaceExtension) uset_anchor_detection_is_enabled(enabled bool) {
+pub fn (r &XRInterfaceExtension) uset_anchor_detection_is_enabled(enabled bool) {
     classname := StringName.new("XRInterfaceExtension")
     fnname := StringName.new("_set_anchor_detection_is_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -454,7 +454,7 @@ pub interface IXRInterfaceExtensionGetColorTexture {
     virt_get_color_texture() RID
 }
 
-pub fn (mut r XRInterfaceExtension) uget_color_texture() RID {
+pub fn (r &XRInterfaceExtension) uget_color_texture() RID {
     mut object_out := RID{}
     classname := StringName.new("XRInterfaceExtension")
     fnname := StringName.new("_get_color_texture")
@@ -469,7 +469,7 @@ pub interface IXRInterfaceExtensionGetDepthTexture {
     virt_get_depth_texture() RID
 }
 
-pub fn (mut r XRInterfaceExtension) uget_depth_texture() RID {
+pub fn (r &XRInterfaceExtension) uget_depth_texture() RID {
     mut object_out := RID{}
     classname := StringName.new("XRInterfaceExtension")
     fnname := StringName.new("_get_depth_texture")
@@ -484,7 +484,7 @@ pub interface IXRInterfaceExtensionGetVelocityTexture {
     virt_get_velocity_texture() RID
 }
 
-pub fn (mut r XRInterfaceExtension) uget_velocity_texture() RID {
+pub fn (r &XRInterfaceExtension) uget_velocity_texture() RID {
     mut object_out := RID{}
     classname := StringName.new("XRInterfaceExtension")
     fnname := StringName.new("_get_velocity_texture")
@@ -494,7 +494,7 @@ pub fn (mut r XRInterfaceExtension) uget_velocity_texture() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r XRInterfaceExtension) get_color_texture() RID {
+pub fn (r &XRInterfaceExtension) get_color_texture() RID {
     mut object_out := RID{}
     classname := StringName.new("XRInterfaceExtension")
     fnname := StringName.new("get_color_texture")
@@ -504,7 +504,7 @@ pub fn (mut r XRInterfaceExtension) get_color_texture() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r XRInterfaceExtension) get_depth_texture() RID {
+pub fn (r &XRInterfaceExtension) get_depth_texture() RID {
     mut object_out := RID{}
     classname := StringName.new("XRInterfaceExtension")
     fnname := StringName.new("get_depth_texture")
@@ -514,7 +514,7 @@ pub fn (mut r XRInterfaceExtension) get_depth_texture() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r XRInterfaceExtension) get_velocity_texture() RID {
+pub fn (r &XRInterfaceExtension) get_velocity_texture() RID {
     mut object_out := RID{}
     classname := StringName.new("XRInterfaceExtension")
     fnname := StringName.new("get_velocity_texture")
@@ -524,7 +524,7 @@ pub fn (mut r XRInterfaceExtension) get_velocity_texture() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r XRInterfaceExtension) add_blit(render_target RID, src_rect Rect2, dst_rect Rect2i, use_layer bool, layer u32, apply_lens_distortion bool, eye_center Vector2, k1 f64, k2 f64, upscale f64, aspect_ratio f64) {
+pub fn (r &XRInterfaceExtension) add_blit(render_target RID, src_rect Rect2, dst_rect Rect2i, use_layer bool, layer u32, apply_lens_distortion bool, eye_center Vector2, k1 f64, k2 f64, upscale f64, aspect_ratio f64) {
     classname := StringName.new("XRInterfaceExtension")
     fnname := StringName.new("add_blit")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 258596971)
@@ -544,7 +544,7 @@ pub fn (mut r XRInterfaceExtension) add_blit(render_target RID, src_rect Rect2, 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r XRInterfaceExtension) get_render_target_texture(render_target RID) RID {
+pub fn (r &XRInterfaceExtension) get_render_target_texture(render_target RID) RID {
     mut object_out := RID{}
     classname := StringName.new("XRInterfaceExtension")
     fnname := StringName.new("get_render_target_texture")

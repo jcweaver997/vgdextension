@@ -5,7 +5,7 @@ pub struct RDVertexAttribute {
     RefCounted
 }
 
-pub fn (mut r RDVertexAttribute) set_location(p_member u32) {
+pub fn (r &RDVertexAttribute) set_location(p_member u32) {
     classname := StringName.new("RDVertexAttribute")
     fnname := StringName.new("set_location")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -25,7 +25,7 @@ pub fn (r &RDVertexAttribute) get_location() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDVertexAttribute) set_offset(p_member u32) {
+pub fn (r &RDVertexAttribute) set_offset(p_member u32) {
     classname := StringName.new("RDVertexAttribute")
     fnname := StringName.new("set_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -45,7 +45,7 @@ pub fn (r &RDVertexAttribute) get_offset() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDVertexAttribute) set_format(p_member RenderingDeviceDataFormat) {
+pub fn (r &RDVertexAttribute) set_format(p_member RenderingDeviceDataFormat) {
     classname := StringName.new("RDVertexAttribute")
     fnname := StringName.new("set_format")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 565531219)
@@ -66,7 +66,7 @@ pub fn (r &RDVertexAttribute) get_format() RenderingDeviceDataFormat {
     fnname.deinit()
    return unsafe{RenderingDeviceDataFormat(object_out)}
 }
-pub fn (mut r RDVertexAttribute) set_stride(p_member u32) {
+pub fn (r &RDVertexAttribute) set_stride(p_member u32) {
     classname := StringName.new("RDVertexAttribute")
     fnname := StringName.new("set_stride")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -86,7 +86,7 @@ pub fn (r &RDVertexAttribute) get_stride() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDVertexAttribute) set_frequency(p_member RenderingDeviceVertexFrequency) {
+pub fn (r &RDVertexAttribute) set_frequency(p_member RenderingDeviceVertexFrequency) {
     classname := StringName.new("RDVertexAttribute")
     fnname := StringName.new("set_frequency")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 522141836)

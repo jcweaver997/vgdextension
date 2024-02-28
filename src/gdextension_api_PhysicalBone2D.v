@@ -25,7 +25,7 @@ pub fn (r &PhysicalBone2D) get_auto_configure_joint() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicalBone2D) set_auto_configure_joint(auto_configure_joint bool) {
+pub fn (r &PhysicalBone2D) set_auto_configure_joint(auto_configure_joint bool) {
     classname := StringName.new("PhysicalBone2D")
     fnname := StringName.new("set_auto_configure_joint")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -35,7 +35,7 @@ pub fn (mut r PhysicalBone2D) set_auto_configure_joint(auto_configure_joint bool
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PhysicalBone2D) set_simulate_physics(simulate_physics bool) {
+pub fn (r &PhysicalBone2D) set_simulate_physics(simulate_physics bool) {
     classname := StringName.new("PhysicalBone2D")
     fnname := StringName.new("set_simulate_physics")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -65,7 +65,7 @@ pub fn (r &PhysicalBone2D) is_simulating_physics() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicalBone2D) set_bone2d_nodepath(nodepath NodePath) {
+pub fn (r &PhysicalBone2D) set_bone2d_nodepath(nodepath NodePath) {
     classname := StringName.new("PhysicalBone2D")
     fnname := StringName.new("set_bone2d_nodepath")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1348162250)
@@ -85,7 +85,7 @@ pub fn (r &PhysicalBone2D) get_bone2d_nodepath() NodePath {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicalBone2D) set_bone2d_index(bone_index i32) {
+pub fn (r &PhysicalBone2D) set_bone2d_index(bone_index i32) {
     classname := StringName.new("PhysicalBone2D")
     fnname := StringName.new("set_bone2d_index")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -105,7 +105,7 @@ pub fn (r &PhysicalBone2D) get_bone2d_index() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicalBone2D) set_follow_bone_when_simulating(follow_bone bool) {
+pub fn (r &PhysicalBone2D) set_follow_bone_when_simulating(follow_bone bool) {
     classname := StringName.new("PhysicalBone2D")
     fnname := StringName.new("set_follow_bone_when_simulating")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

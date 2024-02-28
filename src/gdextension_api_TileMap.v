@@ -16,7 +16,7 @@ pub interface ITileMapUseTileDataRuntimeUpdate {
     virt_use_tile_data_runtime_update(layer i32, coords Vector2i) bool
 }
 
-pub fn (mut r TileMap) uuse_tile_data_runtime_update(layer i32, coords Vector2i) bool {
+pub fn (r &TileMap) uuse_tile_data_runtime_update(layer i32, coords Vector2i) bool {
     mut object_out := false
     classname := StringName.new("TileMap")
     fnname := StringName.new("_use_tile_data_runtime_update")
@@ -34,7 +34,7 @@ pub interface ITileMapTileDataRuntimeUpdate {
     virt_tile_data_runtime_update(layer i32, coords Vector2i, tile_data TileData)
 }
 
-pub fn (mut r TileMap) utile_data_runtime_update(layer i32, coords Vector2i, tile_data TileData) {
+pub fn (r &TileMap) utile_data_runtime_update(layer i32, coords Vector2i, tile_data TileData) {
     classname := StringName.new("TileMap")
     fnname := StringName.new("_tile_data_runtime_update")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -46,7 +46,7 @@ pub fn (mut r TileMap) utile_data_runtime_update(layer i32, coords Vector2i, til
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileMap) set_navigation_map(layer i32, mape RID) {
+pub fn (r &TileMap) set_navigation_map(layer i32, mape RID) {
     classname := StringName.new("TileMap")
     fnname := StringName.new("set_navigation_map")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4040184819)
@@ -69,7 +69,7 @@ pub fn (r &TileMap) get_navigation_map(layer i32) RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileMap) force_update(layer i32) {
+pub fn (r &TileMap) force_update(layer i32) {
     classname := StringName.new("TileMap")
     fnname := StringName.new("force_update")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1025054187)
@@ -79,7 +79,7 @@ pub fn (mut r TileMap) force_update(layer i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileMap) set_tileset(tileset TileSet) {
+pub fn (r &TileMap) set_tileset(tileset TileSet) {
     classname := StringName.new("TileMap")
     fnname := StringName.new("set_tileset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 774531446)
@@ -99,7 +99,7 @@ pub fn (r &TileMap) get_tileset() TileSet {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileMap) set_rendering_quadrant_size(size i32) {
+pub fn (r &TileMap) set_rendering_quadrant_size(size i32) {
     classname := StringName.new("TileMap")
     fnname := StringName.new("set_rendering_quadrant_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -129,7 +129,7 @@ pub fn (r &TileMap) get_layers_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileMap) add_layer(to_position i32) {
+pub fn (r &TileMap) add_layer(to_position i32) {
     classname := StringName.new("TileMap")
     fnname := StringName.new("add_layer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -139,7 +139,7 @@ pub fn (mut r TileMap) add_layer(to_position i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileMap) move_layer(layer i32, to_position i32) {
+pub fn (r &TileMap) move_layer(layer i32, to_position i32) {
     classname := StringName.new("TileMap")
     fnname := StringName.new("move_layer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -150,7 +150,7 @@ pub fn (mut r TileMap) move_layer(layer i32, to_position i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileMap) remove_layer(layer i32) {
+pub fn (r &TileMap) remove_layer(layer i32) {
     classname := StringName.new("TileMap")
     fnname := StringName.new("remove_layer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -160,7 +160,7 @@ pub fn (mut r TileMap) remove_layer(layer i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileMap) set_layer_name(layer i32, name string) {
+pub fn (r &TileMap) set_layer_name(layer i32, name string) {
     classname := StringName.new("TileMap")
     fnname := StringName.new("set_layer_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
@@ -187,7 +187,7 @@ pub fn (r &TileMap) get_layer_name(layer i32) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r TileMap) set_layer_enabled(layer i32, enabled bool) {
+pub fn (r &TileMap) set_layer_enabled(layer i32, enabled bool) {
     classname := StringName.new("TileMap")
     fnname := StringName.new("set_layer_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -210,7 +210,7 @@ pub fn (r &TileMap) is_layer_enabled(layer i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileMap) set_layer_modulate(layer i32, modulate Color) {
+pub fn (r &TileMap) set_layer_modulate(layer i32, modulate Color) {
     classname := StringName.new("TileMap")
     fnname := StringName.new("set_layer_modulate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2878471219)
@@ -233,7 +233,7 @@ pub fn (r &TileMap) get_layer_modulate(layer i32) Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileMap) set_layer_y_sort_enabled(layer i32, y_sort_enabled bool) {
+pub fn (r &TileMap) set_layer_y_sort_enabled(layer i32, y_sort_enabled bool) {
     classname := StringName.new("TileMap")
     fnname := StringName.new("set_layer_y_sort_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -256,7 +256,7 @@ pub fn (r &TileMap) is_layer_y_sort_enabled(layer i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileMap) set_layer_y_sort_origin(layer i32, y_sort_origin i32) {
+pub fn (r &TileMap) set_layer_y_sort_origin(layer i32, y_sort_origin i32) {
     classname := StringName.new("TileMap")
     fnname := StringName.new("set_layer_y_sort_origin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -279,7 +279,7 @@ pub fn (r &TileMap) get_layer_y_sort_origin(layer i32) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileMap) set_layer_z_index(layer i32, z_index i32) {
+pub fn (r &TileMap) set_layer_z_index(layer i32, z_index i32) {
     classname := StringName.new("TileMap")
     fnname := StringName.new("set_layer_z_index")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -302,7 +302,7 @@ pub fn (r &TileMap) get_layer_z_index(layer i32) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileMap) set_layer_navigation_enabled(layer i32, enabled bool) {
+pub fn (r &TileMap) set_layer_navigation_enabled(layer i32, enabled bool) {
     classname := StringName.new("TileMap")
     fnname := StringName.new("set_layer_navigation_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -325,7 +325,7 @@ pub fn (r &TileMap) is_layer_navigation_enabled(layer i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileMap) set_layer_navigation_map(layer i32, mape RID) {
+pub fn (r &TileMap) set_layer_navigation_map(layer i32, mape RID) {
     classname := StringName.new("TileMap")
     fnname := StringName.new("set_layer_navigation_map")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4040184819)
@@ -348,7 +348,7 @@ pub fn (r &TileMap) get_layer_navigation_map(layer i32) RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileMap) set_collision_animatable(enabled bool) {
+pub fn (r &TileMap) set_collision_animatable(enabled bool) {
     classname := StringName.new("TileMap")
     fnname := StringName.new("set_collision_animatable")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -368,7 +368,7 @@ pub fn (r &TileMap) is_collision_animatable() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileMap) set_collision_visibility_mode(collision_visibility_mode TileMapVisibilityMode) {
+pub fn (r &TileMap) set_collision_visibility_mode(collision_visibility_mode TileMapVisibilityMode) {
     classname := StringName.new("TileMap")
     fnname := StringName.new("set_collision_visibility_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3193440636)
@@ -379,7 +379,7 @@ pub fn (mut r TileMap) set_collision_visibility_mode(collision_visibility_mode T
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileMap) get_collision_visibility_mode() TileMapVisibilityMode {
+pub fn (r &TileMap) get_collision_visibility_mode() TileMapVisibilityMode {
     mut object_out := i64(TileMapVisibilityMode.visibility_mode_default)
     classname := StringName.new("TileMap")
     fnname := StringName.new("get_collision_visibility_mode")
@@ -389,7 +389,7 @@ pub fn (mut r TileMap) get_collision_visibility_mode() TileMapVisibilityMode {
     fnname.deinit()
    return unsafe{TileMapVisibilityMode(object_out)}
 }
-pub fn (mut r TileMap) set_navigation_visibility_mode(navigation_visibility_mode TileMapVisibilityMode) {
+pub fn (r &TileMap) set_navigation_visibility_mode(navigation_visibility_mode TileMapVisibilityMode) {
     classname := StringName.new("TileMap")
     fnname := StringName.new("set_navigation_visibility_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3193440636)
@@ -400,7 +400,7 @@ pub fn (mut r TileMap) set_navigation_visibility_mode(navigation_visibility_mode
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileMap) get_navigation_visibility_mode() TileMapVisibilityMode {
+pub fn (r &TileMap) get_navigation_visibility_mode() TileMapVisibilityMode {
     mut object_out := i64(TileMapVisibilityMode.visibility_mode_default)
     classname := StringName.new("TileMap")
     fnname := StringName.new("get_navigation_visibility_mode")
@@ -410,7 +410,7 @@ pub fn (mut r TileMap) get_navigation_visibility_mode() TileMapVisibilityMode {
     fnname.deinit()
    return unsafe{TileMapVisibilityMode(object_out)}
 }
-pub fn (mut r TileMap) set_cell(layer i32, coords Vector2i, source_id i32, atlas_coords Vector2i, alternative_tile i32) {
+pub fn (r &TileMap) set_cell(layer i32, coords Vector2i, source_id i32, atlas_coords Vector2i, alternative_tile i32) {
     classname := StringName.new("TileMap")
     fnname := StringName.new("set_cell")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 966713560)
@@ -424,7 +424,7 @@ pub fn (mut r TileMap) set_cell(layer i32, coords Vector2i, source_id i32, atlas
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileMap) erase_cell(layer i32, coords Vector2i) {
+pub fn (r &TileMap) erase_cell(layer i32, coords Vector2i) {
     classname := StringName.new("TileMap")
     fnname := StringName.new("erase_cell")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2311374912)
@@ -491,7 +491,7 @@ pub fn (r &TileMap) get_cell_tile_data(layer i32, coords Vector2i, use_proxies b
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileMap) get_coords_for_body_rid(body RID) Vector2i {
+pub fn (r &TileMap) get_coords_for_body_rid(body RID) Vector2i {
     mut object_out := Vector2i{}
     classname := StringName.new("TileMap")
     fnname := StringName.new("get_coords_for_body_rid")
@@ -503,7 +503,7 @@ pub fn (mut r TileMap) get_coords_for_body_rid(body RID) Vector2i {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileMap) get_layer_for_body_rid(body RID) i32 {
+pub fn (r &TileMap) get_layer_for_body_rid(body RID) i32 {
     mut object_out := i32(0)
     classname := StringName.new("TileMap")
     fnname := StringName.new("get_layer_for_body_rid")
@@ -515,7 +515,7 @@ pub fn (mut r TileMap) get_layer_for_body_rid(body RID) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileMap) get_pattern(layer i32, coords_array Array) TileMapPattern {
+pub fn (r &TileMap) get_pattern(layer i32, coords_array Array) TileMapPattern {
     mut object_out := TileMapPattern{}
     classname := StringName.new("TileMap")
     fnname := StringName.new("get_pattern")
@@ -528,7 +528,7 @@ pub fn (mut r TileMap) get_pattern(layer i32, coords_array Array) TileMapPattern
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileMap) map_pattern(position_in_tilemap Vector2i, coords_in_pattern Vector2i, pattern TileMapPattern) Vector2i {
+pub fn (r &TileMap) map_pattern(position_in_tilemap Vector2i, coords_in_pattern Vector2i, pattern TileMapPattern) Vector2i {
     mut object_out := Vector2i{}
     classname := StringName.new("TileMap")
     fnname := StringName.new("map_pattern")
@@ -542,7 +542,7 @@ pub fn (mut r TileMap) map_pattern(position_in_tilemap Vector2i, coords_in_patte
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileMap) set_pattern(layer i32, position Vector2i, pattern TileMapPattern) {
+pub fn (r &TileMap) set_pattern(layer i32, position Vector2i, pattern TileMapPattern) {
     classname := StringName.new("TileMap")
     fnname := StringName.new("set_pattern")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1195853946)
@@ -554,7 +554,7 @@ pub fn (mut r TileMap) set_pattern(layer i32, position Vector2i, pattern TileMap
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileMap) set_cells_terrain_connect(layer i32, cells Array, terrain_set i32, terrain i32, ignore_empty_terrains bool) {
+pub fn (r &TileMap) set_cells_terrain_connect(layer i32, cells Array, terrain_set i32, terrain i32, ignore_empty_terrains bool) {
     classname := StringName.new("TileMap")
     fnname := StringName.new("set_cells_terrain_connect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3578627656)
@@ -568,7 +568,7 @@ pub fn (mut r TileMap) set_cells_terrain_connect(layer i32, cells Array, terrain
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileMap) set_cells_terrain_path(layer i32, path Array, terrain_set i32, terrain i32, ignore_empty_terrains bool) {
+pub fn (r &TileMap) set_cells_terrain_path(layer i32, path Array, terrain_set i32, terrain i32, ignore_empty_terrains bool) {
     classname := StringName.new("TileMap")
     fnname := StringName.new("set_cells_terrain_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3578627656)
@@ -582,7 +582,7 @@ pub fn (mut r TileMap) set_cells_terrain_path(layer i32, path Array, terrain_set
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileMap) fix_invalid_tiles() {
+pub fn (r &TileMap) fix_invalid_tiles() {
     classname := StringName.new("TileMap")
     fnname := StringName.new("fix_invalid_tiles")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -590,7 +590,7 @@ pub fn (mut r TileMap) fix_invalid_tiles() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileMap) clear_layer(layer i32) {
+pub fn (r &TileMap) clear_layer(layer i32) {
     classname := StringName.new("TileMap")
     fnname := StringName.new("clear_layer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -600,7 +600,7 @@ pub fn (mut r TileMap) clear_layer(layer i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileMap) clear() {
+pub fn (r &TileMap) clear() {
     classname := StringName.new("TileMap")
     fnname := StringName.new("clear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -608,7 +608,7 @@ pub fn (mut r TileMap) clear() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileMap) update_internals() {
+pub fn (r &TileMap) update_internals() {
     classname := StringName.new("TileMap")
     fnname := StringName.new("update_internals")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -616,7 +616,7 @@ pub fn (mut r TileMap) update_internals() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileMap) notify_runtime_tile_data_update(layer i32) {
+pub fn (r &TileMap) notify_runtime_tile_data_update(layer i32) {
     classname := StringName.new("TileMap")
     fnname := StringName.new("notify_runtime_tile_data_update")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1025054187)
@@ -626,7 +626,7 @@ pub fn (mut r TileMap) notify_runtime_tile_data_update(layer i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileMap) get_surrounding_cells(coords Vector2i) Array {
+pub fn (r &TileMap) get_surrounding_cells(coords Vector2i) Array {
     mut object_out := Array{}
     classname := StringName.new("TileMap")
     fnname := StringName.new("get_surrounding_cells")

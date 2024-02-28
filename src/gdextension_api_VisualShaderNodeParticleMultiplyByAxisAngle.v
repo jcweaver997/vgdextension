@@ -5,7 +5,7 @@ pub struct VisualShaderNodeParticleMultiplyByAxisAngle {
     VisualShaderNode
 }
 
-pub fn (mut r VisualShaderNodeParticleMultiplyByAxisAngle) set_degrees_mode(enabled bool) {
+pub fn (r &VisualShaderNodeParticleMultiplyByAxisAngle) set_degrees_mode(enabled bool) {
     classname := StringName.new("VisualShaderNodeParticleMultiplyByAxisAngle")
     fnname := StringName.new("set_degrees_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

@@ -35,7 +35,7 @@ pub fn (r &World2D) get_navigation_map() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r World2D) get_direct_space_state() PhysicsDirectSpaceState2D {
+pub fn (r &World2D) get_direct_space_state() PhysicsDirectSpaceState2D {
     mut object_out := PhysicsDirectSpaceState2D{}
     classname := StringName.new("World2D")
     fnname := StringName.new("get_direct_space_state")

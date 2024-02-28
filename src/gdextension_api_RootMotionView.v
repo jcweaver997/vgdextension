@@ -5,7 +5,7 @@ pub struct RootMotionView {
     VisualInstance3D
 }
 
-pub fn (mut r RootMotionView) set_animation_path(path NodePath) {
+pub fn (r &RootMotionView) set_animation_path(path NodePath) {
     classname := StringName.new("RootMotionView")
     fnname := StringName.new("set_animation_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1348162250)
@@ -25,7 +25,7 @@ pub fn (r &RootMotionView) get_animation_path() NodePath {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RootMotionView) set_color(color Color) {
+pub fn (r &RootMotionView) set_color(color Color) {
     classname := StringName.new("RootMotionView")
     fnname := StringName.new("set_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -45,7 +45,7 @@ pub fn (r &RootMotionView) get_color() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RootMotionView) set_cell_size(size f64) {
+pub fn (r &RootMotionView) set_cell_size(size f64) {
     classname := StringName.new("RootMotionView")
     fnname := StringName.new("set_cell_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -65,7 +65,7 @@ pub fn (r &RootMotionView) get_cell_size() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RootMotionView) set_radius(size f64) {
+pub fn (r &RootMotionView) set_radius(size f64) {
     classname := StringName.new("RootMotionView")
     fnname := StringName.new("set_radius")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -85,7 +85,7 @@ pub fn (r &RootMotionView) get_radius() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RootMotionView) set_zero_y(enable bool) {
+pub fn (r &RootMotionView) set_zero_y(enable bool) {
     classname := StringName.new("RootMotionView")
     fnname := StringName.new("set_zero_y")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

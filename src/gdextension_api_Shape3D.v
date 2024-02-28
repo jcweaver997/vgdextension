@@ -5,7 +5,7 @@ pub struct Shape3D {
     Resource
 }
 
-pub fn (mut r Shape3D) set_custom_solver_bias(bias f64) {
+pub fn (r &Shape3D) set_custom_solver_bias(bias f64) {
     classname := StringName.new("Shape3D")
     fnname := StringName.new("set_custom_solver_bias")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -25,7 +25,7 @@ pub fn (r &Shape3D) get_custom_solver_bias() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Shape3D) set_margin(margin f64) {
+pub fn (r &Shape3D) set_margin(margin f64) {
     classname := StringName.new("Shape3D")
     fnname := StringName.new("set_margin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -45,7 +45,7 @@ pub fn (r &Shape3D) get_margin() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Shape3D) get_debug_mesh() ArrayMesh {
+pub fn (r &Shape3D) get_debug_mesh() ArrayMesh {
     mut object_out := ArrayMesh{}
     classname := StringName.new("Shape3D")
     fnname := StringName.new("get_debug_mesh")

@@ -10,7 +10,7 @@ pub struct CollisionPolygon2D {
     Node2D
 }
 
-pub fn (mut r CollisionPolygon2D) set_polygon(polygon PackedVector2Array) {
+pub fn (r &CollisionPolygon2D) set_polygon(polygon PackedVector2Array) {
     classname := StringName.new("CollisionPolygon2D")
     fnname := StringName.new("set_polygon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1509147220)
@@ -30,7 +30,7 @@ pub fn (r &CollisionPolygon2D) get_polygon() PackedVector2Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CollisionPolygon2D) set_build_mode(build_mode CollisionPolygon2DBuildMode) {
+pub fn (r &CollisionPolygon2D) set_build_mode(build_mode CollisionPolygon2DBuildMode) {
     classname := StringName.new("CollisionPolygon2D")
     fnname := StringName.new("set_build_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2780803135)
@@ -51,7 +51,7 @@ pub fn (r &CollisionPolygon2D) get_build_mode() CollisionPolygon2DBuildMode {
     fnname.deinit()
    return unsafe{CollisionPolygon2DBuildMode(object_out)}
 }
-pub fn (mut r CollisionPolygon2D) set_disabled(disabled bool) {
+pub fn (r &CollisionPolygon2D) set_disabled(disabled bool) {
     classname := StringName.new("CollisionPolygon2D")
     fnname := StringName.new("set_disabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -71,7 +71,7 @@ pub fn (r &CollisionPolygon2D) is_disabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CollisionPolygon2D) set_one_way_collision(enabled bool) {
+pub fn (r &CollisionPolygon2D) set_one_way_collision(enabled bool) {
     classname := StringName.new("CollisionPolygon2D")
     fnname := StringName.new("set_one_way_collision")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -91,7 +91,7 @@ pub fn (r &CollisionPolygon2D) is_one_way_collision_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CollisionPolygon2D) set_one_way_collision_margin(margin f64) {
+pub fn (r &CollisionPolygon2D) set_one_way_collision_margin(margin f64) {
     classname := StringName.new("CollisionPolygon2D")
     fnname := StringName.new("set_one_way_collision_margin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

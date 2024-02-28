@@ -5,7 +5,7 @@ pub struct VisualShaderNodeUIntParameter {
     VisualShaderNodeParameter
 }
 
-pub fn (mut r VisualShaderNodeUIntParameter) set_default_value_enabled(enabled bool) {
+pub fn (r &VisualShaderNodeUIntParameter) set_default_value_enabled(enabled bool) {
     classname := StringName.new("VisualShaderNodeUIntParameter")
     fnname := StringName.new("set_default_value_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -25,7 +25,7 @@ pub fn (r &VisualShaderNodeUIntParameter) is_default_value_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VisualShaderNodeUIntParameter) set_default_value(value i32) {
+pub fn (r &VisualShaderNodeUIntParameter) set_default_value(value i32) {
     classname := StringName.new("VisualShaderNodeUIntParameter")
     fnname := StringName.new("set_default_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

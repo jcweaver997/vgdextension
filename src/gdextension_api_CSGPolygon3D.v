@@ -22,7 +22,7 @@ pub struct CSGPolygon3D {
     CSGPrimitive3D
 }
 
-pub fn (mut r CSGPolygon3D) set_polygon(polygon PackedVector2Array) {
+pub fn (r &CSGPolygon3D) set_polygon(polygon PackedVector2Array) {
     classname := StringName.new("CSGPolygon3D")
     fnname := StringName.new("set_polygon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1509147220)
@@ -42,7 +42,7 @@ pub fn (r &CSGPolygon3D) get_polygon() PackedVector2Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CSGPolygon3D) set_mode(mode CSGPolygon3DMode) {
+pub fn (r &CSGPolygon3D) set_mode(mode CSGPolygon3DMode) {
     classname := StringName.new("CSGPolygon3D")
     fnname := StringName.new("set_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3158377035)
@@ -63,7 +63,7 @@ pub fn (r &CSGPolygon3D) get_mode() CSGPolygon3DMode {
     fnname.deinit()
    return unsafe{CSGPolygon3DMode(object_out)}
 }
-pub fn (mut r CSGPolygon3D) set_depth(depth f64) {
+pub fn (r &CSGPolygon3D) set_depth(depth f64) {
     classname := StringName.new("CSGPolygon3D")
     fnname := StringName.new("set_depth")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -83,7 +83,7 @@ pub fn (r &CSGPolygon3D) get_depth() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CSGPolygon3D) set_spin_degrees(degrees f64) {
+pub fn (r &CSGPolygon3D) set_spin_degrees(degrees f64) {
     classname := StringName.new("CSGPolygon3D")
     fnname := StringName.new("set_spin_degrees")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -103,7 +103,7 @@ pub fn (r &CSGPolygon3D) get_spin_degrees() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CSGPolygon3D) set_spin_sides(spin_sides i32) {
+pub fn (r &CSGPolygon3D) set_spin_sides(spin_sides i32) {
     classname := StringName.new("CSGPolygon3D")
     fnname := StringName.new("set_spin_sides")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -123,7 +123,7 @@ pub fn (r &CSGPolygon3D) get_spin_sides() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CSGPolygon3D) set_path_node(path NodePath) {
+pub fn (r &CSGPolygon3D) set_path_node(path NodePath) {
     classname := StringName.new("CSGPolygon3D")
     fnname := StringName.new("set_path_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1348162250)
@@ -143,7 +143,7 @@ pub fn (r &CSGPolygon3D) get_path_node() NodePath {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CSGPolygon3D) set_path_interval_type(interval_type CSGPolygon3DPathIntervalType) {
+pub fn (r &CSGPolygon3D) set_path_interval_type(interval_type CSGPolygon3DPathIntervalType) {
     classname := StringName.new("CSGPolygon3D")
     fnname := StringName.new("set_path_interval_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3744240707)
@@ -164,7 +164,7 @@ pub fn (r &CSGPolygon3D) get_path_interval_type() CSGPolygon3DPathIntervalType {
     fnname.deinit()
    return unsafe{CSGPolygon3DPathIntervalType(object_out)}
 }
-pub fn (mut r CSGPolygon3D) set_path_interval(interval f64) {
+pub fn (r &CSGPolygon3D) set_path_interval(interval f64) {
     classname := StringName.new("CSGPolygon3D")
     fnname := StringName.new("set_path_interval")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -184,7 +184,7 @@ pub fn (r &CSGPolygon3D) get_path_interval() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CSGPolygon3D) set_path_simplify_angle(degrees f64) {
+pub fn (r &CSGPolygon3D) set_path_simplify_angle(degrees f64) {
     classname := StringName.new("CSGPolygon3D")
     fnname := StringName.new("set_path_simplify_angle")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -204,7 +204,7 @@ pub fn (r &CSGPolygon3D) get_path_simplify_angle() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CSGPolygon3D) set_path_rotation(path_rotation CSGPolygon3DPathRotation) {
+pub fn (r &CSGPolygon3D) set_path_rotation(path_rotation CSGPolygon3DPathRotation) {
     classname := StringName.new("CSGPolygon3D")
     fnname := StringName.new("set_path_rotation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1412947288)
@@ -225,7 +225,7 @@ pub fn (r &CSGPolygon3D) get_path_rotation() CSGPolygon3DPathRotation {
     fnname.deinit()
    return unsafe{CSGPolygon3DPathRotation(object_out)}
 }
-pub fn (mut r CSGPolygon3D) set_path_local(enable bool) {
+pub fn (r &CSGPolygon3D) set_path_local(enable bool) {
     classname := StringName.new("CSGPolygon3D")
     fnname := StringName.new("set_path_local")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -245,7 +245,7 @@ pub fn (r &CSGPolygon3D) is_path_local() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CSGPolygon3D) set_path_continuous_u(enable bool) {
+pub fn (r &CSGPolygon3D) set_path_continuous_u(enable bool) {
     classname := StringName.new("CSGPolygon3D")
     fnname := StringName.new("set_path_continuous_u")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -265,7 +265,7 @@ pub fn (r &CSGPolygon3D) is_path_continuous_u() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CSGPolygon3D) set_path_u_distance(distance f64) {
+pub fn (r &CSGPolygon3D) set_path_u_distance(distance f64) {
     classname := StringName.new("CSGPolygon3D")
     fnname := StringName.new("set_path_u_distance")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -285,7 +285,7 @@ pub fn (r &CSGPolygon3D) get_path_u_distance() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CSGPolygon3D) set_path_joined(enable bool) {
+pub fn (r &CSGPolygon3D) set_path_joined(enable bool) {
     classname := StringName.new("CSGPolygon3D")
     fnname := StringName.new("set_path_joined")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -305,7 +305,7 @@ pub fn (r &CSGPolygon3D) is_path_joined() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CSGPolygon3D) set_material(material Material) {
+pub fn (r &CSGPolygon3D) set_material(material Material) {
     classname := StringName.new("CSGPolygon3D")
     fnname := StringName.new("set_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2757459619)
@@ -325,7 +325,7 @@ pub fn (r &CSGPolygon3D) get_material() Material {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CSGPolygon3D) set_smooth_faces(smooth_faces bool) {
+pub fn (r &CSGPolygon3D) set_smooth_faces(smooth_faces bool) {
     classname := StringName.new("CSGPolygon3D")
     fnname := StringName.new("set_smooth_faces")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

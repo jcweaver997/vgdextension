@@ -5,7 +5,7 @@ pub struct ScrollBar {
     Range
 }
 
-pub fn (mut r ScrollBar) set_custom_step(step f64) {
+pub fn (r &ScrollBar) set_custom_step(step f64) {
     classname := StringName.new("ScrollBar")
     fnname := StringName.new("set_custom_step")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

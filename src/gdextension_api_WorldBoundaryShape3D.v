@@ -5,7 +5,7 @@ pub struct WorldBoundaryShape3D {
     Shape3D
 }
 
-pub fn (mut r WorldBoundaryShape3D) set_plane(plane Plane) {
+pub fn (r &WorldBoundaryShape3D) set_plane(plane Plane) {
     classname := StringName.new("WorldBoundaryShape3D")
     fnname := StringName.new("set_plane")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3505987427)

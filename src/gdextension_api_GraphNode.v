@@ -10,7 +10,7 @@ pub interface IGraphNodeDrawPort {
     virt_draw_port(slot_index i32, position Vector2i, left bool, color Color)
 }
 
-pub fn (mut r GraphNode) udraw_port(slot_index i32, position Vector2i, left bool, color Color) {
+pub fn (r &GraphNode) udraw_port(slot_index i32, position Vector2i, left bool, color Color) {
     classname := StringName.new("GraphNode")
     fnname := StringName.new("_draw_port")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -23,7 +23,7 @@ pub fn (mut r GraphNode) udraw_port(slot_index i32, position Vector2i, left bool
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GraphNode) set_title(title string) {
+pub fn (r &GraphNode) set_title(title string) {
     classname := StringName.new("GraphNode")
     fnname := StringName.new("set_title")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -47,7 +47,7 @@ pub fn (r &GraphNode) get_title() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r GraphNode) get_titlebar_hbox() HBoxContainer {
+pub fn (r &GraphNode) get_titlebar_hbox() HBoxContainer {
     mut object_out := HBoxContainer{}
     classname := StringName.new("GraphNode")
     fnname := StringName.new("get_titlebar_hbox")
@@ -57,7 +57,7 @@ pub fn (mut r GraphNode) get_titlebar_hbox() HBoxContainer {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GraphNode) set_slot(slot_index i32, enable_left_port bool, type_left i32, color_left Color, enable_right_port bool, type_right i32, color_right Color, custom_icon_left Texture2D, custom_icon_right Texture2D, draw_stylebox bool) {
+pub fn (r &GraphNode) set_slot(slot_index i32, enable_left_port bool, type_left i32, color_left Color, enable_right_port bool, type_right i32, color_right Color, custom_icon_left Texture2D, custom_icon_right Texture2D, draw_stylebox bool) {
     classname := StringName.new("GraphNode")
     fnname := StringName.new("set_slot")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2873310869)
@@ -76,7 +76,7 @@ pub fn (mut r GraphNode) set_slot(slot_index i32, enable_left_port bool, type_le
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GraphNode) clear_slot(slot_index i32) {
+pub fn (r &GraphNode) clear_slot(slot_index i32) {
     classname := StringName.new("GraphNode")
     fnname := StringName.new("clear_slot")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -86,7 +86,7 @@ pub fn (mut r GraphNode) clear_slot(slot_index i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GraphNode) clear_all_slots() {
+pub fn (r &GraphNode) clear_all_slots() {
     classname := StringName.new("GraphNode")
     fnname := StringName.new("clear_all_slots")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -106,7 +106,7 @@ pub fn (r &GraphNode) is_slot_enabled_left(slot_index i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GraphNode) set_slot_enabled_left(slot_index i32, enable bool) {
+pub fn (r &GraphNode) set_slot_enabled_left(slot_index i32, enable bool) {
     classname := StringName.new("GraphNode")
     fnname := StringName.new("set_slot_enabled_left")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -117,7 +117,7 @@ pub fn (mut r GraphNode) set_slot_enabled_left(slot_index i32, enable bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GraphNode) set_slot_type_left(slot_index i32, type_name i32) {
+pub fn (r &GraphNode) set_slot_type_left(slot_index i32, type_name i32) {
     classname := StringName.new("GraphNode")
     fnname := StringName.new("set_slot_type_left")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -140,7 +140,7 @@ pub fn (r &GraphNode) get_slot_type_left(slot_index i32) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GraphNode) set_slot_color_left(slot_index i32, color Color) {
+pub fn (r &GraphNode) set_slot_color_left(slot_index i32, color Color) {
     classname := StringName.new("GraphNode")
     fnname := StringName.new("set_slot_color_left")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2878471219)
@@ -175,7 +175,7 @@ pub fn (r &GraphNode) is_slot_enabled_right(slot_index i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GraphNode) set_slot_enabled_right(slot_index i32, enable bool) {
+pub fn (r &GraphNode) set_slot_enabled_right(slot_index i32, enable bool) {
     classname := StringName.new("GraphNode")
     fnname := StringName.new("set_slot_enabled_right")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -186,7 +186,7 @@ pub fn (mut r GraphNode) set_slot_enabled_right(slot_index i32, enable bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GraphNode) set_slot_type_right(slot_index i32, type_name i32) {
+pub fn (r &GraphNode) set_slot_type_right(slot_index i32, type_name i32) {
     classname := StringName.new("GraphNode")
     fnname := StringName.new("set_slot_type_right")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -209,7 +209,7 @@ pub fn (r &GraphNode) get_slot_type_right(slot_index i32) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GraphNode) set_slot_color_right(slot_index i32, color Color) {
+pub fn (r &GraphNode) set_slot_color_right(slot_index i32, color Color) {
     classname := StringName.new("GraphNode")
     fnname := StringName.new("set_slot_color_right")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2878471219)
@@ -244,7 +244,7 @@ pub fn (r &GraphNode) is_slot_draw_stylebox(slot_index i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GraphNode) set_slot_draw_stylebox(slot_index i32, enable bool) {
+pub fn (r &GraphNode) set_slot_draw_stylebox(slot_index i32, enable bool) {
     classname := StringName.new("GraphNode")
     fnname := StringName.new("set_slot_draw_stylebox")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -255,7 +255,7 @@ pub fn (mut r GraphNode) set_slot_draw_stylebox(slot_index i32, enable bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GraphNode) get_input_port_count() i32 {
+pub fn (r &GraphNode) get_input_port_count() i32 {
     mut object_out := i32(0)
     classname := StringName.new("GraphNode")
     fnname := StringName.new("get_input_port_count")
@@ -265,7 +265,7 @@ pub fn (mut r GraphNode) get_input_port_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GraphNode) get_input_port_position(port_idx i32) Vector2 {
+pub fn (r &GraphNode) get_input_port_position(port_idx i32) Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("GraphNode")
     fnname := StringName.new("get_input_port_position")
@@ -277,7 +277,7 @@ pub fn (mut r GraphNode) get_input_port_position(port_idx i32) Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GraphNode) get_input_port_type(port_idx i32) i32 {
+pub fn (r &GraphNode) get_input_port_type(port_idx i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("GraphNode")
     fnname := StringName.new("get_input_port_type")
@@ -289,7 +289,7 @@ pub fn (mut r GraphNode) get_input_port_type(port_idx i32) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GraphNode) get_input_port_color(port_idx i32) Color {
+pub fn (r &GraphNode) get_input_port_color(port_idx i32) Color {
     mut object_out := Color{}
     classname := StringName.new("GraphNode")
     fnname := StringName.new("get_input_port_color")
@@ -301,7 +301,7 @@ pub fn (mut r GraphNode) get_input_port_color(port_idx i32) Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GraphNode) get_input_port_slot(port_idx i32) i32 {
+pub fn (r &GraphNode) get_input_port_slot(port_idx i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("GraphNode")
     fnname := StringName.new("get_input_port_slot")
@@ -313,7 +313,7 @@ pub fn (mut r GraphNode) get_input_port_slot(port_idx i32) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GraphNode) get_output_port_count() i32 {
+pub fn (r &GraphNode) get_output_port_count() i32 {
     mut object_out := i32(0)
     classname := StringName.new("GraphNode")
     fnname := StringName.new("get_output_port_count")
@@ -323,7 +323,7 @@ pub fn (mut r GraphNode) get_output_port_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GraphNode) get_output_port_position(port_idx i32) Vector2 {
+pub fn (r &GraphNode) get_output_port_position(port_idx i32) Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("GraphNode")
     fnname := StringName.new("get_output_port_position")
@@ -335,7 +335,7 @@ pub fn (mut r GraphNode) get_output_port_position(port_idx i32) Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GraphNode) get_output_port_type(port_idx i32) i32 {
+pub fn (r &GraphNode) get_output_port_type(port_idx i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("GraphNode")
     fnname := StringName.new("get_output_port_type")
@@ -347,7 +347,7 @@ pub fn (mut r GraphNode) get_output_port_type(port_idx i32) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GraphNode) get_output_port_color(port_idx i32) Color {
+pub fn (r &GraphNode) get_output_port_color(port_idx i32) Color {
     mut object_out := Color{}
     classname := StringName.new("GraphNode")
     fnname := StringName.new("get_output_port_color")
@@ -359,7 +359,7 @@ pub fn (mut r GraphNode) get_output_port_color(port_idx i32) Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GraphNode) get_output_port_slot(port_idx i32) i32 {
+pub fn (r &GraphNode) get_output_port_slot(port_idx i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("GraphNode")
     fnname := StringName.new("get_output_port_slot")

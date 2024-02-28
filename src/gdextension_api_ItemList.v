@@ -15,7 +15,7 @@ pub struct ItemList {
     Control
 }
 
-pub fn (mut r ItemList) add_item(text string, icon Texture2D, selectable bool) i32 {
+pub fn (r &ItemList) add_item(text string, icon Texture2D, selectable bool) i32 {
     mut object_out := i32(0)
     classname := StringName.new("ItemList")
     fnname := StringName.new("add_item")
@@ -31,7 +31,7 @@ pub fn (mut r ItemList) add_item(text string, icon Texture2D, selectable bool) i
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ItemList) add_icon_item(icon Texture2D, selectable bool) i32 {
+pub fn (r &ItemList) add_icon_item(icon Texture2D, selectable bool) i32 {
     mut object_out := i32(0)
     classname := StringName.new("ItemList")
     fnname := StringName.new("add_icon_item")
@@ -44,7 +44,7 @@ pub fn (mut r ItemList) add_icon_item(icon Texture2D, selectable bool) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ItemList) set_item_text(idx i32, text string) {
+pub fn (r &ItemList) set_item_text(idx i32, text string) {
     classname := StringName.new("ItemList")
     fnname := StringName.new("set_item_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
@@ -71,7 +71,7 @@ pub fn (r &ItemList) get_item_text(idx i32) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r ItemList) set_item_icon(idx i32, icon Texture2D) {
+pub fn (r &ItemList) set_item_icon(idx i32, icon Texture2D) {
     classname := StringName.new("ItemList")
     fnname := StringName.new("set_item_icon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 666127730)
@@ -94,7 +94,7 @@ pub fn (r &ItemList) get_item_icon(idx i32) Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ItemList) set_item_text_direction(idx i32, direction ControlTextDirection) {
+pub fn (r &ItemList) set_item_text_direction(idx i32, direction ControlTextDirection) {
     classname := StringName.new("ItemList")
     fnname := StringName.new("set_item_text_direction")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1707680378)
@@ -118,7 +118,7 @@ pub fn (r &ItemList) get_item_text_direction(idx i32) ControlTextDirection {
     fnname.deinit()
    return unsafe{ControlTextDirection(object_out)}
 }
-pub fn (mut r ItemList) set_item_language(idx i32, language string) {
+pub fn (r &ItemList) set_item_language(idx i32, language string) {
     classname := StringName.new("ItemList")
     fnname := StringName.new("set_item_language")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
@@ -145,7 +145,7 @@ pub fn (r &ItemList) get_item_language(idx i32) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r ItemList) set_item_icon_transposed(idx i32, transposed bool) {
+pub fn (r &ItemList) set_item_icon_transposed(idx i32, transposed bool) {
     classname := StringName.new("ItemList")
     fnname := StringName.new("set_item_icon_transposed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -168,7 +168,7 @@ pub fn (r &ItemList) is_item_icon_transposed(idx i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ItemList) set_item_icon_region(idx i32, rect Rect2) {
+pub fn (r &ItemList) set_item_icon_region(idx i32, rect Rect2) {
     classname := StringName.new("ItemList")
     fnname := StringName.new("set_item_icon_region")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1356297692)
@@ -191,7 +191,7 @@ pub fn (r &ItemList) get_item_icon_region(idx i32) Rect2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ItemList) set_item_icon_modulate(idx i32, modulate Color) {
+pub fn (r &ItemList) set_item_icon_modulate(idx i32, modulate Color) {
     classname := StringName.new("ItemList")
     fnname := StringName.new("set_item_icon_modulate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2878471219)
@@ -214,7 +214,7 @@ pub fn (r &ItemList) get_item_icon_modulate(idx i32) Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ItemList) set_item_selectable(idx i32, selectable bool) {
+pub fn (r &ItemList) set_item_selectable(idx i32, selectable bool) {
     classname := StringName.new("ItemList")
     fnname := StringName.new("set_item_selectable")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -237,7 +237,7 @@ pub fn (r &ItemList) is_item_selectable(idx i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ItemList) set_item_disabled(idx i32, disabled bool) {
+pub fn (r &ItemList) set_item_disabled(idx i32, disabled bool) {
     classname := StringName.new("ItemList")
     fnname := StringName.new("set_item_disabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -260,7 +260,7 @@ pub fn (r &ItemList) is_item_disabled(idx i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ItemList) set_item_metadata(idx i32, metadata Variant) {
+pub fn (r &ItemList) set_item_metadata(idx i32, metadata Variant) {
     classname := StringName.new("ItemList")
     fnname := StringName.new("set_item_metadata")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2152698145)
@@ -283,7 +283,7 @@ pub fn (r &ItemList) get_item_metadata(idx i32) Variant {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ItemList) set_item_custom_bg_color(idx i32, custom_bg_color Color) {
+pub fn (r &ItemList) set_item_custom_bg_color(idx i32, custom_bg_color Color) {
     classname := StringName.new("ItemList")
     fnname := StringName.new("set_item_custom_bg_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2878471219)
@@ -306,7 +306,7 @@ pub fn (r &ItemList) get_item_custom_bg_color(idx i32) Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ItemList) set_item_custom_fg_color(idx i32, custom_fg_color Color) {
+pub fn (r &ItemList) set_item_custom_fg_color(idx i32, custom_fg_color Color) {
     classname := StringName.new("ItemList")
     fnname := StringName.new("set_item_custom_fg_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2878471219)
@@ -342,7 +342,7 @@ pub fn (r &ItemList) get_item_rect(idx i32, expand bool) Rect2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ItemList) set_item_tooltip_enabled(idx i32, enable bool) {
+pub fn (r &ItemList) set_item_tooltip_enabled(idx i32, enable bool) {
     classname := StringName.new("ItemList")
     fnname := StringName.new("set_item_tooltip_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -365,7 +365,7 @@ pub fn (r &ItemList) is_item_tooltip_enabled(idx i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ItemList) set_item_tooltip(idx i32, tooltip string) {
+pub fn (r &ItemList) set_item_tooltip(idx i32, tooltip string) {
     classname := StringName.new("ItemList")
     fnname := StringName.new("set_item_tooltip")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
@@ -392,7 +392,7 @@ pub fn (r &ItemList) get_item_tooltip(idx i32) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r ItemList) gdselect(idx i32, single bool) {
+pub fn (r &ItemList) gdselect(idx i32, single bool) {
     classname := StringName.new("ItemList")
     fnname := StringName.new("select")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 972357352)
@@ -403,7 +403,7 @@ pub fn (mut r ItemList) gdselect(idx i32, single bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ItemList) deselect(idx i32) {
+pub fn (r &ItemList) deselect(idx i32) {
     classname := StringName.new("ItemList")
     fnname := StringName.new("deselect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -413,7 +413,7 @@ pub fn (mut r ItemList) deselect(idx i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ItemList) deselect_all() {
+pub fn (r &ItemList) deselect_all() {
     classname := StringName.new("ItemList")
     fnname := StringName.new("deselect_all")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -433,7 +433,7 @@ pub fn (r &ItemList) is_selected(idx i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ItemList) get_selected_items() PackedInt32Array {
+pub fn (r &ItemList) get_selected_items() PackedInt32Array {
     mut object_out := PackedInt32Array{}
     classname := StringName.new("ItemList")
     fnname := StringName.new("get_selected_items")
@@ -443,7 +443,7 @@ pub fn (mut r ItemList) get_selected_items() PackedInt32Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ItemList) move_item(from_idx i32, to_idx i32) {
+pub fn (r &ItemList) move_item(from_idx i32, to_idx i32) {
     classname := StringName.new("ItemList")
     fnname := StringName.new("move_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -454,7 +454,7 @@ pub fn (mut r ItemList) move_item(from_idx i32, to_idx i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ItemList) set_item_count(count i32) {
+pub fn (r &ItemList) set_item_count(count i32) {
     classname := StringName.new("ItemList")
     fnname := StringName.new("set_item_count")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -474,7 +474,7 @@ pub fn (r &ItemList) get_item_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ItemList) remove_item(idx i32) {
+pub fn (r &ItemList) remove_item(idx i32) {
     classname := StringName.new("ItemList")
     fnname := StringName.new("remove_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -484,7 +484,7 @@ pub fn (mut r ItemList) remove_item(idx i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ItemList) clear() {
+pub fn (r &ItemList) clear() {
     classname := StringName.new("ItemList")
     fnname := StringName.new("clear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -492,7 +492,7 @@ pub fn (mut r ItemList) clear() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ItemList) sort_items_by_text() {
+pub fn (r &ItemList) sort_items_by_text() {
     classname := StringName.new("ItemList")
     fnname := StringName.new("sort_items_by_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -500,7 +500,7 @@ pub fn (mut r ItemList) sort_items_by_text() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ItemList) set_fixed_column_width(width i32) {
+pub fn (r &ItemList) set_fixed_column_width(width i32) {
     classname := StringName.new("ItemList")
     fnname := StringName.new("set_fixed_column_width")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -520,7 +520,7 @@ pub fn (r &ItemList) get_fixed_column_width() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ItemList) set_same_column_width(enable bool) {
+pub fn (r &ItemList) set_same_column_width(enable bool) {
     classname := StringName.new("ItemList")
     fnname := StringName.new("set_same_column_width")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -540,7 +540,7 @@ pub fn (r &ItemList) is_same_column_width() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ItemList) set_max_text_lines(lines i32) {
+pub fn (r &ItemList) set_max_text_lines(lines i32) {
     classname := StringName.new("ItemList")
     fnname := StringName.new("set_max_text_lines")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -560,7 +560,7 @@ pub fn (r &ItemList) get_max_text_lines() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ItemList) set_max_columns(amount i32) {
+pub fn (r &ItemList) set_max_columns(amount i32) {
     classname := StringName.new("ItemList")
     fnname := StringName.new("set_max_columns")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -580,7 +580,7 @@ pub fn (r &ItemList) get_max_columns() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ItemList) set_select_mode(mode ItemListSelectMode) {
+pub fn (r &ItemList) set_select_mode(mode ItemListSelectMode) {
     classname := StringName.new("ItemList")
     fnname := StringName.new("set_select_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 928267388)
@@ -601,7 +601,7 @@ pub fn (r &ItemList) get_select_mode() ItemListSelectMode {
     fnname.deinit()
    return unsafe{ItemListSelectMode(object_out)}
 }
-pub fn (mut r ItemList) set_icon_mode(mode ItemListIconMode) {
+pub fn (r &ItemList) set_icon_mode(mode ItemListIconMode) {
     classname := StringName.new("ItemList")
     fnname := StringName.new("set_icon_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2025053633)
@@ -622,7 +622,7 @@ pub fn (r &ItemList) get_icon_mode() ItemListIconMode {
     fnname.deinit()
    return unsafe{ItemListIconMode(object_out)}
 }
-pub fn (mut r ItemList) set_fixed_icon_size(size Vector2i) {
+pub fn (r &ItemList) set_fixed_icon_size(size Vector2i) {
     classname := StringName.new("ItemList")
     fnname := StringName.new("set_fixed_icon_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1130785943)
@@ -642,7 +642,7 @@ pub fn (r &ItemList) get_fixed_icon_size() Vector2i {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ItemList) set_icon_scale(scale f64) {
+pub fn (r &ItemList) set_icon_scale(scale f64) {
     classname := StringName.new("ItemList")
     fnname := StringName.new("set_icon_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -662,7 +662,7 @@ pub fn (r &ItemList) get_icon_scale() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ItemList) set_allow_rmb_select(allow bool) {
+pub fn (r &ItemList) set_allow_rmb_select(allow bool) {
     classname := StringName.new("ItemList")
     fnname := StringName.new("set_allow_rmb_select")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -682,7 +682,7 @@ pub fn (r &ItemList) get_allow_rmb_select() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ItemList) set_allow_reselect(allow bool) {
+pub fn (r &ItemList) set_allow_reselect(allow bool) {
     classname := StringName.new("ItemList")
     fnname := StringName.new("set_allow_reselect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -702,7 +702,7 @@ pub fn (r &ItemList) get_allow_reselect() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ItemList) set_allow_search(allow bool) {
+pub fn (r &ItemList) set_allow_search(allow bool) {
     classname := StringName.new("ItemList")
     fnname := StringName.new("set_allow_search")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -722,7 +722,7 @@ pub fn (r &ItemList) get_allow_search() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ItemList) set_auto_height(enable bool) {
+pub fn (r &ItemList) set_auto_height(enable bool) {
     classname := StringName.new("ItemList")
     fnname := StringName.new("set_auto_height")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -742,7 +742,7 @@ pub fn (r &ItemList) has_auto_height() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ItemList) is_anything_selected() bool {
+pub fn (r &ItemList) is_anything_selected() bool {
     mut object_out := false
     classname := StringName.new("ItemList")
     fnname := StringName.new("is_anything_selected")
@@ -765,7 +765,7 @@ pub fn (r &ItemList) get_item_at_position(position Vector2, exact bool) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ItemList) ensure_current_is_visible() {
+pub fn (r &ItemList) ensure_current_is_visible() {
     classname := StringName.new("ItemList")
     fnname := StringName.new("ensure_current_is_visible")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -773,7 +773,7 @@ pub fn (mut r ItemList) ensure_current_is_visible() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ItemList) get_v_scroll_bar() VScrollBar {
+pub fn (r &ItemList) get_v_scroll_bar() VScrollBar {
     mut object_out := VScrollBar{}
     classname := StringName.new("ItemList")
     fnname := StringName.new("get_v_scroll_bar")
@@ -783,7 +783,7 @@ pub fn (mut r ItemList) get_v_scroll_bar() VScrollBar {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ItemList) set_text_overrun_behavior(overrun_behavior TextServerOverrunBehavior) {
+pub fn (r &ItemList) set_text_overrun_behavior(overrun_behavior TextServerOverrunBehavior) {
     classname := StringName.new("ItemList")
     fnname := StringName.new("set_text_overrun_behavior")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1008890932)
@@ -804,7 +804,7 @@ pub fn (r &ItemList) get_text_overrun_behavior() TextServerOverrunBehavior {
     fnname.deinit()
    return unsafe{TextServerOverrunBehavior(object_out)}
 }
-pub fn (mut r ItemList) force_update_list_size() {
+pub fn (r &ItemList) force_update_list_size() {
     classname := StringName.new("ItemList")
     fnname := StringName.new("force_update_list_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

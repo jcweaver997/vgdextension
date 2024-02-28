@@ -41,7 +41,7 @@ pub fn WebRTCPeerConnection.set_default_extension(extension_class string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r WebRTCPeerConnection) initialize(configuration Dictionary) GDError {
+pub fn (r &WebRTCPeerConnection) initialize(configuration Dictionary) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("WebRTCPeerConnection")
     fnname := StringName.new("initialize")
@@ -53,7 +53,7 @@ pub fn (mut r WebRTCPeerConnection) initialize(configuration Dictionary) GDError
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r WebRTCPeerConnection) create_data_channel(label string, options Dictionary) WebRTCDataChannel {
+pub fn (r &WebRTCPeerConnection) create_data_channel(label string, options Dictionary) WebRTCDataChannel {
     mut object_out := WebRTCDataChannel{}
     classname := StringName.new("WebRTCPeerConnection")
     fnname := StringName.new("create_data_channel")
@@ -68,7 +68,7 @@ pub fn (mut r WebRTCPeerConnection) create_data_channel(label string, options Di
     fnname.deinit()
    return object_out
 }
-pub fn (mut r WebRTCPeerConnection) create_offer() GDError {
+pub fn (r &WebRTCPeerConnection) create_offer() GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("WebRTCPeerConnection")
     fnname := StringName.new("create_offer")
@@ -78,7 +78,7 @@ pub fn (mut r WebRTCPeerConnection) create_offer() GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r WebRTCPeerConnection) set_local_description(type_name string, sdp string) GDError {
+pub fn (r &WebRTCPeerConnection) set_local_description(type_name string, sdp string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("WebRTCPeerConnection")
     fnname := StringName.new("set_local_description")
@@ -95,7 +95,7 @@ pub fn (mut r WebRTCPeerConnection) set_local_description(type_name string, sdp 
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r WebRTCPeerConnection) set_remote_description(type_name string, sdp string) GDError {
+pub fn (r &WebRTCPeerConnection) set_remote_description(type_name string, sdp string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("WebRTCPeerConnection")
     fnname := StringName.new("set_remote_description")
@@ -112,7 +112,7 @@ pub fn (mut r WebRTCPeerConnection) set_remote_description(type_name string, sdp
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r WebRTCPeerConnection) add_ice_candidate(media string, index i32, name string) GDError {
+pub fn (r &WebRTCPeerConnection) add_ice_candidate(media string, index i32, name string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("WebRTCPeerConnection")
     fnname := StringName.new("add_ice_candidate")
@@ -130,7 +130,7 @@ pub fn (mut r WebRTCPeerConnection) add_ice_candidate(media string, index i32, n
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r WebRTCPeerConnection) poll() GDError {
+pub fn (r &WebRTCPeerConnection) poll() GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("WebRTCPeerConnection")
     fnname := StringName.new("poll")
@@ -140,7 +140,7 @@ pub fn (mut r WebRTCPeerConnection) poll() GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r WebRTCPeerConnection) close() {
+pub fn (r &WebRTCPeerConnection) close() {
     classname := StringName.new("WebRTCPeerConnection")
     fnname := StringName.new("close")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

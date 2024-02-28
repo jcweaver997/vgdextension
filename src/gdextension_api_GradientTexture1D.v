@@ -5,7 +5,7 @@ pub struct GradientTexture1D {
     Texture2D
 }
 
-pub fn (mut r GradientTexture1D) set_gradient(gradient Gradient) {
+pub fn (r &GradientTexture1D) set_gradient(gradient Gradient) {
     classname := StringName.new("GradientTexture1D")
     fnname := StringName.new("set_gradient")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2756054477)
@@ -25,7 +25,7 @@ pub fn (r &GradientTexture1D) get_gradient() Gradient {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GradientTexture1D) set_width(width i32) {
+pub fn (r &GradientTexture1D) set_width(width i32) {
     classname := StringName.new("GradientTexture1D")
     fnname := StringName.new("set_width")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -35,7 +35,7 @@ pub fn (mut r GradientTexture1D) set_width(width i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GradientTexture1D) set_use_hdr(enabled bool) {
+pub fn (r &GradientTexture1D) set_use_hdr(enabled bool) {
     classname := StringName.new("GradientTexture1D")
     fnname := StringName.new("set_use_hdr")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

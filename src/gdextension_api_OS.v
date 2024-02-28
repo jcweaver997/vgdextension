@@ -30,7 +30,7 @@ pub fn OS.get_singleton() OS {
     return o
 }
 
-pub fn (mut r OS) get_connected_midi_inputs() PackedStringArray {
+pub fn (r &OS) get_connected_midi_inputs() PackedStringArray {
     mut object_out := PackedStringArray{}
     classname := StringName.new("OS")
     fnname := StringName.new("get_connected_midi_inputs")
@@ -40,7 +40,7 @@ pub fn (mut r OS) get_connected_midi_inputs() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OS) open_midi_inputs() {
+pub fn (r &OS) open_midi_inputs() {
     classname := StringName.new("OS")
     fnname := StringName.new("open_midi_inputs")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -48,7 +48,7 @@ pub fn (mut r OS) open_midi_inputs() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r OS) close_midi_inputs() {
+pub fn (r &OS) close_midi_inputs() {
     classname := StringName.new("OS")
     fnname := StringName.new("close_midi_inputs")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -56,7 +56,7 @@ pub fn (mut r OS) close_midi_inputs() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r OS) alert(text string, title string) {
+pub fn (r &OS) alert(text string, title string) {
     classname := StringName.new("OS")
     fnname := StringName.new("alert")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1783970740)
@@ -71,7 +71,7 @@ pub fn (mut r OS) alert(text string, title string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r OS) crash(message string) {
+pub fn (r &OS) crash(message string) {
     classname := StringName.new("OS")
     fnname := StringName.new("crash")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -83,7 +83,7 @@ pub fn (mut r OS) crash(message string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r OS) set_low_processor_usage_mode(enable bool) {
+pub fn (r &OS) set_low_processor_usage_mode(enable bool) {
     classname := StringName.new("OS")
     fnname := StringName.new("set_low_processor_usage_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -103,7 +103,7 @@ pub fn (r &OS) is_in_low_processor_usage_mode() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OS) set_low_processor_usage_mode_sleep_usec(usec i32) {
+pub fn (r &OS) set_low_processor_usage_mode_sleep_usec(usec i32) {
     classname := StringName.new("OS")
     fnname := StringName.new("set_low_processor_usage_mode_sleep_usec")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -123,7 +123,7 @@ pub fn (r &OS) get_low_processor_usage_mode_sleep_usec() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OS) set_delta_smoothing(delta_smoothing_enabled bool) {
+pub fn (r &OS) set_delta_smoothing(delta_smoothing_enabled bool) {
     classname := StringName.new("OS")
     fnname := StringName.new("set_delta_smoothing")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -232,7 +232,7 @@ pub fn (r &OS) get_executable_path() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r OS) read_string_from_stdin() string {
+pub fn (r &OS) read_string_from_stdin() string {
     mut object_out := String{}
     classname := StringName.new("OS")
     fnname := StringName.new("read_string_from_stdin")
@@ -244,7 +244,7 @@ pub fn (mut r OS) read_string_from_stdin() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r OS) execute(path string, arguments PackedStringArray, output Array, read_stderr bool, open_console bool) i32 {
+pub fn (r &OS) execute(path string, arguments PackedStringArray, output Array, read_stderr bool, open_console bool) i32 {
     mut object_out := i32(0)
     classname := StringName.new("OS")
     fnname := StringName.new("execute")
@@ -262,7 +262,7 @@ pub fn (mut r OS) execute(path string, arguments PackedStringArray, output Array
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OS) create_process(path string, arguments PackedStringArray, open_console bool) i32 {
+pub fn (r &OS) create_process(path string, arguments PackedStringArray, open_console bool) i32 {
     mut object_out := i32(0)
     classname := StringName.new("OS")
     fnname := StringName.new("create_process")
@@ -278,7 +278,7 @@ pub fn (mut r OS) create_process(path string, arguments PackedStringArray, open_
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OS) create_instance(arguments PackedStringArray) i32 {
+pub fn (r &OS) create_instance(arguments PackedStringArray) i32 {
     mut object_out := i32(0)
     classname := StringName.new("OS")
     fnname := StringName.new("create_instance")
@@ -290,7 +290,7 @@ pub fn (mut r OS) create_instance(arguments PackedStringArray) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OS) kill(pid i32) GDError {
+pub fn (r &OS) kill(pid i32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("OS")
     fnname := StringName.new("kill")
@@ -302,7 +302,7 @@ pub fn (mut r OS) kill(pid i32) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r OS) shell_open(uri string) GDError {
+pub fn (r &OS) shell_open(uri string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("OS")
     fnname := StringName.new("shell_open")
@@ -316,7 +316,7 @@ pub fn (mut r OS) shell_open(uri string) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r OS) shell_show_in_file_manager(file_or_dir_path string, open_folder bool) GDError {
+pub fn (r &OS) shell_show_in_file_manager(file_or_dir_path string, open_folder bool) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("OS")
     fnname := StringName.new("shell_show_in_file_manager")
@@ -446,7 +446,7 @@ pub fn (r &OS) get_version() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r OS) get_cmdline_args() PackedStringArray {
+pub fn (r &OS) get_cmdline_args() PackedStringArray {
     mut object_out := PackedStringArray{}
     classname := StringName.new("OS")
     fnname := StringName.new("get_cmdline_args")
@@ -456,7 +456,7 @@ pub fn (mut r OS) get_cmdline_args() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OS) get_cmdline_user_args() PackedStringArray {
+pub fn (r &OS) get_cmdline_user_args() PackedStringArray {
     mut object_out := PackedStringArray{}
     classname := StringName.new("OS")
     fnname := StringName.new("get_cmdline_user_args")
@@ -476,7 +476,7 @@ pub fn (r &OS) get_video_adapter_driver_info() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OS) set_restart_on_exit(restart bool, arguments PackedStringArray) {
+pub fn (r &OS) set_restart_on_exit(restart bool, arguments PackedStringArray) {
     classname := StringName.new("OS")
     fnname := StringName.new("set_restart_on_exit")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3331453935)
@@ -754,7 +754,7 @@ pub fn (r &OS) find_keycode_from_string(gdstring string) Key {
     fnname.deinit()
    return unsafe{Key(object_out)}
 }
-pub fn (mut r OS) set_use_file_access_save_and_swap(enabled bool) {
+pub fn (r &OS) set_use_file_access_save_and_swap(enabled bool) {
     classname := StringName.new("OS")
     fnname := StringName.new("set_use_file_access_save_and_swap")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -764,7 +764,7 @@ pub fn (mut r OS) set_use_file_access_save_and_swap(enabled bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r OS) set_thread_name(name string) GDError {
+pub fn (r &OS) set_thread_name(name string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("OS")
     fnname := StringName.new("set_thread_name")
@@ -822,7 +822,7 @@ pub fn (r &OS) is_sandboxed() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OS) request_permission(name string) bool {
+pub fn (r &OS) request_permission(name string) bool {
     mut object_out := false
     classname := StringName.new("OS")
     fnname := StringName.new("request_permission")
@@ -836,7 +836,7 @@ pub fn (mut r OS) request_permission(name string) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OS) request_permissions() bool {
+pub fn (r &OS) request_permissions() bool {
     mut object_out := false
     classname := StringName.new("OS")
     fnname := StringName.new("request_permissions")
@@ -856,7 +856,7 @@ pub fn (r &OS) get_granted_permissions() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OS) revoke_granted_permissions() {
+pub fn (r &OS) revoke_granted_permissions() {
     classname := StringName.new("OS")
     fnname := StringName.new("revoke_granted_permissions")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

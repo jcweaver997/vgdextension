@@ -5,7 +5,7 @@ pub struct PacketPeerUDP {
     PacketPeer
 }
 
-pub fn (mut r PacketPeerUDP) bind(port i32, bind_address string, recv_buf_size i32) GDError {
+pub fn (r &PacketPeerUDP) bind(port i32, bind_address string, recv_buf_size i32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("PacketPeerUDP")
     fnname := StringName.new("bind")
@@ -21,7 +21,7 @@ pub fn (mut r PacketPeerUDP) bind(port i32, bind_address string, recv_buf_size i
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r PacketPeerUDP) close() {
+pub fn (r &PacketPeerUDP) close() {
     classname := StringName.new("PacketPeerUDP")
     fnname := StringName.new("close")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -29,7 +29,7 @@ pub fn (mut r PacketPeerUDP) close() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PacketPeerUDP) wait() GDError {
+pub fn (r &PacketPeerUDP) wait() GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("PacketPeerUDP")
     fnname := StringName.new("wait")
@@ -49,7 +49,7 @@ pub fn (r &PacketPeerUDP) is_bound() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PacketPeerUDP) connect_to_host(host string, port i32) GDError {
+pub fn (r &PacketPeerUDP) connect_to_host(host string, port i32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("PacketPeerUDP")
     fnname := StringName.new("connect_to_host")
@@ -106,7 +106,7 @@ pub fn (r &PacketPeerUDP) get_local_port() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PacketPeerUDP) set_dest_address(host string, port i32) GDError {
+pub fn (r &PacketPeerUDP) set_dest_address(host string, port i32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("PacketPeerUDP")
     fnname := StringName.new("set_dest_address")
@@ -121,7 +121,7 @@ pub fn (mut r PacketPeerUDP) set_dest_address(host string, port i32) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r PacketPeerUDP) set_broadcast_enabled(enabled bool) {
+pub fn (r &PacketPeerUDP) set_broadcast_enabled(enabled bool) {
     classname := StringName.new("PacketPeerUDP")
     fnname := StringName.new("set_broadcast_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -131,7 +131,7 @@ pub fn (mut r PacketPeerUDP) set_broadcast_enabled(enabled bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PacketPeerUDP) join_multicast_group(multicast_address string, interface_name string) GDError {
+pub fn (r &PacketPeerUDP) join_multicast_group(multicast_address string, interface_name string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("PacketPeerUDP")
     fnname := StringName.new("join_multicast_group")
@@ -148,7 +148,7 @@ pub fn (mut r PacketPeerUDP) join_multicast_group(multicast_address string, inte
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r PacketPeerUDP) leave_multicast_group(multicast_address string, interface_name string) GDError {
+pub fn (r &PacketPeerUDP) leave_multicast_group(multicast_address string, interface_name string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("PacketPeerUDP")
     fnname := StringName.new("leave_multicast_group")

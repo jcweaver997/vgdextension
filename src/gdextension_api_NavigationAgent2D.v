@@ -15,7 +15,7 @@ pub fn (r &NavigationAgent2D) get_rid() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationAgent2D) set_avoidance_enabled(enabled bool) {
+pub fn (r &NavigationAgent2D) set_avoidance_enabled(enabled bool) {
     classname := StringName.new("NavigationAgent2D")
     fnname := StringName.new("set_avoidance_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -35,7 +35,7 @@ pub fn (r &NavigationAgent2D) get_avoidance_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationAgent2D) set_path_desired_distance(desired_distance f64) {
+pub fn (r &NavigationAgent2D) set_path_desired_distance(desired_distance f64) {
     classname := StringName.new("NavigationAgent2D")
     fnname := StringName.new("set_path_desired_distance")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -55,7 +55,7 @@ pub fn (r &NavigationAgent2D) get_path_desired_distance() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationAgent2D) set_target_desired_distance(desired_distance f64) {
+pub fn (r &NavigationAgent2D) set_target_desired_distance(desired_distance f64) {
     classname := StringName.new("NavigationAgent2D")
     fnname := StringName.new("set_target_desired_distance")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -75,7 +75,7 @@ pub fn (r &NavigationAgent2D) get_target_desired_distance() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationAgent2D) set_radius(radius f64) {
+pub fn (r &NavigationAgent2D) set_radius(radius f64) {
     classname := StringName.new("NavigationAgent2D")
     fnname := StringName.new("set_radius")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -95,7 +95,7 @@ pub fn (r &NavigationAgent2D) get_radius() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationAgent2D) set_neighbor_distance(neighbor_distance f64) {
+pub fn (r &NavigationAgent2D) set_neighbor_distance(neighbor_distance f64) {
     classname := StringName.new("NavigationAgent2D")
     fnname := StringName.new("set_neighbor_distance")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -115,7 +115,7 @@ pub fn (r &NavigationAgent2D) get_neighbor_distance() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationAgent2D) set_max_neighbors(max_neighbors i32) {
+pub fn (r &NavigationAgent2D) set_max_neighbors(max_neighbors i32) {
     classname := StringName.new("NavigationAgent2D")
     fnname := StringName.new("set_max_neighbors")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -135,7 +135,7 @@ pub fn (r &NavigationAgent2D) get_max_neighbors() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationAgent2D) set_time_horizon_agents(time_horizon f64) {
+pub fn (r &NavigationAgent2D) set_time_horizon_agents(time_horizon f64) {
     classname := StringName.new("NavigationAgent2D")
     fnname := StringName.new("set_time_horizon_agents")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -155,7 +155,7 @@ pub fn (r &NavigationAgent2D) get_time_horizon_agents() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationAgent2D) set_time_horizon_obstacles(time_horizon f64) {
+pub fn (r &NavigationAgent2D) set_time_horizon_obstacles(time_horizon f64) {
     classname := StringName.new("NavigationAgent2D")
     fnname := StringName.new("set_time_horizon_obstacles")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -175,7 +175,7 @@ pub fn (r &NavigationAgent2D) get_time_horizon_obstacles() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationAgent2D) set_max_speed(max_speed f64) {
+pub fn (r &NavigationAgent2D) set_max_speed(max_speed f64) {
     classname := StringName.new("NavigationAgent2D")
     fnname := StringName.new("set_max_speed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -195,7 +195,7 @@ pub fn (r &NavigationAgent2D) get_max_speed() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationAgent2D) set_path_max_distance(max_speed f64) {
+pub fn (r &NavigationAgent2D) set_path_max_distance(max_speed f64) {
     classname := StringName.new("NavigationAgent2D")
     fnname := StringName.new("set_path_max_distance")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -205,7 +205,7 @@ pub fn (mut r NavigationAgent2D) set_path_max_distance(max_speed f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationAgent2D) get_path_max_distance() f64 {
+pub fn (r &NavigationAgent2D) get_path_max_distance() f64 {
     mut object_out := f64(0)
     classname := StringName.new("NavigationAgent2D")
     fnname := StringName.new("get_path_max_distance")
@@ -215,7 +215,7 @@ pub fn (mut r NavigationAgent2D) get_path_max_distance() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationAgent2D) set_navigation_layers(navigation_layers u32) {
+pub fn (r &NavigationAgent2D) set_navigation_layers(navigation_layers u32) {
     classname := StringName.new("NavigationAgent2D")
     fnname := StringName.new("set_navigation_layers")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -235,7 +235,7 @@ pub fn (r &NavigationAgent2D) get_navigation_layers() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationAgent2D) set_navigation_layer_value(layer_number i32, value bool) {
+pub fn (r &NavigationAgent2D) set_navigation_layer_value(layer_number i32, value bool) {
     classname := StringName.new("NavigationAgent2D")
     fnname := StringName.new("set_navigation_layer_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -258,7 +258,7 @@ pub fn (r &NavigationAgent2D) get_navigation_layer_value(layer_number i32) bool 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationAgent2D) set_pathfinding_algorithm(pathfinding_algorithm NavigationPathQueryParameters2DPathfindingAlgorithm) {
+pub fn (r &NavigationAgent2D) set_pathfinding_algorithm(pathfinding_algorithm NavigationPathQueryParameters2DPathfindingAlgorithm) {
     classname := StringName.new("NavigationAgent2D")
     fnname := StringName.new("set_pathfinding_algorithm")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2783519915)
@@ -279,7 +279,7 @@ pub fn (r &NavigationAgent2D) get_pathfinding_algorithm() NavigationPathQueryPar
     fnname.deinit()
    return unsafe{NavigationPathQueryParameters2DPathfindingAlgorithm(object_out)}
 }
-pub fn (mut r NavigationAgent2D) set_path_postprocessing(path_postprocessing NavigationPathQueryParameters2DPathPostProcessing) {
+pub fn (r &NavigationAgent2D) set_path_postprocessing(path_postprocessing NavigationPathQueryParameters2DPathPostProcessing) {
     classname := StringName.new("NavigationAgent2D")
     fnname := StringName.new("set_path_postprocessing")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2864409082)
@@ -300,7 +300,7 @@ pub fn (r &NavigationAgent2D) get_path_postprocessing() NavigationPathQueryParam
     fnname.deinit()
    return unsafe{NavigationPathQueryParameters2DPathPostProcessing(object_out)}
 }
-pub fn (mut r NavigationAgent2D) set_path_metadata_flags(flags NavigationPathQueryParameters2DPathMetadataFlags) {
+pub fn (r &NavigationAgent2D) set_path_metadata_flags(flags NavigationPathQueryParameters2DPathMetadataFlags) {
     classname := StringName.new("NavigationAgent2D")
     fnname := StringName.new("set_path_metadata_flags")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 24274129)
@@ -321,7 +321,7 @@ pub fn (r &NavigationAgent2D) get_path_metadata_flags() NavigationPathQueryParam
     fnname.deinit()
    return unsafe{NavigationPathQueryParameters2DPathMetadataFlags(object_out)}
 }
-pub fn (mut r NavigationAgent2D) set_navigation_map(navigation_map RID) {
+pub fn (r &NavigationAgent2D) set_navigation_map(navigation_map RID) {
     classname := StringName.new("NavigationAgent2D")
     fnname := StringName.new("set_navigation_map")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)
@@ -341,7 +341,7 @@ pub fn (r &NavigationAgent2D) get_navigation_map() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationAgent2D) set_target_position(position Vector2) {
+pub fn (r &NavigationAgent2D) set_target_position(position Vector2) {
     classname := StringName.new("NavigationAgent2D")
     fnname := StringName.new("set_target_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -361,7 +361,7 @@ pub fn (r &NavigationAgent2D) get_target_position() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationAgent2D) get_next_path_position() Vector2 {
+pub fn (r &NavigationAgent2D) get_next_path_position() Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("NavigationAgent2D")
     fnname := StringName.new("get_next_path_position")
@@ -371,7 +371,7 @@ pub fn (mut r NavigationAgent2D) get_next_path_position() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationAgent2D) set_velocity_forced(velocity Vector2) {
+pub fn (r &NavigationAgent2D) set_velocity_forced(velocity Vector2) {
     classname := StringName.new("NavigationAgent2D")
     fnname := StringName.new("set_velocity_forced")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -381,7 +381,7 @@ pub fn (mut r NavigationAgent2D) set_velocity_forced(velocity Vector2) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationAgent2D) set_velocity(velocity Vector2) {
+pub fn (r &NavigationAgent2D) set_velocity(velocity Vector2) {
     classname := StringName.new("NavigationAgent2D")
     fnname := StringName.new("set_velocity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -391,7 +391,7 @@ pub fn (mut r NavigationAgent2D) set_velocity(velocity Vector2) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationAgent2D) get_velocity() Vector2 {
+pub fn (r &NavigationAgent2D) get_velocity() Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("NavigationAgent2D")
     fnname := StringName.new("get_velocity")
@@ -451,7 +451,7 @@ pub fn (r &NavigationAgent2D) is_target_reached() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationAgent2D) is_target_reachable() bool {
+pub fn (r &NavigationAgent2D) is_target_reachable() bool {
     mut object_out := false
     classname := StringName.new("NavigationAgent2D")
     fnname := StringName.new("is_target_reachable")
@@ -461,7 +461,7 @@ pub fn (mut r NavigationAgent2D) is_target_reachable() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationAgent2D) is_navigation_finished() bool {
+pub fn (r &NavigationAgent2D) is_navigation_finished() bool {
     mut object_out := false
     classname := StringName.new("NavigationAgent2D")
     fnname := StringName.new("is_navigation_finished")
@@ -471,7 +471,7 @@ pub fn (mut r NavigationAgent2D) is_navigation_finished() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationAgent2D) get_final_position() Vector2 {
+pub fn (r &NavigationAgent2D) get_final_position() Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("NavigationAgent2D")
     fnname := StringName.new("get_final_position")
@@ -481,7 +481,7 @@ pub fn (mut r NavigationAgent2D) get_final_position() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationAgent2D) set_avoidance_layers(layers u32) {
+pub fn (r &NavigationAgent2D) set_avoidance_layers(layers u32) {
     classname := StringName.new("NavigationAgent2D")
     fnname := StringName.new("set_avoidance_layers")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -501,7 +501,7 @@ pub fn (r &NavigationAgent2D) get_avoidance_layers() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationAgent2D) set_avoidance_mask(mask u32) {
+pub fn (r &NavigationAgent2D) set_avoidance_mask(mask u32) {
     classname := StringName.new("NavigationAgent2D")
     fnname := StringName.new("set_avoidance_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -521,7 +521,7 @@ pub fn (r &NavigationAgent2D) get_avoidance_mask() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationAgent2D) set_avoidance_layer_value(layer_number i32, value bool) {
+pub fn (r &NavigationAgent2D) set_avoidance_layer_value(layer_number i32, value bool) {
     classname := StringName.new("NavigationAgent2D")
     fnname := StringName.new("set_avoidance_layer_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -544,7 +544,7 @@ pub fn (r &NavigationAgent2D) get_avoidance_layer_value(layer_number i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationAgent2D) set_avoidance_mask_value(mask_number i32, value bool) {
+pub fn (r &NavigationAgent2D) set_avoidance_mask_value(mask_number i32, value bool) {
     classname := StringName.new("NavigationAgent2D")
     fnname := StringName.new("set_avoidance_mask_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -567,7 +567,7 @@ pub fn (r &NavigationAgent2D) get_avoidance_mask_value(mask_number i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationAgent2D) set_avoidance_priority(priority f64) {
+pub fn (r &NavigationAgent2D) set_avoidance_priority(priority f64) {
     classname := StringName.new("NavigationAgent2D")
     fnname := StringName.new("set_avoidance_priority")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -587,7 +587,7 @@ pub fn (r &NavigationAgent2D) get_avoidance_priority() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationAgent2D) set_debug_enabled(enabled bool) {
+pub fn (r &NavigationAgent2D) set_debug_enabled(enabled bool) {
     classname := StringName.new("NavigationAgent2D")
     fnname := StringName.new("set_debug_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -607,7 +607,7 @@ pub fn (r &NavigationAgent2D) get_debug_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationAgent2D) set_debug_use_custom(enabled bool) {
+pub fn (r &NavigationAgent2D) set_debug_use_custom(enabled bool) {
     classname := StringName.new("NavigationAgent2D")
     fnname := StringName.new("set_debug_use_custom")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -627,7 +627,7 @@ pub fn (r &NavigationAgent2D) get_debug_use_custom() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationAgent2D) set_debug_path_custom_color(color Color) {
+pub fn (r &NavigationAgent2D) set_debug_path_custom_color(color Color) {
     classname := StringName.new("NavigationAgent2D")
     fnname := StringName.new("set_debug_path_custom_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -647,7 +647,7 @@ pub fn (r &NavigationAgent2D) get_debug_path_custom_color() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationAgent2D) set_debug_path_custom_point_size(point_size f64) {
+pub fn (r &NavigationAgent2D) set_debug_path_custom_point_size(point_size f64) {
     classname := StringName.new("NavigationAgent2D")
     fnname := StringName.new("set_debug_path_custom_point_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -667,7 +667,7 @@ pub fn (r &NavigationAgent2D) get_debug_path_custom_point_size() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationAgent2D) set_debug_path_custom_line_width(line_width f64) {
+pub fn (r &NavigationAgent2D) set_debug_path_custom_line_width(line_width f64) {
     classname := StringName.new("NavigationAgent2D")
     fnname := StringName.new("set_debug_path_custom_line_width")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

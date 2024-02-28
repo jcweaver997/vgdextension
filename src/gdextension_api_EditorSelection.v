@@ -5,7 +5,7 @@ pub struct EditorSelection {
     Object
 }
 
-pub fn (mut r EditorSelection) clear() {
+pub fn (r &EditorSelection) clear() {
     classname := StringName.new("EditorSelection")
     fnname := StringName.new("clear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -13,7 +13,7 @@ pub fn (mut r EditorSelection) clear() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorSelection) add_node(node Node) {
+pub fn (r &EditorSelection) add_node(node Node) {
     classname := StringName.new("EditorSelection")
     fnname := StringName.new("add_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
@@ -23,7 +23,7 @@ pub fn (mut r EditorSelection) add_node(node Node) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorSelection) remove_node(node Node) {
+pub fn (r &EditorSelection) remove_node(node Node) {
     classname := StringName.new("EditorSelection")
     fnname := StringName.new("remove_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
@@ -33,7 +33,7 @@ pub fn (mut r EditorSelection) remove_node(node Node) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorSelection) get_selected_nodes() Array {
+pub fn (r &EditorSelection) get_selected_nodes() Array {
     mut object_out := Array{}
     classname := StringName.new("EditorSelection")
     fnname := StringName.new("get_selected_nodes")
@@ -43,7 +43,7 @@ pub fn (mut r EditorSelection) get_selected_nodes() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorSelection) get_transformable_selected_nodes() Array {
+pub fn (r &EditorSelection) get_transformable_selected_nodes() Array {
     mut object_out := Array{}
     classname := StringName.new("EditorSelection")
     fnname := StringName.new("get_transformable_selected_nodes")

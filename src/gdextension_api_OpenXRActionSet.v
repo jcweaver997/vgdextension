@@ -5,7 +5,7 @@ pub struct OpenXRActionSet {
     Resource
 }
 
-pub fn (mut r OpenXRActionSet) set_localized_name(localized_name string) {
+pub fn (r &OpenXRActionSet) set_localized_name(localized_name string) {
     classname := StringName.new("OpenXRActionSet")
     fnname := StringName.new("set_localized_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -29,7 +29,7 @@ pub fn (r &OpenXRActionSet) get_localized_name() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r OpenXRActionSet) set_priority(priority i32) {
+pub fn (r &OpenXRActionSet) set_priority(priority i32) {
     classname := StringName.new("OpenXRActionSet")
     fnname := StringName.new("set_priority")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -59,7 +59,7 @@ pub fn (r &OpenXRActionSet) get_action_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OpenXRActionSet) set_actions(actions Array) {
+pub fn (r &OpenXRActionSet) set_actions(actions Array) {
     classname := StringName.new("OpenXRActionSet")
     fnname := StringName.new("set_actions")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)
@@ -79,7 +79,7 @@ pub fn (r &OpenXRActionSet) get_actions() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OpenXRActionSet) add_action(action OpenXRAction) {
+pub fn (r &OpenXRActionSet) add_action(action OpenXRAction) {
     classname := StringName.new("OpenXRActionSet")
     fnname := StringName.new("add_action")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 349361333)
@@ -89,7 +89,7 @@ pub fn (mut r OpenXRActionSet) add_action(action OpenXRAction) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r OpenXRActionSet) remove_action(action OpenXRAction) {
+pub fn (r &OpenXRActionSet) remove_action(action OpenXRAction) {
     classname := StringName.new("OpenXRActionSet")
     fnname := StringName.new("remove_action")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 349361333)

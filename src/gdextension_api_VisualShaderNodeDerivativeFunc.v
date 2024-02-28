@@ -27,7 +27,7 @@ pub struct VisualShaderNodeDerivativeFunc {
     VisualShaderNode
 }
 
-pub fn (mut r VisualShaderNodeDerivativeFunc) set_op_type(type_name VisualShaderNodeDerivativeFuncOpType) {
+pub fn (r &VisualShaderNodeDerivativeFunc) set_op_type(type_name VisualShaderNodeDerivativeFuncOpType) {
     classname := StringName.new("VisualShaderNodeDerivativeFunc")
     fnname := StringName.new("set_op_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 377800221)
@@ -48,7 +48,7 @@ pub fn (r &VisualShaderNodeDerivativeFunc) get_op_type() VisualShaderNodeDerivat
     fnname.deinit()
    return unsafe{VisualShaderNodeDerivativeFuncOpType(object_out)}
 }
-pub fn (mut r VisualShaderNodeDerivativeFunc) set_function(func VisualShaderNodeDerivativeFuncFunction) {
+pub fn (r &VisualShaderNodeDerivativeFunc) set_function(func VisualShaderNodeDerivativeFuncFunction) {
     classname := StringName.new("VisualShaderNodeDerivativeFunc")
     fnname := StringName.new("set_function")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1944704156)
@@ -69,7 +69,7 @@ pub fn (r &VisualShaderNodeDerivativeFunc) get_function() VisualShaderNodeDeriva
     fnname.deinit()
    return unsafe{VisualShaderNodeDerivativeFuncFunction(object_out)}
 }
-pub fn (mut r VisualShaderNodeDerivativeFunc) set_precision(precision VisualShaderNodeDerivativeFuncPrecision) {
+pub fn (r &VisualShaderNodeDerivativeFunc) set_precision(precision VisualShaderNodeDerivativeFuncPrecision) {
     classname := StringName.new("VisualShaderNodeDerivativeFunc")
     fnname := StringName.new("set_precision")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 797270566)

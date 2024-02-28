@@ -5,7 +5,7 @@ pub struct AudioStreamGenerator {
     AudioStream
 }
 
-pub fn (mut r AudioStreamGenerator) set_mix_rate(hz f64) {
+pub fn (r &AudioStreamGenerator) set_mix_rate(hz f64) {
     classname := StringName.new("AudioStreamGenerator")
     fnname := StringName.new("set_mix_rate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -25,7 +25,7 @@ pub fn (r &AudioStreamGenerator) get_mix_rate() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamGenerator) set_buffer_length(seconds f64) {
+pub fn (r &AudioStreamGenerator) set_buffer_length(seconds f64) {
     classname := StringName.new("AudioStreamGenerator")
     fnname := StringName.new("set_buffer_length")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

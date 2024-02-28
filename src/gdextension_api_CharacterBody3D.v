@@ -16,7 +16,7 @@ pub struct CharacterBody3D {
     PhysicsBody3D
 }
 
-pub fn (mut r CharacterBody3D) move_and_slide() bool {
+pub fn (r &CharacterBody3D) move_and_slide() bool {
     mut object_out := false
     classname := StringName.new("CharacterBody3D")
     fnname := StringName.new("move_and_slide")
@@ -26,7 +26,7 @@ pub fn (mut r CharacterBody3D) move_and_slide() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CharacterBody3D) apply_floor_snap() {
+pub fn (r &CharacterBody3D) apply_floor_snap() {
     classname := StringName.new("CharacterBody3D")
     fnname := StringName.new("apply_floor_snap")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -34,7 +34,7 @@ pub fn (mut r CharacterBody3D) apply_floor_snap() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CharacterBody3D) set_velocity(velocity Vector3) {
+pub fn (r &CharacterBody3D) set_velocity(velocity Vector3) {
     classname := StringName.new("CharacterBody3D")
     fnname := StringName.new("set_velocity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -54,7 +54,7 @@ pub fn (r &CharacterBody3D) get_velocity() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CharacterBody3D) set_safe_margin(margin f64) {
+pub fn (r &CharacterBody3D) set_safe_margin(margin f64) {
     classname := StringName.new("CharacterBody3D")
     fnname := StringName.new("set_safe_margin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -84,7 +84,7 @@ pub fn (r &CharacterBody3D) is_floor_stop_on_slope_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CharacterBody3D) set_floor_stop_on_slope_enabled(enabled bool) {
+pub fn (r &CharacterBody3D) set_floor_stop_on_slope_enabled(enabled bool) {
     classname := StringName.new("CharacterBody3D")
     fnname := StringName.new("set_floor_stop_on_slope_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -94,7 +94,7 @@ pub fn (mut r CharacterBody3D) set_floor_stop_on_slope_enabled(enabled bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CharacterBody3D) set_floor_constant_speed_enabled(enabled bool) {
+pub fn (r &CharacterBody3D) set_floor_constant_speed_enabled(enabled bool) {
     classname := StringName.new("CharacterBody3D")
     fnname := StringName.new("set_floor_constant_speed_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -114,7 +114,7 @@ pub fn (r &CharacterBody3D) is_floor_constant_speed_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CharacterBody3D) set_floor_block_on_wall_enabled(enabled bool) {
+pub fn (r &CharacterBody3D) set_floor_block_on_wall_enabled(enabled bool) {
     classname := StringName.new("CharacterBody3D")
     fnname := StringName.new("set_floor_block_on_wall_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -134,7 +134,7 @@ pub fn (r &CharacterBody3D) is_floor_block_on_wall_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CharacterBody3D) set_slide_on_ceiling_enabled(enabled bool) {
+pub fn (r &CharacterBody3D) set_slide_on_ceiling_enabled(enabled bool) {
     classname := StringName.new("CharacterBody3D")
     fnname := StringName.new("set_slide_on_ceiling_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -154,7 +154,7 @@ pub fn (r &CharacterBody3D) is_slide_on_ceiling_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CharacterBody3D) set_platform_floor_layers(exclude_layer u32) {
+pub fn (r &CharacterBody3D) set_platform_floor_layers(exclude_layer u32) {
     classname := StringName.new("CharacterBody3D")
     fnname := StringName.new("set_platform_floor_layers")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -174,7 +174,7 @@ pub fn (r &CharacterBody3D) get_platform_floor_layers() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CharacterBody3D) set_platform_wall_layers(exclude_layer u32) {
+pub fn (r &CharacterBody3D) set_platform_wall_layers(exclude_layer u32) {
     classname := StringName.new("CharacterBody3D")
     fnname := StringName.new("set_platform_wall_layers")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -204,7 +204,7 @@ pub fn (r &CharacterBody3D) get_max_slides() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CharacterBody3D) set_max_slides(max_slides i32) {
+pub fn (r &CharacterBody3D) set_max_slides(max_slides i32) {
     classname := StringName.new("CharacterBody3D")
     fnname := StringName.new("set_max_slides")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -224,7 +224,7 @@ pub fn (r &CharacterBody3D) get_floor_max_angle() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CharacterBody3D) set_floor_max_angle(radians f64) {
+pub fn (r &CharacterBody3D) set_floor_max_angle(radians f64) {
     classname := StringName.new("CharacterBody3D")
     fnname := StringName.new("set_floor_max_angle")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -234,7 +234,7 @@ pub fn (mut r CharacterBody3D) set_floor_max_angle(radians f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CharacterBody3D) get_floor_snap_length() f64 {
+pub fn (r &CharacterBody3D) get_floor_snap_length() f64 {
     mut object_out := f64(0)
     classname := StringName.new("CharacterBody3D")
     fnname := StringName.new("get_floor_snap_length")
@@ -244,7 +244,7 @@ pub fn (mut r CharacterBody3D) get_floor_snap_length() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CharacterBody3D) set_floor_snap_length(floor_snap_length f64) {
+pub fn (r &CharacterBody3D) set_floor_snap_length(floor_snap_length f64) {
     classname := StringName.new("CharacterBody3D")
     fnname := StringName.new("set_floor_snap_length")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -264,7 +264,7 @@ pub fn (r &CharacterBody3D) get_wall_min_slide_angle() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CharacterBody3D) set_wall_min_slide_angle(radians f64) {
+pub fn (r &CharacterBody3D) set_wall_min_slide_angle(radians f64) {
     classname := StringName.new("CharacterBody3D")
     fnname := StringName.new("set_wall_min_slide_angle")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -284,7 +284,7 @@ pub fn (r &CharacterBody3D) get_up_direction() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CharacterBody3D) set_up_direction(up_direction Vector3) {
+pub fn (r &CharacterBody3D) set_up_direction(up_direction Vector3) {
     classname := StringName.new("CharacterBody3D")
     fnname := StringName.new("set_up_direction")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -294,7 +294,7 @@ pub fn (mut r CharacterBody3D) set_up_direction(up_direction Vector3) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CharacterBody3D) set_motion_mode(mode CharacterBody3DMotionMode) {
+pub fn (r &CharacterBody3D) set_motion_mode(mode CharacterBody3DMotionMode) {
     classname := StringName.new("CharacterBody3D")
     fnname := StringName.new("set_motion_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2690739026)
@@ -315,7 +315,7 @@ pub fn (r &CharacterBody3D) get_motion_mode() CharacterBody3DMotionMode {
     fnname.deinit()
    return unsafe{CharacterBody3DMotionMode(object_out)}
 }
-pub fn (mut r CharacterBody3D) set_platform_on_leave(on_leave_apply_velocity CharacterBody3DPlatformOnLeave) {
+pub fn (r &CharacterBody3D) set_platform_on_leave(on_leave_apply_velocity CharacterBody3DPlatformOnLeave) {
     classname := StringName.new("CharacterBody3D")
     fnname := StringName.new("set_platform_on_leave")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1459986142)
@@ -488,7 +488,7 @@ pub fn (r &CharacterBody3D) get_slide_collision_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CharacterBody3D) get_slide_collision(slide_idx i32) KinematicCollision3D {
+pub fn (r &CharacterBody3D) get_slide_collision(slide_idx i32) KinematicCollision3D {
     mut object_out := KinematicCollision3D{}
     classname := StringName.new("CharacterBody3D")
     fnname := StringName.new("get_slide_collision")
@@ -500,7 +500,7 @@ pub fn (mut r CharacterBody3D) get_slide_collision(slide_idx i32) KinematicColli
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CharacterBody3D) get_last_slide_collision() KinematicCollision3D {
+pub fn (r &CharacterBody3D) get_last_slide_collision() KinematicCollision3D {
     mut object_out := KinematicCollision3D{}
     classname := StringName.new("CharacterBody3D")
     fnname := StringName.new("get_last_slide_collision")

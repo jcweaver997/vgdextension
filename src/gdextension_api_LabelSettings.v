@@ -5,7 +5,7 @@ pub struct LabelSettings {
     Resource
 }
 
-pub fn (mut r LabelSettings) set_line_spacing(spacing f64) {
+pub fn (r &LabelSettings) set_line_spacing(spacing f64) {
     classname := StringName.new("LabelSettings")
     fnname := StringName.new("set_line_spacing")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -25,7 +25,7 @@ pub fn (r &LabelSettings) get_line_spacing() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LabelSettings) set_font(font Font) {
+pub fn (r &LabelSettings) set_font(font Font) {
     classname := StringName.new("LabelSettings")
     fnname := StringName.new("set_font")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1262170328)
@@ -45,7 +45,7 @@ pub fn (r &LabelSettings) get_font() Font {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LabelSettings) set_font_size(size i32) {
+pub fn (r &LabelSettings) set_font_size(size i32) {
     classname := StringName.new("LabelSettings")
     fnname := StringName.new("set_font_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -65,7 +65,7 @@ pub fn (r &LabelSettings) get_font_size() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LabelSettings) set_font_color(color Color) {
+pub fn (r &LabelSettings) set_font_color(color Color) {
     classname := StringName.new("LabelSettings")
     fnname := StringName.new("set_font_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -85,7 +85,7 @@ pub fn (r &LabelSettings) get_font_color() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LabelSettings) set_outline_size(size i32) {
+pub fn (r &LabelSettings) set_outline_size(size i32) {
     classname := StringName.new("LabelSettings")
     fnname := StringName.new("set_outline_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -105,7 +105,7 @@ pub fn (r &LabelSettings) get_outline_size() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LabelSettings) set_outline_color(color Color) {
+pub fn (r &LabelSettings) set_outline_color(color Color) {
     classname := StringName.new("LabelSettings")
     fnname := StringName.new("set_outline_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -125,7 +125,7 @@ pub fn (r &LabelSettings) get_outline_color() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LabelSettings) set_shadow_size(size i32) {
+pub fn (r &LabelSettings) set_shadow_size(size i32) {
     classname := StringName.new("LabelSettings")
     fnname := StringName.new("set_shadow_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -145,7 +145,7 @@ pub fn (r &LabelSettings) get_shadow_size() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LabelSettings) set_shadow_color(color Color) {
+pub fn (r &LabelSettings) set_shadow_color(color Color) {
     classname := StringName.new("LabelSettings")
     fnname := StringName.new("set_shadow_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -165,7 +165,7 @@ pub fn (r &LabelSettings) get_shadow_color() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LabelSettings) set_shadow_offset(offset Vector2) {
+pub fn (r &LabelSettings) set_shadow_offset(offset Vector2) {
     classname := StringName.new("LabelSettings")
     fnname := StringName.new("set_shadow_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)

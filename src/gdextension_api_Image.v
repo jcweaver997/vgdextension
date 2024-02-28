@@ -151,7 +151,7 @@ pub fn (r &Image) get_data() PackedByteArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Image) convert(format ImageFormat) {
+pub fn (r &Image) convert(format ImageFormat) {
     classname := StringName.new("Image")
     fnname := StringName.new("convert")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2120693146)
@@ -184,7 +184,7 @@ pub fn (r &Image) get_mipmap_offset(mipmap i32) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Image) resize_to_po2(square bool, interpolation ImageInterpolation) {
+pub fn (r &Image) resize_to_po2(square bool, interpolation ImageInterpolation) {
     classname := StringName.new("Image")
     fnname := StringName.new("resize_to_po2")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4189212329)
@@ -196,7 +196,7 @@ pub fn (mut r Image) resize_to_po2(square bool, interpolation ImageInterpolation
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Image) resize(width i32, height i32, interpolation ImageInterpolation) {
+pub fn (r &Image) resize(width i32, height i32, interpolation ImageInterpolation) {
     classname := StringName.new("Image")
     fnname := StringName.new("resize")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 994498151)
@@ -209,7 +209,7 @@ pub fn (mut r Image) resize(width i32, height i32, interpolation ImageInterpolat
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Image) shrink_x2() {
+pub fn (r &Image) shrink_x2() {
     classname := StringName.new("Image")
     fnname := StringName.new("shrink_x2")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -217,7 +217,7 @@ pub fn (mut r Image) shrink_x2() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Image) crop(width i32, height i32) {
+pub fn (r &Image) crop(width i32, height i32) {
     classname := StringName.new("Image")
     fnname := StringName.new("crop")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -228,7 +228,7 @@ pub fn (mut r Image) crop(width i32, height i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Image) flip_x() {
+pub fn (r &Image) flip_x() {
     classname := StringName.new("Image")
     fnname := StringName.new("flip_x")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -236,7 +236,7 @@ pub fn (mut r Image) flip_x() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Image) flip_y() {
+pub fn (r &Image) flip_y() {
     classname := StringName.new("Image")
     fnname := StringName.new("flip_y")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -244,7 +244,7 @@ pub fn (mut r Image) flip_y() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Image) generate_mipmaps(renormalize bool) GDError {
+pub fn (r &Image) generate_mipmaps(renormalize bool) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("Image")
     fnname := StringName.new("generate_mipmaps")
@@ -256,7 +256,7 @@ pub fn (mut r Image) generate_mipmaps(renormalize bool) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r Image) clear_mipmaps() {
+pub fn (r &Image) clear_mipmaps() {
     classname := StringName.new("Image")
     fnname := StringName.new("clear_mipmaps")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -297,7 +297,7 @@ pub fn Image.create_from_data(width i32, height i32, use_mipmaps bool, format Im
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Image) set_data(width i32, height i32, use_mipmaps bool, format ImageFormat, data PackedByteArray) {
+pub fn (r &Image) set_data(width i32, height i32, use_mipmaps bool, format ImageFormat, data PackedByteArray) {
     classname := StringName.new("Image")
     fnname := StringName.new("set_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2740482212)
@@ -322,7 +322,7 @@ pub fn (r &Image) is_empty() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Image) load(path string) GDError {
+pub fn (r &Image) load(path string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("Image")
     fnname := StringName.new("load")
@@ -490,7 +490,7 @@ pub fn (r &Image) detect_used_channels(source ImageCompressSource) ImageUsedChan
     fnname.deinit()
    return unsafe{ImageUsedChannels(object_out)}
 }
-pub fn (mut r Image) compress(mode ImageCompressMode, source ImageCompressSource, astc_format ImageASTCFormat) GDError {
+pub fn (r &Image) compress(mode ImageCompressMode, source ImageCompressSource, astc_format ImageASTCFormat) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("Image")
     fnname := StringName.new("compress")
@@ -507,7 +507,7 @@ pub fn (mut r Image) compress(mode ImageCompressMode, source ImageCompressSource
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r Image) compress_from_channels(mode ImageCompressMode, channels ImageUsedChannels, astc_format ImageASTCFormat) GDError {
+pub fn (r &Image) compress_from_channels(mode ImageCompressMode, channels ImageUsedChannels, astc_format ImageASTCFormat) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("Image")
     fnname := StringName.new("compress_from_channels")
@@ -524,7 +524,7 @@ pub fn (mut r Image) compress_from_channels(mode ImageCompressMode, channels Ima
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r Image) decompress() GDError {
+pub fn (r &Image) decompress() GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("Image")
     fnname := StringName.new("decompress")
@@ -544,7 +544,7 @@ pub fn (r &Image) is_compressed() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Image) rotate_90(direction ClockDirection) {
+pub fn (r &Image) rotate_90(direction ClockDirection) {
     classname := StringName.new("Image")
     fnname := StringName.new("rotate_90")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1901204267)
@@ -555,7 +555,7 @@ pub fn (mut r Image) rotate_90(direction ClockDirection) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Image) rotate_180() {
+pub fn (r &Image) rotate_180() {
     classname := StringName.new("Image")
     fnname := StringName.new("rotate_180")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -563,7 +563,7 @@ pub fn (mut r Image) rotate_180() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Image) fix_alpha_edges() {
+pub fn (r &Image) fix_alpha_edges() {
     classname := StringName.new("Image")
     fnname := StringName.new("fix_alpha_edges")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -571,7 +571,7 @@ pub fn (mut r Image) fix_alpha_edges() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Image) premultiply_alpha() {
+pub fn (r &Image) premultiply_alpha() {
     classname := StringName.new("Image")
     fnname := StringName.new("premultiply_alpha")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -579,7 +579,7 @@ pub fn (mut r Image) premultiply_alpha() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Image) srgb_to_linear() {
+pub fn (r &Image) srgb_to_linear() {
     classname := StringName.new("Image")
     fnname := StringName.new("srgb_to_linear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -587,7 +587,7 @@ pub fn (mut r Image) srgb_to_linear() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Image) normal_map_to_xy() {
+pub fn (r &Image) normal_map_to_xy() {
     classname := StringName.new("Image")
     fnname := StringName.new("normal_map_to_xy")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -595,7 +595,7 @@ pub fn (mut r Image) normal_map_to_xy() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Image) rgbe_to_srgb() Image {
+pub fn (r &Image) rgbe_to_srgb() Image {
     mut object_out := Image{}
     classname := StringName.new("Image")
     fnname := StringName.new("rgbe_to_srgb")
@@ -605,7 +605,7 @@ pub fn (mut r Image) rgbe_to_srgb() Image {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Image) bump_map_to_normal_map(bump_scale f64) {
+pub fn (r &Image) bump_map_to_normal_map(bump_scale f64) {
     classname := StringName.new("Image")
     fnname := StringName.new("bump_map_to_normal_map")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3423495036)
@@ -615,7 +615,7 @@ pub fn (mut r Image) bump_map_to_normal_map(bump_scale f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Image) compute_image_metrics(compared_image Image, use_luma bool) Dictionary {
+pub fn (r &Image) compute_image_metrics(compared_image Image, use_luma bool) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("Image")
     fnname := StringName.new("compute_image_metrics")
@@ -628,7 +628,7 @@ pub fn (mut r Image) compute_image_metrics(compared_image Image, use_luma bool) 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Image) blit_rect(src Image, src_rect Rect2i, dst Vector2i) {
+pub fn (r &Image) blit_rect(src Image, src_rect Rect2i, dst Vector2i) {
     classname := StringName.new("Image")
     fnname := StringName.new("blit_rect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2903928755)
@@ -640,7 +640,7 @@ pub fn (mut r Image) blit_rect(src Image, src_rect Rect2i, dst Vector2i) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Image) blit_rect_mask(src Image, mask Image, src_rect Rect2i, dst Vector2i) {
+pub fn (r &Image) blit_rect_mask(src Image, mask Image, src_rect Rect2i, dst Vector2i) {
     classname := StringName.new("Image")
     fnname := StringName.new("blit_rect_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3383581145)
@@ -653,7 +653,7 @@ pub fn (mut r Image) blit_rect_mask(src Image, mask Image, src_rect Rect2i, dst 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Image) blend_rect(src Image, src_rect Rect2i, dst Vector2i) {
+pub fn (r &Image) blend_rect(src Image, src_rect Rect2i, dst Vector2i) {
     classname := StringName.new("Image")
     fnname := StringName.new("blend_rect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2903928755)
@@ -665,7 +665,7 @@ pub fn (mut r Image) blend_rect(src Image, src_rect Rect2i, dst Vector2i) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Image) blend_rect_mask(src Image, mask Image, src_rect Rect2i, dst Vector2i) {
+pub fn (r &Image) blend_rect_mask(src Image, mask Image, src_rect Rect2i, dst Vector2i) {
     classname := StringName.new("Image")
     fnname := StringName.new("blend_rect_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3383581145)
@@ -678,7 +678,7 @@ pub fn (mut r Image) blend_rect_mask(src Image, mask Image, src_rect Rect2i, dst
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Image) fill(color Color) {
+pub fn (r &Image) fill(color Color) {
     classname := StringName.new("Image")
     fnname := StringName.new("fill")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -688,7 +688,7 @@ pub fn (mut r Image) fill(color Color) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Image) fill_rect(rect Rect2i, color Color) {
+pub fn (r &Image) fill_rect(rect Rect2i, color Color) {
     classname := StringName.new("Image")
     fnname := StringName.new("fill_rect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 514693913)
@@ -721,7 +721,7 @@ pub fn (r &Image) get_region(region Rect2i) Image {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Image) copy_from(src Image) {
+pub fn (r &Image) copy_from(src Image) {
     classname := StringName.new("Image")
     fnname := StringName.new("copy_from")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 532598488)
@@ -756,7 +756,7 @@ pub fn (r &Image) get_pixel(x i32, y i32) Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Image) set_pixelv(point Vector2i, color Color) {
+pub fn (r &Image) set_pixelv(point Vector2i, color Color) {
     classname := StringName.new("Image")
     fnname := StringName.new("set_pixelv")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 287851464)
@@ -767,7 +767,7 @@ pub fn (mut r Image) set_pixelv(point Vector2i, color Color) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Image) set_pixel(x i32, y i32, color Color) {
+pub fn (r &Image) set_pixel(x i32, y i32, color Color) {
     classname := StringName.new("Image")
     fnname := StringName.new("set_pixel")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3733378741)
@@ -779,7 +779,7 @@ pub fn (mut r Image) set_pixel(x i32, y i32, color Color) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Image) adjust_bcs(brightness f64, contrast f64, saturation f64) {
+pub fn (r &Image) adjust_bcs(brightness f64, contrast f64, saturation f64) {
     classname := StringName.new("Image")
     fnname := StringName.new("adjust_bcs")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2385087082)
@@ -791,7 +791,7 @@ pub fn (mut r Image) adjust_bcs(brightness f64, contrast f64, saturation f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Image) load_png_from_buffer(buffer PackedByteArray) GDError {
+pub fn (r &Image) load_png_from_buffer(buffer PackedByteArray) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("Image")
     fnname := StringName.new("load_png_from_buffer")
@@ -803,7 +803,7 @@ pub fn (mut r Image) load_png_from_buffer(buffer PackedByteArray) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r Image) load_jpg_from_buffer(buffer PackedByteArray) GDError {
+pub fn (r &Image) load_jpg_from_buffer(buffer PackedByteArray) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("Image")
     fnname := StringName.new("load_jpg_from_buffer")
@@ -815,7 +815,7 @@ pub fn (mut r Image) load_jpg_from_buffer(buffer PackedByteArray) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r Image) load_webp_from_buffer(buffer PackedByteArray) GDError {
+pub fn (r &Image) load_webp_from_buffer(buffer PackedByteArray) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("Image")
     fnname := StringName.new("load_webp_from_buffer")
@@ -827,7 +827,7 @@ pub fn (mut r Image) load_webp_from_buffer(buffer PackedByteArray) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r Image) load_tga_from_buffer(buffer PackedByteArray) GDError {
+pub fn (r &Image) load_tga_from_buffer(buffer PackedByteArray) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("Image")
     fnname := StringName.new("load_tga_from_buffer")
@@ -839,7 +839,7 @@ pub fn (mut r Image) load_tga_from_buffer(buffer PackedByteArray) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r Image) load_bmp_from_buffer(buffer PackedByteArray) GDError {
+pub fn (r &Image) load_bmp_from_buffer(buffer PackedByteArray) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("Image")
     fnname := StringName.new("load_bmp_from_buffer")
@@ -851,7 +851,7 @@ pub fn (mut r Image) load_bmp_from_buffer(buffer PackedByteArray) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r Image) load_ktx_from_buffer(buffer PackedByteArray) GDError {
+pub fn (r &Image) load_ktx_from_buffer(buffer PackedByteArray) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("Image")
     fnname := StringName.new("load_ktx_from_buffer")
@@ -863,7 +863,7 @@ pub fn (mut r Image) load_ktx_from_buffer(buffer PackedByteArray) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r Image) load_svg_from_buffer(buffer PackedByteArray, scale f64) GDError {
+pub fn (r &Image) load_svg_from_buffer(buffer PackedByteArray, scale f64) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("Image")
     fnname := StringName.new("load_svg_from_buffer")
@@ -876,7 +876,7 @@ pub fn (mut r Image) load_svg_from_buffer(buffer PackedByteArray, scale f64) GDE
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r Image) load_svg_from_string(svg_str string, scale f64) GDError {
+pub fn (r &Image) load_svg_from_string(svg_str string, scale f64) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("Image")
     fnname := StringName.new("load_svg_from_string")

@@ -14,7 +14,7 @@ pub fn ThemeDB.get_singleton() ThemeDB {
     return o
 }
 
-pub fn (mut r ThemeDB) get_default_theme() Theme {
+pub fn (r &ThemeDB) get_default_theme() Theme {
     mut object_out := Theme{}
     classname := StringName.new("ThemeDB")
     fnname := StringName.new("get_default_theme")
@@ -24,7 +24,7 @@ pub fn (mut r ThemeDB) get_default_theme() Theme {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ThemeDB) get_project_theme() Theme {
+pub fn (r &ThemeDB) get_project_theme() Theme {
     mut object_out := Theme{}
     classname := StringName.new("ThemeDB")
     fnname := StringName.new("get_project_theme")
@@ -34,7 +34,7 @@ pub fn (mut r ThemeDB) get_project_theme() Theme {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ThemeDB) set_fallback_base_scale(base_scale f64) {
+pub fn (r &ThemeDB) set_fallback_base_scale(base_scale f64) {
     classname := StringName.new("ThemeDB")
     fnname := StringName.new("set_fallback_base_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -44,7 +44,7 @@ pub fn (mut r ThemeDB) set_fallback_base_scale(base_scale f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ThemeDB) get_fallback_base_scale() f64 {
+pub fn (r &ThemeDB) get_fallback_base_scale() f64 {
     mut object_out := f64(0)
     classname := StringName.new("ThemeDB")
     fnname := StringName.new("get_fallback_base_scale")
@@ -54,7 +54,7 @@ pub fn (mut r ThemeDB) get_fallback_base_scale() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ThemeDB) set_fallback_font(font Font) {
+pub fn (r &ThemeDB) set_fallback_font(font Font) {
     classname := StringName.new("ThemeDB")
     fnname := StringName.new("set_fallback_font")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1262170328)
@@ -64,7 +64,7 @@ pub fn (mut r ThemeDB) set_fallback_font(font Font) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ThemeDB) get_fallback_font() Font {
+pub fn (r &ThemeDB) get_fallback_font() Font {
     mut object_out := Font{}
     classname := StringName.new("ThemeDB")
     fnname := StringName.new("get_fallback_font")
@@ -74,7 +74,7 @@ pub fn (mut r ThemeDB) get_fallback_font() Font {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ThemeDB) set_fallback_font_size(font_size i32) {
+pub fn (r &ThemeDB) set_fallback_font_size(font_size i32) {
     classname := StringName.new("ThemeDB")
     fnname := StringName.new("set_fallback_font_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -84,7 +84,7 @@ pub fn (mut r ThemeDB) set_fallback_font_size(font_size i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ThemeDB) get_fallback_font_size() i32 {
+pub fn (r &ThemeDB) get_fallback_font_size() i32 {
     mut object_out := i32(0)
     classname := StringName.new("ThemeDB")
     fnname := StringName.new("get_fallback_font_size")
@@ -94,7 +94,7 @@ pub fn (mut r ThemeDB) get_fallback_font_size() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ThemeDB) set_fallback_icon(icon Texture2D) {
+pub fn (r &ThemeDB) set_fallback_icon(icon Texture2D) {
     classname := StringName.new("ThemeDB")
     fnname := StringName.new("set_fallback_icon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
@@ -104,7 +104,7 @@ pub fn (mut r ThemeDB) set_fallback_icon(icon Texture2D) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ThemeDB) get_fallback_icon() Texture2D {
+pub fn (r &ThemeDB) get_fallback_icon() Texture2D {
     mut object_out := Texture2D{}
     classname := StringName.new("ThemeDB")
     fnname := StringName.new("get_fallback_icon")
@@ -114,7 +114,7 @@ pub fn (mut r ThemeDB) get_fallback_icon() Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ThemeDB) set_fallback_stylebox(stylebox StyleBox) {
+pub fn (r &ThemeDB) set_fallback_stylebox(stylebox StyleBox) {
     classname := StringName.new("ThemeDB")
     fnname := StringName.new("set_fallback_stylebox")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2797200388)
@@ -124,7 +124,7 @@ pub fn (mut r ThemeDB) set_fallback_stylebox(stylebox StyleBox) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ThemeDB) get_fallback_stylebox() StyleBox {
+pub fn (r &ThemeDB) get_fallback_stylebox() StyleBox {
     mut object_out := StyleBox{}
     classname := StringName.new("ThemeDB")
     fnname := StringName.new("get_fallback_stylebox")

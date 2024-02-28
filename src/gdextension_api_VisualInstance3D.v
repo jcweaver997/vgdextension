@@ -20,7 +20,7 @@ pub fn (r &VisualInstance3D) uget_aabb() AABB {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VisualInstance3D) set_base(base RID) {
+pub fn (r &VisualInstance3D) set_base(base RID) {
     classname := StringName.new("VisualInstance3D")
     fnname := StringName.new("set_base")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)
@@ -50,7 +50,7 @@ pub fn (r &VisualInstance3D) get_instance() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VisualInstance3D) set_layer_mask(mask u32) {
+pub fn (r &VisualInstance3D) set_layer_mask(mask u32) {
     classname := StringName.new("VisualInstance3D")
     fnname := StringName.new("set_layer_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -70,7 +70,7 @@ pub fn (r &VisualInstance3D) get_layer_mask() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VisualInstance3D) set_layer_mask_value(layer_number i32, value bool) {
+pub fn (r &VisualInstance3D) set_layer_mask_value(layer_number i32, value bool) {
     classname := StringName.new("VisualInstance3D")
     fnname := StringName.new("set_layer_mask_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -93,7 +93,7 @@ pub fn (r &VisualInstance3D) get_layer_mask_value(layer_number i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VisualInstance3D) set_sorting_offset(offset f64) {
+pub fn (r &VisualInstance3D) set_sorting_offset(offset f64) {
     classname := StringName.new("VisualInstance3D")
     fnname := StringName.new("set_sorting_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -113,7 +113,7 @@ pub fn (r &VisualInstance3D) get_sorting_offset() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VisualInstance3D) set_sorting_use_aabb_center(enabled bool) {
+pub fn (r &VisualInstance3D) set_sorting_use_aabb_center(enabled bool) {
     classname := StringName.new("VisualInstance3D")
     fnname := StringName.new("set_sorting_use_aabb_center")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

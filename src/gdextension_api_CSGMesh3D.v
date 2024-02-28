@@ -5,7 +5,7 @@ pub struct CSGMesh3D {
     CSGPrimitive3D
 }
 
-pub fn (mut r CSGMesh3D) set_mesh(mesh Mesh) {
+pub fn (r &CSGMesh3D) set_mesh(mesh Mesh) {
     classname := StringName.new("CSGMesh3D")
     fnname := StringName.new("set_mesh")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 194775623)
@@ -15,7 +15,7 @@ pub fn (mut r CSGMesh3D) set_mesh(mesh Mesh) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CSGMesh3D) get_mesh() Mesh {
+pub fn (r &CSGMesh3D) get_mesh() Mesh {
     mut object_out := Mesh{}
     classname := StringName.new("CSGMesh3D")
     fnname := StringName.new("get_mesh")
@@ -25,7 +25,7 @@ pub fn (mut r CSGMesh3D) get_mesh() Mesh {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CSGMesh3D) set_material(material Material) {
+pub fn (r &CSGMesh3D) set_material(material Material) {
     classname := StringName.new("CSGMesh3D")
     fnname := StringName.new("set_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2757459619)

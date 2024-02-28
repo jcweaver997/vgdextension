@@ -35,7 +35,7 @@ pub fn Geometry2D.get_singleton() Geometry2D {
     return o
 }
 
-pub fn (mut r Geometry2D) is_point_in_circle(point Vector2, circle_position Vector2, circle_radius f64) bool {
+pub fn (r &Geometry2D) is_point_in_circle(point Vector2, circle_position Vector2, circle_radius f64) bool {
     mut object_out := false
     classname := StringName.new("Geometry2D")
     fnname := StringName.new("is_point_in_circle")
@@ -49,7 +49,7 @@ pub fn (mut r Geometry2D) is_point_in_circle(point Vector2, circle_position Vect
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Geometry2D) segment_intersects_circle(segment_from Vector2, segment_to Vector2, circle_position Vector2, circle_radius f64) f64 {
+pub fn (r &Geometry2D) segment_intersects_circle(segment_from Vector2, segment_to Vector2, circle_position Vector2, circle_radius f64) f64 {
     mut object_out := f64(0)
     classname := StringName.new("Geometry2D")
     fnname := StringName.new("segment_intersects_circle")
@@ -64,7 +64,7 @@ pub fn (mut r Geometry2D) segment_intersects_circle(segment_from Vector2, segmen
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Geometry2D) segment_intersects_segment(from_a Vector2, to_a Vector2, from_b Vector2, to_b Vector2) Variant {
+pub fn (r &Geometry2D) segment_intersects_segment(from_a Vector2, to_a Vector2, from_b Vector2, to_b Vector2) Variant {
     mut object_out := Variant{}
     classname := StringName.new("Geometry2D")
     fnname := StringName.new("segment_intersects_segment")
@@ -79,7 +79,7 @@ pub fn (mut r Geometry2D) segment_intersects_segment(from_a Vector2, to_a Vector
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Geometry2D) line_intersects_line(from_a Vector2, dir_a Vector2, from_b Vector2, dir_b Vector2) Variant {
+pub fn (r &Geometry2D) line_intersects_line(from_a Vector2, dir_a Vector2, from_b Vector2, dir_b Vector2) Variant {
     mut object_out := Variant{}
     classname := StringName.new("Geometry2D")
     fnname := StringName.new("line_intersects_line")
@@ -94,7 +94,7 @@ pub fn (mut r Geometry2D) line_intersects_line(from_a Vector2, dir_a Vector2, fr
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Geometry2D) get_closest_points_between_segments(p1 Vector2, q1 Vector2, p2 Vector2, q2 Vector2) PackedVector2Array {
+pub fn (r &Geometry2D) get_closest_points_between_segments(p1 Vector2, q1 Vector2, p2 Vector2, q2 Vector2) PackedVector2Array {
     mut object_out := PackedVector2Array{}
     classname := StringName.new("Geometry2D")
     fnname := StringName.new("get_closest_points_between_segments")
@@ -109,7 +109,7 @@ pub fn (mut r Geometry2D) get_closest_points_between_segments(p1 Vector2, q1 Vec
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Geometry2D) get_closest_point_to_segment(point Vector2, s1 Vector2, s2 Vector2) Vector2 {
+pub fn (r &Geometry2D) get_closest_point_to_segment(point Vector2, s1 Vector2, s2 Vector2) Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("Geometry2D")
     fnname := StringName.new("get_closest_point_to_segment")
@@ -123,7 +123,7 @@ pub fn (mut r Geometry2D) get_closest_point_to_segment(point Vector2, s1 Vector2
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Geometry2D) get_closest_point_to_segment_uncapped(point Vector2, s1 Vector2, s2 Vector2) Vector2 {
+pub fn (r &Geometry2D) get_closest_point_to_segment_uncapped(point Vector2, s1 Vector2, s2 Vector2) Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("Geometry2D")
     fnname := StringName.new("get_closest_point_to_segment_uncapped")
@@ -152,7 +152,7 @@ pub fn (r &Geometry2D) point_is_inside_triangle(point Vector2, a Vector2, b Vect
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Geometry2D) is_polygon_clockwise(polygon PackedVector2Array) bool {
+pub fn (r &Geometry2D) is_polygon_clockwise(polygon PackedVector2Array) bool {
     mut object_out := false
     classname := StringName.new("Geometry2D")
     fnname := StringName.new("is_polygon_clockwise")
@@ -164,7 +164,7 @@ pub fn (mut r Geometry2D) is_polygon_clockwise(polygon PackedVector2Array) bool 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Geometry2D) is_point_in_polygon(point Vector2, polygon PackedVector2Array) bool {
+pub fn (r &Geometry2D) is_point_in_polygon(point Vector2, polygon PackedVector2Array) bool {
     mut object_out := false
     classname := StringName.new("Geometry2D")
     fnname := StringName.new("is_point_in_polygon")
@@ -177,7 +177,7 @@ pub fn (mut r Geometry2D) is_point_in_polygon(point Vector2, polygon PackedVecto
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Geometry2D) triangulate_polygon(polygon PackedVector2Array) PackedInt32Array {
+pub fn (r &Geometry2D) triangulate_polygon(polygon PackedVector2Array) PackedInt32Array {
     mut object_out := PackedInt32Array{}
     classname := StringName.new("Geometry2D")
     fnname := StringName.new("triangulate_polygon")
@@ -189,7 +189,7 @@ pub fn (mut r Geometry2D) triangulate_polygon(polygon PackedVector2Array) Packed
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Geometry2D) triangulate_delaunay(points PackedVector2Array) PackedInt32Array {
+pub fn (r &Geometry2D) triangulate_delaunay(points PackedVector2Array) PackedInt32Array {
     mut object_out := PackedInt32Array{}
     classname := StringName.new("Geometry2D")
     fnname := StringName.new("triangulate_delaunay")
@@ -201,7 +201,7 @@ pub fn (mut r Geometry2D) triangulate_delaunay(points PackedVector2Array) Packed
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Geometry2D) convex_hull(points PackedVector2Array) PackedVector2Array {
+pub fn (r &Geometry2D) convex_hull(points PackedVector2Array) PackedVector2Array {
     mut object_out := PackedVector2Array{}
     classname := StringName.new("Geometry2D")
     fnname := StringName.new("convex_hull")
@@ -213,7 +213,7 @@ pub fn (mut r Geometry2D) convex_hull(points PackedVector2Array) PackedVector2Ar
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Geometry2D) decompose_polygon_in_convex(polygon PackedVector2Array) Array {
+pub fn (r &Geometry2D) decompose_polygon_in_convex(polygon PackedVector2Array) Array {
     mut object_out := Array{}
     classname := StringName.new("Geometry2D")
     fnname := StringName.new("decompose_polygon_in_convex")
@@ -225,7 +225,7 @@ pub fn (mut r Geometry2D) decompose_polygon_in_convex(polygon PackedVector2Array
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Geometry2D) merge_polygons(polygon_a PackedVector2Array, polygon_b PackedVector2Array) Array {
+pub fn (r &Geometry2D) merge_polygons(polygon_a PackedVector2Array, polygon_b PackedVector2Array) Array {
     mut object_out := Array{}
     classname := StringName.new("Geometry2D")
     fnname := StringName.new("merge_polygons")
@@ -238,7 +238,7 @@ pub fn (mut r Geometry2D) merge_polygons(polygon_a PackedVector2Array, polygon_b
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Geometry2D) clip_polygons(polygon_a PackedVector2Array, polygon_b PackedVector2Array) Array {
+pub fn (r &Geometry2D) clip_polygons(polygon_a PackedVector2Array, polygon_b PackedVector2Array) Array {
     mut object_out := Array{}
     classname := StringName.new("Geometry2D")
     fnname := StringName.new("clip_polygons")
@@ -251,7 +251,7 @@ pub fn (mut r Geometry2D) clip_polygons(polygon_a PackedVector2Array, polygon_b 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Geometry2D) intersect_polygons(polygon_a PackedVector2Array, polygon_b PackedVector2Array) Array {
+pub fn (r &Geometry2D) intersect_polygons(polygon_a PackedVector2Array, polygon_b PackedVector2Array) Array {
     mut object_out := Array{}
     classname := StringName.new("Geometry2D")
     fnname := StringName.new("intersect_polygons")
@@ -264,7 +264,7 @@ pub fn (mut r Geometry2D) intersect_polygons(polygon_a PackedVector2Array, polyg
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Geometry2D) exclude_polygons(polygon_a PackedVector2Array, polygon_b PackedVector2Array) Array {
+pub fn (r &Geometry2D) exclude_polygons(polygon_a PackedVector2Array, polygon_b PackedVector2Array) Array {
     mut object_out := Array{}
     classname := StringName.new("Geometry2D")
     fnname := StringName.new("exclude_polygons")
@@ -277,7 +277,7 @@ pub fn (mut r Geometry2D) exclude_polygons(polygon_a PackedVector2Array, polygon
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Geometry2D) clip_polyline_with_polygon(polyline PackedVector2Array, polygon PackedVector2Array) Array {
+pub fn (r &Geometry2D) clip_polyline_with_polygon(polyline PackedVector2Array, polygon PackedVector2Array) Array {
     mut object_out := Array{}
     classname := StringName.new("Geometry2D")
     fnname := StringName.new("clip_polyline_with_polygon")
@@ -290,7 +290,7 @@ pub fn (mut r Geometry2D) clip_polyline_with_polygon(polyline PackedVector2Array
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Geometry2D) intersect_polyline_with_polygon(polyline PackedVector2Array, polygon PackedVector2Array) Array {
+pub fn (r &Geometry2D) intersect_polyline_with_polygon(polyline PackedVector2Array, polygon PackedVector2Array) Array {
     mut object_out := Array{}
     classname := StringName.new("Geometry2D")
     fnname := StringName.new("intersect_polyline_with_polygon")
@@ -303,7 +303,7 @@ pub fn (mut r Geometry2D) intersect_polyline_with_polygon(polyline PackedVector2
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Geometry2D) offset_polygon(polygon PackedVector2Array, delta f64, join_type Geometry2DPolyJoinType) Array {
+pub fn (r &Geometry2D) offset_polygon(polygon PackedVector2Array, delta f64, join_type Geometry2DPolyJoinType) Array {
     mut object_out := Array{}
     classname := StringName.new("Geometry2D")
     fnname := StringName.new("offset_polygon")
@@ -318,7 +318,7 @@ pub fn (mut r Geometry2D) offset_polygon(polygon PackedVector2Array, delta f64, 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Geometry2D) offset_polyline(polyline PackedVector2Array, delta f64, join_type Geometry2DPolyJoinType, end_type Geometry2DPolyEndType) Array {
+pub fn (r &Geometry2D) offset_polyline(polyline PackedVector2Array, delta f64, join_type Geometry2DPolyJoinType, end_type Geometry2DPolyEndType) Array {
     mut object_out := Array{}
     classname := StringName.new("Geometry2D")
     fnname := StringName.new("offset_polyline")
@@ -335,7 +335,7 @@ pub fn (mut r Geometry2D) offset_polyline(polyline PackedVector2Array, delta f64
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Geometry2D) make_atlas(sizes PackedVector2Array) Dictionary {
+pub fn (r &Geometry2D) make_atlas(sizes PackedVector2Array) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("Geometry2D")
     fnname := StringName.new("make_atlas")

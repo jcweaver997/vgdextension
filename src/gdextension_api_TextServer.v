@@ -205,7 +205,7 @@ pub fn (r &TextServer) get_features() i64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) load_support_data(filename string) bool {
+pub fn (r &TextServer) load_support_data(filename string) bool {
     mut object_out := false
     classname := StringName.new("TextServer")
     fnname := StringName.new("load_support_data")
@@ -299,7 +299,7 @@ pub fn (r &TextServer) tag_to_name(tag i64) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r TextServer) has(rid RID) bool {
+pub fn (r &TextServer) has(rid RID) bool {
     mut object_out := false
     classname := StringName.new("TextServer")
     fnname := StringName.new("has")
@@ -311,7 +311,7 @@ pub fn (mut r TextServer) has(rid RID) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) free_rid(rid RID) {
+pub fn (r &TextServer) free_rid(rid RID) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("free_rid")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)
@@ -321,7 +321,7 @@ pub fn (mut r TextServer) free_rid(rid RID) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextServer) create_font() RID {
+pub fn (r &TextServer) create_font() RID {
     mut object_out := RID{}
     classname := StringName.new("TextServer")
     fnname := StringName.new("create_font")
@@ -331,7 +331,7 @@ pub fn (mut r TextServer) create_font() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) create_font_linked_variation(font_rid RID) RID {
+pub fn (r &TextServer) create_font_linked_variation(font_rid RID) RID {
     mut object_out := RID{}
     classname := StringName.new("TextServer")
     fnname := StringName.new("create_font_linked_variation")
@@ -343,7 +343,7 @@ pub fn (mut r TextServer) create_font_linked_variation(font_rid RID) RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) font_set_data(font_rid RID, data PackedByteArray) {
+pub fn (r &TextServer) font_set_data(font_rid RID, data PackedByteArray) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1355495400)
@@ -354,7 +354,7 @@ pub fn (mut r TextServer) font_set_data(font_rid RID, data PackedByteArray) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextServer) font_set_face_index(font_rid RID, face_index i64) {
+pub fn (r &TextServer) font_set_face_index(font_rid RID, face_index i64) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_face_index")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -389,7 +389,7 @@ pub fn (r &TextServer) font_get_face_count(font_rid RID) i64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) font_set_style(font_rid RID, style TextServerFontStyle) {
+pub fn (r &TextServer) font_set_style(font_rid RID, style TextServerFontStyle) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_style")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 898466325)
@@ -413,7 +413,7 @@ pub fn (r &TextServer) font_get_style(font_rid RID) TextServerFontStyle {
     fnname.deinit()
    return unsafe{TextServerFontStyle(object_out)}
 }
-pub fn (mut r TextServer) font_set_name(font_rid RID, name string) {
+pub fn (r &TextServer) font_set_name(font_rid RID, name string) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2726140452)
@@ -452,7 +452,7 @@ pub fn (r &TextServer) font_get_ot_name_strings(font_rid RID) Dictionary {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) font_set_style_name(font_rid RID, name string) {
+pub fn (r &TextServer) font_set_style_name(font_rid RID, name string) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_style_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2726140452)
@@ -479,7 +479,7 @@ pub fn (r &TextServer) font_get_style_name(font_rid RID) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r TextServer) font_set_weight(font_rid RID, weight i64) {
+pub fn (r &TextServer) font_set_weight(font_rid RID, weight i64) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_weight")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -502,7 +502,7 @@ pub fn (r &TextServer) font_get_weight(font_rid RID) i64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) font_set_stretch(font_rid RID, weight i64) {
+pub fn (r &TextServer) font_set_stretch(font_rid RID, weight i64) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_stretch")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -525,7 +525,7 @@ pub fn (r &TextServer) font_get_stretch(font_rid RID) i64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) font_set_antialiasing(font_rid RID, antialiasing TextServerFontAntialiasing) {
+pub fn (r &TextServer) font_set_antialiasing(font_rid RID, antialiasing TextServerFontAntialiasing) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_antialiasing")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 958337235)
@@ -549,7 +549,7 @@ pub fn (r &TextServer) font_get_antialiasing(font_rid RID) TextServerFontAntiali
     fnname.deinit()
    return unsafe{TextServerFontAntialiasing(object_out)}
 }
-pub fn (mut r TextServer) font_set_generate_mipmaps(font_rid RID, generate_mipmaps bool) {
+pub fn (r &TextServer) font_set_generate_mipmaps(font_rid RID, generate_mipmaps bool) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_generate_mipmaps")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -572,7 +572,7 @@ pub fn (r &TextServer) font_get_generate_mipmaps(font_rid RID) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) font_set_multichannel_signed_distance_field(font_rid RID, msdf bool) {
+pub fn (r &TextServer) font_set_multichannel_signed_distance_field(font_rid RID, msdf bool) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_multichannel_signed_distance_field")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -595,7 +595,7 @@ pub fn (r &TextServer) font_is_multichannel_signed_distance_field(font_rid RID) 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) font_set_msdf_pixel_range(font_rid RID, msdf_pixel_range i64) {
+pub fn (r &TextServer) font_set_msdf_pixel_range(font_rid RID, msdf_pixel_range i64) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_msdf_pixel_range")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -618,7 +618,7 @@ pub fn (r &TextServer) font_get_msdf_pixel_range(font_rid RID) i64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) font_set_msdf_size(font_rid RID, msdf_size i64) {
+pub fn (r &TextServer) font_set_msdf_size(font_rid RID, msdf_size i64) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_msdf_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -641,7 +641,7 @@ pub fn (r &TextServer) font_get_msdf_size(font_rid RID) i64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) font_set_fixed_size(font_rid RID, fixed_size i64) {
+pub fn (r &TextServer) font_set_fixed_size(font_rid RID, fixed_size i64) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_fixed_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -664,7 +664,7 @@ pub fn (r &TextServer) font_get_fixed_size(font_rid RID) i64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) font_set_fixed_size_scale_mode(font_rid RID, fixed_size_scale_mode TextServerFixedSizeScaleMode) {
+pub fn (r &TextServer) font_set_fixed_size_scale_mode(font_rid RID, fixed_size_scale_mode TextServerFixedSizeScaleMode) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_fixed_size_scale_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1029390307)
@@ -688,7 +688,7 @@ pub fn (r &TextServer) font_get_fixed_size_scale_mode(font_rid RID) TextServerFi
     fnname.deinit()
    return unsafe{TextServerFixedSizeScaleMode(object_out)}
 }
-pub fn (mut r TextServer) font_set_allow_system_fallback(font_rid RID, allow_system_fallback bool) {
+pub fn (r &TextServer) font_set_allow_system_fallback(font_rid RID, allow_system_fallback bool) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_allow_system_fallback")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -711,7 +711,7 @@ pub fn (r &TextServer) font_is_allow_system_fallback(font_rid RID) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) font_set_force_autohinter(font_rid RID, force_autohinter bool) {
+pub fn (r &TextServer) font_set_force_autohinter(font_rid RID, force_autohinter bool) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_force_autohinter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -734,7 +734,7 @@ pub fn (r &TextServer) font_is_force_autohinter(font_rid RID) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) font_set_hinting(font_rid RID, hinting TextServerHinting) {
+pub fn (r &TextServer) font_set_hinting(font_rid RID, hinting TextServerHinting) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_hinting")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1520010864)
@@ -758,7 +758,7 @@ pub fn (r &TextServer) font_get_hinting(font_rid RID) TextServerHinting {
     fnname.deinit()
    return unsafe{TextServerHinting(object_out)}
 }
-pub fn (mut r TextServer) font_set_subpixel_positioning(font_rid RID, subpixel_positioning TextServerSubpixelPositioning) {
+pub fn (r &TextServer) font_set_subpixel_positioning(font_rid RID, subpixel_positioning TextServerSubpixelPositioning) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_subpixel_positioning")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3830459669)
@@ -782,7 +782,7 @@ pub fn (r &TextServer) font_get_subpixel_positioning(font_rid RID) TextServerSub
     fnname.deinit()
    return unsafe{TextServerSubpixelPositioning(object_out)}
 }
-pub fn (mut r TextServer) font_set_embolden(font_rid RID, strength f64) {
+pub fn (r &TextServer) font_set_embolden(font_rid RID, strength f64) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_embolden")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -805,7 +805,7 @@ pub fn (r &TextServer) font_get_embolden(font_rid RID) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) font_set_spacing(font_rid RID, spacing TextServerSpacingType, value i64) {
+pub fn (r &TextServer) font_set_spacing(font_rid RID, spacing TextServerSpacingType, value i64) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_spacing")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1307259930)
@@ -832,7 +832,7 @@ pub fn (r &TextServer) font_get_spacing(font_rid RID, spacing TextServerSpacingT
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) font_set_transform(font_rid RID, transform Transform2D) {
+pub fn (r &TextServer) font_set_transform(font_rid RID, transform Transform2D) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1246044741)
@@ -855,7 +855,7 @@ pub fn (r &TextServer) font_get_transform(font_rid RID) Transform2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) font_set_variation_coordinates(font_rid RID, variation_coordinates Dictionary) {
+pub fn (r &TextServer) font_set_variation_coordinates(font_rid RID, variation_coordinates Dictionary) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_variation_coordinates")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1217542888)
@@ -878,7 +878,7 @@ pub fn (r &TextServer) font_get_variation_coordinates(font_rid RID) Dictionary {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) font_set_oversampling(font_rid RID, oversampling f64) {
+pub fn (r &TextServer) font_set_oversampling(font_rid RID, oversampling f64) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_oversampling")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -913,7 +913,7 @@ pub fn (r &TextServer) font_get_size_cache_list(font_rid RID) Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) font_clear_size_cache(font_rid RID) {
+pub fn (r &TextServer) font_clear_size_cache(font_rid RID) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_clear_size_cache")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)
@@ -923,7 +923,7 @@ pub fn (mut r TextServer) font_clear_size_cache(font_rid RID) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextServer) font_remove_size_cache(font_rid RID, size Vector2i) {
+pub fn (r &TextServer) font_remove_size_cache(font_rid RID, size Vector2i) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_remove_size_cache")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2450610377)
@@ -934,7 +934,7 @@ pub fn (mut r TextServer) font_remove_size_cache(font_rid RID, size Vector2i) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextServer) font_set_ascent(font_rid RID, size i64, ascent f64) {
+pub fn (r &TextServer) font_set_ascent(font_rid RID, size i64, ascent f64) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_ascent")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1892459533)
@@ -959,7 +959,7 @@ pub fn (r &TextServer) font_get_ascent(font_rid RID, size i64) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) font_set_descent(font_rid RID, size i64, descent f64) {
+pub fn (r &TextServer) font_set_descent(font_rid RID, size i64, descent f64) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_descent")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1892459533)
@@ -984,7 +984,7 @@ pub fn (r &TextServer) font_get_descent(font_rid RID, size i64) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) font_set_underline_position(font_rid RID, size i64, underline_position f64) {
+pub fn (r &TextServer) font_set_underline_position(font_rid RID, size i64, underline_position f64) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_underline_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1892459533)
@@ -1009,7 +1009,7 @@ pub fn (r &TextServer) font_get_underline_position(font_rid RID, size i64) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) font_set_underline_thickness(font_rid RID, size i64, underline_thickness f64) {
+pub fn (r &TextServer) font_set_underline_thickness(font_rid RID, size i64, underline_thickness f64) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_underline_thickness")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1892459533)
@@ -1034,7 +1034,7 @@ pub fn (r &TextServer) font_get_underline_thickness(font_rid RID, size i64) f64 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) font_set_scale(font_rid RID, size i64, scale f64) {
+pub fn (r &TextServer) font_set_scale(font_rid RID, size i64, scale f64) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1892459533)
@@ -1072,7 +1072,7 @@ pub fn (r &TextServer) font_get_texture_count(font_rid RID, size Vector2i) i64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) font_clear_textures(font_rid RID, size Vector2i) {
+pub fn (r &TextServer) font_clear_textures(font_rid RID, size Vector2i) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_clear_textures")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2450610377)
@@ -1083,7 +1083,7 @@ pub fn (mut r TextServer) font_clear_textures(font_rid RID, size Vector2i) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextServer) font_remove_texture(font_rid RID, size Vector2i, texture_index i64) {
+pub fn (r &TextServer) font_remove_texture(font_rid RID, size Vector2i, texture_index i64) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_remove_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3810512262)
@@ -1095,7 +1095,7 @@ pub fn (mut r TextServer) font_remove_texture(font_rid RID, size Vector2i, textu
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextServer) font_set_texture_image(font_rid RID, size Vector2i, texture_index i64, image Image) {
+pub fn (r &TextServer) font_set_texture_image(font_rid RID, size Vector2i, texture_index i64, image Image) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_texture_image")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2354485091)
@@ -1122,7 +1122,7 @@ pub fn (r &TextServer) font_get_texture_image(font_rid RID, size Vector2i, textu
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) font_set_texture_offsets(font_rid RID, size Vector2i, texture_index i64, offset PackedInt32Array) {
+pub fn (r &TextServer) font_set_texture_offsets(font_rid RID, size Vector2i, texture_index i64, offset PackedInt32Array) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_texture_offsets")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3005398047)
@@ -1162,7 +1162,7 @@ pub fn (r &TextServer) font_get_glyph_list(font_rid RID, size Vector2i) PackedIn
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) font_clear_glyphs(font_rid RID, size Vector2i) {
+pub fn (r &TextServer) font_clear_glyphs(font_rid RID, size Vector2i) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_clear_glyphs")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2450610377)
@@ -1173,7 +1173,7 @@ pub fn (mut r TextServer) font_clear_glyphs(font_rid RID, size Vector2i) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextServer) font_remove_glyph(font_rid RID, size Vector2i, glyph i64) {
+pub fn (r &TextServer) font_remove_glyph(font_rid RID, size Vector2i, glyph i64) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_remove_glyph")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3810512262)
@@ -1199,7 +1199,7 @@ pub fn (r &TextServer) font_get_glyph_advance(font_rid RID, size i64, glyph i64)
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) font_set_glyph_advance(font_rid RID, size i64, glyph i64, advance Vector2) {
+pub fn (r &TextServer) font_set_glyph_advance(font_rid RID, size i64, glyph i64, advance Vector2) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_glyph_advance")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3219397315)
@@ -1226,7 +1226,7 @@ pub fn (r &TextServer) font_get_glyph_offset(font_rid RID, size Vector2i, glyph 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) font_set_glyph_offset(font_rid RID, size Vector2i, glyph i64, offset Vector2) {
+pub fn (r &TextServer) font_set_glyph_offset(font_rid RID, size Vector2i, glyph i64, offset Vector2) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_glyph_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1812632090)
@@ -1253,7 +1253,7 @@ pub fn (r &TextServer) font_get_glyph_size(font_rid RID, size Vector2i, glyph i6
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) font_set_glyph_size(font_rid RID, size Vector2i, glyph i64, gl_size Vector2) {
+pub fn (r &TextServer) font_set_glyph_size(font_rid RID, size Vector2i, glyph i64, gl_size Vector2) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_glyph_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1812632090)
@@ -1280,7 +1280,7 @@ pub fn (r &TextServer) font_get_glyph_uv_rect(font_rid RID, size Vector2i, glyph
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) font_set_glyph_uv_rect(font_rid RID, size Vector2i, glyph i64, uv_rect Rect2) {
+pub fn (r &TextServer) font_set_glyph_uv_rect(font_rid RID, size Vector2i, glyph i64, uv_rect Rect2) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_glyph_uv_rect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1973324081)
@@ -1307,7 +1307,7 @@ pub fn (r &TextServer) font_get_glyph_texture_idx(font_rid RID, size Vector2i, g
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) font_set_glyph_texture_idx(font_rid RID, size Vector2i, glyph i64, texture_idx i64) {
+pub fn (r &TextServer) font_set_glyph_texture_idx(font_rid RID, size Vector2i, glyph i64, texture_idx i64) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_glyph_texture_idx")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4254580980)
@@ -1375,7 +1375,7 @@ pub fn (r &TextServer) font_get_kerning_list(font_rid RID, size i64) Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) font_clear_kerning_map(font_rid RID, size i64) {
+pub fn (r &TextServer) font_clear_kerning_map(font_rid RID, size i64) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_clear_kerning_map")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -1386,7 +1386,7 @@ pub fn (mut r TextServer) font_clear_kerning_map(font_rid RID, size i64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextServer) font_remove_kerning(font_rid RID, size i64, glyph_pair Vector2i) {
+pub fn (r &TextServer) font_remove_kerning(font_rid RID, size i64, glyph_pair Vector2i) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_remove_kerning")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2141860016)
@@ -1398,7 +1398,7 @@ pub fn (mut r TextServer) font_remove_kerning(font_rid RID, size i64, glyph_pair
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextServer) font_set_kerning(font_rid RID, size i64, glyph_pair Vector2i, kerning Vector2) {
+pub fn (r &TextServer) font_set_kerning(font_rid RID, size i64, glyph_pair Vector2i, kerning Vector2) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_kerning")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3630965883)
@@ -1481,7 +1481,7 @@ pub fn (r &TextServer) font_get_supported_chars(font_rid RID) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r TextServer) font_render_range(font_rid RID, size Vector2i, start i64, end i64) {
+pub fn (r &TextServer) font_render_range(font_rid RID, size Vector2i, start i64, end i64) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_render_range")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4254580980)
@@ -1494,7 +1494,7 @@ pub fn (mut r TextServer) font_render_range(font_rid RID, size Vector2i, start i
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextServer) font_render_glyph(font_rid RID, size Vector2i, index i64) {
+pub fn (r &TextServer) font_render_glyph(font_rid RID, size Vector2i, index i64) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_render_glyph")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3810512262)
@@ -1552,7 +1552,7 @@ pub fn (r &TextServer) font_is_language_supported(font_rid RID, language string)
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) font_set_language_support_override(font_rid RID, language string, supported bool) {
+pub fn (r &TextServer) font_set_language_support_override(font_rid RID, language string, supported bool) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_language_support_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2313957094)
@@ -1566,7 +1566,7 @@ pub fn (mut r TextServer) font_set_language_support_override(font_rid RID, langu
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextServer) font_get_language_support_override(font_rid RID, language string) bool {
+pub fn (r &TextServer) font_get_language_support_override(font_rid RID, language string) bool {
     mut object_out := false
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_get_language_support_override")
@@ -1581,7 +1581,7 @@ pub fn (mut r TextServer) font_get_language_support_override(font_rid RID, langu
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) font_remove_language_support_override(font_rid RID, language string) {
+pub fn (r &TextServer) font_remove_language_support_override(font_rid RID, language string) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_remove_language_support_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2726140452)
@@ -1594,7 +1594,7 @@ pub fn (mut r TextServer) font_remove_language_support_override(font_rid RID, la
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextServer) font_get_language_support_overrides(font_rid RID) PackedStringArray {
+pub fn (r &TextServer) font_get_language_support_overrides(font_rid RID) PackedStringArray {
     mut object_out := PackedStringArray{}
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_get_language_support_overrides")
@@ -1621,7 +1621,7 @@ pub fn (r &TextServer) font_is_script_supported(font_rid RID, script string) boo
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) font_set_script_support_override(font_rid RID, script string, supported bool) {
+pub fn (r &TextServer) font_set_script_support_override(font_rid RID, script string, supported bool) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_script_support_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2313957094)
@@ -1635,7 +1635,7 @@ pub fn (mut r TextServer) font_set_script_support_override(font_rid RID, script 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextServer) font_get_script_support_override(font_rid RID, script string) bool {
+pub fn (r &TextServer) font_get_script_support_override(font_rid RID, script string) bool {
     mut object_out := false
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_get_script_support_override")
@@ -1650,7 +1650,7 @@ pub fn (mut r TextServer) font_get_script_support_override(font_rid RID, script 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) font_remove_script_support_override(font_rid RID, script string) {
+pub fn (r &TextServer) font_remove_script_support_override(font_rid RID, script string) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_remove_script_support_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2726140452)
@@ -1663,7 +1663,7 @@ pub fn (mut r TextServer) font_remove_script_support_override(font_rid RID, scri
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextServer) font_get_script_support_overrides(font_rid RID) PackedStringArray {
+pub fn (r &TextServer) font_get_script_support_overrides(font_rid RID) PackedStringArray {
     mut object_out := PackedStringArray{}
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_get_script_support_overrides")
@@ -1675,7 +1675,7 @@ pub fn (mut r TextServer) font_get_script_support_overrides(font_rid RID) Packed
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) font_set_opentype_feature_overrides(font_rid RID, overrides Dictionary) {
+pub fn (r &TextServer) font_set_opentype_feature_overrides(font_rid RID, overrides Dictionary) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_opentype_feature_overrides")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1217542888)
@@ -1732,7 +1732,7 @@ pub fn (r &TextServer) font_get_global_oversampling() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) font_set_global_oversampling(oversampling f64) {
+pub fn (r &TextServer) font_set_global_oversampling(oversampling f64) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("font_set_global_oversampling")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -1769,7 +1769,7 @@ pub fn (r &TextServer) draw_hex_code_box(canvas RID, size i64, pos Vector2, inde
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextServer) create_shaped_text(direction TextServerDirection, orientation TextServerOrientation) RID {
+pub fn (r &TextServer) create_shaped_text(direction TextServerDirection, orientation TextServerOrientation) RID {
     mut object_out := RID{}
     classname := StringName.new("TextServer")
     fnname := StringName.new("create_shaped_text")
@@ -1784,7 +1784,7 @@ pub fn (mut r TextServer) create_shaped_text(direction TextServerDirection, orie
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) shaped_text_clear(rid RID) {
+pub fn (r &TextServer) shaped_text_clear(rid RID) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("shaped_text_clear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)
@@ -1794,7 +1794,7 @@ pub fn (mut r TextServer) shaped_text_clear(rid RID) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextServer) shaped_text_set_direction(shaped RID, direction TextServerDirection) {
+pub fn (r &TextServer) shaped_text_set_direction(shaped RID, direction TextServerDirection) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("shaped_text_set_direction")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1551430183)
@@ -1830,7 +1830,7 @@ pub fn (r &TextServer) shaped_text_get_inferred_direction(shaped RID) TextServer
     fnname.deinit()
    return unsafe{TextServerDirection(object_out)}
 }
-pub fn (mut r TextServer) shaped_text_set_bidi_override(shaped RID, override Array) {
+pub fn (r &TextServer) shaped_text_set_bidi_override(shaped RID, override Array) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("shaped_text_set_bidi_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 684822712)
@@ -1841,7 +1841,7 @@ pub fn (mut r TextServer) shaped_text_set_bidi_override(shaped RID, override Arr
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextServer) shaped_text_set_custom_punctuation(shaped RID, punct string) {
+pub fn (r &TextServer) shaped_text_set_custom_punctuation(shaped RID, punct string) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("shaped_text_set_custom_punctuation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2726140452)
@@ -1868,7 +1868,7 @@ pub fn (r &TextServer) shaped_text_get_custom_punctuation(shaped RID) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r TextServer) shaped_text_set_orientation(shaped RID, orientation TextServerOrientation) {
+pub fn (r &TextServer) shaped_text_set_orientation(shaped RID, orientation TextServerOrientation) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("shaped_text_set_orientation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3019609126)
@@ -1892,7 +1892,7 @@ pub fn (r &TextServer) shaped_text_get_orientation(shaped RID) TextServerOrienta
     fnname.deinit()
    return unsafe{TextServerOrientation(object_out)}
 }
-pub fn (mut r TextServer) shaped_text_set_preserve_invalid(shaped RID, enabled bool) {
+pub fn (r &TextServer) shaped_text_set_preserve_invalid(shaped RID, enabled bool) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("shaped_text_set_preserve_invalid")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -1915,7 +1915,7 @@ pub fn (r &TextServer) shaped_text_get_preserve_invalid(shaped RID) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) shaped_text_set_preserve_control(shaped RID, enabled bool) {
+pub fn (r &TextServer) shaped_text_set_preserve_control(shaped RID, enabled bool) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("shaped_text_set_preserve_control")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -1938,7 +1938,7 @@ pub fn (r &TextServer) shaped_text_get_preserve_control(shaped RID) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) shaped_text_set_spacing(shaped RID, spacing TextServerSpacingType, value i64) {
+pub fn (r &TextServer) shaped_text_set_spacing(shaped RID, spacing TextServerSpacingType, value i64) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("shaped_text_set_spacing")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1307259930)
@@ -1965,7 +1965,7 @@ pub fn (r &TextServer) shaped_text_get_spacing(shaped RID, spacing TextServerSpa
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) shaped_text_add_string(shaped RID, text string, fonts Array, size i64, opentype_features Dictionary, language string, meta Variant) bool {
+pub fn (r &TextServer) shaped_text_add_string(shaped RID, text string, fonts Array, size i64, opentype_features Dictionary, language string, meta Variant) bool {
     mut object_out := false
     classname := StringName.new("TextServer")
     fnname := StringName.new("shaped_text_add_string")
@@ -1987,7 +1987,7 @@ pub fn (mut r TextServer) shaped_text_add_string(shaped RID, text string, fonts 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) shaped_text_add_object(shaped RID, key Variant, size Vector2, inline_align InlineAlignment, length i64, baseline f64) bool {
+pub fn (r &TextServer) shaped_text_add_object(shaped RID, key Variant, size Vector2, inline_align InlineAlignment, length i64, baseline f64) bool {
     mut object_out := false
     classname := StringName.new("TextServer")
     fnname := StringName.new("shaped_text_add_object")
@@ -2005,7 +2005,7 @@ pub fn (mut r TextServer) shaped_text_add_object(shaped RID, key Variant, size V
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) shaped_text_resize_object(shaped RID, key Variant, size Vector2, inline_align InlineAlignment, baseline f64) bool {
+pub fn (r &TextServer) shaped_text_resize_object(shaped RID, key Variant, size Vector2, inline_align InlineAlignment, baseline f64) bool {
     mut object_out := false
     classname := StringName.new("TextServer")
     fnname := StringName.new("shaped_text_resize_object")
@@ -2047,7 +2047,7 @@ pub fn (r &TextServer) shaped_get_span_meta(shaped RID, index i64) Variant {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) shaped_set_span_update_font(shaped RID, index i64, fonts Array, size i64, opentype_features Dictionary) {
+pub fn (r &TextServer) shaped_set_span_update_font(shaped RID, index i64, fonts Array, size i64, opentype_features Dictionary) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("shaped_set_span_update_font")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2022725822)
@@ -2087,7 +2087,7 @@ pub fn (r &TextServer) shaped_text_get_parent(shaped RID) RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) shaped_text_fit_to_width(shaped RID, width f64, justification_flags TextServerJustificationFlag) f64 {
+pub fn (r &TextServer) shaped_text_fit_to_width(shaped RID, width f64, justification_flags TextServerJustificationFlag) f64 {
     mut object_out := f64(0)
     classname := StringName.new("TextServer")
     fnname := StringName.new("shaped_text_fit_to_width")
@@ -2102,7 +2102,7 @@ pub fn (mut r TextServer) shaped_text_fit_to_width(shaped RID, width f64, justif
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) shaped_text_tab_align(shaped RID, tab_stops PackedFloat32Array) f64 {
+pub fn (r &TextServer) shaped_text_tab_align(shaped RID, tab_stops PackedFloat32Array) f64 {
     mut object_out := f64(0)
     classname := StringName.new("TextServer")
     fnname := StringName.new("shaped_text_tab_align")
@@ -2115,7 +2115,7 @@ pub fn (mut r TextServer) shaped_text_tab_align(shaped RID, tab_stops PackedFloa
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) shaped_text_shape(shaped RID) bool {
+pub fn (r &TextServer) shaped_text_shape(shaped RID) bool {
     mut object_out := false
     classname := StringName.new("TextServer")
     fnname := StringName.new("shaped_text_shape")
@@ -2163,7 +2163,7 @@ pub fn (r &TextServer) shaped_text_get_glyphs(shaped RID) Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) shaped_text_sort_logical(shaped RID) Array {
+pub fn (r &TextServer) shaped_text_sort_logical(shaped RID) Array {
     mut object_out := Array{}
     classname := StringName.new("TextServer")
     fnname := StringName.new("shaped_text_sort_logical")
@@ -2294,7 +2294,7 @@ pub fn (r &TextServer) shaped_text_get_ellipsis_glyph_count(shaped RID) i64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServer) shaped_text_overrun_trim_to_width(shaped RID, width f64, overrun_trim_flags TextServerTextOverrunFlag) {
+pub fn (r &TextServer) shaped_text_overrun_trim_to_width(shaped RID, width f64, overrun_trim_flags TextServerTextOverrunFlag) {
     classname := StringName.new("TextServer")
     fnname := StringName.new("shaped_text_overrun_trim_to_width")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2723146520)

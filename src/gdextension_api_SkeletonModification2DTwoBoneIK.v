@@ -5,7 +5,7 @@ pub struct SkeletonModification2DTwoBoneIK {
     SkeletonModification2D
 }
 
-pub fn (mut r SkeletonModification2DTwoBoneIK) set_target_node(target_nodepath NodePath) {
+pub fn (r &SkeletonModification2DTwoBoneIK) set_target_node(target_nodepath NodePath) {
     classname := StringName.new("SkeletonModification2DTwoBoneIK")
     fnname := StringName.new("set_target_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1348162250)
@@ -25,7 +25,7 @@ pub fn (r &SkeletonModification2DTwoBoneIK) get_target_node() NodePath {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonModification2DTwoBoneIK) set_target_minimum_distance(minimum_distance f64) {
+pub fn (r &SkeletonModification2DTwoBoneIK) set_target_minimum_distance(minimum_distance f64) {
     classname := StringName.new("SkeletonModification2DTwoBoneIK")
     fnname := StringName.new("set_target_minimum_distance")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -45,7 +45,7 @@ pub fn (r &SkeletonModification2DTwoBoneIK) get_target_minimum_distance() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonModification2DTwoBoneIK) set_target_maximum_distance(maximum_distance f64) {
+pub fn (r &SkeletonModification2DTwoBoneIK) set_target_maximum_distance(maximum_distance f64) {
     classname := StringName.new("SkeletonModification2DTwoBoneIK")
     fnname := StringName.new("set_target_maximum_distance")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -65,7 +65,7 @@ pub fn (r &SkeletonModification2DTwoBoneIK) get_target_maximum_distance() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonModification2DTwoBoneIK) set_flip_bend_direction(flip_direction bool) {
+pub fn (r &SkeletonModification2DTwoBoneIK) set_flip_bend_direction(flip_direction bool) {
     classname := StringName.new("SkeletonModification2DTwoBoneIK")
     fnname := StringName.new("set_flip_bend_direction")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -85,7 +85,7 @@ pub fn (r &SkeletonModification2DTwoBoneIK) get_flip_bend_direction() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonModification2DTwoBoneIK) set_joint_one_bone2d_node(bone2d_node NodePath) {
+pub fn (r &SkeletonModification2DTwoBoneIK) set_joint_one_bone2d_node(bone2d_node NodePath) {
     classname := StringName.new("SkeletonModification2DTwoBoneIK")
     fnname := StringName.new("set_joint_one_bone2d_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1348162250)
@@ -105,7 +105,7 @@ pub fn (r &SkeletonModification2DTwoBoneIK) get_joint_one_bone2d_node() NodePath
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonModification2DTwoBoneIK) set_joint_one_bone_idx(bone_idx i32) {
+pub fn (r &SkeletonModification2DTwoBoneIK) set_joint_one_bone_idx(bone_idx i32) {
     classname := StringName.new("SkeletonModification2DTwoBoneIK")
     fnname := StringName.new("set_joint_one_bone_idx")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -125,7 +125,7 @@ pub fn (r &SkeletonModification2DTwoBoneIK) get_joint_one_bone_idx() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonModification2DTwoBoneIK) set_joint_two_bone2d_node(bone2d_node NodePath) {
+pub fn (r &SkeletonModification2DTwoBoneIK) set_joint_two_bone2d_node(bone2d_node NodePath) {
     classname := StringName.new("SkeletonModification2DTwoBoneIK")
     fnname := StringName.new("set_joint_two_bone2d_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1348162250)
@@ -145,7 +145,7 @@ pub fn (r &SkeletonModification2DTwoBoneIK) get_joint_two_bone2d_node() NodePath
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonModification2DTwoBoneIK) set_joint_two_bone_idx(bone_idx i32) {
+pub fn (r &SkeletonModification2DTwoBoneIK) set_joint_two_bone_idx(bone_idx i32) {
     classname := StringName.new("SkeletonModification2DTwoBoneIK")
     fnname := StringName.new("set_joint_two_bone_idx")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

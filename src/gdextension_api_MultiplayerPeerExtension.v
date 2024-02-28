@@ -10,7 +10,7 @@ pub interface IMultiplayerPeerExtensionGetPacket {
     virt_get_packet(r_buffer &&u8 , r_buffer_size &i32) GDError
 }
 
-pub fn (mut r MultiplayerPeerExtension) uget_packet(r_buffer &&u8 , r_buffer_size &i32) GDError {
+pub fn (r &MultiplayerPeerExtension) uget_packet(r_buffer &&u8 , r_buffer_size &i32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("MultiplayerPeerExtension")
     fnname := StringName.new("_get_packet")
@@ -28,7 +28,7 @@ pub interface IMultiplayerPeerExtensionPutPacket {
     virt_put_packet(p_buffer &u8, p_buffer_size i32) GDError
 }
 
-pub fn (mut r MultiplayerPeerExtension) uput_packet(p_buffer &u8, p_buffer_size i32) GDError {
+pub fn (r &MultiplayerPeerExtension) uput_packet(p_buffer &u8, p_buffer_size i32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("MultiplayerPeerExtension")
     fnname := StringName.new("_put_packet")
@@ -76,7 +76,7 @@ pub interface IMultiplayerPeerExtensionGetPacketScript {
     virt_get_packet_script() PackedByteArray
 }
 
-pub fn (mut r MultiplayerPeerExtension) uget_packet_script() PackedByteArray {
+pub fn (r &MultiplayerPeerExtension) uget_packet_script() PackedByteArray {
     mut object_out := PackedByteArray{}
     classname := StringName.new("MultiplayerPeerExtension")
     fnname := StringName.new("_get_packet_script")
@@ -91,7 +91,7 @@ pub interface IMultiplayerPeerExtensionPutPacketScript {
     virt_put_packet_script(p_buffer PackedByteArray) GDError
 }
 
-pub fn (mut r MultiplayerPeerExtension) uput_packet_script(p_buffer PackedByteArray) GDError {
+pub fn (r &MultiplayerPeerExtension) uput_packet_script(p_buffer PackedByteArray) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("MultiplayerPeerExtension")
     fnname := StringName.new("_put_packet_script")
@@ -138,7 +138,7 @@ pub interface IMultiplayerPeerExtensionSetTransferChannel {
     virt_set_transfer_channel(p_channel i32)
 }
 
-pub fn (mut r MultiplayerPeerExtension) uset_transfer_channel(p_channel i32) {
+pub fn (r &MultiplayerPeerExtension) uset_transfer_channel(p_channel i32) {
     classname := StringName.new("MultiplayerPeerExtension")
     fnname := StringName.new("_set_transfer_channel")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -168,7 +168,7 @@ pub interface IMultiplayerPeerExtensionSetTransferMode {
     virt_set_transfer_mode(p_mode MultiplayerPeerTransferMode)
 }
 
-pub fn (mut r MultiplayerPeerExtension) uset_transfer_mode(p_mode MultiplayerPeerTransferMode) {
+pub fn (r &MultiplayerPeerExtension) uset_transfer_mode(p_mode MultiplayerPeerTransferMode) {
     classname := StringName.new("MultiplayerPeerExtension")
     fnname := StringName.new("_set_transfer_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -199,7 +199,7 @@ pub interface IMultiplayerPeerExtensionSetTargetPeer {
     virt_set_target_peer(p_peer i32)
 }
 
-pub fn (mut r MultiplayerPeerExtension) uset_target_peer(p_peer i32) {
+pub fn (r &MultiplayerPeerExtension) uset_target_peer(p_peer i32) {
     classname := StringName.new("MultiplayerPeerExtension")
     fnname := StringName.new("_set_target_peer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -244,7 +244,7 @@ pub interface IMultiplayerPeerExtensionPoll {
     virt_poll()
 }
 
-pub fn (mut r MultiplayerPeerExtension) upoll() {
+pub fn (r &MultiplayerPeerExtension) upoll() {
     classname := StringName.new("MultiplayerPeerExtension")
     fnname := StringName.new("_poll")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -257,7 +257,7 @@ pub interface IMultiplayerPeerExtensionClose {
     virt_close()
 }
 
-pub fn (mut r MultiplayerPeerExtension) uclose() {
+pub fn (r &MultiplayerPeerExtension) uclose() {
     classname := StringName.new("MultiplayerPeerExtension")
     fnname := StringName.new("_close")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -270,7 +270,7 @@ pub interface IMultiplayerPeerExtensionDisconnectPeer {
     virt_disconnect_peer(p_peer i32, p_force bool)
 }
 
-pub fn (mut r MultiplayerPeerExtension) udisconnect_peer(p_peer i32, p_force bool) {
+pub fn (r &MultiplayerPeerExtension) udisconnect_peer(p_peer i32, p_force bool) {
     classname := StringName.new("MultiplayerPeerExtension")
     fnname := StringName.new("_disconnect_peer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -301,7 +301,7 @@ pub interface IMultiplayerPeerExtensionSetRefuseNewConnections {
     virt_set_refuse_new_connections(p_enable bool)
 }
 
-pub fn (mut r MultiplayerPeerExtension) uset_refuse_new_connections(p_enable bool) {
+pub fn (r &MultiplayerPeerExtension) uset_refuse_new_connections(p_enable bool) {
     classname := StringName.new("MultiplayerPeerExtension")
     fnname := StringName.new("_set_refuse_new_connections")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)

@@ -5,7 +5,7 @@ pub struct VisualShaderNodeComment {
     VisualShaderNodeResizableBase
 }
 
-pub fn (mut r VisualShaderNodeComment) set_title(title string) {
+pub fn (r &VisualShaderNodeComment) set_title(title string) {
     classname := StringName.new("VisualShaderNodeComment")
     fnname := StringName.new("set_title")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -29,7 +29,7 @@ pub fn (r &VisualShaderNodeComment) get_title() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r VisualShaderNodeComment) set_description(description string) {
+pub fn (r &VisualShaderNodeComment) set_description(description string) {
     classname := StringName.new("VisualShaderNodeComment")
     fnname := StringName.new("set_description")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)

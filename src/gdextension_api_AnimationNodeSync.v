@@ -5,7 +5,7 @@ pub struct AnimationNodeSync {
     AnimationNode
 }
 
-pub fn (mut r AnimationNodeSync) set_use_sync(enable bool) {
+pub fn (r &AnimationNodeSync) set_use_sync(enable bool) {
     classname := StringName.new("AnimationNodeSync")
     fnname := StringName.new("set_use_sync")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

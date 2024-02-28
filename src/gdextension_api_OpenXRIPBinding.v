@@ -5,7 +5,7 @@ pub struct OpenXRIPBinding {
     Resource
 }
 
-pub fn (mut r OpenXRIPBinding) set_action(action OpenXRAction) {
+pub fn (r &OpenXRIPBinding) set_action(action OpenXRAction) {
     classname := StringName.new("OpenXRIPBinding")
     fnname := StringName.new("set_action")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 349361333)
@@ -35,7 +35,7 @@ pub fn (r &OpenXRIPBinding) get_path_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OpenXRIPBinding) set_paths(paths PackedStringArray) {
+pub fn (r &OpenXRIPBinding) set_paths(paths PackedStringArray) {
     classname := StringName.new("OpenXRIPBinding")
     fnname := StringName.new("set_paths")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4015028928)
@@ -69,7 +69,7 @@ pub fn (r &OpenXRIPBinding) has_path(path string) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OpenXRIPBinding) add_path(path string) {
+pub fn (r &OpenXRIPBinding) add_path(path string) {
     classname := StringName.new("OpenXRIPBinding")
     fnname := StringName.new("add_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -81,7 +81,7 @@ pub fn (mut r OpenXRIPBinding) add_path(path string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r OpenXRIPBinding) remove_path(path string) {
+pub fn (r &OpenXRIPBinding) remove_path(path string) {
     classname := StringName.new("OpenXRIPBinding")
     fnname := StringName.new("remove_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)

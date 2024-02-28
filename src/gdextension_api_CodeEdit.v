@@ -30,7 +30,7 @@ pub interface ICodeEditConfirmCodeCompletion {
     virt_confirm_code_completion(replace bool)
 }
 
-pub fn (mut r CodeEdit) uconfirm_code_completion(replace bool) {
+pub fn (r &CodeEdit) uconfirm_code_completion(replace bool) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("_confirm_code_completion")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -45,7 +45,7 @@ pub interface ICodeEditRequestCodeCompletion {
     virt_request_code_completion(force bool)
 }
 
-pub fn (mut r CodeEdit) urequest_code_completion(force bool) {
+pub fn (r &CodeEdit) urequest_code_completion(force bool) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("_request_code_completion")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -72,7 +72,7 @@ pub fn (r &CodeEdit) ufilter_code_completion_candidates(candidates Array) Array 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeEdit) set_indent_size(size i32) {
+pub fn (r &CodeEdit) set_indent_size(size i32) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("set_indent_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -92,7 +92,7 @@ pub fn (r &CodeEdit) get_indent_size() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeEdit) set_indent_using_spaces(use_spaces bool) {
+pub fn (r &CodeEdit) set_indent_using_spaces(use_spaces bool) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("set_indent_using_spaces")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -112,7 +112,7 @@ pub fn (r &CodeEdit) is_indent_using_spaces() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeEdit) set_auto_indent_enabled(enable bool) {
+pub fn (r &CodeEdit) set_auto_indent_enabled(enable bool) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("set_auto_indent_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -132,7 +132,7 @@ pub fn (r &CodeEdit) is_auto_indent_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeEdit) set_auto_indent_prefixes(prefixes Array) {
+pub fn (r &CodeEdit) set_auto_indent_prefixes(prefixes Array) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("set_auto_indent_prefixes")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)
@@ -152,7 +152,7 @@ pub fn (r &CodeEdit) get_auto_indent_prefixes() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeEdit) do_indent() {
+pub fn (r &CodeEdit) do_indent() {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("do_indent")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -160,7 +160,7 @@ pub fn (mut r CodeEdit) do_indent() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CodeEdit) indent_lines() {
+pub fn (r &CodeEdit) indent_lines() {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("indent_lines")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -168,7 +168,7 @@ pub fn (mut r CodeEdit) indent_lines() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CodeEdit) unindent_lines() {
+pub fn (r &CodeEdit) unindent_lines() {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("unindent_lines")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -176,7 +176,7 @@ pub fn (mut r CodeEdit) unindent_lines() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CodeEdit) convert_indent(from_line i32, to_line i32) {
+pub fn (r &CodeEdit) convert_indent(from_line i32, to_line i32) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("convert_indent")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 423910286)
@@ -187,7 +187,7 @@ pub fn (mut r CodeEdit) convert_indent(from_line i32, to_line i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CodeEdit) set_auto_brace_completion_enabled(enable bool) {
+pub fn (r &CodeEdit) set_auto_brace_completion_enabled(enable bool) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("set_auto_brace_completion_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -207,7 +207,7 @@ pub fn (r &CodeEdit) is_auto_brace_completion_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeEdit) set_highlight_matching_braces_enabled(enable bool) {
+pub fn (r &CodeEdit) set_highlight_matching_braces_enabled(enable bool) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("set_highlight_matching_braces_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -227,7 +227,7 @@ pub fn (r &CodeEdit) is_highlight_matching_braces_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeEdit) add_auto_brace_completion_pair(start_key string, end_key string) {
+pub fn (r &CodeEdit) add_auto_brace_completion_pair(start_key string, end_key string) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("add_auto_brace_completion_pair")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3186203200)
@@ -242,7 +242,7 @@ pub fn (mut r CodeEdit) add_auto_brace_completion_pair(start_key string, end_key
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CodeEdit) set_auto_brace_completion_pairs(pairs Dictionary) {
+pub fn (r &CodeEdit) set_auto_brace_completion_pairs(pairs Dictionary) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("set_auto_brace_completion_pairs")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4155329257)
@@ -306,7 +306,7 @@ pub fn (r &CodeEdit) get_auto_brace_completion_close_key(open_key string) string
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r CodeEdit) set_draw_breakpoints_gutter(enable bool) {
+pub fn (r &CodeEdit) set_draw_breakpoints_gutter(enable bool) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("set_draw_breakpoints_gutter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -326,7 +326,7 @@ pub fn (r &CodeEdit) is_drawing_breakpoints_gutter() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeEdit) set_draw_bookmarks_gutter(enable bool) {
+pub fn (r &CodeEdit) set_draw_bookmarks_gutter(enable bool) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("set_draw_bookmarks_gutter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -346,7 +346,7 @@ pub fn (r &CodeEdit) is_drawing_bookmarks_gutter() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeEdit) set_draw_executing_lines_gutter(enable bool) {
+pub fn (r &CodeEdit) set_draw_executing_lines_gutter(enable bool) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("set_draw_executing_lines_gutter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -366,7 +366,7 @@ pub fn (r &CodeEdit) is_drawing_executing_lines_gutter() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeEdit) set_line_as_breakpoint(line i32, breakpointed bool) {
+pub fn (r &CodeEdit) set_line_as_breakpoint(line i32, breakpointed bool) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("set_line_as_breakpoint")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -389,7 +389,7 @@ pub fn (r &CodeEdit) is_line_breakpointed(line i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeEdit) clear_breakpointed_lines() {
+pub fn (r &CodeEdit) clear_breakpointed_lines() {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("clear_breakpointed_lines")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -407,7 +407,7 @@ pub fn (r &CodeEdit) get_breakpointed_lines() PackedInt32Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeEdit) set_line_as_bookmarked(line i32, bookmarked bool) {
+pub fn (r &CodeEdit) set_line_as_bookmarked(line i32, bookmarked bool) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("set_line_as_bookmarked")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -430,7 +430,7 @@ pub fn (r &CodeEdit) is_line_bookmarked(line i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeEdit) clear_bookmarked_lines() {
+pub fn (r &CodeEdit) clear_bookmarked_lines() {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("clear_bookmarked_lines")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -448,7 +448,7 @@ pub fn (r &CodeEdit) get_bookmarked_lines() PackedInt32Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeEdit) set_line_as_executing(line i32, executing bool) {
+pub fn (r &CodeEdit) set_line_as_executing(line i32, executing bool) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("set_line_as_executing")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -471,7 +471,7 @@ pub fn (r &CodeEdit) is_line_executing(line i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeEdit) clear_executing_lines() {
+pub fn (r &CodeEdit) clear_executing_lines() {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("clear_executing_lines")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -489,7 +489,7 @@ pub fn (r &CodeEdit) get_executing_lines() PackedInt32Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeEdit) set_draw_line_numbers(enable bool) {
+pub fn (r &CodeEdit) set_draw_line_numbers(enable bool) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("set_draw_line_numbers")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -509,7 +509,7 @@ pub fn (r &CodeEdit) is_draw_line_numbers_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeEdit) set_line_numbers_zero_padded(enable bool) {
+pub fn (r &CodeEdit) set_line_numbers_zero_padded(enable bool) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("set_line_numbers_zero_padded")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -529,7 +529,7 @@ pub fn (r &CodeEdit) is_line_numbers_zero_padded() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeEdit) set_draw_fold_gutter(enable bool) {
+pub fn (r &CodeEdit) set_draw_fold_gutter(enable bool) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("set_draw_fold_gutter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -549,7 +549,7 @@ pub fn (r &CodeEdit) is_drawing_fold_gutter() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeEdit) set_line_folding_enabled(enabled bool) {
+pub fn (r &CodeEdit) set_line_folding_enabled(enabled bool) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("set_line_folding_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -581,7 +581,7 @@ pub fn (r &CodeEdit) can_fold_line(line i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeEdit) fold_line(line i32) {
+pub fn (r &CodeEdit) fold_line(line i32) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("fold_line")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -591,7 +591,7 @@ pub fn (mut r CodeEdit) fold_line(line i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CodeEdit) unfold_line(line i32) {
+pub fn (r &CodeEdit) unfold_line(line i32) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("unfold_line")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -601,7 +601,7 @@ pub fn (mut r CodeEdit) unfold_line(line i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CodeEdit) fold_all_lines() {
+pub fn (r &CodeEdit) fold_all_lines() {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("fold_all_lines")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -609,7 +609,7 @@ pub fn (mut r CodeEdit) fold_all_lines() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CodeEdit) unfold_all_lines() {
+pub fn (r &CodeEdit) unfold_all_lines() {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("unfold_all_lines")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -617,7 +617,7 @@ pub fn (mut r CodeEdit) unfold_all_lines() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CodeEdit) toggle_foldable_line(line i32) {
+pub fn (r &CodeEdit) toggle_foldable_line(line i32) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("toggle_foldable_line")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -649,7 +649,7 @@ pub fn (r &CodeEdit) get_folded_lines() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeEdit) create_code_region() {
+pub fn (r &CodeEdit) create_code_region() {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("create_code_region")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -681,7 +681,7 @@ pub fn (r &CodeEdit) get_code_region_end_tag() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r CodeEdit) set_code_region_tags(start string, end string) {
+pub fn (r &CodeEdit) set_code_region_tags(start string, end string) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("set_code_region_tags")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 708800718)
@@ -720,7 +720,7 @@ pub fn (r &CodeEdit) is_line_code_region_end(line i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeEdit) add_string_delimiter(start_key string, end_key string, line_only bool) {
+pub fn (r &CodeEdit) add_string_delimiter(start_key string, end_key string, line_only bool) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("add_string_delimiter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3146098955)
@@ -736,7 +736,7 @@ pub fn (mut r CodeEdit) add_string_delimiter(start_key string, end_key string, l
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CodeEdit) remove_string_delimiter(start_key string) {
+pub fn (r &CodeEdit) remove_string_delimiter(start_key string) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("remove_string_delimiter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -762,7 +762,7 @@ pub fn (r &CodeEdit) has_string_delimiter(start_key string) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeEdit) set_string_delimiters(string_delimiters Array) {
+pub fn (r &CodeEdit) set_string_delimiters(string_delimiters Array) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("set_string_delimiters")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)
@@ -772,7 +772,7 @@ pub fn (mut r CodeEdit) set_string_delimiters(string_delimiters Array) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CodeEdit) clear_string_delimiters() {
+pub fn (r &CodeEdit) clear_string_delimiters() {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("clear_string_delimiters")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -803,7 +803,7 @@ pub fn (r &CodeEdit) is_in_string(line i32, column i32) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeEdit) add_comment_delimiter(start_key string, end_key string, line_only bool) {
+pub fn (r &CodeEdit) add_comment_delimiter(start_key string, end_key string, line_only bool) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("add_comment_delimiter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3146098955)
@@ -819,7 +819,7 @@ pub fn (mut r CodeEdit) add_comment_delimiter(start_key string, end_key string, 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CodeEdit) remove_comment_delimiter(start_key string) {
+pub fn (r &CodeEdit) remove_comment_delimiter(start_key string) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("remove_comment_delimiter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -845,7 +845,7 @@ pub fn (r &CodeEdit) has_comment_delimiter(start_key string) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeEdit) set_comment_delimiters(comment_delimiters Array) {
+pub fn (r &CodeEdit) set_comment_delimiters(comment_delimiters Array) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("set_comment_delimiters")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)
@@ -855,7 +855,7 @@ pub fn (mut r CodeEdit) set_comment_delimiters(comment_delimiters Array) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CodeEdit) clear_comment_delimiters() {
+pub fn (r &CodeEdit) clear_comment_delimiters() {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("clear_comment_delimiters")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -940,7 +940,7 @@ pub fn (r &CodeEdit) get_delimiter_end_position(line i32, column i32) Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeEdit) set_code_hint(code_hint string) {
+pub fn (r &CodeEdit) set_code_hint(code_hint string) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("set_code_hint")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -952,7 +952,7 @@ pub fn (mut r CodeEdit) set_code_hint(code_hint string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CodeEdit) set_code_hint_draw_below(draw_below bool) {
+pub fn (r &CodeEdit) set_code_hint_draw_below(draw_below bool) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("set_code_hint_draw_below")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -974,7 +974,7 @@ pub fn (r &CodeEdit) get_text_for_code_completion() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r CodeEdit) request_code_completion(force bool) {
+pub fn (r &CodeEdit) request_code_completion(force bool) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("request_code_completion")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 107499316)
@@ -984,7 +984,7 @@ pub fn (mut r CodeEdit) request_code_completion(force bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CodeEdit) add_code_completion_option(type_name CodeEditCodeCompletionKind, display_text string, insert_text string, text_color Color, icon Resource, value Variant, location i32) {
+pub fn (r &CodeEdit) add_code_completion_option(type_name CodeEditCodeCompletionKind, display_text string, insert_text string, text_color Color, icon Resource, value Variant, location i32) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("add_code_completion_option")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 947964390)
@@ -1005,7 +1005,7 @@ pub fn (mut r CodeEdit) add_code_completion_option(type_name CodeEditCodeComplet
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CodeEdit) update_code_completion_options(force bool) {
+pub fn (r &CodeEdit) update_code_completion_options(force bool) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("update_code_completion_options")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -1047,7 +1047,7 @@ pub fn (r &CodeEdit) get_code_completion_selected_index() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeEdit) set_code_completion_selected_index(index i32) {
+pub fn (r &CodeEdit) set_code_completion_selected_index(index i32) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("set_code_completion_selected_index")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -1057,7 +1057,7 @@ pub fn (mut r CodeEdit) set_code_completion_selected_index(index i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CodeEdit) confirm_code_completion(replace bool) {
+pub fn (r &CodeEdit) confirm_code_completion(replace bool) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("confirm_code_completion")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 107499316)
@@ -1067,7 +1067,7 @@ pub fn (mut r CodeEdit) confirm_code_completion(replace bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CodeEdit) cancel_code_completion() {
+pub fn (r &CodeEdit) cancel_code_completion() {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("cancel_code_completion")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -1075,7 +1075,7 @@ pub fn (mut r CodeEdit) cancel_code_completion() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CodeEdit) set_code_completion_enabled(enable bool) {
+pub fn (r &CodeEdit) set_code_completion_enabled(enable bool) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("set_code_completion_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -1095,7 +1095,7 @@ pub fn (r &CodeEdit) is_code_completion_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeEdit) set_code_completion_prefixes(prefixes Array) {
+pub fn (r &CodeEdit) set_code_completion_prefixes(prefixes Array) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("set_code_completion_prefixes")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)
@@ -1115,7 +1115,7 @@ pub fn (r &CodeEdit) get_code_completion_prefixes() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeEdit) set_line_length_guidelines(guideline_columns Array) {
+pub fn (r &CodeEdit) set_line_length_guidelines(guideline_columns Array) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("set_line_length_guidelines")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)
@@ -1135,7 +1135,7 @@ pub fn (r &CodeEdit) get_line_length_guidelines() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeEdit) set_symbol_lookup_on_click_enabled(enable bool) {
+pub fn (r &CodeEdit) set_symbol_lookup_on_click_enabled(enable bool) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("set_symbol_lookup_on_click_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -1182,7 +1182,7 @@ pub fn (r &CodeEdit) get_text_with_cursor_char(line i32, column i32) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r CodeEdit) set_symbol_lookup_word_as_valid(valid bool) {
+pub fn (r &CodeEdit) set_symbol_lookup_word_as_valid(valid bool) {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("set_symbol_lookup_word_as_valid")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -1192,7 +1192,7 @@ pub fn (mut r CodeEdit) set_symbol_lookup_word_as_valid(valid bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CodeEdit) duplicate_lines() {
+pub fn (r &CodeEdit) duplicate_lines() {
     classname := StringName.new("CodeEdit")
     fnname := StringName.new("duplicate_lines")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

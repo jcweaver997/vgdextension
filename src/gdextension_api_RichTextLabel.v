@@ -41,7 +41,7 @@ pub fn (r &RichTextLabel) get_parsed_text() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r RichTextLabel) add_text(text string) {
+pub fn (r &RichTextLabel) add_text(text string) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("add_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -53,7 +53,7 @@ pub fn (mut r RichTextLabel) add_text(text string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) set_text(text string) {
+pub fn (r &RichTextLabel) set_text(text string) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("set_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -65,7 +65,7 @@ pub fn (mut r RichTextLabel) set_text(text string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) add_image(image Texture2D, width i32, height i32, color Color, inline_align InlineAlignment, region Rect2, key Variant, pad bool, tooltip string, size_in_percent bool) {
+pub fn (r &RichTextLabel) add_image(image Texture2D, width i32, height i32, color Color, inline_align InlineAlignment, region Rect2, key Variant, pad bool, tooltip string, size_in_percent bool) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("add_image")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3017663154)
@@ -87,7 +87,7 @@ pub fn (mut r RichTextLabel) add_image(image Texture2D, width i32, height i32, c
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) update_image(key Variant, mask RichTextLabelImageUpdateMask, image Texture2D, width i32, height i32, color Color, inline_align InlineAlignment, region Rect2, pad bool, tooltip string, size_in_percent bool) {
+pub fn (r &RichTextLabel) update_image(key Variant, mask RichTextLabelImageUpdateMask, image Texture2D, width i32, height i32, color Color, inline_align InlineAlignment, region Rect2, pad bool, tooltip string, size_in_percent bool) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("update_image")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 815048486)
@@ -111,7 +111,7 @@ pub fn (mut r RichTextLabel) update_image(key Variant, mask RichTextLabelImageUp
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) newline() {
+pub fn (r &RichTextLabel) newline() {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("newline")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -119,7 +119,7 @@ pub fn (mut r RichTextLabel) newline() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) remove_paragraph(paragraph i32) bool {
+pub fn (r &RichTextLabel) remove_paragraph(paragraph i32) bool {
     mut object_out := false
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("remove_paragraph")
@@ -131,7 +131,7 @@ pub fn (mut r RichTextLabel) remove_paragraph(paragraph i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RichTextLabel) push_font(font Font, font_size i32) {
+pub fn (r &RichTextLabel) push_font(font Font, font_size i32) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("push_font")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2347424842)
@@ -142,7 +142,7 @@ pub fn (mut r RichTextLabel) push_font(font Font, font_size i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) push_font_size(font_size i32) {
+pub fn (r &RichTextLabel) push_font_size(font_size i32) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("push_font_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -152,7 +152,7 @@ pub fn (mut r RichTextLabel) push_font_size(font_size i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) push_normal() {
+pub fn (r &RichTextLabel) push_normal() {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("push_normal")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -160,7 +160,7 @@ pub fn (mut r RichTextLabel) push_normal() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) push_bold() {
+pub fn (r &RichTextLabel) push_bold() {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("push_bold")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -168,7 +168,7 @@ pub fn (mut r RichTextLabel) push_bold() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) push_bold_italics() {
+pub fn (r &RichTextLabel) push_bold_italics() {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("push_bold_italics")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -176,7 +176,7 @@ pub fn (mut r RichTextLabel) push_bold_italics() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) push_italics() {
+pub fn (r &RichTextLabel) push_italics() {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("push_italics")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -184,7 +184,7 @@ pub fn (mut r RichTextLabel) push_italics() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) push_mono() {
+pub fn (r &RichTextLabel) push_mono() {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("push_mono")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -192,7 +192,7 @@ pub fn (mut r RichTextLabel) push_mono() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) push_color(color Color) {
+pub fn (r &RichTextLabel) push_color(color Color) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("push_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -202,7 +202,7 @@ pub fn (mut r RichTextLabel) push_color(color Color) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) push_outline_size(outline_size i32) {
+pub fn (r &RichTextLabel) push_outline_size(outline_size i32) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("push_outline_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -212,7 +212,7 @@ pub fn (mut r RichTextLabel) push_outline_size(outline_size i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) push_outline_color(color Color) {
+pub fn (r &RichTextLabel) push_outline_color(color Color) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("push_outline_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -222,7 +222,7 @@ pub fn (mut r RichTextLabel) push_outline_color(color Color) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) push_paragraph(alignment HorizontalAlignment, base_direction ControlTextDirection, language string, st_parser TextServerStructuredTextParser, justification_flags TextServerJustificationFlag, tab_stops PackedFloat32Array) {
+pub fn (r &RichTextLabel) push_paragraph(alignment HorizontalAlignment, base_direction ControlTextDirection, language string, st_parser TextServerStructuredTextParser, justification_flags TextServerJustificationFlag, tab_stops PackedFloat32Array) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("push_paragraph")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3089306873)
@@ -243,7 +243,7 @@ pub fn (mut r RichTextLabel) push_paragraph(alignment HorizontalAlignment, base_
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) push_indent(level i32) {
+pub fn (r &RichTextLabel) push_indent(level i32) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("push_indent")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -253,7 +253,7 @@ pub fn (mut r RichTextLabel) push_indent(level i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) push_list(level i32, type_name RichTextLabelListType, capitalize bool, bullet string) {
+pub fn (r &RichTextLabel) push_list(level i32, type_name RichTextLabelListType, capitalize bool, bullet string) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("push_list")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3017143144)
@@ -269,7 +269,7 @@ pub fn (mut r RichTextLabel) push_list(level i32, type_name RichTextLabelListTyp
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) push_meta(data Variant) {
+pub fn (r &RichTextLabel) push_meta(data Variant) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("push_meta")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1114965689)
@@ -279,7 +279,7 @@ pub fn (mut r RichTextLabel) push_meta(data Variant) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) push_hint(description string) {
+pub fn (r &RichTextLabel) push_hint(description string) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("push_hint")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -291,7 +291,7 @@ pub fn (mut r RichTextLabel) push_hint(description string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) push_language(language string) {
+pub fn (r &RichTextLabel) push_language(language string) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("push_language")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -303,7 +303,7 @@ pub fn (mut r RichTextLabel) push_language(language string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) push_underline() {
+pub fn (r &RichTextLabel) push_underline() {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("push_underline")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -311,7 +311,7 @@ pub fn (mut r RichTextLabel) push_underline() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) push_strikethrough() {
+pub fn (r &RichTextLabel) push_strikethrough() {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("push_strikethrough")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -319,7 +319,7 @@ pub fn (mut r RichTextLabel) push_strikethrough() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) push_table(columns i32, inline_align InlineAlignment, align_to_row i32) {
+pub fn (r &RichTextLabel) push_table(columns i32, inline_align InlineAlignment, align_to_row i32) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("push_table")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2623499273)
@@ -332,7 +332,7 @@ pub fn (mut r RichTextLabel) push_table(columns i32, inline_align InlineAlignmen
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) push_dropcap(gdstring string, font Font, size i32, dropcap_margins Rect2, color Color, outline_size i32, outline_color Color) {
+pub fn (r &RichTextLabel) push_dropcap(gdstring string, font Font, size i32, dropcap_margins Rect2, color Color, outline_size i32, outline_color Color) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("push_dropcap")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4061635501)
@@ -350,7 +350,7 @@ pub fn (mut r RichTextLabel) push_dropcap(gdstring string, font Font, size i32, 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) set_table_column_expand(column i32, expand bool, ratio i32) {
+pub fn (r &RichTextLabel) set_table_column_expand(column i32, expand bool, ratio i32) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("set_table_column_expand")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2185176273)
@@ -362,7 +362,7 @@ pub fn (mut r RichTextLabel) set_table_column_expand(column i32, expand bool, ra
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) set_cell_row_background_color(odd_row_bg Color, even_row_bg Color) {
+pub fn (r &RichTextLabel) set_cell_row_background_color(odd_row_bg Color, even_row_bg Color) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("set_cell_row_background_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3465483165)
@@ -373,7 +373,7 @@ pub fn (mut r RichTextLabel) set_cell_row_background_color(odd_row_bg Color, eve
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) set_cell_border_color(color Color) {
+pub fn (r &RichTextLabel) set_cell_border_color(color Color) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("set_cell_border_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -383,7 +383,7 @@ pub fn (mut r RichTextLabel) set_cell_border_color(color Color) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) set_cell_size_override(min_size Vector2, max_size Vector2) {
+pub fn (r &RichTextLabel) set_cell_size_override(min_size Vector2, max_size Vector2) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("set_cell_size_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3108078480)
@@ -394,7 +394,7 @@ pub fn (mut r RichTextLabel) set_cell_size_override(min_size Vector2, max_size V
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) set_cell_padding(padding Rect2) {
+pub fn (r &RichTextLabel) set_cell_padding(padding Rect2) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("set_cell_padding")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2046264180)
@@ -404,7 +404,7 @@ pub fn (mut r RichTextLabel) set_cell_padding(padding Rect2) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) push_cell() {
+pub fn (r &RichTextLabel) push_cell() {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("push_cell")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -412,7 +412,7 @@ pub fn (mut r RichTextLabel) push_cell() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) push_fgcolor(fgcolor Color) {
+pub fn (r &RichTextLabel) push_fgcolor(fgcolor Color) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("push_fgcolor")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -422,7 +422,7 @@ pub fn (mut r RichTextLabel) push_fgcolor(fgcolor Color) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) push_bgcolor(bgcolor Color) {
+pub fn (r &RichTextLabel) push_bgcolor(bgcolor Color) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("push_bgcolor")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -432,7 +432,7 @@ pub fn (mut r RichTextLabel) push_bgcolor(bgcolor Color) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) push_customfx(effect RichTextEffect, env Dictionary) {
+pub fn (r &RichTextLabel) push_customfx(effect RichTextEffect, env Dictionary) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("push_customfx")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2337942958)
@@ -443,7 +443,7 @@ pub fn (mut r RichTextLabel) push_customfx(effect RichTextEffect, env Dictionary
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) push_context() {
+pub fn (r &RichTextLabel) push_context() {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("push_context")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -451,7 +451,7 @@ pub fn (mut r RichTextLabel) push_context() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) pop_context() {
+pub fn (r &RichTextLabel) pop_context() {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("pop_context")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -459,7 +459,7 @@ pub fn (mut r RichTextLabel) pop_context() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) pop() {
+pub fn (r &RichTextLabel) pop() {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("pop")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -467,7 +467,7 @@ pub fn (mut r RichTextLabel) pop() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) pop_all() {
+pub fn (r &RichTextLabel) pop_all() {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("pop_all")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -475,7 +475,7 @@ pub fn (mut r RichTextLabel) pop_all() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) clear() {
+pub fn (r &RichTextLabel) clear() {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("clear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -483,7 +483,7 @@ pub fn (mut r RichTextLabel) clear() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) set_structured_text_bidi_override(parser TextServerStructuredTextParser) {
+pub fn (r &RichTextLabel) set_structured_text_bidi_override(parser TextServerStructuredTextParser) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("set_structured_text_bidi_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 55961453)
@@ -504,7 +504,7 @@ pub fn (r &RichTextLabel) get_structured_text_bidi_override() TextServerStructur
     fnname.deinit()
    return unsafe{TextServerStructuredTextParser(object_out)}
 }
-pub fn (mut r RichTextLabel) set_structured_text_bidi_override_options(gdargs Array) {
+pub fn (r &RichTextLabel) set_structured_text_bidi_override_options(gdargs Array) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("set_structured_text_bidi_override_options")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)
@@ -524,7 +524,7 @@ pub fn (r &RichTextLabel) get_structured_text_bidi_override_options() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RichTextLabel) set_text_direction(direction ControlTextDirection) {
+pub fn (r &RichTextLabel) set_text_direction(direction ControlTextDirection) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("set_text_direction")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 119160795)
@@ -545,7 +545,7 @@ pub fn (r &RichTextLabel) get_text_direction() ControlTextDirection {
     fnname.deinit()
    return unsafe{ControlTextDirection(object_out)}
 }
-pub fn (mut r RichTextLabel) set_language(language string) {
+pub fn (r &RichTextLabel) set_language(language string) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("set_language")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -569,7 +569,7 @@ pub fn (r &RichTextLabel) get_language() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r RichTextLabel) set_autowrap_mode(autowrap_mode TextServerAutowrapMode) {
+pub fn (r &RichTextLabel) set_autowrap_mode(autowrap_mode TextServerAutowrapMode) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("set_autowrap_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3289138044)
@@ -590,7 +590,7 @@ pub fn (r &RichTextLabel) get_autowrap_mode() TextServerAutowrapMode {
     fnname.deinit()
    return unsafe{TextServerAutowrapMode(object_out)}
 }
-pub fn (mut r RichTextLabel) set_meta_underline(enable bool) {
+pub fn (r &RichTextLabel) set_meta_underline(enable bool) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("set_meta_underline")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -610,7 +610,7 @@ pub fn (r &RichTextLabel) is_meta_underlined() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RichTextLabel) set_hint_underline(enable bool) {
+pub fn (r &RichTextLabel) set_hint_underline(enable bool) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("set_hint_underline")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -630,7 +630,7 @@ pub fn (r &RichTextLabel) is_hint_underlined() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RichTextLabel) set_scroll_active(active bool) {
+pub fn (r &RichTextLabel) set_scroll_active(active bool) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("set_scroll_active")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -650,7 +650,7 @@ pub fn (r &RichTextLabel) is_scroll_active() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RichTextLabel) set_scroll_follow(follow bool) {
+pub fn (r &RichTextLabel) set_scroll_follow(follow bool) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("set_scroll_follow")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -670,7 +670,7 @@ pub fn (r &RichTextLabel) is_scroll_following() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RichTextLabel) get_v_scroll_bar() VScrollBar {
+pub fn (r &RichTextLabel) get_v_scroll_bar() VScrollBar {
     mut object_out := VScrollBar{}
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("get_v_scroll_bar")
@@ -680,7 +680,7 @@ pub fn (mut r RichTextLabel) get_v_scroll_bar() VScrollBar {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RichTextLabel) scroll_to_line(line i32) {
+pub fn (r &RichTextLabel) scroll_to_line(line i32) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("scroll_to_line")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -690,7 +690,7 @@ pub fn (mut r RichTextLabel) scroll_to_line(line i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) scroll_to_paragraph(paragraph i32) {
+pub fn (r &RichTextLabel) scroll_to_paragraph(paragraph i32) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("scroll_to_paragraph")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -700,7 +700,7 @@ pub fn (mut r RichTextLabel) scroll_to_paragraph(paragraph i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) scroll_to_selection() {
+pub fn (r &RichTextLabel) scroll_to_selection() {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("scroll_to_selection")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -708,7 +708,7 @@ pub fn (mut r RichTextLabel) scroll_to_selection() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) set_tab_size(spaces i32) {
+pub fn (r &RichTextLabel) set_tab_size(spaces i32) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("set_tab_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -728,7 +728,7 @@ pub fn (r &RichTextLabel) get_tab_size() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RichTextLabel) set_fit_content(enabled bool) {
+pub fn (r &RichTextLabel) set_fit_content(enabled bool) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("set_fit_content")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -748,7 +748,7 @@ pub fn (r &RichTextLabel) is_fit_content_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RichTextLabel) set_selection_enabled(enabled bool) {
+pub fn (r &RichTextLabel) set_selection_enabled(enabled bool) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("set_selection_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -768,7 +768,7 @@ pub fn (r &RichTextLabel) is_selection_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RichTextLabel) set_context_menu_enabled(enabled bool) {
+pub fn (r &RichTextLabel) set_context_menu_enabled(enabled bool) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("set_context_menu_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -788,7 +788,7 @@ pub fn (r &RichTextLabel) is_context_menu_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RichTextLabel) set_shortcut_keys_enabled(enabled bool) {
+pub fn (r &RichTextLabel) set_shortcut_keys_enabled(enabled bool) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("set_shortcut_keys_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -808,7 +808,7 @@ pub fn (r &RichTextLabel) is_shortcut_keys_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RichTextLabel) set_deselect_on_focus_loss_enabled(enable bool) {
+pub fn (r &RichTextLabel) set_deselect_on_focus_loss_enabled(enable bool) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("set_deselect_on_focus_loss_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -828,7 +828,7 @@ pub fn (r &RichTextLabel) is_deselect_on_focus_loss_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RichTextLabel) set_drag_and_drop_selection_enabled(enable bool) {
+pub fn (r &RichTextLabel) set_drag_and_drop_selection_enabled(enable bool) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("set_drag_and_drop_selection_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -868,7 +868,7 @@ pub fn (r &RichTextLabel) get_selection_to() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RichTextLabel) select_all() {
+pub fn (r &RichTextLabel) select_all() {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("select_all")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -888,7 +888,7 @@ pub fn (r &RichTextLabel) get_selected_text() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r RichTextLabel) deselect() {
+pub fn (r &RichTextLabel) deselect() {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("deselect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -896,7 +896,7 @@ pub fn (mut r RichTextLabel) deselect() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) parse_bbcode(bbcode string) {
+pub fn (r &RichTextLabel) parse_bbcode(bbcode string) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("parse_bbcode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -908,7 +908,7 @@ pub fn (mut r RichTextLabel) parse_bbcode(bbcode string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) append_text(bbcode string) {
+pub fn (r &RichTextLabel) append_text(bbcode string) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("append_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -942,7 +942,7 @@ pub fn (r &RichTextLabel) is_ready() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RichTextLabel) set_threaded(threaded bool) {
+pub fn (r &RichTextLabel) set_threaded(threaded bool) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("set_threaded")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -962,7 +962,7 @@ pub fn (r &RichTextLabel) is_threaded() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RichTextLabel) set_progress_bar_delay(delay_ms i32) {
+pub fn (r &RichTextLabel) set_progress_bar_delay(delay_ms i32) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("set_progress_bar_delay")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -982,7 +982,7 @@ pub fn (r &RichTextLabel) get_progress_bar_delay() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RichTextLabel) set_visible_characters(amount i32) {
+pub fn (r &RichTextLabel) set_visible_characters(amount i32) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("set_visible_characters")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -1012,7 +1012,7 @@ pub fn (r &RichTextLabel) get_visible_characters_behavior() TextServerVisibleCha
     fnname.deinit()
    return unsafe{TextServerVisibleCharactersBehavior(object_out)}
 }
-pub fn (mut r RichTextLabel) set_visible_characters_behavior(behavior TextServerVisibleCharactersBehavior) {
+pub fn (r &RichTextLabel) set_visible_characters_behavior(behavior TextServerVisibleCharactersBehavior) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("set_visible_characters_behavior")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3383839701)
@@ -1023,7 +1023,7 @@ pub fn (mut r RichTextLabel) set_visible_characters_behavior(behavior TextServer
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) set_visible_ratio(ratio f64) {
+pub fn (r &RichTextLabel) set_visible_ratio(ratio f64) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("set_visible_ratio")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -1043,7 +1043,7 @@ pub fn (r &RichTextLabel) get_visible_ratio() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RichTextLabel) get_character_line(character i32) i32 {
+pub fn (r &RichTextLabel) get_character_line(character i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("get_character_line")
@@ -1055,7 +1055,7 @@ pub fn (mut r RichTextLabel) get_character_line(character i32) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RichTextLabel) get_character_paragraph(character i32) i32 {
+pub fn (r &RichTextLabel) get_character_paragraph(character i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("get_character_paragraph")
@@ -1077,7 +1077,7 @@ pub fn (r &RichTextLabel) get_total_character_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RichTextLabel) set_use_bbcode(enable bool) {
+pub fn (r &RichTextLabel) set_use_bbcode(enable bool) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("set_use_bbcode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -1157,7 +1157,7 @@ pub fn (r &RichTextLabel) get_content_width() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RichTextLabel) get_line_offset(line i32) f64 {
+pub fn (r &RichTextLabel) get_line_offset(line i32) f64 {
     mut object_out := f64(0)
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("get_line_offset")
@@ -1169,7 +1169,7 @@ pub fn (mut r RichTextLabel) get_line_offset(line i32) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RichTextLabel) get_paragraph_offset(paragraph i32) f64 {
+pub fn (r &RichTextLabel) get_paragraph_offset(paragraph i32) f64 {
     mut object_out := f64(0)
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("get_paragraph_offset")
@@ -1181,7 +1181,7 @@ pub fn (mut r RichTextLabel) get_paragraph_offset(paragraph i32) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RichTextLabel) parse_expressions_for_values(expressions PackedStringArray) Dictionary {
+pub fn (r &RichTextLabel) parse_expressions_for_values(expressions PackedStringArray) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("parse_expressions_for_values")
@@ -1193,7 +1193,7 @@ pub fn (mut r RichTextLabel) parse_expressions_for_values(expressions PackedStri
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RichTextLabel) set_effects(effects Array) {
+pub fn (r &RichTextLabel) set_effects(effects Array) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("set_effects")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)
@@ -1203,7 +1203,7 @@ pub fn (mut r RichTextLabel) set_effects(effects Array) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RichTextLabel) get_effects() Array {
+pub fn (r &RichTextLabel) get_effects() Array {
     mut object_out := Array{}
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("get_effects")
@@ -1213,7 +1213,7 @@ pub fn (mut r RichTextLabel) get_effects() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RichTextLabel) install_effect(effect Variant) {
+pub fn (r &RichTextLabel) install_effect(effect Variant) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("install_effect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1114965689)
@@ -1243,7 +1243,7 @@ pub fn (r &RichTextLabel) is_menu_visible() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RichTextLabel) menu_option(option i32) {
+pub fn (r &RichTextLabel) menu_option(option i32) {
     classname := StringName.new("RichTextLabel")
     fnname := StringName.new("menu_option")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

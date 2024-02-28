@@ -5,7 +5,7 @@ pub struct SkeletonModification2DPhysicalBones {
     SkeletonModification2D
 }
 
-pub fn (mut r SkeletonModification2DPhysicalBones) set_physical_bone_chain_length(length i32) {
+pub fn (r &SkeletonModification2DPhysicalBones) set_physical_bone_chain_length(length i32) {
     classname := StringName.new("SkeletonModification2DPhysicalBones")
     fnname := StringName.new("set_physical_bone_chain_length")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -15,7 +15,7 @@ pub fn (mut r SkeletonModification2DPhysicalBones) set_physical_bone_chain_lengt
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SkeletonModification2DPhysicalBones) get_physical_bone_chain_length() i32 {
+pub fn (r &SkeletonModification2DPhysicalBones) get_physical_bone_chain_length() i32 {
     mut object_out := i32(0)
     classname := StringName.new("SkeletonModification2DPhysicalBones")
     fnname := StringName.new("get_physical_bone_chain_length")
@@ -25,7 +25,7 @@ pub fn (mut r SkeletonModification2DPhysicalBones) get_physical_bone_chain_lengt
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonModification2DPhysicalBones) set_physical_bone_node(joint_idx i32, physicalbone2d_node NodePath) {
+pub fn (r &SkeletonModification2DPhysicalBones) set_physical_bone_node(joint_idx i32, physicalbone2d_node NodePath) {
     classname := StringName.new("SkeletonModification2DPhysicalBones")
     fnname := StringName.new("set_physical_bone_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2761262315)
@@ -48,7 +48,7 @@ pub fn (r &SkeletonModification2DPhysicalBones) get_physical_bone_node(joint_idx
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonModification2DPhysicalBones) fetch_physical_bones() {
+pub fn (r &SkeletonModification2DPhysicalBones) fetch_physical_bones() {
     classname := StringName.new("SkeletonModification2DPhysicalBones")
     fnname := StringName.new("fetch_physical_bones")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -56,7 +56,7 @@ pub fn (mut r SkeletonModification2DPhysicalBones) fetch_physical_bones() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SkeletonModification2DPhysicalBones) start_simulation(bones Array) {
+pub fn (r &SkeletonModification2DPhysicalBones) start_simulation(bones Array) {
     classname := StringName.new("SkeletonModification2DPhysicalBones")
     fnname := StringName.new("start_simulation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2787316981)
@@ -66,7 +66,7 @@ pub fn (mut r SkeletonModification2DPhysicalBones) start_simulation(bones Array)
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SkeletonModification2DPhysicalBones) stop_simulation(bones Array) {
+pub fn (r &SkeletonModification2DPhysicalBones) stop_simulation(bones Array) {
     classname := StringName.new("SkeletonModification2DPhysicalBones")
     fnname := StringName.new("stop_simulation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2787316981)

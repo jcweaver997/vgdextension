@@ -14,7 +14,7 @@ pub fn EngineDebugger.get_singleton() EngineDebugger {
     return o
 }
 
-pub fn (mut r EngineDebugger) is_active() bool {
+pub fn (r &EngineDebugger) is_active() bool {
     mut object_out := false
     classname := StringName.new("EngineDebugger")
     fnname := StringName.new("is_active")
@@ -24,7 +24,7 @@ pub fn (mut r EngineDebugger) is_active() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EngineDebugger) register_profiler(name string, profiler EngineProfiler) {
+pub fn (r &EngineDebugger) register_profiler(name string, profiler EngineProfiler) {
     classname := StringName.new("EngineDebugger")
     fnname := StringName.new("register_profiler")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3651669560)
@@ -37,7 +37,7 @@ pub fn (mut r EngineDebugger) register_profiler(name string, profiler EngineProf
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EngineDebugger) unregister_profiler(name string) {
+pub fn (r &EngineDebugger) unregister_profiler(name string) {
     classname := StringName.new("EngineDebugger")
     fnname := StringName.new("unregister_profiler")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -49,7 +49,7 @@ pub fn (mut r EngineDebugger) unregister_profiler(name string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EngineDebugger) is_profiling(name string) bool {
+pub fn (r &EngineDebugger) is_profiling(name string) bool {
     mut object_out := false
     classname := StringName.new("EngineDebugger")
     fnname := StringName.new("is_profiling")
@@ -63,7 +63,7 @@ pub fn (mut r EngineDebugger) is_profiling(name string) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EngineDebugger) has_profiler(name string) bool {
+pub fn (r &EngineDebugger) has_profiler(name string) bool {
     mut object_out := false
     classname := StringName.new("EngineDebugger")
     fnname := StringName.new("has_profiler")
@@ -77,7 +77,7 @@ pub fn (mut r EngineDebugger) has_profiler(name string) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EngineDebugger) profiler_add_frame_data(name string, data Array) {
+pub fn (r &EngineDebugger) profiler_add_frame_data(name string, data Array) {
     classname := StringName.new("EngineDebugger")
     fnname := StringName.new("profiler_add_frame_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1895267858)
@@ -90,7 +90,7 @@ pub fn (mut r EngineDebugger) profiler_add_frame_data(name string, data Array) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EngineDebugger) profiler_enable(name string, enable bool, arguments Array) {
+pub fn (r &EngineDebugger) profiler_enable(name string, enable bool, arguments Array) {
     classname := StringName.new("EngineDebugger")
     fnname := StringName.new("profiler_enable")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3192561009)
@@ -104,7 +104,7 @@ pub fn (mut r EngineDebugger) profiler_enable(name string, enable bool, argument
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EngineDebugger) register_message_capture(name string, callable Callable) {
+pub fn (r &EngineDebugger) register_message_capture(name string, callable Callable) {
     classname := StringName.new("EngineDebugger")
     fnname := StringName.new("register_message_capture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1874754934)
@@ -117,7 +117,7 @@ pub fn (mut r EngineDebugger) register_message_capture(name string, callable Cal
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EngineDebugger) unregister_message_capture(name string) {
+pub fn (r &EngineDebugger) unregister_message_capture(name string) {
     classname := StringName.new("EngineDebugger")
     fnname := StringName.new("unregister_message_capture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -129,7 +129,7 @@ pub fn (mut r EngineDebugger) unregister_message_capture(name string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EngineDebugger) has_capture(name string) bool {
+pub fn (r &EngineDebugger) has_capture(name string) bool {
     mut object_out := false
     classname := StringName.new("EngineDebugger")
     fnname := StringName.new("has_capture")
@@ -143,7 +143,7 @@ pub fn (mut r EngineDebugger) has_capture(name string) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EngineDebugger) send_message(message string, data Array) {
+pub fn (r &EngineDebugger) send_message(message string, data Array) {
     classname := StringName.new("EngineDebugger")
     fnname := StringName.new("send_message")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1209351045)

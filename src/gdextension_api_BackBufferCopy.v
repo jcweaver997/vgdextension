@@ -11,7 +11,7 @@ pub struct BackBufferCopy {
     Node2D
 }
 
-pub fn (mut r BackBufferCopy) set_rect(rect Rect2) {
+pub fn (r &BackBufferCopy) set_rect(rect Rect2) {
     classname := StringName.new("BackBufferCopy")
     fnname := StringName.new("set_rect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2046264180)
@@ -31,7 +31,7 @@ pub fn (r &BackBufferCopy) get_rect() Rect2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BackBufferCopy) set_copy_mode(copy_mode BackBufferCopyCopyMode) {
+pub fn (r &BackBufferCopy) set_copy_mode(copy_mode BackBufferCopyCopyMode) {
     classname := StringName.new("BackBufferCopy")
     fnname := StringName.new("set_copy_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1713538590)

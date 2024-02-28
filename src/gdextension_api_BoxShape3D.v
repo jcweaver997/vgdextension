@@ -5,7 +5,7 @@ pub struct BoxShape3D {
     Shape3D
 }
 
-pub fn (mut r BoxShape3D) set_size(size Vector3) {
+pub fn (r &BoxShape3D) set_size(size Vector3) {
     classname := StringName.new("BoxShape3D")
     fnname := StringName.new("set_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)

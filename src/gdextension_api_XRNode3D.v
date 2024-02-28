@@ -5,7 +5,7 @@ pub struct XRNode3D {
     Node3D
 }
 
-pub fn (mut r XRNode3D) set_tracker(tracker_name string) {
+pub fn (r &XRNode3D) set_tracker(tracker_name string) {
     classname := StringName.new("XRNode3D")
     fnname := StringName.new("set_tracker")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -29,7 +29,7 @@ pub fn (r &XRNode3D) get_tracker() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r XRNode3D) set_pose_name(pose string) {
+pub fn (r &XRNode3D) set_pose_name(pose string) {
     classname := StringName.new("XRNode3D")
     fnname := StringName.new("set_pose_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -73,7 +73,7 @@ pub fn (r &XRNode3D) get_has_tracking_data() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r XRNode3D) get_pose() XRPose {
+pub fn (r &XRNode3D) get_pose() XRPose {
     mut object_out := XRPose{}
     classname := StringName.new("XRNode3D")
     fnname := StringName.new("get_pose")
@@ -83,7 +83,7 @@ pub fn (mut r XRNode3D) get_pose() XRPose {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r XRNode3D) trigger_haptic_pulse(action_name string, frequency f64, amplitude f64, duration_sec f64, delay_sec f64) {
+pub fn (r &XRNode3D) trigger_haptic_pulse(action_name string, frequency f64, amplitude f64, duration_sec f64, delay_sec f64) {
     classname := StringName.new("XRNode3D")
     fnname := StringName.new("trigger_haptic_pulse")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 508576839)

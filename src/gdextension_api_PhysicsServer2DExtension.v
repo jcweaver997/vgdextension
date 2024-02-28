@@ -10,7 +10,7 @@ pub interface IPhysicsServer2DExtensionWorldBoundaryShapeCreate {
     virt_world_boundary_shape_create() RID
 }
 
-pub fn (mut r PhysicsServer2DExtension) uworld_boundary_shape_create() RID {
+pub fn (r &PhysicsServer2DExtension) uworld_boundary_shape_create() RID {
     mut object_out := RID{}
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_world_boundary_shape_create")
@@ -25,7 +25,7 @@ pub interface IPhysicsServer2DExtensionSeparationRayShapeCreate {
     virt_separation_ray_shape_create() RID
 }
 
-pub fn (mut r PhysicsServer2DExtension) useparation_ray_shape_create() RID {
+pub fn (r &PhysicsServer2DExtension) useparation_ray_shape_create() RID {
     mut object_out := RID{}
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_separation_ray_shape_create")
@@ -40,7 +40,7 @@ pub interface IPhysicsServer2DExtensionSegmentShapeCreate {
     virt_segment_shape_create() RID
 }
 
-pub fn (mut r PhysicsServer2DExtension) usegment_shape_create() RID {
+pub fn (r &PhysicsServer2DExtension) usegment_shape_create() RID {
     mut object_out := RID{}
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_segment_shape_create")
@@ -55,7 +55,7 @@ pub interface IPhysicsServer2DExtensionCircleShapeCreate {
     virt_circle_shape_create() RID
 }
 
-pub fn (mut r PhysicsServer2DExtension) ucircle_shape_create() RID {
+pub fn (r &PhysicsServer2DExtension) ucircle_shape_create() RID {
     mut object_out := RID{}
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_circle_shape_create")
@@ -70,7 +70,7 @@ pub interface IPhysicsServer2DExtensionRectangleShapeCreate {
     virt_rectangle_shape_create() RID
 }
 
-pub fn (mut r PhysicsServer2DExtension) urectangle_shape_create() RID {
+pub fn (r &PhysicsServer2DExtension) urectangle_shape_create() RID {
     mut object_out := RID{}
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_rectangle_shape_create")
@@ -85,7 +85,7 @@ pub interface IPhysicsServer2DExtensionCapsuleShapeCreate {
     virt_capsule_shape_create() RID
 }
 
-pub fn (mut r PhysicsServer2DExtension) ucapsule_shape_create() RID {
+pub fn (r &PhysicsServer2DExtension) ucapsule_shape_create() RID {
     mut object_out := RID{}
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_capsule_shape_create")
@@ -100,7 +100,7 @@ pub interface IPhysicsServer2DExtensionConvexPolygonShapeCreate {
     virt_convex_polygon_shape_create() RID
 }
 
-pub fn (mut r PhysicsServer2DExtension) uconvex_polygon_shape_create() RID {
+pub fn (r &PhysicsServer2DExtension) uconvex_polygon_shape_create() RID {
     mut object_out := RID{}
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_convex_polygon_shape_create")
@@ -115,7 +115,7 @@ pub interface IPhysicsServer2DExtensionConcavePolygonShapeCreate {
     virt_concave_polygon_shape_create() RID
 }
 
-pub fn (mut r PhysicsServer2DExtension) uconcave_polygon_shape_create() RID {
+pub fn (r &PhysicsServer2DExtension) uconcave_polygon_shape_create() RID {
     mut object_out := RID{}
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_concave_polygon_shape_create")
@@ -130,7 +130,7 @@ pub interface IPhysicsServer2DExtensionShapeSetData {
     virt_shape_set_data(shape RID, data Variant)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ushape_set_data(shape RID, data Variant) {
+pub fn (r &PhysicsServer2DExtension) ushape_set_data(shape RID, data Variant) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_shape_set_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -146,7 +146,7 @@ pub interface IPhysicsServer2DExtensionShapeSetCustomSolverBias {
     virt_shape_set_custom_solver_bias(shape RID, bias f64)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ushape_set_custom_solver_bias(shape RID, bias f64) {
+pub fn (r &PhysicsServer2DExtension) ushape_set_custom_solver_bias(shape RID, bias f64) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_shape_set_custom_solver_bias")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -213,7 +213,7 @@ pub interface IPhysicsServer2DExtensionShapeCollide {
     virt_shape_collide(shape_a RID, xform_a Transform2D, motion_a Vector2, shape_b RID, xform_b Transform2D, motion_b Vector2, results voidptr, result_max i32, result_count &i32) bool
 }
 
-pub fn (mut r PhysicsServer2DExtension) ushape_collide(shape_a RID, xform_a Transform2D, motion_a Vector2, shape_b RID, xform_b Transform2D, motion_b Vector2, results voidptr, result_max i32, result_count &i32) bool {
+pub fn (r &PhysicsServer2DExtension) ushape_collide(shape_a RID, xform_a Transform2D, motion_a Vector2, shape_b RID, xform_b Transform2D, motion_b Vector2, results voidptr, result_max i32, result_count &i32) bool {
     mut object_out := false
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_shape_collide")
@@ -238,7 +238,7 @@ pub interface IPhysicsServer2DExtensionSpaceCreate {
     virt_space_create() RID
 }
 
-pub fn (mut r PhysicsServer2DExtension) uspace_create() RID {
+pub fn (r &PhysicsServer2DExtension) uspace_create() RID {
     mut object_out := RID{}
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_space_create")
@@ -253,7 +253,7 @@ pub interface IPhysicsServer2DExtensionSpaceSetActive {
     virt_space_set_active(space RID, active bool)
 }
 
-pub fn (mut r PhysicsServer2DExtension) uspace_set_active(space RID, active bool) {
+pub fn (r &PhysicsServer2DExtension) uspace_set_active(space RID, active bool) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_space_set_active")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -286,7 +286,7 @@ pub interface IPhysicsServer2DExtensionSpaceSetParam {
     virt_space_set_param(space RID, param PhysicsServer2DSpaceParameter, value f64)
 }
 
-pub fn (mut r PhysicsServer2DExtension) uspace_set_param(space RID, param PhysicsServer2DSpaceParameter, value f64) {
+pub fn (r &PhysicsServer2DExtension) uspace_set_param(space RID, param PhysicsServer2DSpaceParameter, value f64) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_space_set_param")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -323,7 +323,7 @@ pub interface IPhysicsServer2DExtensionSpaceGetDirectState {
     virt_space_get_direct_state(space RID) PhysicsDirectSpaceState2D
 }
 
-pub fn (mut r PhysicsServer2DExtension) uspace_get_direct_state(space RID) PhysicsDirectSpaceState2D {
+pub fn (r &PhysicsServer2DExtension) uspace_get_direct_state(space RID) PhysicsDirectSpaceState2D {
     mut object_out := PhysicsDirectSpaceState2D{}
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_space_get_direct_state")
@@ -340,7 +340,7 @@ pub interface IPhysicsServer2DExtensionSpaceSetDebugContacts {
     virt_space_set_debug_contacts(space RID, max_contacts i32)
 }
 
-pub fn (mut r PhysicsServer2DExtension) uspace_set_debug_contacts(space RID, max_contacts i32) {
+pub fn (r &PhysicsServer2DExtension) uspace_set_debug_contacts(space RID, max_contacts i32) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_space_set_debug_contacts")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -390,7 +390,7 @@ pub interface IPhysicsServer2DExtensionAreaCreate {
     virt_area_create() RID
 }
 
-pub fn (mut r PhysicsServer2DExtension) uarea_create() RID {
+pub fn (r &PhysicsServer2DExtension) uarea_create() RID {
     mut object_out := RID{}
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_area_create")
@@ -405,7 +405,7 @@ pub interface IPhysicsServer2DExtensionAreaSetSpace {
     virt_area_set_space(area RID, space RID)
 }
 
-pub fn (mut r PhysicsServer2DExtension) uarea_set_space(area RID, space RID) {
+pub fn (r &PhysicsServer2DExtension) uarea_set_space(area RID, space RID) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_area_set_space")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -438,7 +438,7 @@ pub interface IPhysicsServer2DExtensionAreaAddShape {
     virt_area_add_shape(area RID, shape RID, transform Transform2D, disabled bool)
 }
 
-pub fn (mut r PhysicsServer2DExtension) uarea_add_shape(area RID, shape RID, transform Transform2D, disabled bool) {
+pub fn (r &PhysicsServer2DExtension) uarea_add_shape(area RID, shape RID, transform Transform2D, disabled bool) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_area_add_shape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -456,7 +456,7 @@ pub interface IPhysicsServer2DExtensionAreaSetShape {
     virt_area_set_shape(area RID, shape_idx i32, shape RID)
 }
 
-pub fn (mut r PhysicsServer2DExtension) uarea_set_shape(area RID, shape_idx i32, shape RID) {
+pub fn (r &PhysicsServer2DExtension) uarea_set_shape(area RID, shape_idx i32, shape RID) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_area_set_shape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -473,7 +473,7 @@ pub interface IPhysicsServer2DExtensionAreaSetShapeTransform {
     virt_area_set_shape_transform(area RID, shape_idx i32, transform Transform2D)
 }
 
-pub fn (mut r PhysicsServer2DExtension) uarea_set_shape_transform(area RID, shape_idx i32, transform Transform2D) {
+pub fn (r &PhysicsServer2DExtension) uarea_set_shape_transform(area RID, shape_idx i32, transform Transform2D) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_area_set_shape_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -490,7 +490,7 @@ pub interface IPhysicsServer2DExtensionAreaSetShapeDisabled {
     virt_area_set_shape_disabled(area RID, shape_idx i32, disabled bool)
 }
 
-pub fn (mut r PhysicsServer2DExtension) uarea_set_shape_disabled(area RID, shape_idx i32, disabled bool) {
+pub fn (r &PhysicsServer2DExtension) uarea_set_shape_disabled(area RID, shape_idx i32, disabled bool) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_area_set_shape_disabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -560,7 +560,7 @@ pub interface IPhysicsServer2DExtensionAreaRemoveShape {
     virt_area_remove_shape(area RID, shape_idx i32)
 }
 
-pub fn (mut r PhysicsServer2DExtension) uarea_remove_shape(area RID, shape_idx i32) {
+pub fn (r &PhysicsServer2DExtension) uarea_remove_shape(area RID, shape_idx i32) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_area_remove_shape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -576,7 +576,7 @@ pub interface IPhysicsServer2DExtensionAreaClearShapes {
     virt_area_clear_shapes(area RID)
 }
 
-pub fn (mut r PhysicsServer2DExtension) uarea_clear_shapes(area RID) {
+pub fn (r &PhysicsServer2DExtension) uarea_clear_shapes(area RID) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_area_clear_shapes")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -591,7 +591,7 @@ pub interface IPhysicsServer2DExtensionAreaAttachObjectInstanceId {
     virt_area_attach_object_instance_id(area RID, id u64)
 }
 
-pub fn (mut r PhysicsServer2DExtension) uarea_attach_object_instance_id(area RID, id u64) {
+pub fn (r &PhysicsServer2DExtension) uarea_attach_object_instance_id(area RID, id u64) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_area_attach_object_instance_id")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -624,7 +624,7 @@ pub interface IPhysicsServer2DExtensionAreaAttachCanvasInstanceId {
     virt_area_attach_canvas_instance_id(area RID, id u64)
 }
 
-pub fn (mut r PhysicsServer2DExtension) uarea_attach_canvas_instance_id(area RID, id u64) {
+pub fn (r &PhysicsServer2DExtension) uarea_attach_canvas_instance_id(area RID, id u64) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_area_attach_canvas_instance_id")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -657,7 +657,7 @@ pub interface IPhysicsServer2DExtensionAreaSetParam {
     virt_area_set_param(area RID, param PhysicsServer2DAreaParameter, value Variant)
 }
 
-pub fn (mut r PhysicsServer2DExtension) uarea_set_param(area RID, param PhysicsServer2DAreaParameter, value Variant) {
+pub fn (r &PhysicsServer2DExtension) uarea_set_param(area RID, param PhysicsServer2DAreaParameter, value Variant) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_area_set_param")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -675,7 +675,7 @@ pub interface IPhysicsServer2DExtensionAreaSetTransform {
     virt_area_set_transform(area RID, transform Transform2D)
 }
 
-pub fn (mut r PhysicsServer2DExtension) uarea_set_transform(area RID, transform Transform2D) {
+pub fn (r &PhysicsServer2DExtension) uarea_set_transform(area RID, transform Transform2D) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_area_set_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -727,7 +727,7 @@ pub interface IPhysicsServer2DExtensionAreaSetCollisionLayer {
     virt_area_set_collision_layer(area RID, layer u32)
 }
 
-pub fn (mut r PhysicsServer2DExtension) uarea_set_collision_layer(area RID, layer u32) {
+pub fn (r &PhysicsServer2DExtension) uarea_set_collision_layer(area RID, layer u32) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_area_set_collision_layer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -760,7 +760,7 @@ pub interface IPhysicsServer2DExtensionAreaSetCollisionMask {
     virt_area_set_collision_mask(area RID, mask u32)
 }
 
-pub fn (mut r PhysicsServer2DExtension) uarea_set_collision_mask(area RID, mask u32) {
+pub fn (r &PhysicsServer2DExtension) uarea_set_collision_mask(area RID, mask u32) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_area_set_collision_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -793,7 +793,7 @@ pub interface IPhysicsServer2DExtensionAreaSetMonitorable {
     virt_area_set_monitorable(area RID, monitorable bool)
 }
 
-pub fn (mut r PhysicsServer2DExtension) uarea_set_monitorable(area RID, monitorable bool) {
+pub fn (r &PhysicsServer2DExtension) uarea_set_monitorable(area RID, monitorable bool) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_area_set_monitorable")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -809,7 +809,7 @@ pub interface IPhysicsServer2DExtensionAreaSetPickable {
     virt_area_set_pickable(area RID, pickable bool)
 }
 
-pub fn (mut r PhysicsServer2DExtension) uarea_set_pickable(area RID, pickable bool) {
+pub fn (r &PhysicsServer2DExtension) uarea_set_pickable(area RID, pickable bool) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_area_set_pickable")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -825,7 +825,7 @@ pub interface IPhysicsServer2DExtensionAreaSetMonitorCallback {
     virt_area_set_monitor_callback(area RID, callback Callable)
 }
 
-pub fn (mut r PhysicsServer2DExtension) uarea_set_monitor_callback(area RID, callback Callable) {
+pub fn (r &PhysicsServer2DExtension) uarea_set_monitor_callback(area RID, callback Callable) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_area_set_monitor_callback")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -841,7 +841,7 @@ pub interface IPhysicsServer2DExtensionAreaSetAreaMonitorCallback {
     virt_area_set_area_monitor_callback(area RID, callback Callable)
 }
 
-pub fn (mut r PhysicsServer2DExtension) uarea_set_area_monitor_callback(area RID, callback Callable) {
+pub fn (r &PhysicsServer2DExtension) uarea_set_area_monitor_callback(area RID, callback Callable) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_area_set_area_monitor_callback")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -857,7 +857,7 @@ pub interface IPhysicsServer2DExtensionBodyCreate {
     virt_body_create() RID
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_create() RID {
+pub fn (r &PhysicsServer2DExtension) ubody_create() RID {
     mut object_out := RID{}
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_create")
@@ -872,7 +872,7 @@ pub interface IPhysicsServer2DExtensionBodySetSpace {
     virt_body_set_space(body RID, space RID)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_set_space(body RID, space RID) {
+pub fn (r &PhysicsServer2DExtension) ubody_set_space(body RID, space RID) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_set_space")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -905,7 +905,7 @@ pub interface IPhysicsServer2DExtensionBodySetMode {
     virt_body_set_mode(body RID, mode PhysicsServer2DBodyMode)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_set_mode(body RID, mode PhysicsServer2DBodyMode) {
+pub fn (r &PhysicsServer2DExtension) ubody_set_mode(body RID, mode PhysicsServer2DBodyMode) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_set_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -939,7 +939,7 @@ pub interface IPhysicsServer2DExtensionBodyAddShape {
     virt_body_add_shape(body RID, shape RID, transform Transform2D, disabled bool)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_add_shape(body RID, shape RID, transform Transform2D, disabled bool) {
+pub fn (r &PhysicsServer2DExtension) ubody_add_shape(body RID, shape RID, transform Transform2D, disabled bool) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_add_shape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -957,7 +957,7 @@ pub interface IPhysicsServer2DExtensionBodySetShape {
     virt_body_set_shape(body RID, shape_idx i32, shape RID)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_set_shape(body RID, shape_idx i32, shape RID) {
+pub fn (r &PhysicsServer2DExtension) ubody_set_shape(body RID, shape_idx i32, shape RID) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_set_shape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -974,7 +974,7 @@ pub interface IPhysicsServer2DExtensionBodySetShapeTransform {
     virt_body_set_shape_transform(body RID, shape_idx i32, transform Transform2D)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_set_shape_transform(body RID, shape_idx i32, transform Transform2D) {
+pub fn (r &PhysicsServer2DExtension) ubody_set_shape_transform(body RID, shape_idx i32, transform Transform2D) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_set_shape_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -1044,7 +1044,7 @@ pub interface IPhysicsServer2DExtensionBodySetShapeDisabled {
     virt_body_set_shape_disabled(body RID, shape_idx i32, disabled bool)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_set_shape_disabled(body RID, shape_idx i32, disabled bool) {
+pub fn (r &PhysicsServer2DExtension) ubody_set_shape_disabled(body RID, shape_idx i32, disabled bool) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_set_shape_disabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -1061,7 +1061,7 @@ pub interface IPhysicsServer2DExtensionBodySetShapeAsOneWayCollision {
     virt_body_set_shape_as_one_way_collision(body RID, shape_idx i32, enable bool, margin f64)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_set_shape_as_one_way_collision(body RID, shape_idx i32, enable bool, margin f64) {
+pub fn (r &PhysicsServer2DExtension) ubody_set_shape_as_one_way_collision(body RID, shape_idx i32, enable bool, margin f64) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_set_shape_as_one_way_collision")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -1079,7 +1079,7 @@ pub interface IPhysicsServer2DExtensionBodyRemoveShape {
     virt_body_remove_shape(body RID, shape_idx i32)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_remove_shape(body RID, shape_idx i32) {
+pub fn (r &PhysicsServer2DExtension) ubody_remove_shape(body RID, shape_idx i32) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_remove_shape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -1095,7 +1095,7 @@ pub interface IPhysicsServer2DExtensionBodyClearShapes {
     virt_body_clear_shapes(body RID)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_clear_shapes(body RID) {
+pub fn (r &PhysicsServer2DExtension) ubody_clear_shapes(body RID) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_clear_shapes")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -1110,7 +1110,7 @@ pub interface IPhysicsServer2DExtensionBodyAttachObjectInstanceId {
     virt_body_attach_object_instance_id(body RID, id u64)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_attach_object_instance_id(body RID, id u64) {
+pub fn (r &PhysicsServer2DExtension) ubody_attach_object_instance_id(body RID, id u64) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_attach_object_instance_id")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -1143,7 +1143,7 @@ pub interface IPhysicsServer2DExtensionBodyAttachCanvasInstanceId {
     virt_body_attach_canvas_instance_id(body RID, id u64)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_attach_canvas_instance_id(body RID, id u64) {
+pub fn (r &PhysicsServer2DExtension) ubody_attach_canvas_instance_id(body RID, id u64) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_attach_canvas_instance_id")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -1176,7 +1176,7 @@ pub interface IPhysicsServer2DExtensionBodySetContinuousCollisionDetectionMode {
     virt_body_set_continuous_collision_detection_mode(body RID, mode PhysicsServer2DCCDMode)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_set_continuous_collision_detection_mode(body RID, mode PhysicsServer2DCCDMode) {
+pub fn (r &PhysicsServer2DExtension) ubody_set_continuous_collision_detection_mode(body RID, mode PhysicsServer2DCCDMode) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_set_continuous_collision_detection_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -1210,7 +1210,7 @@ pub interface IPhysicsServer2DExtensionBodySetCollisionLayer {
     virt_body_set_collision_layer(body RID, layer u32)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_set_collision_layer(body RID, layer u32) {
+pub fn (r &PhysicsServer2DExtension) ubody_set_collision_layer(body RID, layer u32) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_set_collision_layer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -1243,7 +1243,7 @@ pub interface IPhysicsServer2DExtensionBodySetCollisionMask {
     virt_body_set_collision_mask(body RID, mask u32)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_set_collision_mask(body RID, mask u32) {
+pub fn (r &PhysicsServer2DExtension) ubody_set_collision_mask(body RID, mask u32) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_set_collision_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -1276,7 +1276,7 @@ pub interface IPhysicsServer2DExtensionBodySetCollisionPriority {
     virt_body_set_collision_priority(body RID, priority f64)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_set_collision_priority(body RID, priority f64) {
+pub fn (r &PhysicsServer2DExtension) ubody_set_collision_priority(body RID, priority f64) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_set_collision_priority")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -1309,7 +1309,7 @@ pub interface IPhysicsServer2DExtensionBodySetParam {
     virt_body_set_param(body RID, param PhysicsServer2DBodyParameter, value Variant)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_set_param(body RID, param PhysicsServer2DBodyParameter, value Variant) {
+pub fn (r &PhysicsServer2DExtension) ubody_set_param(body RID, param PhysicsServer2DBodyParameter, value Variant) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_set_param")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -1346,7 +1346,7 @@ pub interface IPhysicsServer2DExtensionBodyResetMassProperties {
     virt_body_reset_mass_properties(body RID)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_reset_mass_properties(body RID) {
+pub fn (r &PhysicsServer2DExtension) ubody_reset_mass_properties(body RID) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_reset_mass_properties")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -1361,7 +1361,7 @@ pub interface IPhysicsServer2DExtensionBodySetState {
     virt_body_set_state(body RID, state PhysicsServer2DBodyState, value Variant)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_set_state(body RID, state PhysicsServer2DBodyState, value Variant) {
+pub fn (r &PhysicsServer2DExtension) ubody_set_state(body RID, state PhysicsServer2DBodyState, value Variant) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_set_state")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -1398,7 +1398,7 @@ pub interface IPhysicsServer2DExtensionBodyApplyCentralImpulse {
     virt_body_apply_central_impulse(body RID, impulse Vector2)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_apply_central_impulse(body RID, impulse Vector2) {
+pub fn (r &PhysicsServer2DExtension) ubody_apply_central_impulse(body RID, impulse Vector2) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_apply_central_impulse")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -1414,7 +1414,7 @@ pub interface IPhysicsServer2DExtensionBodyApplyTorqueImpulse {
     virt_body_apply_torque_impulse(body RID, impulse f64)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_apply_torque_impulse(body RID, impulse f64) {
+pub fn (r &PhysicsServer2DExtension) ubody_apply_torque_impulse(body RID, impulse f64) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_apply_torque_impulse")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -1430,7 +1430,7 @@ pub interface IPhysicsServer2DExtensionBodyApplyImpulse {
     virt_body_apply_impulse(body RID, impulse Vector2, position Vector2)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_apply_impulse(body RID, impulse Vector2, position Vector2) {
+pub fn (r &PhysicsServer2DExtension) ubody_apply_impulse(body RID, impulse Vector2, position Vector2) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_apply_impulse")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -1447,7 +1447,7 @@ pub interface IPhysicsServer2DExtensionBodyApplyCentralForce {
     virt_body_apply_central_force(body RID, force Vector2)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_apply_central_force(body RID, force Vector2) {
+pub fn (r &PhysicsServer2DExtension) ubody_apply_central_force(body RID, force Vector2) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_apply_central_force")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -1463,7 +1463,7 @@ pub interface IPhysicsServer2DExtensionBodyApplyForce {
     virt_body_apply_force(body RID, force Vector2, position Vector2)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_apply_force(body RID, force Vector2, position Vector2) {
+pub fn (r &PhysicsServer2DExtension) ubody_apply_force(body RID, force Vector2, position Vector2) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_apply_force")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -1480,7 +1480,7 @@ pub interface IPhysicsServer2DExtensionBodyApplyTorque {
     virt_body_apply_torque(body RID, torque f64)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_apply_torque(body RID, torque f64) {
+pub fn (r &PhysicsServer2DExtension) ubody_apply_torque(body RID, torque f64) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_apply_torque")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -1496,7 +1496,7 @@ pub interface IPhysicsServer2DExtensionBodyAddConstantCentralForce {
     virt_body_add_constant_central_force(body RID, force Vector2)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_add_constant_central_force(body RID, force Vector2) {
+pub fn (r &PhysicsServer2DExtension) ubody_add_constant_central_force(body RID, force Vector2) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_add_constant_central_force")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -1512,7 +1512,7 @@ pub interface IPhysicsServer2DExtensionBodyAddConstantForce {
     virt_body_add_constant_force(body RID, force Vector2, position Vector2)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_add_constant_force(body RID, force Vector2, position Vector2) {
+pub fn (r &PhysicsServer2DExtension) ubody_add_constant_force(body RID, force Vector2, position Vector2) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_add_constant_force")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -1529,7 +1529,7 @@ pub interface IPhysicsServer2DExtensionBodyAddConstantTorque {
     virt_body_add_constant_torque(body RID, torque f64)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_add_constant_torque(body RID, torque f64) {
+pub fn (r &PhysicsServer2DExtension) ubody_add_constant_torque(body RID, torque f64) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_add_constant_torque")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -1545,7 +1545,7 @@ pub interface IPhysicsServer2DExtensionBodySetConstantForce {
     virt_body_set_constant_force(body RID, force Vector2)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_set_constant_force(body RID, force Vector2) {
+pub fn (r &PhysicsServer2DExtension) ubody_set_constant_force(body RID, force Vector2) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_set_constant_force")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -1578,7 +1578,7 @@ pub interface IPhysicsServer2DExtensionBodySetConstantTorque {
     virt_body_set_constant_torque(body RID, torque f64)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_set_constant_torque(body RID, torque f64) {
+pub fn (r &PhysicsServer2DExtension) ubody_set_constant_torque(body RID, torque f64) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_set_constant_torque")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -1611,7 +1611,7 @@ pub interface IPhysicsServer2DExtensionBodySetAxisVelocity {
     virt_body_set_axis_velocity(body RID, axis_velocity Vector2)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_set_axis_velocity(body RID, axis_velocity Vector2) {
+pub fn (r &PhysicsServer2DExtension) ubody_set_axis_velocity(body RID, axis_velocity Vector2) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_set_axis_velocity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -1627,7 +1627,7 @@ pub interface IPhysicsServer2DExtensionBodyAddCollisionException {
     virt_body_add_collision_exception(body RID, excepted_body RID)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_add_collision_exception(body RID, excepted_body RID) {
+pub fn (r &PhysicsServer2DExtension) ubody_add_collision_exception(body RID, excepted_body RID) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_add_collision_exception")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -1643,7 +1643,7 @@ pub interface IPhysicsServer2DExtensionBodyRemoveCollisionException {
     virt_body_remove_collision_exception(body RID, excepted_body RID)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_remove_collision_exception(body RID, excepted_body RID) {
+pub fn (r &PhysicsServer2DExtension) ubody_remove_collision_exception(body RID, excepted_body RID) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_remove_collision_exception")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -1676,7 +1676,7 @@ pub interface IPhysicsServer2DExtensionBodySetMaxContactsReported {
     virt_body_set_max_contacts_reported(body RID, amount i32)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_set_max_contacts_reported(body RID, amount i32) {
+pub fn (r &PhysicsServer2DExtension) ubody_set_max_contacts_reported(body RID, amount i32) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_set_max_contacts_reported")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -1709,7 +1709,7 @@ pub interface IPhysicsServer2DExtensionBodySetContactsReportedDepthThreshold {
     virt_body_set_contacts_reported_depth_threshold(body RID, threshold f64)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_set_contacts_reported_depth_threshold(body RID, threshold f64) {
+pub fn (r &PhysicsServer2DExtension) ubody_set_contacts_reported_depth_threshold(body RID, threshold f64) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_set_contacts_reported_depth_threshold")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -1742,7 +1742,7 @@ pub interface IPhysicsServer2DExtensionBodySetOmitForceIntegration {
     virt_body_set_omit_force_integration(body RID, enable bool)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_set_omit_force_integration(body RID, enable bool) {
+pub fn (r &PhysicsServer2DExtension) ubody_set_omit_force_integration(body RID, enable bool) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_set_omit_force_integration")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -1775,7 +1775,7 @@ pub interface IPhysicsServer2DExtensionBodySetStateSyncCallback {
     virt_body_set_state_sync_callback(body RID, callable Callable)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_set_state_sync_callback(body RID, callable Callable) {
+pub fn (r &PhysicsServer2DExtension) ubody_set_state_sync_callback(body RID, callable Callable) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_set_state_sync_callback")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -1791,7 +1791,7 @@ pub interface IPhysicsServer2DExtensionBodySetForceIntegrationCallback {
     virt_body_set_force_integration_callback(body RID, callable Callable, userdata Variant)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_set_force_integration_callback(body RID, callable Callable, userdata Variant) {
+pub fn (r &PhysicsServer2DExtension) ubody_set_force_integration_callback(body RID, callable Callable, userdata Variant) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_set_force_integration_callback")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -1808,7 +1808,7 @@ pub interface IPhysicsServer2DExtensionBodyCollideShape {
     virt_body_collide_shape(body RID, body_shape i32, shape RID, shape_xform Transform2D, motion Vector2, results voidptr, result_max i32, result_count &i32) bool
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_collide_shape(body RID, body_shape i32, shape RID, shape_xform Transform2D, motion Vector2, results voidptr, result_max i32, result_count &i32) bool {
+pub fn (r &PhysicsServer2DExtension) ubody_collide_shape(body RID, body_shape i32, shape RID, shape_xform Transform2D, motion Vector2, results voidptr, result_max i32, result_count &i32) bool {
     mut object_out := false
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_collide_shape")
@@ -1832,7 +1832,7 @@ pub interface IPhysicsServer2DExtensionBodySetPickable {
     virt_body_set_pickable(body RID, pickable bool)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_set_pickable(body RID, pickable bool) {
+pub fn (r &PhysicsServer2DExtension) ubody_set_pickable(body RID, pickable bool) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_set_pickable")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -1848,7 +1848,7 @@ pub interface IPhysicsServer2DExtensionBodyGetDirectState {
     virt_body_get_direct_state(body RID) PhysicsDirectBodyState2D
 }
 
-pub fn (mut r PhysicsServer2DExtension) ubody_get_direct_state(body RID) PhysicsDirectBodyState2D {
+pub fn (r &PhysicsServer2DExtension) ubody_get_direct_state(body RID) PhysicsDirectBodyState2D {
     mut object_out := PhysicsDirectBodyState2D{}
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_body_get_direct_state")
@@ -1888,7 +1888,7 @@ pub interface IPhysicsServer2DExtensionJointCreate {
     virt_joint_create() RID
 }
 
-pub fn (mut r PhysicsServer2DExtension) ujoint_create() RID {
+pub fn (r &PhysicsServer2DExtension) ujoint_create() RID {
     mut object_out := RID{}
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_joint_create")
@@ -1903,7 +1903,7 @@ pub interface IPhysicsServer2DExtensionJointClear {
     virt_joint_clear(joint RID)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ujoint_clear(joint RID) {
+pub fn (r &PhysicsServer2DExtension) ujoint_clear(joint RID) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_joint_clear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -1918,7 +1918,7 @@ pub interface IPhysicsServer2DExtensionJointSetParam {
     virt_joint_set_param(joint RID, param PhysicsServer2DJointParam, value f64)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ujoint_set_param(joint RID, param PhysicsServer2DJointParam, value f64) {
+pub fn (r &PhysicsServer2DExtension) ujoint_set_param(joint RID, param PhysicsServer2DJointParam, value f64) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_joint_set_param")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -1955,7 +1955,7 @@ pub interface IPhysicsServer2DExtensionJointDisableCollisionsBetweenBodies {
     virt_joint_disable_collisions_between_bodies(joint RID, disable bool)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ujoint_disable_collisions_between_bodies(joint RID, disable bool) {
+pub fn (r &PhysicsServer2DExtension) ujoint_disable_collisions_between_bodies(joint RID, disable bool) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_joint_disable_collisions_between_bodies")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -1988,7 +1988,7 @@ pub interface IPhysicsServer2DExtensionJointMakePin {
     virt_joint_make_pin(joint RID, anchor Vector2, body_a RID, body_b RID)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ujoint_make_pin(joint RID, anchor Vector2, body_a RID, body_b RID) {
+pub fn (r &PhysicsServer2DExtension) ujoint_make_pin(joint RID, anchor Vector2, body_a RID, body_b RID) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_joint_make_pin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -2006,7 +2006,7 @@ pub interface IPhysicsServer2DExtensionJointMakeGroove {
     virt_joint_make_groove(joint RID, a_groove1 Vector2, a_groove2 Vector2, b_anchor Vector2, body_a RID, body_b RID)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ujoint_make_groove(joint RID, a_groove1 Vector2, a_groove2 Vector2, b_anchor Vector2, body_a RID, body_b RID) {
+pub fn (r &PhysicsServer2DExtension) ujoint_make_groove(joint RID, a_groove1 Vector2, a_groove2 Vector2, b_anchor Vector2, body_a RID, body_b RID) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_joint_make_groove")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -2026,7 +2026,7 @@ pub interface IPhysicsServer2DExtensionJointMakeDampedSpring {
     virt_joint_make_damped_spring(joint RID, anchor_a Vector2, anchor_b Vector2, body_a RID, body_b RID)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ujoint_make_damped_spring(joint RID, anchor_a Vector2, anchor_b Vector2, body_a RID, body_b RID) {
+pub fn (r &PhysicsServer2DExtension) ujoint_make_damped_spring(joint RID, anchor_a Vector2, anchor_b Vector2, body_a RID, body_b RID) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_joint_make_damped_spring")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -2045,7 +2045,7 @@ pub interface IPhysicsServer2DExtensionPinJointSetFlag {
     virt_pin_joint_set_flag(joint RID, flag PhysicsServer2DPinJointFlag, enabled bool)
 }
 
-pub fn (mut r PhysicsServer2DExtension) upin_joint_set_flag(joint RID, flag PhysicsServer2DPinJointFlag, enabled bool) {
+pub fn (r &PhysicsServer2DExtension) upin_joint_set_flag(joint RID, flag PhysicsServer2DPinJointFlag, enabled bool) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_pin_joint_set_flag")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -2082,7 +2082,7 @@ pub interface IPhysicsServer2DExtensionPinJointSetParam {
     virt_pin_joint_set_param(joint RID, param PhysicsServer2DPinJointParam, value f64)
 }
 
-pub fn (mut r PhysicsServer2DExtension) upin_joint_set_param(joint RID, param PhysicsServer2DPinJointParam, value f64) {
+pub fn (r &PhysicsServer2DExtension) upin_joint_set_param(joint RID, param PhysicsServer2DPinJointParam, value f64) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_pin_joint_set_param")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -2119,7 +2119,7 @@ pub interface IPhysicsServer2DExtensionDampedSpringJointSetParam {
     virt_damped_spring_joint_set_param(joint RID, param PhysicsServer2DDampedSpringParam, value f64)
 }
 
-pub fn (mut r PhysicsServer2DExtension) udamped_spring_joint_set_param(joint RID, param PhysicsServer2DDampedSpringParam, value f64) {
+pub fn (r &PhysicsServer2DExtension) udamped_spring_joint_set_param(joint RID, param PhysicsServer2DDampedSpringParam, value f64) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_damped_spring_joint_set_param")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -2173,7 +2173,7 @@ pub interface IPhysicsServer2DExtensionFreeRid {
     virt_free_rid(rid RID)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ufree_rid(rid RID) {
+pub fn (r &PhysicsServer2DExtension) ufree_rid(rid RID) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_free_rid")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -2188,7 +2188,7 @@ pub interface IPhysicsServer2DExtensionSetActive {
     virt_set_active(active bool)
 }
 
-pub fn (mut r PhysicsServer2DExtension) uset_active(active bool) {
+pub fn (r &PhysicsServer2DExtension) uset_active(active bool) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_set_active")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -2203,7 +2203,7 @@ pub interface IPhysicsServer2DExtensionInit {
     virt_init()
 }
 
-pub fn (mut r PhysicsServer2DExtension) uinit() {
+pub fn (r &PhysicsServer2DExtension) uinit() {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_init")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -2216,7 +2216,7 @@ pub interface IPhysicsServer2DExtensionStep {
     virt_step(step f64)
 }
 
-pub fn (mut r PhysicsServer2DExtension) ustep(step f64) {
+pub fn (r &PhysicsServer2DExtension) ustep(step f64) {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_step")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -2231,7 +2231,7 @@ pub interface IPhysicsServer2DExtensionSync {
     virt_sync()
 }
 
-pub fn (mut r PhysicsServer2DExtension) usync() {
+pub fn (r &PhysicsServer2DExtension) usync() {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_sync")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -2244,7 +2244,7 @@ pub interface IPhysicsServer2DExtensionFlushQueries {
     virt_flush_queries()
 }
 
-pub fn (mut r PhysicsServer2DExtension) uflush_queries() {
+pub fn (r &PhysicsServer2DExtension) uflush_queries() {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_flush_queries")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -2257,7 +2257,7 @@ pub interface IPhysicsServer2DExtensionEndSync {
     virt_end_sync()
 }
 
-pub fn (mut r PhysicsServer2DExtension) uend_sync() {
+pub fn (r &PhysicsServer2DExtension) uend_sync() {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_end_sync")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -2270,7 +2270,7 @@ pub interface IPhysicsServer2DExtensionFinish {
     virt_finish()
 }
 
-pub fn (mut r PhysicsServer2DExtension) ufinish() {
+pub fn (r &PhysicsServer2DExtension) ufinish() {
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_finish")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -2298,7 +2298,7 @@ pub interface IPhysicsServer2DExtensionGetProcessInfo {
     virt_get_process_info(process_info PhysicsServer2DProcessInfo) i32
 }
 
-pub fn (mut r PhysicsServer2DExtension) uget_process_info(process_info PhysicsServer2DProcessInfo) i32 {
+pub fn (r &PhysicsServer2DExtension) uget_process_info(process_info PhysicsServer2DProcessInfo) i32 {
     mut object_out := i32(0)
     classname := StringName.new("PhysicsServer2DExtension")
     fnname := StringName.new("_get_process_info")

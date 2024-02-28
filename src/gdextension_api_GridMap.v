@@ -5,7 +5,7 @@ pub struct GridMap {
     Node3D
 }
 
-pub fn (mut r GridMap) set_collision_layer(layer u32) {
+pub fn (r &GridMap) set_collision_layer(layer u32) {
     classname := StringName.new("GridMap")
     fnname := StringName.new("set_collision_layer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -25,7 +25,7 @@ pub fn (r &GridMap) get_collision_layer() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GridMap) set_collision_mask(mask u32) {
+pub fn (r &GridMap) set_collision_mask(mask u32) {
     classname := StringName.new("GridMap")
     fnname := StringName.new("set_collision_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -45,7 +45,7 @@ pub fn (r &GridMap) get_collision_mask() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GridMap) set_collision_mask_value(layer_number i32, value bool) {
+pub fn (r &GridMap) set_collision_mask_value(layer_number i32, value bool) {
     classname := StringName.new("GridMap")
     fnname := StringName.new("set_collision_mask_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -68,7 +68,7 @@ pub fn (r &GridMap) get_collision_mask_value(layer_number i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GridMap) set_collision_layer_value(layer_number i32, value bool) {
+pub fn (r &GridMap) set_collision_layer_value(layer_number i32, value bool) {
     classname := StringName.new("GridMap")
     fnname := StringName.new("set_collision_layer_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -91,7 +91,7 @@ pub fn (r &GridMap) get_collision_layer_value(layer_number i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GridMap) set_collision_priority(priority f64) {
+pub fn (r &GridMap) set_collision_priority(priority f64) {
     classname := StringName.new("GridMap")
     fnname := StringName.new("set_collision_priority")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -111,7 +111,7 @@ pub fn (r &GridMap) get_collision_priority() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GridMap) set_physics_material(material PhysicsMaterial) {
+pub fn (r &GridMap) set_physics_material(material PhysicsMaterial) {
     classname := StringName.new("GridMap")
     fnname := StringName.new("set_physics_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1784508650)
@@ -131,7 +131,7 @@ pub fn (r &GridMap) get_physics_material() PhysicsMaterial {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GridMap) set_bake_navigation(bake_navigation bool) {
+pub fn (r &GridMap) set_bake_navigation(bake_navigation bool) {
     classname := StringName.new("GridMap")
     fnname := StringName.new("set_bake_navigation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -141,7 +141,7 @@ pub fn (mut r GridMap) set_bake_navigation(bake_navigation bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GridMap) is_baking_navigation() bool {
+pub fn (r &GridMap) is_baking_navigation() bool {
     mut object_out := false
     classname := StringName.new("GridMap")
     fnname := StringName.new("is_baking_navigation")
@@ -151,7 +151,7 @@ pub fn (mut r GridMap) is_baking_navigation() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GridMap) set_navigation_map(navigation_map RID) {
+pub fn (r &GridMap) set_navigation_map(navigation_map RID) {
     classname := StringName.new("GridMap")
     fnname := StringName.new("set_navigation_map")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)
@@ -171,7 +171,7 @@ pub fn (r &GridMap) get_navigation_map() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GridMap) set_mesh_library(mesh_library MeshLibrary) {
+pub fn (r &GridMap) set_mesh_library(mesh_library MeshLibrary) {
     classname := StringName.new("GridMap")
     fnname := StringName.new("set_mesh_library")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1488083439)
@@ -191,7 +191,7 @@ pub fn (r &GridMap) get_mesh_library() MeshLibrary {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GridMap) set_cell_size(size Vector3) {
+pub fn (r &GridMap) set_cell_size(size Vector3) {
     classname := StringName.new("GridMap")
     fnname := StringName.new("set_cell_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -211,7 +211,7 @@ pub fn (r &GridMap) get_cell_size() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GridMap) set_cell_scale(scale f64) {
+pub fn (r &GridMap) set_cell_scale(scale f64) {
     classname := StringName.new("GridMap")
     fnname := StringName.new("set_cell_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -231,7 +231,7 @@ pub fn (r &GridMap) get_cell_scale() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GridMap) set_octant_size(size i32) {
+pub fn (r &GridMap) set_octant_size(size i32) {
     classname := StringName.new("GridMap")
     fnname := StringName.new("set_octant_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -251,7 +251,7 @@ pub fn (r &GridMap) get_octant_size() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GridMap) set_cell_item(position Vector3i, item i32, orientation i32) {
+pub fn (r &GridMap) set_cell_item(position Vector3i, item i32, orientation i32) {
     classname := StringName.new("GridMap")
     fnname := StringName.new("set_cell_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3449088946)
@@ -347,7 +347,7 @@ pub fn (r &GridMap) map_to_local(map_position Vector3i) Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GridMap) resource_changed(resource Resource) {
+pub fn (r &GridMap) resource_changed(resource Resource) {
     classname := StringName.new("GridMap")
     fnname := StringName.new("resource_changed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 968641751)
@@ -357,7 +357,7 @@ pub fn (mut r GridMap) resource_changed(resource Resource) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GridMap) set_center_x(enable bool) {
+pub fn (r &GridMap) set_center_x(enable bool) {
     classname := StringName.new("GridMap")
     fnname := StringName.new("set_center_x")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -377,7 +377,7 @@ pub fn (r &GridMap) get_center_x() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GridMap) set_center_y(enable bool) {
+pub fn (r &GridMap) set_center_y(enable bool) {
     classname := StringName.new("GridMap")
     fnname := StringName.new("set_center_y")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -397,7 +397,7 @@ pub fn (r &GridMap) get_center_y() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GridMap) set_center_z(enable bool) {
+pub fn (r &GridMap) set_center_z(enable bool) {
     classname := StringName.new("GridMap")
     fnname := StringName.new("set_center_z")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -417,7 +417,7 @@ pub fn (r &GridMap) get_center_z() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GridMap) clear() {
+pub fn (r &GridMap) clear() {
     classname := StringName.new("GridMap")
     fnname := StringName.new("clear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -457,7 +457,7 @@ pub fn (r &GridMap) get_meshes() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GridMap) get_bake_meshes() Array {
+pub fn (r &GridMap) get_bake_meshes() Array {
     mut object_out := Array{}
     classname := StringName.new("GridMap")
     fnname := StringName.new("get_bake_meshes")
@@ -467,7 +467,7 @@ pub fn (mut r GridMap) get_bake_meshes() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GridMap) get_bake_mesh_instance(idx i32) RID {
+pub fn (r &GridMap) get_bake_mesh_instance(idx i32) RID {
     mut object_out := RID{}
     classname := StringName.new("GridMap")
     fnname := StringName.new("get_bake_mesh_instance")
@@ -479,7 +479,7 @@ pub fn (mut r GridMap) get_bake_mesh_instance(idx i32) RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GridMap) clear_baked_meshes() {
+pub fn (r &GridMap) clear_baked_meshes() {
     classname := StringName.new("GridMap")
     fnname := StringName.new("clear_baked_meshes")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -487,7 +487,7 @@ pub fn (mut r GridMap) clear_baked_meshes() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GridMap) make_baked_meshes(gen_lightmap_uv bool, lightmap_uv_texel_size f64) {
+pub fn (r &GridMap) make_baked_meshes(gen_lightmap_uv bool, lightmap_uv_texel_size f64) {
     classname := StringName.new("GridMap")
     fnname := StringName.new("make_baked_meshes")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3609286057)

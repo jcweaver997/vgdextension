@@ -5,7 +5,7 @@ pub struct Label {
     Control
 }
 
-pub fn (mut r Label) set_horizontal_alignment(alignment HorizontalAlignment) {
+pub fn (r &Label) set_horizontal_alignment(alignment HorizontalAlignment) {
     classname := StringName.new("Label")
     fnname := StringName.new("set_horizontal_alignment")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2312603777)
@@ -26,7 +26,7 @@ pub fn (r &Label) get_horizontal_alignment() HorizontalAlignment {
     fnname.deinit()
    return unsafe{HorizontalAlignment(object_out)}
 }
-pub fn (mut r Label) set_vertical_alignment(alignment VerticalAlignment) {
+pub fn (r &Label) set_vertical_alignment(alignment VerticalAlignment) {
     classname := StringName.new("Label")
     fnname := StringName.new("set_vertical_alignment")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1796458609)
@@ -47,7 +47,7 @@ pub fn (r &Label) get_vertical_alignment() VerticalAlignment {
     fnname.deinit()
    return unsafe{VerticalAlignment(object_out)}
 }
-pub fn (mut r Label) set_text(text string) {
+pub fn (r &Label) set_text(text string) {
     classname := StringName.new("Label")
     fnname := StringName.new("set_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -71,7 +71,7 @@ pub fn (r &Label) get_text() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r Label) set_label_settings(settings LabelSettings) {
+pub fn (r &Label) set_label_settings(settings LabelSettings) {
     classname := StringName.new("Label")
     fnname := StringName.new("set_label_settings")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1030653839)
@@ -91,7 +91,7 @@ pub fn (r &Label) get_label_settings() LabelSettings {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Label) set_text_direction(direction ControlTextDirection) {
+pub fn (r &Label) set_text_direction(direction ControlTextDirection) {
     classname := StringName.new("Label")
     fnname := StringName.new("set_text_direction")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 119160795)
@@ -112,7 +112,7 @@ pub fn (r &Label) get_text_direction() ControlTextDirection {
     fnname.deinit()
    return unsafe{ControlTextDirection(object_out)}
 }
-pub fn (mut r Label) set_language(language string) {
+pub fn (r &Label) set_language(language string) {
     classname := StringName.new("Label")
     fnname := StringName.new("set_language")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -136,7 +136,7 @@ pub fn (r &Label) get_language() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r Label) set_autowrap_mode(autowrap_mode TextServerAutowrapMode) {
+pub fn (r &Label) set_autowrap_mode(autowrap_mode TextServerAutowrapMode) {
     classname := StringName.new("Label")
     fnname := StringName.new("set_autowrap_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3289138044)
@@ -157,7 +157,7 @@ pub fn (r &Label) get_autowrap_mode() TextServerAutowrapMode {
     fnname.deinit()
    return unsafe{TextServerAutowrapMode(object_out)}
 }
-pub fn (mut r Label) set_justification_flags(justification_flags TextServerJustificationFlag) {
+pub fn (r &Label) set_justification_flags(justification_flags TextServerJustificationFlag) {
     classname := StringName.new("Label")
     fnname := StringName.new("set_justification_flags")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2877345813)
@@ -178,7 +178,7 @@ pub fn (r &Label) get_justification_flags() TextServerJustificationFlag {
     fnname.deinit()
    return unsafe{TextServerJustificationFlag(object_out)}
 }
-pub fn (mut r Label) set_clip_text(enable bool) {
+pub fn (r &Label) set_clip_text(enable bool) {
     classname := StringName.new("Label")
     fnname := StringName.new("set_clip_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -198,7 +198,7 @@ pub fn (r &Label) is_clipping_text() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Label) set_tab_stops(tab_stops PackedFloat32Array) {
+pub fn (r &Label) set_tab_stops(tab_stops PackedFloat32Array) {
     classname := StringName.new("Label")
     fnname := StringName.new("set_tab_stops")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2899603908)
@@ -218,7 +218,7 @@ pub fn (r &Label) get_tab_stops() PackedFloat32Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Label) set_text_overrun_behavior(overrun_behavior TextServerOverrunBehavior) {
+pub fn (r &Label) set_text_overrun_behavior(overrun_behavior TextServerOverrunBehavior) {
     classname := StringName.new("Label")
     fnname := StringName.new("set_text_overrun_behavior")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1008890932)
@@ -239,7 +239,7 @@ pub fn (r &Label) get_text_overrun_behavior() TextServerOverrunBehavior {
     fnname.deinit()
    return unsafe{TextServerOverrunBehavior(object_out)}
 }
-pub fn (mut r Label) set_uppercase(enable bool) {
+pub fn (r &Label) set_uppercase(enable bool) {
     classname := StringName.new("Label")
     fnname := StringName.new("set_uppercase")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -301,7 +301,7 @@ pub fn (r &Label) get_total_character_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Label) set_visible_characters(amount i32) {
+pub fn (r &Label) set_visible_characters(amount i32) {
     classname := StringName.new("Label")
     fnname := StringName.new("set_visible_characters")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -331,7 +331,7 @@ pub fn (r &Label) get_visible_characters_behavior() TextServerVisibleCharactersB
     fnname.deinit()
    return unsafe{TextServerVisibleCharactersBehavior(object_out)}
 }
-pub fn (mut r Label) set_visible_characters_behavior(behavior TextServerVisibleCharactersBehavior) {
+pub fn (r &Label) set_visible_characters_behavior(behavior TextServerVisibleCharactersBehavior) {
     classname := StringName.new("Label")
     fnname := StringName.new("set_visible_characters_behavior")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3383839701)
@@ -342,7 +342,7 @@ pub fn (mut r Label) set_visible_characters_behavior(behavior TextServerVisibleC
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Label) set_visible_ratio(ratio f64) {
+pub fn (r &Label) set_visible_ratio(ratio f64) {
     classname := StringName.new("Label")
     fnname := StringName.new("set_visible_ratio")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -362,7 +362,7 @@ pub fn (r &Label) get_visible_ratio() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Label) set_lines_skipped(lines_skipped i32) {
+pub fn (r &Label) set_lines_skipped(lines_skipped i32) {
     classname := StringName.new("Label")
     fnname := StringName.new("set_lines_skipped")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -382,7 +382,7 @@ pub fn (r &Label) get_lines_skipped() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Label) set_max_lines_visible(lines_visible i32) {
+pub fn (r &Label) set_max_lines_visible(lines_visible i32) {
     classname := StringName.new("Label")
     fnname := StringName.new("set_max_lines_visible")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -402,7 +402,7 @@ pub fn (r &Label) get_max_lines_visible() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Label) set_structured_text_bidi_override(parser TextServerStructuredTextParser) {
+pub fn (r &Label) set_structured_text_bidi_override(parser TextServerStructuredTextParser) {
     classname := StringName.new("Label")
     fnname := StringName.new("set_structured_text_bidi_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 55961453)
@@ -423,7 +423,7 @@ pub fn (r &Label) get_structured_text_bidi_override() TextServerStructuredTextPa
     fnname.deinit()
    return unsafe{TextServerStructuredTextParser(object_out)}
 }
-pub fn (mut r Label) set_structured_text_bidi_override_options(gdargs Array) {
+pub fn (r &Label) set_structured_text_bidi_override_options(gdargs Array) {
     classname := StringName.new("Label")
     fnname := StringName.new("set_structured_text_bidi_override_options")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)

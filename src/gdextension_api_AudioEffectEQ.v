@@ -5,7 +5,7 @@ pub struct AudioEffectEQ {
     AudioEffect
 }
 
-pub fn (mut r AudioEffectEQ) set_band_gain_db(band_idx i32, volume_db f64) {
+pub fn (r &AudioEffectEQ) set_band_gain_db(band_idx i32, volume_db f64) {
     classname := StringName.new("AudioEffectEQ")
     fnname := StringName.new("set_band_gain_db")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1602489585)

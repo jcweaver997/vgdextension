@@ -16,7 +16,7 @@ pub interface ICollisionObject3DInputEvent {
     virt_input_event(camera Camera3D, event InputEvent, position Vector3, normal Vector3, shape_idx i32)
 }
 
-pub fn (mut r CollisionObject3D) uinput_event(camera Camera3D, event InputEvent, position Vector3, normal Vector3, shape_idx i32) {
+pub fn (r &CollisionObject3D) uinput_event(camera Camera3D, event InputEvent, position Vector3, normal Vector3, shape_idx i32) {
     classname := StringName.new("CollisionObject3D")
     fnname := StringName.new("_input_event")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -35,7 +35,7 @@ pub interface ICollisionObject3DMouseEnter {
     virt_mouse_enter()
 }
 
-pub fn (mut r CollisionObject3D) umouse_enter() {
+pub fn (r &CollisionObject3D) umouse_enter() {
     classname := StringName.new("CollisionObject3D")
     fnname := StringName.new("_mouse_enter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -48,7 +48,7 @@ pub interface ICollisionObject3DMouseExit {
     virt_mouse_exit()
 }
 
-pub fn (mut r CollisionObject3D) umouse_exit() {
+pub fn (r &CollisionObject3D) umouse_exit() {
     classname := StringName.new("CollisionObject3D")
     fnname := StringName.new("_mouse_exit")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -56,7 +56,7 @@ pub fn (mut r CollisionObject3D) umouse_exit() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CollisionObject3D) set_collision_layer(layer u32) {
+pub fn (r &CollisionObject3D) set_collision_layer(layer u32) {
     classname := StringName.new("CollisionObject3D")
     fnname := StringName.new("set_collision_layer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -76,7 +76,7 @@ pub fn (r &CollisionObject3D) get_collision_layer() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CollisionObject3D) set_collision_mask(mask u32) {
+pub fn (r &CollisionObject3D) set_collision_mask(mask u32) {
     classname := StringName.new("CollisionObject3D")
     fnname := StringName.new("set_collision_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -96,7 +96,7 @@ pub fn (r &CollisionObject3D) get_collision_mask() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CollisionObject3D) set_collision_layer_value(layer_number i32, value bool) {
+pub fn (r &CollisionObject3D) set_collision_layer_value(layer_number i32, value bool) {
     classname := StringName.new("CollisionObject3D")
     fnname := StringName.new("set_collision_layer_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -119,7 +119,7 @@ pub fn (r &CollisionObject3D) get_collision_layer_value(layer_number i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CollisionObject3D) set_collision_mask_value(layer_number i32, value bool) {
+pub fn (r &CollisionObject3D) set_collision_mask_value(layer_number i32, value bool) {
     classname := StringName.new("CollisionObject3D")
     fnname := StringName.new("set_collision_mask_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -142,7 +142,7 @@ pub fn (r &CollisionObject3D) get_collision_mask_value(layer_number i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CollisionObject3D) set_collision_priority(priority f64) {
+pub fn (r &CollisionObject3D) set_collision_priority(priority f64) {
     classname := StringName.new("CollisionObject3D")
     fnname := StringName.new("set_collision_priority")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -162,7 +162,7 @@ pub fn (r &CollisionObject3D) get_collision_priority() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CollisionObject3D) set_disable_mode(mode CollisionObject3DDisableMode) {
+pub fn (r &CollisionObject3D) set_disable_mode(mode CollisionObject3DDisableMode) {
     classname := StringName.new("CollisionObject3D")
     fnname := StringName.new("set_disable_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1623620376)
@@ -183,7 +183,7 @@ pub fn (r &CollisionObject3D) get_disable_mode() CollisionObject3DDisableMode {
     fnname.deinit()
    return unsafe{CollisionObject3DDisableMode(object_out)}
 }
-pub fn (mut r CollisionObject3D) set_ray_pickable(ray_pickable bool) {
+pub fn (r &CollisionObject3D) set_ray_pickable(ray_pickable bool) {
     classname := StringName.new("CollisionObject3D")
     fnname := StringName.new("set_ray_pickable")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -203,7 +203,7 @@ pub fn (r &CollisionObject3D) is_ray_pickable() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CollisionObject3D) set_capture_input_on_drag(enable bool) {
+pub fn (r &CollisionObject3D) set_capture_input_on_drag(enable bool) {
     classname := StringName.new("CollisionObject3D")
     fnname := StringName.new("set_capture_input_on_drag")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -233,7 +233,7 @@ pub fn (r &CollisionObject3D) get_rid() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CollisionObject3D) create_shape_owner(owner Object) u32 {
+pub fn (r &CollisionObject3D) create_shape_owner(owner Object) u32 {
     mut object_out := u32(0)
     classname := StringName.new("CollisionObject3D")
     fnname := StringName.new("create_shape_owner")
@@ -245,7 +245,7 @@ pub fn (mut r CollisionObject3D) create_shape_owner(owner Object) u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CollisionObject3D) remove_shape_owner(owner_id u32) {
+pub fn (r &CollisionObject3D) remove_shape_owner(owner_id u32) {
     classname := StringName.new("CollisionObject3D")
     fnname := StringName.new("remove_shape_owner")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -255,7 +255,7 @@ pub fn (mut r CollisionObject3D) remove_shape_owner(owner_id u32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CollisionObject3D) get_shape_owners() PackedInt32Array {
+pub fn (r &CollisionObject3D) get_shape_owners() PackedInt32Array {
     mut object_out := PackedInt32Array{}
     classname := StringName.new("CollisionObject3D")
     fnname := StringName.new("get_shape_owners")
@@ -265,7 +265,7 @@ pub fn (mut r CollisionObject3D) get_shape_owners() PackedInt32Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CollisionObject3D) shape_owner_set_transform(owner_id u32, transform Transform3D) {
+pub fn (r &CollisionObject3D) shape_owner_set_transform(owner_id u32, transform Transform3D) {
     classname := StringName.new("CollisionObject3D")
     fnname := StringName.new("shape_owner_set_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3616898986)
@@ -300,7 +300,7 @@ pub fn (r &CollisionObject3D) shape_owner_get_owner(owner_id u32) Object {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CollisionObject3D) shape_owner_set_disabled(owner_id u32, disabled bool) {
+pub fn (r &CollisionObject3D) shape_owner_set_disabled(owner_id u32, disabled bool) {
     classname := StringName.new("CollisionObject3D")
     fnname := StringName.new("shape_owner_set_disabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -323,7 +323,7 @@ pub fn (r &CollisionObject3D) is_shape_owner_disabled(owner_id u32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CollisionObject3D) shape_owner_add_shape(owner_id u32, shape Shape3D) {
+pub fn (r &CollisionObject3D) shape_owner_add_shape(owner_id u32, shape Shape3D) {
     classname := StringName.new("CollisionObject3D")
     fnname := StringName.new("shape_owner_add_shape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2566676345)
@@ -372,7 +372,7 @@ pub fn (r &CollisionObject3D) shape_owner_get_shape_index(owner_id u32, shape_id
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CollisionObject3D) shape_owner_remove_shape(owner_id u32, shape_id i32) {
+pub fn (r &CollisionObject3D) shape_owner_remove_shape(owner_id u32, shape_id i32) {
     classname := StringName.new("CollisionObject3D")
     fnname := StringName.new("shape_owner_remove_shape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -383,7 +383,7 @@ pub fn (mut r CollisionObject3D) shape_owner_remove_shape(owner_id u32, shape_id
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CollisionObject3D) shape_owner_clear_shapes(owner_id u32) {
+pub fn (r &CollisionObject3D) shape_owner_clear_shapes(owner_id u32) {
     classname := StringName.new("CollisionObject3D")
     fnname := StringName.new("shape_owner_clear_shapes")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

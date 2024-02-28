@@ -10,7 +10,7 @@ pub interface IAudioEffectInstantiate {
     virt_instantiate() AudioEffectInstance
 }
 
-pub fn (mut r AudioEffect) uinstantiate() AudioEffectInstance {
+pub fn (r &AudioEffect) uinstantiate() AudioEffectInstance {
     mut object_out := AudioEffectInstance{}
     classname := StringName.new("AudioEffect")
     fnname := StringName.new("_instantiate")

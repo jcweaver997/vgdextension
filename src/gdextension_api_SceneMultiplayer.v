@@ -5,7 +5,7 @@ pub struct SceneMultiplayer {
     MultiplayerAPI
 }
 
-pub fn (mut r SceneMultiplayer) set_root_path(path NodePath) {
+pub fn (r &SceneMultiplayer) set_root_path(path NodePath) {
     classname := StringName.new("SceneMultiplayer")
     fnname := StringName.new("set_root_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1348162250)
@@ -25,7 +25,7 @@ pub fn (r &SceneMultiplayer) get_root_path() NodePath {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SceneMultiplayer) clear() {
+pub fn (r &SceneMultiplayer) clear() {
     classname := StringName.new("SceneMultiplayer")
     fnname := StringName.new("clear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -33,7 +33,7 @@ pub fn (mut r SceneMultiplayer) clear() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SceneMultiplayer) disconnect_peer(id i32) {
+pub fn (r &SceneMultiplayer) disconnect_peer(id i32) {
     classname := StringName.new("SceneMultiplayer")
     fnname := StringName.new("disconnect_peer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -43,7 +43,7 @@ pub fn (mut r SceneMultiplayer) disconnect_peer(id i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SceneMultiplayer) get_authenticating_peers() PackedInt32Array {
+pub fn (r &SceneMultiplayer) get_authenticating_peers() PackedInt32Array {
     mut object_out := PackedInt32Array{}
     classname := StringName.new("SceneMultiplayer")
     fnname := StringName.new("get_authenticating_peers")
@@ -53,7 +53,7 @@ pub fn (mut r SceneMultiplayer) get_authenticating_peers() PackedInt32Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SceneMultiplayer) send_auth(id i32, data PackedByteArray) GDError {
+pub fn (r &SceneMultiplayer) send_auth(id i32, data PackedByteArray) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("SceneMultiplayer")
     fnname := StringName.new("send_auth")
@@ -66,7 +66,7 @@ pub fn (mut r SceneMultiplayer) send_auth(id i32, data PackedByteArray) GDError 
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r SceneMultiplayer) complete_auth(id i32) GDError {
+pub fn (r &SceneMultiplayer) complete_auth(id i32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("SceneMultiplayer")
     fnname := StringName.new("complete_auth")
@@ -78,7 +78,7 @@ pub fn (mut r SceneMultiplayer) complete_auth(id i32) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r SceneMultiplayer) set_auth_callback(callback Callable) {
+pub fn (r &SceneMultiplayer) set_auth_callback(callback Callable) {
     classname := StringName.new("SceneMultiplayer")
     fnname := StringName.new("set_auth_callback")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1611583062)
@@ -98,7 +98,7 @@ pub fn (r &SceneMultiplayer) get_auth_callback() Callable {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SceneMultiplayer) set_auth_timeout(timeout f64) {
+pub fn (r &SceneMultiplayer) set_auth_timeout(timeout f64) {
     classname := StringName.new("SceneMultiplayer")
     fnname := StringName.new("set_auth_timeout")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -118,7 +118,7 @@ pub fn (r &SceneMultiplayer) get_auth_timeout() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SceneMultiplayer) set_refuse_new_connections(refuse bool) {
+pub fn (r &SceneMultiplayer) set_refuse_new_connections(refuse bool) {
     classname := StringName.new("SceneMultiplayer")
     fnname := StringName.new("set_refuse_new_connections")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -138,7 +138,7 @@ pub fn (r &SceneMultiplayer) is_refusing_new_connections() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SceneMultiplayer) set_allow_object_decoding(enable bool) {
+pub fn (r &SceneMultiplayer) set_allow_object_decoding(enable bool) {
     classname := StringName.new("SceneMultiplayer")
     fnname := StringName.new("set_allow_object_decoding")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -158,7 +158,7 @@ pub fn (r &SceneMultiplayer) is_object_decoding_allowed() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SceneMultiplayer) set_server_relay_enabled(enabled bool) {
+pub fn (r &SceneMultiplayer) set_server_relay_enabled(enabled bool) {
     classname := StringName.new("SceneMultiplayer")
     fnname := StringName.new("set_server_relay_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -178,7 +178,7 @@ pub fn (r &SceneMultiplayer) is_server_relay_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SceneMultiplayer) send_bytes(bytes PackedByteArray, id i32, mode MultiplayerPeerTransferMode, channel i32) GDError {
+pub fn (r &SceneMultiplayer) send_bytes(bytes PackedByteArray, id i32, mode MultiplayerPeerTransferMode, channel i32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("SceneMultiplayer")
     fnname := StringName.new("send_bytes")
@@ -204,7 +204,7 @@ pub fn (r &SceneMultiplayer) get_max_sync_packet_size() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SceneMultiplayer) set_max_sync_packet_size(size i32) {
+pub fn (r &SceneMultiplayer) set_max_sync_packet_size(size i32) {
     classname := StringName.new("SceneMultiplayer")
     fnname := StringName.new("set_max_sync_packet_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -224,7 +224,7 @@ pub fn (r &SceneMultiplayer) get_max_delta_packet_size() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SceneMultiplayer) set_max_delta_packet_size(size i32) {
+pub fn (r &SceneMultiplayer) set_max_delta_packet_size(size i32) {
     classname := StringName.new("SceneMultiplayer")
     fnname := StringName.new("set_max_delta_packet_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

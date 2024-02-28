@@ -5,7 +5,7 @@ pub struct ColorPickerButton {
     Button
 }
 
-pub fn (mut r ColorPickerButton) set_pick_color(color Color) {
+pub fn (r &ColorPickerButton) set_pick_color(color Color) {
     classname := StringName.new("ColorPickerButton")
     fnname := StringName.new("set_pick_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -25,7 +25,7 @@ pub fn (r &ColorPickerButton) get_pick_color() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ColorPickerButton) get_picker() ColorPicker {
+pub fn (r &ColorPickerButton) get_picker() ColorPicker {
     mut object_out := ColorPicker{}
     classname := StringName.new("ColorPickerButton")
     fnname := StringName.new("get_picker")
@@ -35,7 +35,7 @@ pub fn (mut r ColorPickerButton) get_picker() ColorPicker {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ColorPickerButton) get_popup() PopupPanel {
+pub fn (r &ColorPickerButton) get_popup() PopupPanel {
     mut object_out := PopupPanel{}
     classname := StringName.new("ColorPickerButton")
     fnname := StringName.new("get_popup")
@@ -45,7 +45,7 @@ pub fn (mut r ColorPickerButton) get_popup() PopupPanel {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ColorPickerButton) set_edit_alpha(show bool) {
+pub fn (r &ColorPickerButton) set_edit_alpha(show bool) {
     classname := StringName.new("ColorPickerButton")
     fnname := StringName.new("set_edit_alpha")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

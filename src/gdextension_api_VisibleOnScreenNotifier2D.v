@@ -5,7 +5,7 @@ pub struct VisibleOnScreenNotifier2D {
     Node2D
 }
 
-pub fn (mut r VisibleOnScreenNotifier2D) set_rect(rect Rect2) {
+pub fn (r &VisibleOnScreenNotifier2D) set_rect(rect Rect2) {
     classname := StringName.new("VisibleOnScreenNotifier2D")
     fnname := StringName.new("set_rect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2046264180)

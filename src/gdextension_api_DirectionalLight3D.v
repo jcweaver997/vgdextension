@@ -17,7 +17,7 @@ pub struct DirectionalLight3D {
     Light3D
 }
 
-pub fn (mut r DirectionalLight3D) set_shadow_mode(mode DirectionalLight3DShadowMode) {
+pub fn (r &DirectionalLight3D) set_shadow_mode(mode DirectionalLight3DShadowMode) {
     classname := StringName.new("DirectionalLight3D")
     fnname := StringName.new("set_shadow_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1261211726)
@@ -38,7 +38,7 @@ pub fn (r &DirectionalLight3D) get_shadow_mode() DirectionalLight3DShadowMode {
     fnname.deinit()
    return unsafe{DirectionalLight3DShadowMode(object_out)}
 }
-pub fn (mut r DirectionalLight3D) set_blend_splits(enabled bool) {
+pub fn (r &DirectionalLight3D) set_blend_splits(enabled bool) {
     classname := StringName.new("DirectionalLight3D")
     fnname := StringName.new("set_blend_splits")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -58,7 +58,7 @@ pub fn (r &DirectionalLight3D) is_blend_splits_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DirectionalLight3D) set_sky_mode(mode DirectionalLight3DSkyMode) {
+pub fn (r &DirectionalLight3D) set_sky_mode(mode DirectionalLight3DSkyMode) {
     classname := StringName.new("DirectionalLight3D")
     fnname := StringName.new("set_sky_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2691194817)

@@ -19,7 +19,7 @@ pub fn RegEx.create_from_string(pattern string) RegEx {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RegEx) clear() {
+pub fn (r &RegEx) clear() {
     classname := StringName.new("RegEx")
     fnname := StringName.new("clear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -27,7 +27,7 @@ pub fn (mut r RegEx) clear() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RegEx) compile(pattern string) GDError {
+pub fn (r &RegEx) compile(pattern string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("RegEx")
     fnname := StringName.new("compile")

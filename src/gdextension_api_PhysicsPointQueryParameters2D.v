@@ -5,7 +5,7 @@ pub struct PhysicsPointQueryParameters2D {
     RefCounted
 }
 
-pub fn (mut r PhysicsPointQueryParameters2D) set_position(position Vector2) {
+pub fn (r &PhysicsPointQueryParameters2D) set_position(position Vector2) {
     classname := StringName.new("PhysicsPointQueryParameters2D")
     fnname := StringName.new("set_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -25,7 +25,7 @@ pub fn (r &PhysicsPointQueryParameters2D) get_position() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsPointQueryParameters2D) set_canvas_instance_id(canvas_instance_id u64) {
+pub fn (r &PhysicsPointQueryParameters2D) set_canvas_instance_id(canvas_instance_id u64) {
     classname := StringName.new("PhysicsPointQueryParameters2D")
     fnname := StringName.new("set_canvas_instance_id")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -45,7 +45,7 @@ pub fn (r &PhysicsPointQueryParameters2D) get_canvas_instance_id() u64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsPointQueryParameters2D) set_collision_mask(collision_mask u32) {
+pub fn (r &PhysicsPointQueryParameters2D) set_collision_mask(collision_mask u32) {
     classname := StringName.new("PhysicsPointQueryParameters2D")
     fnname := StringName.new("set_collision_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -65,7 +65,7 @@ pub fn (r &PhysicsPointQueryParameters2D) get_collision_mask() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsPointQueryParameters2D) set_exclude(exclude Array) {
+pub fn (r &PhysicsPointQueryParameters2D) set_exclude(exclude Array) {
     classname := StringName.new("PhysicsPointQueryParameters2D")
     fnname := StringName.new("set_exclude")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)
@@ -85,7 +85,7 @@ pub fn (r &PhysicsPointQueryParameters2D) get_exclude() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsPointQueryParameters2D) set_collide_with_bodies(enable bool) {
+pub fn (r &PhysicsPointQueryParameters2D) set_collide_with_bodies(enable bool) {
     classname := StringName.new("PhysicsPointQueryParameters2D")
     fnname := StringName.new("set_collide_with_bodies")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -105,7 +105,7 @@ pub fn (r &PhysicsPointQueryParameters2D) is_collide_with_bodies_enabled() bool 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsPointQueryParameters2D) set_collide_with_areas(enable bool) {
+pub fn (r &PhysicsPointQueryParameters2D) set_collide_with_areas(enable bool) {
     classname := StringName.new("PhysicsPointQueryParameters2D")
     fnname := StringName.new("set_collide_with_areas")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

@@ -5,7 +5,7 @@ pub struct PolygonPathFinder {
     Resource
 }
 
-pub fn (mut r PolygonPathFinder) setup(points PackedVector2Array, connections PackedInt32Array) {
+pub fn (r &PolygonPathFinder) setup(points PackedVector2Array, connections PackedInt32Array) {
     classname := StringName.new("PolygonPathFinder")
     fnname := StringName.new("setup")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3251786936)
@@ -16,7 +16,7 @@ pub fn (mut r PolygonPathFinder) setup(points PackedVector2Array, connections Pa
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PolygonPathFinder) find_path(from Vector2, to Vector2) PackedVector2Array {
+pub fn (r &PolygonPathFinder) find_path(from Vector2, to Vector2) PackedVector2Array {
     mut object_out := PackedVector2Array{}
     classname := StringName.new("PolygonPathFinder")
     fnname := StringName.new("find_path")
@@ -66,7 +66,7 @@ pub fn (r &PolygonPathFinder) is_point_inside(point Vector2) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PolygonPathFinder) set_point_penalty(idx i32, penalty f64) {
+pub fn (r &PolygonPathFinder) set_point_penalty(idx i32, penalty f64) {
     classname := StringName.new("PolygonPathFinder")
     fnname := StringName.new("set_point_penalty")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1602489585)

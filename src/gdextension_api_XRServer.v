@@ -40,7 +40,7 @@ pub fn (r &XRServer) get_world_scale() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r XRServer) set_world_scale(scale f64) {
+pub fn (r &XRServer) set_world_scale(scale f64) {
     classname := StringName.new("XRServer")
     fnname := StringName.new("set_world_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -60,7 +60,7 @@ pub fn (r &XRServer) get_world_origin() Transform3D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r XRServer) set_world_origin(world_origin Transform3D) {
+pub fn (r &XRServer) set_world_origin(world_origin Transform3D) {
     classname := StringName.new("XRServer")
     fnname := StringName.new("set_world_origin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2952846383)
@@ -80,7 +80,7 @@ pub fn (r &XRServer) get_reference_frame() Transform3D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r XRServer) center_on_hmd(rotation_mode XRServerRotationMode, keep_height bool) {
+pub fn (r &XRServer) center_on_hmd(rotation_mode XRServerRotationMode, keep_height bool) {
     classname := StringName.new("XRServer")
     fnname := StringName.new("center_on_hmd")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1450904707)
@@ -92,7 +92,7 @@ pub fn (mut r XRServer) center_on_hmd(rotation_mode XRServerRotationMode, keep_h
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r XRServer) get_hmd_transform() Transform3D {
+pub fn (r &XRServer) get_hmd_transform() Transform3D {
     mut object_out := Transform3D{}
     classname := StringName.new("XRServer")
     fnname := StringName.new("get_hmd_transform")
@@ -102,7 +102,7 @@ pub fn (mut r XRServer) get_hmd_transform() Transform3D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r XRServer) add_interface(gdinterface XRInterface) {
+pub fn (r &XRServer) add_interface(gdinterface XRInterface) {
     classname := StringName.new("XRServer")
     fnname := StringName.new("add_interface")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1898711491)
@@ -122,7 +122,7 @@ pub fn (r &XRServer) get_interface_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r XRServer) remove_interface(gdinterface XRInterface) {
+pub fn (r &XRServer) remove_interface(gdinterface XRInterface) {
     classname := StringName.new("XRServer")
     fnname := StringName.new("remove_interface")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1898711491)
@@ -168,7 +168,7 @@ pub fn (r &XRServer) find_interface(name string) XRInterface {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r XRServer) add_tracker(tracker XRPositionalTracker) {
+pub fn (r &XRServer) add_tracker(tracker XRPositionalTracker) {
     classname := StringName.new("XRServer")
     fnname := StringName.new("add_tracker")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2692800323)
@@ -178,7 +178,7 @@ pub fn (mut r XRServer) add_tracker(tracker XRPositionalTracker) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r XRServer) remove_tracker(tracker XRPositionalTracker) {
+pub fn (r &XRServer) remove_tracker(tracker XRPositionalTracker) {
     classname := StringName.new("XRServer")
     fnname := StringName.new("remove_tracker")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2692800323)
@@ -188,7 +188,7 @@ pub fn (mut r XRServer) remove_tracker(tracker XRPositionalTracker) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r XRServer) get_trackers(tracker_types i32) Dictionary {
+pub fn (r &XRServer) get_trackers(tracker_types i32) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("XRServer")
     fnname := StringName.new("get_trackers")
@@ -224,7 +224,7 @@ pub fn (r &XRServer) get_primary_interface() XRInterface {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r XRServer) set_primary_interface(gdinterface XRInterface) {
+pub fn (r &XRServer) set_primary_interface(gdinterface XRInterface) {
     classname := StringName.new("XRServer")
     fnname := StringName.new("set_primary_interface")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1898711491)

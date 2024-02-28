@@ -61,7 +61,7 @@ pub fn (r &TileSet) get_next_source_id() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSet) add_source(source TileSetSource, atlas_source_id_override i32) i32 {
+pub fn (r &TileSet) add_source(source TileSetSource, atlas_source_id_override i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("TileSet")
     fnname := StringName.new("add_source")
@@ -74,7 +74,7 @@ pub fn (mut r TileSet) add_source(source TileSetSource, atlas_source_id_override
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSet) remove_source(source_id i32) {
+pub fn (r &TileSet) remove_source(source_id i32) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("remove_source")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -84,7 +84,7 @@ pub fn (mut r TileSet) remove_source(source_id i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileSet) set_source_id(source_id i32, new_source_id i32) {
+pub fn (r &TileSet) set_source_id(source_id i32, new_source_id i32) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("set_source_id")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -141,7 +141,7 @@ pub fn (r &TileSet) get_source(source_id i32) TileSetSource {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSet) set_tile_shape(shape TileSetTileShape) {
+pub fn (r &TileSet) set_tile_shape(shape TileSetTileShape) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("set_tile_shape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2131427112)
@@ -162,7 +162,7 @@ pub fn (r &TileSet) get_tile_shape() TileSetTileShape {
     fnname.deinit()
    return unsafe{TileSetTileShape(object_out)}
 }
-pub fn (mut r TileSet) set_tile_layout(layout TileSetTileLayout) {
+pub fn (r &TileSet) set_tile_layout(layout TileSetTileLayout) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("set_tile_layout")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1071216679)
@@ -183,7 +183,7 @@ pub fn (r &TileSet) get_tile_layout() TileSetTileLayout {
     fnname.deinit()
    return unsafe{TileSetTileLayout(object_out)}
 }
-pub fn (mut r TileSet) set_tile_offset_axis(alignment TileSetTileOffsetAxis) {
+pub fn (r &TileSet) set_tile_offset_axis(alignment TileSetTileOffsetAxis) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("set_tile_offset_axis")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3300198521)
@@ -204,7 +204,7 @@ pub fn (r &TileSet) get_tile_offset_axis() TileSetTileOffsetAxis {
     fnname.deinit()
    return unsafe{TileSetTileOffsetAxis(object_out)}
 }
-pub fn (mut r TileSet) set_tile_size(size Vector2i) {
+pub fn (r &TileSet) set_tile_size(size Vector2i) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("set_tile_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1130785943)
@@ -224,7 +224,7 @@ pub fn (r &TileSet) get_tile_size() Vector2i {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSet) set_uv_clipping(uv_clipping bool) {
+pub fn (r &TileSet) set_uv_clipping(uv_clipping bool) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("set_uv_clipping")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -254,7 +254,7 @@ pub fn (r &TileSet) get_occlusion_layers_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSet) add_occlusion_layer(to_position i32) {
+pub fn (r &TileSet) add_occlusion_layer(to_position i32) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("add_occlusion_layer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1025054187)
@@ -264,7 +264,7 @@ pub fn (mut r TileSet) add_occlusion_layer(to_position i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileSet) move_occlusion_layer(layer_index i32, to_position i32) {
+pub fn (r &TileSet) move_occlusion_layer(layer_index i32, to_position i32) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("move_occlusion_layer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -275,7 +275,7 @@ pub fn (mut r TileSet) move_occlusion_layer(layer_index i32, to_position i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileSet) remove_occlusion_layer(layer_index i32) {
+pub fn (r &TileSet) remove_occlusion_layer(layer_index i32) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("remove_occlusion_layer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -285,7 +285,7 @@ pub fn (mut r TileSet) remove_occlusion_layer(layer_index i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileSet) set_occlusion_layer_light_mask(layer_index i32, light_mask i32) {
+pub fn (r &TileSet) set_occlusion_layer_light_mask(layer_index i32, light_mask i32) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("set_occlusion_layer_light_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -308,7 +308,7 @@ pub fn (r &TileSet) get_occlusion_layer_light_mask(layer_index i32) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSet) set_occlusion_layer_sdf_collision(layer_index i32, sdf_collision bool) {
+pub fn (r &TileSet) set_occlusion_layer_sdf_collision(layer_index i32, sdf_collision bool) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("set_occlusion_layer_sdf_collision")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -341,7 +341,7 @@ pub fn (r &TileSet) get_physics_layers_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSet) add_physics_layer(to_position i32) {
+pub fn (r &TileSet) add_physics_layer(to_position i32) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("add_physics_layer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1025054187)
@@ -351,7 +351,7 @@ pub fn (mut r TileSet) add_physics_layer(to_position i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileSet) move_physics_layer(layer_index i32, to_position i32) {
+pub fn (r &TileSet) move_physics_layer(layer_index i32, to_position i32) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("move_physics_layer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -362,7 +362,7 @@ pub fn (mut r TileSet) move_physics_layer(layer_index i32, to_position i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileSet) remove_physics_layer(layer_index i32) {
+pub fn (r &TileSet) remove_physics_layer(layer_index i32) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("remove_physics_layer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -372,7 +372,7 @@ pub fn (mut r TileSet) remove_physics_layer(layer_index i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileSet) set_physics_layer_collision_layer(layer_index i32, layer u32) {
+pub fn (r &TileSet) set_physics_layer_collision_layer(layer_index i32, layer u32) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("set_physics_layer_collision_layer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -395,7 +395,7 @@ pub fn (r &TileSet) get_physics_layer_collision_layer(layer_index i32) u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSet) set_physics_layer_collision_mask(layer_index i32, mask u32) {
+pub fn (r &TileSet) set_physics_layer_collision_mask(layer_index i32, mask u32) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("set_physics_layer_collision_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -418,7 +418,7 @@ pub fn (r &TileSet) get_physics_layer_collision_mask(layer_index i32) u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSet) set_physics_layer_physics_material(layer_index i32, physics_material PhysicsMaterial) {
+pub fn (r &TileSet) set_physics_layer_physics_material(layer_index i32, physics_material PhysicsMaterial) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("set_physics_layer_physics_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1018687357)
@@ -451,7 +451,7 @@ pub fn (r &TileSet) get_terrain_sets_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSet) add_terrain_set(to_position i32) {
+pub fn (r &TileSet) add_terrain_set(to_position i32) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("add_terrain_set")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1025054187)
@@ -461,7 +461,7 @@ pub fn (mut r TileSet) add_terrain_set(to_position i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileSet) move_terrain_set(terrain_set i32, to_position i32) {
+pub fn (r &TileSet) move_terrain_set(terrain_set i32, to_position i32) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("move_terrain_set")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -472,7 +472,7 @@ pub fn (mut r TileSet) move_terrain_set(terrain_set i32, to_position i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileSet) remove_terrain_set(terrain_set i32) {
+pub fn (r &TileSet) remove_terrain_set(terrain_set i32) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("remove_terrain_set")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -482,7 +482,7 @@ pub fn (mut r TileSet) remove_terrain_set(terrain_set i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileSet) set_terrain_set_mode(terrain_set i32, mode TileSetTerrainMode) {
+pub fn (r &TileSet) set_terrain_set_mode(terrain_set i32, mode TileSetTerrainMode) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("set_terrain_set_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3943003916)
@@ -518,7 +518,7 @@ pub fn (r &TileSet) get_terrains_count(terrain_set i32) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSet) add_terrain(terrain_set i32, to_position i32) {
+pub fn (r &TileSet) add_terrain(terrain_set i32, to_position i32) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("add_terrain")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1230568737)
@@ -529,7 +529,7 @@ pub fn (mut r TileSet) add_terrain(terrain_set i32, to_position i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileSet) move_terrain(terrain_set i32, terrain_index i32, to_position i32) {
+pub fn (r &TileSet) move_terrain(terrain_set i32, terrain_index i32, to_position i32) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("move_terrain")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1649997291)
@@ -541,7 +541,7 @@ pub fn (mut r TileSet) move_terrain(terrain_set i32, terrain_index i32, to_posit
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileSet) remove_terrain(terrain_set i32, terrain_index i32) {
+pub fn (r &TileSet) remove_terrain(terrain_set i32, terrain_index i32) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("remove_terrain")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -552,7 +552,7 @@ pub fn (mut r TileSet) remove_terrain(terrain_set i32, terrain_index i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileSet) set_terrain_name(terrain_set i32, terrain_index i32, name string) {
+pub fn (r &TileSet) set_terrain_name(terrain_set i32, terrain_index i32, name string) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("set_terrain_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2285447957)
@@ -581,7 +581,7 @@ pub fn (r &TileSet) get_terrain_name(terrain_set i32, terrain_index i32) string 
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r TileSet) set_terrain_color(terrain_set i32, terrain_index i32, color Color) {
+pub fn (r &TileSet) set_terrain_color(terrain_set i32, terrain_index i32, color Color) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("set_terrain_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3733378741)
@@ -616,7 +616,7 @@ pub fn (r &TileSet) get_navigation_layers_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSet) add_navigation_layer(to_position i32) {
+pub fn (r &TileSet) add_navigation_layer(to_position i32) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("add_navigation_layer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1025054187)
@@ -626,7 +626,7 @@ pub fn (mut r TileSet) add_navigation_layer(to_position i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileSet) move_navigation_layer(layer_index i32, to_position i32) {
+pub fn (r &TileSet) move_navigation_layer(layer_index i32, to_position i32) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("move_navigation_layer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -637,7 +637,7 @@ pub fn (mut r TileSet) move_navigation_layer(layer_index i32, to_position i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileSet) remove_navigation_layer(layer_index i32) {
+pub fn (r &TileSet) remove_navigation_layer(layer_index i32) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("remove_navigation_layer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -647,7 +647,7 @@ pub fn (mut r TileSet) remove_navigation_layer(layer_index i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileSet) set_navigation_layer_layers(layer_index i32, layers u32) {
+pub fn (r &TileSet) set_navigation_layer_layers(layer_index i32, layers u32) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("set_navigation_layer_layers")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -670,7 +670,7 @@ pub fn (r &TileSet) get_navigation_layer_layers(layer_index i32) u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSet) set_navigation_layer_layer_value(layer_index i32, layer_number i32, value bool) {
+pub fn (r &TileSet) set_navigation_layer_layer_value(layer_index i32, layer_number i32, value bool) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("set_navigation_layer_layer_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1383440665)
@@ -705,7 +705,7 @@ pub fn (r &TileSet) get_custom_data_layers_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSet) add_custom_data_layer(to_position i32) {
+pub fn (r &TileSet) add_custom_data_layer(to_position i32) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("add_custom_data_layer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1025054187)
@@ -715,7 +715,7 @@ pub fn (mut r TileSet) add_custom_data_layer(to_position i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileSet) move_custom_data_layer(layer_index i32, to_position i32) {
+pub fn (r &TileSet) move_custom_data_layer(layer_index i32, to_position i32) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("move_custom_data_layer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -726,7 +726,7 @@ pub fn (mut r TileSet) move_custom_data_layer(layer_index i32, to_position i32) 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileSet) remove_custom_data_layer(layer_index i32) {
+pub fn (r &TileSet) remove_custom_data_layer(layer_index i32) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("remove_custom_data_layer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -750,7 +750,7 @@ pub fn (r &TileSet) get_custom_data_layer_by_name(layer_name string) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSet) set_custom_data_layer_name(layer_index i32, layer_name string) {
+pub fn (r &TileSet) set_custom_data_layer_name(layer_index i32, layer_name string) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("set_custom_data_layer_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
@@ -777,7 +777,7 @@ pub fn (r &TileSet) get_custom_data_layer_name(layer_index i32) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r TileSet) set_custom_data_layer_type(layer_index i32, layer_type VariantType) {
+pub fn (r &TileSet) set_custom_data_layer_type(layer_index i32, layer_type VariantType) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("set_custom_data_layer_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3492912874)
@@ -801,7 +801,7 @@ pub fn (r &TileSet) get_custom_data_layer_type(layer_index i32) VariantType {
     fnname.deinit()
    return unsafe{VariantType(object_out)}
 }
-pub fn (mut r TileSet) set_source_level_tile_proxy(source_from i32, source_to i32) {
+pub fn (r &TileSet) set_source_level_tile_proxy(source_from i32, source_to i32) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("set_source_level_tile_proxy")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -812,7 +812,7 @@ pub fn (mut r TileSet) set_source_level_tile_proxy(source_from i32, source_to i3
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileSet) get_source_level_tile_proxy(source_from i32) i32 {
+pub fn (r &TileSet) get_source_level_tile_proxy(source_from i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("TileSet")
     fnname := StringName.new("get_source_level_tile_proxy")
@@ -824,7 +824,7 @@ pub fn (mut r TileSet) get_source_level_tile_proxy(source_from i32) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSet) has_source_level_tile_proxy(source_from i32) bool {
+pub fn (r &TileSet) has_source_level_tile_proxy(source_from i32) bool {
     mut object_out := false
     classname := StringName.new("TileSet")
     fnname := StringName.new("has_source_level_tile_proxy")
@@ -836,7 +836,7 @@ pub fn (mut r TileSet) has_source_level_tile_proxy(source_from i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSet) remove_source_level_tile_proxy(source_from i32) {
+pub fn (r &TileSet) remove_source_level_tile_proxy(source_from i32) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("remove_source_level_tile_proxy")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -846,7 +846,7 @@ pub fn (mut r TileSet) remove_source_level_tile_proxy(source_from i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileSet) set_coords_level_tile_proxy(p_source_from i32, coords_from Vector2i, source_to i32, coords_to Vector2i) {
+pub fn (r &TileSet) set_coords_level_tile_proxy(p_source_from i32, coords_from Vector2i, source_to i32, coords_to Vector2i) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("set_coords_level_tile_proxy")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1769939278)
@@ -859,7 +859,7 @@ pub fn (mut r TileSet) set_coords_level_tile_proxy(p_source_from i32, coords_fro
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileSet) get_coords_level_tile_proxy(source_from i32, coords_from Vector2i) Array {
+pub fn (r &TileSet) get_coords_level_tile_proxy(source_from i32, coords_from Vector2i) Array {
     mut object_out := Array{}
     classname := StringName.new("TileSet")
     fnname := StringName.new("get_coords_level_tile_proxy")
@@ -872,7 +872,7 @@ pub fn (mut r TileSet) get_coords_level_tile_proxy(source_from i32, coords_from 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSet) has_coords_level_tile_proxy(source_from i32, coords_from Vector2i) bool {
+pub fn (r &TileSet) has_coords_level_tile_proxy(source_from i32, coords_from Vector2i) bool {
     mut object_out := false
     classname := StringName.new("TileSet")
     fnname := StringName.new("has_coords_level_tile_proxy")
@@ -885,7 +885,7 @@ pub fn (mut r TileSet) has_coords_level_tile_proxy(source_from i32, coords_from 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSet) remove_coords_level_tile_proxy(source_from i32, coords_from Vector2i) {
+pub fn (r &TileSet) remove_coords_level_tile_proxy(source_from i32, coords_from Vector2i) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("remove_coords_level_tile_proxy")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2311374912)
@@ -896,7 +896,7 @@ pub fn (mut r TileSet) remove_coords_level_tile_proxy(source_from i32, coords_fr
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileSet) set_alternative_level_tile_proxy(source_from i32, coords_from Vector2i, alternative_from i32, source_to i32, coords_to Vector2i, alternative_to i32) {
+pub fn (r &TileSet) set_alternative_level_tile_proxy(source_from i32, coords_from Vector2i, alternative_from i32, source_to i32, coords_to Vector2i, alternative_to i32) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("set_alternative_level_tile_proxy")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3862385460)
@@ -911,7 +911,7 @@ pub fn (mut r TileSet) set_alternative_level_tile_proxy(source_from i32, coords_
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileSet) get_alternative_level_tile_proxy(source_from i32, coords_from Vector2i, alternative_from i32) Array {
+pub fn (r &TileSet) get_alternative_level_tile_proxy(source_from i32, coords_from Vector2i, alternative_from i32) Array {
     mut object_out := Array{}
     classname := StringName.new("TileSet")
     fnname := StringName.new("get_alternative_level_tile_proxy")
@@ -925,7 +925,7 @@ pub fn (mut r TileSet) get_alternative_level_tile_proxy(source_from i32, coords_
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSet) has_alternative_level_tile_proxy(source_from i32, coords_from Vector2i, alternative_from i32) bool {
+pub fn (r &TileSet) has_alternative_level_tile_proxy(source_from i32, coords_from Vector2i, alternative_from i32) bool {
     mut object_out := false
     classname := StringName.new("TileSet")
     fnname := StringName.new("has_alternative_level_tile_proxy")
@@ -939,7 +939,7 @@ pub fn (mut r TileSet) has_alternative_level_tile_proxy(source_from i32, coords_
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSet) remove_alternative_level_tile_proxy(source_from i32, coords_from Vector2i, alternative_from i32) {
+pub fn (r &TileSet) remove_alternative_level_tile_proxy(source_from i32, coords_from Vector2i, alternative_from i32) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("remove_alternative_level_tile_proxy")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2328951467)
@@ -965,7 +965,7 @@ pub fn (r &TileSet) map_tile_proxy(source_from i32, coords_from Vector2i, altern
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSet) cleanup_invalid_tile_proxies() {
+pub fn (r &TileSet) cleanup_invalid_tile_proxies() {
     classname := StringName.new("TileSet")
     fnname := StringName.new("cleanup_invalid_tile_proxies")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -973,7 +973,7 @@ pub fn (mut r TileSet) cleanup_invalid_tile_proxies() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileSet) clear_tile_proxies() {
+pub fn (r &TileSet) clear_tile_proxies() {
     classname := StringName.new("TileSet")
     fnname := StringName.new("clear_tile_proxies")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -981,7 +981,7 @@ pub fn (mut r TileSet) clear_tile_proxies() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileSet) add_pattern(pattern TileMapPattern, index i32) i32 {
+pub fn (r &TileSet) add_pattern(pattern TileMapPattern, index i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("TileSet")
     fnname := StringName.new("add_pattern")
@@ -994,7 +994,7 @@ pub fn (mut r TileSet) add_pattern(pattern TileMapPattern, index i32) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSet) get_pattern(index i32) TileMapPattern {
+pub fn (r &TileSet) get_pattern(index i32) TileMapPattern {
     mut object_out := TileMapPattern{}
     classname := StringName.new("TileSet")
     fnname := StringName.new("get_pattern")
@@ -1006,7 +1006,7 @@ pub fn (mut r TileSet) get_pattern(index i32) TileMapPattern {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSet) remove_pattern(index i32) {
+pub fn (r &TileSet) remove_pattern(index i32) {
     classname := StringName.new("TileSet")
     fnname := StringName.new("remove_pattern")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -1016,7 +1016,7 @@ pub fn (mut r TileSet) remove_pattern(index i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileSet) get_patterns_count() i32 {
+pub fn (r &TileSet) get_patterns_count() i32 {
     mut object_out := i32(0)
     classname := StringName.new("TileSet")
     fnname := StringName.new("get_patterns_count")

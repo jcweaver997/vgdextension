@@ -5,7 +5,7 @@ pub struct AudioEffectAmplify {
     AudioEffect
 }
 
-pub fn (mut r AudioEffectAmplify) set_volume_db(volume f64) {
+pub fn (r &AudioEffectAmplify) set_volume_db(volume f64) {
     classname := StringName.new("AudioEffectAmplify")
     fnname := StringName.new("set_volume_db")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

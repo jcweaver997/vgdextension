@@ -5,7 +5,7 @@ pub struct FogMaterial {
     Material
 }
 
-pub fn (mut r FogMaterial) set_density(density f64) {
+pub fn (r &FogMaterial) set_density(density f64) {
     classname := StringName.new("FogMaterial")
     fnname := StringName.new("set_density")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -25,7 +25,7 @@ pub fn (r &FogMaterial) get_density() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FogMaterial) set_albedo(albedo Color) {
+pub fn (r &FogMaterial) set_albedo(albedo Color) {
     classname := StringName.new("FogMaterial")
     fnname := StringName.new("set_albedo")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -45,7 +45,7 @@ pub fn (r &FogMaterial) get_albedo() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FogMaterial) set_emission(emission Color) {
+pub fn (r &FogMaterial) set_emission(emission Color) {
     classname := StringName.new("FogMaterial")
     fnname := StringName.new("set_emission")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -65,7 +65,7 @@ pub fn (r &FogMaterial) get_emission() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FogMaterial) set_height_falloff(height_falloff f64) {
+pub fn (r &FogMaterial) set_height_falloff(height_falloff f64) {
     classname := StringName.new("FogMaterial")
     fnname := StringName.new("set_height_falloff")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -85,7 +85,7 @@ pub fn (r &FogMaterial) get_height_falloff() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FogMaterial) set_edge_fade(edge_fade f64) {
+pub fn (r &FogMaterial) set_edge_fade(edge_fade f64) {
     classname := StringName.new("FogMaterial")
     fnname := StringName.new("set_edge_fade")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -105,7 +105,7 @@ pub fn (r &FogMaterial) get_edge_fade() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FogMaterial) set_density_texture(density_texture Texture3D) {
+pub fn (r &FogMaterial) set_density_texture(density_texture Texture3D) {
     classname := StringName.new("FogMaterial")
     fnname := StringName.new("set_density_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1188404210)

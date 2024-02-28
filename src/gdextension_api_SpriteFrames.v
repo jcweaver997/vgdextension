@@ -5,7 +5,7 @@ pub struct SpriteFrames {
     Resource
 }
 
-pub fn (mut r SpriteFrames) add_animation(anim string) {
+pub fn (r &SpriteFrames) add_animation(anim string) {
     classname := StringName.new("SpriteFrames")
     fnname := StringName.new("add_animation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -31,7 +31,7 @@ pub fn (r &SpriteFrames) has_animation(anim string) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SpriteFrames) remove_animation(anim string) {
+pub fn (r &SpriteFrames) remove_animation(anim string) {
     classname := StringName.new("SpriteFrames")
     fnname := StringName.new("remove_animation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -43,7 +43,7 @@ pub fn (mut r SpriteFrames) remove_animation(anim string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SpriteFrames) rename_animation(anim string, newname string) {
+pub fn (r &SpriteFrames) rename_animation(anim string, newname string) {
     classname := StringName.new("SpriteFrames")
     fnname := StringName.new("rename_animation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3740211285)
@@ -68,7 +68,7 @@ pub fn (r &SpriteFrames) get_animation_names() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SpriteFrames) set_animation_speed(anim string, fps f64) {
+pub fn (r &SpriteFrames) set_animation_speed(anim string, fps f64) {
     classname := StringName.new("SpriteFrames")
     fnname := StringName.new("set_animation_speed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4135858297)
@@ -95,7 +95,7 @@ pub fn (r &SpriteFrames) get_animation_speed(anim string) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SpriteFrames) set_animation_loop(anim string, loop bool) {
+pub fn (r &SpriteFrames) set_animation_loop(anim string, loop bool) {
     classname := StringName.new("SpriteFrames")
     fnname := StringName.new("set_animation_loop")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2524380260)
@@ -122,7 +122,7 @@ pub fn (r &SpriteFrames) get_animation_loop(anim string) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SpriteFrames) add_frame(anim string, texture Texture2D, duration f64, at_position i32) {
+pub fn (r &SpriteFrames) add_frame(anim string, texture Texture2D, duration f64, at_position i32) {
     classname := StringName.new("SpriteFrames")
     fnname := StringName.new("add_frame")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1351332740)
@@ -137,7 +137,7 @@ pub fn (mut r SpriteFrames) add_frame(anim string, texture Texture2D, duration f
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SpriteFrames) set_frame(anim string, idx i32, texture Texture2D, duration f64) {
+pub fn (r &SpriteFrames) set_frame(anim string, idx i32, texture Texture2D, duration f64) {
     classname := StringName.new("SpriteFrames")
     fnname := StringName.new("set_frame")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 56804795)
@@ -152,7 +152,7 @@ pub fn (mut r SpriteFrames) set_frame(anim string, idx i32, texture Texture2D, d
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SpriteFrames) remove_frame(anim string, idx i32) {
+pub fn (r &SpriteFrames) remove_frame(anim string, idx i32) {
     classname := StringName.new("SpriteFrames")
     fnname := StringName.new("remove_frame")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2415702435)
@@ -209,7 +209,7 @@ pub fn (r &SpriteFrames) get_frame_duration(anim string, idx i32) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SpriteFrames) clear(anim string) {
+pub fn (r &SpriteFrames) clear(anim string) {
     classname := StringName.new("SpriteFrames")
     fnname := StringName.new("clear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -221,7 +221,7 @@ pub fn (mut r SpriteFrames) clear(anim string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SpriteFrames) clear_all() {
+pub fn (r &SpriteFrames) clear_all() {
     classname := StringName.new("SpriteFrames")
     fnname := StringName.new("clear_all")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

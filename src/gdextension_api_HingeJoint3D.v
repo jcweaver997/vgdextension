@@ -23,7 +23,7 @@ pub struct HingeJoint3D {
     Joint3D
 }
 
-pub fn (mut r HingeJoint3D) set_param(param HingeJoint3DParam, value f64) {
+pub fn (r &HingeJoint3D) set_param(param HingeJoint3DParam, value f64) {
     classname := StringName.new("HingeJoint3D")
     fnname := StringName.new("set_param")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3082977519)
@@ -48,7 +48,7 @@ pub fn (r &HingeJoint3D) get_param(param HingeJoint3DParam) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r HingeJoint3D) set_flag(flag HingeJoint3DFlag, enabled bool) {
+pub fn (r &HingeJoint3D) set_flag(flag HingeJoint3DFlag, enabled bool) {
     classname := StringName.new("HingeJoint3D")
     fnname := StringName.new("set_flag")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1083494620)

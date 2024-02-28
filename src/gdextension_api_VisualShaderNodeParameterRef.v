@@ -5,7 +5,7 @@ pub struct VisualShaderNodeParameterRef {
     VisualShaderNode
 }
 
-pub fn (mut r VisualShaderNodeParameterRef) set_parameter_name(name string) {
+pub fn (r &VisualShaderNodeParameterRef) set_parameter_name(name string) {
     classname := StringName.new("VisualShaderNodeParameterRef")
     fnname := StringName.new("set_parameter_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)

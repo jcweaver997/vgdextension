@@ -14,7 +14,7 @@ pub fn WorkerThreadPool.get_singleton() WorkerThreadPool {
     return o
 }
 
-pub fn (mut r WorkerThreadPool) add_task(action Callable, high_priority bool, description string) i64 {
+pub fn (r &WorkerThreadPool) add_task(action Callable, high_priority bool, description string) i64 {
     mut object_out := i64(0)
     classname := StringName.new("WorkerThreadPool")
     fnname := StringName.new("add_task")
@@ -42,7 +42,7 @@ pub fn (r &WorkerThreadPool) is_task_completed(task_id i64) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r WorkerThreadPool) wait_for_task_completion(task_id i64) GDError {
+pub fn (r &WorkerThreadPool) wait_for_task_completion(task_id i64) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("WorkerThreadPool")
     fnname := StringName.new("wait_for_task_completion")
@@ -54,7 +54,7 @@ pub fn (mut r WorkerThreadPool) wait_for_task_completion(task_id i64) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r WorkerThreadPool) add_group_task(action Callable, elements i32, tasks_needed i32, high_priority bool, description string) i64 {
+pub fn (r &WorkerThreadPool) add_group_task(action Callable, elements i32, tasks_needed i32, high_priority bool, description string) i64 {
     mut object_out := i64(0)
     classname := StringName.new("WorkerThreadPool")
     fnname := StringName.new("add_group_task")
@@ -96,7 +96,7 @@ pub fn (r &WorkerThreadPool) get_group_processed_element_count(group_id i64) u32
     fnname.deinit()
    return object_out
 }
-pub fn (mut r WorkerThreadPool) wait_for_group_task_completion(group_id i64) {
+pub fn (r &WorkerThreadPool) wait_for_group_task_completion(group_id i64) {
     classname := StringName.new("WorkerThreadPool")
     fnname := StringName.new("wait_for_group_task_completion")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

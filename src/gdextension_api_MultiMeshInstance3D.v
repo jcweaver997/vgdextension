@@ -5,7 +5,7 @@ pub struct MultiMeshInstance3D {
     GeometryInstance3D
 }
 
-pub fn (mut r MultiMeshInstance3D) set_multimesh(multimesh MultiMesh) {
+pub fn (r &MultiMeshInstance3D) set_multimesh(multimesh MultiMesh) {
     classname := StringName.new("MultiMeshInstance3D")
     fnname := StringName.new("set_multimesh")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2246127404)

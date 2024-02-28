@@ -35,7 +35,7 @@ pub fn (r &World3D) get_scenario() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r World3D) set_environment(env Environment) {
+pub fn (r &World3D) set_environment(env Environment) {
     classname := StringName.new("World3D")
     fnname := StringName.new("set_environment")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4143518816)
@@ -55,7 +55,7 @@ pub fn (r &World3D) get_environment() Environment {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r World3D) set_fallback_environment(env Environment) {
+pub fn (r &World3D) set_fallback_environment(env Environment) {
     classname := StringName.new("World3D")
     fnname := StringName.new("set_fallback_environment")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4143518816)
@@ -75,7 +75,7 @@ pub fn (r &World3D) get_fallback_environment() Environment {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r World3D) set_camera_attributes(attributes CameraAttributes) {
+pub fn (r &World3D) set_camera_attributes(attributes CameraAttributes) {
     classname := StringName.new("World3D")
     fnname := StringName.new("set_camera_attributes")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2817810567)
@@ -95,7 +95,7 @@ pub fn (r &World3D) get_camera_attributes() CameraAttributes {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r World3D) get_direct_space_state() PhysicsDirectSpaceState3D {
+pub fn (r &World3D) get_direct_space_state() PhysicsDirectSpaceState3D {
     mut object_out := PhysicsDirectSpaceState3D{}
     classname := StringName.new("World3D")
     fnname := StringName.new("get_direct_space_state")

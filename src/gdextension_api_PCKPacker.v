@@ -5,7 +5,7 @@ pub struct PCKPacker {
     RefCounted
 }
 
-pub fn (mut r PCKPacker) pck_start(pck_name string, alignment i32, key string, encrypt_directory bool) GDError {
+pub fn (r &PCKPacker) pck_start(pck_name string, alignment i32, key string, encrypt_directory bool) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("PCKPacker")
     fnname := StringName.new("pck_start")
@@ -24,7 +24,7 @@ pub fn (mut r PCKPacker) pck_start(pck_name string, alignment i32, key string, e
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r PCKPacker) add_file(pck_path string, source_path string, encrypt bool) GDError {
+pub fn (r &PCKPacker) add_file(pck_path string, source_path string, encrypt bool) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("PCKPacker")
     fnname := StringName.new("add_file")
@@ -42,7 +42,7 @@ pub fn (mut r PCKPacker) add_file(pck_path string, source_path string, encrypt b
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r PCKPacker) flush(verbose bool) GDError {
+pub fn (r &PCKPacker) flush(verbose bool) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("PCKPacker")
     fnname := StringName.new("flush")

@@ -5,7 +5,7 @@ pub struct InputEventJoypadMotion {
     InputEvent
 }
 
-pub fn (mut r InputEventJoypadMotion) set_axis(axis JoyAxis) {
+pub fn (r &InputEventJoypadMotion) set_axis(axis JoyAxis) {
     classname := StringName.new("InputEventJoypadMotion")
     fnname := StringName.new("set_axis")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1332685170)
@@ -26,7 +26,7 @@ pub fn (r &InputEventJoypadMotion) get_axis() JoyAxis {
     fnname.deinit()
    return unsafe{JoyAxis(object_out)}
 }
-pub fn (mut r InputEventJoypadMotion) set_axis_value(axis_value f64) {
+pub fn (r &InputEventJoypadMotion) set_axis_value(axis_value f64) {
     classname := StringName.new("InputEventJoypadMotion")
     fnname := StringName.new("set_axis_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

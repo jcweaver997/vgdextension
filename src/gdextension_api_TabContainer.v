@@ -15,7 +15,7 @@ pub fn (r &TabContainer) get_tab_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TabContainer) set_current_tab(tab_idx i32) {
+pub fn (r &TabContainer) set_current_tab(tab_idx i32) {
     classname := StringName.new("TabContainer")
     fnname := StringName.new("set_current_tab")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -45,7 +45,7 @@ pub fn (r &TabContainer) get_previous_tab() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TabContainer) select_previous_available() bool {
+pub fn (r &TabContainer) select_previous_available() bool {
     mut object_out := false
     classname := StringName.new("TabContainer")
     fnname := StringName.new("select_previous_available")
@@ -55,7 +55,7 @@ pub fn (mut r TabContainer) select_previous_available() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TabContainer) select_next_available() bool {
+pub fn (r &TabContainer) select_next_available() bool {
     mut object_out := false
     classname := StringName.new("TabContainer")
     fnname := StringName.new("select_next_available")
@@ -97,7 +97,7 @@ pub fn (r &TabContainer) get_tab_control(tab_idx i32) Control {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TabContainer) set_tab_alignment(alignment TabBarAlignmentMode) {
+pub fn (r &TabContainer) set_tab_alignment(alignment TabBarAlignmentMode) {
     classname := StringName.new("TabContainer")
     fnname := StringName.new("set_tab_alignment")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2413632353)
@@ -118,7 +118,7 @@ pub fn (r &TabContainer) get_tab_alignment() TabBarAlignmentMode {
     fnname.deinit()
    return unsafe{TabBarAlignmentMode(object_out)}
 }
-pub fn (mut r TabContainer) set_clip_tabs(clip_tabs bool) {
+pub fn (r &TabContainer) set_clip_tabs(clip_tabs bool) {
     classname := StringName.new("TabContainer")
     fnname := StringName.new("set_clip_tabs")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -138,7 +138,7 @@ pub fn (r &TabContainer) get_clip_tabs() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TabContainer) set_tabs_visible(visible bool) {
+pub fn (r &TabContainer) set_tabs_visible(visible bool) {
     classname := StringName.new("TabContainer")
     fnname := StringName.new("set_tabs_visible")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -158,7 +158,7 @@ pub fn (r &TabContainer) are_tabs_visible() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TabContainer) set_all_tabs_in_front(is_front bool) {
+pub fn (r &TabContainer) set_all_tabs_in_front(is_front bool) {
     classname := StringName.new("TabContainer")
     fnname := StringName.new("set_all_tabs_in_front")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -178,7 +178,7 @@ pub fn (r &TabContainer) is_all_tabs_in_front() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TabContainer) set_tab_title(tab_idx i32, title string) {
+pub fn (r &TabContainer) set_tab_title(tab_idx i32, title string) {
     classname := StringName.new("TabContainer")
     fnname := StringName.new("set_tab_title")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
@@ -205,7 +205,7 @@ pub fn (r &TabContainer) get_tab_title(tab_idx i32) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r TabContainer) set_tab_icon(tab_idx i32, icon Texture2D) {
+pub fn (r &TabContainer) set_tab_icon(tab_idx i32, icon Texture2D) {
     classname := StringName.new("TabContainer")
     fnname := StringName.new("set_tab_icon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 666127730)
@@ -228,7 +228,7 @@ pub fn (r &TabContainer) get_tab_icon(tab_idx i32) Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TabContainer) set_tab_disabled(tab_idx i32, disabled bool) {
+pub fn (r &TabContainer) set_tab_disabled(tab_idx i32, disabled bool) {
     classname := StringName.new("TabContainer")
     fnname := StringName.new("set_tab_disabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -251,7 +251,7 @@ pub fn (r &TabContainer) is_tab_disabled(tab_idx i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TabContainer) set_tab_hidden(tab_idx i32, hidden bool) {
+pub fn (r &TabContainer) set_tab_hidden(tab_idx i32, hidden bool) {
     classname := StringName.new("TabContainer")
     fnname := StringName.new("set_tab_hidden")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -274,7 +274,7 @@ pub fn (r &TabContainer) is_tab_hidden(tab_idx i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TabContainer) set_tab_metadata(tab_idx i32, metadata Variant) {
+pub fn (r &TabContainer) set_tab_metadata(tab_idx i32, metadata Variant) {
     classname := StringName.new("TabContainer")
     fnname := StringName.new("set_tab_metadata")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2152698145)
@@ -297,7 +297,7 @@ pub fn (r &TabContainer) get_tab_metadata(tab_idx i32) Variant {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TabContainer) set_tab_button_icon(tab_idx i32, icon Texture2D) {
+pub fn (r &TabContainer) set_tab_button_icon(tab_idx i32, icon Texture2D) {
     classname := StringName.new("TabContainer")
     fnname := StringName.new("set_tab_button_icon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 666127730)
@@ -344,7 +344,7 @@ pub fn (r &TabContainer) get_tab_idx_from_control(control Control) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TabContainer) set_popup(popup Node) {
+pub fn (r &TabContainer) set_popup(popup Node) {
     classname := StringName.new("TabContainer")
     fnname := StringName.new("set_popup")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
@@ -364,7 +364,7 @@ pub fn (r &TabContainer) get_popup() Popup {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TabContainer) set_drag_to_rearrange_enabled(enabled bool) {
+pub fn (r &TabContainer) set_drag_to_rearrange_enabled(enabled bool) {
     classname := StringName.new("TabContainer")
     fnname := StringName.new("set_drag_to_rearrange_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -384,7 +384,7 @@ pub fn (r &TabContainer) get_drag_to_rearrange_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TabContainer) set_tabs_rearrange_group(group_id i32) {
+pub fn (r &TabContainer) set_tabs_rearrange_group(group_id i32) {
     classname := StringName.new("TabContainer")
     fnname := StringName.new("set_tabs_rearrange_group")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -404,7 +404,7 @@ pub fn (r &TabContainer) get_tabs_rearrange_group() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TabContainer) set_use_hidden_tabs_for_min_size(enabled bool) {
+pub fn (r &TabContainer) set_use_hidden_tabs_for_min_size(enabled bool) {
     classname := StringName.new("TabContainer")
     fnname := StringName.new("set_use_hidden_tabs_for_min_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -424,7 +424,7 @@ pub fn (r &TabContainer) get_use_hidden_tabs_for_min_size() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TabContainer) set_tab_focus_mode(focus_mode ControlFocusMode) {
+pub fn (r &TabContainer) set_tab_focus_mode(focus_mode ControlFocusMode) {
     classname := StringName.new("TabContainer")
     fnname := StringName.new("set_tab_focus_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3232914922)

@@ -5,7 +5,7 @@ pub struct AcceptDialog {
     Window
 }
 
-pub fn (mut r AcceptDialog) get_ok_button() Button {
+pub fn (r &AcceptDialog) get_ok_button() Button {
     mut object_out := Button{}
     classname := StringName.new("AcceptDialog")
     fnname := StringName.new("get_ok_button")
@@ -15,7 +15,7 @@ pub fn (mut r AcceptDialog) get_ok_button() Button {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AcceptDialog) get_label() Label {
+pub fn (r &AcceptDialog) get_label() Label {
     mut object_out := Label{}
     classname := StringName.new("AcceptDialog")
     fnname := StringName.new("get_label")
@@ -25,7 +25,7 @@ pub fn (mut r AcceptDialog) get_label() Label {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AcceptDialog) set_hide_on_ok(enabled bool) {
+pub fn (r &AcceptDialog) set_hide_on_ok(enabled bool) {
     classname := StringName.new("AcceptDialog")
     fnname := StringName.new("set_hide_on_ok")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -45,7 +45,7 @@ pub fn (r &AcceptDialog) get_hide_on_ok() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AcceptDialog) set_close_on_escape(enabled bool) {
+pub fn (r &AcceptDialog) set_close_on_escape(enabled bool) {
     classname := StringName.new("AcceptDialog")
     fnname := StringName.new("set_close_on_escape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -65,7 +65,7 @@ pub fn (r &AcceptDialog) get_close_on_escape() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AcceptDialog) add_button(text string, right bool, action string) Button {
+pub fn (r &AcceptDialog) add_button(text string, right bool, action string) Button {
     mut object_out := Button{}
     classname := StringName.new("AcceptDialog")
     fnname := StringName.new("add_button")
@@ -83,7 +83,7 @@ pub fn (mut r AcceptDialog) add_button(text string, right bool, action string) B
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AcceptDialog) add_cancel_button(name string) Button {
+pub fn (r &AcceptDialog) add_cancel_button(name string) Button {
     mut object_out := Button{}
     classname := StringName.new("AcceptDialog")
     fnname := StringName.new("add_cancel_button")
@@ -97,7 +97,7 @@ pub fn (mut r AcceptDialog) add_cancel_button(name string) Button {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AcceptDialog) remove_button(button Control) {
+pub fn (r &AcceptDialog) remove_button(button Control) {
     classname := StringName.new("AcceptDialog")
     fnname := StringName.new("remove_button")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1496901182)
@@ -107,7 +107,7 @@ pub fn (mut r AcceptDialog) remove_button(button Control) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AcceptDialog) register_text_enter(line_edit Control) {
+pub fn (r &AcceptDialog) register_text_enter(line_edit Control) {
     classname := StringName.new("AcceptDialog")
     fnname := StringName.new("register_text_enter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1496901182)
@@ -117,7 +117,7 @@ pub fn (mut r AcceptDialog) register_text_enter(line_edit Control) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AcceptDialog) set_text(text string) {
+pub fn (r &AcceptDialog) set_text(text string) {
     classname := StringName.new("AcceptDialog")
     fnname := StringName.new("set_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -141,7 +141,7 @@ pub fn (r &AcceptDialog) get_text() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r AcceptDialog) set_autowrap(autowrap bool) {
+pub fn (r &AcceptDialog) set_autowrap(autowrap bool) {
     classname := StringName.new("AcceptDialog")
     fnname := StringName.new("set_autowrap")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -151,7 +151,7 @@ pub fn (mut r AcceptDialog) set_autowrap(autowrap bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AcceptDialog) has_autowrap() bool {
+pub fn (r &AcceptDialog) has_autowrap() bool {
     mut object_out := false
     classname := StringName.new("AcceptDialog")
     fnname := StringName.new("has_autowrap")
@@ -161,7 +161,7 @@ pub fn (mut r AcceptDialog) has_autowrap() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AcceptDialog) set_ok_button_text(text string) {
+pub fn (r &AcceptDialog) set_ok_button_text(text string) {
     classname := StringName.new("AcceptDialog")
     fnname := StringName.new("set_ok_button_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)

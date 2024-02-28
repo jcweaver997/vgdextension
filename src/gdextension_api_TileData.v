@@ -5,7 +5,7 @@ pub struct TileData {
     Object
 }
 
-pub fn (mut r TileData) set_flip_h(flip_h bool) {
+pub fn (r &TileData) set_flip_h(flip_h bool) {
     classname := StringName.new("TileData")
     fnname := StringName.new("set_flip_h")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -25,7 +25,7 @@ pub fn (r &TileData) get_flip_h() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileData) set_flip_v(flip_v bool) {
+pub fn (r &TileData) set_flip_v(flip_v bool) {
     classname := StringName.new("TileData")
     fnname := StringName.new("set_flip_v")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -45,7 +45,7 @@ pub fn (r &TileData) get_flip_v() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileData) set_transpose(transpose bool) {
+pub fn (r &TileData) set_transpose(transpose bool) {
     classname := StringName.new("TileData")
     fnname := StringName.new("set_transpose")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -65,7 +65,7 @@ pub fn (r &TileData) get_transpose() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileData) set_material(material Material) {
+pub fn (r &TileData) set_material(material Material) {
     classname := StringName.new("TileData")
     fnname := StringName.new("set_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2757459619)
@@ -85,7 +85,7 @@ pub fn (r &TileData) get_material() Material {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileData) set_texture_origin(texture_origin Vector2i) {
+pub fn (r &TileData) set_texture_origin(texture_origin Vector2i) {
     classname := StringName.new("TileData")
     fnname := StringName.new("set_texture_origin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1130785943)
@@ -105,7 +105,7 @@ pub fn (r &TileData) get_texture_origin() Vector2i {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileData) set_modulate(modulate Color) {
+pub fn (r &TileData) set_modulate(modulate Color) {
     classname := StringName.new("TileData")
     fnname := StringName.new("set_modulate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -125,7 +125,7 @@ pub fn (r &TileData) get_modulate() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileData) set_z_index(z_index i32) {
+pub fn (r &TileData) set_z_index(z_index i32) {
     classname := StringName.new("TileData")
     fnname := StringName.new("set_z_index")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -145,7 +145,7 @@ pub fn (r &TileData) get_z_index() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileData) set_y_sort_origin(y_sort_origin i32) {
+pub fn (r &TileData) set_y_sort_origin(y_sort_origin i32) {
     classname := StringName.new("TileData")
     fnname := StringName.new("set_y_sort_origin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -165,7 +165,7 @@ pub fn (r &TileData) get_y_sort_origin() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileData) set_occluder(layer_id i32, occluder_polygon OccluderPolygon2D) {
+pub fn (r &TileData) set_occluder(layer_id i32, occluder_polygon OccluderPolygon2D) {
     classname := StringName.new("TileData")
     fnname := StringName.new("set_occluder")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 914399637)
@@ -188,7 +188,7 @@ pub fn (r &TileData) get_occluder(layer_id i32) OccluderPolygon2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileData) set_constant_linear_velocity(layer_id i32, velocity Vector2) {
+pub fn (r &TileData) set_constant_linear_velocity(layer_id i32, velocity Vector2) {
     classname := StringName.new("TileData")
     fnname := StringName.new("set_constant_linear_velocity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 163021252)
@@ -211,7 +211,7 @@ pub fn (r &TileData) get_constant_linear_velocity(layer_id i32) Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileData) set_constant_angular_velocity(layer_id i32, velocity f64) {
+pub fn (r &TileData) set_constant_angular_velocity(layer_id i32, velocity f64) {
     classname := StringName.new("TileData")
     fnname := StringName.new("set_constant_angular_velocity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1602489585)
@@ -234,7 +234,7 @@ pub fn (r &TileData) get_constant_angular_velocity(layer_id i32) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileData) set_collision_polygons_count(layer_id i32, polygons_count i32) {
+pub fn (r &TileData) set_collision_polygons_count(layer_id i32, polygons_count i32) {
     classname := StringName.new("TileData")
     fnname := StringName.new("set_collision_polygons_count")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -257,7 +257,7 @@ pub fn (r &TileData) get_collision_polygons_count(layer_id i32) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileData) add_collision_polygon(layer_id i32) {
+pub fn (r &TileData) add_collision_polygon(layer_id i32) {
     classname := StringName.new("TileData")
     fnname := StringName.new("add_collision_polygon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -267,7 +267,7 @@ pub fn (mut r TileData) add_collision_polygon(layer_id i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileData) remove_collision_polygon(layer_id i32, polygon_index i32) {
+pub fn (r &TileData) remove_collision_polygon(layer_id i32, polygon_index i32) {
     classname := StringName.new("TileData")
     fnname := StringName.new("remove_collision_polygon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -278,7 +278,7 @@ pub fn (mut r TileData) remove_collision_polygon(layer_id i32, polygon_index i32
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileData) set_collision_polygon_points(layer_id i32, polygon_index i32, polygon PackedVector2Array) {
+pub fn (r &TileData) set_collision_polygon_points(layer_id i32, polygon_index i32, polygon PackedVector2Array) {
     classname := StringName.new("TileData")
     fnname := StringName.new("set_collision_polygon_points")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3230546541)
@@ -303,7 +303,7 @@ pub fn (r &TileData) get_collision_polygon_points(layer_id i32, polygon_index i3
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileData) set_collision_polygon_one_way(layer_id i32, polygon_index i32, one_way bool) {
+pub fn (r &TileData) set_collision_polygon_one_way(layer_id i32, polygon_index i32, one_way bool) {
     classname := StringName.new("TileData")
     fnname := StringName.new("set_collision_polygon_one_way")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1383440665)
@@ -328,7 +328,7 @@ pub fn (r &TileData) is_collision_polygon_one_way(layer_id i32, polygon_index i3
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileData) set_collision_polygon_one_way_margin(layer_id i32, polygon_index i32, one_way_margin f64) {
+pub fn (r &TileData) set_collision_polygon_one_way_margin(layer_id i32, polygon_index i32, one_way_margin f64) {
     classname := StringName.new("TileData")
     fnname := StringName.new("set_collision_polygon_one_way_margin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3506521499)
@@ -353,7 +353,7 @@ pub fn (r &TileData) get_collision_polygon_one_way_margin(layer_id i32, polygon_
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileData) set_terrain_set(terrain_set i32) {
+pub fn (r &TileData) set_terrain_set(terrain_set i32) {
     classname := StringName.new("TileData")
     fnname := StringName.new("set_terrain_set")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -373,7 +373,7 @@ pub fn (r &TileData) get_terrain_set() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileData) set_terrain(terrain i32) {
+pub fn (r &TileData) set_terrain(terrain i32) {
     classname := StringName.new("TileData")
     fnname := StringName.new("set_terrain")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -393,7 +393,7 @@ pub fn (r &TileData) get_terrain() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileData) set_terrain_peering_bit(peering_bit TileSetCellNeighbor, terrain i32) {
+pub fn (r &TileData) set_terrain_peering_bit(peering_bit TileSetCellNeighbor, terrain i32) {
     classname := StringName.new("TileData")
     fnname := StringName.new("set_terrain_peering_bit")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1084452308)
@@ -418,7 +418,7 @@ pub fn (r &TileData) get_terrain_peering_bit(peering_bit TileSetCellNeighbor) i3
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileData) set_navigation_polygon(layer_id i32, navigation_polygon NavigationPolygon) {
+pub fn (r &TileData) set_navigation_polygon(layer_id i32, navigation_polygon NavigationPolygon) {
     classname := StringName.new("TileData")
     fnname := StringName.new("set_navigation_polygon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2224691167)
@@ -441,7 +441,7 @@ pub fn (r &TileData) get_navigation_polygon(layer_id i32) NavigationPolygon {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileData) set_probability(probability f64) {
+pub fn (r &TileData) set_probability(probability f64) {
     classname := StringName.new("TileData")
     fnname := StringName.new("set_probability")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -461,7 +461,7 @@ pub fn (r &TileData) get_probability() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileData) set_custom_data(layer_name string, value Variant) {
+pub fn (r &TileData) set_custom_data(layer_name string, value Variant) {
     classname := StringName.new("TileData")
     fnname := StringName.new("set_custom_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 402577236)
@@ -488,7 +488,7 @@ pub fn (r &TileData) get_custom_data(layer_name string) Variant {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileData) set_custom_data_by_layer_id(layer_id i32, value Variant) {
+pub fn (r &TileData) set_custom_data_by_layer_id(layer_id i32, value Variant) {
     classname := StringName.new("TileData")
     fnname := StringName.new("set_custom_data_by_layer_id")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2152698145)

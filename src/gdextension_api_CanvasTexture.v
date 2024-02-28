@@ -5,7 +5,7 @@ pub struct CanvasTexture {
     Texture2D
 }
 
-pub fn (mut r CanvasTexture) set_diffuse_texture(texture Texture2D) {
+pub fn (r &CanvasTexture) set_diffuse_texture(texture Texture2D) {
     classname := StringName.new("CanvasTexture")
     fnname := StringName.new("set_diffuse_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
@@ -25,7 +25,7 @@ pub fn (r &CanvasTexture) get_diffuse_texture() Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CanvasTexture) set_normal_texture(texture Texture2D) {
+pub fn (r &CanvasTexture) set_normal_texture(texture Texture2D) {
     classname := StringName.new("CanvasTexture")
     fnname := StringName.new("set_normal_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
@@ -45,7 +45,7 @@ pub fn (r &CanvasTexture) get_normal_texture() Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CanvasTexture) set_specular_texture(texture Texture2D) {
+pub fn (r &CanvasTexture) set_specular_texture(texture Texture2D) {
     classname := StringName.new("CanvasTexture")
     fnname := StringName.new("set_specular_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
@@ -65,7 +65,7 @@ pub fn (r &CanvasTexture) get_specular_texture() Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CanvasTexture) set_specular_color(color Color) {
+pub fn (r &CanvasTexture) set_specular_color(color Color) {
     classname := StringName.new("CanvasTexture")
     fnname := StringName.new("set_specular_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -85,7 +85,7 @@ pub fn (r &CanvasTexture) get_specular_color() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CanvasTexture) set_specular_shininess(shininess f64) {
+pub fn (r &CanvasTexture) set_specular_shininess(shininess f64) {
     classname := StringName.new("CanvasTexture")
     fnname := StringName.new("set_specular_shininess")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -105,7 +105,7 @@ pub fn (r &CanvasTexture) get_specular_shininess() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CanvasTexture) set_texture_filter(filter CanvasItemTextureFilter) {
+pub fn (r &CanvasTexture) set_texture_filter(filter CanvasItemTextureFilter) {
     classname := StringName.new("CanvasTexture")
     fnname := StringName.new("set_texture_filter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1037999706)
@@ -126,7 +126,7 @@ pub fn (r &CanvasTexture) get_texture_filter() CanvasItemTextureFilter {
     fnname.deinit()
    return unsafe{CanvasItemTextureFilter(object_out)}
 }
-pub fn (mut r CanvasTexture) set_texture_repeat(repeat CanvasItemTextureRepeat) {
+pub fn (r &CanvasTexture) set_texture_repeat(repeat CanvasItemTextureRepeat) {
     classname := StringName.new("CanvasTexture")
     fnname := StringName.new("set_texture_repeat")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1716472974)

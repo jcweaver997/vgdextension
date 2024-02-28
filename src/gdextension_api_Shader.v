@@ -23,7 +23,7 @@ pub fn (r &Shader) get_mode() ShaderMode {
     fnname.deinit()
    return unsafe{ShaderMode(object_out)}
 }
-pub fn (mut r Shader) set_code(code string) {
+pub fn (r &Shader) set_code(code string) {
     classname := StringName.new("Shader")
     fnname := StringName.new("set_code")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -47,7 +47,7 @@ pub fn (r &Shader) get_code() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r Shader) set_default_texture_parameter(name string, texture Texture2D, index i32) {
+pub fn (r &Shader) set_default_texture_parameter(name string, texture Texture2D, index i32) {
     classname := StringName.new("Shader")
     fnname := StringName.new("set_default_texture_parameter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2750740428)
@@ -76,7 +76,7 @@ pub fn (r &Shader) get_default_texture_parameter(name string, index i32) Texture
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Shader) get_shader_uniform_list(get_groups bool) Array {
+pub fn (r &Shader) get_shader_uniform_list(get_groups bool) Array {
     mut object_out := Array{}
     classname := StringName.new("Shader")
     fnname := StringName.new("get_shader_uniform_list")

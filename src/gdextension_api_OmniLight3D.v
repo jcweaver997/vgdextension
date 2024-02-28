@@ -10,7 +10,7 @@ pub struct OmniLight3D {
     Light3D
 }
 
-pub fn (mut r OmniLight3D) set_shadow_mode(mode OmniLight3DShadowMode) {
+pub fn (r &OmniLight3D) set_shadow_mode(mode OmniLight3DShadowMode) {
     classname := StringName.new("OmniLight3D")
     fnname := StringName.new("set_shadow_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 121862228)

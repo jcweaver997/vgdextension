@@ -28,7 +28,7 @@ pub struct ENetConnection {
     RefCounted
 }
 
-pub fn (mut r ENetConnection) create_host_bound(bind_address string, bind_port i32, max_peers i32, max_channels i32, in_bandwidth i32, out_bandwidth i32) GDError {
+pub fn (r &ENetConnection) create_host_bound(bind_address string, bind_port i32, max_peers i32, max_channels i32, in_bandwidth i32, out_bandwidth i32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ENetConnection")
     fnname := StringName.new("create_host_bound")
@@ -47,7 +47,7 @@ pub fn (mut r ENetConnection) create_host_bound(bind_address string, bind_port i
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r ENetConnection) create_host(max_peers i32, max_channels i32, in_bandwidth i32, out_bandwidth i32) GDError {
+pub fn (r &ENetConnection) create_host(max_peers i32, max_channels i32, in_bandwidth i32, out_bandwidth i32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ENetConnection")
     fnname := StringName.new("create_host")
@@ -62,7 +62,7 @@ pub fn (mut r ENetConnection) create_host(max_peers i32, max_channels i32, in_ba
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r ENetConnection) destroy() {
+pub fn (r &ENetConnection) destroy() {
     classname := StringName.new("ENetConnection")
     fnname := StringName.new("destroy")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -70,7 +70,7 @@ pub fn (mut r ENetConnection) destroy() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ENetConnection) connect_to_host(address string, port i32, channels i32, data i32) ENetPacketPeer {
+pub fn (r &ENetConnection) connect_to_host(address string, port i32, channels i32, data i32) ENetPacketPeer {
     mut object_out := ENetPacketPeer{}
     classname := StringName.new("ENetConnection")
     fnname := StringName.new("connect_to_host")
@@ -87,7 +87,7 @@ pub fn (mut r ENetConnection) connect_to_host(address string, port i32, channels
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ENetConnection) service(timeout i32) Array {
+pub fn (r &ENetConnection) service(timeout i32) Array {
     mut object_out := Array{}
     classname := StringName.new("ENetConnection")
     fnname := StringName.new("service")
@@ -99,7 +99,7 @@ pub fn (mut r ENetConnection) service(timeout i32) Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ENetConnection) flush() {
+pub fn (r &ENetConnection) flush() {
     classname := StringName.new("ENetConnection")
     fnname := StringName.new("flush")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -107,7 +107,7 @@ pub fn (mut r ENetConnection) flush() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ENetConnection) bandwidth_limit(in_bandwidth i32, out_bandwidth i32) {
+pub fn (r &ENetConnection) bandwidth_limit(in_bandwidth i32, out_bandwidth i32) {
     classname := StringName.new("ENetConnection")
     fnname := StringName.new("bandwidth_limit")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2302169788)
@@ -118,7 +118,7 @@ pub fn (mut r ENetConnection) bandwidth_limit(in_bandwidth i32, out_bandwidth i3
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ENetConnection) channel_limit(limit i32) {
+pub fn (r &ENetConnection) channel_limit(limit i32) {
     classname := StringName.new("ENetConnection")
     fnname := StringName.new("channel_limit")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -128,7 +128,7 @@ pub fn (mut r ENetConnection) channel_limit(limit i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ENetConnection) broadcast(channel i32, packet PackedByteArray, flags i32) {
+pub fn (r &ENetConnection) broadcast(channel i32, packet PackedByteArray, flags i32) {
     classname := StringName.new("ENetConnection")
     fnname := StringName.new("broadcast")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2772371345)
@@ -140,7 +140,7 @@ pub fn (mut r ENetConnection) broadcast(channel i32, packet PackedByteArray, fla
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ENetConnection) compress(mode ENetConnectionCompressionMode) {
+pub fn (r &ENetConnection) compress(mode ENetConnectionCompressionMode) {
     classname := StringName.new("ENetConnection")
     fnname := StringName.new("compress")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2660215187)
@@ -151,7 +151,7 @@ pub fn (mut r ENetConnection) compress(mode ENetConnectionCompressionMode) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ENetConnection) dtls_server_setup(server_options TLSOptions) GDError {
+pub fn (r &ENetConnection) dtls_server_setup(server_options TLSOptions) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ENetConnection")
     fnname := StringName.new("dtls_server_setup")
@@ -163,7 +163,7 @@ pub fn (mut r ENetConnection) dtls_server_setup(server_options TLSOptions) GDErr
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r ENetConnection) dtls_client_setup(hostname string, client_options TLSOptions) GDError {
+pub fn (r &ENetConnection) dtls_client_setup(hostname string, client_options TLSOptions) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ENetConnection")
     fnname := StringName.new("dtls_client_setup")
@@ -178,7 +178,7 @@ pub fn (mut r ENetConnection) dtls_client_setup(hostname string, client_options 
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r ENetConnection) refuse_new_connections(refuse bool) {
+pub fn (r &ENetConnection) refuse_new_connections(refuse bool) {
     classname := StringName.new("ENetConnection")
     fnname := StringName.new("refuse_new_connections")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -188,7 +188,7 @@ pub fn (mut r ENetConnection) refuse_new_connections(refuse bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ENetConnection) pop_statistic(statistic ENetConnectionHostStatistic) f64 {
+pub fn (r &ENetConnection) pop_statistic(statistic ENetConnectionHostStatistic) f64 {
     mut object_out := f64(0)
     classname := StringName.new("ENetConnection")
     fnname := StringName.new("pop_statistic")
@@ -221,7 +221,7 @@ pub fn (r &ENetConnection) get_local_port() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ENetConnection) get_peers() Array {
+pub fn (r &ENetConnection) get_peers() Array {
     mut object_out := Array{}
     classname := StringName.new("ENetConnection")
     fnname := StringName.new("get_peers")
@@ -231,7 +231,7 @@ pub fn (mut r ENetConnection) get_peers() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ENetConnection) socket_send(destination_address string, destination_port i32, packet PackedByteArray) {
+pub fn (r &ENetConnection) socket_send(destination_address string, destination_port i32, packet PackedByteArray) {
     classname := StringName.new("ENetConnection")
     fnname := StringName.new("socket_send")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1100646812)

@@ -27,7 +27,7 @@ pub interface ISyntaxHighlighterClearHighlightingCache {
     virt_clear_highlighting_cache()
 }
 
-pub fn (mut r SyntaxHighlighter) uclear_highlighting_cache() {
+pub fn (r &SyntaxHighlighter) uclear_highlighting_cache() {
     classname := StringName.new("SyntaxHighlighter")
     fnname := StringName.new("_clear_highlighting_cache")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -40,7 +40,7 @@ pub interface ISyntaxHighlighterUpdateCache {
     virt_update_cache()
 }
 
-pub fn (mut r SyntaxHighlighter) uupdate_cache() {
+pub fn (r &SyntaxHighlighter) uupdate_cache() {
     classname := StringName.new("SyntaxHighlighter")
     fnname := StringName.new("_update_cache")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -48,7 +48,7 @@ pub fn (mut r SyntaxHighlighter) uupdate_cache() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SyntaxHighlighter) get_line_syntax_highlighting(line i32) Dictionary {
+pub fn (r &SyntaxHighlighter) get_line_syntax_highlighting(line i32) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("SyntaxHighlighter")
     fnname := StringName.new("get_line_syntax_highlighting")
@@ -60,7 +60,7 @@ pub fn (mut r SyntaxHighlighter) get_line_syntax_highlighting(line i32) Dictiona
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SyntaxHighlighter) update_cache() {
+pub fn (r &SyntaxHighlighter) update_cache() {
     classname := StringName.new("SyntaxHighlighter")
     fnname := StringName.new("update_cache")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -68,7 +68,7 @@ pub fn (mut r SyntaxHighlighter) update_cache() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SyntaxHighlighter) clear_highlighting_cache() {
+pub fn (r &SyntaxHighlighter) clear_highlighting_cache() {
     classname := StringName.new("SyntaxHighlighter")
     fnname := StringName.new("clear_highlighting_cache")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

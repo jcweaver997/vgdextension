@@ -27,7 +27,7 @@ pub fn ResourceLoader.get_singleton() ResourceLoader {
     return o
 }
 
-pub fn (mut r ResourceLoader) load_threaded_request(path string, type_hint string, use_sub_threads bool, cache_mode ResourceLoaderCacheMode) GDError {
+pub fn (r &ResourceLoader) load_threaded_request(path string, type_hint string, use_sub_threads bool, cache_mode ResourceLoaderCacheMode) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ResourceLoader")
     fnname := StringName.new("load_threaded_request")
@@ -47,7 +47,7 @@ pub fn (mut r ResourceLoader) load_threaded_request(path string, type_hint strin
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r ResourceLoader) load_threaded_get_status(path string, progress Array) ResourceLoaderThreadLoadStatus {
+pub fn (r &ResourceLoader) load_threaded_get_status(path string, progress Array) ResourceLoaderThreadLoadStatus {
     mut object_out := i64(ResourceLoaderThreadLoadStatus.thread_load_invalid_resource)
     classname := StringName.new("ResourceLoader")
     fnname := StringName.new("load_threaded_get_status")
@@ -62,7 +62,7 @@ pub fn (mut r ResourceLoader) load_threaded_get_status(path string, progress Arr
     fnname.deinit()
    return unsafe{ResourceLoaderThreadLoadStatus(object_out)}
 }
-pub fn (mut r ResourceLoader) load_threaded_get(path string) Resource {
+pub fn (r &ResourceLoader) load_threaded_get(path string) Resource {
     mut object_out := Resource{}
     classname := StringName.new("ResourceLoader")
     fnname := StringName.new("load_threaded_get")
@@ -76,7 +76,7 @@ pub fn (mut r ResourceLoader) load_threaded_get(path string) Resource {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ResourceLoader) load(path string, type_hint string, cache_mode ResourceLoaderCacheMode) Resource {
+pub fn (r &ResourceLoader) load(path string, type_hint string, cache_mode ResourceLoaderCacheMode) Resource {
     mut object_out := Resource{}
     classname := StringName.new("ResourceLoader")
     fnname := StringName.new("load")
@@ -95,7 +95,7 @@ pub fn (mut r ResourceLoader) load(path string, type_hint string, cache_mode Res
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ResourceLoader) get_recognized_extensions_for_type(type_name string) PackedStringArray {
+pub fn (r &ResourceLoader) get_recognized_extensions_for_type(type_name string) PackedStringArray {
     mut object_out := PackedStringArray{}
     classname := StringName.new("ResourceLoader")
     fnname := StringName.new("get_recognized_extensions_for_type")
@@ -109,7 +109,7 @@ pub fn (mut r ResourceLoader) get_recognized_extensions_for_type(type_name strin
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ResourceLoader) add_resource_format_loader(format_loader ResourceFormatLoader, at_front bool) {
+pub fn (r &ResourceLoader) add_resource_format_loader(format_loader ResourceFormatLoader, at_front bool) {
     classname := StringName.new("ResourceLoader")
     fnname := StringName.new("add_resource_format_loader")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2896595483)
@@ -120,7 +120,7 @@ pub fn (mut r ResourceLoader) add_resource_format_loader(format_loader ResourceF
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ResourceLoader) remove_resource_format_loader(format_loader ResourceFormatLoader) {
+pub fn (r &ResourceLoader) remove_resource_format_loader(format_loader ResourceFormatLoader) {
     classname := StringName.new("ResourceLoader")
     fnname := StringName.new("remove_resource_format_loader")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 405397102)
@@ -130,7 +130,7 @@ pub fn (mut r ResourceLoader) remove_resource_format_loader(format_loader Resour
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ResourceLoader) set_abort_on_missing_resources(abort bool) {
+pub fn (r &ResourceLoader) set_abort_on_missing_resources(abort bool) {
     classname := StringName.new("ResourceLoader")
     fnname := StringName.new("set_abort_on_missing_resources")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -140,7 +140,7 @@ pub fn (mut r ResourceLoader) set_abort_on_missing_resources(abort bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ResourceLoader) get_dependencies(path string) PackedStringArray {
+pub fn (r &ResourceLoader) get_dependencies(path string) PackedStringArray {
     mut object_out := PackedStringArray{}
     classname := StringName.new("ResourceLoader")
     fnname := StringName.new("get_dependencies")
@@ -154,7 +154,7 @@ pub fn (mut r ResourceLoader) get_dependencies(path string) PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ResourceLoader) has_cached(path string) bool {
+pub fn (r &ResourceLoader) has_cached(path string) bool {
     mut object_out := false
     classname := StringName.new("ResourceLoader")
     fnname := StringName.new("has_cached")
@@ -168,7 +168,7 @@ pub fn (mut r ResourceLoader) has_cached(path string) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ResourceLoader) exists(path string, type_hint string) bool {
+pub fn (r &ResourceLoader) exists(path string, type_hint string) bool {
     mut object_out := false
     classname := StringName.new("ResourceLoader")
     fnname := StringName.new("exists")
@@ -185,7 +185,7 @@ pub fn (mut r ResourceLoader) exists(path string, type_hint string) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ResourceLoader) get_resource_uid(path string) i64 {
+pub fn (r &ResourceLoader) get_resource_uid(path string) i64 {
     mut object_out := i64(0)
     classname := StringName.new("ResourceLoader")
     fnname := StringName.new("get_resource_uid")

@@ -16,7 +16,7 @@ pub struct VisualShaderNodeMix {
     VisualShaderNode
 }
 
-pub fn (mut r VisualShaderNodeMix) set_op_type(op_type VisualShaderNodeMixOpType) {
+pub fn (r &VisualShaderNodeMix) set_op_type(op_type VisualShaderNodeMixOpType) {
     classname := StringName.new("VisualShaderNodeMix")
     fnname := StringName.new("set_op_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3397501671)

@@ -5,7 +5,7 @@ pub struct InputEventKey {
     InputEventWithModifiers
 }
 
-pub fn (mut r InputEventKey) set_pressed(pressed bool) {
+pub fn (r &InputEventKey) set_pressed(pressed bool) {
     classname := StringName.new("InputEventKey")
     fnname := StringName.new("set_pressed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -15,7 +15,7 @@ pub fn (mut r InputEventKey) set_pressed(pressed bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r InputEventKey) set_keycode(keycode Key) {
+pub fn (r &InputEventKey) set_keycode(keycode Key) {
     classname := StringName.new("InputEventKey")
     fnname := StringName.new("set_keycode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 888074362)
@@ -36,7 +36,7 @@ pub fn (r &InputEventKey) get_keycode() Key {
     fnname.deinit()
    return unsafe{Key(object_out)}
 }
-pub fn (mut r InputEventKey) set_physical_keycode(physical_keycode Key) {
+pub fn (r &InputEventKey) set_physical_keycode(physical_keycode Key) {
     classname := StringName.new("InputEventKey")
     fnname := StringName.new("set_physical_keycode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 888074362)
@@ -57,7 +57,7 @@ pub fn (r &InputEventKey) get_physical_keycode() Key {
     fnname.deinit()
    return unsafe{Key(object_out)}
 }
-pub fn (mut r InputEventKey) set_key_label(key_label Key) {
+pub fn (r &InputEventKey) set_key_label(key_label Key) {
     classname := StringName.new("InputEventKey")
     fnname := StringName.new("set_key_label")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 888074362)
@@ -78,7 +78,7 @@ pub fn (r &InputEventKey) get_key_label() Key {
     fnname.deinit()
    return unsafe{Key(object_out)}
 }
-pub fn (mut r InputEventKey) set_unicode(unicode i64) {
+pub fn (r &InputEventKey) set_unicode(unicode i64) {
     classname := StringName.new("InputEventKey")
     fnname := StringName.new("set_unicode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -98,7 +98,7 @@ pub fn (r &InputEventKey) get_unicode() i64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r InputEventKey) set_echo(echo bool) {
+pub fn (r &InputEventKey) set_echo(echo bool) {
     classname := StringName.new("InputEventKey")
     fnname := StringName.new("set_echo")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

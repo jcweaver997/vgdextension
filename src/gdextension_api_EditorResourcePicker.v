@@ -10,7 +10,7 @@ pub interface IEditorResourcePickerSetCreateOptions {
     virt_set_create_options(menu_node Object)
 }
 
-pub fn (mut r EditorResourcePicker) uset_create_options(menu_node Object) {
+pub fn (r &EditorResourcePicker) uset_create_options(menu_node Object) {
     classname := StringName.new("EditorResourcePicker")
     fnname := StringName.new("_set_create_options")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -25,7 +25,7 @@ pub interface IEditorResourcePickerHandleMenuSelected {
     virt_handle_menu_selected(id i32) bool
 }
 
-pub fn (mut r EditorResourcePicker) uhandle_menu_selected(id i32) bool {
+pub fn (r &EditorResourcePicker) uhandle_menu_selected(id i32) bool {
     mut object_out := false
     classname := StringName.new("EditorResourcePicker")
     fnname := StringName.new("_handle_menu_selected")
@@ -37,7 +37,7 @@ pub fn (mut r EditorResourcePicker) uhandle_menu_selected(id i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorResourcePicker) set_base_type(base_type string) {
+pub fn (r &EditorResourcePicker) set_base_type(base_type string) {
     classname := StringName.new("EditorResourcePicker")
     fnname := StringName.new("set_base_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -71,7 +71,7 @@ pub fn (r &EditorResourcePicker) get_allowed_types() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorResourcePicker) set_edited_resource(resource Resource) {
+pub fn (r &EditorResourcePicker) set_edited_resource(resource Resource) {
     classname := StringName.new("EditorResourcePicker")
     fnname := StringName.new("set_edited_resource")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 968641751)
@@ -81,7 +81,7 @@ pub fn (mut r EditorResourcePicker) set_edited_resource(resource Resource) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorResourcePicker) get_edited_resource() Resource {
+pub fn (r &EditorResourcePicker) get_edited_resource() Resource {
     mut object_out := Resource{}
     classname := StringName.new("EditorResourcePicker")
     fnname := StringName.new("get_edited_resource")
@@ -91,7 +91,7 @@ pub fn (mut r EditorResourcePicker) get_edited_resource() Resource {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorResourcePicker) set_toggle_mode(enable bool) {
+pub fn (r &EditorResourcePicker) set_toggle_mode(enable bool) {
     classname := StringName.new("EditorResourcePicker")
     fnname := StringName.new("set_toggle_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -111,7 +111,7 @@ pub fn (r &EditorResourcePicker) is_toggle_mode() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorResourcePicker) set_toggle_pressed(pressed bool) {
+pub fn (r &EditorResourcePicker) set_toggle_pressed(pressed bool) {
     classname := StringName.new("EditorResourcePicker")
     fnname := StringName.new("set_toggle_pressed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -121,7 +121,7 @@ pub fn (mut r EditorResourcePicker) set_toggle_pressed(pressed bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorResourcePicker) set_editable(enable bool) {
+pub fn (r &EditorResourcePicker) set_editable(enable bool) {
     classname := StringName.new("EditorResourcePicker")
     fnname := StringName.new("set_editable")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

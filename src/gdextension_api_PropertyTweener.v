@@ -5,7 +5,7 @@ pub struct PropertyTweener {
     Tweener
 }
 
-pub fn (mut r PropertyTweener) from(value Variant) PropertyTweener {
+pub fn (r &PropertyTweener) from(value Variant) PropertyTweener {
     mut object_out := PropertyTweener{}
     classname := StringName.new("PropertyTweener")
     fnname := StringName.new("from")
@@ -17,7 +17,7 @@ pub fn (mut r PropertyTweener) from(value Variant) PropertyTweener {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PropertyTweener) from_current() PropertyTweener {
+pub fn (r &PropertyTweener) from_current() PropertyTweener {
     mut object_out := PropertyTweener{}
     classname := StringName.new("PropertyTweener")
     fnname := StringName.new("from_current")
@@ -27,7 +27,7 @@ pub fn (mut r PropertyTweener) from_current() PropertyTweener {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PropertyTweener) as_relative() PropertyTweener {
+pub fn (r &PropertyTweener) as_relative() PropertyTweener {
     mut object_out := PropertyTweener{}
     classname := StringName.new("PropertyTweener")
     fnname := StringName.new("as_relative")
@@ -37,7 +37,7 @@ pub fn (mut r PropertyTweener) as_relative() PropertyTweener {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PropertyTweener) set_trans(trans TweenTransitionType) PropertyTweener {
+pub fn (r &PropertyTweener) set_trans(trans TweenTransitionType) PropertyTweener {
     mut object_out := PropertyTweener{}
     classname := StringName.new("PropertyTweener")
     fnname := StringName.new("set_trans")
@@ -50,7 +50,7 @@ pub fn (mut r PropertyTweener) set_trans(trans TweenTransitionType) PropertyTwee
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PropertyTweener) set_ease(ease TweenEaseType) PropertyTweener {
+pub fn (r &PropertyTweener) set_ease(ease TweenEaseType) PropertyTweener {
     mut object_out := PropertyTweener{}
     classname := StringName.new("PropertyTweener")
     fnname := StringName.new("set_ease")
@@ -63,7 +63,7 @@ pub fn (mut r PropertyTweener) set_ease(ease TweenEaseType) PropertyTweener {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PropertyTweener) set_delay(delay f64) PropertyTweener {
+pub fn (r &PropertyTweener) set_delay(delay f64) PropertyTweener {
     mut object_out := PropertyTweener{}
     classname := StringName.new("PropertyTweener")
     fnname := StringName.new("set_delay")

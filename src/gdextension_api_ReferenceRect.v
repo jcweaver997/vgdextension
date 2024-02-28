@@ -15,7 +15,7 @@ pub fn (r &ReferenceRect) get_border_color() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ReferenceRect) set_border_color(color Color) {
+pub fn (r &ReferenceRect) set_border_color(color Color) {
     classname := StringName.new("ReferenceRect")
     fnname := StringName.new("set_border_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -35,7 +35,7 @@ pub fn (r &ReferenceRect) get_border_width() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ReferenceRect) set_border_width(width f64) {
+pub fn (r &ReferenceRect) set_border_width(width f64) {
     classname := StringName.new("ReferenceRect")
     fnname := StringName.new("set_border_width")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -55,7 +55,7 @@ pub fn (r &ReferenceRect) get_editor_only() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ReferenceRect) set_editor_only(enabled bool) {
+pub fn (r &ReferenceRect) set_editor_only(enabled bool) {
     classname := StringName.new("ReferenceRect")
     fnname := StringName.new("set_editor_only")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

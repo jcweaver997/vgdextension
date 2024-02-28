@@ -13,7 +13,7 @@ pub struct VisualShaderNodeTransformVecMult {
     VisualShaderNode
 }
 
-pub fn (mut r VisualShaderNodeTransformVecMult) set_operator(op VisualShaderNodeTransformVecMultOperator) {
+pub fn (r &VisualShaderNodeTransformVecMult) set_operator(op VisualShaderNodeTransformVecMultOperator) {
     classname := StringName.new("VisualShaderNodeTransformVecMult")
     fnname := StringName.new("set_operator")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1785665912)

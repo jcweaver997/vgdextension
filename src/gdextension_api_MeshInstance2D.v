@@ -5,7 +5,7 @@ pub struct MeshInstance2D {
     Node2D
 }
 
-pub fn (mut r MeshInstance2D) set_mesh(mesh Mesh) {
+pub fn (r &MeshInstance2D) set_mesh(mesh Mesh) {
     classname := StringName.new("MeshInstance2D")
     fnname := StringName.new("set_mesh")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 194775623)
@@ -25,7 +25,7 @@ pub fn (r &MeshInstance2D) get_mesh() Mesh {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MeshInstance2D) set_texture(texture Texture2D) {
+pub fn (r &MeshInstance2D) set_texture(texture Texture2D) {
     classname := StringName.new("MeshInstance2D")
     fnname := StringName.new("set_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)

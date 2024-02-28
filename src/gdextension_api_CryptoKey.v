@@ -5,7 +5,7 @@ pub struct CryptoKey {
     Resource
 }
 
-pub fn (mut r CryptoKey) save(path string, public_only bool) GDError {
+pub fn (r &CryptoKey) save(path string, public_only bool) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("CryptoKey")
     fnname := StringName.new("save")
@@ -20,7 +20,7 @@ pub fn (mut r CryptoKey) save(path string, public_only bool) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r CryptoKey) load(path string, public_only bool) GDError {
+pub fn (r &CryptoKey) load(path string, public_only bool) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("CryptoKey")
     fnname := StringName.new("load")
@@ -45,7 +45,7 @@ pub fn (r &CryptoKey) is_public_only() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CryptoKey) save_to_string(public_only bool) string {
+pub fn (r &CryptoKey) save_to_string(public_only bool) string {
     mut object_out := String{}
     classname := StringName.new("CryptoKey")
     fnname := StringName.new("save_to_string")
@@ -59,7 +59,7 @@ pub fn (mut r CryptoKey) save_to_string(public_only bool) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r CryptoKey) load_from_string(string_key string, public_only bool) GDError {
+pub fn (r &CryptoKey) load_from_string(string_key string, public_only bool) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("CryptoKey")
     fnname := StringName.new("load_from_string")

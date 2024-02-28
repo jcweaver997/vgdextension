@@ -38,7 +38,7 @@ pub fn JSON.parse_string(json_string string) Variant {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r JSON) parse(json_text string, keep_text bool) GDError {
+pub fn (r &JSON) parse(json_text string, keep_text bool) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("JSON")
     fnname := StringName.new("parse")
@@ -63,7 +63,7 @@ pub fn (r &JSON) get_data() Variant {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r JSON) set_data(data Variant) {
+pub fn (r &JSON) set_data(data Variant) {
     classname := StringName.new("JSON")
     fnname := StringName.new("set_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1114965689)

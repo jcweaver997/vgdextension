@@ -5,7 +5,7 @@ pub struct TextMesh {
     PrimitiveMesh
 }
 
-pub fn (mut r TextMesh) set_horizontal_alignment(alignment HorizontalAlignment) {
+pub fn (r &TextMesh) set_horizontal_alignment(alignment HorizontalAlignment) {
     classname := StringName.new("TextMesh")
     fnname := StringName.new("set_horizontal_alignment")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2312603777)
@@ -26,7 +26,7 @@ pub fn (r &TextMesh) get_horizontal_alignment() HorizontalAlignment {
     fnname.deinit()
    return unsafe{HorizontalAlignment(object_out)}
 }
-pub fn (mut r TextMesh) set_vertical_alignment(alignment VerticalAlignment) {
+pub fn (r &TextMesh) set_vertical_alignment(alignment VerticalAlignment) {
     classname := StringName.new("TextMesh")
     fnname := StringName.new("set_vertical_alignment")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1796458609)
@@ -47,7 +47,7 @@ pub fn (r &TextMesh) get_vertical_alignment() VerticalAlignment {
     fnname.deinit()
    return unsafe{VerticalAlignment(object_out)}
 }
-pub fn (mut r TextMesh) set_text(text string) {
+pub fn (r &TextMesh) set_text(text string) {
     classname := StringName.new("TextMesh")
     fnname := StringName.new("set_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -71,7 +71,7 @@ pub fn (r &TextMesh) get_text() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r TextMesh) set_font(font Font) {
+pub fn (r &TextMesh) set_font(font Font) {
     classname := StringName.new("TextMesh")
     fnname := StringName.new("set_font")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1262170328)
@@ -91,7 +91,7 @@ pub fn (r &TextMesh) get_font() Font {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextMesh) set_font_size(font_size i32) {
+pub fn (r &TextMesh) set_font_size(font_size i32) {
     classname := StringName.new("TextMesh")
     fnname := StringName.new("set_font_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -111,7 +111,7 @@ pub fn (r &TextMesh) get_font_size() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextMesh) set_line_spacing(line_spacing f64) {
+pub fn (r &TextMesh) set_line_spacing(line_spacing f64) {
     classname := StringName.new("TextMesh")
     fnname := StringName.new("set_line_spacing")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -131,7 +131,7 @@ pub fn (r &TextMesh) get_line_spacing() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextMesh) set_autowrap_mode(autowrap_mode TextServerAutowrapMode) {
+pub fn (r &TextMesh) set_autowrap_mode(autowrap_mode TextServerAutowrapMode) {
     classname := StringName.new("TextMesh")
     fnname := StringName.new("set_autowrap_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3289138044)
@@ -152,7 +152,7 @@ pub fn (r &TextMesh) get_autowrap_mode() TextServerAutowrapMode {
     fnname.deinit()
    return unsafe{TextServerAutowrapMode(object_out)}
 }
-pub fn (mut r TextMesh) set_justification_flags(justification_flags TextServerJustificationFlag) {
+pub fn (r &TextMesh) set_justification_flags(justification_flags TextServerJustificationFlag) {
     classname := StringName.new("TextMesh")
     fnname := StringName.new("set_justification_flags")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2877345813)
@@ -173,7 +173,7 @@ pub fn (r &TextMesh) get_justification_flags() TextServerJustificationFlag {
     fnname.deinit()
    return unsafe{TextServerJustificationFlag(object_out)}
 }
-pub fn (mut r TextMesh) set_depth(depth f64) {
+pub fn (r &TextMesh) set_depth(depth f64) {
     classname := StringName.new("TextMesh")
     fnname := StringName.new("set_depth")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -193,7 +193,7 @@ pub fn (r &TextMesh) get_depth() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextMesh) set_width(width f64) {
+pub fn (r &TextMesh) set_width(width f64) {
     classname := StringName.new("TextMesh")
     fnname := StringName.new("set_width")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -213,7 +213,7 @@ pub fn (r &TextMesh) get_width() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextMesh) set_pixel_size(pixel_size f64) {
+pub fn (r &TextMesh) set_pixel_size(pixel_size f64) {
     classname := StringName.new("TextMesh")
     fnname := StringName.new("set_pixel_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -233,7 +233,7 @@ pub fn (r &TextMesh) get_pixel_size() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextMesh) set_offset(offset Vector2) {
+pub fn (r &TextMesh) set_offset(offset Vector2) {
     classname := StringName.new("TextMesh")
     fnname := StringName.new("set_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -253,7 +253,7 @@ pub fn (r &TextMesh) get_offset() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextMesh) set_curve_step(curve_step f64) {
+pub fn (r &TextMesh) set_curve_step(curve_step f64) {
     classname := StringName.new("TextMesh")
     fnname := StringName.new("set_curve_step")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -273,7 +273,7 @@ pub fn (r &TextMesh) get_curve_step() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextMesh) set_text_direction(direction TextServerDirection) {
+pub fn (r &TextMesh) set_text_direction(direction TextServerDirection) {
     classname := StringName.new("TextMesh")
     fnname := StringName.new("set_text_direction")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1418190634)
@@ -294,7 +294,7 @@ pub fn (r &TextMesh) get_text_direction() TextServerDirection {
     fnname.deinit()
    return unsafe{TextServerDirection(object_out)}
 }
-pub fn (mut r TextMesh) set_language(language string) {
+pub fn (r &TextMesh) set_language(language string) {
     classname := StringName.new("TextMesh")
     fnname := StringName.new("set_language")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -318,7 +318,7 @@ pub fn (r &TextMesh) get_language() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r TextMesh) set_structured_text_bidi_override(parser TextServerStructuredTextParser) {
+pub fn (r &TextMesh) set_structured_text_bidi_override(parser TextServerStructuredTextParser) {
     classname := StringName.new("TextMesh")
     fnname := StringName.new("set_structured_text_bidi_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 55961453)
@@ -339,7 +339,7 @@ pub fn (r &TextMesh) get_structured_text_bidi_override() TextServerStructuredTex
     fnname.deinit()
    return unsafe{TextServerStructuredTextParser(object_out)}
 }
-pub fn (mut r TextMesh) set_structured_text_bidi_override_options(gdargs Array) {
+pub fn (r &TextMesh) set_structured_text_bidi_override_options(gdargs Array) {
     classname := StringName.new("TextMesh")
     fnname := StringName.new("set_structured_text_bidi_override_options")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)
@@ -359,7 +359,7 @@ pub fn (r &TextMesh) get_structured_text_bidi_override_options() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextMesh) set_uppercase(enable bool) {
+pub fn (r &TextMesh) set_uppercase(enable bool) {
     classname := StringName.new("TextMesh")
     fnname := StringName.new("set_uppercase")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

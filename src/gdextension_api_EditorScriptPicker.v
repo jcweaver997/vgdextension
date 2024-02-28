@@ -5,7 +5,7 @@ pub struct EditorScriptPicker {
     EditorResourcePicker
 }
 
-pub fn (mut r EditorScriptPicker) set_script_owner(owner_node Node) {
+pub fn (r &EditorScriptPicker) set_script_owner(owner_node Node) {
     classname := StringName.new("EditorScriptPicker")
     fnname := StringName.new("set_script_owner")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)

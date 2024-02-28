@@ -5,7 +5,7 @@ pub struct EditorFileSystem {
     Node
 }
 
-pub fn (mut r EditorFileSystem) get_filesystem() EditorFileSystemDirectory {
+pub fn (r &EditorFileSystem) get_filesystem() EditorFileSystemDirectory {
     mut object_out := EditorFileSystemDirectory{}
     classname := StringName.new("EditorFileSystem")
     fnname := StringName.new("get_filesystem")
@@ -35,7 +35,7 @@ pub fn (r &EditorFileSystem) get_scanning_progress() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorFileSystem) scan() {
+pub fn (r &EditorFileSystem) scan() {
     classname := StringName.new("EditorFileSystem")
     fnname := StringName.new("scan")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -43,7 +43,7 @@ pub fn (mut r EditorFileSystem) scan() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorFileSystem) scan_sources() {
+pub fn (r &EditorFileSystem) scan_sources() {
     classname := StringName.new("EditorFileSystem")
     fnname := StringName.new("scan_sources")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -51,7 +51,7 @@ pub fn (mut r EditorFileSystem) scan_sources() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorFileSystem) update_file(path string) {
+pub fn (r &EditorFileSystem) update_file(path string) {
     classname := StringName.new("EditorFileSystem")
     fnname := StringName.new("update_file")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -63,7 +63,7 @@ pub fn (mut r EditorFileSystem) update_file(path string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorFileSystem) get_filesystem_path(path string) EditorFileSystemDirectory {
+pub fn (r &EditorFileSystem) get_filesystem_path(path string) EditorFileSystemDirectory {
     mut object_out := EditorFileSystemDirectory{}
     classname := StringName.new("EditorFileSystem")
     fnname := StringName.new("get_filesystem_path")
@@ -93,7 +93,7 @@ pub fn (r &EditorFileSystem) get_file_type(path string) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r EditorFileSystem) reimport_files(files PackedStringArray) {
+pub fn (r &EditorFileSystem) reimport_files(files PackedStringArray) {
     classname := StringName.new("EditorFileSystem")
     fnname := StringName.new("reimport_files")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4015028928)

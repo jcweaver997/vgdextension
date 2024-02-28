@@ -5,7 +5,7 @@ pub struct ScriptCreateDialog {
     ConfirmationDialog
 }
 
-pub fn (mut r ScriptCreateDialog) config(inherits string, path string, built_in_enabled bool, load_enabled bool) {
+pub fn (r &ScriptCreateDialog) config(inherits string, path string, built_in_enabled bool, load_enabled bool) {
     classname := StringName.new("ScriptCreateDialog")
     fnname := StringName.new("config")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 869314288)

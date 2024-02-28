@@ -20,7 +20,7 @@ pub struct GPUParticlesCollisionHeightField3D {
     GPUParticlesCollision3D
 }
 
-pub fn (mut r GPUParticlesCollisionHeightField3D) set_size(size Vector3) {
+pub fn (r &GPUParticlesCollisionHeightField3D) set_size(size Vector3) {
     classname := StringName.new("GPUParticlesCollisionHeightField3D")
     fnname := StringName.new("set_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -40,7 +40,7 @@ pub fn (r &GPUParticlesCollisionHeightField3D) get_size() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GPUParticlesCollisionHeightField3D) set_resolution(resolution GPUParticlesCollisionHeightField3DResolution) {
+pub fn (r &GPUParticlesCollisionHeightField3D) set_resolution(resolution GPUParticlesCollisionHeightField3DResolution) {
     classname := StringName.new("GPUParticlesCollisionHeightField3D")
     fnname := StringName.new("set_resolution")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1009996517)
@@ -61,7 +61,7 @@ pub fn (r &GPUParticlesCollisionHeightField3D) get_resolution() GPUParticlesColl
     fnname.deinit()
    return unsafe{GPUParticlesCollisionHeightField3DResolution(object_out)}
 }
-pub fn (mut r GPUParticlesCollisionHeightField3D) set_update_mode(update_mode GPUParticlesCollisionHeightField3DUpdateMode) {
+pub fn (r &GPUParticlesCollisionHeightField3D) set_update_mode(update_mode GPUParticlesCollisionHeightField3DUpdateMode) {
     classname := StringName.new("GPUParticlesCollisionHeightField3D")
     fnname := StringName.new("set_update_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 673680859)
@@ -82,7 +82,7 @@ pub fn (r &GPUParticlesCollisionHeightField3D) get_update_mode() GPUParticlesCol
     fnname.deinit()
    return unsafe{GPUParticlesCollisionHeightField3DUpdateMode(object_out)}
 }
-pub fn (mut r GPUParticlesCollisionHeightField3D) set_follow_camera_enabled(enabled bool) {
+pub fn (r &GPUParticlesCollisionHeightField3D) set_follow_camera_enabled(enabled bool) {
     classname := StringName.new("GPUParticlesCollisionHeightField3D")
     fnname := StringName.new("set_follow_camera_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

@@ -17,7 +17,7 @@ pub struct AnimationNodeStateMachineTransition {
     Resource
 }
 
-pub fn (mut r AnimationNodeStateMachineTransition) set_switch_mode(mode AnimationNodeStateMachineTransitionSwitchMode) {
+pub fn (r &AnimationNodeStateMachineTransition) set_switch_mode(mode AnimationNodeStateMachineTransitionSwitchMode) {
     classname := StringName.new("AnimationNodeStateMachineTransition")
     fnname := StringName.new("set_switch_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2074906633)
@@ -38,7 +38,7 @@ pub fn (r &AnimationNodeStateMachineTransition) get_switch_mode() AnimationNodeS
     fnname.deinit()
    return unsafe{AnimationNodeStateMachineTransitionSwitchMode(object_out)}
 }
-pub fn (mut r AnimationNodeStateMachineTransition) set_advance_mode(mode AnimationNodeStateMachineTransitionAdvanceMode) {
+pub fn (r &AnimationNodeStateMachineTransition) set_advance_mode(mode AnimationNodeStateMachineTransitionAdvanceMode) {
     classname := StringName.new("AnimationNodeStateMachineTransition")
     fnname := StringName.new("set_advance_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1210869868)
@@ -59,7 +59,7 @@ pub fn (r &AnimationNodeStateMachineTransition) get_advance_mode() AnimationNode
     fnname.deinit()
    return unsafe{AnimationNodeStateMachineTransitionAdvanceMode(object_out)}
 }
-pub fn (mut r AnimationNodeStateMachineTransition) set_advance_condition(name string) {
+pub fn (r &AnimationNodeStateMachineTransition) set_advance_condition(name string) {
     classname := StringName.new("AnimationNodeStateMachineTransition")
     fnname := StringName.new("set_advance_condition")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -83,7 +83,7 @@ pub fn (r &AnimationNodeStateMachineTransition) get_advance_condition() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r AnimationNodeStateMachineTransition) set_xfade_time(secs f64) {
+pub fn (r &AnimationNodeStateMachineTransition) set_xfade_time(secs f64) {
     classname := StringName.new("AnimationNodeStateMachineTransition")
     fnname := StringName.new("set_xfade_time")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -103,7 +103,7 @@ pub fn (r &AnimationNodeStateMachineTransition) get_xfade_time() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNodeStateMachineTransition) set_xfade_curve(curve Curve) {
+pub fn (r &AnimationNodeStateMachineTransition) set_xfade_curve(curve Curve) {
     classname := StringName.new("AnimationNodeStateMachineTransition")
     fnname := StringName.new("set_xfade_curve")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 270443179)
@@ -123,7 +123,7 @@ pub fn (r &AnimationNodeStateMachineTransition) get_xfade_curve() Curve {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNodeStateMachineTransition) set_reset(reset bool) {
+pub fn (r &AnimationNodeStateMachineTransition) set_reset(reset bool) {
     classname := StringName.new("AnimationNodeStateMachineTransition")
     fnname := StringName.new("set_reset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -143,7 +143,7 @@ pub fn (r &AnimationNodeStateMachineTransition) is_reset() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNodeStateMachineTransition) set_priority(priority i32) {
+pub fn (r &AnimationNodeStateMachineTransition) set_priority(priority i32) {
     classname := StringName.new("AnimationNodeStateMachineTransition")
     fnname := StringName.new("set_priority")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -163,7 +163,7 @@ pub fn (r &AnimationNodeStateMachineTransition) get_priority() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNodeStateMachineTransition) set_advance_expression(text string) {
+pub fn (r &AnimationNodeStateMachineTransition) set_advance_expression(text string) {
     classname := StringName.new("AnimationNodeStateMachineTransition")
     fnname := StringName.new("set_advance_expression")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)

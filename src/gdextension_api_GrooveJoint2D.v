@@ -5,7 +5,7 @@ pub struct GrooveJoint2D {
     Joint2D
 }
 
-pub fn (mut r GrooveJoint2D) set_length(length f64) {
+pub fn (r &GrooveJoint2D) set_length(length f64) {
     classname := StringName.new("GrooveJoint2D")
     fnname := StringName.new("set_length")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -25,7 +25,7 @@ pub fn (r &GrooveJoint2D) get_length() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GrooveJoint2D) set_initial_offset(offset f64) {
+pub fn (r &GrooveJoint2D) set_initial_offset(offset f64) {
     classname := StringName.new("GrooveJoint2D")
     fnname := StringName.new("set_initial_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

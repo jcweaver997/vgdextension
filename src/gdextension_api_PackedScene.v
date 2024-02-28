@@ -12,7 +12,7 @@ pub struct PackedScene {
     Resource
 }
 
-pub fn (mut r PackedScene) pack(path Node) GDError {
+pub fn (r &PackedScene) pack(path Node) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("PackedScene")
     fnname := StringName.new("pack")

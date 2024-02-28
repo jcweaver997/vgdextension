@@ -49,7 +49,7 @@ pub fn (r &Script) get_source_code() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r Script) set_source_code(source string) {
+pub fn (r &Script) set_source_code(source string) {
     classname := StringName.new("Script")
     fnname := StringName.new("set_source_code")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -61,7 +61,7 @@ pub fn (mut r Script) set_source_code(source string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Script) reload(keep_state bool) GDError {
+pub fn (r &Script) reload(keep_state bool) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("Script")
     fnname := StringName.new("reload")
@@ -109,7 +109,7 @@ pub fn (r &Script) has_script_signal(signal_name string) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Script) get_script_property_list() Array {
+pub fn (r &Script) get_script_property_list() Array {
     mut object_out := Array{}
     classname := StringName.new("Script")
     fnname := StringName.new("get_script_property_list")
@@ -119,7 +119,7 @@ pub fn (mut r Script) get_script_property_list() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Script) get_script_method_list() Array {
+pub fn (r &Script) get_script_method_list() Array {
     mut object_out := Array{}
     classname := StringName.new("Script")
     fnname := StringName.new("get_script_method_list")
@@ -129,7 +129,7 @@ pub fn (mut r Script) get_script_method_list() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Script) get_script_signal_list() Array {
+pub fn (r &Script) get_script_signal_list() Array {
     mut object_out := Array{}
     classname := StringName.new("Script")
     fnname := StringName.new("get_script_signal_list")
@@ -139,7 +139,7 @@ pub fn (mut r Script) get_script_signal_list() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Script) get_script_constant_map() Dictionary {
+pub fn (r &Script) get_script_constant_map() Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("Script")
     fnname := StringName.new("get_script_constant_map")
@@ -149,7 +149,7 @@ pub fn (mut r Script) get_script_constant_map() Dictionary {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Script) get_property_default_value(property string) Variant {
+pub fn (r &Script) get_property_default_value(property string) Variant {
     mut object_out := Variant{}
     classname := StringName.new("Script")
     fnname := StringName.new("get_property_default_value")

@@ -13,7 +13,7 @@ pub struct TreeItem {
     Object
 }
 
-pub fn (mut r TreeItem) set_cell_mode(column i32, mode TreeItemTreeCellMode) {
+pub fn (r &TreeItem) set_cell_mode(column i32, mode TreeItemTreeCellMode) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_cell_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 289920701)
@@ -37,7 +37,7 @@ pub fn (r &TreeItem) get_cell_mode(column i32) TreeItemTreeCellMode {
     fnname.deinit()
    return unsafe{TreeItemTreeCellMode(object_out)}
 }
-pub fn (mut r TreeItem) set_edit_multiline(column i32, multiline bool) {
+pub fn (r &TreeItem) set_edit_multiline(column i32, multiline bool) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_edit_multiline")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -60,7 +60,7 @@ pub fn (r &TreeItem) is_edit_multiline(column i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) set_checked(column i32, checked bool) {
+pub fn (r &TreeItem) set_checked(column i32, checked bool) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_checked")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -71,7 +71,7 @@ pub fn (mut r TreeItem) set_checked(column i32, checked bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TreeItem) set_indeterminate(column i32, indeterminate bool) {
+pub fn (r &TreeItem) set_indeterminate(column i32, indeterminate bool) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_indeterminate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -106,7 +106,7 @@ pub fn (r &TreeItem) is_indeterminate(column i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) propagate_check(column i32, emit_signal bool) {
+pub fn (r &TreeItem) propagate_check(column i32, emit_signal bool) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("propagate_check")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 972357352)
@@ -117,7 +117,7 @@ pub fn (mut r TreeItem) propagate_check(column i32, emit_signal bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TreeItem) set_text(column i32, text string) {
+pub fn (r &TreeItem) set_text(column i32, text string) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
@@ -144,7 +144,7 @@ pub fn (r &TreeItem) get_text(column i32) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r TreeItem) set_text_direction(column i32, direction ControlTextDirection) {
+pub fn (r &TreeItem) set_text_direction(column i32, direction ControlTextDirection) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_text_direction")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1707680378)
@@ -168,7 +168,7 @@ pub fn (r &TreeItem) get_text_direction(column i32) ControlTextDirection {
     fnname.deinit()
    return unsafe{ControlTextDirection(object_out)}
 }
-pub fn (mut r TreeItem) set_autowrap_mode(column i32, autowrap_mode TextServerAutowrapMode) {
+pub fn (r &TreeItem) set_autowrap_mode(column i32, autowrap_mode TextServerAutowrapMode) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_autowrap_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3633006561)
@@ -192,7 +192,7 @@ pub fn (r &TreeItem) get_autowrap_mode(column i32) TextServerAutowrapMode {
     fnname.deinit()
    return unsafe{TextServerAutowrapMode(object_out)}
 }
-pub fn (mut r TreeItem) set_text_overrun_behavior(column i32, overrun_behavior TextServerOverrunBehavior) {
+pub fn (r &TreeItem) set_text_overrun_behavior(column i32, overrun_behavior TextServerOverrunBehavior) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_text_overrun_behavior")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1940772195)
@@ -216,7 +216,7 @@ pub fn (r &TreeItem) get_text_overrun_behavior(column i32) TextServerOverrunBeha
     fnname.deinit()
    return unsafe{TextServerOverrunBehavior(object_out)}
 }
-pub fn (mut r TreeItem) set_structured_text_bidi_override(column i32, parser TextServerStructuredTextParser) {
+pub fn (r &TreeItem) set_structured_text_bidi_override(column i32, parser TextServerStructuredTextParser) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_structured_text_bidi_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 868756907)
@@ -240,7 +240,7 @@ pub fn (r &TreeItem) get_structured_text_bidi_override(column i32) TextServerStr
     fnname.deinit()
    return unsafe{TextServerStructuredTextParser(object_out)}
 }
-pub fn (mut r TreeItem) set_structured_text_bidi_override_options(column i32, gdargs Array) {
+pub fn (r &TreeItem) set_structured_text_bidi_override_options(column i32, gdargs Array) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_structured_text_bidi_override_options")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 537221740)
@@ -263,7 +263,7 @@ pub fn (r &TreeItem) get_structured_text_bidi_override_options(column i32) Array
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) set_language(column i32, language string) {
+pub fn (r &TreeItem) set_language(column i32, language string) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_language")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
@@ -290,7 +290,7 @@ pub fn (r &TreeItem) get_language(column i32) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r TreeItem) set_suffix(column i32, text string) {
+pub fn (r &TreeItem) set_suffix(column i32, text string) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_suffix")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
@@ -317,7 +317,7 @@ pub fn (r &TreeItem) get_suffix(column i32) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r TreeItem) set_icon(column i32, texture Texture2D) {
+pub fn (r &TreeItem) set_icon(column i32, texture Texture2D) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_icon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 666127730)
@@ -340,7 +340,7 @@ pub fn (r &TreeItem) get_icon(column i32) Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) set_icon_region(column i32, region Rect2) {
+pub fn (r &TreeItem) set_icon_region(column i32, region Rect2) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_icon_region")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1356297692)
@@ -363,7 +363,7 @@ pub fn (r &TreeItem) get_icon_region(column i32) Rect2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) set_icon_max_width(column i32, width i32) {
+pub fn (r &TreeItem) set_icon_max_width(column i32, width i32) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_icon_max_width")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -386,7 +386,7 @@ pub fn (r &TreeItem) get_icon_max_width(column i32) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) set_icon_modulate(column i32, modulate Color) {
+pub fn (r &TreeItem) set_icon_modulate(column i32, modulate Color) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_icon_modulate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2878471219)
@@ -409,7 +409,7 @@ pub fn (r &TreeItem) get_icon_modulate(column i32) Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) set_range(column i32, value f64) {
+pub fn (r &TreeItem) set_range(column i32, value f64) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_range")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1602489585)
@@ -432,7 +432,7 @@ pub fn (r &TreeItem) get_range(column i32) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) set_range_config(column i32, min f64, max f64, step f64, expr bool) {
+pub fn (r &TreeItem) set_range_config(column i32, min f64, max f64, step f64, expr bool) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_range_config")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1547181014)
@@ -446,7 +446,7 @@ pub fn (mut r TreeItem) set_range_config(column i32, min f64, max f64, step f64,
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TreeItem) get_range_config(column i32) Dictionary {
+pub fn (r &TreeItem) get_range_config(column i32) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("TreeItem")
     fnname := StringName.new("get_range_config")
@@ -458,7 +458,7 @@ pub fn (mut r TreeItem) get_range_config(column i32) Dictionary {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) set_metadata(column i32, meta Variant) {
+pub fn (r &TreeItem) set_metadata(column i32, meta Variant) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_metadata")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2152698145)
@@ -481,7 +481,7 @@ pub fn (r &TreeItem) get_metadata(column i32) Variant {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) set_custom_draw(column i32, object Object, callback string) {
+pub fn (r &TreeItem) set_custom_draw(column i32, object Object, callback string) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_custom_draw")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 272420368)
@@ -495,7 +495,7 @@ pub fn (mut r TreeItem) set_custom_draw(column i32, object Object, callback stri
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TreeItem) set_collapsed(enable bool) {
+pub fn (r &TreeItem) set_collapsed(enable bool) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_collapsed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -505,7 +505,7 @@ pub fn (mut r TreeItem) set_collapsed(enable bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TreeItem) is_collapsed() bool {
+pub fn (r &TreeItem) is_collapsed() bool {
     mut object_out := false
     classname := StringName.new("TreeItem")
     fnname := StringName.new("is_collapsed")
@@ -515,7 +515,7 @@ pub fn (mut r TreeItem) is_collapsed() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) set_collapsed_recursive(enable bool) {
+pub fn (r &TreeItem) set_collapsed_recursive(enable bool) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_collapsed_recursive")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -525,7 +525,7 @@ pub fn (mut r TreeItem) set_collapsed_recursive(enable bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TreeItem) is_any_collapsed(only_visible bool) bool {
+pub fn (r &TreeItem) is_any_collapsed(only_visible bool) bool {
     mut object_out := false
     classname := StringName.new("TreeItem")
     fnname := StringName.new("is_any_collapsed")
@@ -537,7 +537,7 @@ pub fn (mut r TreeItem) is_any_collapsed(only_visible bool) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) set_visible(enable bool) {
+pub fn (r &TreeItem) set_visible(enable bool) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_visible")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -547,7 +547,7 @@ pub fn (mut r TreeItem) set_visible(enable bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TreeItem) is_visible() bool {
+pub fn (r &TreeItem) is_visible() bool {
     mut object_out := false
     classname := StringName.new("TreeItem")
     fnname := StringName.new("is_visible")
@@ -557,7 +557,7 @@ pub fn (mut r TreeItem) is_visible() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) uncollapse_tree() {
+pub fn (r &TreeItem) uncollapse_tree() {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("uncollapse_tree")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -565,7 +565,7 @@ pub fn (mut r TreeItem) uncollapse_tree() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TreeItem) set_custom_minimum_height(height i32) {
+pub fn (r &TreeItem) set_custom_minimum_height(height i32) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_custom_minimum_height")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -585,7 +585,7 @@ pub fn (r &TreeItem) get_custom_minimum_height() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) set_selectable(column i32, selectable bool) {
+pub fn (r &TreeItem) set_selectable(column i32, selectable bool) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_selectable")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -608,7 +608,7 @@ pub fn (r &TreeItem) is_selectable(column i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) is_selected(column i32) bool {
+pub fn (r &TreeItem) is_selected(column i32) bool {
     mut object_out := false
     classname := StringName.new("TreeItem")
     fnname := StringName.new("is_selected")
@@ -620,7 +620,7 @@ pub fn (mut r TreeItem) is_selected(column i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) gdselect(column i32) {
+pub fn (r &TreeItem) gdselect(column i32) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("select")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -630,7 +630,7 @@ pub fn (mut r TreeItem) gdselect(column i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TreeItem) deselect(column i32) {
+pub fn (r &TreeItem) deselect(column i32) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("deselect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -640,7 +640,7 @@ pub fn (mut r TreeItem) deselect(column i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TreeItem) set_editable(column i32, enabled bool) {
+pub fn (r &TreeItem) set_editable(column i32, enabled bool) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_editable")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -651,7 +651,7 @@ pub fn (mut r TreeItem) set_editable(column i32, enabled bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TreeItem) is_editable(column i32) bool {
+pub fn (r &TreeItem) is_editable(column i32) bool {
     mut object_out := false
     classname := StringName.new("TreeItem")
     fnname := StringName.new("is_editable")
@@ -663,7 +663,7 @@ pub fn (mut r TreeItem) is_editable(column i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) set_custom_color(column i32, color Color) {
+pub fn (r &TreeItem) set_custom_color(column i32, color Color) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_custom_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2878471219)
@@ -686,7 +686,7 @@ pub fn (r &TreeItem) get_custom_color(column i32) Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) clear_custom_color(column i32) {
+pub fn (r &TreeItem) clear_custom_color(column i32) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("clear_custom_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -696,7 +696,7 @@ pub fn (mut r TreeItem) clear_custom_color(column i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TreeItem) set_custom_font(column i32, font Font) {
+pub fn (r &TreeItem) set_custom_font(column i32, font Font) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_custom_font")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2637609184)
@@ -719,7 +719,7 @@ pub fn (r &TreeItem) get_custom_font(column i32) Font {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) set_custom_font_size(column i32, font_size i32) {
+pub fn (r &TreeItem) set_custom_font_size(column i32, font_size i32) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_custom_font_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -742,7 +742,7 @@ pub fn (r &TreeItem) get_custom_font_size(column i32) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) set_custom_bg_color(column i32, color Color, just_outline bool) {
+pub fn (r &TreeItem) set_custom_bg_color(column i32, color Color, just_outline bool) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_custom_bg_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 894174518)
@@ -754,7 +754,7 @@ pub fn (mut r TreeItem) set_custom_bg_color(column i32, color Color, just_outlin
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TreeItem) clear_custom_bg_color(column i32) {
+pub fn (r &TreeItem) clear_custom_bg_color(column i32) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("clear_custom_bg_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -776,7 +776,7 @@ pub fn (r &TreeItem) get_custom_bg_color(column i32) Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) set_custom_as_button(column i32, enable bool) {
+pub fn (r &TreeItem) set_custom_as_button(column i32, enable bool) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_custom_as_button")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -799,7 +799,7 @@ pub fn (r &TreeItem) is_custom_set_as_button(column i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) add_button(column i32, button Texture2D, id i32, disabled bool, tooltip_text string) {
+pub fn (r &TreeItem) add_button(column i32, button Texture2D, id i32, disabled bool, tooltip_text string) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("add_button")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1688223362)
@@ -881,7 +881,7 @@ pub fn (r &TreeItem) get_button(column i32, button_index i32) Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) set_button_tooltip_text(column i32, button_index i32, tooltip string) {
+pub fn (r &TreeItem) set_button_tooltip_text(column i32, button_index i32, tooltip string) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_button_tooltip_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2285447957)
@@ -895,7 +895,7 @@ pub fn (mut r TreeItem) set_button_tooltip_text(column i32, button_index i32, to
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TreeItem) set_button(column i32, button_index i32, button Texture2D) {
+pub fn (r &TreeItem) set_button(column i32, button_index i32, button Texture2D) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_button")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 176101966)
@@ -907,7 +907,7 @@ pub fn (mut r TreeItem) set_button(column i32, button_index i32, button Texture2
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TreeItem) erase_button(column i32, button_index i32) {
+pub fn (r &TreeItem) erase_button(column i32, button_index i32) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("erase_button")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -918,7 +918,7 @@ pub fn (mut r TreeItem) erase_button(column i32, button_index i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TreeItem) set_button_disabled(column i32, button_index i32, disabled bool) {
+pub fn (r &TreeItem) set_button_disabled(column i32, button_index i32, disabled bool) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_button_disabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1383440665)
@@ -930,7 +930,7 @@ pub fn (mut r TreeItem) set_button_disabled(column i32, button_index i32, disabl
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TreeItem) set_button_color(column i32, button_index i32, color Color) {
+pub fn (r &TreeItem) set_button_color(column i32, button_index i32, color Color) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_button_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3733378741)
@@ -955,7 +955,7 @@ pub fn (r &TreeItem) is_button_disabled(column i32, button_index i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) set_tooltip_text(column i32, tooltip string) {
+pub fn (r &TreeItem) set_tooltip_text(column i32, tooltip string) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_tooltip_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
@@ -982,7 +982,7 @@ pub fn (r &TreeItem) get_tooltip_text(column i32) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r TreeItem) set_text_alignment(column i32, text_alignment HorizontalAlignment) {
+pub fn (r &TreeItem) set_text_alignment(column i32, text_alignment HorizontalAlignment) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_text_alignment")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3276431499)
@@ -1006,7 +1006,7 @@ pub fn (r &TreeItem) get_text_alignment(column i32) HorizontalAlignment {
     fnname.deinit()
    return unsafe{HorizontalAlignment(object_out)}
 }
-pub fn (mut r TreeItem) set_expand_right(column i32, enable bool) {
+pub fn (r &TreeItem) set_expand_right(column i32, enable bool) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_expand_right")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -1029,7 +1029,7 @@ pub fn (r &TreeItem) get_expand_right(column i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) set_disable_folding(disable bool) {
+pub fn (r &TreeItem) set_disable_folding(disable bool) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("set_disable_folding")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -1049,7 +1049,7 @@ pub fn (r &TreeItem) is_folding_disabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) create_child(index i32) TreeItem {
+pub fn (r &TreeItem) create_child(index i32) TreeItem {
     mut object_out := TreeItem{}
     classname := StringName.new("TreeItem")
     fnname := StringName.new("create_child")
@@ -1061,7 +1061,7 @@ pub fn (mut r TreeItem) create_child(index i32) TreeItem {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) add_child(child TreeItem) {
+pub fn (r &TreeItem) add_child(child TreeItem) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("add_child")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1819951137)
@@ -1071,7 +1071,7 @@ pub fn (mut r TreeItem) add_child(child TreeItem) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TreeItem) remove_child(child TreeItem) {
+pub fn (r &TreeItem) remove_child(child TreeItem) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("remove_child")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1819951137)
@@ -1101,7 +1101,7 @@ pub fn (r &TreeItem) get_next() TreeItem {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) get_prev() TreeItem {
+pub fn (r &TreeItem) get_prev() TreeItem {
     mut object_out := TreeItem{}
     classname := StringName.new("TreeItem")
     fnname := StringName.new("get_prev")
@@ -1131,7 +1131,7 @@ pub fn (r &TreeItem) get_first_child() TreeItem {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) get_next_in_tree(wrap bool) TreeItem {
+pub fn (r &TreeItem) get_next_in_tree(wrap bool) TreeItem {
     mut object_out := TreeItem{}
     classname := StringName.new("TreeItem")
     fnname := StringName.new("get_next_in_tree")
@@ -1143,7 +1143,7 @@ pub fn (mut r TreeItem) get_next_in_tree(wrap bool) TreeItem {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) get_prev_in_tree(wrap bool) TreeItem {
+pub fn (r &TreeItem) get_prev_in_tree(wrap bool) TreeItem {
     mut object_out := TreeItem{}
     classname := StringName.new("TreeItem")
     fnname := StringName.new("get_prev_in_tree")
@@ -1155,7 +1155,7 @@ pub fn (mut r TreeItem) get_prev_in_tree(wrap bool) TreeItem {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) get_next_visible(wrap bool) TreeItem {
+pub fn (r &TreeItem) get_next_visible(wrap bool) TreeItem {
     mut object_out := TreeItem{}
     classname := StringName.new("TreeItem")
     fnname := StringName.new("get_next_visible")
@@ -1167,7 +1167,7 @@ pub fn (mut r TreeItem) get_next_visible(wrap bool) TreeItem {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) get_prev_visible(wrap bool) TreeItem {
+pub fn (r &TreeItem) get_prev_visible(wrap bool) TreeItem {
     mut object_out := TreeItem{}
     classname := StringName.new("TreeItem")
     fnname := StringName.new("get_prev_visible")
@@ -1179,7 +1179,7 @@ pub fn (mut r TreeItem) get_prev_visible(wrap bool) TreeItem {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) get_child(index i32) TreeItem {
+pub fn (r &TreeItem) get_child(index i32) TreeItem {
     mut object_out := TreeItem{}
     classname := StringName.new("TreeItem")
     fnname := StringName.new("get_child")
@@ -1191,7 +1191,7 @@ pub fn (mut r TreeItem) get_child(index i32) TreeItem {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) get_child_count() i32 {
+pub fn (r &TreeItem) get_child_count() i32 {
     mut object_out := i32(0)
     classname := StringName.new("TreeItem")
     fnname := StringName.new("get_child_count")
@@ -1201,7 +1201,7 @@ pub fn (mut r TreeItem) get_child_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) get_children() Array {
+pub fn (r &TreeItem) get_children() Array {
     mut object_out := Array{}
     classname := StringName.new("TreeItem")
     fnname := StringName.new("get_children")
@@ -1211,7 +1211,7 @@ pub fn (mut r TreeItem) get_children() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) get_index() i32 {
+pub fn (r &TreeItem) get_index() i32 {
     mut object_out := i32(0)
     classname := StringName.new("TreeItem")
     fnname := StringName.new("get_index")
@@ -1221,7 +1221,7 @@ pub fn (mut r TreeItem) get_index() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TreeItem) move_before(item TreeItem) {
+pub fn (r &TreeItem) move_before(item TreeItem) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("move_before")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1819951137)
@@ -1231,7 +1231,7 @@ pub fn (mut r TreeItem) move_before(item TreeItem) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TreeItem) move_after(item TreeItem) {
+pub fn (r &TreeItem) move_after(item TreeItem) {
     classname := StringName.new("TreeItem")
     fnname := StringName.new("move_after")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1819951137)

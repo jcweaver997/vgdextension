@@ -5,7 +5,7 @@ pub struct PhysicsMaterial {
     Resource
 }
 
-pub fn (mut r PhysicsMaterial) set_friction(friction f64) {
+pub fn (r &PhysicsMaterial) set_friction(friction f64) {
     classname := StringName.new("PhysicsMaterial")
     fnname := StringName.new("set_friction")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -25,7 +25,7 @@ pub fn (r &PhysicsMaterial) get_friction() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsMaterial) set_rough(rough bool) {
+pub fn (r &PhysicsMaterial) set_rough(rough bool) {
     classname := StringName.new("PhysicsMaterial")
     fnname := StringName.new("set_rough")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -45,7 +45,7 @@ pub fn (r &PhysicsMaterial) is_rough() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsMaterial) set_bounce(bounce f64) {
+pub fn (r &PhysicsMaterial) set_bounce(bounce f64) {
     classname := StringName.new("PhysicsMaterial")
     fnname := StringName.new("set_bounce")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -65,7 +65,7 @@ pub fn (r &PhysicsMaterial) get_bounce() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsMaterial) set_absorbent(absorbent bool) {
+pub fn (r &PhysicsMaterial) set_absorbent(absorbent bool) {
     classname := StringName.new("PhysicsMaterial")
     fnname := StringName.new("set_absorbent")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

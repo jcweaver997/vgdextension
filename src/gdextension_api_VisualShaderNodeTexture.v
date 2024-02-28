@@ -24,7 +24,7 @@ pub struct VisualShaderNodeTexture {
     VisualShaderNode
 }
 
-pub fn (mut r VisualShaderNodeTexture) set_source(value VisualShaderNodeTextureSource) {
+pub fn (r &VisualShaderNodeTexture) set_source(value VisualShaderNodeTextureSource) {
     classname := StringName.new("VisualShaderNodeTexture")
     fnname := StringName.new("set_source")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 905262939)
@@ -45,7 +45,7 @@ pub fn (r &VisualShaderNodeTexture) get_source() VisualShaderNodeTextureSource {
     fnname.deinit()
    return unsafe{VisualShaderNodeTextureSource(object_out)}
 }
-pub fn (mut r VisualShaderNodeTexture) set_texture(value Texture2D) {
+pub fn (r &VisualShaderNodeTexture) set_texture(value Texture2D) {
     classname := StringName.new("VisualShaderNodeTexture")
     fnname := StringName.new("set_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
@@ -65,7 +65,7 @@ pub fn (r &VisualShaderNodeTexture) get_texture() Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VisualShaderNodeTexture) set_texture_type(value VisualShaderNodeTextureTextureType) {
+pub fn (r &VisualShaderNodeTexture) set_texture_type(value VisualShaderNodeTextureTextureType) {
     classname := StringName.new("VisualShaderNodeTexture")
     fnname := StringName.new("set_texture_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 986314081)

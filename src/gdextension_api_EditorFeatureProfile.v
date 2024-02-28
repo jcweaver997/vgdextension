@@ -17,7 +17,7 @@ pub struct EditorFeatureProfile {
     RefCounted
 }
 
-pub fn (mut r EditorFeatureProfile) set_disable_class(class_name string, disable bool) {
+pub fn (r &EditorFeatureProfile) set_disable_class(class_name string, disable bool) {
     classname := StringName.new("EditorFeatureProfile")
     fnname := StringName.new("set_disable_class")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2524380260)
@@ -44,7 +44,7 @@ pub fn (r &EditorFeatureProfile) is_class_disabled(class_name string) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorFeatureProfile) set_disable_class_editor(class_name string, disable bool) {
+pub fn (r &EditorFeatureProfile) set_disable_class_editor(class_name string, disable bool) {
     classname := StringName.new("EditorFeatureProfile")
     fnname := StringName.new("set_disable_class_editor")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2524380260)
@@ -71,7 +71,7 @@ pub fn (r &EditorFeatureProfile) is_class_editor_disabled(class_name string) boo
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorFeatureProfile) set_disable_class_property(class_name string, property string, disable bool) {
+pub fn (r &EditorFeatureProfile) set_disable_class_property(class_name string, property string, disable bool) {
     classname := StringName.new("EditorFeatureProfile")
     fnname := StringName.new("set_disable_class_property")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 865197084)
@@ -104,7 +104,7 @@ pub fn (r &EditorFeatureProfile) is_class_property_disabled(class_name string, p
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorFeatureProfile) set_disable_feature(feature EditorFeatureProfileFeature, disable bool) {
+pub fn (r &EditorFeatureProfile) set_disable_feature(feature EditorFeatureProfileFeature, disable bool) {
     classname := StringName.new("EditorFeatureProfile")
     fnname := StringName.new("set_disable_feature")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1884871044)
@@ -129,7 +129,7 @@ pub fn (r &EditorFeatureProfile) is_feature_disabled(feature EditorFeatureProfil
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorFeatureProfile) get_feature_name(feature EditorFeatureProfileFeature) string {
+pub fn (r &EditorFeatureProfile) get_feature_name(feature EditorFeatureProfileFeature) string {
     mut object_out := String{}
     classname := StringName.new("EditorFeatureProfile")
     fnname := StringName.new("get_feature_name")
@@ -144,7 +144,7 @@ pub fn (mut r EditorFeatureProfile) get_feature_name(feature EditorFeatureProfil
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r EditorFeatureProfile) save_to_file(path string) GDError {
+pub fn (r &EditorFeatureProfile) save_to_file(path string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("EditorFeatureProfile")
     fnname := StringName.new("save_to_file")
@@ -158,7 +158,7 @@ pub fn (mut r EditorFeatureProfile) save_to_file(path string) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r EditorFeatureProfile) load_from_file(path string) GDError {
+pub fn (r &EditorFeatureProfile) load_from_file(path string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("EditorFeatureProfile")
     fnname := StringName.new("load_from_file")

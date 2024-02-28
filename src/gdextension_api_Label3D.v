@@ -20,7 +20,7 @@ pub struct Label3D {
     GeometryInstance3D
 }
 
-pub fn (mut r Label3D) set_horizontal_alignment(alignment HorizontalAlignment) {
+pub fn (r &Label3D) set_horizontal_alignment(alignment HorizontalAlignment) {
     classname := StringName.new("Label3D")
     fnname := StringName.new("set_horizontal_alignment")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2312603777)
@@ -41,7 +41,7 @@ pub fn (r &Label3D) get_horizontal_alignment() HorizontalAlignment {
     fnname.deinit()
    return unsafe{HorizontalAlignment(object_out)}
 }
-pub fn (mut r Label3D) set_vertical_alignment(alignment VerticalAlignment) {
+pub fn (r &Label3D) set_vertical_alignment(alignment VerticalAlignment) {
     classname := StringName.new("Label3D")
     fnname := StringName.new("set_vertical_alignment")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1796458609)
@@ -62,7 +62,7 @@ pub fn (r &Label3D) get_vertical_alignment() VerticalAlignment {
     fnname.deinit()
    return unsafe{VerticalAlignment(object_out)}
 }
-pub fn (mut r Label3D) set_modulate(modulate Color) {
+pub fn (r &Label3D) set_modulate(modulate Color) {
     classname := StringName.new("Label3D")
     fnname := StringName.new("set_modulate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -82,7 +82,7 @@ pub fn (r &Label3D) get_modulate() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Label3D) set_outline_modulate(modulate Color) {
+pub fn (r &Label3D) set_outline_modulate(modulate Color) {
     classname := StringName.new("Label3D")
     fnname := StringName.new("set_outline_modulate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -102,7 +102,7 @@ pub fn (r &Label3D) get_outline_modulate() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Label3D) set_text(text string) {
+pub fn (r &Label3D) set_text(text string) {
     classname := StringName.new("Label3D")
     fnname := StringName.new("set_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -126,7 +126,7 @@ pub fn (r &Label3D) get_text() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r Label3D) set_text_direction(direction TextServerDirection) {
+pub fn (r &Label3D) set_text_direction(direction TextServerDirection) {
     classname := StringName.new("Label3D")
     fnname := StringName.new("set_text_direction")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1418190634)
@@ -147,7 +147,7 @@ pub fn (r &Label3D) get_text_direction() TextServerDirection {
     fnname.deinit()
    return unsafe{TextServerDirection(object_out)}
 }
-pub fn (mut r Label3D) set_language(language string) {
+pub fn (r &Label3D) set_language(language string) {
     classname := StringName.new("Label3D")
     fnname := StringName.new("set_language")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -171,7 +171,7 @@ pub fn (r &Label3D) get_language() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r Label3D) set_structured_text_bidi_override(parser TextServerStructuredTextParser) {
+pub fn (r &Label3D) set_structured_text_bidi_override(parser TextServerStructuredTextParser) {
     classname := StringName.new("Label3D")
     fnname := StringName.new("set_structured_text_bidi_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 55961453)
@@ -192,7 +192,7 @@ pub fn (r &Label3D) get_structured_text_bidi_override() TextServerStructuredText
     fnname.deinit()
    return unsafe{TextServerStructuredTextParser(object_out)}
 }
-pub fn (mut r Label3D) set_structured_text_bidi_override_options(gdargs Array) {
+pub fn (r &Label3D) set_structured_text_bidi_override_options(gdargs Array) {
     classname := StringName.new("Label3D")
     fnname := StringName.new("set_structured_text_bidi_override_options")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)
@@ -212,7 +212,7 @@ pub fn (r &Label3D) get_structured_text_bidi_override_options() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Label3D) set_uppercase(enable bool) {
+pub fn (r &Label3D) set_uppercase(enable bool) {
     classname := StringName.new("Label3D")
     fnname := StringName.new("set_uppercase")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -232,7 +232,7 @@ pub fn (r &Label3D) is_uppercase() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Label3D) set_render_priority(priority i32) {
+pub fn (r &Label3D) set_render_priority(priority i32) {
     classname := StringName.new("Label3D")
     fnname := StringName.new("set_render_priority")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -252,7 +252,7 @@ pub fn (r &Label3D) get_render_priority() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Label3D) set_outline_render_priority(priority i32) {
+pub fn (r &Label3D) set_outline_render_priority(priority i32) {
     classname := StringName.new("Label3D")
     fnname := StringName.new("set_outline_render_priority")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -272,7 +272,7 @@ pub fn (r &Label3D) get_outline_render_priority() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Label3D) set_font(font Font) {
+pub fn (r &Label3D) set_font(font Font) {
     classname := StringName.new("Label3D")
     fnname := StringName.new("set_font")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1262170328)
@@ -292,7 +292,7 @@ pub fn (r &Label3D) get_font() Font {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Label3D) set_font_size(size i32) {
+pub fn (r &Label3D) set_font_size(size i32) {
     classname := StringName.new("Label3D")
     fnname := StringName.new("set_font_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -312,7 +312,7 @@ pub fn (r &Label3D) get_font_size() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Label3D) set_outline_size(outline_size i32) {
+pub fn (r &Label3D) set_outline_size(outline_size i32) {
     classname := StringName.new("Label3D")
     fnname := StringName.new("set_outline_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -332,7 +332,7 @@ pub fn (r &Label3D) get_outline_size() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Label3D) set_line_spacing(line_spacing f64) {
+pub fn (r &Label3D) set_line_spacing(line_spacing f64) {
     classname := StringName.new("Label3D")
     fnname := StringName.new("set_line_spacing")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -352,7 +352,7 @@ pub fn (r &Label3D) get_line_spacing() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Label3D) set_autowrap_mode(autowrap_mode TextServerAutowrapMode) {
+pub fn (r &Label3D) set_autowrap_mode(autowrap_mode TextServerAutowrapMode) {
     classname := StringName.new("Label3D")
     fnname := StringName.new("set_autowrap_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3289138044)
@@ -373,7 +373,7 @@ pub fn (r &Label3D) get_autowrap_mode() TextServerAutowrapMode {
     fnname.deinit()
    return unsafe{TextServerAutowrapMode(object_out)}
 }
-pub fn (mut r Label3D) set_justification_flags(justification_flags TextServerJustificationFlag) {
+pub fn (r &Label3D) set_justification_flags(justification_flags TextServerJustificationFlag) {
     classname := StringName.new("Label3D")
     fnname := StringName.new("set_justification_flags")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2877345813)
@@ -394,7 +394,7 @@ pub fn (r &Label3D) get_justification_flags() TextServerJustificationFlag {
     fnname.deinit()
    return unsafe{TextServerJustificationFlag(object_out)}
 }
-pub fn (mut r Label3D) set_width(width f64) {
+pub fn (r &Label3D) set_width(width f64) {
     classname := StringName.new("Label3D")
     fnname := StringName.new("set_width")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -414,7 +414,7 @@ pub fn (r &Label3D) get_width() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Label3D) set_pixel_size(pixel_size f64) {
+pub fn (r &Label3D) set_pixel_size(pixel_size f64) {
     classname := StringName.new("Label3D")
     fnname := StringName.new("set_pixel_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -434,7 +434,7 @@ pub fn (r &Label3D) get_pixel_size() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Label3D) set_offset(offset Vector2) {
+pub fn (r &Label3D) set_offset(offset Vector2) {
     classname := StringName.new("Label3D")
     fnname := StringName.new("set_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -454,7 +454,7 @@ pub fn (r &Label3D) get_offset() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Label3D) set_draw_flag(flag Label3DDrawFlags, enabled bool) {
+pub fn (r &Label3D) set_draw_flag(flag Label3DDrawFlags, enabled bool) {
     classname := StringName.new("Label3D")
     fnname := StringName.new("set_draw_flag")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1285833066)
@@ -479,7 +479,7 @@ pub fn (r &Label3D) get_draw_flag(flag Label3DDrawFlags) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Label3D) set_billboard_mode(mode BaseMaterial3DBillboardMode) {
+pub fn (r &Label3D) set_billboard_mode(mode BaseMaterial3DBillboardMode) {
     classname := StringName.new("Label3D")
     fnname := StringName.new("set_billboard_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4202036497)
@@ -500,7 +500,7 @@ pub fn (r &Label3D) get_billboard_mode() BaseMaterial3DBillboardMode {
     fnname.deinit()
    return unsafe{BaseMaterial3DBillboardMode(object_out)}
 }
-pub fn (mut r Label3D) set_alpha_cut_mode(mode Label3DAlphaCutMode) {
+pub fn (r &Label3D) set_alpha_cut_mode(mode Label3DAlphaCutMode) {
     classname := StringName.new("Label3D")
     fnname := StringName.new("set_alpha_cut_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2549142916)
@@ -521,7 +521,7 @@ pub fn (r &Label3D) get_alpha_cut_mode() Label3DAlphaCutMode {
     fnname.deinit()
    return unsafe{Label3DAlphaCutMode(object_out)}
 }
-pub fn (mut r Label3D) set_alpha_scissor_threshold(threshold f64) {
+pub fn (r &Label3D) set_alpha_scissor_threshold(threshold f64) {
     classname := StringName.new("Label3D")
     fnname := StringName.new("set_alpha_scissor_threshold")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -541,7 +541,7 @@ pub fn (r &Label3D) get_alpha_scissor_threshold() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Label3D) set_alpha_hash_scale(threshold f64) {
+pub fn (r &Label3D) set_alpha_hash_scale(threshold f64) {
     classname := StringName.new("Label3D")
     fnname := StringName.new("set_alpha_hash_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -561,7 +561,7 @@ pub fn (r &Label3D) get_alpha_hash_scale() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Label3D) set_alpha_antialiasing(alpha_aa BaseMaterial3DAlphaAntiAliasing) {
+pub fn (r &Label3D) set_alpha_antialiasing(alpha_aa BaseMaterial3DAlphaAntiAliasing) {
     classname := StringName.new("Label3D")
     fnname := StringName.new("set_alpha_antialiasing")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3212649852)
@@ -582,7 +582,7 @@ pub fn (r &Label3D) get_alpha_antialiasing() BaseMaterial3DAlphaAntiAliasing {
     fnname.deinit()
    return unsafe{BaseMaterial3DAlphaAntiAliasing(object_out)}
 }
-pub fn (mut r Label3D) set_alpha_antialiasing_edge(edge f64) {
+pub fn (r &Label3D) set_alpha_antialiasing_edge(edge f64) {
     classname := StringName.new("Label3D")
     fnname := StringName.new("set_alpha_antialiasing_edge")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -602,7 +602,7 @@ pub fn (r &Label3D) get_alpha_antialiasing_edge() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Label3D) set_texture_filter(mode BaseMaterial3DTextureFilter) {
+pub fn (r &Label3D) set_texture_filter(mode BaseMaterial3DTextureFilter) {
     classname := StringName.new("Label3D")
     fnname := StringName.new("set_texture_filter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 22904437)

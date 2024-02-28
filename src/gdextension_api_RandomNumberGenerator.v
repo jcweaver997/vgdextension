@@ -5,7 +5,7 @@ pub struct RandomNumberGenerator {
     RefCounted
 }
 
-pub fn (mut r RandomNumberGenerator) set_seed(seed u64) {
+pub fn (r &RandomNumberGenerator) set_seed(seed u64) {
     classname := StringName.new("RandomNumberGenerator")
     fnname := StringName.new("set_seed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -15,7 +15,7 @@ pub fn (mut r RandomNumberGenerator) set_seed(seed u64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RandomNumberGenerator) get_seed() u64 {
+pub fn (r &RandomNumberGenerator) get_seed() u64 {
     mut object_out := u64(0)
     classname := StringName.new("RandomNumberGenerator")
     fnname := StringName.new("get_seed")
@@ -25,7 +25,7 @@ pub fn (mut r RandomNumberGenerator) get_seed() u64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RandomNumberGenerator) set_state(state u64) {
+pub fn (r &RandomNumberGenerator) set_state(state u64) {
     classname := StringName.new("RandomNumberGenerator")
     fnname := StringName.new("set_state")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -45,7 +45,7 @@ pub fn (r &RandomNumberGenerator) get_state() u64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RandomNumberGenerator) randi() u32 {
+pub fn (r &RandomNumberGenerator) randi() u32 {
     mut object_out := u32(0)
     classname := StringName.new("RandomNumberGenerator")
     fnname := StringName.new("randi")
@@ -55,7 +55,7 @@ pub fn (mut r RandomNumberGenerator) randi() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RandomNumberGenerator) randf() f64 {
+pub fn (r &RandomNumberGenerator) randf() f64 {
     mut object_out := f64(0)
     classname := StringName.new("RandomNumberGenerator")
     fnname := StringName.new("randf")
@@ -65,7 +65,7 @@ pub fn (mut r RandomNumberGenerator) randf() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RandomNumberGenerator) randfn(mean f64, deviation f64) f64 {
+pub fn (r &RandomNumberGenerator) randfn(mean f64, deviation f64) f64 {
     mut object_out := f64(0)
     classname := StringName.new("RandomNumberGenerator")
     fnname := StringName.new("randfn")
@@ -78,7 +78,7 @@ pub fn (mut r RandomNumberGenerator) randfn(mean f64, deviation f64) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RandomNumberGenerator) randf_range(from f64, to f64) f64 {
+pub fn (r &RandomNumberGenerator) randf_range(from f64, to f64) f64 {
     mut object_out := f64(0)
     classname := StringName.new("RandomNumberGenerator")
     fnname := StringName.new("randf_range")
@@ -91,7 +91,7 @@ pub fn (mut r RandomNumberGenerator) randf_range(from f64, to f64) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RandomNumberGenerator) randi_range(from i32, to i32) i32 {
+pub fn (r &RandomNumberGenerator) randi_range(from i32, to i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("RandomNumberGenerator")
     fnname := StringName.new("randi_range")
@@ -104,7 +104,7 @@ pub fn (mut r RandomNumberGenerator) randi_range(from i32, to i32) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RandomNumberGenerator) randomize() {
+pub fn (r &RandomNumberGenerator) randomize() {
     classname := StringName.new("RandomNumberGenerator")
     fnname := StringName.new("randomize")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

@@ -22,7 +22,7 @@ pub struct NavigationPathQueryParameters3D {
     RefCounted
 }
 
-pub fn (mut r NavigationPathQueryParameters3D) set_pathfinding_algorithm(pathfinding_algorithm NavigationPathQueryParameters3DPathfindingAlgorithm) {
+pub fn (r &NavigationPathQueryParameters3D) set_pathfinding_algorithm(pathfinding_algorithm NavigationPathQueryParameters3DPathfindingAlgorithm) {
     classname := StringName.new("NavigationPathQueryParameters3D")
     fnname := StringName.new("set_pathfinding_algorithm")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 394560454)
@@ -43,7 +43,7 @@ pub fn (r &NavigationPathQueryParameters3D) get_pathfinding_algorithm() Navigati
     fnname.deinit()
    return unsafe{NavigationPathQueryParameters3DPathfindingAlgorithm(object_out)}
 }
-pub fn (mut r NavigationPathQueryParameters3D) set_path_postprocessing(path_postprocessing NavigationPathQueryParameters3DPathPostProcessing) {
+pub fn (r &NavigationPathQueryParameters3D) set_path_postprocessing(path_postprocessing NavigationPathQueryParameters3DPathPostProcessing) {
     classname := StringName.new("NavigationPathQueryParameters3D")
     fnname := StringName.new("set_path_postprocessing")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2267362344)
@@ -64,7 +64,7 @@ pub fn (r &NavigationPathQueryParameters3D) get_path_postprocessing() Navigation
     fnname.deinit()
    return unsafe{NavigationPathQueryParameters3DPathPostProcessing(object_out)}
 }
-pub fn (mut r NavigationPathQueryParameters3D) set_map(mape RID) {
+pub fn (r &NavigationPathQueryParameters3D) set_map(mape RID) {
     classname := StringName.new("NavigationPathQueryParameters3D")
     fnname := StringName.new("set_map")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)
@@ -84,7 +84,7 @@ pub fn (r &NavigationPathQueryParameters3D) get_map() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationPathQueryParameters3D) set_start_position(start_position Vector3) {
+pub fn (r &NavigationPathQueryParameters3D) set_start_position(start_position Vector3) {
     classname := StringName.new("NavigationPathQueryParameters3D")
     fnname := StringName.new("set_start_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -104,7 +104,7 @@ pub fn (r &NavigationPathQueryParameters3D) get_start_position() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationPathQueryParameters3D) set_target_position(target_position Vector3) {
+pub fn (r &NavigationPathQueryParameters3D) set_target_position(target_position Vector3) {
     classname := StringName.new("NavigationPathQueryParameters3D")
     fnname := StringName.new("set_target_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -124,7 +124,7 @@ pub fn (r &NavigationPathQueryParameters3D) get_target_position() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationPathQueryParameters3D) set_navigation_layers(navigation_layers u32) {
+pub fn (r &NavigationPathQueryParameters3D) set_navigation_layers(navigation_layers u32) {
     classname := StringName.new("NavigationPathQueryParameters3D")
     fnname := StringName.new("set_navigation_layers")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -144,7 +144,7 @@ pub fn (r &NavigationPathQueryParameters3D) get_navigation_layers() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationPathQueryParameters3D) set_metadata_flags(flags NavigationPathQueryParameters3DPathMetadataFlags) {
+pub fn (r &NavigationPathQueryParameters3D) set_metadata_flags(flags NavigationPathQueryParameters3DPathMetadataFlags) {
     classname := StringName.new("NavigationPathQueryParameters3D")
     fnname := StringName.new("set_metadata_flags")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2713846708)

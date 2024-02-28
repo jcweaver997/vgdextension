@@ -5,7 +5,7 @@ pub struct OpenXRInteractionProfile {
     Resource
 }
 
-pub fn (mut r OpenXRInteractionProfile) set_interaction_profile_path(interaction_profile_path string) {
+pub fn (r &OpenXRInteractionProfile) set_interaction_profile_path(interaction_profile_path string) {
     classname := StringName.new("OpenXRInteractionProfile")
     fnname := StringName.new("set_interaction_profile_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -51,7 +51,7 @@ pub fn (r &OpenXRInteractionProfile) get_binding(index i32) OpenXRIPBinding {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OpenXRInteractionProfile) set_bindings(bindings Array) {
+pub fn (r &OpenXRInteractionProfile) set_bindings(bindings Array) {
     classname := StringName.new("OpenXRInteractionProfile")
     fnname := StringName.new("set_bindings")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)

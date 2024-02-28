@@ -5,7 +5,7 @@ pub struct RDPipelineColorBlendState {
     RefCounted
 }
 
-pub fn (mut r RDPipelineColorBlendState) set_enable_logic_op(p_member bool) {
+pub fn (r &RDPipelineColorBlendState) set_enable_logic_op(p_member bool) {
     classname := StringName.new("RDPipelineColorBlendState")
     fnname := StringName.new("set_enable_logic_op")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -25,7 +25,7 @@ pub fn (r &RDPipelineColorBlendState) get_enable_logic_op() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDPipelineColorBlendState) set_logic_op(p_member RenderingDeviceLogicOperation) {
+pub fn (r &RDPipelineColorBlendState) set_logic_op(p_member RenderingDeviceLogicOperation) {
     classname := StringName.new("RDPipelineColorBlendState")
     fnname := StringName.new("set_logic_op")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3610841058)
@@ -46,7 +46,7 @@ pub fn (r &RDPipelineColorBlendState) get_logic_op() RenderingDeviceLogicOperati
     fnname.deinit()
    return unsafe{RenderingDeviceLogicOperation(object_out)}
 }
-pub fn (mut r RDPipelineColorBlendState) set_blend_constant(p_member Color) {
+pub fn (r &RDPipelineColorBlendState) set_blend_constant(p_member Color) {
     classname := StringName.new("RDPipelineColorBlendState")
     fnname := StringName.new("set_blend_constant")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -66,7 +66,7 @@ pub fn (r &RDPipelineColorBlendState) get_blend_constant() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDPipelineColorBlendState) set_attachments(attachments Array) {
+pub fn (r &RDPipelineColorBlendState) set_attachments(attachments Array) {
     classname := StringName.new("RDPipelineColorBlendState")
     fnname := StringName.new("set_attachments")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)

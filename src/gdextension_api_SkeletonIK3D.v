@@ -5,7 +5,7 @@ pub struct SkeletonIK3D {
     Node
 }
 
-pub fn (mut r SkeletonIK3D) set_root_bone(root_bone string) {
+pub fn (r &SkeletonIK3D) set_root_bone(root_bone string) {
     classname := StringName.new("SkeletonIK3D")
     fnname := StringName.new("set_root_bone")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -29,7 +29,7 @@ pub fn (r &SkeletonIK3D) get_root_bone() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r SkeletonIK3D) set_tip_bone(tip_bone string) {
+pub fn (r &SkeletonIK3D) set_tip_bone(tip_bone string) {
     classname := StringName.new("SkeletonIK3D")
     fnname := StringName.new("set_tip_bone")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -53,7 +53,7 @@ pub fn (r &SkeletonIK3D) get_tip_bone() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r SkeletonIK3D) set_interpolation(interpolation f64) {
+pub fn (r &SkeletonIK3D) set_interpolation(interpolation f64) {
     classname := StringName.new("SkeletonIK3D")
     fnname := StringName.new("set_interpolation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -73,7 +73,7 @@ pub fn (r &SkeletonIK3D) get_interpolation() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonIK3D) set_target_transform(target Transform3D) {
+pub fn (r &SkeletonIK3D) set_target_transform(target Transform3D) {
     classname := StringName.new("SkeletonIK3D")
     fnname := StringName.new("set_target_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2952846383)
@@ -93,7 +93,7 @@ pub fn (r &SkeletonIK3D) get_target_transform() Transform3D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonIK3D) set_target_node(node NodePath) {
+pub fn (r &SkeletonIK3D) set_target_node(node NodePath) {
     classname := StringName.new("SkeletonIK3D")
     fnname := StringName.new("set_target_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1348162250)
@@ -103,7 +103,7 @@ pub fn (mut r SkeletonIK3D) set_target_node(node NodePath) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SkeletonIK3D) get_target_node() NodePath {
+pub fn (r &SkeletonIK3D) get_target_node() NodePath {
     mut object_out := NodePath{}
     classname := StringName.new("SkeletonIK3D")
     fnname := StringName.new("get_target_node")
@@ -113,7 +113,7 @@ pub fn (mut r SkeletonIK3D) get_target_node() NodePath {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonIK3D) set_override_tip_basis(override bool) {
+pub fn (r &SkeletonIK3D) set_override_tip_basis(override bool) {
     classname := StringName.new("SkeletonIK3D")
     fnname := StringName.new("set_override_tip_basis")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -133,7 +133,7 @@ pub fn (r &SkeletonIK3D) is_override_tip_basis() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonIK3D) set_use_magnet(use bool) {
+pub fn (r &SkeletonIK3D) set_use_magnet(use bool) {
     classname := StringName.new("SkeletonIK3D")
     fnname := StringName.new("set_use_magnet")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -153,7 +153,7 @@ pub fn (r &SkeletonIK3D) is_using_magnet() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonIK3D) set_magnet_position(local_position Vector3) {
+pub fn (r &SkeletonIK3D) set_magnet_position(local_position Vector3) {
     classname := StringName.new("SkeletonIK3D")
     fnname := StringName.new("set_magnet_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -183,7 +183,7 @@ pub fn (r &SkeletonIK3D) get_parent_skeleton() Skeleton3D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonIK3D) is_running() bool {
+pub fn (r &SkeletonIK3D) is_running() bool {
     mut object_out := false
     classname := StringName.new("SkeletonIK3D")
     fnname := StringName.new("is_running")
@@ -193,7 +193,7 @@ pub fn (mut r SkeletonIK3D) is_running() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonIK3D) set_min_distance(min_distance f64) {
+pub fn (r &SkeletonIK3D) set_min_distance(min_distance f64) {
     classname := StringName.new("SkeletonIK3D")
     fnname := StringName.new("set_min_distance")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -213,7 +213,7 @@ pub fn (r &SkeletonIK3D) get_min_distance() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonIK3D) set_max_iterations(iterations i32) {
+pub fn (r &SkeletonIK3D) set_max_iterations(iterations i32) {
     classname := StringName.new("SkeletonIK3D")
     fnname := StringName.new("set_max_iterations")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -233,7 +233,7 @@ pub fn (r &SkeletonIK3D) get_max_iterations() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonIK3D) start(one_time bool) {
+pub fn (r &SkeletonIK3D) start(one_time bool) {
     classname := StringName.new("SkeletonIK3D")
     fnname := StringName.new("start")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 107499316)
@@ -243,7 +243,7 @@ pub fn (mut r SkeletonIK3D) start(one_time bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SkeletonIK3D) stop() {
+pub fn (r &SkeletonIK3D) stop() {
     classname := StringName.new("SkeletonIK3D")
     fnname := StringName.new("stop")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

@@ -17,7 +17,7 @@ pub struct Light2D {
     Node2D
 }
 
-pub fn (mut r Light2D) set_enabled(enabled bool) {
+pub fn (r &Light2D) set_enabled(enabled bool) {
     classname := StringName.new("Light2D")
     fnname := StringName.new("set_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -37,7 +37,7 @@ pub fn (r &Light2D) is_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Light2D) set_editor_only(editor_only bool) {
+pub fn (r &Light2D) set_editor_only(editor_only bool) {
     classname := StringName.new("Light2D")
     fnname := StringName.new("set_editor_only")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -57,7 +57,7 @@ pub fn (r &Light2D) is_editor_only() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Light2D) set_color(color Color) {
+pub fn (r &Light2D) set_color(color Color) {
     classname := StringName.new("Light2D")
     fnname := StringName.new("set_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -77,7 +77,7 @@ pub fn (r &Light2D) get_color() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Light2D) set_energy(energy f64) {
+pub fn (r &Light2D) set_energy(energy f64) {
     classname := StringName.new("Light2D")
     fnname := StringName.new("set_energy")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -97,7 +97,7 @@ pub fn (r &Light2D) get_energy() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Light2D) set_z_range_min(z i32) {
+pub fn (r &Light2D) set_z_range_min(z i32) {
     classname := StringName.new("Light2D")
     fnname := StringName.new("set_z_range_min")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -117,7 +117,7 @@ pub fn (r &Light2D) get_z_range_min() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Light2D) set_z_range_max(z i32) {
+pub fn (r &Light2D) set_z_range_max(z i32) {
     classname := StringName.new("Light2D")
     fnname := StringName.new("set_z_range_max")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -137,7 +137,7 @@ pub fn (r &Light2D) get_z_range_max() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Light2D) set_layer_range_min(layer i32) {
+pub fn (r &Light2D) set_layer_range_min(layer i32) {
     classname := StringName.new("Light2D")
     fnname := StringName.new("set_layer_range_min")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -157,7 +157,7 @@ pub fn (r &Light2D) get_layer_range_min() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Light2D) set_layer_range_max(layer i32) {
+pub fn (r &Light2D) set_layer_range_max(layer i32) {
     classname := StringName.new("Light2D")
     fnname := StringName.new("set_layer_range_max")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -177,7 +177,7 @@ pub fn (r &Light2D) get_layer_range_max() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Light2D) set_item_cull_mask(item_cull_mask i32) {
+pub fn (r &Light2D) set_item_cull_mask(item_cull_mask i32) {
     classname := StringName.new("Light2D")
     fnname := StringName.new("set_item_cull_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -197,7 +197,7 @@ pub fn (r &Light2D) get_item_cull_mask() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Light2D) set_item_shadow_cull_mask(item_shadow_cull_mask i32) {
+pub fn (r &Light2D) set_item_shadow_cull_mask(item_shadow_cull_mask i32) {
     classname := StringName.new("Light2D")
     fnname := StringName.new("set_item_shadow_cull_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -217,7 +217,7 @@ pub fn (r &Light2D) get_item_shadow_cull_mask() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Light2D) set_shadow_enabled(enabled bool) {
+pub fn (r &Light2D) set_shadow_enabled(enabled bool) {
     classname := StringName.new("Light2D")
     fnname := StringName.new("set_shadow_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -237,7 +237,7 @@ pub fn (r &Light2D) is_shadow_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Light2D) set_shadow_smooth(smooth f64) {
+pub fn (r &Light2D) set_shadow_smooth(smooth f64) {
     classname := StringName.new("Light2D")
     fnname := StringName.new("set_shadow_smooth")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -257,7 +257,7 @@ pub fn (r &Light2D) get_shadow_smooth() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Light2D) set_shadow_filter(filter Light2DShadowFilter) {
+pub fn (r &Light2D) set_shadow_filter(filter Light2DShadowFilter) {
     classname := StringName.new("Light2D")
     fnname := StringName.new("set_shadow_filter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3209356555)
@@ -278,7 +278,7 @@ pub fn (r &Light2D) get_shadow_filter() Light2DShadowFilter {
     fnname.deinit()
    return unsafe{Light2DShadowFilter(object_out)}
 }
-pub fn (mut r Light2D) set_shadow_color(shadow_color Color) {
+pub fn (r &Light2D) set_shadow_color(shadow_color Color) {
     classname := StringName.new("Light2D")
     fnname := StringName.new("set_shadow_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -298,7 +298,7 @@ pub fn (r &Light2D) get_shadow_color() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Light2D) set_blend_mode(mode Light2DBlendMode) {
+pub fn (r &Light2D) set_blend_mode(mode Light2DBlendMode) {
     classname := StringName.new("Light2D")
     fnname := StringName.new("set_blend_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2916638796)
@@ -319,7 +319,7 @@ pub fn (r &Light2D) get_blend_mode() Light2DBlendMode {
     fnname.deinit()
    return unsafe{Light2DBlendMode(object_out)}
 }
-pub fn (mut r Light2D) set_height(height f64) {
+pub fn (r &Light2D) set_height(height f64) {
     classname := StringName.new("Light2D")
     fnname := StringName.new("set_height")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

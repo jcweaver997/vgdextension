@@ -5,7 +5,7 @@ pub struct MissingResource {
     Resource
 }
 
-pub fn (mut r MissingResource) set_original_class(name string) {
+pub fn (r &MissingResource) set_original_class(name string) {
     classname := StringName.new("MissingResource")
     fnname := StringName.new("set_original_class")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -29,7 +29,7 @@ pub fn (r &MissingResource) get_original_class() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r MissingResource) set_recording_properties(enable bool) {
+pub fn (r &MissingResource) set_recording_properties(enable bool) {
     classname := StringName.new("MissingResource")
     fnname := StringName.new("set_recording_properties")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

@@ -24,7 +24,7 @@ pub struct TextureRect {
     Control
 }
 
-pub fn (mut r TextureRect) set_texture(texture Texture2D) {
+pub fn (r &TextureRect) set_texture(texture Texture2D) {
     classname := StringName.new("TextureRect")
     fnname := StringName.new("set_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
@@ -44,7 +44,7 @@ pub fn (r &TextureRect) get_texture() Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextureRect) set_expand_mode(expand_mode TextureRectExpandMode) {
+pub fn (r &TextureRect) set_expand_mode(expand_mode TextureRectExpandMode) {
     classname := StringName.new("TextureRect")
     fnname := StringName.new("set_expand_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1870766882)
@@ -65,7 +65,7 @@ pub fn (r &TextureRect) get_expand_mode() TextureRectExpandMode {
     fnname.deinit()
    return unsafe{TextureRectExpandMode(object_out)}
 }
-pub fn (mut r TextureRect) set_flip_h(enable bool) {
+pub fn (r &TextureRect) set_flip_h(enable bool) {
     classname := StringName.new("TextureRect")
     fnname := StringName.new("set_flip_h")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -85,7 +85,7 @@ pub fn (r &TextureRect) is_flipped_h() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextureRect) set_flip_v(enable bool) {
+pub fn (r &TextureRect) set_flip_v(enable bool) {
     classname := StringName.new("TextureRect")
     fnname := StringName.new("set_flip_v")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -105,7 +105,7 @@ pub fn (r &TextureRect) is_flipped_v() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextureRect) set_stretch_mode(stretch_mode TextureRectStretchMode) {
+pub fn (r &TextureRect) set_stretch_mode(stretch_mode TextureRectStretchMode) {
     classname := StringName.new("TextureRect")
     fnname := StringName.new("set_stretch_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 58788729)

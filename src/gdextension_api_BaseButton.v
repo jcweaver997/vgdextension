@@ -23,7 +23,7 @@ pub interface IBaseButtonPressed {
     virt_pressed()
 }
 
-pub fn (mut r BaseButton) upressed() {
+pub fn (r &BaseButton) upressed() {
     classname := StringName.new("BaseButton")
     fnname := StringName.new("_pressed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -36,7 +36,7 @@ pub interface IBaseButtonToggled {
     virt_toggled(toggled_on bool)
 }
 
-pub fn (mut r BaseButton) utoggled(toggled_on bool) {
+pub fn (r &BaseButton) utoggled(toggled_on bool) {
     classname := StringName.new("BaseButton")
     fnname := StringName.new("_toggled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -46,7 +46,7 @@ pub fn (mut r BaseButton) utoggled(toggled_on bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r BaseButton) set_pressed(pressed bool) {
+pub fn (r &BaseButton) set_pressed(pressed bool) {
     classname := StringName.new("BaseButton")
     fnname := StringName.new("set_pressed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -66,7 +66,7 @@ pub fn (r &BaseButton) is_pressed() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseButton) set_pressed_no_signal(pressed bool) {
+pub fn (r &BaseButton) set_pressed_no_signal(pressed bool) {
     classname := StringName.new("BaseButton")
     fnname := StringName.new("set_pressed_no_signal")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -86,7 +86,7 @@ pub fn (r &BaseButton) is_hovered() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseButton) set_toggle_mode(enabled bool) {
+pub fn (r &BaseButton) set_toggle_mode(enabled bool) {
     classname := StringName.new("BaseButton")
     fnname := StringName.new("set_toggle_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -106,7 +106,7 @@ pub fn (r &BaseButton) is_toggle_mode() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseButton) set_shortcut_in_tooltip(enabled bool) {
+pub fn (r &BaseButton) set_shortcut_in_tooltip(enabled bool) {
     classname := StringName.new("BaseButton")
     fnname := StringName.new("set_shortcut_in_tooltip")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -126,7 +126,7 @@ pub fn (r &BaseButton) is_shortcut_in_tooltip_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseButton) set_disabled(disabled bool) {
+pub fn (r &BaseButton) set_disabled(disabled bool) {
     classname := StringName.new("BaseButton")
     fnname := StringName.new("set_disabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -146,7 +146,7 @@ pub fn (r &BaseButton) is_disabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseButton) set_action_mode(mode BaseButtonActionMode) {
+pub fn (r &BaseButton) set_action_mode(mode BaseButtonActionMode) {
     classname := StringName.new("BaseButton")
     fnname := StringName.new("set_action_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1985162088)
@@ -167,7 +167,7 @@ pub fn (r &BaseButton) get_action_mode() BaseButtonActionMode {
     fnname.deinit()
    return unsafe{BaseButtonActionMode(object_out)}
 }
-pub fn (mut r BaseButton) set_button_mask(mask MouseButtonMask) {
+pub fn (r &BaseButton) set_button_mask(mask MouseButtonMask) {
     classname := StringName.new("BaseButton")
     fnname := StringName.new("set_button_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3950145251)
@@ -198,7 +198,7 @@ pub fn (r &BaseButton) get_draw_mode() BaseButtonDrawMode {
     fnname.deinit()
    return unsafe{BaseButtonDrawMode(object_out)}
 }
-pub fn (mut r BaseButton) set_keep_pressed_outside(enabled bool) {
+pub fn (r &BaseButton) set_keep_pressed_outside(enabled bool) {
     classname := StringName.new("BaseButton")
     fnname := StringName.new("set_keep_pressed_outside")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -218,7 +218,7 @@ pub fn (r &BaseButton) is_keep_pressed_outside() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseButton) set_shortcut_feedback(enabled bool) {
+pub fn (r &BaseButton) set_shortcut_feedback(enabled bool) {
     classname := StringName.new("BaseButton")
     fnname := StringName.new("set_shortcut_feedback")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -238,7 +238,7 @@ pub fn (r &BaseButton) is_shortcut_feedback() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseButton) set_shortcut(shortcut Shortcut) {
+pub fn (r &BaseButton) set_shortcut(shortcut Shortcut) {
     classname := StringName.new("BaseButton")
     fnname := StringName.new("set_shortcut")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 857163497)
@@ -258,7 +258,7 @@ pub fn (r &BaseButton) get_shortcut() Shortcut {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseButton) set_button_group(button_group ButtonGroup) {
+pub fn (r &BaseButton) set_button_group(button_group ButtonGroup) {
     classname := StringName.new("BaseButton")
     fnname := StringName.new("set_button_group")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794463739)

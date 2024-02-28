@@ -5,7 +5,7 @@ pub struct SceneTreeTimer {
     RefCounted
 }
 
-pub fn (mut r SceneTreeTimer) set_time_left(time f64) {
+pub fn (r &SceneTreeTimer) set_time_left(time f64) {
     classname := StringName.new("SceneTreeTimer")
     fnname := StringName.new("set_time_left")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

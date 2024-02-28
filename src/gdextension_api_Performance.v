@@ -64,7 +64,7 @@ pub fn (r &Performance) get_monitor(monitor PerformanceMonitor) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Performance) add_custom_monitor(id string, callable Callable, arguments Array) {
+pub fn (r &Performance) add_custom_monitor(id string, callable Callable, arguments Array) {
     classname := StringName.new("Performance")
     fnname := StringName.new("add_custom_monitor")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4099036814)
@@ -78,7 +78,7 @@ pub fn (mut r Performance) add_custom_monitor(id string, callable Callable, argu
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Performance) remove_custom_monitor(id string) {
+pub fn (r &Performance) remove_custom_monitor(id string) {
     classname := StringName.new("Performance")
     fnname := StringName.new("remove_custom_monitor")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -90,7 +90,7 @@ pub fn (mut r Performance) remove_custom_monitor(id string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Performance) has_custom_monitor(id string) bool {
+pub fn (r &Performance) has_custom_monitor(id string) bool {
     mut object_out := false
     classname := StringName.new("Performance")
     fnname := StringName.new("has_custom_monitor")
@@ -104,7 +104,7 @@ pub fn (mut r Performance) has_custom_monitor(id string) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Performance) get_custom_monitor(id string) Variant {
+pub fn (r &Performance) get_custom_monitor(id string) Variant {
     mut object_out := Variant{}
     classname := StringName.new("Performance")
     fnname := StringName.new("get_custom_monitor")
@@ -118,7 +118,7 @@ pub fn (mut r Performance) get_custom_monitor(id string) Variant {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Performance) get_monitor_modification_time() u64 {
+pub fn (r &Performance) get_monitor_modification_time() u64 {
     mut object_out := u64(0)
     classname := StringName.new("Performance")
     fnname := StringName.new("get_monitor_modification_time")
@@ -128,7 +128,7 @@ pub fn (mut r Performance) get_monitor_modification_time() u64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Performance) get_custom_monitor_names() Array {
+pub fn (r &Performance) get_custom_monitor_names() Array {
     mut object_out := Array{}
     classname := StringName.new("Performance")
     fnname := StringName.new("get_custom_monitor_names")

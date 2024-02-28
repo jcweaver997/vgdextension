@@ -10,7 +10,7 @@ pub interface IMultiplayerAPIExtensionPoll {
     virt_poll() GDError
 }
 
-pub fn (mut r MultiplayerAPIExtension) upoll() GDError {
+pub fn (r &MultiplayerAPIExtension) upoll() GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("MultiplayerAPIExtension")
     fnname := StringName.new("_poll")
@@ -25,7 +25,7 @@ pub interface IMultiplayerAPIExtensionSetMultiplayerPeer {
     virt_set_multiplayer_peer(multiplayer_peer MultiplayerPeer)
 }
 
-pub fn (mut r MultiplayerAPIExtension) uset_multiplayer_peer(multiplayer_peer MultiplayerPeer) {
+pub fn (r &MultiplayerAPIExtension) uset_multiplayer_peer(multiplayer_peer MultiplayerPeer) {
     classname := StringName.new("MultiplayerAPIExtension")
     fnname := StringName.new("_set_multiplayer_peer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -40,7 +40,7 @@ pub interface IMultiplayerAPIExtensionGetMultiplayerPeer {
     virt_get_multiplayer_peer() MultiplayerPeer
 }
 
-pub fn (mut r MultiplayerAPIExtension) uget_multiplayer_peer() MultiplayerPeer {
+pub fn (r &MultiplayerAPIExtension) uget_multiplayer_peer() MultiplayerPeer {
     mut object_out := MultiplayerPeer{}
     classname := StringName.new("MultiplayerAPIExtension")
     fnname := StringName.new("_get_multiplayer_peer")
@@ -85,7 +85,7 @@ pub interface IMultiplayerAPIExtensionRpc {
     virt_rpc(peer i32, object Object, method StringName, gdargs Array) GDError
 }
 
-pub fn (mut r MultiplayerAPIExtension) urpc(peer i32, object Object, method string, gdargs Array) GDError {
+pub fn (r &MultiplayerAPIExtension) urpc(peer i32, object Object, method string, gdargs Array) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("MultiplayerAPIExtension")
     fnname := StringName.new("_rpc")
@@ -122,7 +122,7 @@ pub interface IMultiplayerAPIExtensionObjectConfigurationAdd {
     virt_object_configuration_add(object Object, configuration Variant) GDError
 }
 
-pub fn (mut r MultiplayerAPIExtension) uobject_configuration_add(object Object, configuration Variant) GDError {
+pub fn (r &MultiplayerAPIExtension) uobject_configuration_add(object Object, configuration Variant) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("MultiplayerAPIExtension")
     fnname := StringName.new("_object_configuration_add")
@@ -140,7 +140,7 @@ pub interface IMultiplayerAPIExtensionObjectConfigurationRemove {
     virt_object_configuration_remove(object Object, configuration Variant) GDError
 }
 
-pub fn (mut r MultiplayerAPIExtension) uobject_configuration_remove(object Object, configuration Variant) GDError {
+pub fn (r &MultiplayerAPIExtension) uobject_configuration_remove(object Object, configuration Variant) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("MultiplayerAPIExtension")
     fnname := StringName.new("_object_configuration_remove")

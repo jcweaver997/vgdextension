@@ -5,7 +5,7 @@ pub struct WebSocketMultiplayerPeer {
     MultiplayerPeer
 }
 
-pub fn (mut r WebSocketMultiplayerPeer) create_client(url string, tls_client_options TLSOptions) GDError {
+pub fn (r &WebSocketMultiplayerPeer) create_client(url string, tls_client_options TLSOptions) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("WebSocketMultiplayerPeer")
     fnname := StringName.new("create_client")
@@ -20,7 +20,7 @@ pub fn (mut r WebSocketMultiplayerPeer) create_client(url string, tls_client_opt
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r WebSocketMultiplayerPeer) create_server(port i32, bind_address string, tls_server_options TLSOptions) GDError {
+pub fn (r &WebSocketMultiplayerPeer) create_server(port i32, bind_address string, tls_server_options TLSOptions) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("WebSocketMultiplayerPeer")
     fnname := StringName.new("create_server")
@@ -84,7 +84,7 @@ pub fn (r &WebSocketMultiplayerPeer) get_supported_protocols() PackedStringArray
     fnname.deinit()
    return object_out
 }
-pub fn (mut r WebSocketMultiplayerPeer) set_supported_protocols(protocols PackedStringArray) {
+pub fn (r &WebSocketMultiplayerPeer) set_supported_protocols(protocols PackedStringArray) {
     classname := StringName.new("WebSocketMultiplayerPeer")
     fnname := StringName.new("set_supported_protocols")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4015028928)
@@ -104,7 +104,7 @@ pub fn (r &WebSocketMultiplayerPeer) get_handshake_headers() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r WebSocketMultiplayerPeer) set_handshake_headers(protocols PackedStringArray) {
+pub fn (r &WebSocketMultiplayerPeer) set_handshake_headers(protocols PackedStringArray) {
     classname := StringName.new("WebSocketMultiplayerPeer")
     fnname := StringName.new("set_handshake_headers")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4015028928)
@@ -124,7 +124,7 @@ pub fn (r &WebSocketMultiplayerPeer) get_inbound_buffer_size() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r WebSocketMultiplayerPeer) set_inbound_buffer_size(buffer_size i32) {
+pub fn (r &WebSocketMultiplayerPeer) set_inbound_buffer_size(buffer_size i32) {
     classname := StringName.new("WebSocketMultiplayerPeer")
     fnname := StringName.new("set_inbound_buffer_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -144,7 +144,7 @@ pub fn (r &WebSocketMultiplayerPeer) get_outbound_buffer_size() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r WebSocketMultiplayerPeer) set_outbound_buffer_size(buffer_size i32) {
+pub fn (r &WebSocketMultiplayerPeer) set_outbound_buffer_size(buffer_size i32) {
     classname := StringName.new("WebSocketMultiplayerPeer")
     fnname := StringName.new("set_outbound_buffer_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -164,7 +164,7 @@ pub fn (r &WebSocketMultiplayerPeer) get_handshake_timeout() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r WebSocketMultiplayerPeer) set_handshake_timeout(timeout f64) {
+pub fn (r &WebSocketMultiplayerPeer) set_handshake_timeout(timeout f64) {
     classname := StringName.new("WebSocketMultiplayerPeer")
     fnname := StringName.new("set_handshake_timeout")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -174,7 +174,7 @@ pub fn (mut r WebSocketMultiplayerPeer) set_handshake_timeout(timeout f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r WebSocketMultiplayerPeer) set_max_queued_packets(max_queued_packets i32) {
+pub fn (r &WebSocketMultiplayerPeer) set_max_queued_packets(max_queued_packets i32) {
     classname := StringName.new("WebSocketMultiplayerPeer")
     fnname := StringName.new("set_max_queued_packets")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

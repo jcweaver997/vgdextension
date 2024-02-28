@@ -5,7 +5,7 @@ pub struct VehicleBody3D {
     RigidBody3D
 }
 
-pub fn (mut r VehicleBody3D) set_engine_force(engine_force f64) {
+pub fn (r &VehicleBody3D) set_engine_force(engine_force f64) {
     classname := StringName.new("VehicleBody3D")
     fnname := StringName.new("set_engine_force")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -25,7 +25,7 @@ pub fn (r &VehicleBody3D) get_engine_force() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VehicleBody3D) set_brake(brake f64) {
+pub fn (r &VehicleBody3D) set_brake(brake f64) {
     classname := StringName.new("VehicleBody3D")
     fnname := StringName.new("set_brake")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -45,7 +45,7 @@ pub fn (r &VehicleBody3D) get_brake() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VehicleBody3D) set_steering(steering f64) {
+pub fn (r &VehicleBody3D) set_steering(steering f64) {
     classname := StringName.new("VehicleBody3D")
     fnname := StringName.new("set_steering")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

@@ -5,7 +5,7 @@ pub struct InputEventMagnifyGesture {
     InputEventGesture
 }
 
-pub fn (mut r InputEventMagnifyGesture) set_factor(factor f64) {
+pub fn (r &InputEventMagnifyGesture) set_factor(factor f64) {
     classname := StringName.new("InputEventMagnifyGesture")
     fnname := StringName.new("set_factor")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

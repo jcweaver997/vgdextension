@@ -5,7 +5,7 @@ pub struct VideoStreamPlayer {
     Control
 }
 
-pub fn (mut r VideoStreamPlayer) set_stream(stream VideoStream) {
+pub fn (r &VideoStreamPlayer) set_stream(stream VideoStream) {
     classname := StringName.new("VideoStreamPlayer")
     fnname := StringName.new("set_stream")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2317102564)
@@ -25,7 +25,7 @@ pub fn (r &VideoStreamPlayer) get_stream() VideoStream {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VideoStreamPlayer) play() {
+pub fn (r &VideoStreamPlayer) play() {
     classname := StringName.new("VideoStreamPlayer")
     fnname := StringName.new("play")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -33,7 +33,7 @@ pub fn (mut r VideoStreamPlayer) play() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r VideoStreamPlayer) stop() {
+pub fn (r &VideoStreamPlayer) stop() {
     classname := StringName.new("VideoStreamPlayer")
     fnname := StringName.new("stop")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -51,7 +51,7 @@ pub fn (r &VideoStreamPlayer) is_playing() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VideoStreamPlayer) set_paused(paused bool) {
+pub fn (r &VideoStreamPlayer) set_paused(paused bool) {
     classname := StringName.new("VideoStreamPlayer")
     fnname := StringName.new("set_paused")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -71,7 +71,7 @@ pub fn (r &VideoStreamPlayer) is_paused() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VideoStreamPlayer) set_loop(loop bool) {
+pub fn (r &VideoStreamPlayer) set_loop(loop bool) {
     classname := StringName.new("VideoStreamPlayer")
     fnname := StringName.new("set_loop")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -91,7 +91,7 @@ pub fn (r &VideoStreamPlayer) has_loop() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VideoStreamPlayer) set_volume(volume f64) {
+pub fn (r &VideoStreamPlayer) set_volume(volume f64) {
     classname := StringName.new("VideoStreamPlayer")
     fnname := StringName.new("set_volume")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -111,7 +111,7 @@ pub fn (r &VideoStreamPlayer) get_volume() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VideoStreamPlayer) set_volume_db(db f64) {
+pub fn (r &VideoStreamPlayer) set_volume_db(db f64) {
     classname := StringName.new("VideoStreamPlayer")
     fnname := StringName.new("set_volume_db")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -131,7 +131,7 @@ pub fn (r &VideoStreamPlayer) get_volume_db() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VideoStreamPlayer) set_audio_track(track i32) {
+pub fn (r &VideoStreamPlayer) set_audio_track(track i32) {
     classname := StringName.new("VideoStreamPlayer")
     fnname := StringName.new("set_audio_track")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -173,7 +173,7 @@ pub fn (r &VideoStreamPlayer) get_stream_length() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VideoStreamPlayer) set_stream_position(position f64) {
+pub fn (r &VideoStreamPlayer) set_stream_position(position f64) {
     classname := StringName.new("VideoStreamPlayer")
     fnname := StringName.new("set_stream_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -193,7 +193,7 @@ pub fn (r &VideoStreamPlayer) get_stream_position() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VideoStreamPlayer) set_autoplay(enabled bool) {
+pub fn (r &VideoStreamPlayer) set_autoplay(enabled bool) {
     classname := StringName.new("VideoStreamPlayer")
     fnname := StringName.new("set_autoplay")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -213,7 +213,7 @@ pub fn (r &VideoStreamPlayer) has_autoplay() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VideoStreamPlayer) set_expand(enable bool) {
+pub fn (r &VideoStreamPlayer) set_expand(enable bool) {
     classname := StringName.new("VideoStreamPlayer")
     fnname := StringName.new("set_expand")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -233,7 +233,7 @@ pub fn (r &VideoStreamPlayer) has_expand() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VideoStreamPlayer) set_buffering_msec(msec i32) {
+pub fn (r &VideoStreamPlayer) set_buffering_msec(msec i32) {
     classname := StringName.new("VideoStreamPlayer")
     fnname := StringName.new("set_buffering_msec")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -253,7 +253,7 @@ pub fn (r &VideoStreamPlayer) get_buffering_msec() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VideoStreamPlayer) set_bus(bus string) {
+pub fn (r &VideoStreamPlayer) set_bus(bus string) {
     classname := StringName.new("VideoStreamPlayer")
     fnname := StringName.new("set_bus")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)

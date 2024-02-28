@@ -38,7 +38,7 @@ pub fn (r &CameraFeed) is_active() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CameraFeed) set_active(active bool) {
+pub fn (r &CameraFeed) set_active(active bool) {
     classname := StringName.new("CameraFeed")
     fnname := StringName.new("set_active")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -80,7 +80,7 @@ pub fn (r &CameraFeed) get_transform() Transform2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CameraFeed) set_transform(transform Transform2D) {
+pub fn (r &CameraFeed) set_transform(transform Transform2D) {
     classname := StringName.new("CameraFeed")
     fnname := StringName.new("set_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2761652528)

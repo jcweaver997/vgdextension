@@ -25,7 +25,7 @@ pub fn ResourceSaver.get_singleton() ResourceSaver {
     return o
 }
 
-pub fn (mut r ResourceSaver) save(resource Resource, path string, flags ResourceSaverSaverFlags) GDError {
+pub fn (r &ResourceSaver) save(resource Resource, path string, flags ResourceSaverSaverFlags) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ResourceSaver")
     fnname := StringName.new("save")
@@ -42,7 +42,7 @@ pub fn (mut r ResourceSaver) save(resource Resource, path string, flags Resource
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r ResourceSaver) get_recognized_extensions(type_name Resource) PackedStringArray {
+pub fn (r &ResourceSaver) get_recognized_extensions(type_name Resource) PackedStringArray {
     mut object_out := PackedStringArray{}
     classname := StringName.new("ResourceSaver")
     fnname := StringName.new("get_recognized_extensions")
@@ -54,7 +54,7 @@ pub fn (mut r ResourceSaver) get_recognized_extensions(type_name Resource) Packe
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ResourceSaver) add_resource_format_saver(format_saver ResourceFormatSaver, at_front bool) {
+pub fn (r &ResourceSaver) add_resource_format_saver(format_saver ResourceFormatSaver, at_front bool) {
     classname := StringName.new("ResourceSaver")
     fnname := StringName.new("add_resource_format_saver")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 362894272)
@@ -65,7 +65,7 @@ pub fn (mut r ResourceSaver) add_resource_format_saver(format_saver ResourceForm
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ResourceSaver) remove_resource_format_saver(format_saver ResourceFormatSaver) {
+pub fn (r &ResourceSaver) remove_resource_format_saver(format_saver ResourceFormatSaver) {
     classname := StringName.new("ResourceSaver")
     fnname := StringName.new("remove_resource_format_saver")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3373026878)

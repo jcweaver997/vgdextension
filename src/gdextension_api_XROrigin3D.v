@@ -5,7 +5,7 @@ pub struct XROrigin3D {
     Node3D
 }
 
-pub fn (mut r XROrigin3D) set_world_scale(world_scale f64) {
+pub fn (r &XROrigin3D) set_world_scale(world_scale f64) {
     classname := StringName.new("XROrigin3D")
     fnname := StringName.new("set_world_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -25,7 +25,7 @@ pub fn (r &XROrigin3D) get_world_scale() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r XROrigin3D) set_current(enabled bool) {
+pub fn (r &XROrigin3D) set_current(enabled bool) {
     classname := StringName.new("XROrigin3D")
     fnname := StringName.new("set_current")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

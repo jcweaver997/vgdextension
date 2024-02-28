@@ -19,7 +19,7 @@ pub struct SubViewport {
     Viewport
 }
 
-pub fn (mut r SubViewport) set_size(size Vector2i) {
+pub fn (r &SubViewport) set_size(size Vector2i) {
     classname := StringName.new("SubViewport")
     fnname := StringName.new("set_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1130785943)
@@ -39,7 +39,7 @@ pub fn (r &SubViewport) get_size() Vector2i {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SubViewport) set_size_2d_override(size Vector2i) {
+pub fn (r &SubViewport) set_size_2d_override(size Vector2i) {
     classname := StringName.new("SubViewport")
     fnname := StringName.new("set_size_2d_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1130785943)
@@ -59,7 +59,7 @@ pub fn (r &SubViewport) get_size_2d_override() Vector2i {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SubViewport) set_size_2d_override_stretch(enable bool) {
+pub fn (r &SubViewport) set_size_2d_override_stretch(enable bool) {
     classname := StringName.new("SubViewport")
     fnname := StringName.new("set_size_2d_override_stretch")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -79,7 +79,7 @@ pub fn (r &SubViewport) is_size_2d_override_stretch_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SubViewport) set_update_mode(mode SubViewportUpdateMode) {
+pub fn (r &SubViewport) set_update_mode(mode SubViewportUpdateMode) {
     classname := StringName.new("SubViewport")
     fnname := StringName.new("set_update_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1295690030)
@@ -100,7 +100,7 @@ pub fn (r &SubViewport) get_update_mode() SubViewportUpdateMode {
     fnname.deinit()
    return unsafe{SubViewportUpdateMode(object_out)}
 }
-pub fn (mut r SubViewport) set_clear_mode(mode SubViewportClearMode) {
+pub fn (r &SubViewport) set_clear_mode(mode SubViewportClearMode) {
     classname := StringName.new("SubViewport")
     fnname := StringName.new("set_clear_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2834454712)

@@ -145,7 +145,7 @@ pub fn FileAccess.get_file_as_string(path string) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r FileAccess) flush() {
+pub fn (r &FileAccess) flush() {
     classname := StringName.new("FileAccess")
     fnname := StringName.new("flush")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -187,7 +187,7 @@ pub fn (r &FileAccess) is_open() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FileAccess) seek(position u64) {
+pub fn (r &FileAccess) seek(position u64) {
     classname := StringName.new("FileAccess")
     fnname := StringName.new("seek")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -197,7 +197,7 @@ pub fn (mut r FileAccess) seek(position u64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FileAccess) seek_end(position i64) {
+pub fn (r &FileAccess) seek_end(position i64) {
     classname := StringName.new("FileAccess")
     fnname := StringName.new("seek_end")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1995695955)
@@ -401,7 +401,7 @@ pub fn (r &FileAccess) is_big_endian() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FileAccess) set_big_endian(big_endian bool) {
+pub fn (r &FileAccess) set_big_endian(big_endian bool) {
     classname := StringName.new("FileAccess")
     fnname := StringName.new("set_big_endian")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -433,7 +433,7 @@ pub fn (r &FileAccess) get_var(allow_objects bool) Variant {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FileAccess) store_8(value u8) {
+pub fn (r &FileAccess) store_8(value u8) {
     classname := StringName.new("FileAccess")
     fnname := StringName.new("store_8")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -443,7 +443,7 @@ pub fn (mut r FileAccess) store_8(value u8) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FileAccess) store_16(value u16) {
+pub fn (r &FileAccess) store_16(value u16) {
     classname := StringName.new("FileAccess")
     fnname := StringName.new("store_16")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -453,7 +453,7 @@ pub fn (mut r FileAccess) store_16(value u16) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FileAccess) store_32(value u32) {
+pub fn (r &FileAccess) store_32(value u32) {
     classname := StringName.new("FileAccess")
     fnname := StringName.new("store_32")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -463,7 +463,7 @@ pub fn (mut r FileAccess) store_32(value u32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FileAccess) store_64(value u64) {
+pub fn (r &FileAccess) store_64(value u64) {
     classname := StringName.new("FileAccess")
     fnname := StringName.new("store_64")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -473,7 +473,7 @@ pub fn (mut r FileAccess) store_64(value u64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FileAccess) store_float(value f64) {
+pub fn (r &FileAccess) store_float(value f64) {
     classname := StringName.new("FileAccess")
     fnname := StringName.new("store_float")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -483,7 +483,7 @@ pub fn (mut r FileAccess) store_float(value f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FileAccess) store_double(value f64) {
+pub fn (r &FileAccess) store_double(value f64) {
     classname := StringName.new("FileAccess")
     fnname := StringName.new("store_double")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -493,7 +493,7 @@ pub fn (mut r FileAccess) store_double(value f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FileAccess) store_real(value f64) {
+pub fn (r &FileAccess) store_real(value f64) {
     classname := StringName.new("FileAccess")
     fnname := StringName.new("store_real")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -503,7 +503,7 @@ pub fn (mut r FileAccess) store_real(value f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FileAccess) store_buffer(buffer PackedByteArray) {
+pub fn (r &FileAccess) store_buffer(buffer PackedByteArray) {
     classname := StringName.new("FileAccess")
     fnname := StringName.new("store_buffer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2971499966)
@@ -513,7 +513,7 @@ pub fn (mut r FileAccess) store_buffer(buffer PackedByteArray) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FileAccess) store_line(line string) {
+pub fn (r &FileAccess) store_line(line string) {
     classname := StringName.new("FileAccess")
     fnname := StringName.new("store_line")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -525,7 +525,7 @@ pub fn (mut r FileAccess) store_line(line string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FileAccess) store_csv_line(values PackedStringArray, delim string) {
+pub fn (r &FileAccess) store_csv_line(values PackedStringArray, delim string) {
     classname := StringName.new("FileAccess")
     fnname := StringName.new("store_csv_line")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2173791505)
@@ -538,7 +538,7 @@ pub fn (mut r FileAccess) store_csv_line(values PackedStringArray, delim string)
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FileAccess) store_string(gdstring string) {
+pub fn (r &FileAccess) store_string(gdstring string) {
     classname := StringName.new("FileAccess")
     fnname := StringName.new("store_string")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -550,7 +550,7 @@ pub fn (mut r FileAccess) store_string(gdstring string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FileAccess) store_var(value Variant, full_objects bool) {
+pub fn (r &FileAccess) store_var(value Variant, full_objects bool) {
     classname := StringName.new("FileAccess")
     fnname := StringName.new("store_var")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 738511890)
@@ -561,7 +561,7 @@ pub fn (mut r FileAccess) store_var(value Variant, full_objects bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FileAccess) store_pascal_string(gdstring string) {
+pub fn (r &FileAccess) store_pascal_string(gdstring string) {
     classname := StringName.new("FileAccess")
     fnname := StringName.new("store_pascal_string")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -573,7 +573,7 @@ pub fn (mut r FileAccess) store_pascal_string(gdstring string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FileAccess) get_pascal_string() string {
+pub fn (r &FileAccess) get_pascal_string() string {
     mut object_out := String{}
     classname := StringName.new("FileAccess")
     fnname := StringName.new("get_pascal_string")
@@ -585,7 +585,7 @@ pub fn (mut r FileAccess) get_pascal_string() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r FileAccess) close() {
+pub fn (r &FileAccess) close() {
     classname := StringName.new("FileAccess")
     fnname := StringName.new("close")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

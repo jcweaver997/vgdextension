@@ -5,7 +5,7 @@ pub struct PolygonOccluder3D {
     Occluder3D
 }
 
-pub fn (mut r PolygonOccluder3D) set_polygon(polygon PackedVector2Array) {
+pub fn (r &PolygonOccluder3D) set_polygon(polygon PackedVector2Array) {
     classname := StringName.new("PolygonOccluder3D")
     fnname := StringName.new("set_polygon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1509147220)

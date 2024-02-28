@@ -5,7 +5,7 @@ pub struct TorusMesh {
     PrimitiveMesh
 }
 
-pub fn (mut r TorusMesh) set_inner_radius(radius f64) {
+pub fn (r &TorusMesh) set_inner_radius(radius f64) {
     classname := StringName.new("TorusMesh")
     fnname := StringName.new("set_inner_radius")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -25,7 +25,7 @@ pub fn (r &TorusMesh) get_inner_radius() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TorusMesh) set_outer_radius(radius f64) {
+pub fn (r &TorusMesh) set_outer_radius(radius f64) {
     classname := StringName.new("TorusMesh")
     fnname := StringName.new("set_outer_radius")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -45,7 +45,7 @@ pub fn (r &TorusMesh) get_outer_radius() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TorusMesh) set_rings(rings i32) {
+pub fn (r &TorusMesh) set_rings(rings i32) {
     classname := StringName.new("TorusMesh")
     fnname := StringName.new("set_rings")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -65,7 +65,7 @@ pub fn (r &TorusMesh) get_rings() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TorusMesh) set_ring_segments(rings i32) {
+pub fn (r &TorusMesh) set_ring_segments(rings i32) {
     classname := StringName.new("TorusMesh")
     fnname := StringName.new("set_ring_segments")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

@@ -5,7 +5,7 @@ pub struct InputEventAction {
     InputEvent
 }
 
-pub fn (mut r InputEventAction) set_action(action string) {
+pub fn (r &InputEventAction) set_action(action string) {
     classname := StringName.new("InputEventAction")
     fnname := StringName.new("set_action")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -29,7 +29,7 @@ pub fn (r &InputEventAction) get_action() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r InputEventAction) set_pressed(pressed bool) {
+pub fn (r &InputEventAction) set_pressed(pressed bool) {
     classname := StringName.new("InputEventAction")
     fnname := StringName.new("set_pressed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -39,7 +39,7 @@ pub fn (mut r InputEventAction) set_pressed(pressed bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r InputEventAction) set_strength(strength f64) {
+pub fn (r &InputEventAction) set_strength(strength f64) {
     classname := StringName.new("InputEventAction")
     fnname := StringName.new("set_strength")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

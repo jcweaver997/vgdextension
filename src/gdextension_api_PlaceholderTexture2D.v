@@ -5,7 +5,7 @@ pub struct PlaceholderTexture2D {
     Texture2D
 }
 
-pub fn (mut r PlaceholderTexture2D) set_size(size Vector2) {
+pub fn (r &PlaceholderTexture2D) set_size(size Vector2) {
     classname := StringName.new("PlaceholderTexture2D")
     fnname := StringName.new("set_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)

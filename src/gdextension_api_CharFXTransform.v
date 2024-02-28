@@ -5,7 +5,7 @@ pub struct CharFXTransform {
     RefCounted
 }
 
-pub fn (mut r CharFXTransform) get_transform() Transform2D {
+pub fn (r &CharFXTransform) get_transform() Transform2D {
     mut object_out := Transform2D{}
     classname := StringName.new("CharFXTransform")
     fnname := StringName.new("get_transform")
@@ -15,7 +15,7 @@ pub fn (mut r CharFXTransform) get_transform() Transform2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CharFXTransform) set_transform(transform Transform2D) {
+pub fn (r &CharFXTransform) set_transform(transform Transform2D) {
     classname := StringName.new("CharFXTransform")
     fnname := StringName.new("set_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2761652528)
@@ -25,7 +25,7 @@ pub fn (mut r CharFXTransform) set_transform(transform Transform2D) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CharFXTransform) get_range() Vector2i {
+pub fn (r &CharFXTransform) get_range() Vector2i {
     mut object_out := Vector2i{}
     classname := StringName.new("CharFXTransform")
     fnname := StringName.new("get_range")
@@ -35,7 +35,7 @@ pub fn (mut r CharFXTransform) get_range() Vector2i {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CharFXTransform) set_range(range Vector2i) {
+pub fn (r &CharFXTransform) set_range(range Vector2i) {
     classname := StringName.new("CharFXTransform")
     fnname := StringName.new("set_range")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1130785943)
@@ -45,7 +45,7 @@ pub fn (mut r CharFXTransform) set_range(range Vector2i) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CharFXTransform) get_elapsed_time() f64 {
+pub fn (r &CharFXTransform) get_elapsed_time() f64 {
     mut object_out := f64(0)
     classname := StringName.new("CharFXTransform")
     fnname := StringName.new("get_elapsed_time")
@@ -55,7 +55,7 @@ pub fn (mut r CharFXTransform) get_elapsed_time() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CharFXTransform) set_elapsed_time(time f64) {
+pub fn (r &CharFXTransform) set_elapsed_time(time f64) {
     classname := StringName.new("CharFXTransform")
     fnname := StringName.new("set_elapsed_time")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -65,7 +65,7 @@ pub fn (mut r CharFXTransform) set_elapsed_time(time f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CharFXTransform) is_visible() bool {
+pub fn (r &CharFXTransform) is_visible() bool {
     mut object_out := false
     classname := StringName.new("CharFXTransform")
     fnname := StringName.new("is_visible")
@@ -75,7 +75,7 @@ pub fn (mut r CharFXTransform) is_visible() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CharFXTransform) set_visibility(visibility bool) {
+pub fn (r &CharFXTransform) set_visibility(visibility bool) {
     classname := StringName.new("CharFXTransform")
     fnname := StringName.new("set_visibility")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -85,7 +85,7 @@ pub fn (mut r CharFXTransform) set_visibility(visibility bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CharFXTransform) is_outline() bool {
+pub fn (r &CharFXTransform) is_outline() bool {
     mut object_out := false
     classname := StringName.new("CharFXTransform")
     fnname := StringName.new("is_outline")
@@ -95,7 +95,7 @@ pub fn (mut r CharFXTransform) is_outline() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CharFXTransform) set_outline(outline bool) {
+pub fn (r &CharFXTransform) set_outline(outline bool) {
     classname := StringName.new("CharFXTransform")
     fnname := StringName.new("set_outline")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -105,7 +105,7 @@ pub fn (mut r CharFXTransform) set_outline(outline bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CharFXTransform) get_offset() Vector2 {
+pub fn (r &CharFXTransform) get_offset() Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("CharFXTransform")
     fnname := StringName.new("get_offset")
@@ -115,7 +115,7 @@ pub fn (mut r CharFXTransform) get_offset() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CharFXTransform) set_offset(offset Vector2) {
+pub fn (r &CharFXTransform) set_offset(offset Vector2) {
     classname := StringName.new("CharFXTransform")
     fnname := StringName.new("set_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -125,7 +125,7 @@ pub fn (mut r CharFXTransform) set_offset(offset Vector2) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CharFXTransform) get_color() Color {
+pub fn (r &CharFXTransform) get_color() Color {
     mut object_out := Color{}
     classname := StringName.new("CharFXTransform")
     fnname := StringName.new("get_color")
@@ -135,7 +135,7 @@ pub fn (mut r CharFXTransform) get_color() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CharFXTransform) set_color(color Color) {
+pub fn (r &CharFXTransform) set_color(color Color) {
     classname := StringName.new("CharFXTransform")
     fnname := StringName.new("set_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -145,7 +145,7 @@ pub fn (mut r CharFXTransform) set_color(color Color) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CharFXTransform) get_environment() Dictionary {
+pub fn (r &CharFXTransform) get_environment() Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("CharFXTransform")
     fnname := StringName.new("get_environment")
@@ -155,7 +155,7 @@ pub fn (mut r CharFXTransform) get_environment() Dictionary {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CharFXTransform) set_environment(environment Dictionary) {
+pub fn (r &CharFXTransform) set_environment(environment Dictionary) {
     classname := StringName.new("CharFXTransform")
     fnname := StringName.new("set_environment")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4155329257)
@@ -175,7 +175,7 @@ pub fn (r &CharFXTransform) get_glyph_index() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CharFXTransform) set_glyph_index(glyph_index u32) {
+pub fn (r &CharFXTransform) set_glyph_index(glyph_index u32) {
     classname := StringName.new("CharFXTransform")
     fnname := StringName.new("set_glyph_index")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -195,7 +195,7 @@ pub fn (r &CharFXTransform) get_relative_index() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CharFXTransform) set_relative_index(relative_index i32) {
+pub fn (r &CharFXTransform) set_relative_index(relative_index i32) {
     classname := StringName.new("CharFXTransform")
     fnname := StringName.new("set_relative_index")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -215,7 +215,7 @@ pub fn (r &CharFXTransform) get_glyph_count() u8 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CharFXTransform) set_glyph_count(glyph_count u8) {
+pub fn (r &CharFXTransform) set_glyph_count(glyph_count u8) {
     classname := StringName.new("CharFXTransform")
     fnname := StringName.new("set_glyph_count")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -235,7 +235,7 @@ pub fn (r &CharFXTransform) get_glyph_flags() u16 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CharFXTransform) set_glyph_flags(glyph_flags u16) {
+pub fn (r &CharFXTransform) set_glyph_flags(glyph_flags u16) {
     classname := StringName.new("CharFXTransform")
     fnname := StringName.new("set_glyph_flags")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -255,7 +255,7 @@ pub fn (r &CharFXTransform) get_font() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CharFXTransform) set_font(font RID) {
+pub fn (r &CharFXTransform) set_font(font RID) {
     classname := StringName.new("CharFXTransform")
     fnname := StringName.new("set_font")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)

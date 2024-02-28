@@ -5,7 +5,7 @@ pub struct BoxOccluder3D {
     Occluder3D
 }
 
-pub fn (mut r BoxOccluder3D) set_size(size Vector3) {
+pub fn (r &BoxOccluder3D) set_size(size Vector3) {
     classname := StringName.new("BoxOccluder3D")
     fnname := StringName.new("set_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)

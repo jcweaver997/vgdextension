@@ -13,7 +13,7 @@ pub struct VisualShaderNodeIntFunc {
     VisualShaderNode
 }
 
-pub fn (mut r VisualShaderNodeIntFunc) set_function(func VisualShaderNodeIntFuncFunction) {
+pub fn (r &VisualShaderNodeIntFunc) set_function(func VisualShaderNodeIntFuncFunction) {
     classname := StringName.new("VisualShaderNodeIntFunc")
     fnname := StringName.new("set_function")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 424195284)

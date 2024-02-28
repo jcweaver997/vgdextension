@@ -42,7 +42,7 @@ pub fn (r &ResourceUID) text_to_id(text_id string) i64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ResourceUID) create_id() i64 {
+pub fn (r &ResourceUID) create_id() i64 {
     mut object_out := i64(0)
     classname := StringName.new("ResourceUID")
     fnname := StringName.new("create_id")
@@ -64,7 +64,7 @@ pub fn (r &ResourceUID) has_id(id i64) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ResourceUID) add_id(id i64, path string) {
+pub fn (r &ResourceUID) add_id(id i64, path string) {
     classname := StringName.new("ResourceUID")
     fnname := StringName.new("add_id")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
@@ -77,7 +77,7 @@ pub fn (mut r ResourceUID) add_id(id i64, path string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ResourceUID) set_id(id i64, path string) {
+pub fn (r &ResourceUID) set_id(id i64, path string) {
     classname := StringName.new("ResourceUID")
     fnname := StringName.new("set_id")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
@@ -104,7 +104,7 @@ pub fn (r &ResourceUID) get_id_path(id i64) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r ResourceUID) remove_id(id i64) {
+pub fn (r &ResourceUID) remove_id(id i64) {
     classname := StringName.new("ResourceUID")
     fnname := StringName.new("remove_id")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

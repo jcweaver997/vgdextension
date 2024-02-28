@@ -5,7 +5,7 @@ pub struct RDTextureFormat {
     RefCounted
 }
 
-pub fn (mut r RDTextureFormat) set_format(p_member RenderingDeviceDataFormat) {
+pub fn (r &RDTextureFormat) set_format(p_member RenderingDeviceDataFormat) {
     classname := StringName.new("RDTextureFormat")
     fnname := StringName.new("set_format")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 565531219)
@@ -26,7 +26,7 @@ pub fn (r &RDTextureFormat) get_format() RenderingDeviceDataFormat {
     fnname.deinit()
    return unsafe{RenderingDeviceDataFormat(object_out)}
 }
-pub fn (mut r RDTextureFormat) set_width(p_member u32) {
+pub fn (r &RDTextureFormat) set_width(p_member u32) {
     classname := StringName.new("RDTextureFormat")
     fnname := StringName.new("set_width")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -46,7 +46,7 @@ pub fn (r &RDTextureFormat) get_width() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDTextureFormat) set_height(p_member u32) {
+pub fn (r &RDTextureFormat) set_height(p_member u32) {
     classname := StringName.new("RDTextureFormat")
     fnname := StringName.new("set_height")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -66,7 +66,7 @@ pub fn (r &RDTextureFormat) get_height() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDTextureFormat) set_depth(p_member u32) {
+pub fn (r &RDTextureFormat) set_depth(p_member u32) {
     classname := StringName.new("RDTextureFormat")
     fnname := StringName.new("set_depth")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -86,7 +86,7 @@ pub fn (r &RDTextureFormat) get_depth() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDTextureFormat) set_array_layers(p_member u32) {
+pub fn (r &RDTextureFormat) set_array_layers(p_member u32) {
     classname := StringName.new("RDTextureFormat")
     fnname := StringName.new("set_array_layers")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -106,7 +106,7 @@ pub fn (r &RDTextureFormat) get_array_layers() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDTextureFormat) set_mipmaps(p_member u32) {
+pub fn (r &RDTextureFormat) set_mipmaps(p_member u32) {
     classname := StringName.new("RDTextureFormat")
     fnname := StringName.new("set_mipmaps")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -126,7 +126,7 @@ pub fn (r &RDTextureFormat) get_mipmaps() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDTextureFormat) set_texture_type(p_member RenderingDeviceTextureType) {
+pub fn (r &RDTextureFormat) set_texture_type(p_member RenderingDeviceTextureType) {
     classname := StringName.new("RDTextureFormat")
     fnname := StringName.new("set_texture_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 652343381)
@@ -147,7 +147,7 @@ pub fn (r &RDTextureFormat) get_texture_type() RenderingDeviceTextureType {
     fnname.deinit()
    return unsafe{RenderingDeviceTextureType(object_out)}
 }
-pub fn (mut r RDTextureFormat) set_samples(p_member RenderingDeviceTextureSamples) {
+pub fn (r &RDTextureFormat) set_samples(p_member RenderingDeviceTextureSamples) {
     classname := StringName.new("RDTextureFormat")
     fnname := StringName.new("set_samples")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3774171498)
@@ -168,7 +168,7 @@ pub fn (r &RDTextureFormat) get_samples() RenderingDeviceTextureSamples {
     fnname.deinit()
    return unsafe{RenderingDeviceTextureSamples(object_out)}
 }
-pub fn (mut r RDTextureFormat) set_usage_bits(p_member RenderingDeviceTextureUsageBits) {
+pub fn (r &RDTextureFormat) set_usage_bits(p_member RenderingDeviceTextureUsageBits) {
     classname := StringName.new("RDTextureFormat")
     fnname := StringName.new("set_usage_bits")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 245642367)
@@ -189,7 +189,7 @@ pub fn (r &RDTextureFormat) get_usage_bits() RenderingDeviceTextureUsageBits {
     fnname.deinit()
    return unsafe{RenderingDeviceTextureUsageBits(object_out)}
 }
-pub fn (mut r RDTextureFormat) add_shareable_format(format RenderingDeviceDataFormat) {
+pub fn (r &RDTextureFormat) add_shareable_format(format RenderingDeviceDataFormat) {
     classname := StringName.new("RDTextureFormat")
     fnname := StringName.new("add_shareable_format")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 565531219)
@@ -200,7 +200,7 @@ pub fn (mut r RDTextureFormat) add_shareable_format(format RenderingDeviceDataFo
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RDTextureFormat) remove_shareable_format(format RenderingDeviceDataFormat) {
+pub fn (r &RDTextureFormat) remove_shareable_format(format RenderingDeviceDataFormat) {
     classname := StringName.new("RDTextureFormat")
     fnname := StringName.new("remove_shareable_format")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 565531219)

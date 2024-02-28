@@ -21,7 +21,7 @@ pub fn (r &FlowContainer) get_line_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FlowContainer) set_alignment(alignment FlowContainerAlignmentMode) {
+pub fn (r &FlowContainer) set_alignment(alignment FlowContainerAlignmentMode) {
     classname := StringName.new("FlowContainer")
     fnname := StringName.new("set_alignment")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 575250951)
@@ -42,7 +42,7 @@ pub fn (r &FlowContainer) get_alignment() FlowContainerAlignmentMode {
     fnname.deinit()
    return unsafe{FlowContainerAlignmentMode(object_out)}
 }
-pub fn (mut r FlowContainer) set_vertical(vertical bool) {
+pub fn (r &FlowContainer) set_vertical(vertical bool) {
     classname := StringName.new("FlowContainer")
     fnname := StringName.new("set_vertical")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

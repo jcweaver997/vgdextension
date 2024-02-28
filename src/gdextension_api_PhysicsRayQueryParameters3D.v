@@ -20,7 +20,7 @@ pub fn PhysicsRayQueryParameters3D.create(from Vector3, to Vector3, collision_ma
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsRayQueryParameters3D) set_from(from Vector3) {
+pub fn (r &PhysicsRayQueryParameters3D) set_from(from Vector3) {
     classname := StringName.new("PhysicsRayQueryParameters3D")
     fnname := StringName.new("set_from")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -40,7 +40,7 @@ pub fn (r &PhysicsRayQueryParameters3D) get_from() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsRayQueryParameters3D) set_to(to Vector3) {
+pub fn (r &PhysicsRayQueryParameters3D) set_to(to Vector3) {
     classname := StringName.new("PhysicsRayQueryParameters3D")
     fnname := StringName.new("set_to")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -60,7 +60,7 @@ pub fn (r &PhysicsRayQueryParameters3D) get_to() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsRayQueryParameters3D) set_collision_mask(collision_mask u32) {
+pub fn (r &PhysicsRayQueryParameters3D) set_collision_mask(collision_mask u32) {
     classname := StringName.new("PhysicsRayQueryParameters3D")
     fnname := StringName.new("set_collision_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -80,7 +80,7 @@ pub fn (r &PhysicsRayQueryParameters3D) get_collision_mask() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsRayQueryParameters3D) set_exclude(exclude Array) {
+pub fn (r &PhysicsRayQueryParameters3D) set_exclude(exclude Array) {
     classname := StringName.new("PhysicsRayQueryParameters3D")
     fnname := StringName.new("set_exclude")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)
@@ -100,7 +100,7 @@ pub fn (r &PhysicsRayQueryParameters3D) get_exclude() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsRayQueryParameters3D) set_collide_with_bodies(enable bool) {
+pub fn (r &PhysicsRayQueryParameters3D) set_collide_with_bodies(enable bool) {
     classname := StringName.new("PhysicsRayQueryParameters3D")
     fnname := StringName.new("set_collide_with_bodies")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -120,7 +120,7 @@ pub fn (r &PhysicsRayQueryParameters3D) is_collide_with_bodies_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsRayQueryParameters3D) set_collide_with_areas(enable bool) {
+pub fn (r &PhysicsRayQueryParameters3D) set_collide_with_areas(enable bool) {
     classname := StringName.new("PhysicsRayQueryParameters3D")
     fnname := StringName.new("set_collide_with_areas")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -140,7 +140,7 @@ pub fn (r &PhysicsRayQueryParameters3D) is_collide_with_areas_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsRayQueryParameters3D) set_hit_from_inside(enable bool) {
+pub fn (r &PhysicsRayQueryParameters3D) set_hit_from_inside(enable bool) {
     classname := StringName.new("PhysicsRayQueryParameters3D")
     fnname := StringName.new("set_hit_from_inside")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -160,7 +160,7 @@ pub fn (r &PhysicsRayQueryParameters3D) is_hit_from_inside_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsRayQueryParameters3D) set_hit_back_faces(enable bool) {
+pub fn (r &PhysicsRayQueryParameters3D) set_hit_back_faces(enable bool) {
     classname := StringName.new("PhysicsRayQueryParameters3D")
     fnname := StringName.new("set_hit_back_faces")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

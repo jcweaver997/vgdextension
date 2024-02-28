@@ -5,7 +5,7 @@ pub struct MeshInstance3D {
     GeometryInstance3D
 }
 
-pub fn (mut r MeshInstance3D) set_mesh(mesh Mesh) {
+pub fn (r &MeshInstance3D) set_mesh(mesh Mesh) {
     classname := StringName.new("MeshInstance3D")
     fnname := StringName.new("set_mesh")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 194775623)
@@ -25,7 +25,7 @@ pub fn (r &MeshInstance3D) get_mesh() Mesh {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MeshInstance3D) set_skeleton_path(skeleton_path NodePath) {
+pub fn (r &MeshInstance3D) set_skeleton_path(skeleton_path NodePath) {
     classname := StringName.new("MeshInstance3D")
     fnname := StringName.new("set_skeleton_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1348162250)
@@ -35,7 +35,7 @@ pub fn (mut r MeshInstance3D) set_skeleton_path(skeleton_path NodePath) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r MeshInstance3D) get_skeleton_path() NodePath {
+pub fn (r &MeshInstance3D) get_skeleton_path() NodePath {
     mut object_out := NodePath{}
     classname := StringName.new("MeshInstance3D")
     fnname := StringName.new("get_skeleton_path")
@@ -45,7 +45,7 @@ pub fn (mut r MeshInstance3D) get_skeleton_path() NodePath {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MeshInstance3D) set_skin(skin Skin) {
+pub fn (r &MeshInstance3D) set_skin(skin Skin) {
     classname := StringName.new("MeshInstance3D")
     fnname := StringName.new("set_skin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3971435618)
@@ -75,7 +75,7 @@ pub fn (r &MeshInstance3D) get_surface_override_material_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MeshInstance3D) set_surface_override_material(surface i32, material Material) {
+pub fn (r &MeshInstance3D) set_surface_override_material(surface i32, material Material) {
     classname := StringName.new("MeshInstance3D")
     fnname := StringName.new("set_surface_override_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3671737478)
@@ -110,7 +110,7 @@ pub fn (r &MeshInstance3D) get_active_material(surface i32) Material {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MeshInstance3D) create_trimesh_collision() {
+pub fn (r &MeshInstance3D) create_trimesh_collision() {
     classname := StringName.new("MeshInstance3D")
     fnname := StringName.new("create_trimesh_collision")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -118,7 +118,7 @@ pub fn (mut r MeshInstance3D) create_trimesh_collision() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r MeshInstance3D) create_convex_collision(clean bool, simplify bool) {
+pub fn (r &MeshInstance3D) create_convex_collision(clean bool, simplify bool) {
     classname := StringName.new("MeshInstance3D")
     fnname := StringName.new("create_convex_collision")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2751962654)
@@ -129,7 +129,7 @@ pub fn (mut r MeshInstance3D) create_convex_collision(clean bool, simplify bool)
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r MeshInstance3D) create_multiple_convex_collisions(settings MeshConvexDecompositionSettings) {
+pub fn (r &MeshInstance3D) create_multiple_convex_collisions(settings MeshConvexDecompositionSettings) {
     classname := StringName.new("MeshInstance3D")
     fnname := StringName.new("create_multiple_convex_collisions")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 628789669)
@@ -149,7 +149,7 @@ pub fn (r &MeshInstance3D) get_blend_shape_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MeshInstance3D) find_blend_shape_by_name(name string) i32 {
+pub fn (r &MeshInstance3D) find_blend_shape_by_name(name string) i32 {
     mut object_out := i32(0)
     classname := StringName.new("MeshInstance3D")
     fnname := StringName.new("find_blend_shape_by_name")
@@ -175,7 +175,7 @@ pub fn (r &MeshInstance3D) get_blend_shape_value(blend_shape_idx i32) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MeshInstance3D) set_blend_shape_value(blend_shape_idx i32, value f64) {
+pub fn (r &MeshInstance3D) set_blend_shape_value(blend_shape_idx i32, value f64) {
     classname := StringName.new("MeshInstance3D")
     fnname := StringName.new("set_blend_shape_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1602489585)
@@ -186,7 +186,7 @@ pub fn (mut r MeshInstance3D) set_blend_shape_value(blend_shape_idx i32, value f
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r MeshInstance3D) create_debug_tangents() {
+pub fn (r &MeshInstance3D) create_debug_tangents() {
     classname := StringName.new("MeshInstance3D")
     fnname := StringName.new("create_debug_tangents")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

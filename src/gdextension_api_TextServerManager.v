@@ -14,7 +14,7 @@ pub fn TextServerManager.get_singleton() TextServerManager {
     return o
 }
 
-pub fn (mut r TextServerManager) add_interface(gdinterface TextServer) {
+pub fn (r &TextServerManager) add_interface(gdinterface TextServer) {
     classname := StringName.new("TextServerManager")
     fnname := StringName.new("add_interface")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1799689403)
@@ -34,7 +34,7 @@ pub fn (r &TextServerManager) get_interface_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServerManager) remove_interface(gdinterface TextServer) {
+pub fn (r &TextServerManager) remove_interface(gdinterface TextServer) {
     classname := StringName.new("TextServerManager")
     fnname := StringName.new("remove_interface")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1799689403)
@@ -80,7 +80,7 @@ pub fn (r &TextServerManager) find_interface(name string) TextServer {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextServerManager) set_primary_interface(index TextServer) {
+pub fn (r &TextServerManager) set_primary_interface(index TextServer) {
     classname := StringName.new("TextServerManager")
     fnname := StringName.new("set_primary_interface")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1799689403)

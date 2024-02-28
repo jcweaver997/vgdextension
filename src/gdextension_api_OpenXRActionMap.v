@@ -5,7 +5,7 @@ pub struct OpenXRActionMap {
     Resource
 }
 
-pub fn (mut r OpenXRActionMap) set_action_sets(action_sets Array) {
+pub fn (r &OpenXRActionMap) set_action_sets(action_sets Array) {
     classname := StringName.new("OpenXRActionMap")
     fnname := StringName.new("set_action_sets")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)
@@ -61,7 +61,7 @@ pub fn (r &OpenXRActionMap) get_action_set(idx i32) OpenXRActionSet {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OpenXRActionMap) add_action_set(action_set OpenXRActionSet) {
+pub fn (r &OpenXRActionMap) add_action_set(action_set OpenXRActionSet) {
     classname := StringName.new("OpenXRActionMap")
     fnname := StringName.new("add_action_set")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2093310581)
@@ -71,7 +71,7 @@ pub fn (mut r OpenXRActionMap) add_action_set(action_set OpenXRActionSet) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r OpenXRActionMap) remove_action_set(action_set OpenXRActionSet) {
+pub fn (r &OpenXRActionMap) remove_action_set(action_set OpenXRActionSet) {
     classname := StringName.new("OpenXRActionMap")
     fnname := StringName.new("remove_action_set")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2093310581)
@@ -81,7 +81,7 @@ pub fn (mut r OpenXRActionMap) remove_action_set(action_set OpenXRActionSet) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r OpenXRActionMap) set_interaction_profiles(interaction_profiles Array) {
+pub fn (r &OpenXRActionMap) set_interaction_profiles(interaction_profiles Array) {
     classname := StringName.new("OpenXRActionMap")
     fnname := StringName.new("set_interaction_profiles")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)
@@ -137,7 +137,7 @@ pub fn (r &OpenXRActionMap) get_interaction_profile(idx i32) OpenXRInteractionPr
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OpenXRActionMap) add_interaction_profile(interaction_profile OpenXRInteractionProfile) {
+pub fn (r &OpenXRActionMap) add_interaction_profile(interaction_profile OpenXRInteractionProfile) {
     classname := StringName.new("OpenXRActionMap")
     fnname := StringName.new("add_interaction_profile")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2697953512)
@@ -147,7 +147,7 @@ pub fn (mut r OpenXRActionMap) add_interaction_profile(interaction_profile OpenX
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r OpenXRActionMap) remove_interaction_profile(interaction_profile OpenXRInteractionProfile) {
+pub fn (r &OpenXRActionMap) remove_interaction_profile(interaction_profile OpenXRInteractionProfile) {
     classname := StringName.new("OpenXRActionMap")
     fnname := StringName.new("remove_interaction_profile")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2697953512)
@@ -157,7 +157,7 @@ pub fn (mut r OpenXRActionMap) remove_interaction_profile(interaction_profile Op
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r OpenXRActionMap) create_default_action_sets() {
+pub fn (r &OpenXRActionMap) create_default_action_sets() {
     classname := StringName.new("OpenXRActionMap")
     fnname := StringName.new("create_default_action_sets")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

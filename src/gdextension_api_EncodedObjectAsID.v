@@ -5,7 +5,7 @@ pub struct EncodedObjectAsID {
     RefCounted
 }
 
-pub fn (mut r EncodedObjectAsID) set_object_id(id u64) {
+pub fn (r &EncodedObjectAsID) set_object_id(id u64) {
     classname := StringName.new("EncodedObjectAsID")
     fnname := StringName.new("set_object_id")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

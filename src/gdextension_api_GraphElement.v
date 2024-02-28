@@ -5,7 +5,7 @@ pub struct GraphElement {
     Container
 }
 
-pub fn (mut r GraphElement) set_resizable(resizable bool) {
+pub fn (r &GraphElement) set_resizable(resizable bool) {
     classname := StringName.new("GraphElement")
     fnname := StringName.new("set_resizable")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -25,7 +25,7 @@ pub fn (r &GraphElement) is_resizable() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GraphElement) set_draggable(draggable bool) {
+pub fn (r &GraphElement) set_draggable(draggable bool) {
     classname := StringName.new("GraphElement")
     fnname := StringName.new("set_draggable")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -35,7 +35,7 @@ pub fn (mut r GraphElement) set_draggable(draggable bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GraphElement) is_draggable() bool {
+pub fn (r &GraphElement) is_draggable() bool {
     mut object_out := false
     classname := StringName.new("GraphElement")
     fnname := StringName.new("is_draggable")
@@ -45,7 +45,7 @@ pub fn (mut r GraphElement) is_draggable() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GraphElement) set_selectable(selectable bool) {
+pub fn (r &GraphElement) set_selectable(selectable bool) {
     classname := StringName.new("GraphElement")
     fnname := StringName.new("set_selectable")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -55,7 +55,7 @@ pub fn (mut r GraphElement) set_selectable(selectable bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GraphElement) is_selectable() bool {
+pub fn (r &GraphElement) is_selectable() bool {
     mut object_out := false
     classname := StringName.new("GraphElement")
     fnname := StringName.new("is_selectable")
@@ -65,7 +65,7 @@ pub fn (mut r GraphElement) is_selectable() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GraphElement) set_selected(selected bool) {
+pub fn (r &GraphElement) set_selected(selected bool) {
     classname := StringName.new("GraphElement")
     fnname := StringName.new("set_selected")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -75,7 +75,7 @@ pub fn (mut r GraphElement) set_selected(selected bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GraphElement) is_selected() bool {
+pub fn (r &GraphElement) is_selected() bool {
     mut object_out := false
     classname := StringName.new("GraphElement")
     fnname := StringName.new("is_selected")
@@ -85,7 +85,7 @@ pub fn (mut r GraphElement) is_selected() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GraphElement) set_position_offset(offset Vector2) {
+pub fn (r &GraphElement) set_position_offset(offset Vector2) {
     classname := StringName.new("GraphElement")
     fnname := StringName.new("set_position_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)

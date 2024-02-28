@@ -5,7 +5,7 @@ pub struct InstancePlaceholder {
     Node
 }
 
-pub fn (mut r InstancePlaceholder) get_stored_values(with_order bool) Dictionary {
+pub fn (r &InstancePlaceholder) get_stored_values(with_order bool) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("InstancePlaceholder")
     fnname := StringName.new("get_stored_values")
@@ -17,7 +17,7 @@ pub fn (mut r InstancePlaceholder) get_stored_values(with_order bool) Dictionary
     fnname.deinit()
    return object_out
 }
-pub fn (mut r InstancePlaceholder) create_instance(replace bool, custom_scene PackedScene) Node {
+pub fn (r &InstancePlaceholder) create_instance(replace bool, custom_scene PackedScene) Node {
     mut object_out := Node{}
     classname := StringName.new("InstancePlaceholder")
     fnname := StringName.new("create_instance")

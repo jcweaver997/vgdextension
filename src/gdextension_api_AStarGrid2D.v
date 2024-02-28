@@ -57,7 +57,7 @@ pub fn (r &AStarGrid2D) ucompute_cost(from_id Vector2i, to_id Vector2i) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AStarGrid2D) set_region(region Rect2i) {
+pub fn (r &AStarGrid2D) set_region(region Rect2i) {
     classname := StringName.new("AStarGrid2D")
     fnname := StringName.new("set_region")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1763793166)
@@ -77,7 +77,7 @@ pub fn (r &AStarGrid2D) get_region() Rect2i {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AStarGrid2D) set_size(size Vector2i) {
+pub fn (r &AStarGrid2D) set_size(size Vector2i) {
     classname := StringName.new("AStarGrid2D")
     fnname := StringName.new("set_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1130785943)
@@ -97,7 +97,7 @@ pub fn (r &AStarGrid2D) get_size() Vector2i {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AStarGrid2D) set_offset(offset Vector2) {
+pub fn (r &AStarGrid2D) set_offset(offset Vector2) {
     classname := StringName.new("AStarGrid2D")
     fnname := StringName.new("set_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -117,7 +117,7 @@ pub fn (r &AStarGrid2D) get_offset() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AStarGrid2D) set_cell_size(cell_size Vector2) {
+pub fn (r &AStarGrid2D) set_cell_size(cell_size Vector2) {
     classname := StringName.new("AStarGrid2D")
     fnname := StringName.new("set_cell_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -172,7 +172,7 @@ pub fn (r &AStarGrid2D) is_dirty() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AStarGrid2D) update() {
+pub fn (r &AStarGrid2D) update() {
     classname := StringName.new("AStarGrid2D")
     fnname := StringName.new("update")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -180,7 +180,7 @@ pub fn (mut r AStarGrid2D) update() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AStarGrid2D) set_jumping_enabled(enabled bool) {
+pub fn (r &AStarGrid2D) set_jumping_enabled(enabled bool) {
     classname := StringName.new("AStarGrid2D")
     fnname := StringName.new("set_jumping_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -200,7 +200,7 @@ pub fn (r &AStarGrid2D) is_jumping_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AStarGrid2D) set_diagonal_mode(mode AStarGrid2DDiagonalMode) {
+pub fn (r &AStarGrid2D) set_diagonal_mode(mode AStarGrid2DDiagonalMode) {
     classname := StringName.new("AStarGrid2D")
     fnname := StringName.new("set_diagonal_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1017829798)
@@ -221,7 +221,7 @@ pub fn (r &AStarGrid2D) get_diagonal_mode() AStarGrid2DDiagonalMode {
     fnname.deinit()
    return unsafe{AStarGrid2DDiagonalMode(object_out)}
 }
-pub fn (mut r AStarGrid2D) set_default_compute_heuristic(heuristic AStarGrid2DHeuristic) {
+pub fn (r &AStarGrid2D) set_default_compute_heuristic(heuristic AStarGrid2DHeuristic) {
     classname := StringName.new("AStarGrid2D")
     fnname := StringName.new("set_default_compute_heuristic")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1044375519)
@@ -242,7 +242,7 @@ pub fn (r &AStarGrid2D) get_default_compute_heuristic() AStarGrid2DHeuristic {
     fnname.deinit()
    return unsafe{AStarGrid2DHeuristic(object_out)}
 }
-pub fn (mut r AStarGrid2D) set_default_estimate_heuristic(heuristic AStarGrid2DHeuristic) {
+pub fn (r &AStarGrid2D) set_default_estimate_heuristic(heuristic AStarGrid2DHeuristic) {
     classname := StringName.new("AStarGrid2D")
     fnname := StringName.new("set_default_estimate_heuristic")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1044375519)
@@ -263,7 +263,7 @@ pub fn (r &AStarGrid2D) get_default_estimate_heuristic() AStarGrid2DHeuristic {
     fnname.deinit()
    return unsafe{AStarGrid2DHeuristic(object_out)}
 }
-pub fn (mut r AStarGrid2D) set_point_solid(id Vector2i, solid bool) {
+pub fn (r &AStarGrid2D) set_point_solid(id Vector2i, solid bool) {
     classname := StringName.new("AStarGrid2D")
     fnname := StringName.new("set_point_solid")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1765703753)
@@ -286,7 +286,7 @@ pub fn (r &AStarGrid2D) is_point_solid(id Vector2i) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AStarGrid2D) set_point_weight_scale(id Vector2i, weight_scale f64) {
+pub fn (r &AStarGrid2D) set_point_weight_scale(id Vector2i, weight_scale f64) {
     classname := StringName.new("AStarGrid2D")
     fnname := StringName.new("set_point_weight_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2262553149)
@@ -309,7 +309,7 @@ pub fn (r &AStarGrid2D) get_point_weight_scale(id Vector2i) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AStarGrid2D) fill_solid_region(region Rect2i, solid bool) {
+pub fn (r &AStarGrid2D) fill_solid_region(region Rect2i, solid bool) {
     classname := StringName.new("AStarGrid2D")
     fnname := StringName.new("fill_solid_region")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2261970063)
@@ -320,7 +320,7 @@ pub fn (mut r AStarGrid2D) fill_solid_region(region Rect2i, solid bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AStarGrid2D) fill_weight_scale_region(region Rect2i, weight_scale f64) {
+pub fn (r &AStarGrid2D) fill_weight_scale_region(region Rect2i, weight_scale f64) {
     classname := StringName.new("AStarGrid2D")
     fnname := StringName.new("fill_weight_scale_region")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2793244083)
@@ -331,7 +331,7 @@ pub fn (mut r AStarGrid2D) fill_weight_scale_region(region Rect2i, weight_scale 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AStarGrid2D) clear() {
+pub fn (r &AStarGrid2D) clear() {
     classname := StringName.new("AStarGrid2D")
     fnname := StringName.new("clear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -351,7 +351,7 @@ pub fn (r &AStarGrid2D) get_point_position(id Vector2i) Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AStarGrid2D) get_point_path(from_id Vector2i, to_id Vector2i) PackedVector2Array {
+pub fn (r &AStarGrid2D) get_point_path(from_id Vector2i, to_id Vector2i) PackedVector2Array {
     mut object_out := PackedVector2Array{}
     classname := StringName.new("AStarGrid2D")
     fnname := StringName.new("get_point_path")
@@ -364,7 +364,7 @@ pub fn (mut r AStarGrid2D) get_point_path(from_id Vector2i, to_id Vector2i) Pack
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AStarGrid2D) get_id_path(from_id Vector2i, to_id Vector2i) Array {
+pub fn (r &AStarGrid2D) get_id_path(from_id Vector2i, to_id Vector2i) Array {
     mut object_out := Array{}
     classname := StringName.new("AStarGrid2D")
     fnname := StringName.new("get_id_path")

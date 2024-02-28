@@ -59,7 +59,7 @@ pub fn (r &GLTFCamera) get_perspective() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFCamera) set_perspective(perspective bool) {
+pub fn (r &GLTFCamera) set_perspective(perspective bool) {
     classname := StringName.new("GLTFCamera")
     fnname := StringName.new("set_perspective")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -79,7 +79,7 @@ pub fn (r &GLTFCamera) get_fov() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFCamera) set_fov(fov f64) {
+pub fn (r &GLTFCamera) set_fov(fov f64) {
     classname := StringName.new("GLTFCamera")
     fnname := StringName.new("set_fov")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -99,7 +99,7 @@ pub fn (r &GLTFCamera) get_size_mag() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFCamera) set_size_mag(size_mag f64) {
+pub fn (r &GLTFCamera) set_size_mag(size_mag f64) {
     classname := StringName.new("GLTFCamera")
     fnname := StringName.new("set_size_mag")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -119,7 +119,7 @@ pub fn (r &GLTFCamera) get_depth_far() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFCamera) set_depth_far(zdepth_far f64) {
+pub fn (r &GLTFCamera) set_depth_far(zdepth_far f64) {
     classname := StringName.new("GLTFCamera")
     fnname := StringName.new("set_depth_far")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -139,7 +139,7 @@ pub fn (r &GLTFCamera) get_depth_near() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFCamera) set_depth_near(zdepth_near f64) {
+pub fn (r &GLTFCamera) set_depth_near(zdepth_near f64) {
     classname := StringName.new("GLTFCamera")
     fnname := StringName.new("set_depth_near")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

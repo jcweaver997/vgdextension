@@ -5,7 +5,7 @@ pub struct RefCounted {
     Object
 }
 
-pub fn (mut r RefCounted) init_ref() bool {
+pub fn (r &RefCounted) init_ref() bool {
     mut object_out := false
     classname := StringName.new("RefCounted")
     fnname := StringName.new("init_ref")
@@ -15,7 +15,7 @@ pub fn (mut r RefCounted) init_ref() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RefCounted) reference() bool {
+pub fn (r &RefCounted) reference() bool {
     mut object_out := false
     classname := StringName.new("RefCounted")
     fnname := StringName.new("reference")
@@ -25,7 +25,7 @@ pub fn (mut r RefCounted) reference() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RefCounted) unreference() bool {
+pub fn (r &RefCounted) unreference() bool {
     mut object_out := false
     classname := StringName.new("RefCounted")
     fnname := StringName.new("unreference")

@@ -10,7 +10,7 @@ pub interface IEditorPropertyUpdateProperty {
     virt_update_property()
 }
 
-pub fn (mut r EditorProperty) uupdate_property() {
+pub fn (r &EditorProperty) uupdate_property() {
     classname := StringName.new("EditorProperty")
     fnname := StringName.new("_update_property")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -23,7 +23,7 @@ pub interface IEditorPropertySetReadOnly {
     virt_set_read_only(read_only bool)
 }
 
-pub fn (mut r EditorProperty) uset_read_only(read_only bool) {
+pub fn (r &EditorProperty) uset_read_only(read_only bool) {
     classname := StringName.new("EditorProperty")
     fnname := StringName.new("_set_read_only")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -33,7 +33,7 @@ pub fn (mut r EditorProperty) uset_read_only(read_only bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorProperty) set_label(text string) {
+pub fn (r &EditorProperty) set_label(text string) {
     classname := StringName.new("EditorProperty")
     fnname := StringName.new("set_label")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -57,7 +57,7 @@ pub fn (r &EditorProperty) get_label() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r EditorProperty) set_read_only(read_only bool) {
+pub fn (r &EditorProperty) set_read_only(read_only bool) {
     classname := StringName.new("EditorProperty")
     fnname := StringName.new("set_read_only")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -77,7 +77,7 @@ pub fn (r &EditorProperty) is_read_only() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorProperty) set_checkable(checkable bool) {
+pub fn (r &EditorProperty) set_checkable(checkable bool) {
     classname := StringName.new("EditorProperty")
     fnname := StringName.new("set_checkable")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -97,7 +97,7 @@ pub fn (r &EditorProperty) is_checkable() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorProperty) set_checked(checked bool) {
+pub fn (r &EditorProperty) set_checked(checked bool) {
     classname := StringName.new("EditorProperty")
     fnname := StringName.new("set_checked")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -117,7 +117,7 @@ pub fn (r &EditorProperty) is_checked() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorProperty) set_draw_warning(draw_warning bool) {
+pub fn (r &EditorProperty) set_draw_warning(draw_warning bool) {
     classname := StringName.new("EditorProperty")
     fnname := StringName.new("set_draw_warning")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -137,7 +137,7 @@ pub fn (r &EditorProperty) is_draw_warning() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorProperty) set_keying(keying bool) {
+pub fn (r &EditorProperty) set_keying(keying bool) {
     classname := StringName.new("EditorProperty")
     fnname := StringName.new("set_keying")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -157,7 +157,7 @@ pub fn (r &EditorProperty) is_keying() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorProperty) set_deletable(deletable bool) {
+pub fn (r &EditorProperty) set_deletable(deletable bool) {
     classname := StringName.new("EditorProperty")
     fnname := StringName.new("set_deletable")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -189,7 +189,7 @@ pub fn (r &EditorProperty) get_edited_property() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r EditorProperty) get_edited_object() Object {
+pub fn (r &EditorProperty) get_edited_object() Object {
     mut object_out := Object{}
     classname := StringName.new("EditorProperty")
     fnname := StringName.new("get_edited_object")
@@ -199,7 +199,7 @@ pub fn (mut r EditorProperty) get_edited_object() Object {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorProperty) update_property() {
+pub fn (r &EditorProperty) update_property() {
     classname := StringName.new("EditorProperty")
     fnname := StringName.new("update_property")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -207,7 +207,7 @@ pub fn (mut r EditorProperty) update_property() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorProperty) add_focusable(control Control) {
+pub fn (r &EditorProperty) add_focusable(control Control) {
     classname := StringName.new("EditorProperty")
     fnname := StringName.new("add_focusable")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1496901182)
@@ -217,7 +217,7 @@ pub fn (mut r EditorProperty) add_focusable(control Control) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorProperty) set_bottom_editor(editor Control) {
+pub fn (r &EditorProperty) set_bottom_editor(editor Control) {
     classname := StringName.new("EditorProperty")
     fnname := StringName.new("set_bottom_editor")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1496901182)
@@ -227,7 +227,7 @@ pub fn (mut r EditorProperty) set_bottom_editor(editor Control) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorProperty) emit_changed(property string, value Variant, field string, changing bool) {
+pub fn (r &EditorProperty) emit_changed(property string, value Variant, field string, changing bool) {
     classname := StringName.new("EditorProperty")
     fnname := StringName.new("emit_changed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3069422438)

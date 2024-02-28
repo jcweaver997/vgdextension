@@ -5,7 +5,7 @@ pub struct AnimationNodeStateMachinePlayback {
     Resource
 }
 
-pub fn (mut r AnimationNodeStateMachinePlayback) travel(to_node string, reset_on_teleport bool) {
+pub fn (r &AnimationNodeStateMachinePlayback) travel(to_node string, reset_on_teleport bool) {
     classname := StringName.new("AnimationNodeStateMachinePlayback")
     fnname := StringName.new("travel")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3823612587)
@@ -18,7 +18,7 @@ pub fn (mut r AnimationNodeStateMachinePlayback) travel(to_node string, reset_on
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AnimationNodeStateMachinePlayback) start(node string, reset bool) {
+pub fn (r &AnimationNodeStateMachinePlayback) start(node string, reset bool) {
     classname := StringName.new("AnimationNodeStateMachinePlayback")
     fnname := StringName.new("start")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3823612587)
@@ -31,7 +31,7 @@ pub fn (mut r AnimationNodeStateMachinePlayback) start(node string, reset bool) 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AnimationNodeStateMachinePlayback) next() {
+pub fn (r &AnimationNodeStateMachinePlayback) next() {
     classname := StringName.new("AnimationNodeStateMachinePlayback")
     fnname := StringName.new("next")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -39,7 +39,7 @@ pub fn (mut r AnimationNodeStateMachinePlayback) next() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AnimationNodeStateMachinePlayback) stop() {
+pub fn (r &AnimationNodeStateMachinePlayback) stop() {
     classname := StringName.new("AnimationNodeStateMachinePlayback")
     fnname := StringName.new("stop")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

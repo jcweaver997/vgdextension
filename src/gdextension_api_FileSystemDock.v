@@ -5,7 +5,7 @@ pub struct FileSystemDock {
     VBoxContainer
 }
 
-pub fn (mut r FileSystemDock) navigate_to_path(path string) {
+pub fn (r &FileSystemDock) navigate_to_path(path string) {
     classname := StringName.new("FileSystemDock")
     fnname := StringName.new("navigate_to_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -17,7 +17,7 @@ pub fn (mut r FileSystemDock) navigate_to_path(path string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FileSystemDock) add_resource_tooltip_plugin(plugin EditorResourceTooltipPlugin) {
+pub fn (r &FileSystemDock) add_resource_tooltip_plugin(plugin EditorResourceTooltipPlugin) {
     classname := StringName.new("FileSystemDock")
     fnname := StringName.new("add_resource_tooltip_plugin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2258356838)
@@ -27,7 +27,7 @@ pub fn (mut r FileSystemDock) add_resource_tooltip_plugin(plugin EditorResourceT
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FileSystemDock) remove_resource_tooltip_plugin(plugin EditorResourceTooltipPlugin) {
+pub fn (r &FileSystemDock) remove_resource_tooltip_plugin(plugin EditorResourceTooltipPlugin) {
     classname := StringName.new("FileSystemDock")
     fnname := StringName.new("remove_resource_tooltip_plugin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2258356838)

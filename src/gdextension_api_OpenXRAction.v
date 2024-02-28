@@ -12,7 +12,7 @@ pub struct OpenXRAction {
     Resource
 }
 
-pub fn (mut r OpenXRAction) set_localized_name(localized_name string) {
+pub fn (r &OpenXRAction) set_localized_name(localized_name string) {
     classname := StringName.new("OpenXRAction")
     fnname := StringName.new("set_localized_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -36,7 +36,7 @@ pub fn (r &OpenXRAction) get_localized_name() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r OpenXRAction) set_action_type(action_type OpenXRActionActionType) {
+pub fn (r &OpenXRAction) set_action_type(action_type OpenXRActionActionType) {
     classname := StringName.new("OpenXRAction")
     fnname := StringName.new("set_action_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1675238366)
@@ -57,7 +57,7 @@ pub fn (r &OpenXRAction) get_action_type() OpenXRActionActionType {
     fnname.deinit()
    return unsafe{OpenXRActionActionType(object_out)}
 }
-pub fn (mut r OpenXRAction) set_toplevel_paths(toplevel_paths PackedStringArray) {
+pub fn (r &OpenXRAction) set_toplevel_paths(toplevel_paths PackedStringArray) {
     classname := StringName.new("OpenXRAction")
     fnname := StringName.new("set_toplevel_paths")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4015028928)

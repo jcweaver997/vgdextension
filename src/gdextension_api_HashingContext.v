@@ -11,7 +11,7 @@ pub struct HashingContext {
     RefCounted
 }
 
-pub fn (mut r HashingContext) start(type_name HashingContextHashType) GDError {
+pub fn (r &HashingContext) start(type_name HashingContextHashType) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("HashingContext")
     fnname := StringName.new("start")
@@ -24,7 +24,7 @@ pub fn (mut r HashingContext) start(type_name HashingContextHashType) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r HashingContext) update(chunk PackedByteArray) GDError {
+pub fn (r &HashingContext) update(chunk PackedByteArray) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("HashingContext")
     fnname := StringName.new("update")
@@ -36,7 +36,7 @@ pub fn (mut r HashingContext) update(chunk PackedByteArray) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r HashingContext) finish() PackedByteArray {
+pub fn (r &HashingContext) finish() PackedByteArray {
     mut object_out := PackedByteArray{}
     classname := StringName.new("HashingContext")
     fnname := StringName.new("finish")

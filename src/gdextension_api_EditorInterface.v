@@ -14,7 +14,7 @@ pub fn EditorInterface.get_singleton() EditorInterface {
     return o
 }
 
-pub fn (mut r EditorInterface) restart_editor(save bool) {
+pub fn (r &EditorInterface) restart_editor(save bool) {
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("restart_editor")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3216645846)
@@ -84,7 +84,7 @@ pub fn (r &EditorInterface) get_editor_settings() EditorSettings {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorInterface) make_mesh_previews(meshes Array, preview_size i32) Array {
+pub fn (r &EditorInterface) make_mesh_previews(meshes Array, preview_size i32) Array {
     mut object_out := Array{}
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("make_mesh_previews")
@@ -97,7 +97,7 @@ pub fn (mut r EditorInterface) make_mesh_previews(meshes Array, preview_size i32
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorInterface) set_plugin_enabled(plugin string, enabled bool) {
+pub fn (r &EditorInterface) set_plugin_enabled(plugin string, enabled bool) {
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("set_plugin_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2678287736)
@@ -186,7 +186,7 @@ pub fn (r &EditorInterface) get_editor_viewport_3d(idx i32) SubViewport {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorInterface) set_main_screen_editor(name string) {
+pub fn (r &EditorInterface) set_main_screen_editor(name string) {
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("set_main_screen_editor")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -198,7 +198,7 @@ pub fn (mut r EditorInterface) set_main_screen_editor(name string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorInterface) set_distraction_free_mode(enter bool) {
+pub fn (r &EditorInterface) set_distraction_free_mode(enter bool) {
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("set_distraction_free_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -228,7 +228,7 @@ pub fn (r &EditorInterface) get_editor_scale() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorInterface) popup_dialog(dialog Window, rect Rect2i) {
+pub fn (r &EditorInterface) popup_dialog(dialog Window, rect Rect2i) {
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("popup_dialog")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2015770942)
@@ -239,7 +239,7 @@ pub fn (mut r EditorInterface) popup_dialog(dialog Window, rect Rect2i) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorInterface) popup_dialog_centered(dialog Window, minsize Vector2i) {
+pub fn (r &EditorInterface) popup_dialog_centered(dialog Window, minsize Vector2i) {
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("popup_dialog_centered")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 346557367)
@@ -250,7 +250,7 @@ pub fn (mut r EditorInterface) popup_dialog_centered(dialog Window, minsize Vect
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorInterface) popup_dialog_centered_ratio(dialog Window, ratio f64) {
+pub fn (r &EditorInterface) popup_dialog_centered_ratio(dialog Window, ratio f64) {
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("popup_dialog_centered_ratio")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2093669136)
@@ -261,7 +261,7 @@ pub fn (mut r EditorInterface) popup_dialog_centered_ratio(dialog Window, ratio 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorInterface) popup_dialog_centered_clamped(dialog Window, minsize Vector2i, fallback_ratio f64) {
+pub fn (r &EditorInterface) popup_dialog_centered_clamped(dialog Window, minsize Vector2i, fallback_ratio f64) {
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("popup_dialog_centered_clamped")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3763385571)
@@ -285,7 +285,7 @@ pub fn (r &EditorInterface) get_current_feature_profile() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r EditorInterface) set_current_feature_profile(profile_name string) {
+pub fn (r &EditorInterface) set_current_feature_profile(profile_name string) {
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("set_current_feature_profile")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -307,7 +307,7 @@ pub fn (r &EditorInterface) get_file_system_dock() FileSystemDock {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorInterface) select_file(file string) {
+pub fn (r &EditorInterface) select_file(file string) {
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("select_file")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -363,7 +363,7 @@ pub fn (r &EditorInterface) get_inspector() EditorInspector {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorInterface) inspect_object(object Object, for_property string, inspector_only bool) {
+pub fn (r &EditorInterface) inspect_object(object Object, for_property string, inspector_only bool) {
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("inspect_object")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 127962172)
@@ -377,7 +377,7 @@ pub fn (mut r EditorInterface) inspect_object(object Object, for_property string
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorInterface) edit_resource(resource Resource) {
+pub fn (r &EditorInterface) edit_resource(resource Resource) {
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("edit_resource")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 968641751)
@@ -387,7 +387,7 @@ pub fn (mut r EditorInterface) edit_resource(resource Resource) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorInterface) edit_node(node Node) {
+pub fn (r &EditorInterface) edit_node(node Node) {
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("edit_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
@@ -397,7 +397,7 @@ pub fn (mut r EditorInterface) edit_node(node Node) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorInterface) edit_script(script Script, line i32, column i32, grab_focus bool) {
+pub fn (r &EditorInterface) edit_script(script Script, line i32, column i32, grab_focus bool) {
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("edit_script")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 219829402)
@@ -410,7 +410,7 @@ pub fn (mut r EditorInterface) edit_script(script Script, line i32, column i32, 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorInterface) open_scene_from_path(scene_filepath string) {
+pub fn (r &EditorInterface) open_scene_from_path(scene_filepath string) {
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("open_scene_from_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -422,7 +422,7 @@ pub fn (mut r EditorInterface) open_scene_from_path(scene_filepath string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorInterface) reload_scene_from_path(scene_filepath string) {
+pub fn (r &EditorInterface) reload_scene_from_path(scene_filepath string) {
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("reload_scene_from_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -454,7 +454,7 @@ pub fn (r &EditorInterface) get_edited_scene_root() Node {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorInterface) save_scene() GDError {
+pub fn (r &EditorInterface) save_scene() GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("save_scene")
@@ -464,7 +464,7 @@ pub fn (mut r EditorInterface) save_scene() GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r EditorInterface) save_scene_as(path string, with_preview bool) {
+pub fn (r &EditorInterface) save_scene_as(path string, with_preview bool) {
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("save_scene_as")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3647332257)
@@ -477,7 +477,7 @@ pub fn (mut r EditorInterface) save_scene_as(path string, with_preview bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorInterface) save_all_scenes() {
+pub fn (r &EditorInterface) save_all_scenes() {
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("save_all_scenes")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -485,7 +485,7 @@ pub fn (mut r EditorInterface) save_all_scenes() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorInterface) mark_scene_as_unsaved() {
+pub fn (r &EditorInterface) mark_scene_as_unsaved() {
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("mark_scene_as_unsaved")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -493,7 +493,7 @@ pub fn (mut r EditorInterface) mark_scene_as_unsaved() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorInterface) play_main_scene() {
+pub fn (r &EditorInterface) play_main_scene() {
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("play_main_scene")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -501,7 +501,7 @@ pub fn (mut r EditorInterface) play_main_scene() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorInterface) play_current_scene() {
+pub fn (r &EditorInterface) play_current_scene() {
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("play_current_scene")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -509,7 +509,7 @@ pub fn (mut r EditorInterface) play_current_scene() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorInterface) play_custom_scene(scene_filepath string) {
+pub fn (r &EditorInterface) play_custom_scene(scene_filepath string) {
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("play_custom_scene")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -521,7 +521,7 @@ pub fn (mut r EditorInterface) play_custom_scene(scene_filepath string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorInterface) stop_playing_scene() {
+pub fn (r &EditorInterface) stop_playing_scene() {
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("stop_playing_scene")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -551,7 +551,7 @@ pub fn (r &EditorInterface) get_playing_scene() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r EditorInterface) set_movie_maker_enabled(enabled bool) {
+pub fn (r &EditorInterface) set_movie_maker_enabled(enabled bool) {
     classname := StringName.new("EditorInterface")
     fnname := StringName.new("set_movie_maker_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

@@ -5,7 +5,7 @@ pub struct PlaceholderMesh {
     Mesh
 }
 
-pub fn (mut r PlaceholderMesh) set_aabb(aabb AABB) {
+pub fn (r &PlaceholderMesh) set_aabb(aabb AABB) {
     classname := StringName.new("PlaceholderMesh")
     fnname := StringName.new("set_aabb")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 259215842)

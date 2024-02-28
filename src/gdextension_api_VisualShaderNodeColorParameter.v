@@ -5,7 +5,7 @@ pub struct VisualShaderNodeColorParameter {
     VisualShaderNodeParameter
 }
 
-pub fn (mut r VisualShaderNodeColorParameter) set_default_value_enabled(enabled bool) {
+pub fn (r &VisualShaderNodeColorParameter) set_default_value_enabled(enabled bool) {
     classname := StringName.new("VisualShaderNodeColorParameter")
     fnname := StringName.new("set_default_value_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -25,7 +25,7 @@ pub fn (r &VisualShaderNodeColorParameter) is_default_value_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VisualShaderNodeColorParameter) set_default_value(value Color) {
+pub fn (r &VisualShaderNodeColorParameter) set_default_value(value Color) {
     classname := StringName.new("VisualShaderNodeColorParameter")
     fnname := StringName.new("set_default_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)

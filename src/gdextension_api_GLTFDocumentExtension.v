@@ -10,7 +10,7 @@ pub interface IGLTFDocumentExtensionImportPreflight {
     virt_import_preflight(state GLTFState, extensions PackedStringArray) GDError
 }
 
-pub fn (mut r GLTFDocumentExtension) uimport_preflight(state GLTFState, extensions PackedStringArray) GDError {
+pub fn (r &GLTFDocumentExtension) uimport_preflight(state GLTFState, extensions PackedStringArray) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("GLTFDocumentExtension")
     fnname := StringName.new("_import_preflight")
@@ -28,7 +28,7 @@ pub interface IGLTFDocumentExtensionGetSupportedExtensions {
     virt_get_supported_extensions() PackedStringArray
 }
 
-pub fn (mut r GLTFDocumentExtension) uget_supported_extensions() PackedStringArray {
+pub fn (r &GLTFDocumentExtension) uget_supported_extensions() PackedStringArray {
     mut object_out := PackedStringArray{}
     classname := StringName.new("GLTFDocumentExtension")
     fnname := StringName.new("_get_supported_extensions")
@@ -43,7 +43,7 @@ pub interface IGLTFDocumentExtensionParseNodeExtensions {
     virt_parse_node_extensions(state GLTFState, gltf_node GLTFNode, extensions Dictionary) GDError
 }
 
-pub fn (mut r GLTFDocumentExtension) uparse_node_extensions(state GLTFState, gltf_node GLTFNode, extensions Dictionary) GDError {
+pub fn (r &GLTFDocumentExtension) uparse_node_extensions(state GLTFState, gltf_node GLTFNode, extensions Dictionary) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("GLTFDocumentExtension")
     fnname := StringName.new("_parse_node_extensions")
@@ -62,7 +62,7 @@ pub interface IGLTFDocumentExtensionParseImageData {
     virt_parse_image_data(state GLTFState, image_data PackedByteArray, mime_type String, ret_image Image) GDError
 }
 
-pub fn (mut r GLTFDocumentExtension) uparse_image_data(state GLTFState, image_data PackedByteArray, mime_type string, ret_image Image) GDError {
+pub fn (r &GLTFDocumentExtension) uparse_image_data(state GLTFState, image_data PackedByteArray, mime_type string, ret_image Image) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("GLTFDocumentExtension")
     fnname := StringName.new("_parse_image_data")
@@ -84,7 +84,7 @@ pub interface IGLTFDocumentExtensionGetImageFileExtension {
     virt_get_image_file_extension() String
 }
 
-pub fn (mut r GLTFDocumentExtension) uget_image_file_extension() string {
+pub fn (r &GLTFDocumentExtension) uget_image_file_extension() string {
     mut object_out := String{}
     classname := StringName.new("GLTFDocumentExtension")
     fnname := StringName.new("_get_image_file_extension")
@@ -101,7 +101,7 @@ pub interface IGLTFDocumentExtensionParseTextureJson {
     virt_parse_texture_json(state GLTFState, texture_json Dictionary, ret_gltf_texture GLTFTexture) GDError
 }
 
-pub fn (mut r GLTFDocumentExtension) uparse_texture_json(state GLTFState, texture_json Dictionary, ret_gltf_texture GLTFTexture) GDError {
+pub fn (r &GLTFDocumentExtension) uparse_texture_json(state GLTFState, texture_json Dictionary, ret_gltf_texture GLTFTexture) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("GLTFDocumentExtension")
     fnname := StringName.new("_parse_texture_json")
@@ -120,7 +120,7 @@ pub interface IGLTFDocumentExtensionGenerateSceneNode {
     virt_generate_scene_node(state GLTFState, gltf_node GLTFNode, scene_parent Node) Node3D
 }
 
-pub fn (mut r GLTFDocumentExtension) ugenerate_scene_node(state GLTFState, gltf_node GLTFNode, scene_parent Node) Node3D {
+pub fn (r &GLTFDocumentExtension) ugenerate_scene_node(state GLTFState, gltf_node GLTFNode, scene_parent Node) Node3D {
     mut object_out := Node3D{}
     classname := StringName.new("GLTFDocumentExtension")
     fnname := StringName.new("_generate_scene_node")
@@ -139,7 +139,7 @@ pub interface IGLTFDocumentExtensionImportPostParse {
     virt_import_post_parse(state GLTFState) GDError
 }
 
-pub fn (mut r GLTFDocumentExtension) uimport_post_parse(state GLTFState) GDError {
+pub fn (r &GLTFDocumentExtension) uimport_post_parse(state GLTFState) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("GLTFDocumentExtension")
     fnname := StringName.new("_import_post_parse")
@@ -156,7 +156,7 @@ pub interface IGLTFDocumentExtensionImportNode {
     virt_import_node(state GLTFState, gltf_node GLTFNode, json Dictionary, node Node) GDError
 }
 
-pub fn (mut r GLTFDocumentExtension) uimport_node(state GLTFState, gltf_node GLTFNode, json Dictionary, node Node) GDError {
+pub fn (r &GLTFDocumentExtension) uimport_node(state GLTFState, gltf_node GLTFNode, json Dictionary, node Node) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("GLTFDocumentExtension")
     fnname := StringName.new("_import_node")
@@ -176,7 +176,7 @@ pub interface IGLTFDocumentExtensionImportPost {
     virt_import_post(state GLTFState, root Node) GDError
 }
 
-pub fn (mut r GLTFDocumentExtension) uimport_post(state GLTFState, root Node) GDError {
+pub fn (r &GLTFDocumentExtension) uimport_post(state GLTFState, root Node) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("GLTFDocumentExtension")
     fnname := StringName.new("_import_post")
@@ -194,7 +194,7 @@ pub interface IGLTFDocumentExtensionExportPreflight {
     virt_export_preflight(state GLTFState, root Node) GDError
 }
 
-pub fn (mut r GLTFDocumentExtension) uexport_preflight(state GLTFState, root Node) GDError {
+pub fn (r &GLTFDocumentExtension) uexport_preflight(state GLTFState, root Node) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("GLTFDocumentExtension")
     fnname := StringName.new("_export_preflight")
@@ -212,7 +212,7 @@ pub interface IGLTFDocumentExtensionConvertSceneNode {
     virt_convert_scene_node(state GLTFState, gltf_node GLTFNode, scene_node Node)
 }
 
-pub fn (mut r GLTFDocumentExtension) uconvert_scene_node(state GLTFState, gltf_node GLTFNode, scene_node Node) {
+pub fn (r &GLTFDocumentExtension) uconvert_scene_node(state GLTFState, gltf_node GLTFNode, scene_node Node) {
     classname := StringName.new("GLTFDocumentExtension")
     fnname := StringName.new("_convert_scene_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -229,7 +229,7 @@ pub interface IGLTFDocumentExtensionExportPreserialize {
     virt_export_preserialize(state GLTFState) GDError
 }
 
-pub fn (mut r GLTFDocumentExtension) uexport_preserialize(state GLTFState) GDError {
+pub fn (r &GLTFDocumentExtension) uexport_preserialize(state GLTFState) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("GLTFDocumentExtension")
     fnname := StringName.new("_export_preserialize")
@@ -246,7 +246,7 @@ pub interface IGLTFDocumentExtensionGetSaveableImageFormats {
     virt_get_saveable_image_formats() PackedStringArray
 }
 
-pub fn (mut r GLTFDocumentExtension) uget_saveable_image_formats() PackedStringArray {
+pub fn (r &GLTFDocumentExtension) uget_saveable_image_formats() PackedStringArray {
     mut object_out := PackedStringArray{}
     classname := StringName.new("GLTFDocumentExtension")
     fnname := StringName.new("_get_saveable_image_formats")
@@ -261,7 +261,7 @@ pub interface IGLTFDocumentExtensionSerializeImageToBytes {
     virt_serialize_image_to_bytes(state GLTFState, image Image, image_dict Dictionary, image_format String, lossy_quality f64) PackedByteArray
 }
 
-pub fn (mut r GLTFDocumentExtension) userialize_image_to_bytes(state GLTFState, image Image, image_dict Dictionary, image_format string, lossy_quality f64) PackedByteArray {
+pub fn (r &GLTFDocumentExtension) userialize_image_to_bytes(state GLTFState, image Image, image_dict Dictionary, image_format string, lossy_quality f64) PackedByteArray {
     mut object_out := PackedByteArray{}
     classname := StringName.new("GLTFDocumentExtension")
     fnname := StringName.new("_serialize_image_to_bytes")
@@ -284,7 +284,7 @@ pub interface IGLTFDocumentExtensionSaveImageAtPath {
     virt_save_image_at_path(state GLTFState, image Image, file_path String, image_format String, lossy_quality f64) GDError
 }
 
-pub fn (mut r GLTFDocumentExtension) usave_image_at_path(state GLTFState, image Image, file_path string, image_format string, lossy_quality f64) GDError {
+pub fn (r &GLTFDocumentExtension) usave_image_at_path(state GLTFState, image Image, file_path string, image_format string, lossy_quality f64) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("GLTFDocumentExtension")
     fnname := StringName.new("_save_image_at_path")
@@ -309,7 +309,7 @@ pub interface IGLTFDocumentExtensionSerializeTextureJson {
     virt_serialize_texture_json(state GLTFState, texture_json Dictionary, gltf_texture GLTFTexture, image_format String) GDError
 }
 
-pub fn (mut r GLTFDocumentExtension) userialize_texture_json(state GLTFState, texture_json Dictionary, gltf_texture GLTFTexture, image_format string) GDError {
+pub fn (r &GLTFDocumentExtension) userialize_texture_json(state GLTFState, texture_json Dictionary, gltf_texture GLTFTexture, image_format string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("GLTFDocumentExtension")
     fnname := StringName.new("_serialize_texture_json")
@@ -331,7 +331,7 @@ pub interface IGLTFDocumentExtensionExportNode {
     virt_export_node(state GLTFState, gltf_node GLTFNode, json Dictionary, node Node) GDError
 }
 
-pub fn (mut r GLTFDocumentExtension) uexport_node(state GLTFState, gltf_node GLTFNode, json Dictionary, node Node) GDError {
+pub fn (r &GLTFDocumentExtension) uexport_node(state GLTFState, gltf_node GLTFNode, json Dictionary, node Node) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("GLTFDocumentExtension")
     fnname := StringName.new("_export_node")
@@ -351,7 +351,7 @@ pub interface IGLTFDocumentExtensionExportPost {
     virt_export_post(state GLTFState) GDError
 }
 
-pub fn (mut r GLTFDocumentExtension) uexport_post(state GLTFState) GDError {
+pub fn (r &GLTFDocumentExtension) uexport_post(state GLTFState) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("GLTFDocumentExtension")
     fnname := StringName.new("_export_post")

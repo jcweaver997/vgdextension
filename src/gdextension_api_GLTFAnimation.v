@@ -15,7 +15,7 @@ pub fn (r &GLTFAnimation) get_loop() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFAnimation) set_loop(loop bool) {
+pub fn (r &GLTFAnimation) set_loop(loop bool) {
     classname := StringName.new("GLTFAnimation")
     fnname := StringName.new("set_loop")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

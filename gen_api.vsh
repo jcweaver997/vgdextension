@@ -468,7 +468,7 @@ fn gen_builtin_classes(ea &ExtensionApi) ! {
 			} else if method.is_const {
 				f.write_string('pub fn (r &${class.name}) ${method.name}(')!
 			} else {
-				f.write_string('pub fn (mut r ${class.name}) ${method.name}(')!
+				f.write_string('pub fn (r &${class.name}) ${method.name}(')!
 			}
 			p_base := if method.is_static {
 				'unsafe{nil}'
@@ -893,6 +893,20 @@ fn gen_classes(ea &ExtensionApi) ! {
 			f.write_string('    return o\n')!
 			f.write_string('}\n\n')!
 		}
+		// TODO: Commented until https://github.com/vlang/v/issues/20918 fixed
+		// // to var
+		// f.write_string('pub fn (v &${class.name}) to_var() Variant {\n')!
+		// f.write_string('    to_variant := gdf.get_variant_from_type_constructor(GDExtensionVariantType.type_object)\n')!
+		// f.write_string('    output := Variant{}\n')!
+		// f.write_string('    to_variant(GDExtensionUninitializedVariantPtr(&output), v.ptr)\n')!
+		// f.write_string('    return output\n')!
+		// f.write_string('}\n\n')!
+
+		// // set from var
+		// f.write_string('pub fn (mut t ${class.name}) set_from_var(var &Variant) {\n')!
+		// f.write_string('    var_to_type := gdf.get_variant_to_type_constructor(GDExtensionVariantType.type_object)\n')!
+		// f.write_string('    var_to_type(voidptr(&t.ptr), var)\n')!
+		// f.write_string('}\n\n')!
 
 		// gen class methods
 		for method in class.methods {
@@ -932,7 +946,7 @@ fn gen_classes(ea &ExtensionApi) ! {
 			} else if method.is_const {
 				f.write_string('pub fn (r &${class.name}) ${methodname}(')!
 			} else {
-				f.write_string('pub fn (mut r ${class.name}) ${methodname}(')!
+				f.write_string('pub fn (r &${class.name}) ${methodname}(')!
 			}
 			p_base := if method.is_static {
 				'unsafe{nil}'

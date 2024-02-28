@@ -20,7 +20,7 @@ pub fn (r &SoftBody3D) get_physics_rid() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SoftBody3D) set_collision_mask(collision_mask u32) {
+pub fn (r &SoftBody3D) set_collision_mask(collision_mask u32) {
     classname := StringName.new("SoftBody3D")
     fnname := StringName.new("set_collision_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -40,7 +40,7 @@ pub fn (r &SoftBody3D) get_collision_mask() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SoftBody3D) set_collision_layer(collision_layer u32) {
+pub fn (r &SoftBody3D) set_collision_layer(collision_layer u32) {
     classname := StringName.new("SoftBody3D")
     fnname := StringName.new("set_collision_layer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -60,7 +60,7 @@ pub fn (r &SoftBody3D) get_collision_layer() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SoftBody3D) set_collision_mask_value(layer_number i32, value bool) {
+pub fn (r &SoftBody3D) set_collision_mask_value(layer_number i32, value bool) {
     classname := StringName.new("SoftBody3D")
     fnname := StringName.new("set_collision_mask_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -83,7 +83,7 @@ pub fn (r &SoftBody3D) get_collision_mask_value(layer_number i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SoftBody3D) set_collision_layer_value(layer_number i32, value bool) {
+pub fn (r &SoftBody3D) set_collision_layer_value(layer_number i32, value bool) {
     classname := StringName.new("SoftBody3D")
     fnname := StringName.new("set_collision_layer_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -106,7 +106,7 @@ pub fn (r &SoftBody3D) get_collision_layer_value(layer_number i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SoftBody3D) set_parent_collision_ignore(parent_collision_ignore NodePath) {
+pub fn (r &SoftBody3D) set_parent_collision_ignore(parent_collision_ignore NodePath) {
     classname := StringName.new("SoftBody3D")
     fnname := StringName.new("set_parent_collision_ignore")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1348162250)
@@ -126,7 +126,7 @@ pub fn (r &SoftBody3D) get_parent_collision_ignore() NodePath {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SoftBody3D) set_disable_mode(mode SoftBody3DDisableMode) {
+pub fn (r &SoftBody3D) set_disable_mode(mode SoftBody3DDisableMode) {
     classname := StringName.new("SoftBody3D")
     fnname := StringName.new("set_disable_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1104158384)
@@ -147,7 +147,7 @@ pub fn (r &SoftBody3D) get_disable_mode() SoftBody3DDisableMode {
     fnname.deinit()
    return unsafe{SoftBody3DDisableMode(object_out)}
 }
-pub fn (mut r SoftBody3D) get_collision_exceptions() Array {
+pub fn (r &SoftBody3D) get_collision_exceptions() Array {
     mut object_out := Array{}
     classname := StringName.new("SoftBody3D")
     fnname := StringName.new("get_collision_exceptions")
@@ -157,7 +157,7 @@ pub fn (mut r SoftBody3D) get_collision_exceptions() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SoftBody3D) add_collision_exception_with(body Node) {
+pub fn (r &SoftBody3D) add_collision_exception_with(body Node) {
     classname := StringName.new("SoftBody3D")
     fnname := StringName.new("add_collision_exception_with")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
@@ -167,7 +167,7 @@ pub fn (mut r SoftBody3D) add_collision_exception_with(body Node) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SoftBody3D) remove_collision_exception_with(body Node) {
+pub fn (r &SoftBody3D) remove_collision_exception_with(body Node) {
     classname := StringName.new("SoftBody3D")
     fnname := StringName.new("remove_collision_exception_with")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
@@ -177,7 +177,7 @@ pub fn (mut r SoftBody3D) remove_collision_exception_with(body Node) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SoftBody3D) set_simulation_precision(simulation_precision i32) {
+pub fn (r &SoftBody3D) set_simulation_precision(simulation_precision i32) {
     classname := StringName.new("SoftBody3D")
     fnname := StringName.new("set_simulation_precision")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -187,7 +187,7 @@ pub fn (mut r SoftBody3D) set_simulation_precision(simulation_precision i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SoftBody3D) get_simulation_precision() i32 {
+pub fn (r &SoftBody3D) get_simulation_precision() i32 {
     mut object_out := i32(0)
     classname := StringName.new("SoftBody3D")
     fnname := StringName.new("get_simulation_precision")
@@ -197,7 +197,7 @@ pub fn (mut r SoftBody3D) get_simulation_precision() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SoftBody3D) set_total_mass(mass f64) {
+pub fn (r &SoftBody3D) set_total_mass(mass f64) {
     classname := StringName.new("SoftBody3D")
     fnname := StringName.new("set_total_mass")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -207,7 +207,7 @@ pub fn (mut r SoftBody3D) set_total_mass(mass f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SoftBody3D) get_total_mass() f64 {
+pub fn (r &SoftBody3D) get_total_mass() f64 {
     mut object_out := f64(0)
     classname := StringName.new("SoftBody3D")
     fnname := StringName.new("get_total_mass")
@@ -217,7 +217,7 @@ pub fn (mut r SoftBody3D) get_total_mass() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SoftBody3D) set_linear_stiffness(linear_stiffness f64) {
+pub fn (r &SoftBody3D) set_linear_stiffness(linear_stiffness f64) {
     classname := StringName.new("SoftBody3D")
     fnname := StringName.new("set_linear_stiffness")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -227,7 +227,7 @@ pub fn (mut r SoftBody3D) set_linear_stiffness(linear_stiffness f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SoftBody3D) get_linear_stiffness() f64 {
+pub fn (r &SoftBody3D) get_linear_stiffness() f64 {
     mut object_out := f64(0)
     classname := StringName.new("SoftBody3D")
     fnname := StringName.new("get_linear_stiffness")
@@ -237,7 +237,7 @@ pub fn (mut r SoftBody3D) get_linear_stiffness() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SoftBody3D) set_pressure_coefficient(pressure_coefficient f64) {
+pub fn (r &SoftBody3D) set_pressure_coefficient(pressure_coefficient f64) {
     classname := StringName.new("SoftBody3D")
     fnname := StringName.new("set_pressure_coefficient")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -247,7 +247,7 @@ pub fn (mut r SoftBody3D) set_pressure_coefficient(pressure_coefficient f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SoftBody3D) get_pressure_coefficient() f64 {
+pub fn (r &SoftBody3D) get_pressure_coefficient() f64 {
     mut object_out := f64(0)
     classname := StringName.new("SoftBody3D")
     fnname := StringName.new("get_pressure_coefficient")
@@ -257,7 +257,7 @@ pub fn (mut r SoftBody3D) get_pressure_coefficient() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SoftBody3D) set_damping_coefficient(damping_coefficient f64) {
+pub fn (r &SoftBody3D) set_damping_coefficient(damping_coefficient f64) {
     classname := StringName.new("SoftBody3D")
     fnname := StringName.new("set_damping_coefficient")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -267,7 +267,7 @@ pub fn (mut r SoftBody3D) set_damping_coefficient(damping_coefficient f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SoftBody3D) get_damping_coefficient() f64 {
+pub fn (r &SoftBody3D) get_damping_coefficient() f64 {
     mut object_out := f64(0)
     classname := StringName.new("SoftBody3D")
     fnname := StringName.new("get_damping_coefficient")
@@ -277,7 +277,7 @@ pub fn (mut r SoftBody3D) get_damping_coefficient() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SoftBody3D) set_drag_coefficient(drag_coefficient f64) {
+pub fn (r &SoftBody3D) set_drag_coefficient(drag_coefficient f64) {
     classname := StringName.new("SoftBody3D")
     fnname := StringName.new("set_drag_coefficient")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -287,7 +287,7 @@ pub fn (mut r SoftBody3D) set_drag_coefficient(drag_coefficient f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SoftBody3D) get_drag_coefficient() f64 {
+pub fn (r &SoftBody3D) get_drag_coefficient() f64 {
     mut object_out := f64(0)
     classname := StringName.new("SoftBody3D")
     fnname := StringName.new("get_drag_coefficient")
@@ -297,7 +297,7 @@ pub fn (mut r SoftBody3D) get_drag_coefficient() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SoftBody3D) get_point_transform(point_index i32) Vector3 {
+pub fn (r &SoftBody3D) get_point_transform(point_index i32) Vector3 {
     mut object_out := Vector3{}
     classname := StringName.new("SoftBody3D")
     fnname := StringName.new("get_point_transform")
@@ -309,7 +309,7 @@ pub fn (mut r SoftBody3D) get_point_transform(point_index i32) Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SoftBody3D) set_point_pinned(point_index i32, pinned bool, attachment_path NodePath) {
+pub fn (r &SoftBody3D) set_point_pinned(point_index i32, pinned bool, attachment_path NodePath) {
     classname := StringName.new("SoftBody3D")
     fnname := StringName.new("set_point_pinned")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3814935226)
@@ -333,7 +333,7 @@ pub fn (r &SoftBody3D) is_point_pinned(point_index i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SoftBody3D) set_ray_pickable(ray_pickable bool) {
+pub fn (r &SoftBody3D) set_ray_pickable(ray_pickable bool) {
     classname := StringName.new("SoftBody3D")
     fnname := StringName.new("set_ray_pickable")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

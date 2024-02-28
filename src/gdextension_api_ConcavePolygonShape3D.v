@@ -5,7 +5,7 @@ pub struct ConcavePolygonShape3D {
     Shape3D
 }
 
-pub fn (mut r ConcavePolygonShape3D) set_faces(faces PackedVector3Array) {
+pub fn (r &ConcavePolygonShape3D) set_faces(faces PackedVector3Array) {
     classname := StringName.new("ConcavePolygonShape3D")
     fnname := StringName.new("set_faces")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 334873810)
@@ -25,7 +25,7 @@ pub fn (r &ConcavePolygonShape3D) get_faces() PackedVector3Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ConcavePolygonShape3D) set_backface_collision_enabled(enabled bool) {
+pub fn (r &ConcavePolygonShape3D) set_backface_collision_enabled(enabled bool) {
     classname := StringName.new("ConcavePolygonShape3D")
     fnname := StringName.new("set_backface_collision_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

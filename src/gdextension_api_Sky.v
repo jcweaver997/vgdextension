@@ -23,7 +23,7 @@ pub struct Sky {
     Resource
 }
 
-pub fn (mut r Sky) set_radiance_size(size SkyRadianceSize) {
+pub fn (r &Sky) set_radiance_size(size SkyRadianceSize) {
     classname := StringName.new("Sky")
     fnname := StringName.new("set_radiance_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1512957179)
@@ -44,7 +44,7 @@ pub fn (r &Sky) get_radiance_size() SkyRadianceSize {
     fnname.deinit()
    return unsafe{SkyRadianceSize(object_out)}
 }
-pub fn (mut r Sky) set_process_mode(mode SkyProcessMode) {
+pub fn (r &Sky) set_process_mode(mode SkyProcessMode) {
     classname := StringName.new("Sky")
     fnname := StringName.new("set_process_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 875986769)
@@ -65,7 +65,7 @@ pub fn (r &Sky) get_process_mode() SkyProcessMode {
     fnname.deinit()
    return unsafe{SkyProcessMode(object_out)}
 }
-pub fn (mut r Sky) set_material(material Material) {
+pub fn (r &Sky) set_material(material Material) {
     classname := StringName.new("Sky")
     fnname := StringName.new("set_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2757459619)

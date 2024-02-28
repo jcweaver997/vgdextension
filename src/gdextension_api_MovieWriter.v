@@ -59,7 +59,7 @@ pub interface IMovieWriterWriteBegin {
     virt_write_begin(movie_size Vector2i, fps u32, base_path String) GDError
 }
 
-pub fn (mut r MovieWriter) uwrite_begin(movie_size Vector2i, fps u32, base_path string) GDError {
+pub fn (r &MovieWriter) uwrite_begin(movie_size Vector2i, fps u32, base_path string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("MovieWriter")
     fnname := StringName.new("_write_begin")
@@ -80,7 +80,7 @@ pub interface IMovieWriterWriteFrame {
     virt_write_frame(frame_image Image, audio_frame_block voidptr) GDError
 }
 
-pub fn (mut r MovieWriter) uwrite_frame(frame_image Image, audio_frame_block voidptr) GDError {
+pub fn (r &MovieWriter) uwrite_frame(frame_image Image, audio_frame_block voidptr) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("MovieWriter")
     fnname := StringName.new("_write_frame")
@@ -98,7 +98,7 @@ pub interface IMovieWriterWriteEnd {
     virt_write_end()
 }
 
-pub fn (mut r MovieWriter) uwrite_end() {
+pub fn (r &MovieWriter) uwrite_end() {
     classname := StringName.new("MovieWriter")
     fnname := StringName.new("_write_end")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)

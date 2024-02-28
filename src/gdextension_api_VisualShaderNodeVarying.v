@@ -5,7 +5,7 @@ pub struct VisualShaderNodeVarying {
     VisualShaderNode
 }
 
-pub fn (mut r VisualShaderNodeVarying) set_varying_name(name string) {
+pub fn (r &VisualShaderNodeVarying) set_varying_name(name string) {
     classname := StringName.new("VisualShaderNodeVarying")
     fnname := StringName.new("set_varying_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -29,7 +29,7 @@ pub fn (r &VisualShaderNodeVarying) get_varying_name() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r VisualShaderNodeVarying) set_varying_type(type_name VisualShaderVaryingType) {
+pub fn (r &VisualShaderNodeVarying) set_varying_type(type_name VisualShaderVaryingType) {
     classname := StringName.new("VisualShaderNodeVarying")
     fnname := StringName.new("set_varying_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3565867981)

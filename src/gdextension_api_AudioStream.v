@@ -117,7 +117,7 @@ pub fn (r &AudioStream) is_monophonic() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStream) instantiate_playback() AudioStreamPlayback {
+pub fn (r &AudioStream) instantiate_playback() AudioStreamPlayback {
     mut object_out := AudioStreamPlayback{}
     classname := StringName.new("AudioStream")
     fnname := StringName.new("instantiate_playback")

@@ -11,7 +11,7 @@ pub struct MultiplayerAPI {
     RefCounted
 }
 
-pub fn (mut r MultiplayerAPI) has_multiplayer_peer() bool {
+pub fn (r &MultiplayerAPI) has_multiplayer_peer() bool {
     mut object_out := false
     classname := StringName.new("MultiplayerAPI")
     fnname := StringName.new("has_multiplayer_peer")
@@ -21,7 +21,7 @@ pub fn (mut r MultiplayerAPI) has_multiplayer_peer() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MultiplayerAPI) get_multiplayer_peer() MultiplayerPeer {
+pub fn (r &MultiplayerAPI) get_multiplayer_peer() MultiplayerPeer {
     mut object_out := MultiplayerPeer{}
     classname := StringName.new("MultiplayerAPI")
     fnname := StringName.new("get_multiplayer_peer")
@@ -31,7 +31,7 @@ pub fn (mut r MultiplayerAPI) get_multiplayer_peer() MultiplayerPeer {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MultiplayerAPI) set_multiplayer_peer(peer MultiplayerPeer) {
+pub fn (r &MultiplayerAPI) set_multiplayer_peer(peer MultiplayerPeer) {
     classname := StringName.new("MultiplayerAPI")
     fnname := StringName.new("set_multiplayer_peer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3694835298)
@@ -41,7 +41,7 @@ pub fn (mut r MultiplayerAPI) set_multiplayer_peer(peer MultiplayerPeer) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r MultiplayerAPI) get_unique_id() i32 {
+pub fn (r &MultiplayerAPI) get_unique_id() i32 {
     mut object_out := i32(0)
     classname := StringName.new("MultiplayerAPI")
     fnname := StringName.new("get_unique_id")
@@ -51,7 +51,7 @@ pub fn (mut r MultiplayerAPI) get_unique_id() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MultiplayerAPI) is_server() bool {
+pub fn (r &MultiplayerAPI) is_server() bool {
     mut object_out := false
     classname := StringName.new("MultiplayerAPI")
     fnname := StringName.new("is_server")
@@ -61,7 +61,7 @@ pub fn (mut r MultiplayerAPI) is_server() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MultiplayerAPI) get_remote_sender_id() i32 {
+pub fn (r &MultiplayerAPI) get_remote_sender_id() i32 {
     mut object_out := i32(0)
     classname := StringName.new("MultiplayerAPI")
     fnname := StringName.new("get_remote_sender_id")
@@ -71,7 +71,7 @@ pub fn (mut r MultiplayerAPI) get_remote_sender_id() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MultiplayerAPI) poll() GDError {
+pub fn (r &MultiplayerAPI) poll() GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("MultiplayerAPI")
     fnname := StringName.new("poll")
@@ -81,7 +81,7 @@ pub fn (mut r MultiplayerAPI) poll() GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r MultiplayerAPI) rpc(peer i32, object Object, method string, arguments Array) GDError {
+pub fn (r &MultiplayerAPI) rpc(peer i32, object Object, method string, arguments Array) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("MultiplayerAPI")
     fnname := StringName.new("rpc")
@@ -98,7 +98,7 @@ pub fn (mut r MultiplayerAPI) rpc(peer i32, object Object, method string, argume
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r MultiplayerAPI) object_configuration_add(object Object, configuration Variant) GDError {
+pub fn (r &MultiplayerAPI) object_configuration_add(object Object, configuration Variant) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("MultiplayerAPI")
     fnname := StringName.new("object_configuration_add")
@@ -111,7 +111,7 @@ pub fn (mut r MultiplayerAPI) object_configuration_add(object Object, configurat
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r MultiplayerAPI) object_configuration_remove(object Object, configuration Variant) GDError {
+pub fn (r &MultiplayerAPI) object_configuration_remove(object Object, configuration Variant) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("MultiplayerAPI")
     fnname := StringName.new("object_configuration_remove")
@@ -124,7 +124,7 @@ pub fn (mut r MultiplayerAPI) object_configuration_remove(object Object, configu
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r MultiplayerAPI) get_peers() PackedInt32Array {
+pub fn (r &MultiplayerAPI) get_peers() PackedInt32Array {
     mut object_out := PackedInt32Array{}
     classname := StringName.new("MultiplayerAPI")
     fnname := StringName.new("get_peers")

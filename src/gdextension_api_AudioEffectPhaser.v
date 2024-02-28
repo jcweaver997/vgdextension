@@ -5,7 +5,7 @@ pub struct AudioEffectPhaser {
     AudioEffect
 }
 
-pub fn (mut r AudioEffectPhaser) set_range_min_hz(hz f64) {
+pub fn (r &AudioEffectPhaser) set_range_min_hz(hz f64) {
     classname := StringName.new("AudioEffectPhaser")
     fnname := StringName.new("set_range_min_hz")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -25,7 +25,7 @@ pub fn (r &AudioEffectPhaser) get_range_min_hz() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectPhaser) set_range_max_hz(hz f64) {
+pub fn (r &AudioEffectPhaser) set_range_max_hz(hz f64) {
     classname := StringName.new("AudioEffectPhaser")
     fnname := StringName.new("set_range_max_hz")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -45,7 +45,7 @@ pub fn (r &AudioEffectPhaser) get_range_max_hz() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectPhaser) set_rate_hz(hz f64) {
+pub fn (r &AudioEffectPhaser) set_rate_hz(hz f64) {
     classname := StringName.new("AudioEffectPhaser")
     fnname := StringName.new("set_rate_hz")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -65,7 +65,7 @@ pub fn (r &AudioEffectPhaser) get_rate_hz() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectPhaser) set_feedback(fbk f64) {
+pub fn (r &AudioEffectPhaser) set_feedback(fbk f64) {
     classname := StringName.new("AudioEffectPhaser")
     fnname := StringName.new("set_feedback")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -85,7 +85,7 @@ pub fn (r &AudioEffectPhaser) get_feedback() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectPhaser) set_depth(depth f64) {
+pub fn (r &AudioEffectPhaser) set_depth(depth f64) {
     classname := StringName.new("AudioEffectPhaser")
     fnname := StringName.new("set_depth")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

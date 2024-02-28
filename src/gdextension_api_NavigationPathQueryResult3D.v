@@ -10,7 +10,7 @@ pub struct NavigationPathQueryResult3D {
     RefCounted
 }
 
-pub fn (mut r NavigationPathQueryResult3D) set_path(path PackedVector3Array) {
+pub fn (r &NavigationPathQueryResult3D) set_path(path PackedVector3Array) {
     classname := StringName.new("NavigationPathQueryResult3D")
     fnname := StringName.new("set_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 334873810)
@@ -30,7 +30,7 @@ pub fn (r &NavigationPathQueryResult3D) get_path() PackedVector3Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationPathQueryResult3D) set_path_types(path_types PackedInt32Array) {
+pub fn (r &NavigationPathQueryResult3D) set_path_types(path_types PackedInt32Array) {
     classname := StringName.new("NavigationPathQueryResult3D")
     fnname := StringName.new("set_path_types")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3614634198)
@@ -50,7 +50,7 @@ pub fn (r &NavigationPathQueryResult3D) get_path_types() PackedInt32Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationPathQueryResult3D) set_path_rids(path_rids Array) {
+pub fn (r &NavigationPathQueryResult3D) set_path_rids(path_rids Array) {
     classname := StringName.new("NavigationPathQueryResult3D")
     fnname := StringName.new("set_path_rids")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)
@@ -70,7 +70,7 @@ pub fn (r &NavigationPathQueryResult3D) get_path_rids() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationPathQueryResult3D) set_path_owner_ids(path_owner_ids PackedInt64Array) {
+pub fn (r &NavigationPathQueryResult3D) set_path_owner_ids(path_owner_ids PackedInt64Array) {
     classname := StringName.new("NavigationPathQueryResult3D")
     fnname := StringName.new("set_path_owner_ids")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3709968205)
@@ -90,7 +90,7 @@ pub fn (r &NavigationPathQueryResult3D) get_path_owner_ids() PackedInt64Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationPathQueryResult3D) reset() {
+pub fn (r &NavigationPathQueryResult3D) reset() {
     classname := StringName.new("NavigationPathQueryResult3D")
     fnname := StringName.new("reset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

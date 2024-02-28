@@ -5,7 +5,7 @@ pub struct ConfigFile {
     RefCounted
 }
 
-pub fn (mut r ConfigFile) set_value(section string, key string, value Variant) {
+pub fn (r &ConfigFile) set_value(section string, key string, value Variant) {
     classname := StringName.new("ConfigFile")
     fnname := StringName.new("set_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2504492430)
@@ -94,7 +94,7 @@ pub fn (r &ConfigFile) get_section_keys(section string) PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ConfigFile) erase_section(section string) {
+pub fn (r &ConfigFile) erase_section(section string) {
     classname := StringName.new("ConfigFile")
     fnname := StringName.new("erase_section")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -106,7 +106,7 @@ pub fn (mut r ConfigFile) erase_section(section string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ConfigFile) erase_section_key(section string, key string) {
+pub fn (r &ConfigFile) erase_section_key(section string, key string) {
     classname := StringName.new("ConfigFile")
     fnname := StringName.new("erase_section_key")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3186203200)
@@ -121,7 +121,7 @@ pub fn (mut r ConfigFile) erase_section_key(section string, key string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ConfigFile) load(path string) GDError {
+pub fn (r &ConfigFile) load(path string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ConfigFile")
     fnname := StringName.new("load")
@@ -135,7 +135,7 @@ pub fn (mut r ConfigFile) load(path string) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r ConfigFile) parse(data string) GDError {
+pub fn (r &ConfigFile) parse(data string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ConfigFile")
     fnname := StringName.new("parse")
@@ -149,7 +149,7 @@ pub fn (mut r ConfigFile) parse(data string) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r ConfigFile) save(path string) GDError {
+pub fn (r &ConfigFile) save(path string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ConfigFile")
     fnname := StringName.new("save")
@@ -175,7 +175,7 @@ pub fn (r &ConfigFile) encode_to_text() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r ConfigFile) load_encrypted(path string, key PackedByteArray) GDError {
+pub fn (r &ConfigFile) load_encrypted(path string, key PackedByteArray) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ConfigFile")
     fnname := StringName.new("load_encrypted")
@@ -190,7 +190,7 @@ pub fn (mut r ConfigFile) load_encrypted(path string, key PackedByteArray) GDErr
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r ConfigFile) load_encrypted_pass(path string, password string) GDError {
+pub fn (r &ConfigFile) load_encrypted_pass(path string, password string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ConfigFile")
     fnname := StringName.new("load_encrypted_pass")
@@ -207,7 +207,7 @@ pub fn (mut r ConfigFile) load_encrypted_pass(path string, password string) GDEr
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r ConfigFile) save_encrypted(path string, key PackedByteArray) GDError {
+pub fn (r &ConfigFile) save_encrypted(path string, key PackedByteArray) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ConfigFile")
     fnname := StringName.new("save_encrypted")
@@ -222,7 +222,7 @@ pub fn (mut r ConfigFile) save_encrypted(path string, key PackedByteArray) GDErr
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r ConfigFile) save_encrypted_pass(path string, password string) GDError {
+pub fn (r &ConfigFile) save_encrypted_pass(path string, password string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ConfigFile")
     fnname := StringName.new("save_encrypted_pass")
@@ -239,7 +239,7 @@ pub fn (mut r ConfigFile) save_encrypted_pass(path string, password string) GDEr
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r ConfigFile) clear() {
+pub fn (r &ConfigFile) clear() {
     classname := StringName.new("ConfigFile")
     fnname := StringName.new("clear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

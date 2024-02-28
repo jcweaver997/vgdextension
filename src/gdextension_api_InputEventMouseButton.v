@@ -5,7 +5,7 @@ pub struct InputEventMouseButton {
     InputEventMouse
 }
 
-pub fn (mut r InputEventMouseButton) set_factor(factor f64) {
+pub fn (r &InputEventMouseButton) set_factor(factor f64) {
     classname := StringName.new("InputEventMouseButton")
     fnname := StringName.new("set_factor")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -25,7 +25,7 @@ pub fn (r &InputEventMouseButton) get_factor() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r InputEventMouseButton) set_button_index(button_index MouseButton) {
+pub fn (r &InputEventMouseButton) set_button_index(button_index MouseButton) {
     classname := StringName.new("InputEventMouseButton")
     fnname := StringName.new("set_button_index")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3624991109)
@@ -46,7 +46,7 @@ pub fn (r &InputEventMouseButton) get_button_index() MouseButton {
     fnname.deinit()
    return unsafe{MouseButton(object_out)}
 }
-pub fn (mut r InputEventMouseButton) set_pressed(pressed bool) {
+pub fn (r &InputEventMouseButton) set_pressed(pressed bool) {
     classname := StringName.new("InputEventMouseButton")
     fnname := StringName.new("set_pressed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -56,7 +56,7 @@ pub fn (mut r InputEventMouseButton) set_pressed(pressed bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r InputEventMouseButton) set_canceled(canceled bool) {
+pub fn (r &InputEventMouseButton) set_canceled(canceled bool) {
     classname := StringName.new("InputEventMouseButton")
     fnname := StringName.new("set_canceled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -66,7 +66,7 @@ pub fn (mut r InputEventMouseButton) set_canceled(canceled bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r InputEventMouseButton) set_double_click(double_click bool) {
+pub fn (r &InputEventMouseButton) set_double_click(double_click bool) {
     classname := StringName.new("InputEventMouseButton")
     fnname := StringName.new("set_double_click")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

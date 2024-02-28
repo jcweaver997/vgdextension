@@ -33,7 +33,7 @@ pub struct VisualShaderNodeCompare {
     VisualShaderNode
 }
 
-pub fn (mut r VisualShaderNodeCompare) set_comparison_type(type_name VisualShaderNodeCompareComparisonType) {
+pub fn (r &VisualShaderNodeCompare) set_comparison_type(type_name VisualShaderNodeCompareComparisonType) {
     classname := StringName.new("VisualShaderNodeCompare")
     fnname := StringName.new("set_comparison_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 516558320)
@@ -54,7 +54,7 @@ pub fn (r &VisualShaderNodeCompare) get_comparison_type() VisualShaderNodeCompar
     fnname.deinit()
    return unsafe{VisualShaderNodeCompareComparisonType(object_out)}
 }
-pub fn (mut r VisualShaderNodeCompare) set_function(func VisualShaderNodeCompareFunction) {
+pub fn (r &VisualShaderNodeCompare) set_function(func VisualShaderNodeCompareFunction) {
     classname := StringName.new("VisualShaderNodeCompare")
     fnname := StringName.new("set_function")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2370951349)
@@ -75,7 +75,7 @@ pub fn (r &VisualShaderNodeCompare) get_function() VisualShaderNodeCompareFuncti
     fnname.deinit()
    return unsafe{VisualShaderNodeCompareFunction(object_out)}
 }
-pub fn (mut r VisualShaderNodeCompare) set_condition(condition VisualShaderNodeCompareCondition) {
+pub fn (r &VisualShaderNodeCompare) set_condition(condition VisualShaderNodeCompareCondition) {
     classname := StringName.new("VisualShaderNodeCompare")
     fnname := StringName.new("set_condition")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 918742392)

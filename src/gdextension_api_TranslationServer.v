@@ -14,7 +14,7 @@ pub fn TranslationServer.get_singleton() TranslationServer {
     return o
 }
 
-pub fn (mut r TranslationServer) set_locale(locale string) {
+pub fn (r &TranslationServer) set_locale(locale string) {
     classname := StringName.new("TranslationServer")
     fnname := StringName.new("set_locale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -38,7 +38,7 @@ pub fn (r &TranslationServer) get_locale() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r TranslationServer) get_tool_locale() string {
+pub fn (r &TranslationServer) get_tool_locale() string {
     mut object_out := String{}
     classname := StringName.new("TranslationServer")
     fnname := StringName.new("get_tool_locale")
@@ -219,7 +219,7 @@ pub fn (r &TranslationServer) translate_plural(message string, plural_message st
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r TranslationServer) add_translation(translation Translation) {
+pub fn (r &TranslationServer) add_translation(translation Translation) {
     classname := StringName.new("TranslationServer")
     fnname := StringName.new("add_translation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1466479800)
@@ -229,7 +229,7 @@ pub fn (mut r TranslationServer) add_translation(translation Translation) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TranslationServer) remove_translation(translation Translation) {
+pub fn (r &TranslationServer) remove_translation(translation Translation) {
     classname := StringName.new("TranslationServer")
     fnname := StringName.new("remove_translation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1466479800)
@@ -239,7 +239,7 @@ pub fn (mut r TranslationServer) remove_translation(translation Translation) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TranslationServer) get_translation_object(locale string) Translation {
+pub fn (r &TranslationServer) get_translation_object(locale string) Translation {
     mut object_out := Translation{}
     classname := StringName.new("TranslationServer")
     fnname := StringName.new("get_translation_object")
@@ -253,7 +253,7 @@ pub fn (mut r TranslationServer) get_translation_object(locale string) Translati
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TranslationServer) clear() {
+pub fn (r &TranslationServer) clear() {
     classname := StringName.new("TranslationServer")
     fnname := StringName.new("clear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -281,7 +281,7 @@ pub fn (r &TranslationServer) is_pseudolocalization_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TranslationServer) set_pseudolocalization_enabled(enabled bool) {
+pub fn (r &TranslationServer) set_pseudolocalization_enabled(enabled bool) {
     classname := StringName.new("TranslationServer")
     fnname := StringName.new("set_pseudolocalization_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -291,7 +291,7 @@ pub fn (mut r TranslationServer) set_pseudolocalization_enabled(enabled bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TranslationServer) reload_pseudolocalization() {
+pub fn (r &TranslationServer) reload_pseudolocalization() {
     classname := StringName.new("TranslationServer")
     fnname := StringName.new("reload_pseudolocalization")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

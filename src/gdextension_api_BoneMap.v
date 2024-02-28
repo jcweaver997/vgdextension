@@ -15,7 +15,7 @@ pub fn (r &BoneMap) get_profile() SkeletonProfile {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BoneMap) set_profile(profile SkeletonProfile) {
+pub fn (r &BoneMap) set_profile(profile SkeletonProfile) {
     classname := StringName.new("BoneMap")
     fnname := StringName.new("set_profile")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3870374136)
@@ -41,7 +41,7 @@ pub fn (r &BoneMap) get_skeleton_bone_name(profile_bone_name string) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r BoneMap) set_skeleton_bone_name(profile_bone_name string, skeleton_bone_name string) {
+pub fn (r &BoneMap) set_skeleton_bone_name(profile_bone_name string, skeleton_bone_name string) {
     classname := StringName.new("BoneMap")
     fnname := StringName.new("set_skeleton_bone_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3740211285)

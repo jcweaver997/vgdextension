@@ -24,7 +24,7 @@ pub fn (r &NavigationServer2D) get_maps() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationServer2D) map_create() RID {
+pub fn (r &NavigationServer2D) map_create() RID {
     mut object_out := RID{}
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("map_create")
@@ -34,7 +34,7 @@ pub fn (mut r NavigationServer2D) map_create() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationServer2D) map_set_active(mape RID, active bool) {
+pub fn (r &NavigationServer2D) map_set_active(mape RID, active bool) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("map_set_active")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -57,7 +57,7 @@ pub fn (r &NavigationServer2D) map_is_active(mape RID) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationServer2D) map_set_cell_size(mape RID, cell_size f64) {
+pub fn (r &NavigationServer2D) map_set_cell_size(mape RID, cell_size f64) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("map_set_cell_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -80,7 +80,7 @@ pub fn (r &NavigationServer2D) map_get_cell_size(mape RID) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationServer2D) map_set_use_edge_connections(mape RID, enabled bool) {
+pub fn (r &NavigationServer2D) map_set_use_edge_connections(mape RID, enabled bool) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("map_set_use_edge_connections")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -103,7 +103,7 @@ pub fn (r &NavigationServer2D) map_get_use_edge_connections(mape RID) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationServer2D) map_set_edge_connection_margin(mape RID, margin f64) {
+pub fn (r &NavigationServer2D) map_set_edge_connection_margin(mape RID, margin f64) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("map_set_edge_connection_margin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -126,7 +126,7 @@ pub fn (r &NavigationServer2D) map_get_edge_connection_margin(mape RID) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationServer2D) map_set_link_connection_radius(mape RID, radius f64) {
+pub fn (r &NavigationServer2D) map_set_link_connection_radius(mape RID, radius f64) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("map_set_link_connection_radius")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -239,7 +239,7 @@ pub fn (r &NavigationServer2D) map_get_obstacles(mape RID) Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationServer2D) map_force_update(mape RID) {
+pub fn (r &NavigationServer2D) map_force_update(mape RID) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("map_force_update")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)
@@ -260,7 +260,7 @@ pub fn (r &NavigationServer2D) query_path(parameters NavigationPathQueryParamete
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationServer2D) region_create() RID {
+pub fn (r &NavigationServer2D) region_create() RID {
     mut object_out := RID{}
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("region_create")
@@ -270,7 +270,7 @@ pub fn (mut r NavigationServer2D) region_create() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationServer2D) region_set_enabled(region RID, enabled bool) {
+pub fn (r &NavigationServer2D) region_set_enabled(region RID, enabled bool) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("region_set_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -293,7 +293,7 @@ pub fn (r &NavigationServer2D) region_get_enabled(region RID) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationServer2D) region_set_use_edge_connections(region RID, enabled bool) {
+pub fn (r &NavigationServer2D) region_set_use_edge_connections(region RID, enabled bool) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("region_set_use_edge_connections")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -316,7 +316,7 @@ pub fn (r &NavigationServer2D) region_get_use_edge_connections(region RID) bool 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationServer2D) region_set_enter_cost(region RID, enter_cost f64) {
+pub fn (r &NavigationServer2D) region_set_enter_cost(region RID, enter_cost f64) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("region_set_enter_cost")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -339,7 +339,7 @@ pub fn (r &NavigationServer2D) region_get_enter_cost(region RID) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationServer2D) region_set_travel_cost(region RID, travel_cost f64) {
+pub fn (r &NavigationServer2D) region_set_travel_cost(region RID, travel_cost f64) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("region_set_travel_cost")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -362,7 +362,7 @@ pub fn (r &NavigationServer2D) region_get_travel_cost(region RID) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationServer2D) region_set_owner_id(region RID, owner_id u64) {
+pub fn (r &NavigationServer2D) region_set_owner_id(region RID, owner_id u64) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("region_set_owner_id")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -398,7 +398,7 @@ pub fn (r &NavigationServer2D) region_owns_point(region RID, point Vector2) bool
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationServer2D) region_set_map(region RID, mape RID) {
+pub fn (r &NavigationServer2D) region_set_map(region RID, mape RID) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("region_set_map")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -421,7 +421,7 @@ pub fn (r &NavigationServer2D) region_get_map(region RID) RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationServer2D) region_set_navigation_layers(region RID, navigation_layers u32) {
+pub fn (r &NavigationServer2D) region_set_navigation_layers(region RID, navigation_layers u32) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("region_set_navigation_layers")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -444,7 +444,7 @@ pub fn (r &NavigationServer2D) region_get_navigation_layers(region RID) u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationServer2D) region_set_transform(region RID, transform Transform2D) {
+pub fn (r &NavigationServer2D) region_set_transform(region RID, transform Transform2D) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("region_set_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1246044741)
@@ -455,7 +455,7 @@ pub fn (mut r NavigationServer2D) region_set_transform(region RID, transform Tra
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationServer2D) region_set_navigation_polygon(region RID, navigation_polygon NavigationPolygon) {
+pub fn (r &NavigationServer2D) region_set_navigation_polygon(region RID, navigation_polygon NavigationPolygon) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("region_set_navigation_polygon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3633623451)
@@ -504,7 +504,7 @@ pub fn (r &NavigationServer2D) region_get_connection_pathway_end(region RID, con
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationServer2D) link_create() RID {
+pub fn (r &NavigationServer2D) link_create() RID {
     mut object_out := RID{}
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("link_create")
@@ -514,7 +514,7 @@ pub fn (mut r NavigationServer2D) link_create() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationServer2D) link_set_map(link RID, mape RID) {
+pub fn (r &NavigationServer2D) link_set_map(link RID, mape RID) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("link_set_map")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -537,7 +537,7 @@ pub fn (r &NavigationServer2D) link_get_map(link RID) RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationServer2D) link_set_enabled(link RID, enabled bool) {
+pub fn (r &NavigationServer2D) link_set_enabled(link RID, enabled bool) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("link_set_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -560,7 +560,7 @@ pub fn (r &NavigationServer2D) link_get_enabled(link RID) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationServer2D) link_set_bidirectional(link RID, bidirectional bool) {
+pub fn (r &NavigationServer2D) link_set_bidirectional(link RID, bidirectional bool) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("link_set_bidirectional")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -583,7 +583,7 @@ pub fn (r &NavigationServer2D) link_is_bidirectional(link RID) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationServer2D) link_set_navigation_layers(link RID, navigation_layers u32) {
+pub fn (r &NavigationServer2D) link_set_navigation_layers(link RID, navigation_layers u32) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("link_set_navigation_layers")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -606,7 +606,7 @@ pub fn (r &NavigationServer2D) link_get_navigation_layers(link RID) u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationServer2D) link_set_start_position(link RID, position Vector2) {
+pub fn (r &NavigationServer2D) link_set_start_position(link RID, position Vector2) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("link_set_start_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3201125042)
@@ -629,7 +629,7 @@ pub fn (r &NavigationServer2D) link_get_start_position(link RID) Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationServer2D) link_set_end_position(link RID, position Vector2) {
+pub fn (r &NavigationServer2D) link_set_end_position(link RID, position Vector2) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("link_set_end_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3201125042)
@@ -652,7 +652,7 @@ pub fn (r &NavigationServer2D) link_get_end_position(link RID) Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationServer2D) link_set_enter_cost(link RID, enter_cost f64) {
+pub fn (r &NavigationServer2D) link_set_enter_cost(link RID, enter_cost f64) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("link_set_enter_cost")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -675,7 +675,7 @@ pub fn (r &NavigationServer2D) link_get_enter_cost(link RID) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationServer2D) link_set_travel_cost(link RID, travel_cost f64) {
+pub fn (r &NavigationServer2D) link_set_travel_cost(link RID, travel_cost f64) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("link_set_travel_cost")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -698,7 +698,7 @@ pub fn (r &NavigationServer2D) link_get_travel_cost(link RID) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationServer2D) link_set_owner_id(link RID, owner_id u64) {
+pub fn (r &NavigationServer2D) link_set_owner_id(link RID, owner_id u64) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("link_set_owner_id")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -721,7 +721,7 @@ pub fn (r &NavigationServer2D) link_get_owner_id(link RID) u64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationServer2D) agent_create() RID {
+pub fn (r &NavigationServer2D) agent_create() RID {
     mut object_out := RID{}
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("agent_create")
@@ -731,7 +731,7 @@ pub fn (mut r NavigationServer2D) agent_create() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationServer2D) agent_set_avoidance_enabled(agent RID, enabled bool) {
+pub fn (r &NavigationServer2D) agent_set_avoidance_enabled(agent RID, enabled bool) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("agent_set_avoidance_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -754,7 +754,7 @@ pub fn (r &NavigationServer2D) agent_get_avoidance_enabled(agent RID) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationServer2D) agent_set_map(agent RID, mape RID) {
+pub fn (r &NavigationServer2D) agent_set_map(agent RID, mape RID) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("agent_set_map")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -777,7 +777,7 @@ pub fn (r &NavigationServer2D) agent_get_map(agent RID) RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationServer2D) agent_set_paused(agent RID, paused bool) {
+pub fn (r &NavigationServer2D) agent_set_paused(agent RID, paused bool) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("agent_set_paused")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -800,7 +800,7 @@ pub fn (r &NavigationServer2D) agent_get_paused(agent RID) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationServer2D) agent_set_neighbor_distance(agent RID, distance f64) {
+pub fn (r &NavigationServer2D) agent_set_neighbor_distance(agent RID, distance f64) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("agent_set_neighbor_distance")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -811,7 +811,7 @@ pub fn (mut r NavigationServer2D) agent_set_neighbor_distance(agent RID, distanc
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationServer2D) agent_set_max_neighbors(agent RID, count i32) {
+pub fn (r &NavigationServer2D) agent_set_max_neighbors(agent RID, count i32) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("agent_set_max_neighbors")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -822,7 +822,7 @@ pub fn (mut r NavigationServer2D) agent_set_max_neighbors(agent RID, count i32) 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationServer2D) agent_set_time_horizon_agents(agent RID, time_horizon f64) {
+pub fn (r &NavigationServer2D) agent_set_time_horizon_agents(agent RID, time_horizon f64) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("agent_set_time_horizon_agents")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -833,7 +833,7 @@ pub fn (mut r NavigationServer2D) agent_set_time_horizon_agents(agent RID, time_
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationServer2D) agent_set_time_horizon_obstacles(agent RID, time_horizon f64) {
+pub fn (r &NavigationServer2D) agent_set_time_horizon_obstacles(agent RID, time_horizon f64) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("agent_set_time_horizon_obstacles")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -844,7 +844,7 @@ pub fn (mut r NavigationServer2D) agent_set_time_horizon_obstacles(agent RID, ti
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationServer2D) agent_set_radius(agent RID, radius f64) {
+pub fn (r &NavigationServer2D) agent_set_radius(agent RID, radius f64) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("agent_set_radius")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -855,7 +855,7 @@ pub fn (mut r NavigationServer2D) agent_set_radius(agent RID, radius f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationServer2D) agent_set_max_speed(agent RID, max_speed f64) {
+pub fn (r &NavigationServer2D) agent_set_max_speed(agent RID, max_speed f64) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("agent_set_max_speed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -866,7 +866,7 @@ pub fn (mut r NavigationServer2D) agent_set_max_speed(agent RID, max_speed f64) 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationServer2D) agent_set_velocity_forced(agent RID, velocity Vector2) {
+pub fn (r &NavigationServer2D) agent_set_velocity_forced(agent RID, velocity Vector2) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("agent_set_velocity_forced")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3201125042)
@@ -877,7 +877,7 @@ pub fn (mut r NavigationServer2D) agent_set_velocity_forced(agent RID, velocity 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationServer2D) agent_set_velocity(agent RID, velocity Vector2) {
+pub fn (r &NavigationServer2D) agent_set_velocity(agent RID, velocity Vector2) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("agent_set_velocity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3201125042)
@@ -888,7 +888,7 @@ pub fn (mut r NavigationServer2D) agent_set_velocity(agent RID, velocity Vector2
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationServer2D) agent_set_position(agent RID, position Vector2) {
+pub fn (r &NavigationServer2D) agent_set_position(agent RID, position Vector2) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("agent_set_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3201125042)
@@ -911,7 +911,7 @@ pub fn (r &NavigationServer2D) agent_is_map_changed(agent RID) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationServer2D) agent_set_avoidance_callback(agent RID, callback Callable) {
+pub fn (r &NavigationServer2D) agent_set_avoidance_callback(agent RID, callback Callable) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("agent_set_avoidance_callback")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3379118538)
@@ -922,7 +922,7 @@ pub fn (mut r NavigationServer2D) agent_set_avoidance_callback(agent RID, callba
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationServer2D) agent_set_avoidance_layers(agent RID, layers u32) {
+pub fn (r &NavigationServer2D) agent_set_avoidance_layers(agent RID, layers u32) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("agent_set_avoidance_layers")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -933,7 +933,7 @@ pub fn (mut r NavigationServer2D) agent_set_avoidance_layers(agent RID, layers u
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationServer2D) agent_set_avoidance_mask(agent RID, mask u32) {
+pub fn (r &NavigationServer2D) agent_set_avoidance_mask(agent RID, mask u32) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("agent_set_avoidance_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -944,7 +944,7 @@ pub fn (mut r NavigationServer2D) agent_set_avoidance_mask(agent RID, mask u32) 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationServer2D) agent_set_avoidance_priority(agent RID, priority f64) {
+pub fn (r &NavigationServer2D) agent_set_avoidance_priority(agent RID, priority f64) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("agent_set_avoidance_priority")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -955,7 +955,7 @@ pub fn (mut r NavigationServer2D) agent_set_avoidance_priority(agent RID, priori
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationServer2D) obstacle_create() RID {
+pub fn (r &NavigationServer2D) obstacle_create() RID {
     mut object_out := RID{}
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("obstacle_create")
@@ -965,7 +965,7 @@ pub fn (mut r NavigationServer2D) obstacle_create() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationServer2D) obstacle_set_avoidance_enabled(obstacle RID, enabled bool) {
+pub fn (r &NavigationServer2D) obstacle_set_avoidance_enabled(obstacle RID, enabled bool) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("obstacle_set_avoidance_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -988,7 +988,7 @@ pub fn (r &NavigationServer2D) obstacle_get_avoidance_enabled(obstacle RID) bool
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationServer2D) obstacle_set_map(obstacle RID, mape RID) {
+pub fn (r &NavigationServer2D) obstacle_set_map(obstacle RID, mape RID) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("obstacle_set_map")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -1011,7 +1011,7 @@ pub fn (r &NavigationServer2D) obstacle_get_map(obstacle RID) RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationServer2D) obstacle_set_paused(obstacle RID, paused bool) {
+pub fn (r &NavigationServer2D) obstacle_set_paused(obstacle RID, paused bool) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("obstacle_set_paused")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -1034,7 +1034,7 @@ pub fn (r &NavigationServer2D) obstacle_get_paused(obstacle RID) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationServer2D) obstacle_set_radius(obstacle RID, radius f64) {
+pub fn (r &NavigationServer2D) obstacle_set_radius(obstacle RID, radius f64) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("obstacle_set_radius")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -1045,7 +1045,7 @@ pub fn (mut r NavigationServer2D) obstacle_set_radius(obstacle RID, radius f64) 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationServer2D) obstacle_set_velocity(obstacle RID, velocity Vector2) {
+pub fn (r &NavigationServer2D) obstacle_set_velocity(obstacle RID, velocity Vector2) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("obstacle_set_velocity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3201125042)
@@ -1056,7 +1056,7 @@ pub fn (mut r NavigationServer2D) obstacle_set_velocity(obstacle RID, velocity V
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationServer2D) obstacle_set_position(obstacle RID, position Vector2) {
+pub fn (r &NavigationServer2D) obstacle_set_position(obstacle RID, position Vector2) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("obstacle_set_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3201125042)
@@ -1067,7 +1067,7 @@ pub fn (mut r NavigationServer2D) obstacle_set_position(obstacle RID, position V
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationServer2D) obstacle_set_vertices(obstacle RID, vertices PackedVector2Array) {
+pub fn (r &NavigationServer2D) obstacle_set_vertices(obstacle RID, vertices PackedVector2Array) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("obstacle_set_vertices")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 29476483)
@@ -1078,7 +1078,7 @@ pub fn (mut r NavigationServer2D) obstacle_set_vertices(obstacle RID, vertices P
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationServer2D) obstacle_set_avoidance_layers(obstacle RID, layers u32) {
+pub fn (r &NavigationServer2D) obstacle_set_avoidance_layers(obstacle RID, layers u32) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("obstacle_set_avoidance_layers")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -1089,7 +1089,7 @@ pub fn (mut r NavigationServer2D) obstacle_set_avoidance_layers(obstacle RID, la
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationServer2D) parse_source_geometry_data(navigation_polygon NavigationPolygon, source_geometry_data NavigationMeshSourceGeometryData2D, root_node Node, callback Callable) {
+pub fn (r &NavigationServer2D) parse_source_geometry_data(navigation_polygon NavigationPolygon, source_geometry_data NavigationMeshSourceGeometryData2D, root_node Node, callback Callable) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("parse_source_geometry_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1176164995)
@@ -1102,7 +1102,7 @@ pub fn (mut r NavigationServer2D) parse_source_geometry_data(navigation_polygon 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationServer2D) bake_from_source_geometry_data(navigation_polygon NavigationPolygon, source_geometry_data NavigationMeshSourceGeometryData2D, callback Callable) {
+pub fn (r &NavigationServer2D) bake_from_source_geometry_data(navigation_polygon NavigationPolygon, source_geometry_data NavigationMeshSourceGeometryData2D, callback Callable) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("bake_from_source_geometry_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2909414286)
@@ -1114,7 +1114,7 @@ pub fn (mut r NavigationServer2D) bake_from_source_geometry_data(navigation_poly
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationServer2D) bake_from_source_geometry_data_async(navigation_polygon NavigationPolygon, source_geometry_data NavigationMeshSourceGeometryData2D, callback Callable) {
+pub fn (r &NavigationServer2D) bake_from_source_geometry_data_async(navigation_polygon NavigationPolygon, source_geometry_data NavigationMeshSourceGeometryData2D, callback Callable) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("bake_from_source_geometry_data_async")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2909414286)
@@ -1126,7 +1126,7 @@ pub fn (mut r NavigationServer2D) bake_from_source_geometry_data_async(navigatio
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationServer2D) free_rid(rid RID) {
+pub fn (r &NavigationServer2D) free_rid(rid RID) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("free_rid")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)
@@ -1136,7 +1136,7 @@ pub fn (mut r NavigationServer2D) free_rid(rid RID) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationServer2D) set_debug_enabled(enabled bool) {
+pub fn (r &NavigationServer2D) set_debug_enabled(enabled bool) {
     classname := StringName.new("NavigationServer2D")
     fnname := StringName.new("set_debug_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

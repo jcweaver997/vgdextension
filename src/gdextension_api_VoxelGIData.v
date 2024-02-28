@@ -5,7 +5,7 @@ pub struct VoxelGIData {
     Resource
 }
 
-pub fn (mut r VoxelGIData) allocate(to_cell_xform Transform3D, aabb AABB, octree_size Vector3, octree_cells PackedByteArray, data_cells PackedByteArray, distance_field PackedByteArray, level_counts PackedInt32Array) {
+pub fn (r &VoxelGIData) allocate(to_cell_xform Transform3D, aabb AABB, octree_size Vector3, octree_cells PackedByteArray, data_cells PackedByteArray, distance_field PackedByteArray, level_counts PackedInt32Array) {
     classname := StringName.new("VoxelGIData")
     fnname := StringName.new("allocate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4041601946)
@@ -81,7 +81,7 @@ pub fn (r &VoxelGIData) get_level_counts() PackedInt32Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VoxelGIData) set_dynamic_range(dynamic_range f64) {
+pub fn (r &VoxelGIData) set_dynamic_range(dynamic_range f64) {
     classname := StringName.new("VoxelGIData")
     fnname := StringName.new("set_dynamic_range")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -101,7 +101,7 @@ pub fn (r &VoxelGIData) get_dynamic_range() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VoxelGIData) set_energy(energy f64) {
+pub fn (r &VoxelGIData) set_energy(energy f64) {
     classname := StringName.new("VoxelGIData")
     fnname := StringName.new("set_energy")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -121,7 +121,7 @@ pub fn (r &VoxelGIData) get_energy() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VoxelGIData) set_bias(bias f64) {
+pub fn (r &VoxelGIData) set_bias(bias f64) {
     classname := StringName.new("VoxelGIData")
     fnname := StringName.new("set_bias")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -141,7 +141,7 @@ pub fn (r &VoxelGIData) get_bias() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VoxelGIData) set_normal_bias(bias f64) {
+pub fn (r &VoxelGIData) set_normal_bias(bias f64) {
     classname := StringName.new("VoxelGIData")
     fnname := StringName.new("set_normal_bias")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -161,7 +161,7 @@ pub fn (r &VoxelGIData) get_normal_bias() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VoxelGIData) set_propagation(propagation f64) {
+pub fn (r &VoxelGIData) set_propagation(propagation f64) {
     classname := StringName.new("VoxelGIData")
     fnname := StringName.new("set_propagation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -181,7 +181,7 @@ pub fn (r &VoxelGIData) get_propagation() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VoxelGIData) set_interior(interior bool) {
+pub fn (r &VoxelGIData) set_interior(interior bool) {
     classname := StringName.new("VoxelGIData")
     fnname := StringName.new("set_interior")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -201,7 +201,7 @@ pub fn (r &VoxelGIData) is_interior() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VoxelGIData) set_use_two_bounces(enable bool) {
+pub fn (r &VoxelGIData) set_use_two_bounces(enable bool) {
     classname := StringName.new("VoxelGIData")
     fnname := StringName.new("set_use_two_bounces")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

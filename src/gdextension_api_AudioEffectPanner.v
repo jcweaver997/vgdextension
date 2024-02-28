@@ -5,7 +5,7 @@ pub struct AudioEffectPanner {
     AudioEffect
 }
 
-pub fn (mut r AudioEffectPanner) set_pan(cpanume f64) {
+pub fn (r &AudioEffectPanner) set_pan(cpanume f64) {
     classname := StringName.new("AudioEffectPanner")
     fnname := StringName.new("set_pan")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

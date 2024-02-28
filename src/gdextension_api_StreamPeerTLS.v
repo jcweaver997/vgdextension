@@ -13,7 +13,7 @@ pub struct StreamPeerTLS {
     StreamPeer
 }
 
-pub fn (mut r StreamPeerTLS) poll() {
+pub fn (r &StreamPeerTLS) poll() {
     classname := StringName.new("StreamPeerTLS")
     fnname := StringName.new("poll")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -21,7 +21,7 @@ pub fn (mut r StreamPeerTLS) poll() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r StreamPeerTLS) accept_stream(stream StreamPeer, server_options TLSOptions) GDError {
+pub fn (r &StreamPeerTLS) accept_stream(stream StreamPeer, server_options TLSOptions) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("StreamPeerTLS")
     fnname := StringName.new("accept_stream")
@@ -34,7 +34,7 @@ pub fn (mut r StreamPeerTLS) accept_stream(stream StreamPeer, server_options TLS
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r StreamPeerTLS) connect_to_stream(stream StreamPeer, common_name string, client_options TLSOptions) GDError {
+pub fn (r &StreamPeerTLS) connect_to_stream(stream StreamPeer, common_name string, client_options TLSOptions) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("StreamPeerTLS")
     fnname := StringName.new("connect_to_stream")
@@ -70,7 +70,7 @@ pub fn (r &StreamPeerTLS) get_stream() StreamPeer {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r StreamPeerTLS) disconnect_from_stream() {
+pub fn (r &StreamPeerTLS) disconnect_from_stream() {
     classname := StringName.new("StreamPeerTLS")
     fnname := StringName.new("disconnect_from_stream")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

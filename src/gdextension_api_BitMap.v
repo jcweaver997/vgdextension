@@ -5,7 +5,7 @@ pub struct BitMap {
     Resource
 }
 
-pub fn (mut r BitMap) create(size Vector2i) {
+pub fn (r &BitMap) create(size Vector2i) {
     classname := StringName.new("BitMap")
     fnname := StringName.new("create")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1130785943)
@@ -15,7 +15,7 @@ pub fn (mut r BitMap) create(size Vector2i) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r BitMap) create_from_image_alpha(image Image, threshold f64) {
+pub fn (r &BitMap) create_from_image_alpha(image Image, threshold f64) {
     classname := StringName.new("BitMap")
     fnname := StringName.new("create_from_image_alpha")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 106271684)
@@ -26,7 +26,7 @@ pub fn (mut r BitMap) create_from_image_alpha(image Image, threshold f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r BitMap) set_bitv(position Vector2i, bit bool) {
+pub fn (r &BitMap) set_bitv(position Vector2i, bit bool) {
     classname := StringName.new("BitMap")
     fnname := StringName.new("set_bitv")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4153096796)
@@ -37,7 +37,7 @@ pub fn (mut r BitMap) set_bitv(position Vector2i, bit bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r BitMap) set_bit(x i32, y i32, bit bool) {
+pub fn (r &BitMap) set_bit(x i32, y i32, bit bool) {
     classname := StringName.new("BitMap")
     fnname := StringName.new("set_bit")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1383440665)
@@ -74,7 +74,7 @@ pub fn (r &BitMap) get_bit(x i32, y i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BitMap) set_bit_rect(rect Rect2i, bit bool) {
+pub fn (r &BitMap) set_bit_rect(rect Rect2i, bit bool) {
     classname := StringName.new("BitMap")
     fnname := StringName.new("set_bit_rect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 472162941)
@@ -105,7 +105,7 @@ pub fn (r &BitMap) get_size() Vector2i {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BitMap) resize(new_size Vector2i) {
+pub fn (r &BitMap) resize(new_size Vector2i) {
     classname := StringName.new("BitMap")
     fnname := StringName.new("resize")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1130785943)
@@ -115,7 +115,7 @@ pub fn (mut r BitMap) resize(new_size Vector2i) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r BitMap) grow_mask(pixels i32, rect Rect2i) {
+pub fn (r &BitMap) grow_mask(pixels i32, rect Rect2i) {
     classname := StringName.new("BitMap")
     fnname := StringName.new("grow_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3317281434)

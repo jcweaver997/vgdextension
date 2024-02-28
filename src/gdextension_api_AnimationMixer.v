@@ -37,7 +37,7 @@ pub fn (r &AnimationMixer) upost_process_key_value(animation Animation, track i3
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationMixer) add_animation_library(name string, library AnimationLibrary) GDError {
+pub fn (r &AnimationMixer) add_animation_library(name string, library AnimationLibrary) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("AnimationMixer")
     fnname := StringName.new("add_animation_library")
@@ -52,7 +52,7 @@ pub fn (mut r AnimationMixer) add_animation_library(name string, library Animati
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r AnimationMixer) remove_animation_library(name string) {
+pub fn (r &AnimationMixer) remove_animation_library(name string) {
     classname := StringName.new("AnimationMixer")
     fnname := StringName.new("remove_animation_library")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -64,7 +64,7 @@ pub fn (mut r AnimationMixer) remove_animation_library(name string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AnimationMixer) rename_animation_library(name string, newname string) {
+pub fn (r &AnimationMixer) rename_animation_library(name string, newname string) {
     classname := StringName.new("AnimationMixer")
     fnname := StringName.new("rename_animation_library")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3740211285)
@@ -155,7 +155,7 @@ pub fn (r &AnimationMixer) get_animation_list() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationMixer) set_active(active bool) {
+pub fn (r &AnimationMixer) set_active(active bool) {
     classname := StringName.new("AnimationMixer")
     fnname := StringName.new("set_active")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -175,7 +175,7 @@ pub fn (r &AnimationMixer) is_active() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationMixer) set_deterministic(deterministic bool) {
+pub fn (r &AnimationMixer) set_deterministic(deterministic bool) {
     classname := StringName.new("AnimationMixer")
     fnname := StringName.new("set_deterministic")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -195,7 +195,7 @@ pub fn (r &AnimationMixer) is_deterministic() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationMixer) set_root_node(path NodePath) {
+pub fn (r &AnimationMixer) set_root_node(path NodePath) {
     classname := StringName.new("AnimationMixer")
     fnname := StringName.new("set_root_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1348162250)
@@ -215,7 +215,7 @@ pub fn (r &AnimationMixer) get_root_node() NodePath {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationMixer) set_callback_mode_process(mode AnimationMixerAnimationCallbackModeProcess) {
+pub fn (r &AnimationMixer) set_callback_mode_process(mode AnimationMixerAnimationCallbackModeProcess) {
     classname := StringName.new("AnimationMixer")
     fnname := StringName.new("set_callback_mode_process")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2153733086)
@@ -236,7 +236,7 @@ pub fn (r &AnimationMixer) get_callback_mode_process() AnimationMixerAnimationCa
     fnname.deinit()
    return unsafe{AnimationMixerAnimationCallbackModeProcess(object_out)}
 }
-pub fn (mut r AnimationMixer) set_callback_mode_method(mode AnimationMixerAnimationCallbackModeMethod) {
+pub fn (r &AnimationMixer) set_callback_mode_method(mode AnimationMixerAnimationCallbackModeMethod) {
     classname := StringName.new("AnimationMixer")
     fnname := StringName.new("set_callback_mode_method")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 742218271)
@@ -257,7 +257,7 @@ pub fn (r &AnimationMixer) get_callback_mode_method() AnimationMixerAnimationCal
     fnname.deinit()
    return unsafe{AnimationMixerAnimationCallbackModeMethod(object_out)}
 }
-pub fn (mut r AnimationMixer) set_audio_max_polyphony(max_polyphony i32) {
+pub fn (r &AnimationMixer) set_audio_max_polyphony(max_polyphony i32) {
     classname := StringName.new("AnimationMixer")
     fnname := StringName.new("set_audio_max_polyphony")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -277,7 +277,7 @@ pub fn (r &AnimationMixer) get_audio_max_polyphony() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationMixer) set_root_motion_track(path NodePath) {
+pub fn (r &AnimationMixer) set_root_motion_track(path NodePath) {
     classname := StringName.new("AnimationMixer")
     fnname := StringName.new("set_root_motion_track")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1348162250)
@@ -357,7 +357,7 @@ pub fn (r &AnimationMixer) get_root_motion_scale_accumulator() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationMixer) clear_caches() {
+pub fn (r &AnimationMixer) clear_caches() {
     classname := StringName.new("AnimationMixer")
     fnname := StringName.new("clear_caches")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -365,7 +365,7 @@ pub fn (mut r AnimationMixer) clear_caches() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AnimationMixer) advance(delta f64) {
+pub fn (r &AnimationMixer) advance(delta f64) {
     classname := StringName.new("AnimationMixer")
     fnname := StringName.new("advance")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -375,7 +375,7 @@ pub fn (mut r AnimationMixer) advance(delta f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AnimationMixer) set_reset_on_save_enabled(enabled bool) {
+pub fn (r &AnimationMixer) set_reset_on_save_enabled(enabled bool) {
     classname := StringName.new("AnimationMixer")
     fnname := StringName.new("set_reset_on_save_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

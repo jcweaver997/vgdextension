@@ -165,7 +165,7 @@ pub struct BaseMaterial3D {
     Material
 }
 
-pub fn (mut r BaseMaterial3D) set_albedo(albedo Color) {
+pub fn (r &BaseMaterial3D) set_albedo(albedo Color) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_albedo")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -185,7 +185,7 @@ pub fn (r &BaseMaterial3D) get_albedo() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_transparency(transparency BaseMaterial3DTransparency) {
+pub fn (r &BaseMaterial3D) set_transparency(transparency BaseMaterial3DTransparency) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_transparency")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3435651667)
@@ -206,7 +206,7 @@ pub fn (r &BaseMaterial3D) get_transparency() BaseMaterial3DTransparency {
     fnname.deinit()
    return unsafe{BaseMaterial3DTransparency(object_out)}
 }
-pub fn (mut r BaseMaterial3D) set_alpha_antialiasing(alpha_aa BaseMaterial3DAlphaAntiAliasing) {
+pub fn (r &BaseMaterial3D) set_alpha_antialiasing(alpha_aa BaseMaterial3DAlphaAntiAliasing) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_alpha_antialiasing")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3212649852)
@@ -227,7 +227,7 @@ pub fn (r &BaseMaterial3D) get_alpha_antialiasing() BaseMaterial3DAlphaAntiAlias
     fnname.deinit()
    return unsafe{BaseMaterial3DAlphaAntiAliasing(object_out)}
 }
-pub fn (mut r BaseMaterial3D) set_alpha_antialiasing_edge(edge f64) {
+pub fn (r &BaseMaterial3D) set_alpha_antialiasing_edge(edge f64) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_alpha_antialiasing_edge")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -247,7 +247,7 @@ pub fn (r &BaseMaterial3D) get_alpha_antialiasing_edge() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_shading_mode(shading_mode BaseMaterial3DShadingMode) {
+pub fn (r &BaseMaterial3D) set_shading_mode(shading_mode BaseMaterial3DShadingMode) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_shading_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3368750322)
@@ -268,7 +268,7 @@ pub fn (r &BaseMaterial3D) get_shading_mode() BaseMaterial3DShadingMode {
     fnname.deinit()
    return unsafe{BaseMaterial3DShadingMode(object_out)}
 }
-pub fn (mut r BaseMaterial3D) set_specular(specular f64) {
+pub fn (r &BaseMaterial3D) set_specular(specular f64) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_specular")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -288,7 +288,7 @@ pub fn (r &BaseMaterial3D) get_specular() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_metallic(metallic f64) {
+pub fn (r &BaseMaterial3D) set_metallic(metallic f64) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_metallic")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -308,7 +308,7 @@ pub fn (r &BaseMaterial3D) get_metallic() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_roughness(roughness f64) {
+pub fn (r &BaseMaterial3D) set_roughness(roughness f64) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_roughness")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -328,7 +328,7 @@ pub fn (r &BaseMaterial3D) get_roughness() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_emission(emission Color) {
+pub fn (r &BaseMaterial3D) set_emission(emission Color) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_emission")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -348,7 +348,7 @@ pub fn (r &BaseMaterial3D) get_emission() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_emission_energy_multiplier(emission_energy_multiplier f64) {
+pub fn (r &BaseMaterial3D) set_emission_energy_multiplier(emission_energy_multiplier f64) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_emission_energy_multiplier")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -368,7 +368,7 @@ pub fn (r &BaseMaterial3D) get_emission_energy_multiplier() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_emission_intensity(emission_energy_multiplier f64) {
+pub fn (r &BaseMaterial3D) set_emission_intensity(emission_energy_multiplier f64) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_emission_intensity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -388,7 +388,7 @@ pub fn (r &BaseMaterial3D) get_emission_intensity() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_normal_scale(normal_scale f64) {
+pub fn (r &BaseMaterial3D) set_normal_scale(normal_scale f64) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_normal_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -408,7 +408,7 @@ pub fn (r &BaseMaterial3D) get_normal_scale() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_rim(rim f64) {
+pub fn (r &BaseMaterial3D) set_rim(rim f64) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_rim")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -428,7 +428,7 @@ pub fn (r &BaseMaterial3D) get_rim() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_rim_tint(rim_tint f64) {
+pub fn (r &BaseMaterial3D) set_rim_tint(rim_tint f64) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_rim_tint")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -448,7 +448,7 @@ pub fn (r &BaseMaterial3D) get_rim_tint() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_clearcoat(clearcoat f64) {
+pub fn (r &BaseMaterial3D) set_clearcoat(clearcoat f64) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_clearcoat")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -468,7 +468,7 @@ pub fn (r &BaseMaterial3D) get_clearcoat() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_clearcoat_roughness(clearcoat_roughness f64) {
+pub fn (r &BaseMaterial3D) set_clearcoat_roughness(clearcoat_roughness f64) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_clearcoat_roughness")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -488,7 +488,7 @@ pub fn (r &BaseMaterial3D) get_clearcoat_roughness() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_anisotropy(anisotropy f64) {
+pub fn (r &BaseMaterial3D) set_anisotropy(anisotropy f64) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_anisotropy")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -508,7 +508,7 @@ pub fn (r &BaseMaterial3D) get_anisotropy() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_heightmap_scale(heightmap_scale f64) {
+pub fn (r &BaseMaterial3D) set_heightmap_scale(heightmap_scale f64) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_heightmap_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -528,7 +528,7 @@ pub fn (r &BaseMaterial3D) get_heightmap_scale() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_subsurface_scattering_strength(strength f64) {
+pub fn (r &BaseMaterial3D) set_subsurface_scattering_strength(strength f64) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_subsurface_scattering_strength")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -548,7 +548,7 @@ pub fn (r &BaseMaterial3D) get_subsurface_scattering_strength() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_transmittance_color(color Color) {
+pub fn (r &BaseMaterial3D) set_transmittance_color(color Color) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_transmittance_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -568,7 +568,7 @@ pub fn (r &BaseMaterial3D) get_transmittance_color() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_transmittance_depth(depth f64) {
+pub fn (r &BaseMaterial3D) set_transmittance_depth(depth f64) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_transmittance_depth")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -588,7 +588,7 @@ pub fn (r &BaseMaterial3D) get_transmittance_depth() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_transmittance_boost(boost f64) {
+pub fn (r &BaseMaterial3D) set_transmittance_boost(boost f64) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_transmittance_boost")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -608,7 +608,7 @@ pub fn (r &BaseMaterial3D) get_transmittance_boost() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_backlight(backlight Color) {
+pub fn (r &BaseMaterial3D) set_backlight(backlight Color) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_backlight")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -628,7 +628,7 @@ pub fn (r &BaseMaterial3D) get_backlight() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_refraction(refraction f64) {
+pub fn (r &BaseMaterial3D) set_refraction(refraction f64) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_refraction")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -648,7 +648,7 @@ pub fn (r &BaseMaterial3D) get_refraction() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_point_size(point_size f64) {
+pub fn (r &BaseMaterial3D) set_point_size(point_size f64) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_point_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -668,7 +668,7 @@ pub fn (r &BaseMaterial3D) get_point_size() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_detail_uv(detail_uv BaseMaterial3DDetailUV) {
+pub fn (r &BaseMaterial3D) set_detail_uv(detail_uv BaseMaterial3DDetailUV) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_detail_uv")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 456801921)
@@ -689,7 +689,7 @@ pub fn (r &BaseMaterial3D) get_detail_uv() BaseMaterial3DDetailUV {
     fnname.deinit()
    return unsafe{BaseMaterial3DDetailUV(object_out)}
 }
-pub fn (mut r BaseMaterial3D) set_blend_mode(blend_mode BaseMaterial3DBlendMode) {
+pub fn (r &BaseMaterial3D) set_blend_mode(blend_mode BaseMaterial3DBlendMode) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_blend_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2830186259)
@@ -710,7 +710,7 @@ pub fn (r &BaseMaterial3D) get_blend_mode() BaseMaterial3DBlendMode {
     fnname.deinit()
    return unsafe{BaseMaterial3DBlendMode(object_out)}
 }
-pub fn (mut r BaseMaterial3D) set_depth_draw_mode(depth_draw_mode BaseMaterial3DDepthDrawMode) {
+pub fn (r &BaseMaterial3D) set_depth_draw_mode(depth_draw_mode BaseMaterial3DDepthDrawMode) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_depth_draw_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1456584748)
@@ -731,7 +731,7 @@ pub fn (r &BaseMaterial3D) get_depth_draw_mode() BaseMaterial3DDepthDrawMode {
     fnname.deinit()
    return unsafe{BaseMaterial3DDepthDrawMode(object_out)}
 }
-pub fn (mut r BaseMaterial3D) set_cull_mode(cull_mode BaseMaterial3DCullMode) {
+pub fn (r &BaseMaterial3D) set_cull_mode(cull_mode BaseMaterial3DCullMode) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_cull_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2338909218)
@@ -752,7 +752,7 @@ pub fn (r &BaseMaterial3D) get_cull_mode() BaseMaterial3DCullMode {
     fnname.deinit()
    return unsafe{BaseMaterial3DCullMode(object_out)}
 }
-pub fn (mut r BaseMaterial3D) set_diffuse_mode(diffuse_mode BaseMaterial3DDiffuseMode) {
+pub fn (r &BaseMaterial3D) set_diffuse_mode(diffuse_mode BaseMaterial3DDiffuseMode) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_diffuse_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1045299638)
@@ -773,7 +773,7 @@ pub fn (r &BaseMaterial3D) get_diffuse_mode() BaseMaterial3DDiffuseMode {
     fnname.deinit()
    return unsafe{BaseMaterial3DDiffuseMode(object_out)}
 }
-pub fn (mut r BaseMaterial3D) set_specular_mode(specular_mode BaseMaterial3DSpecularMode) {
+pub fn (r &BaseMaterial3D) set_specular_mode(specular_mode BaseMaterial3DSpecularMode) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_specular_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 584737147)
@@ -794,7 +794,7 @@ pub fn (r &BaseMaterial3D) get_specular_mode() BaseMaterial3DSpecularMode {
     fnname.deinit()
    return unsafe{BaseMaterial3DSpecularMode(object_out)}
 }
-pub fn (mut r BaseMaterial3D) set_flag(flag BaseMaterial3DFlags, enable bool) {
+pub fn (r &BaseMaterial3D) set_flag(flag BaseMaterial3DFlags, enable bool) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_flag")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3070159527)
@@ -819,7 +819,7 @@ pub fn (r &BaseMaterial3D) get_flag(flag BaseMaterial3DFlags) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_texture_filter(mode BaseMaterial3DTextureFilter) {
+pub fn (r &BaseMaterial3D) set_texture_filter(mode BaseMaterial3DTextureFilter) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_texture_filter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 22904437)
@@ -840,7 +840,7 @@ pub fn (r &BaseMaterial3D) get_texture_filter() BaseMaterial3DTextureFilter {
     fnname.deinit()
    return unsafe{BaseMaterial3DTextureFilter(object_out)}
 }
-pub fn (mut r BaseMaterial3D) set_feature(feature BaseMaterial3DFeature, enable bool) {
+pub fn (r &BaseMaterial3D) set_feature(feature BaseMaterial3DFeature, enable bool) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_feature")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2819288693)
@@ -865,7 +865,7 @@ pub fn (r &BaseMaterial3D) get_feature(feature BaseMaterial3DFeature) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_texture(param BaseMaterial3DTextureParam, texture Texture2D) {
+pub fn (r &BaseMaterial3D) set_texture(param BaseMaterial3DTextureParam, texture Texture2D) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 464208135)
@@ -890,7 +890,7 @@ pub fn (r &BaseMaterial3D) get_texture(param BaseMaterial3DTextureParam) Texture
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_detail_blend_mode(detail_blend_mode BaseMaterial3DBlendMode) {
+pub fn (r &BaseMaterial3D) set_detail_blend_mode(detail_blend_mode BaseMaterial3DBlendMode) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_detail_blend_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2830186259)
@@ -911,7 +911,7 @@ pub fn (r &BaseMaterial3D) get_detail_blend_mode() BaseMaterial3DBlendMode {
     fnname.deinit()
    return unsafe{BaseMaterial3DBlendMode(object_out)}
 }
-pub fn (mut r BaseMaterial3D) set_uv1_scale(scale Vector3) {
+pub fn (r &BaseMaterial3D) set_uv1_scale(scale Vector3) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_uv1_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -931,7 +931,7 @@ pub fn (r &BaseMaterial3D) get_uv1_scale() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_uv1_offset(offset Vector3) {
+pub fn (r &BaseMaterial3D) set_uv1_offset(offset Vector3) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_uv1_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -951,7 +951,7 @@ pub fn (r &BaseMaterial3D) get_uv1_offset() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_uv1_triplanar_blend_sharpness(sharpness f64) {
+pub fn (r &BaseMaterial3D) set_uv1_triplanar_blend_sharpness(sharpness f64) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_uv1_triplanar_blend_sharpness")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -971,7 +971,7 @@ pub fn (r &BaseMaterial3D) get_uv1_triplanar_blend_sharpness() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_uv2_scale(scale Vector3) {
+pub fn (r &BaseMaterial3D) set_uv2_scale(scale Vector3) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_uv2_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -991,7 +991,7 @@ pub fn (r &BaseMaterial3D) get_uv2_scale() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_uv2_offset(offset Vector3) {
+pub fn (r &BaseMaterial3D) set_uv2_offset(offset Vector3) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_uv2_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -1011,7 +1011,7 @@ pub fn (r &BaseMaterial3D) get_uv2_offset() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_uv2_triplanar_blend_sharpness(sharpness f64) {
+pub fn (r &BaseMaterial3D) set_uv2_triplanar_blend_sharpness(sharpness f64) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_uv2_triplanar_blend_sharpness")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -1031,7 +1031,7 @@ pub fn (r &BaseMaterial3D) get_uv2_triplanar_blend_sharpness() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_billboard_mode(mode BaseMaterial3DBillboardMode) {
+pub fn (r &BaseMaterial3D) set_billboard_mode(mode BaseMaterial3DBillboardMode) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_billboard_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4202036497)
@@ -1052,7 +1052,7 @@ pub fn (r &BaseMaterial3D) get_billboard_mode() BaseMaterial3DBillboardMode {
     fnname.deinit()
    return unsafe{BaseMaterial3DBillboardMode(object_out)}
 }
-pub fn (mut r BaseMaterial3D) set_particles_anim_h_frames(frames i32) {
+pub fn (r &BaseMaterial3D) set_particles_anim_h_frames(frames i32) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_particles_anim_h_frames")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -1072,7 +1072,7 @@ pub fn (r &BaseMaterial3D) get_particles_anim_h_frames() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_particles_anim_v_frames(frames i32) {
+pub fn (r &BaseMaterial3D) set_particles_anim_v_frames(frames i32) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_particles_anim_v_frames")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -1092,7 +1092,7 @@ pub fn (r &BaseMaterial3D) get_particles_anim_v_frames() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_particles_anim_loop(loop bool) {
+pub fn (r &BaseMaterial3D) set_particles_anim_loop(loop bool) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_particles_anim_loop")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -1112,7 +1112,7 @@ pub fn (r &BaseMaterial3D) get_particles_anim_loop() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_heightmap_deep_parallax(enable bool) {
+pub fn (r &BaseMaterial3D) set_heightmap_deep_parallax(enable bool) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_heightmap_deep_parallax")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -1132,7 +1132,7 @@ pub fn (r &BaseMaterial3D) is_heightmap_deep_parallax_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_heightmap_deep_parallax_min_layers(layer i32) {
+pub fn (r &BaseMaterial3D) set_heightmap_deep_parallax_min_layers(layer i32) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_heightmap_deep_parallax_min_layers")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -1152,7 +1152,7 @@ pub fn (r &BaseMaterial3D) get_heightmap_deep_parallax_min_layers() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_heightmap_deep_parallax_max_layers(layer i32) {
+pub fn (r &BaseMaterial3D) set_heightmap_deep_parallax_max_layers(layer i32) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_heightmap_deep_parallax_max_layers")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -1172,7 +1172,7 @@ pub fn (r &BaseMaterial3D) get_heightmap_deep_parallax_max_layers() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_heightmap_deep_parallax_flip_tangent(flip bool) {
+pub fn (r &BaseMaterial3D) set_heightmap_deep_parallax_flip_tangent(flip bool) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_heightmap_deep_parallax_flip_tangent")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -1192,7 +1192,7 @@ pub fn (r &BaseMaterial3D) get_heightmap_deep_parallax_flip_tangent() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_heightmap_deep_parallax_flip_binormal(flip bool) {
+pub fn (r &BaseMaterial3D) set_heightmap_deep_parallax_flip_binormal(flip bool) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_heightmap_deep_parallax_flip_binormal")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -1212,7 +1212,7 @@ pub fn (r &BaseMaterial3D) get_heightmap_deep_parallax_flip_binormal() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_grow(amount f64) {
+pub fn (r &BaseMaterial3D) set_grow(amount f64) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_grow")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -1232,7 +1232,7 @@ pub fn (r &BaseMaterial3D) get_grow() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_emission_operator(operator BaseMaterial3DEmissionOperator) {
+pub fn (r &BaseMaterial3D) set_emission_operator(operator BaseMaterial3DEmissionOperator) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_emission_operator")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3825128922)
@@ -1253,7 +1253,7 @@ pub fn (r &BaseMaterial3D) get_emission_operator() BaseMaterial3DEmissionOperato
     fnname.deinit()
    return unsafe{BaseMaterial3DEmissionOperator(object_out)}
 }
-pub fn (mut r BaseMaterial3D) set_ao_light_affect(amount f64) {
+pub fn (r &BaseMaterial3D) set_ao_light_affect(amount f64) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_ao_light_affect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -1273,7 +1273,7 @@ pub fn (r &BaseMaterial3D) get_ao_light_affect() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_alpha_scissor_threshold(threshold f64) {
+pub fn (r &BaseMaterial3D) set_alpha_scissor_threshold(threshold f64) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_alpha_scissor_threshold")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -1293,7 +1293,7 @@ pub fn (r &BaseMaterial3D) get_alpha_scissor_threshold() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_alpha_hash_scale(threshold f64) {
+pub fn (r &BaseMaterial3D) set_alpha_hash_scale(threshold f64) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_alpha_hash_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -1313,7 +1313,7 @@ pub fn (r &BaseMaterial3D) get_alpha_hash_scale() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_grow_enabled(enable bool) {
+pub fn (r &BaseMaterial3D) set_grow_enabled(enable bool) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_grow_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -1333,7 +1333,7 @@ pub fn (r &BaseMaterial3D) is_grow_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_metallic_texture_channel(channel BaseMaterial3DTextureChannel) {
+pub fn (r &BaseMaterial3D) set_metallic_texture_channel(channel BaseMaterial3DTextureChannel) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_metallic_texture_channel")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 744167988)
@@ -1354,7 +1354,7 @@ pub fn (r &BaseMaterial3D) get_metallic_texture_channel() BaseMaterial3DTextureC
     fnname.deinit()
    return unsafe{BaseMaterial3DTextureChannel(object_out)}
 }
-pub fn (mut r BaseMaterial3D) set_roughness_texture_channel(channel BaseMaterial3DTextureChannel) {
+pub fn (r &BaseMaterial3D) set_roughness_texture_channel(channel BaseMaterial3DTextureChannel) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_roughness_texture_channel")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 744167988)
@@ -1375,7 +1375,7 @@ pub fn (r &BaseMaterial3D) get_roughness_texture_channel() BaseMaterial3DTexture
     fnname.deinit()
    return unsafe{BaseMaterial3DTextureChannel(object_out)}
 }
-pub fn (mut r BaseMaterial3D) set_ao_texture_channel(channel BaseMaterial3DTextureChannel) {
+pub fn (r &BaseMaterial3D) set_ao_texture_channel(channel BaseMaterial3DTextureChannel) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_ao_texture_channel")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 744167988)
@@ -1396,7 +1396,7 @@ pub fn (r &BaseMaterial3D) get_ao_texture_channel() BaseMaterial3DTextureChannel
     fnname.deinit()
    return unsafe{BaseMaterial3DTextureChannel(object_out)}
 }
-pub fn (mut r BaseMaterial3D) set_refraction_texture_channel(channel BaseMaterial3DTextureChannel) {
+pub fn (r &BaseMaterial3D) set_refraction_texture_channel(channel BaseMaterial3DTextureChannel) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_refraction_texture_channel")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 744167988)
@@ -1417,7 +1417,7 @@ pub fn (r &BaseMaterial3D) get_refraction_texture_channel() BaseMaterial3DTextur
     fnname.deinit()
    return unsafe{BaseMaterial3DTextureChannel(object_out)}
 }
-pub fn (mut r BaseMaterial3D) set_proximity_fade_enabled(enabled bool) {
+pub fn (r &BaseMaterial3D) set_proximity_fade_enabled(enabled bool) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_proximity_fade_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -1437,7 +1437,7 @@ pub fn (r &BaseMaterial3D) is_proximity_fade_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_proximity_fade_distance(distance f64) {
+pub fn (r &BaseMaterial3D) set_proximity_fade_distance(distance f64) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_proximity_fade_distance")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -1457,7 +1457,7 @@ pub fn (r &BaseMaterial3D) get_proximity_fade_distance() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_msdf_pixel_range(range f64) {
+pub fn (r &BaseMaterial3D) set_msdf_pixel_range(range f64) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_msdf_pixel_range")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -1477,7 +1477,7 @@ pub fn (r &BaseMaterial3D) get_msdf_pixel_range() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_msdf_outline_size(size f64) {
+pub fn (r &BaseMaterial3D) set_msdf_outline_size(size f64) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_msdf_outline_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -1497,7 +1497,7 @@ pub fn (r &BaseMaterial3D) get_msdf_outline_size() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_distance_fade(mode BaseMaterial3DDistanceFadeMode) {
+pub fn (r &BaseMaterial3D) set_distance_fade(mode BaseMaterial3DDistanceFadeMode) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_distance_fade")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1379478617)
@@ -1518,7 +1518,7 @@ pub fn (r &BaseMaterial3D) get_distance_fade() BaseMaterial3DDistanceFadeMode {
     fnname.deinit()
    return unsafe{BaseMaterial3DDistanceFadeMode(object_out)}
 }
-pub fn (mut r BaseMaterial3D) set_distance_fade_max_distance(distance f64) {
+pub fn (r &BaseMaterial3D) set_distance_fade_max_distance(distance f64) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_distance_fade_max_distance")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -1538,7 +1538,7 @@ pub fn (r &BaseMaterial3D) get_distance_fade_max_distance() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BaseMaterial3D) set_distance_fade_min_distance(distance f64) {
+pub fn (r &BaseMaterial3D) set_distance_fade_min_distance(distance f64) {
     classname := StringName.new("BaseMaterial3D")
     fnname := StringName.new("set_distance_fade_min_distance")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

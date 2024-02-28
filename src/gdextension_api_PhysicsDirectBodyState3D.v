@@ -95,7 +95,7 @@ pub fn (r &PhysicsDirectBodyState3D) get_inverse_inertia_tensor() Basis {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsDirectBodyState3D) set_linear_velocity(velocity Vector3) {
+pub fn (r &PhysicsDirectBodyState3D) set_linear_velocity(velocity Vector3) {
     classname := StringName.new("PhysicsDirectBodyState3D")
     fnname := StringName.new("set_linear_velocity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -115,7 +115,7 @@ pub fn (r &PhysicsDirectBodyState3D) get_linear_velocity() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsDirectBodyState3D) set_angular_velocity(velocity Vector3) {
+pub fn (r &PhysicsDirectBodyState3D) set_angular_velocity(velocity Vector3) {
     classname := StringName.new("PhysicsDirectBodyState3D")
     fnname := StringName.new("set_angular_velocity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -135,7 +135,7 @@ pub fn (r &PhysicsDirectBodyState3D) get_angular_velocity() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsDirectBodyState3D) set_transform(transform Transform3D) {
+pub fn (r &PhysicsDirectBodyState3D) set_transform(transform Transform3D) {
     classname := StringName.new("PhysicsDirectBodyState3D")
     fnname := StringName.new("set_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2952846383)
@@ -167,7 +167,7 @@ pub fn (r &PhysicsDirectBodyState3D) get_velocity_at_local_position(local_positi
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsDirectBodyState3D) apply_central_impulse(impulse Vector3) {
+pub fn (r &PhysicsDirectBodyState3D) apply_central_impulse(impulse Vector3) {
     classname := StringName.new("PhysicsDirectBodyState3D")
     fnname := StringName.new("apply_central_impulse")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2007698547)
@@ -177,7 +177,7 @@ pub fn (mut r PhysicsDirectBodyState3D) apply_central_impulse(impulse Vector3) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PhysicsDirectBodyState3D) apply_impulse(impulse Vector3, position Vector3) {
+pub fn (r &PhysicsDirectBodyState3D) apply_impulse(impulse Vector3, position Vector3) {
     classname := StringName.new("PhysicsDirectBodyState3D")
     fnname := StringName.new("apply_impulse")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2754756483)
@@ -188,7 +188,7 @@ pub fn (mut r PhysicsDirectBodyState3D) apply_impulse(impulse Vector3, position 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PhysicsDirectBodyState3D) apply_torque_impulse(impulse Vector3) {
+pub fn (r &PhysicsDirectBodyState3D) apply_torque_impulse(impulse Vector3) {
     classname := StringName.new("PhysicsDirectBodyState3D")
     fnname := StringName.new("apply_torque_impulse")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -198,7 +198,7 @@ pub fn (mut r PhysicsDirectBodyState3D) apply_torque_impulse(impulse Vector3) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PhysicsDirectBodyState3D) apply_central_force(force Vector3) {
+pub fn (r &PhysicsDirectBodyState3D) apply_central_force(force Vector3) {
     classname := StringName.new("PhysicsDirectBodyState3D")
     fnname := StringName.new("apply_central_force")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2007698547)
@@ -208,7 +208,7 @@ pub fn (mut r PhysicsDirectBodyState3D) apply_central_force(force Vector3) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PhysicsDirectBodyState3D) apply_force(force Vector3, position Vector3) {
+pub fn (r &PhysicsDirectBodyState3D) apply_force(force Vector3, position Vector3) {
     classname := StringName.new("PhysicsDirectBodyState3D")
     fnname := StringName.new("apply_force")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2754756483)
@@ -219,7 +219,7 @@ pub fn (mut r PhysicsDirectBodyState3D) apply_force(force Vector3, position Vect
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PhysicsDirectBodyState3D) apply_torque(torque Vector3) {
+pub fn (r &PhysicsDirectBodyState3D) apply_torque(torque Vector3) {
     classname := StringName.new("PhysicsDirectBodyState3D")
     fnname := StringName.new("apply_torque")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -229,7 +229,7 @@ pub fn (mut r PhysicsDirectBodyState3D) apply_torque(torque Vector3) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PhysicsDirectBodyState3D) add_constant_central_force(force Vector3) {
+pub fn (r &PhysicsDirectBodyState3D) add_constant_central_force(force Vector3) {
     classname := StringName.new("PhysicsDirectBodyState3D")
     fnname := StringName.new("add_constant_central_force")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2007698547)
@@ -239,7 +239,7 @@ pub fn (mut r PhysicsDirectBodyState3D) add_constant_central_force(force Vector3
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PhysicsDirectBodyState3D) add_constant_force(force Vector3, position Vector3) {
+pub fn (r &PhysicsDirectBodyState3D) add_constant_force(force Vector3, position Vector3) {
     classname := StringName.new("PhysicsDirectBodyState3D")
     fnname := StringName.new("add_constant_force")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2754756483)
@@ -250,7 +250,7 @@ pub fn (mut r PhysicsDirectBodyState3D) add_constant_force(force Vector3, positi
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PhysicsDirectBodyState3D) add_constant_torque(torque Vector3) {
+pub fn (r &PhysicsDirectBodyState3D) add_constant_torque(torque Vector3) {
     classname := StringName.new("PhysicsDirectBodyState3D")
     fnname := StringName.new("add_constant_torque")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -260,7 +260,7 @@ pub fn (mut r PhysicsDirectBodyState3D) add_constant_torque(torque Vector3) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PhysicsDirectBodyState3D) set_constant_force(force Vector3) {
+pub fn (r &PhysicsDirectBodyState3D) set_constant_force(force Vector3) {
     classname := StringName.new("PhysicsDirectBodyState3D")
     fnname := StringName.new("set_constant_force")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -280,7 +280,7 @@ pub fn (r &PhysicsDirectBodyState3D) get_constant_force() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsDirectBodyState3D) set_constant_torque(torque Vector3) {
+pub fn (r &PhysicsDirectBodyState3D) set_constant_torque(torque Vector3) {
     classname := StringName.new("PhysicsDirectBodyState3D")
     fnname := StringName.new("set_constant_torque")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -300,7 +300,7 @@ pub fn (r &PhysicsDirectBodyState3D) get_constant_torque() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsDirectBodyState3D) set_sleep_state(enabled bool) {
+pub fn (r &PhysicsDirectBodyState3D) set_sleep_state(enabled bool) {
     classname := StringName.new("PhysicsDirectBodyState3D")
     fnname := StringName.new("set_sleep_state")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -472,7 +472,7 @@ pub fn (r &PhysicsDirectBodyState3D) get_step() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsDirectBodyState3D) integrate_forces() {
+pub fn (r &PhysicsDirectBodyState3D) integrate_forces() {
     classname := StringName.new("PhysicsDirectBodyState3D")
     fnname := StringName.new("integrate_forces")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -480,7 +480,7 @@ pub fn (mut r PhysicsDirectBodyState3D) integrate_forces() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PhysicsDirectBodyState3D) get_space_state() PhysicsDirectSpaceState3D {
+pub fn (r &PhysicsDirectBodyState3D) get_space_state() PhysicsDirectSpaceState3D {
     mut object_out := PhysicsDirectSpaceState3D{}
     classname := StringName.new("PhysicsDirectBodyState3D")
     fnname := StringName.new("get_space_state")

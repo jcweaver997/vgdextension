@@ -5,7 +5,7 @@ pub struct VisualShaderNodeColorConstant {
     VisualShaderNodeConstant
 }
 
-pub fn (mut r VisualShaderNodeColorConstant) set_constant(constant Color) {
+pub fn (r &VisualShaderNodeColorConstant) set_constant(constant Color) {
     classname := StringName.new("VisualShaderNodeColorConstant")
     fnname := StringName.new("set_constant")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)

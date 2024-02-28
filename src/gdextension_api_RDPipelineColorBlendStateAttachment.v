@@ -5,7 +5,7 @@ pub struct RDPipelineColorBlendStateAttachment {
     RefCounted
 }
 
-pub fn (mut r RDPipelineColorBlendStateAttachment) set_as_mix() {
+pub fn (r &RDPipelineColorBlendStateAttachment) set_as_mix() {
     classname := StringName.new("RDPipelineColorBlendStateAttachment")
     fnname := StringName.new("set_as_mix")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -13,7 +13,7 @@ pub fn (mut r RDPipelineColorBlendStateAttachment) set_as_mix() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RDPipelineColorBlendStateAttachment) set_enable_blend(p_member bool) {
+pub fn (r &RDPipelineColorBlendStateAttachment) set_enable_blend(p_member bool) {
     classname := StringName.new("RDPipelineColorBlendStateAttachment")
     fnname := StringName.new("set_enable_blend")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -33,7 +33,7 @@ pub fn (r &RDPipelineColorBlendStateAttachment) get_enable_blend() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDPipelineColorBlendStateAttachment) set_src_color_blend_factor(p_member RenderingDeviceBlendFactor) {
+pub fn (r &RDPipelineColorBlendStateAttachment) set_src_color_blend_factor(p_member RenderingDeviceBlendFactor) {
     classname := StringName.new("RDPipelineColorBlendStateAttachment")
     fnname := StringName.new("set_src_color_blend_factor")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2251019273)
@@ -54,7 +54,7 @@ pub fn (r &RDPipelineColorBlendStateAttachment) get_src_color_blend_factor() Ren
     fnname.deinit()
    return unsafe{RenderingDeviceBlendFactor(object_out)}
 }
-pub fn (mut r RDPipelineColorBlendStateAttachment) set_dst_color_blend_factor(p_member RenderingDeviceBlendFactor) {
+pub fn (r &RDPipelineColorBlendStateAttachment) set_dst_color_blend_factor(p_member RenderingDeviceBlendFactor) {
     classname := StringName.new("RDPipelineColorBlendStateAttachment")
     fnname := StringName.new("set_dst_color_blend_factor")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2251019273)
@@ -75,7 +75,7 @@ pub fn (r &RDPipelineColorBlendStateAttachment) get_dst_color_blend_factor() Ren
     fnname.deinit()
    return unsafe{RenderingDeviceBlendFactor(object_out)}
 }
-pub fn (mut r RDPipelineColorBlendStateAttachment) set_color_blend_op(p_member RenderingDeviceBlendOperation) {
+pub fn (r &RDPipelineColorBlendStateAttachment) set_color_blend_op(p_member RenderingDeviceBlendOperation) {
     classname := StringName.new("RDPipelineColorBlendStateAttachment")
     fnname := StringName.new("set_color_blend_op")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3073022720)
@@ -96,7 +96,7 @@ pub fn (r &RDPipelineColorBlendStateAttachment) get_color_blend_op() RenderingDe
     fnname.deinit()
    return unsafe{RenderingDeviceBlendOperation(object_out)}
 }
-pub fn (mut r RDPipelineColorBlendStateAttachment) set_src_alpha_blend_factor(p_member RenderingDeviceBlendFactor) {
+pub fn (r &RDPipelineColorBlendStateAttachment) set_src_alpha_blend_factor(p_member RenderingDeviceBlendFactor) {
     classname := StringName.new("RDPipelineColorBlendStateAttachment")
     fnname := StringName.new("set_src_alpha_blend_factor")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2251019273)
@@ -117,7 +117,7 @@ pub fn (r &RDPipelineColorBlendStateAttachment) get_src_alpha_blend_factor() Ren
     fnname.deinit()
    return unsafe{RenderingDeviceBlendFactor(object_out)}
 }
-pub fn (mut r RDPipelineColorBlendStateAttachment) set_dst_alpha_blend_factor(p_member RenderingDeviceBlendFactor) {
+pub fn (r &RDPipelineColorBlendStateAttachment) set_dst_alpha_blend_factor(p_member RenderingDeviceBlendFactor) {
     classname := StringName.new("RDPipelineColorBlendStateAttachment")
     fnname := StringName.new("set_dst_alpha_blend_factor")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2251019273)
@@ -138,7 +138,7 @@ pub fn (r &RDPipelineColorBlendStateAttachment) get_dst_alpha_blend_factor() Ren
     fnname.deinit()
    return unsafe{RenderingDeviceBlendFactor(object_out)}
 }
-pub fn (mut r RDPipelineColorBlendStateAttachment) set_alpha_blend_op(p_member RenderingDeviceBlendOperation) {
+pub fn (r &RDPipelineColorBlendStateAttachment) set_alpha_blend_op(p_member RenderingDeviceBlendOperation) {
     classname := StringName.new("RDPipelineColorBlendStateAttachment")
     fnname := StringName.new("set_alpha_blend_op")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3073022720)
@@ -159,7 +159,7 @@ pub fn (r &RDPipelineColorBlendStateAttachment) get_alpha_blend_op() RenderingDe
     fnname.deinit()
    return unsafe{RenderingDeviceBlendOperation(object_out)}
 }
-pub fn (mut r RDPipelineColorBlendStateAttachment) set_write_r(p_member bool) {
+pub fn (r &RDPipelineColorBlendStateAttachment) set_write_r(p_member bool) {
     classname := StringName.new("RDPipelineColorBlendStateAttachment")
     fnname := StringName.new("set_write_r")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -179,7 +179,7 @@ pub fn (r &RDPipelineColorBlendStateAttachment) get_write_r() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDPipelineColorBlendStateAttachment) set_write_g(p_member bool) {
+pub fn (r &RDPipelineColorBlendStateAttachment) set_write_g(p_member bool) {
     classname := StringName.new("RDPipelineColorBlendStateAttachment")
     fnname := StringName.new("set_write_g")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -199,7 +199,7 @@ pub fn (r &RDPipelineColorBlendStateAttachment) get_write_g() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDPipelineColorBlendStateAttachment) set_write_b(p_member bool) {
+pub fn (r &RDPipelineColorBlendStateAttachment) set_write_b(p_member bool) {
     classname := StringName.new("RDPipelineColorBlendStateAttachment")
     fnname := StringName.new("set_write_b")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -219,7 +219,7 @@ pub fn (r &RDPipelineColorBlendStateAttachment) get_write_b() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDPipelineColorBlendStateAttachment) set_write_a(p_member bool) {
+pub fn (r &RDPipelineColorBlendStateAttachment) set_write_a(p_member bool) {
     classname := StringName.new("RDPipelineColorBlendStateAttachment")
     fnname := StringName.new("set_write_a")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

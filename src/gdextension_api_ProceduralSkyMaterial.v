@@ -5,7 +5,7 @@ pub struct ProceduralSkyMaterial {
     Material
 }
 
-pub fn (mut r ProceduralSkyMaterial) set_sky_top_color(color Color) {
+pub fn (r &ProceduralSkyMaterial) set_sky_top_color(color Color) {
     classname := StringName.new("ProceduralSkyMaterial")
     fnname := StringName.new("set_sky_top_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -25,7 +25,7 @@ pub fn (r &ProceduralSkyMaterial) get_sky_top_color() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ProceduralSkyMaterial) set_sky_horizon_color(color Color) {
+pub fn (r &ProceduralSkyMaterial) set_sky_horizon_color(color Color) {
     classname := StringName.new("ProceduralSkyMaterial")
     fnname := StringName.new("set_sky_horizon_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -45,7 +45,7 @@ pub fn (r &ProceduralSkyMaterial) get_sky_horizon_color() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ProceduralSkyMaterial) set_sky_curve(curve f64) {
+pub fn (r &ProceduralSkyMaterial) set_sky_curve(curve f64) {
     classname := StringName.new("ProceduralSkyMaterial")
     fnname := StringName.new("set_sky_curve")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -65,7 +65,7 @@ pub fn (r &ProceduralSkyMaterial) get_sky_curve() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ProceduralSkyMaterial) set_sky_energy_multiplier(multiplier f64) {
+pub fn (r &ProceduralSkyMaterial) set_sky_energy_multiplier(multiplier f64) {
     classname := StringName.new("ProceduralSkyMaterial")
     fnname := StringName.new("set_sky_energy_multiplier")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -85,7 +85,7 @@ pub fn (r &ProceduralSkyMaterial) get_sky_energy_multiplier() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ProceduralSkyMaterial) set_sky_cover(sky_cover Texture2D) {
+pub fn (r &ProceduralSkyMaterial) set_sky_cover(sky_cover Texture2D) {
     classname := StringName.new("ProceduralSkyMaterial")
     fnname := StringName.new("set_sky_cover")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
@@ -105,7 +105,7 @@ pub fn (r &ProceduralSkyMaterial) get_sky_cover() Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ProceduralSkyMaterial) set_sky_cover_modulate(color Color) {
+pub fn (r &ProceduralSkyMaterial) set_sky_cover_modulate(color Color) {
     classname := StringName.new("ProceduralSkyMaterial")
     fnname := StringName.new("set_sky_cover_modulate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -125,7 +125,7 @@ pub fn (r &ProceduralSkyMaterial) get_sky_cover_modulate() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ProceduralSkyMaterial) set_ground_bottom_color(color Color) {
+pub fn (r &ProceduralSkyMaterial) set_ground_bottom_color(color Color) {
     classname := StringName.new("ProceduralSkyMaterial")
     fnname := StringName.new("set_ground_bottom_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -145,7 +145,7 @@ pub fn (r &ProceduralSkyMaterial) get_ground_bottom_color() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ProceduralSkyMaterial) set_ground_horizon_color(color Color) {
+pub fn (r &ProceduralSkyMaterial) set_ground_horizon_color(color Color) {
     classname := StringName.new("ProceduralSkyMaterial")
     fnname := StringName.new("set_ground_horizon_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -165,7 +165,7 @@ pub fn (r &ProceduralSkyMaterial) get_ground_horizon_color() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ProceduralSkyMaterial) set_ground_curve(curve f64) {
+pub fn (r &ProceduralSkyMaterial) set_ground_curve(curve f64) {
     classname := StringName.new("ProceduralSkyMaterial")
     fnname := StringName.new("set_ground_curve")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -185,7 +185,7 @@ pub fn (r &ProceduralSkyMaterial) get_ground_curve() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ProceduralSkyMaterial) set_ground_energy_multiplier(energy f64) {
+pub fn (r &ProceduralSkyMaterial) set_ground_energy_multiplier(energy f64) {
     classname := StringName.new("ProceduralSkyMaterial")
     fnname := StringName.new("set_ground_energy_multiplier")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -205,7 +205,7 @@ pub fn (r &ProceduralSkyMaterial) get_ground_energy_multiplier() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ProceduralSkyMaterial) set_sun_angle_max(degrees f64) {
+pub fn (r &ProceduralSkyMaterial) set_sun_angle_max(degrees f64) {
     classname := StringName.new("ProceduralSkyMaterial")
     fnname := StringName.new("set_sun_angle_max")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -225,7 +225,7 @@ pub fn (r &ProceduralSkyMaterial) get_sun_angle_max() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ProceduralSkyMaterial) set_sun_curve(curve f64) {
+pub fn (r &ProceduralSkyMaterial) set_sun_curve(curve f64) {
     classname := StringName.new("ProceduralSkyMaterial")
     fnname := StringName.new("set_sun_curve")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -245,7 +245,7 @@ pub fn (r &ProceduralSkyMaterial) get_sun_curve() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ProceduralSkyMaterial) set_use_debanding(use_debanding bool) {
+pub fn (r &ProceduralSkyMaterial) set_use_debanding(use_debanding bool) {
     classname := StringName.new("ProceduralSkyMaterial")
     fnname := StringName.new("set_use_debanding")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

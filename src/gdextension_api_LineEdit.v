@@ -50,7 +50,7 @@ pub struct LineEdit {
     Control
 }
 
-pub fn (mut r LineEdit) set_horizontal_alignment(alignment HorizontalAlignment) {
+pub fn (r &LineEdit) set_horizontal_alignment(alignment HorizontalAlignment) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("set_horizontal_alignment")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2312603777)
@@ -71,7 +71,7 @@ pub fn (r &LineEdit) get_horizontal_alignment() HorizontalAlignment {
     fnname.deinit()
    return unsafe{HorizontalAlignment(object_out)}
 }
-pub fn (mut r LineEdit) clear() {
+pub fn (r &LineEdit) clear() {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("clear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -79,7 +79,7 @@ pub fn (mut r LineEdit) clear() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r LineEdit) gdselect(from i32, to i32) {
+pub fn (r &LineEdit) gdselect(from i32, to i32) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("select")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1328111411)
@@ -90,7 +90,7 @@ pub fn (mut r LineEdit) gdselect(from i32, to i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r LineEdit) select_all() {
+pub fn (r &LineEdit) select_all() {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("select_all")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -98,7 +98,7 @@ pub fn (mut r LineEdit) select_all() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r LineEdit) deselect() {
+pub fn (r &LineEdit) deselect() {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("deselect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -116,7 +116,7 @@ pub fn (r &LineEdit) has_selection() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LineEdit) get_selected_text() string {
+pub fn (r &LineEdit) get_selected_text() string {
     mut object_out := String{}
     classname := StringName.new("LineEdit")
     fnname := StringName.new("get_selected_text")
@@ -148,7 +148,7 @@ pub fn (r &LineEdit) get_selection_to_column() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LineEdit) set_text(text string) {
+pub fn (r &LineEdit) set_text(text string) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("set_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -182,7 +182,7 @@ pub fn (r &LineEdit) get_draw_control_chars() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LineEdit) set_draw_control_chars(enable bool) {
+pub fn (r &LineEdit) set_draw_control_chars(enable bool) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("set_draw_control_chars")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -192,7 +192,7 @@ pub fn (mut r LineEdit) set_draw_control_chars(enable bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r LineEdit) set_text_direction(direction ControlTextDirection) {
+pub fn (r &LineEdit) set_text_direction(direction ControlTextDirection) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("set_text_direction")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 119160795)
@@ -213,7 +213,7 @@ pub fn (r &LineEdit) get_text_direction() ControlTextDirection {
     fnname.deinit()
    return unsafe{ControlTextDirection(object_out)}
 }
-pub fn (mut r LineEdit) set_language(language string) {
+pub fn (r &LineEdit) set_language(language string) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("set_language")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -237,7 +237,7 @@ pub fn (r &LineEdit) get_language() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r LineEdit) set_structured_text_bidi_override(parser TextServerStructuredTextParser) {
+pub fn (r &LineEdit) set_structured_text_bidi_override(parser TextServerStructuredTextParser) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("set_structured_text_bidi_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 55961453)
@@ -258,7 +258,7 @@ pub fn (r &LineEdit) get_structured_text_bidi_override() TextServerStructuredTex
     fnname.deinit()
    return unsafe{TextServerStructuredTextParser(object_out)}
 }
-pub fn (mut r LineEdit) set_structured_text_bidi_override_options(gdargs Array) {
+pub fn (r &LineEdit) set_structured_text_bidi_override_options(gdargs Array) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("set_structured_text_bidi_override_options")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)
@@ -278,7 +278,7 @@ pub fn (r &LineEdit) get_structured_text_bidi_override_options() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LineEdit) set_placeholder(text string) {
+pub fn (r &LineEdit) set_placeholder(text string) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("set_placeholder")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -302,7 +302,7 @@ pub fn (r &LineEdit) get_placeholder() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r LineEdit) set_caret_column(position i32) {
+pub fn (r &LineEdit) set_caret_column(position i32) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("set_caret_column")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -332,7 +332,7 @@ pub fn (r &LineEdit) get_scroll_offset() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LineEdit) set_expand_to_text_length_enabled(enabled bool) {
+pub fn (r &LineEdit) set_expand_to_text_length_enabled(enabled bool) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("set_expand_to_text_length_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -352,7 +352,7 @@ pub fn (r &LineEdit) is_expand_to_text_length_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LineEdit) set_caret_blink_enabled(enabled bool) {
+pub fn (r &LineEdit) set_caret_blink_enabled(enabled bool) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("set_caret_blink_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -372,7 +372,7 @@ pub fn (r &LineEdit) is_caret_blink_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LineEdit) set_caret_mid_grapheme_enabled(enabled bool) {
+pub fn (r &LineEdit) set_caret_mid_grapheme_enabled(enabled bool) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("set_caret_mid_grapheme_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -392,7 +392,7 @@ pub fn (r &LineEdit) is_caret_mid_grapheme_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LineEdit) set_caret_force_displayed(enabled bool) {
+pub fn (r &LineEdit) set_caret_force_displayed(enabled bool) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("set_caret_force_displayed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -412,7 +412,7 @@ pub fn (r &LineEdit) is_caret_force_displayed() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LineEdit) set_caret_blink_interval(interval f64) {
+pub fn (r &LineEdit) set_caret_blink_interval(interval f64) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("set_caret_blink_interval")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -432,7 +432,7 @@ pub fn (r &LineEdit) get_caret_blink_interval() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LineEdit) set_max_length(chars i32) {
+pub fn (r &LineEdit) set_max_length(chars i32) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("set_max_length")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -452,7 +452,7 @@ pub fn (r &LineEdit) get_max_length() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LineEdit) insert_text_at_caret(text string) {
+pub fn (r &LineEdit) insert_text_at_caret(text string) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("insert_text_at_caret")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -464,7 +464,7 @@ pub fn (mut r LineEdit) insert_text_at_caret(text string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r LineEdit) delete_char_at_caret() {
+pub fn (r &LineEdit) delete_char_at_caret() {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("delete_char_at_caret")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -472,7 +472,7 @@ pub fn (mut r LineEdit) delete_char_at_caret() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r LineEdit) delete_text(from_column i32, to_column i32) {
+pub fn (r &LineEdit) delete_text(from_column i32, to_column i32) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("delete_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -483,7 +483,7 @@ pub fn (mut r LineEdit) delete_text(from_column i32, to_column i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r LineEdit) set_editable(enabled bool) {
+pub fn (r &LineEdit) set_editable(enabled bool) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("set_editable")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -503,7 +503,7 @@ pub fn (r &LineEdit) is_editable() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LineEdit) set_secret(enabled bool) {
+pub fn (r &LineEdit) set_secret(enabled bool) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("set_secret")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -523,7 +523,7 @@ pub fn (r &LineEdit) is_secret() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LineEdit) set_secret_character(character string) {
+pub fn (r &LineEdit) set_secret_character(character string) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("set_secret_character")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -547,7 +547,7 @@ pub fn (r &LineEdit) get_secret_character() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r LineEdit) menu_option(option i32) {
+pub fn (r &LineEdit) menu_option(option i32) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("menu_option")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -577,7 +577,7 @@ pub fn (r &LineEdit) is_menu_visible() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LineEdit) set_context_menu_enabled(enable bool) {
+pub fn (r &LineEdit) set_context_menu_enabled(enable bool) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("set_context_menu_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -587,7 +587,7 @@ pub fn (mut r LineEdit) set_context_menu_enabled(enable bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r LineEdit) is_context_menu_enabled() bool {
+pub fn (r &LineEdit) is_context_menu_enabled() bool {
     mut object_out := false
     classname := StringName.new("LineEdit")
     fnname := StringName.new("is_context_menu_enabled")
@@ -597,7 +597,7 @@ pub fn (mut r LineEdit) is_context_menu_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LineEdit) set_virtual_keyboard_enabled(enable bool) {
+pub fn (r &LineEdit) set_virtual_keyboard_enabled(enable bool) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("set_virtual_keyboard_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -617,7 +617,7 @@ pub fn (r &LineEdit) is_virtual_keyboard_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LineEdit) set_virtual_keyboard_type(type_name LineEditVirtualKeyboardType) {
+pub fn (r &LineEdit) set_virtual_keyboard_type(type_name LineEditVirtualKeyboardType) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("set_virtual_keyboard_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2696893573)
@@ -638,7 +638,7 @@ pub fn (r &LineEdit) get_virtual_keyboard_type() LineEditVirtualKeyboardType {
     fnname.deinit()
    return unsafe{LineEditVirtualKeyboardType(object_out)}
 }
-pub fn (mut r LineEdit) set_clear_button_enabled(enable bool) {
+pub fn (r &LineEdit) set_clear_button_enabled(enable bool) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("set_clear_button_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -658,7 +658,7 @@ pub fn (r &LineEdit) is_clear_button_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LineEdit) set_shortcut_keys_enabled(enable bool) {
+pub fn (r &LineEdit) set_shortcut_keys_enabled(enable bool) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("set_shortcut_keys_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -678,7 +678,7 @@ pub fn (r &LineEdit) is_shortcut_keys_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LineEdit) set_middle_mouse_paste_enabled(enable bool) {
+pub fn (r &LineEdit) set_middle_mouse_paste_enabled(enable bool) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("set_middle_mouse_paste_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -698,7 +698,7 @@ pub fn (r &LineEdit) is_middle_mouse_paste_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LineEdit) set_selecting_enabled(enable bool) {
+pub fn (r &LineEdit) set_selecting_enabled(enable bool) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("set_selecting_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -718,7 +718,7 @@ pub fn (r &LineEdit) is_selecting_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LineEdit) set_deselect_on_focus_loss_enabled(enable bool) {
+pub fn (r &LineEdit) set_deselect_on_focus_loss_enabled(enable bool) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("set_deselect_on_focus_loss_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -738,7 +738,7 @@ pub fn (r &LineEdit) is_deselect_on_focus_loss_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LineEdit) set_drag_and_drop_selection_enabled(enable bool) {
+pub fn (r &LineEdit) set_drag_and_drop_selection_enabled(enable bool) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("set_drag_and_drop_selection_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -758,7 +758,7 @@ pub fn (r &LineEdit) is_drag_and_drop_selection_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LineEdit) set_right_icon(icon Texture2D) {
+pub fn (r &LineEdit) set_right_icon(icon Texture2D) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("set_right_icon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
@@ -768,7 +768,7 @@ pub fn (mut r LineEdit) set_right_icon(icon Texture2D) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r LineEdit) get_right_icon() Texture2D {
+pub fn (r &LineEdit) get_right_icon() Texture2D {
     mut object_out := Texture2D{}
     classname := StringName.new("LineEdit")
     fnname := StringName.new("get_right_icon")
@@ -778,7 +778,7 @@ pub fn (mut r LineEdit) get_right_icon() Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LineEdit) set_flat(enabled bool) {
+pub fn (r &LineEdit) set_flat(enabled bool) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("set_flat")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -798,7 +798,7 @@ pub fn (r &LineEdit) is_flat() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LineEdit) set_select_all_on_focus(enabled bool) {
+pub fn (r &LineEdit) set_select_all_on_focus(enabled bool) {
     classname := StringName.new("LineEdit")
     fnname := StringName.new("set_select_all_on_focus")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

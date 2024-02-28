@@ -15,7 +15,7 @@ pub fn (r &Curve2D) get_point_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Curve2D) set_point_count(count i32) {
+pub fn (r &Curve2D) set_point_count(count i32) {
     classname := StringName.new("Curve2D")
     fnname := StringName.new("set_point_count")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -25,7 +25,7 @@ pub fn (mut r Curve2D) set_point_count(count i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Curve2D) add_point(position Vector2, gdin Vector2, out Vector2, index i32) {
+pub fn (r &Curve2D) add_point(position Vector2, gdin Vector2, out Vector2, index i32) {
     classname := StringName.new("Curve2D")
     fnname := StringName.new("add_point")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4175465202)
@@ -38,7 +38,7 @@ pub fn (mut r Curve2D) add_point(position Vector2, gdin Vector2, out Vector2, in
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Curve2D) set_point_position(idx i32, position Vector2) {
+pub fn (r &Curve2D) set_point_position(idx i32, position Vector2) {
     classname := StringName.new("Curve2D")
     fnname := StringName.new("set_point_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 163021252)
@@ -61,7 +61,7 @@ pub fn (r &Curve2D) get_point_position(idx i32) Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Curve2D) set_point_in(idx i32, position Vector2) {
+pub fn (r &Curve2D) set_point_in(idx i32, position Vector2) {
     classname := StringName.new("Curve2D")
     fnname := StringName.new("set_point_in")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 163021252)
@@ -84,7 +84,7 @@ pub fn (r &Curve2D) get_point_in(idx i32) Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Curve2D) set_point_out(idx i32, position Vector2) {
+pub fn (r &Curve2D) set_point_out(idx i32, position Vector2) {
     classname := StringName.new("Curve2D")
     fnname := StringName.new("set_point_out")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 163021252)
@@ -107,7 +107,7 @@ pub fn (r &Curve2D) get_point_out(idx i32) Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Curve2D) remove_point(idx i32) {
+pub fn (r &Curve2D) remove_point(idx i32) {
     classname := StringName.new("Curve2D")
     fnname := StringName.new("remove_point")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -117,7 +117,7 @@ pub fn (mut r Curve2D) remove_point(idx i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Curve2D) clear_points() {
+pub fn (r &Curve2D) clear_points() {
     classname := StringName.new("Curve2D")
     fnname := StringName.new("clear_points")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -150,7 +150,7 @@ pub fn (r &Curve2D) samplef(fofs f64) Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Curve2D) set_bake_interval(distance f64) {
+pub fn (r &Curve2D) set_bake_interval(distance f64) {
     classname := StringName.new("Curve2D")
     fnname := StringName.new("set_bake_interval")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

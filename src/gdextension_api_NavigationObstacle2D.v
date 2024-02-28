@@ -15,7 +15,7 @@ pub fn (r &NavigationObstacle2D) get_rid() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationObstacle2D) set_avoidance_enabled(enabled bool) {
+pub fn (r &NavigationObstacle2D) set_avoidance_enabled(enabled bool) {
     classname := StringName.new("NavigationObstacle2D")
     fnname := StringName.new("set_avoidance_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -35,7 +35,7 @@ pub fn (r &NavigationObstacle2D) get_avoidance_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationObstacle2D) set_navigation_map(navigation_map RID) {
+pub fn (r &NavigationObstacle2D) set_navigation_map(navigation_map RID) {
     classname := StringName.new("NavigationObstacle2D")
     fnname := StringName.new("set_navigation_map")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)
@@ -55,7 +55,7 @@ pub fn (r &NavigationObstacle2D) get_navigation_map() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationObstacle2D) set_radius(radius f64) {
+pub fn (r &NavigationObstacle2D) set_radius(radius f64) {
     classname := StringName.new("NavigationObstacle2D")
     fnname := StringName.new("set_radius")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -75,7 +75,7 @@ pub fn (r &NavigationObstacle2D) get_radius() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationObstacle2D) set_velocity(velocity Vector2) {
+pub fn (r &NavigationObstacle2D) set_velocity(velocity Vector2) {
     classname := StringName.new("NavigationObstacle2D")
     fnname := StringName.new("set_velocity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -95,7 +95,7 @@ pub fn (r &NavigationObstacle2D) get_velocity() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationObstacle2D) set_vertices(vertices PackedVector2Array) {
+pub fn (r &NavigationObstacle2D) set_vertices(vertices PackedVector2Array) {
     classname := StringName.new("NavigationObstacle2D")
     fnname := StringName.new("set_vertices")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1509147220)
@@ -115,7 +115,7 @@ pub fn (r &NavigationObstacle2D) get_vertices() PackedVector2Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationObstacle2D) set_avoidance_layers(layers u32) {
+pub fn (r &NavigationObstacle2D) set_avoidance_layers(layers u32) {
     classname := StringName.new("NavigationObstacle2D")
     fnname := StringName.new("set_avoidance_layers")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -135,7 +135,7 @@ pub fn (r &NavigationObstacle2D) get_avoidance_layers() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationObstacle2D) set_avoidance_layer_value(layer_number i32, value bool) {
+pub fn (r &NavigationObstacle2D) set_avoidance_layer_value(layer_number i32, value bool) {
     classname := StringName.new("NavigationObstacle2D")
     fnname := StringName.new("set_avoidance_layer_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)

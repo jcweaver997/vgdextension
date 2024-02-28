@@ -5,7 +5,7 @@ pub struct AudioEffectDelay {
     AudioEffect
 }
 
-pub fn (mut r AudioEffectDelay) set_dry(amount f64) {
+pub fn (r &AudioEffectDelay) set_dry(amount f64) {
     classname := StringName.new("AudioEffectDelay")
     fnname := StringName.new("set_dry")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -15,7 +15,7 @@ pub fn (mut r AudioEffectDelay) set_dry(amount f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AudioEffectDelay) get_dry() f64 {
+pub fn (r &AudioEffectDelay) get_dry() f64 {
     mut object_out := f64(0)
     classname := StringName.new("AudioEffectDelay")
     fnname := StringName.new("get_dry")
@@ -25,7 +25,7 @@ pub fn (mut r AudioEffectDelay) get_dry() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectDelay) set_tap1_active(amount bool) {
+pub fn (r &AudioEffectDelay) set_tap1_active(amount bool) {
     classname := StringName.new("AudioEffectDelay")
     fnname := StringName.new("set_tap1_active")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -45,7 +45,7 @@ pub fn (r &AudioEffectDelay) is_tap1_active() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectDelay) set_tap1_delay_ms(amount f64) {
+pub fn (r &AudioEffectDelay) set_tap1_delay_ms(amount f64) {
     classname := StringName.new("AudioEffectDelay")
     fnname := StringName.new("set_tap1_delay_ms")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -65,7 +65,7 @@ pub fn (r &AudioEffectDelay) get_tap1_delay_ms() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectDelay) set_tap1_level_db(amount f64) {
+pub fn (r &AudioEffectDelay) set_tap1_level_db(amount f64) {
     classname := StringName.new("AudioEffectDelay")
     fnname := StringName.new("set_tap1_level_db")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -85,7 +85,7 @@ pub fn (r &AudioEffectDelay) get_tap1_level_db() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectDelay) set_tap1_pan(amount f64) {
+pub fn (r &AudioEffectDelay) set_tap1_pan(amount f64) {
     classname := StringName.new("AudioEffectDelay")
     fnname := StringName.new("set_tap1_pan")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -105,7 +105,7 @@ pub fn (r &AudioEffectDelay) get_tap1_pan() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectDelay) set_tap2_active(amount bool) {
+pub fn (r &AudioEffectDelay) set_tap2_active(amount bool) {
     classname := StringName.new("AudioEffectDelay")
     fnname := StringName.new("set_tap2_active")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -125,7 +125,7 @@ pub fn (r &AudioEffectDelay) is_tap2_active() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectDelay) set_tap2_delay_ms(amount f64) {
+pub fn (r &AudioEffectDelay) set_tap2_delay_ms(amount f64) {
     classname := StringName.new("AudioEffectDelay")
     fnname := StringName.new("set_tap2_delay_ms")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -145,7 +145,7 @@ pub fn (r &AudioEffectDelay) get_tap2_delay_ms() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectDelay) set_tap2_level_db(amount f64) {
+pub fn (r &AudioEffectDelay) set_tap2_level_db(amount f64) {
     classname := StringName.new("AudioEffectDelay")
     fnname := StringName.new("set_tap2_level_db")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -165,7 +165,7 @@ pub fn (r &AudioEffectDelay) get_tap2_level_db() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectDelay) set_tap2_pan(amount f64) {
+pub fn (r &AudioEffectDelay) set_tap2_pan(amount f64) {
     classname := StringName.new("AudioEffectDelay")
     fnname := StringName.new("set_tap2_pan")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -185,7 +185,7 @@ pub fn (r &AudioEffectDelay) get_tap2_pan() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectDelay) set_feedback_active(amount bool) {
+pub fn (r &AudioEffectDelay) set_feedback_active(amount bool) {
     classname := StringName.new("AudioEffectDelay")
     fnname := StringName.new("set_feedback_active")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -205,7 +205,7 @@ pub fn (r &AudioEffectDelay) is_feedback_active() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectDelay) set_feedback_delay_ms(amount f64) {
+pub fn (r &AudioEffectDelay) set_feedback_delay_ms(amount f64) {
     classname := StringName.new("AudioEffectDelay")
     fnname := StringName.new("set_feedback_delay_ms")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -225,7 +225,7 @@ pub fn (r &AudioEffectDelay) get_feedback_delay_ms() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectDelay) set_feedback_level_db(amount f64) {
+pub fn (r &AudioEffectDelay) set_feedback_level_db(amount f64) {
     classname := StringName.new("AudioEffectDelay")
     fnname := StringName.new("set_feedback_level_db")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -245,7 +245,7 @@ pub fn (r &AudioEffectDelay) get_feedback_level_db() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectDelay) set_feedback_lowpass(amount f64) {
+pub fn (r &AudioEffectDelay) set_feedback_lowpass(amount f64) {
     classname := StringName.new("AudioEffectDelay")
     fnname := StringName.new("set_feedback_lowpass")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

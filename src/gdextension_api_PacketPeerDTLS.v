@@ -13,7 +13,7 @@ pub struct PacketPeerDTLS {
     PacketPeer
 }
 
-pub fn (mut r PacketPeerDTLS) poll() {
+pub fn (r &PacketPeerDTLS) poll() {
     classname := StringName.new("PacketPeerDTLS")
     fnname := StringName.new("poll")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -21,7 +21,7 @@ pub fn (mut r PacketPeerDTLS) poll() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PacketPeerDTLS) connect_to_peer(packet_peer PacketPeerUDP, hostname string, client_options TLSOptions) GDError {
+pub fn (r &PacketPeerDTLS) connect_to_peer(packet_peer PacketPeerUDP, hostname string, client_options TLSOptions) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("PacketPeerDTLS")
     fnname := StringName.new("connect_to_peer")
@@ -47,7 +47,7 @@ pub fn (r &PacketPeerDTLS) get_status() PacketPeerDTLSStatus {
     fnname.deinit()
    return unsafe{PacketPeerDTLSStatus(object_out)}
 }
-pub fn (mut r PacketPeerDTLS) disconnect_from_peer() {
+pub fn (r &PacketPeerDTLS) disconnect_from_peer() {
     classname := StringName.new("PacketPeerDTLS")
     fnname := StringName.new("disconnect_from_peer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

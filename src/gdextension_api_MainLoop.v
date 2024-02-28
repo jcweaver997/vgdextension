@@ -10,7 +10,7 @@ pub interface IMainLoopInitialize {
     virt_initialize()
 }
 
-pub fn (mut r MainLoop) uinitialize() {
+pub fn (r &MainLoop) uinitialize() {
     classname := StringName.new("MainLoop")
     fnname := StringName.new("_initialize")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -23,7 +23,7 @@ pub interface IMainLoopPhysicsProcess {
     virt_physics_process(delta f64) bool
 }
 
-pub fn (mut r MainLoop) uphysics_process(delta f64) bool {
+pub fn (r &MainLoop) uphysics_process(delta f64) bool {
     mut object_out := false
     classname := StringName.new("MainLoop")
     fnname := StringName.new("_physics_process")
@@ -40,7 +40,7 @@ pub interface IMainLoopProcess {
     virt_process(delta f64) bool
 }
 
-pub fn (mut r MainLoop) uprocess(delta f64) bool {
+pub fn (r &MainLoop) uprocess(delta f64) bool {
     mut object_out := false
     classname := StringName.new("MainLoop")
     fnname := StringName.new("_process")
@@ -57,7 +57,7 @@ pub interface IMainLoopFinalize {
     virt_finalize()
 }
 
-pub fn (mut r MainLoop) ufinalize() {
+pub fn (r &MainLoop) ufinalize() {
     classname := StringName.new("MainLoop")
     fnname := StringName.new("_finalize")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)

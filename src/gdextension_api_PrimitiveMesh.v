@@ -20,7 +20,7 @@ pub fn (r &PrimitiveMesh) ucreate_mesh_array() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PrimitiveMesh) set_material(material Material) {
+pub fn (r &PrimitiveMesh) set_material(material Material) {
     classname := StringName.new("PrimitiveMesh")
     fnname := StringName.new("set_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2757459619)
@@ -50,7 +50,7 @@ pub fn (r &PrimitiveMesh) get_mesh_arrays() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PrimitiveMesh) set_custom_aabb(aabb AABB) {
+pub fn (r &PrimitiveMesh) set_custom_aabb(aabb AABB) {
     classname := StringName.new("PrimitiveMesh")
     fnname := StringName.new("set_custom_aabb")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 259215842)
@@ -70,7 +70,7 @@ pub fn (r &PrimitiveMesh) get_custom_aabb() AABB {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PrimitiveMesh) set_flip_faces(flip_faces bool) {
+pub fn (r &PrimitiveMesh) set_flip_faces(flip_faces bool) {
     classname := StringName.new("PrimitiveMesh")
     fnname := StringName.new("set_flip_faces")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -90,7 +90,7 @@ pub fn (r &PrimitiveMesh) get_flip_faces() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PrimitiveMesh) set_add_uv2(add_uv2 bool) {
+pub fn (r &PrimitiveMesh) set_add_uv2(add_uv2 bool) {
     classname := StringName.new("PrimitiveMesh")
     fnname := StringName.new("set_add_uv2")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -110,7 +110,7 @@ pub fn (r &PrimitiveMesh) get_add_uv2() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PrimitiveMesh) set_uv2_padding(uv2_padding f64) {
+pub fn (r &PrimitiveMesh) set_uv2_padding(uv2_padding f64) {
     classname := StringName.new("PrimitiveMesh")
     fnname := StringName.new("set_uv2_padding")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

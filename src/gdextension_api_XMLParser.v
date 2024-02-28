@@ -15,7 +15,7 @@ pub struct XMLParser {
     RefCounted
 }
 
-pub fn (mut r XMLParser) read() GDError {
+pub fn (r &XMLParser) read() GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("XMLParser")
     fnname := StringName.new("read")
@@ -25,7 +25,7 @@ pub fn (mut r XMLParser) read() GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r XMLParser) get_node_type() XMLParserNodeType {
+pub fn (r &XMLParser) get_node_type() XMLParserNodeType {
     mut object_out := i64(XMLParserNodeType.node_none)
     classname := StringName.new("XMLParser")
     fnname := StringName.new("get_node_type")
@@ -173,7 +173,7 @@ pub fn (r &XMLParser) get_current_line() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r XMLParser) skip_section() {
+pub fn (r &XMLParser) skip_section() {
     classname := StringName.new("XMLParser")
     fnname := StringName.new("skip_section")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -181,7 +181,7 @@ pub fn (mut r XMLParser) skip_section() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r XMLParser) seek(position u64) GDError {
+pub fn (r &XMLParser) seek(position u64) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("XMLParser")
     fnname := StringName.new("seek")
@@ -193,7 +193,7 @@ pub fn (mut r XMLParser) seek(position u64) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r XMLParser) open(file string) GDError {
+pub fn (r &XMLParser) open(file string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("XMLParser")
     fnname := StringName.new("open")
@@ -207,7 +207,7 @@ pub fn (mut r XMLParser) open(file string) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r XMLParser) open_buffer(buffer PackedByteArray) GDError {
+pub fn (r &XMLParser) open_buffer(buffer PackedByteArray) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("XMLParser")
     fnname := StringName.new("open_buffer")

@@ -42,13 +42,13 @@ pub fn (r &Dictionary) is_empty() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Dictionary) clear() {
+pub fn (r &Dictionary) clear() {
     fnname := StringName.new("clear")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_dictionary, voidptr(&fnname), 3218959716)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 0)
     fnname.deinit()
 }
-pub fn (mut r Dictionary) merge(dictionary Dictionary, overwrite bool) {
+pub fn (r &Dictionary) merge(dictionary Dictionary, overwrite bool) {
     fnname := StringName.new("merge")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_dictionary, voidptr(&fnname), 2079548978)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 2)
@@ -84,7 +84,7 @@ pub fn (r &Dictionary) find_key(value Variant) Variant {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Dictionary) erase(key Variant) bool {
+pub fn (r &Dictionary) erase(key Variant) bool {
     mut object_out := false
     fnname := StringName.new("erase")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_dictionary, voidptr(&fnname), 1776646889)
@@ -139,7 +139,7 @@ pub fn (r &Dictionary) get(key Variant, default Variant) Variant {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Dictionary) make_read_only() {
+pub fn (r &Dictionary) make_read_only() {
     fnname := StringName.new("make_read_only")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_dictionary, voidptr(&fnname), 3218959716)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 0)

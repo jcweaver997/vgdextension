@@ -16,7 +16,7 @@ pub struct AnimationPlayer {
     AnimationMixer
 }
 
-pub fn (mut r AnimationPlayer) animation_set_next(animation_from string, animation_to string) {
+pub fn (r &AnimationPlayer) animation_set_next(animation_from string, animation_to string) {
     classname := StringName.new("AnimationPlayer")
     fnname := StringName.new("animation_set_next")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3740211285)
@@ -47,7 +47,7 @@ pub fn (r &AnimationPlayer) animation_get_next(animation_from string) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r AnimationPlayer) set_blend_time(animation_from string, animation_to string, sec f64) {
+pub fn (r &AnimationPlayer) set_blend_time(animation_from string, animation_to string, sec f64) {
     classname := StringName.new("AnimationPlayer")
     fnname := StringName.new("set_blend_time")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3231131886)
@@ -80,7 +80,7 @@ pub fn (r &AnimationPlayer) get_blend_time(animation_from string, animation_to s
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationPlayer) set_default_blend_time(sec f64) {
+pub fn (r &AnimationPlayer) set_default_blend_time(sec f64) {
     classname := StringName.new("AnimationPlayer")
     fnname := StringName.new("set_default_blend_time")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -100,7 +100,7 @@ pub fn (r &AnimationPlayer) get_default_blend_time() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationPlayer) play(name string, custom_blend f64, custom_speed f64, from_end bool) {
+pub fn (r &AnimationPlayer) play(name string, custom_blend f64, custom_speed f64, from_end bool) {
     classname := StringName.new("AnimationPlayer")
     fnname := StringName.new("play")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3118260607)
@@ -115,7 +115,7 @@ pub fn (mut r AnimationPlayer) play(name string, custom_blend f64, custom_speed 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AnimationPlayer) play_backwards(name string, custom_blend f64) {
+pub fn (r &AnimationPlayer) play_backwards(name string, custom_blend f64) {
     classname := StringName.new("AnimationPlayer")
     fnname := StringName.new("play_backwards")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2787282401)
@@ -128,7 +128,7 @@ pub fn (mut r AnimationPlayer) play_backwards(name string, custom_blend f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AnimationPlayer) pause() {
+pub fn (r &AnimationPlayer) pause() {
     classname := StringName.new("AnimationPlayer")
     fnname := StringName.new("pause")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -136,7 +136,7 @@ pub fn (mut r AnimationPlayer) pause() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AnimationPlayer) stop(keep_state bool) {
+pub fn (r &AnimationPlayer) stop(keep_state bool) {
     classname := StringName.new("AnimationPlayer")
     fnname := StringName.new("stop")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 107499316)
@@ -156,7 +156,7 @@ pub fn (r &AnimationPlayer) is_playing() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationPlayer) set_current_animation(animation string) {
+pub fn (r &AnimationPlayer) set_current_animation(animation string) {
     classname := StringName.new("AnimationPlayer")
     fnname := StringName.new("set_current_animation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -180,7 +180,7 @@ pub fn (r &AnimationPlayer) get_current_animation() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r AnimationPlayer) set_assigned_animation(animation string) {
+pub fn (r &AnimationPlayer) set_assigned_animation(animation string) {
     classname := StringName.new("AnimationPlayer")
     fnname := StringName.new("set_assigned_animation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -204,7 +204,7 @@ pub fn (r &AnimationPlayer) get_assigned_animation() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r AnimationPlayer) queue(name string) {
+pub fn (r &AnimationPlayer) queue(name string) {
     classname := StringName.new("AnimationPlayer")
     fnname := StringName.new("queue")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -216,7 +216,7 @@ pub fn (mut r AnimationPlayer) queue(name string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AnimationPlayer) get_queue() PackedStringArray {
+pub fn (r &AnimationPlayer) get_queue() PackedStringArray {
     mut object_out := PackedStringArray{}
     classname := StringName.new("AnimationPlayer")
     fnname := StringName.new("get_queue")
@@ -226,7 +226,7 @@ pub fn (mut r AnimationPlayer) get_queue() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationPlayer) clear_queue() {
+pub fn (r &AnimationPlayer) clear_queue() {
     classname := StringName.new("AnimationPlayer")
     fnname := StringName.new("clear_queue")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -234,7 +234,7 @@ pub fn (mut r AnimationPlayer) clear_queue() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AnimationPlayer) set_speed_scale(speed f64) {
+pub fn (r &AnimationPlayer) set_speed_scale(speed f64) {
     classname := StringName.new("AnimationPlayer")
     fnname := StringName.new("set_speed_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -264,7 +264,7 @@ pub fn (r &AnimationPlayer) get_playing_speed() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationPlayer) set_autoplay(name string) {
+pub fn (r &AnimationPlayer) set_autoplay(name string) {
     classname := StringName.new("AnimationPlayer")
     fnname := StringName.new("set_autoplay")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -288,7 +288,7 @@ pub fn (r &AnimationPlayer) get_autoplay() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r AnimationPlayer) set_movie_quit_on_finish_enabled(enabled bool) {
+pub fn (r &AnimationPlayer) set_movie_quit_on_finish_enabled(enabled bool) {
     classname := StringName.new("AnimationPlayer")
     fnname := StringName.new("set_movie_quit_on_finish_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -328,7 +328,7 @@ pub fn (r &AnimationPlayer) get_current_animation_length() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationPlayer) seek(seconds f64, update bool, update_only bool) {
+pub fn (r &AnimationPlayer) seek(seconds f64, update bool, update_only bool) {
     classname := StringName.new("AnimationPlayer")
     fnname := StringName.new("seek")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1807872683)
@@ -340,7 +340,7 @@ pub fn (mut r AnimationPlayer) seek(seconds f64, update bool, update_only bool) 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AnimationPlayer) set_process_callback(mode AnimationPlayerAnimationProcessCallback) {
+pub fn (r &AnimationPlayer) set_process_callback(mode AnimationPlayerAnimationProcessCallback) {
     classname := StringName.new("AnimationPlayer")
     fnname := StringName.new("set_process_callback")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1663839457)
@@ -361,7 +361,7 @@ pub fn (r &AnimationPlayer) get_process_callback() AnimationPlayerAnimationProce
     fnname.deinit()
    return unsafe{AnimationPlayerAnimationProcessCallback(object_out)}
 }
-pub fn (mut r AnimationPlayer) set_method_call_mode(mode AnimationPlayerAnimationMethodCallMode) {
+pub fn (r &AnimationPlayer) set_method_call_mode(mode AnimationPlayerAnimationMethodCallMode) {
     classname := StringName.new("AnimationPlayer")
     fnname := StringName.new("set_method_call_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3413514846)
@@ -382,7 +382,7 @@ pub fn (r &AnimationPlayer) get_method_call_mode() AnimationPlayerAnimationMetho
     fnname.deinit()
    return unsafe{AnimationPlayerAnimationMethodCallMode(object_out)}
 }
-pub fn (mut r AnimationPlayer) set_root(path NodePath) {
+pub fn (r &AnimationPlayer) set_root(path NodePath) {
     classname := StringName.new("AnimationPlayer")
     fnname := StringName.new("set_root")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1348162250)

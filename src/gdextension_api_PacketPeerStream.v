@@ -5,7 +5,7 @@ pub struct PacketPeerStream {
     PacketPeer
 }
 
-pub fn (mut r PacketPeerStream) set_stream_peer(peer StreamPeer) {
+pub fn (r &PacketPeerStream) set_stream_peer(peer StreamPeer) {
     classname := StringName.new("PacketPeerStream")
     fnname := StringName.new("set_stream_peer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3281897016)
@@ -25,7 +25,7 @@ pub fn (r &PacketPeerStream) get_stream_peer() StreamPeer {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PacketPeerStream) set_input_buffer_max_size(max_size_bytes i32) {
+pub fn (r &PacketPeerStream) set_input_buffer_max_size(max_size_bytes i32) {
     classname := StringName.new("PacketPeerStream")
     fnname := StringName.new("set_input_buffer_max_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -35,7 +35,7 @@ pub fn (mut r PacketPeerStream) set_input_buffer_max_size(max_size_bytes i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PacketPeerStream) set_output_buffer_max_size(max_size_bytes i32) {
+pub fn (r &PacketPeerStream) set_output_buffer_max_size(max_size_bytes i32) {
     classname := StringName.new("PacketPeerStream")
     fnname := StringName.new("set_output_buffer_max_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

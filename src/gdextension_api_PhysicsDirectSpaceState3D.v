@@ -5,7 +5,7 @@ pub struct PhysicsDirectSpaceState3D {
     Object
 }
 
-pub fn (mut r PhysicsDirectSpaceState3D) intersect_point(parameters PhysicsPointQueryParameters3D, max_results i32) Array {
+pub fn (r &PhysicsDirectSpaceState3D) intersect_point(parameters PhysicsPointQueryParameters3D, max_results i32) Array {
     mut object_out := Array{}
     classname := StringName.new("PhysicsDirectSpaceState3D")
     fnname := StringName.new("intersect_point")
@@ -18,7 +18,7 @@ pub fn (mut r PhysicsDirectSpaceState3D) intersect_point(parameters PhysicsPoint
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsDirectSpaceState3D) intersect_ray(parameters PhysicsRayQueryParameters3D) Dictionary {
+pub fn (r &PhysicsDirectSpaceState3D) intersect_ray(parameters PhysicsRayQueryParameters3D) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("PhysicsDirectSpaceState3D")
     fnname := StringName.new("intersect_ray")
@@ -30,7 +30,7 @@ pub fn (mut r PhysicsDirectSpaceState3D) intersect_ray(parameters PhysicsRayQuer
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsDirectSpaceState3D) intersect_shape(parameters PhysicsShapeQueryParameters3D, max_results i32) Array {
+pub fn (r &PhysicsDirectSpaceState3D) intersect_shape(parameters PhysicsShapeQueryParameters3D, max_results i32) Array {
     mut object_out := Array{}
     classname := StringName.new("PhysicsDirectSpaceState3D")
     fnname := StringName.new("intersect_shape")
@@ -43,7 +43,7 @@ pub fn (mut r PhysicsDirectSpaceState3D) intersect_shape(parameters PhysicsShape
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsDirectSpaceState3D) cast_motion(parameters PhysicsShapeQueryParameters3D) PackedFloat32Array {
+pub fn (r &PhysicsDirectSpaceState3D) cast_motion(parameters PhysicsShapeQueryParameters3D) PackedFloat32Array {
     mut object_out := PackedFloat32Array{}
     classname := StringName.new("PhysicsDirectSpaceState3D")
     fnname := StringName.new("cast_motion")
@@ -55,7 +55,7 @@ pub fn (mut r PhysicsDirectSpaceState3D) cast_motion(parameters PhysicsShapeQuer
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsDirectSpaceState3D) collide_shape(parameters PhysicsShapeQueryParameters3D, max_results i32) Array {
+pub fn (r &PhysicsDirectSpaceState3D) collide_shape(parameters PhysicsShapeQueryParameters3D, max_results i32) Array {
     mut object_out := Array{}
     classname := StringName.new("PhysicsDirectSpaceState3D")
     fnname := StringName.new("collide_shape")
@@ -68,7 +68,7 @@ pub fn (mut r PhysicsDirectSpaceState3D) collide_shape(parameters PhysicsShapeQu
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsDirectSpaceState3D) get_rest_info(parameters PhysicsShapeQueryParameters3D) Dictionary {
+pub fn (r &PhysicsDirectSpaceState3D) get_rest_info(parameters PhysicsShapeQueryParameters3D) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("PhysicsDirectSpaceState3D")
     fnname := StringName.new("get_rest_info")

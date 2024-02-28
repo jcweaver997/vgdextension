@@ -25,7 +25,7 @@ pub fn (r &ScriptEditor) get_open_script_editors() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ScriptEditor) register_syntax_highlighter(syntax_highlighter EditorSyntaxHighlighter) {
+pub fn (r &ScriptEditor) register_syntax_highlighter(syntax_highlighter EditorSyntaxHighlighter) {
     classname := StringName.new("ScriptEditor")
     fnname := StringName.new("register_syntax_highlighter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1092774468)
@@ -35,7 +35,7 @@ pub fn (mut r ScriptEditor) register_syntax_highlighter(syntax_highlighter Edito
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ScriptEditor) unregister_syntax_highlighter(syntax_highlighter EditorSyntaxHighlighter) {
+pub fn (r &ScriptEditor) unregister_syntax_highlighter(syntax_highlighter EditorSyntaxHighlighter) {
     classname := StringName.new("ScriptEditor")
     fnname := StringName.new("unregister_syntax_highlighter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1092774468)
@@ -45,7 +45,7 @@ pub fn (mut r ScriptEditor) unregister_syntax_highlighter(syntax_highlighter Edi
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ScriptEditor) goto_line(line_number i32) {
+pub fn (r &ScriptEditor) goto_line(line_number i32) {
     classname := StringName.new("ScriptEditor")
     fnname := StringName.new("goto_line")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -55,7 +55,7 @@ pub fn (mut r ScriptEditor) goto_line(line_number i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ScriptEditor) get_current_script() Script {
+pub fn (r &ScriptEditor) get_current_script() Script {
     mut object_out := Script{}
     classname := StringName.new("ScriptEditor")
     fnname := StringName.new("get_current_script")
@@ -75,7 +75,7 @@ pub fn (r &ScriptEditor) get_open_scripts() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ScriptEditor) open_script_create_dialog(base_name string, base_path string) {
+pub fn (r &ScriptEditor) open_script_create_dialog(base_name string, base_path string) {
     classname := StringName.new("ScriptEditor")
     fnname := StringName.new("open_script_create_dialog")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3186203200)

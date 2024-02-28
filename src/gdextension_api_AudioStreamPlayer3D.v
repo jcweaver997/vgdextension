@@ -18,7 +18,7 @@ pub struct AudioStreamPlayer3D {
     Node3D
 }
 
-pub fn (mut r AudioStreamPlayer3D) set_stream(stream AudioStream) {
+pub fn (r &AudioStreamPlayer3D) set_stream(stream AudioStream) {
     classname := StringName.new("AudioStreamPlayer3D")
     fnname := StringName.new("set_stream")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2210767741)
@@ -38,7 +38,7 @@ pub fn (r &AudioStreamPlayer3D) get_stream() AudioStream {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer3D) set_volume_db(volume_db f64) {
+pub fn (r &AudioStreamPlayer3D) set_volume_db(volume_db f64) {
     classname := StringName.new("AudioStreamPlayer3D")
     fnname := StringName.new("set_volume_db")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -58,7 +58,7 @@ pub fn (r &AudioStreamPlayer3D) get_volume_db() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer3D) set_unit_size(unit_size f64) {
+pub fn (r &AudioStreamPlayer3D) set_unit_size(unit_size f64) {
     classname := StringName.new("AudioStreamPlayer3D")
     fnname := StringName.new("set_unit_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -78,7 +78,7 @@ pub fn (r &AudioStreamPlayer3D) get_unit_size() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer3D) set_max_db(max_db f64) {
+pub fn (r &AudioStreamPlayer3D) set_max_db(max_db f64) {
     classname := StringName.new("AudioStreamPlayer3D")
     fnname := StringName.new("set_max_db")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -98,7 +98,7 @@ pub fn (r &AudioStreamPlayer3D) get_max_db() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer3D) set_pitch_scale(pitch_scale f64) {
+pub fn (r &AudioStreamPlayer3D) set_pitch_scale(pitch_scale f64) {
     classname := StringName.new("AudioStreamPlayer3D")
     fnname := StringName.new("set_pitch_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -118,7 +118,7 @@ pub fn (r &AudioStreamPlayer3D) get_pitch_scale() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer3D) play(from_position f64) {
+pub fn (r &AudioStreamPlayer3D) play(from_position f64) {
     classname := StringName.new("AudioStreamPlayer3D")
     fnname := StringName.new("play")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1958160172)
@@ -128,7 +128,7 @@ pub fn (mut r AudioStreamPlayer3D) play(from_position f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AudioStreamPlayer3D) seek(to_position f64) {
+pub fn (r &AudioStreamPlayer3D) seek(to_position f64) {
     classname := StringName.new("AudioStreamPlayer3D")
     fnname := StringName.new("seek")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -138,7 +138,7 @@ pub fn (mut r AudioStreamPlayer3D) seek(to_position f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AudioStreamPlayer3D) stop() {
+pub fn (r &AudioStreamPlayer3D) stop() {
     classname := StringName.new("AudioStreamPlayer3D")
     fnname := StringName.new("stop")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -156,7 +156,7 @@ pub fn (r &AudioStreamPlayer3D) is_playing() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer3D) get_playback_position() f64 {
+pub fn (r &AudioStreamPlayer3D) get_playback_position() f64 {
     mut object_out := f64(0)
     classname := StringName.new("AudioStreamPlayer3D")
     fnname := StringName.new("get_playback_position")
@@ -166,7 +166,7 @@ pub fn (mut r AudioStreamPlayer3D) get_playback_position() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer3D) set_bus(bus string) {
+pub fn (r &AudioStreamPlayer3D) set_bus(bus string) {
     classname := StringName.new("AudioStreamPlayer3D")
     fnname := StringName.new("set_bus")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -190,7 +190,7 @@ pub fn (r &AudioStreamPlayer3D) get_bus() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r AudioStreamPlayer3D) set_autoplay(enable bool) {
+pub fn (r &AudioStreamPlayer3D) set_autoplay(enable bool) {
     classname := StringName.new("AudioStreamPlayer3D")
     fnname := StringName.new("set_autoplay")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -200,7 +200,7 @@ pub fn (mut r AudioStreamPlayer3D) set_autoplay(enable bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AudioStreamPlayer3D) is_autoplay_enabled() bool {
+pub fn (r &AudioStreamPlayer3D) is_autoplay_enabled() bool {
     mut object_out := false
     classname := StringName.new("AudioStreamPlayer3D")
     fnname := StringName.new("is_autoplay_enabled")
@@ -210,7 +210,7 @@ pub fn (mut r AudioStreamPlayer3D) is_autoplay_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer3D) set_max_distance(meters f64) {
+pub fn (r &AudioStreamPlayer3D) set_max_distance(meters f64) {
     classname := StringName.new("AudioStreamPlayer3D")
     fnname := StringName.new("set_max_distance")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -230,7 +230,7 @@ pub fn (r &AudioStreamPlayer3D) get_max_distance() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer3D) set_area_mask(mask u32) {
+pub fn (r &AudioStreamPlayer3D) set_area_mask(mask u32) {
     classname := StringName.new("AudioStreamPlayer3D")
     fnname := StringName.new("set_area_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -250,7 +250,7 @@ pub fn (r &AudioStreamPlayer3D) get_area_mask() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer3D) set_emission_angle(degrees f64) {
+pub fn (r &AudioStreamPlayer3D) set_emission_angle(degrees f64) {
     classname := StringName.new("AudioStreamPlayer3D")
     fnname := StringName.new("set_emission_angle")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -270,7 +270,7 @@ pub fn (r &AudioStreamPlayer3D) get_emission_angle() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer3D) set_emission_angle_enabled(enabled bool) {
+pub fn (r &AudioStreamPlayer3D) set_emission_angle_enabled(enabled bool) {
     classname := StringName.new("AudioStreamPlayer3D")
     fnname := StringName.new("set_emission_angle_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -290,7 +290,7 @@ pub fn (r &AudioStreamPlayer3D) is_emission_angle_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer3D) set_emission_angle_filter_attenuation_db(db f64) {
+pub fn (r &AudioStreamPlayer3D) set_emission_angle_filter_attenuation_db(db f64) {
     classname := StringName.new("AudioStreamPlayer3D")
     fnname := StringName.new("set_emission_angle_filter_attenuation_db")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -310,7 +310,7 @@ pub fn (r &AudioStreamPlayer3D) get_emission_angle_filter_attenuation_db() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer3D) set_attenuation_filter_cutoff_hz(degrees f64) {
+pub fn (r &AudioStreamPlayer3D) set_attenuation_filter_cutoff_hz(degrees f64) {
     classname := StringName.new("AudioStreamPlayer3D")
     fnname := StringName.new("set_attenuation_filter_cutoff_hz")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -330,7 +330,7 @@ pub fn (r &AudioStreamPlayer3D) get_attenuation_filter_cutoff_hz() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer3D) set_attenuation_filter_db(db f64) {
+pub fn (r &AudioStreamPlayer3D) set_attenuation_filter_db(db f64) {
     classname := StringName.new("AudioStreamPlayer3D")
     fnname := StringName.new("set_attenuation_filter_db")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -350,7 +350,7 @@ pub fn (r &AudioStreamPlayer3D) get_attenuation_filter_db() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer3D) set_attenuation_model(model AudioStreamPlayer3DAttenuationModel) {
+pub fn (r &AudioStreamPlayer3D) set_attenuation_model(model AudioStreamPlayer3DAttenuationModel) {
     classname := StringName.new("AudioStreamPlayer3D")
     fnname := StringName.new("set_attenuation_model")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2988086229)
@@ -371,7 +371,7 @@ pub fn (r &AudioStreamPlayer3D) get_attenuation_model() AudioStreamPlayer3DAtten
     fnname.deinit()
    return unsafe{AudioStreamPlayer3DAttenuationModel(object_out)}
 }
-pub fn (mut r AudioStreamPlayer3D) set_doppler_tracking(mode AudioStreamPlayer3DDopplerTracking) {
+pub fn (r &AudioStreamPlayer3D) set_doppler_tracking(mode AudioStreamPlayer3DDopplerTracking) {
     classname := StringName.new("AudioStreamPlayer3D")
     fnname := StringName.new("set_doppler_tracking")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3968161450)
@@ -392,7 +392,7 @@ pub fn (r &AudioStreamPlayer3D) get_doppler_tracking() AudioStreamPlayer3DDopple
     fnname.deinit()
    return unsafe{AudioStreamPlayer3DDopplerTracking(object_out)}
 }
-pub fn (mut r AudioStreamPlayer3D) set_stream_paused(pause bool) {
+pub fn (r &AudioStreamPlayer3D) set_stream_paused(pause bool) {
     classname := StringName.new("AudioStreamPlayer3D")
     fnname := StringName.new("set_stream_paused")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -412,7 +412,7 @@ pub fn (r &AudioStreamPlayer3D) get_stream_paused() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer3D) set_max_polyphony(max_polyphony i32) {
+pub fn (r &AudioStreamPlayer3D) set_max_polyphony(max_polyphony i32) {
     classname := StringName.new("AudioStreamPlayer3D")
     fnname := StringName.new("set_max_polyphony")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -432,7 +432,7 @@ pub fn (r &AudioStreamPlayer3D) get_max_polyphony() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer3D) set_panning_strength(panning_strength f64) {
+pub fn (r &AudioStreamPlayer3D) set_panning_strength(panning_strength f64) {
     classname := StringName.new("AudioStreamPlayer3D")
     fnname := StringName.new("set_panning_strength")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -452,7 +452,7 @@ pub fn (r &AudioStreamPlayer3D) get_panning_strength() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer3D) has_stream_playback() bool {
+pub fn (r &AudioStreamPlayer3D) has_stream_playback() bool {
     mut object_out := false
     classname := StringName.new("AudioStreamPlayer3D")
     fnname := StringName.new("has_stream_playback")
@@ -462,7 +462,7 @@ pub fn (mut r AudioStreamPlayer3D) has_stream_playback() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer3D) get_stream_playback() AudioStreamPlayback {
+pub fn (r &AudioStreamPlayer3D) get_stream_playback() AudioStreamPlayback {
     mut object_out := AudioStreamPlayback{}
     classname := StringName.new("AudioStreamPlayer3D")
     fnname := StringName.new("get_stream_playback")

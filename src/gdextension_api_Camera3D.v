@@ -95,7 +95,7 @@ pub fn (r &Camera3D) project_position(screen_point Vector2, z_depth f64) Vector3
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Camera3D) set_perspective(fov f64, z_near f64, z_far f64) {
+pub fn (r &Camera3D) set_perspective(fov f64, z_near f64, z_far f64) {
     classname := StringName.new("Camera3D")
     fnname := StringName.new("set_perspective")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2385087082)
@@ -107,7 +107,7 @@ pub fn (mut r Camera3D) set_perspective(fov f64, z_near f64, z_far f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Camera3D) set_orthogonal(size f64, z_near f64, z_far f64) {
+pub fn (r &Camera3D) set_orthogonal(size f64, z_near f64, z_far f64) {
     classname := StringName.new("Camera3D")
     fnname := StringName.new("set_orthogonal")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2385087082)
@@ -119,7 +119,7 @@ pub fn (mut r Camera3D) set_orthogonal(size f64, z_near f64, z_far f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Camera3D) set_frustum(size f64, offset Vector2, z_near f64, z_far f64) {
+pub fn (r &Camera3D) set_frustum(size f64, offset Vector2, z_near f64, z_far f64) {
     classname := StringName.new("Camera3D")
     fnname := StringName.new("set_frustum")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 354890663)
@@ -132,7 +132,7 @@ pub fn (mut r Camera3D) set_frustum(size f64, offset Vector2, z_near f64, z_far 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Camera3D) make_current() {
+pub fn (r &Camera3D) make_current() {
     classname := StringName.new("Camera3D")
     fnname := StringName.new("make_current")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -140,7 +140,7 @@ pub fn (mut r Camera3D) make_current() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Camera3D) clear_current(enable_next bool) {
+pub fn (r &Camera3D) clear_current(enable_next bool) {
     classname := StringName.new("Camera3D")
     fnname := StringName.new("clear_current")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3216645846)
@@ -150,7 +150,7 @@ pub fn (mut r Camera3D) clear_current(enable_next bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Camera3D) set_current(enabled bool) {
+pub fn (r &Camera3D) set_current(enabled bool) {
     classname := StringName.new("Camera3D")
     fnname := StringName.new("set_current")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -240,7 +240,7 @@ pub fn (r &Camera3D) get_near() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Camera3D) set_fov(fov f64) {
+pub fn (r &Camera3D) set_fov(fov f64) {
     classname := StringName.new("Camera3D")
     fnname := StringName.new("set_fov")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -250,7 +250,7 @@ pub fn (mut r Camera3D) set_fov(fov f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Camera3D) set_frustum_offset(offset Vector2) {
+pub fn (r &Camera3D) set_frustum_offset(offset Vector2) {
     classname := StringName.new("Camera3D")
     fnname := StringName.new("set_frustum_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -260,7 +260,7 @@ pub fn (mut r Camera3D) set_frustum_offset(offset Vector2) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Camera3D) set_size(size f64) {
+pub fn (r &Camera3D) set_size(size f64) {
     classname := StringName.new("Camera3D")
     fnname := StringName.new("set_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -270,7 +270,7 @@ pub fn (mut r Camera3D) set_size(size f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Camera3D) set_far(far f64) {
+pub fn (r &Camera3D) set_far(far f64) {
     classname := StringName.new("Camera3D")
     fnname := StringName.new("set_far")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -280,7 +280,7 @@ pub fn (mut r Camera3D) set_far(far f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Camera3D) set_near(near f64) {
+pub fn (r &Camera3D) set_near(near f64) {
     classname := StringName.new("Camera3D")
     fnname := StringName.new("set_near")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -300,7 +300,7 @@ pub fn (r &Camera3D) get_projection() Camera3DProjectionType {
     fnname.deinit()
    return unsafe{Camera3DProjectionType(object_out)}
 }
-pub fn (mut r Camera3D) set_projection(mode Camera3DProjectionType) {
+pub fn (r &Camera3D) set_projection(mode Camera3DProjectionType) {
     classname := StringName.new("Camera3D")
     fnname := StringName.new("set_projection")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4218540108)
@@ -311,7 +311,7 @@ pub fn (mut r Camera3D) set_projection(mode Camera3DProjectionType) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Camera3D) set_h_offset(offset f64) {
+pub fn (r &Camera3D) set_h_offset(offset f64) {
     classname := StringName.new("Camera3D")
     fnname := StringName.new("set_h_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -331,7 +331,7 @@ pub fn (r &Camera3D) get_h_offset() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Camera3D) set_v_offset(offset f64) {
+pub fn (r &Camera3D) set_v_offset(offset f64) {
     classname := StringName.new("Camera3D")
     fnname := StringName.new("set_v_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -351,7 +351,7 @@ pub fn (r &Camera3D) get_v_offset() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Camera3D) set_cull_mask(mask u32) {
+pub fn (r &Camera3D) set_cull_mask(mask u32) {
     classname := StringName.new("Camera3D")
     fnname := StringName.new("set_cull_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -371,7 +371,7 @@ pub fn (r &Camera3D) get_cull_mask() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Camera3D) set_environment(env Environment) {
+pub fn (r &Camera3D) set_environment(env Environment) {
     classname := StringName.new("Camera3D")
     fnname := StringName.new("set_environment")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4143518816)
@@ -391,7 +391,7 @@ pub fn (r &Camera3D) get_environment() Environment {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Camera3D) set_attributes(env CameraAttributes) {
+pub fn (r &Camera3D) set_attributes(env CameraAttributes) {
     classname := StringName.new("Camera3D")
     fnname := StringName.new("set_attributes")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2817810567)
@@ -411,7 +411,7 @@ pub fn (r &Camera3D) get_attributes() CameraAttributes {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Camera3D) set_keep_aspect_mode(mode Camera3DKeepAspect) {
+pub fn (r &Camera3D) set_keep_aspect_mode(mode Camera3DKeepAspect) {
     classname := StringName.new("Camera3D")
     fnname := StringName.new("set_keep_aspect_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740651252)
@@ -432,7 +432,7 @@ pub fn (r &Camera3D) get_keep_aspect_mode() Camera3DKeepAspect {
     fnname.deinit()
    return unsafe{Camera3DKeepAspect(object_out)}
 }
-pub fn (mut r Camera3D) set_doppler_tracking(mode Camera3DDopplerTracking) {
+pub fn (r &Camera3D) set_doppler_tracking(mode Camera3DDopplerTracking) {
     classname := StringName.new("Camera3D")
     fnname := StringName.new("set_doppler_tracking")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3109431270)
@@ -485,7 +485,7 @@ pub fn (r &Camera3D) get_camera_rid() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Camera3D) get_pyramid_shape_rid() RID {
+pub fn (r &Camera3D) get_pyramid_shape_rid() RID {
     mut object_out := RID{}
     classname := StringName.new("Camera3D")
     fnname := StringName.new("get_pyramid_shape_rid")
@@ -495,7 +495,7 @@ pub fn (mut r Camera3D) get_pyramid_shape_rid() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Camera3D) set_cull_mask_value(layer_number i32, value bool) {
+pub fn (r &Camera3D) set_cull_mask_value(layer_number i32, value bool) {
     classname := StringName.new("Camera3D")
     fnname := StringName.new("set_cull_mask_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)

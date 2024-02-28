@@ -5,7 +5,7 @@ pub struct BoneAttachment3D {
     Node3D
 }
 
-pub fn (mut r BoneAttachment3D) set_bone_name(bone_name string) {
+pub fn (r &BoneAttachment3D) set_bone_name(bone_name string) {
     classname := StringName.new("BoneAttachment3D")
     fnname := StringName.new("set_bone_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -29,7 +29,7 @@ pub fn (r &BoneAttachment3D) get_bone_name() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r BoneAttachment3D) set_bone_idx(bone_idx i32) {
+pub fn (r &BoneAttachment3D) set_bone_idx(bone_idx i32) {
     classname := StringName.new("BoneAttachment3D")
     fnname := StringName.new("set_bone_idx")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -49,7 +49,7 @@ pub fn (r &BoneAttachment3D) get_bone_idx() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BoneAttachment3D) on_bone_pose_update(bone_index i32) {
+pub fn (r &BoneAttachment3D) on_bone_pose_update(bone_index i32) {
     classname := StringName.new("BoneAttachment3D")
     fnname := StringName.new("on_bone_pose_update")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -59,7 +59,7 @@ pub fn (mut r BoneAttachment3D) on_bone_pose_update(bone_index i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r BoneAttachment3D) set_override_pose(override_pose bool) {
+pub fn (r &BoneAttachment3D) set_override_pose(override_pose bool) {
     classname := StringName.new("BoneAttachment3D")
     fnname := StringName.new("set_override_pose")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -79,7 +79,7 @@ pub fn (r &BoneAttachment3D) get_override_pose() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BoneAttachment3D) set_use_external_skeleton(use_external_skeleton bool) {
+pub fn (r &BoneAttachment3D) set_use_external_skeleton(use_external_skeleton bool) {
     classname := StringName.new("BoneAttachment3D")
     fnname := StringName.new("set_use_external_skeleton")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -99,7 +99,7 @@ pub fn (r &BoneAttachment3D) get_use_external_skeleton() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BoneAttachment3D) set_external_skeleton(external_skeleton NodePath) {
+pub fn (r &BoneAttachment3D) set_external_skeleton(external_skeleton NodePath) {
     classname := StringName.new("BoneAttachment3D")
     fnname := StringName.new("set_external_skeleton")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1348162250)

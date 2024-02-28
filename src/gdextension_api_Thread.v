@@ -11,7 +11,7 @@ pub struct Thread {
     RefCounted
 }
 
-pub fn (mut r Thread) start(callable Callable, priority ThreadPriority) GDError {
+pub fn (r &Thread) start(callable Callable, priority ThreadPriority) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("Thread")
     fnname := StringName.new("start")
@@ -57,7 +57,7 @@ pub fn (r &Thread) is_alive() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Thread) wait_to_finish() Variant {
+pub fn (r &Thread) wait_to_finish() Variant {
     mut object_out := Variant{}
     classname := StringName.new("Thread")
     fnname := StringName.new("wait_to_finish")

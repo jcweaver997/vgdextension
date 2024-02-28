@@ -19,7 +19,7 @@ pub struct NavigationPolygon {
     Resource
 }
 
-pub fn (mut r NavigationPolygon) set_vertices(vertices PackedVector2Array) {
+pub fn (r &NavigationPolygon) set_vertices(vertices PackedVector2Array) {
     classname := StringName.new("NavigationPolygon")
     fnname := StringName.new("set_vertices")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1509147220)
@@ -39,7 +39,7 @@ pub fn (r &NavigationPolygon) get_vertices() PackedVector2Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationPolygon) add_polygon(polygon PackedInt32Array) {
+pub fn (r &NavigationPolygon) add_polygon(polygon PackedInt32Array) {
     classname := StringName.new("NavigationPolygon")
     fnname := StringName.new("add_polygon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3614634198)
@@ -59,7 +59,7 @@ pub fn (r &NavigationPolygon) get_polygon_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationPolygon) get_polygon(idx i32) PackedInt32Array {
+pub fn (r &NavigationPolygon) get_polygon(idx i32) PackedInt32Array {
     mut object_out := PackedInt32Array{}
     classname := StringName.new("NavigationPolygon")
     fnname := StringName.new("get_polygon")
@@ -71,7 +71,7 @@ pub fn (mut r NavigationPolygon) get_polygon(idx i32) PackedInt32Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationPolygon) clear_polygons() {
+pub fn (r &NavigationPolygon) clear_polygons() {
     classname := StringName.new("NavigationPolygon")
     fnname := StringName.new("clear_polygons")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -79,7 +79,7 @@ pub fn (mut r NavigationPolygon) clear_polygons() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationPolygon) get_navigation_mesh() NavigationMesh {
+pub fn (r &NavigationPolygon) get_navigation_mesh() NavigationMesh {
     mut object_out := NavigationMesh{}
     classname := StringName.new("NavigationPolygon")
     fnname := StringName.new("get_navigation_mesh")
@@ -89,7 +89,7 @@ pub fn (mut r NavigationPolygon) get_navigation_mesh() NavigationMesh {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationPolygon) add_outline(outline PackedVector2Array) {
+pub fn (r &NavigationPolygon) add_outline(outline PackedVector2Array) {
     classname := StringName.new("NavigationPolygon")
     fnname := StringName.new("add_outline")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1509147220)
@@ -99,7 +99,7 @@ pub fn (mut r NavigationPolygon) add_outline(outline PackedVector2Array) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationPolygon) add_outline_at_index(outline PackedVector2Array, index i32) {
+pub fn (r &NavigationPolygon) add_outline_at_index(outline PackedVector2Array, index i32) {
     classname := StringName.new("NavigationPolygon")
     fnname := StringName.new("add_outline_at_index")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1569738947)
@@ -120,7 +120,7 @@ pub fn (r &NavigationPolygon) get_outline_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationPolygon) set_outline(idx i32, outline PackedVector2Array) {
+pub fn (r &NavigationPolygon) set_outline(idx i32, outline PackedVector2Array) {
     classname := StringName.new("NavigationPolygon")
     fnname := StringName.new("set_outline")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1201971903)
@@ -143,7 +143,7 @@ pub fn (r &NavigationPolygon) get_outline(idx i32) PackedVector2Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationPolygon) remove_outline(idx i32) {
+pub fn (r &NavigationPolygon) remove_outline(idx i32) {
     classname := StringName.new("NavigationPolygon")
     fnname := StringName.new("remove_outline")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -153,7 +153,7 @@ pub fn (mut r NavigationPolygon) remove_outline(idx i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationPolygon) clear_outlines() {
+pub fn (r &NavigationPolygon) clear_outlines() {
     classname := StringName.new("NavigationPolygon")
     fnname := StringName.new("clear_outlines")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -161,7 +161,7 @@ pub fn (mut r NavigationPolygon) clear_outlines() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationPolygon) make_polygons_from_outlines() {
+pub fn (r &NavigationPolygon) make_polygons_from_outlines() {
     classname := StringName.new("NavigationPolygon")
     fnname := StringName.new("make_polygons_from_outlines")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -169,7 +169,7 @@ pub fn (mut r NavigationPolygon) make_polygons_from_outlines() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationPolygon) set_cell_size(cell_size f64) {
+pub fn (r &NavigationPolygon) set_cell_size(cell_size f64) {
     classname := StringName.new("NavigationPolygon")
     fnname := StringName.new("set_cell_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -189,7 +189,7 @@ pub fn (r &NavigationPolygon) get_cell_size() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationPolygon) set_parsed_geometry_type(geometry_type NavigationPolygonParsedGeometryType) {
+pub fn (r &NavigationPolygon) set_parsed_geometry_type(geometry_type NavigationPolygonParsedGeometryType) {
     classname := StringName.new("NavigationPolygon")
     fnname := StringName.new("set_parsed_geometry_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2507971764)
@@ -210,7 +210,7 @@ pub fn (r &NavigationPolygon) get_parsed_geometry_type() NavigationPolygonParsed
     fnname.deinit()
    return unsafe{NavigationPolygonParsedGeometryType(object_out)}
 }
-pub fn (mut r NavigationPolygon) set_parsed_collision_mask(mask u32) {
+pub fn (r &NavigationPolygon) set_parsed_collision_mask(mask u32) {
     classname := StringName.new("NavigationPolygon")
     fnname := StringName.new("set_parsed_collision_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -230,7 +230,7 @@ pub fn (r &NavigationPolygon) get_parsed_collision_mask() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationPolygon) set_parsed_collision_mask_value(layer_number i32, value bool) {
+pub fn (r &NavigationPolygon) set_parsed_collision_mask_value(layer_number i32, value bool) {
     classname := StringName.new("NavigationPolygon")
     fnname := StringName.new("set_parsed_collision_mask_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -253,7 +253,7 @@ pub fn (r &NavigationPolygon) get_parsed_collision_mask_value(layer_number i32) 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationPolygon) set_source_geometry_mode(geometry_mode NavigationPolygonSourceGeometryMode) {
+pub fn (r &NavigationPolygon) set_source_geometry_mode(geometry_mode NavigationPolygonSourceGeometryMode) {
     classname := StringName.new("NavigationPolygon")
     fnname := StringName.new("set_source_geometry_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4002316705)
@@ -274,7 +274,7 @@ pub fn (r &NavigationPolygon) get_source_geometry_mode() NavigationPolygonSource
     fnname.deinit()
    return unsafe{NavigationPolygonSourceGeometryMode(object_out)}
 }
-pub fn (mut r NavigationPolygon) set_source_geometry_group_name(group_name string) {
+pub fn (r &NavigationPolygon) set_source_geometry_group_name(group_name string) {
     classname := StringName.new("NavigationPolygon")
     fnname := StringName.new("set_source_geometry_group_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -298,7 +298,7 @@ pub fn (r &NavigationPolygon) get_source_geometry_group_name() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r NavigationPolygon) set_agent_radius(agent_radius f64) {
+pub fn (r &NavigationPolygon) set_agent_radius(agent_radius f64) {
     classname := StringName.new("NavigationPolygon")
     fnname := StringName.new("set_agent_radius")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -318,7 +318,7 @@ pub fn (r &NavigationPolygon) get_agent_radius() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationPolygon) clear() {
+pub fn (r &NavigationPolygon) clear() {
     classname := StringName.new("NavigationPolygon")
     fnname := StringName.new("clear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

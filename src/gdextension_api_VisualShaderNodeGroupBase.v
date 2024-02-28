@@ -5,7 +5,7 @@ pub struct VisualShaderNodeGroupBase {
     VisualShaderNodeResizableBase
 }
 
-pub fn (mut r VisualShaderNodeGroupBase) set_inputs(inputs string) {
+pub fn (r &VisualShaderNodeGroupBase) set_inputs(inputs string) {
     classname := StringName.new("VisualShaderNodeGroupBase")
     fnname := StringName.new("set_inputs")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -29,7 +29,7 @@ pub fn (r &VisualShaderNodeGroupBase) get_inputs() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r VisualShaderNodeGroupBase) set_outputs(outputs string) {
+pub fn (r &VisualShaderNodeGroupBase) set_outputs(outputs string) {
     classname := StringName.new("VisualShaderNodeGroupBase")
     fnname := StringName.new("set_outputs")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -67,7 +67,7 @@ pub fn (r &VisualShaderNodeGroupBase) is_valid_port_name(name string) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VisualShaderNodeGroupBase) add_input_port(id i32, type_name i32, name string) {
+pub fn (r &VisualShaderNodeGroupBase) add_input_port(id i32, type_name i32, name string) {
     classname := StringName.new("VisualShaderNodeGroupBase")
     fnname := StringName.new("add_input_port")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2285447957)
@@ -81,7 +81,7 @@ pub fn (mut r VisualShaderNodeGroupBase) add_input_port(id i32, type_name i32, n
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r VisualShaderNodeGroupBase) remove_input_port(id i32) {
+pub fn (r &VisualShaderNodeGroupBase) remove_input_port(id i32) {
     classname := StringName.new("VisualShaderNodeGroupBase")
     fnname := StringName.new("remove_input_port")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -113,7 +113,7 @@ pub fn (r &VisualShaderNodeGroupBase) has_input_port(id i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VisualShaderNodeGroupBase) clear_input_ports() {
+pub fn (r &VisualShaderNodeGroupBase) clear_input_ports() {
     classname := StringName.new("VisualShaderNodeGroupBase")
     fnname := StringName.new("clear_input_ports")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -121,7 +121,7 @@ pub fn (mut r VisualShaderNodeGroupBase) clear_input_ports() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r VisualShaderNodeGroupBase) add_output_port(id i32, type_name i32, name string) {
+pub fn (r &VisualShaderNodeGroupBase) add_output_port(id i32, type_name i32, name string) {
     classname := StringName.new("VisualShaderNodeGroupBase")
     fnname := StringName.new("add_output_port")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2285447957)
@@ -135,7 +135,7 @@ pub fn (mut r VisualShaderNodeGroupBase) add_output_port(id i32, type_name i32, 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r VisualShaderNodeGroupBase) remove_output_port(id i32) {
+pub fn (r &VisualShaderNodeGroupBase) remove_output_port(id i32) {
     classname := StringName.new("VisualShaderNodeGroupBase")
     fnname := StringName.new("remove_output_port")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -167,7 +167,7 @@ pub fn (r &VisualShaderNodeGroupBase) has_output_port(id i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VisualShaderNodeGroupBase) clear_output_ports() {
+pub fn (r &VisualShaderNodeGroupBase) clear_output_ports() {
     classname := StringName.new("VisualShaderNodeGroupBase")
     fnname := StringName.new("clear_output_ports")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -175,7 +175,7 @@ pub fn (mut r VisualShaderNodeGroupBase) clear_output_ports() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r VisualShaderNodeGroupBase) set_input_port_name(id i32, name string) {
+pub fn (r &VisualShaderNodeGroupBase) set_input_port_name(id i32, name string) {
     classname := StringName.new("VisualShaderNodeGroupBase")
     fnname := StringName.new("set_input_port_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
@@ -188,7 +188,7 @@ pub fn (mut r VisualShaderNodeGroupBase) set_input_port_name(id i32, name string
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r VisualShaderNodeGroupBase) set_input_port_type(id i32, type_name i32) {
+pub fn (r &VisualShaderNodeGroupBase) set_input_port_type(id i32, type_name i32) {
     classname := StringName.new("VisualShaderNodeGroupBase")
     fnname := StringName.new("set_input_port_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -199,7 +199,7 @@ pub fn (mut r VisualShaderNodeGroupBase) set_input_port_type(id i32, type_name i
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r VisualShaderNodeGroupBase) set_output_port_name(id i32, name string) {
+pub fn (r &VisualShaderNodeGroupBase) set_output_port_name(id i32, name string) {
     classname := StringName.new("VisualShaderNodeGroupBase")
     fnname := StringName.new("set_output_port_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
@@ -212,7 +212,7 @@ pub fn (mut r VisualShaderNodeGroupBase) set_output_port_name(id i32, name strin
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r VisualShaderNodeGroupBase) set_output_port_type(id i32, type_name i32) {
+pub fn (r &VisualShaderNodeGroupBase) set_output_port_type(id i32, type_name i32) {
     classname := StringName.new("VisualShaderNodeGroupBase")
     fnname := StringName.new("set_output_port_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)

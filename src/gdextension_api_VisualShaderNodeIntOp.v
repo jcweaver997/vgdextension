@@ -21,7 +21,7 @@ pub struct VisualShaderNodeIntOp {
     VisualShaderNode
 }
 
-pub fn (mut r VisualShaderNodeIntOp) set_operator(op VisualShaderNodeIntOpOperator) {
+pub fn (r &VisualShaderNodeIntOp) set_operator(op VisualShaderNodeIntOpOperator) {
     classname := StringName.new("VisualShaderNodeIntOp")
     fnname := StringName.new("set_operator")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1677909323)

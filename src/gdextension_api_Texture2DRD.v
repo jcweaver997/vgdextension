@@ -5,7 +5,7 @@ pub struct Texture2DRD {
     Texture2D
 }
 
-pub fn (mut r Texture2DRD) set_texture_rd_rid(texture_rd_rid RID) {
+pub fn (r &Texture2DRD) set_texture_rd_rid(texture_rd_rid RID) {
     classname := StringName.new("Texture2DRD")
     fnname := StringName.new("set_texture_rd_rid")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)

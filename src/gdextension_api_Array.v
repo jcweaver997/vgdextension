@@ -135,7 +135,7 @@ pub fn (r &Array) is_empty() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Array) clear() {
+pub fn (r &Array) clear() {
     fnname := StringName.new("clear")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_array, voidptr(&fnname), 3218959716)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 0)
@@ -149,37 +149,37 @@ pub fn (r &Array) hash() i64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Array) assign(array Array) {
+pub fn (r &Array) assign(array Array) {
     fnname := StringName.new("assign")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_array, voidptr(&fnname), 2307260970)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 1)
     fnname.deinit()
 }
-pub fn (mut r Array) push_back(value Variant) {
+pub fn (r &Array) push_back(value Variant) {
     fnname := StringName.new("push_back")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_array, voidptr(&fnname), 3316032543)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 1)
     fnname.deinit()
 }
-pub fn (mut r Array) push_front(value Variant) {
+pub fn (r &Array) push_front(value Variant) {
     fnname := StringName.new("push_front")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_array, voidptr(&fnname), 3316032543)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 1)
     fnname.deinit()
 }
-pub fn (mut r Array) append(value Variant) {
+pub fn (r &Array) append(value Variant) {
     fnname := StringName.new("append")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_array, voidptr(&fnname), 3316032543)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 1)
     fnname.deinit()
 }
-pub fn (mut r Array) append_array(array Array) {
+pub fn (r &Array) append_array(array Array) {
     fnname := StringName.new("append_array")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_array, voidptr(&fnname), 2307260970)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 1)
     fnname.deinit()
 }
-pub fn (mut r Array) resize(size i64) i64 {
+pub fn (r &Array) resize(size i64) i64 {
     mut object_out := i64(0)
     fnname := StringName.new("resize")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_array, voidptr(&fnname), 848867239)
@@ -189,7 +189,7 @@ pub fn (mut r Array) resize(size i64) i64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Array) insert(position i64, value Variant) i64 {
+pub fn (r &Array) insert(position i64, value Variant) i64 {
     mut object_out := i64(0)
     fnname := StringName.new("insert")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_array, voidptr(&fnname), 3176316662)
@@ -200,19 +200,19 @@ pub fn (mut r Array) insert(position i64, value Variant) i64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Array) remove_at(position i64) {
+pub fn (r &Array) remove_at(position i64) {
     fnname := StringName.new("remove_at")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_array, voidptr(&fnname), 2823966027)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 1)
     fnname.deinit()
 }
-pub fn (mut r Array) fill(value Variant) {
+pub fn (r &Array) fill(value Variant) {
     fnname := StringName.new("fill")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_array, voidptr(&fnname), 3316032543)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 1)
     fnname.deinit()
 }
-pub fn (mut r Array) erase(value Variant) {
+pub fn (r &Array) erase(value Variant) {
     fnname := StringName.new("erase")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_array, voidptr(&fnname), 3316032543)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 1)
@@ -284,7 +284,7 @@ pub fn (r &Array) has(value Variant) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Array) pop_back() Variant {
+pub fn (r &Array) pop_back() Variant {
     mut object_out := Variant{}
     fnname := StringName.new("pop_back")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_array, voidptr(&fnname), 1321915136)
@@ -292,7 +292,7 @@ pub fn (mut r Array) pop_back() Variant {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Array) pop_front() Variant {
+pub fn (r &Array) pop_front() Variant {
     mut object_out := Variant{}
     fnname := StringName.new("pop_front")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_array, voidptr(&fnname), 1321915136)
@@ -300,7 +300,7 @@ pub fn (mut r Array) pop_front() Variant {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Array) pop_at(position i64) Variant {
+pub fn (r &Array) pop_at(position i64) Variant {
     mut object_out := Variant{}
     fnname := StringName.new("pop_at")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_array, voidptr(&fnname), 3518259424)
@@ -310,19 +310,19 @@ pub fn (mut r Array) pop_at(position i64) Variant {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Array) sort() {
+pub fn (r &Array) sort() {
     fnname := StringName.new("sort")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_array, voidptr(&fnname), 3218959716)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 0)
     fnname.deinit()
 }
-pub fn (mut r Array) sort_custom(func Callable) {
+pub fn (r &Array) sort_custom(func Callable) {
     fnname := StringName.new("sort_custom")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_array, voidptr(&fnname), 3470848906)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 1)
     fnname.deinit()
 }
-pub fn (mut r Array) shuffle() {
+pub fn (r &Array) shuffle() {
     fnname := StringName.new("shuffle")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_array, voidptr(&fnname), 3218959716)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 0)
@@ -351,7 +351,7 @@ pub fn (r &Array) bsearch_custom(value Variant, func Callable, before bool) i64 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Array) reverse() {
+pub fn (r &Array) reverse() {
     fnname := StringName.new("reverse")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_array, voidptr(&fnname), 3218959716)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 0)
@@ -489,7 +489,7 @@ pub fn (r &Array) get_typed_script() Variant {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Array) make_read_only() {
+pub fn (r &Array) make_read_only() {
     fnname := StringName.new("make_read_only")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_array, voidptr(&fnname), 3218959716)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 0)

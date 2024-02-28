@@ -5,7 +5,7 @@ pub struct InputEventScreenDrag {
     InputEventFromWindow
 }
 
-pub fn (mut r InputEventScreenDrag) set_index(index i32) {
+pub fn (r &InputEventScreenDrag) set_index(index i32) {
     classname := StringName.new("InputEventScreenDrag")
     fnname := StringName.new("set_index")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -25,7 +25,7 @@ pub fn (r &InputEventScreenDrag) get_index() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r InputEventScreenDrag) set_tilt(tilt Vector2) {
+pub fn (r &InputEventScreenDrag) set_tilt(tilt Vector2) {
     classname := StringName.new("InputEventScreenDrag")
     fnname := StringName.new("set_tilt")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -45,7 +45,7 @@ pub fn (r &InputEventScreenDrag) get_tilt() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r InputEventScreenDrag) set_pressure(pressure f64) {
+pub fn (r &InputEventScreenDrag) set_pressure(pressure f64) {
     classname := StringName.new("InputEventScreenDrag")
     fnname := StringName.new("set_pressure")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -65,7 +65,7 @@ pub fn (r &InputEventScreenDrag) get_pressure() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r InputEventScreenDrag) set_pen_inverted(pen_inverted bool) {
+pub fn (r &InputEventScreenDrag) set_pen_inverted(pen_inverted bool) {
     classname := StringName.new("InputEventScreenDrag")
     fnname := StringName.new("set_pen_inverted")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -85,7 +85,7 @@ pub fn (r &InputEventScreenDrag) get_pen_inverted() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r InputEventScreenDrag) set_position(position Vector2) {
+pub fn (r &InputEventScreenDrag) set_position(position Vector2) {
     classname := StringName.new("InputEventScreenDrag")
     fnname := StringName.new("set_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -105,7 +105,7 @@ pub fn (r &InputEventScreenDrag) get_position() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r InputEventScreenDrag) set_relative(relative Vector2) {
+pub fn (r &InputEventScreenDrag) set_relative(relative Vector2) {
     classname := StringName.new("InputEventScreenDrag")
     fnname := StringName.new("set_relative")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -125,7 +125,7 @@ pub fn (r &InputEventScreenDrag) get_relative() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r InputEventScreenDrag) set_velocity(velocity Vector2) {
+pub fn (r &InputEventScreenDrag) set_velocity(velocity Vector2) {
     classname := StringName.new("InputEventScreenDrag")
     fnname := StringName.new("set_velocity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)

@@ -5,7 +5,7 @@ pub struct ImporterMeshInstance3D {
     Node3D
 }
 
-pub fn (mut r ImporterMeshInstance3D) set_mesh(mesh ImporterMesh) {
+pub fn (r &ImporterMeshInstance3D) set_mesh(mesh ImporterMesh) {
     classname := StringName.new("ImporterMeshInstance3D")
     fnname := StringName.new("set_mesh")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2255166972)
@@ -25,7 +25,7 @@ pub fn (r &ImporterMeshInstance3D) get_mesh() ImporterMesh {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ImporterMeshInstance3D) set_skin(skin Skin) {
+pub fn (r &ImporterMeshInstance3D) set_skin(skin Skin) {
     classname := StringName.new("ImporterMeshInstance3D")
     fnname := StringName.new("set_skin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3971435618)
@@ -45,7 +45,7 @@ pub fn (r &ImporterMeshInstance3D) get_skin() Skin {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ImporterMeshInstance3D) set_skeleton_path(skeleton_path NodePath) {
+pub fn (r &ImporterMeshInstance3D) set_skeleton_path(skeleton_path NodePath) {
     classname := StringName.new("ImporterMeshInstance3D")
     fnname := StringName.new("set_skeleton_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1348162250)
@@ -65,7 +65,7 @@ pub fn (r &ImporterMeshInstance3D) get_skeleton_path() NodePath {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ImporterMeshInstance3D) set_layer_mask(layer_mask u32) {
+pub fn (r &ImporterMeshInstance3D) set_layer_mask(layer_mask u32) {
     classname := StringName.new("ImporterMeshInstance3D")
     fnname := StringName.new("set_layer_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -85,7 +85,7 @@ pub fn (r &ImporterMeshInstance3D) get_layer_mask() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ImporterMeshInstance3D) set_cast_shadows_setting(shadow_casting_setting GeometryInstance3DShadowCastingSetting) {
+pub fn (r &ImporterMeshInstance3D) set_cast_shadows_setting(shadow_casting_setting GeometryInstance3DShadowCastingSetting) {
     classname := StringName.new("ImporterMeshInstance3D")
     fnname := StringName.new("set_cast_shadows_setting")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 856677339)
@@ -106,7 +106,7 @@ pub fn (r &ImporterMeshInstance3D) get_cast_shadows_setting() GeometryInstance3D
     fnname.deinit()
    return unsafe{GeometryInstance3DShadowCastingSetting(object_out)}
 }
-pub fn (mut r ImporterMeshInstance3D) set_visibility_range_end_margin(distance f64) {
+pub fn (r &ImporterMeshInstance3D) set_visibility_range_end_margin(distance f64) {
     classname := StringName.new("ImporterMeshInstance3D")
     fnname := StringName.new("set_visibility_range_end_margin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -126,7 +126,7 @@ pub fn (r &ImporterMeshInstance3D) get_visibility_range_end_margin() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ImporterMeshInstance3D) set_visibility_range_end(distance f64) {
+pub fn (r &ImporterMeshInstance3D) set_visibility_range_end(distance f64) {
     classname := StringName.new("ImporterMeshInstance3D")
     fnname := StringName.new("set_visibility_range_end")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -146,7 +146,7 @@ pub fn (r &ImporterMeshInstance3D) get_visibility_range_end() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ImporterMeshInstance3D) set_visibility_range_begin_margin(distance f64) {
+pub fn (r &ImporterMeshInstance3D) set_visibility_range_begin_margin(distance f64) {
     classname := StringName.new("ImporterMeshInstance3D")
     fnname := StringName.new("set_visibility_range_begin_margin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -166,7 +166,7 @@ pub fn (r &ImporterMeshInstance3D) get_visibility_range_begin_margin() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ImporterMeshInstance3D) set_visibility_range_begin(distance f64) {
+pub fn (r &ImporterMeshInstance3D) set_visibility_range_begin(distance f64) {
     classname := StringName.new("ImporterMeshInstance3D")
     fnname := StringName.new("set_visibility_range_begin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -186,7 +186,7 @@ pub fn (r &ImporterMeshInstance3D) get_visibility_range_begin() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ImporterMeshInstance3D) set_visibility_range_fade_mode(mode GeometryInstance3DVisibilityRangeFadeMode) {
+pub fn (r &ImporterMeshInstance3D) set_visibility_range_fade_mode(mode GeometryInstance3DVisibilityRangeFadeMode) {
     classname := StringName.new("ImporterMeshInstance3D")
     fnname := StringName.new("set_visibility_range_fade_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1440117808)

@@ -5,7 +5,7 @@ pub struct AudioEffectRecord {
     AudioEffect
 }
 
-pub fn (mut r AudioEffectRecord) set_recording_active(record bool) {
+pub fn (r &AudioEffectRecord) set_recording_active(record bool) {
     classname := StringName.new("AudioEffectRecord")
     fnname := StringName.new("set_recording_active")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -25,7 +25,7 @@ pub fn (r &AudioEffectRecord) is_recording_active() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectRecord) set_format(format AudioStreamWAVFormat) {
+pub fn (r &AudioEffectRecord) set_format(format AudioStreamWAVFormat) {
     classname := StringName.new("AudioEffectRecord")
     fnname := StringName.new("set_format")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 60648488)

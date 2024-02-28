@@ -15,7 +15,7 @@ pub fn (r &ScriptEditorBase) get_base_editor() Control {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ScriptEditorBase) add_syntax_highlighter(highlighter EditorSyntaxHighlighter) {
+pub fn (r &ScriptEditorBase) add_syntax_highlighter(highlighter EditorSyntaxHighlighter) {
     classname := StringName.new("ScriptEditorBase")
     fnname := StringName.new("add_syntax_highlighter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1092774468)

@@ -5,7 +5,7 @@ pub struct ZIPReader {
     RefCounted
 }
 
-pub fn (mut r ZIPReader) open(path string) GDError {
+pub fn (r &ZIPReader) open(path string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ZIPReader")
     fnname := StringName.new("open")
@@ -19,7 +19,7 @@ pub fn (mut r ZIPReader) open(path string) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r ZIPReader) close() GDError {
+pub fn (r &ZIPReader) close() GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ZIPReader")
     fnname := StringName.new("close")
@@ -29,7 +29,7 @@ pub fn (mut r ZIPReader) close() GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r ZIPReader) get_files() PackedStringArray {
+pub fn (r &ZIPReader) get_files() PackedStringArray {
     mut object_out := PackedStringArray{}
     classname := StringName.new("ZIPReader")
     fnname := StringName.new("get_files")
@@ -39,7 +39,7 @@ pub fn (mut r ZIPReader) get_files() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ZIPReader) read_file(path string, case_sensitive bool) PackedByteArray {
+pub fn (r &ZIPReader) read_file(path string, case_sensitive bool) PackedByteArray {
     mut object_out := PackedByteArray{}
     classname := StringName.new("ZIPReader")
     fnname := StringName.new("read_file")
@@ -54,7 +54,7 @@ pub fn (mut r ZIPReader) read_file(path string, case_sensitive bool) PackedByteA
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ZIPReader) file_exists(path string, case_sensitive bool) bool {
+pub fn (r &ZIPReader) file_exists(path string, case_sensitive bool) bool {
     mut object_out := false
     classname := StringName.new("ZIPReader")
     fnname := StringName.new("file_exists")

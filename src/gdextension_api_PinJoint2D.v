@@ -5,7 +5,7 @@ pub struct PinJoint2D {
     Joint2D
 }
 
-pub fn (mut r PinJoint2D) set_softness(softness f64) {
+pub fn (r &PinJoint2D) set_softness(softness f64) {
     classname := StringName.new("PinJoint2D")
     fnname := StringName.new("set_softness")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -25,7 +25,7 @@ pub fn (r &PinJoint2D) get_softness() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PinJoint2D) set_angular_limit_lower(angular_limit_lower f64) {
+pub fn (r &PinJoint2D) set_angular_limit_lower(angular_limit_lower f64) {
     classname := StringName.new("PinJoint2D")
     fnname := StringName.new("set_angular_limit_lower")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -45,7 +45,7 @@ pub fn (r &PinJoint2D) get_angular_limit_lower() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PinJoint2D) set_angular_limit_upper(angular_limit_upper f64) {
+pub fn (r &PinJoint2D) set_angular_limit_upper(angular_limit_upper f64) {
     classname := StringName.new("PinJoint2D")
     fnname := StringName.new("set_angular_limit_upper")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -65,7 +65,7 @@ pub fn (r &PinJoint2D) get_angular_limit_upper() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PinJoint2D) set_motor_target_velocity(motor_target_velocity f64) {
+pub fn (r &PinJoint2D) set_motor_target_velocity(motor_target_velocity f64) {
     classname := StringName.new("PinJoint2D")
     fnname := StringName.new("set_motor_target_velocity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -85,7 +85,7 @@ pub fn (r &PinJoint2D) get_motor_target_velocity() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PinJoint2D) set_motor_enabled(enabled bool) {
+pub fn (r &PinJoint2D) set_motor_enabled(enabled bool) {
     classname := StringName.new("PinJoint2D")
     fnname := StringName.new("set_motor_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -105,7 +105,7 @@ pub fn (r &PinJoint2D) is_motor_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PinJoint2D) set_angular_limit_enabled(enabled bool) {
+pub fn (r &PinJoint2D) set_angular_limit_enabled(enabled bool) {
     classname := StringName.new("PinJoint2D")
     fnname := StringName.new("set_angular_limit_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

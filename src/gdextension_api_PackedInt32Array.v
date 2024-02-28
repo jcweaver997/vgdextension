@@ -51,13 +51,13 @@ pub fn (r &PackedInt32Array) is_empty() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PackedInt32Array) set(index i64, value i64) {
+pub fn (r &PackedInt32Array) set(index i64, value i64) {
     fnname := StringName.new("set")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedint32array, voidptr(&fnname), 3638975848)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 2)
     fnname.deinit()
 }
-pub fn (mut r PackedInt32Array) push_back(value i64) bool {
+pub fn (r &PackedInt32Array) push_back(value i64) bool {
     mut object_out := false
     fnname := StringName.new("push_back")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedint32array, voidptr(&fnname), 694024632)
@@ -67,7 +67,7 @@ pub fn (mut r PackedInt32Array) push_back(value i64) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PackedInt32Array) append(value i64) bool {
+pub fn (r &PackedInt32Array) append(value i64) bool {
     mut object_out := false
     fnname := StringName.new("append")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedint32array, voidptr(&fnname), 694024632)
@@ -77,19 +77,19 @@ pub fn (mut r PackedInt32Array) append(value i64) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PackedInt32Array) append_array(array PackedInt32Array) {
+pub fn (r &PackedInt32Array) append_array(array PackedInt32Array) {
     fnname := StringName.new("append_array")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedint32array, voidptr(&fnname), 1087733270)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 1)
     fnname.deinit()
 }
-pub fn (mut r PackedInt32Array) remove_at(index i64) {
+pub fn (r &PackedInt32Array) remove_at(index i64) {
     fnname := StringName.new("remove_at")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedint32array, voidptr(&fnname), 2823966027)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 1)
     fnname.deinit()
 }
-pub fn (mut r PackedInt32Array) insert(at_index i64, value i64) i64 {
+pub fn (r &PackedInt32Array) insert(at_index i64, value i64) i64 {
     mut object_out := i64(0)
     fnname := StringName.new("insert")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedint32array, voidptr(&fnname), 1487112728)
@@ -100,13 +100,13 @@ pub fn (mut r PackedInt32Array) insert(at_index i64, value i64) i64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PackedInt32Array) fill(value i64) {
+pub fn (r &PackedInt32Array) fill(value i64) {
     fnname := StringName.new("fill")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedint32array, voidptr(&fnname), 2823966027)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 1)
     fnname.deinit()
 }
-pub fn (mut r PackedInt32Array) resize(new_size i64) i64 {
+pub fn (r &PackedInt32Array) resize(new_size i64) i64 {
     mut object_out := i64(0)
     fnname := StringName.new("resize")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedint32array, voidptr(&fnname), 848867239)
@@ -116,7 +116,7 @@ pub fn (mut r PackedInt32Array) resize(new_size i64) i64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PackedInt32Array) clear() {
+pub fn (r &PackedInt32Array) clear() {
     fnname := StringName.new("clear")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedint32array, voidptr(&fnname), 3218959716)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 0)
@@ -132,7 +132,7 @@ pub fn (r &PackedInt32Array) has(value i64) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PackedInt32Array) reverse() {
+pub fn (r &PackedInt32Array) reverse() {
     fnname := StringName.new("reverse")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedint32array, voidptr(&fnname), 3218959716)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 0)
@@ -157,13 +157,13 @@ pub fn (r &PackedInt32Array) to_byte_array() PackedByteArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PackedInt32Array) sort() {
+pub fn (r &PackedInt32Array) sort() {
     fnname := StringName.new("sort")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedint32array, voidptr(&fnname), 3218959716)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 0)
     fnname.deinit()
 }
-pub fn (mut r PackedInt32Array) bsearch(value i64, before bool) i64 {
+pub fn (r &PackedInt32Array) bsearch(value i64, before bool) i64 {
     mut object_out := i64(0)
     fnname := StringName.new("bsearch")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedint32array, voidptr(&fnname), 3380005890)
@@ -174,7 +174,7 @@ pub fn (mut r PackedInt32Array) bsearch(value i64, before bool) i64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PackedInt32Array) duplicate() PackedInt32Array {
+pub fn (r &PackedInt32Array) duplicate() PackedInt32Array {
     mut object_out := PackedInt32Array{}
     fnname := StringName.new("duplicate")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedint32array, voidptr(&fnname), 1997843129)

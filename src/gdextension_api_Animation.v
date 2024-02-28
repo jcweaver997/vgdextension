@@ -49,7 +49,7 @@ pub struct Animation {
     Resource
 }
 
-pub fn (mut r Animation) add_track(type_name AnimationTrackType, at_position i32) i32 {
+pub fn (r &Animation) add_track(type_name AnimationTrackType, at_position i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("Animation")
     fnname := StringName.new("add_track")
@@ -63,7 +63,7 @@ pub fn (mut r Animation) add_track(type_name AnimationTrackType, at_position i32
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Animation) remove_track(track_idx i32) {
+pub fn (r &Animation) remove_track(track_idx i32) {
     classname := StringName.new("Animation")
     fnname := StringName.new("remove_track")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -107,7 +107,7 @@ pub fn (r &Animation) track_get_path(track_idx i32) NodePath {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Animation) track_set_path(track_idx i32, path NodePath) {
+pub fn (r &Animation) track_set_path(track_idx i32, path NodePath) {
     classname := StringName.new("Animation")
     fnname := StringName.new("track_set_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2761262315)
@@ -132,7 +132,7 @@ pub fn (r &Animation) find_track(path NodePath, type_name AnimationTrackType) i3
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Animation) track_move_up(track_idx i32) {
+pub fn (r &Animation) track_move_up(track_idx i32) {
     classname := StringName.new("Animation")
     fnname := StringName.new("track_move_up")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -142,7 +142,7 @@ pub fn (mut r Animation) track_move_up(track_idx i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Animation) track_move_down(track_idx i32) {
+pub fn (r &Animation) track_move_down(track_idx i32) {
     classname := StringName.new("Animation")
     fnname := StringName.new("track_move_down")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -152,7 +152,7 @@ pub fn (mut r Animation) track_move_down(track_idx i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Animation) track_move_to(track_idx i32, to_idx i32) {
+pub fn (r &Animation) track_move_to(track_idx i32, to_idx i32) {
     classname := StringName.new("Animation")
     fnname := StringName.new("track_move_to")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -163,7 +163,7 @@ pub fn (mut r Animation) track_move_to(track_idx i32, to_idx i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Animation) track_swap(track_idx i32, with_idx i32) {
+pub fn (r &Animation) track_swap(track_idx i32, with_idx i32) {
     classname := StringName.new("Animation")
     fnname := StringName.new("track_swap")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -174,7 +174,7 @@ pub fn (mut r Animation) track_swap(track_idx i32, with_idx i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Animation) track_set_imported(track_idx i32, imported bool) {
+pub fn (r &Animation) track_set_imported(track_idx i32, imported bool) {
     classname := StringName.new("Animation")
     fnname := StringName.new("track_set_imported")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -197,7 +197,7 @@ pub fn (r &Animation) track_is_imported(track_idx i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Animation) track_set_enabled(track_idx i32, enabled bool) {
+pub fn (r &Animation) track_set_enabled(track_idx i32, enabled bool) {
     classname := StringName.new("Animation")
     fnname := StringName.new("track_set_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -220,7 +220,7 @@ pub fn (r &Animation) track_is_enabled(track_idx i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Animation) position_track_insert_key(track_idx i32, time f64, position Vector3) i32 {
+pub fn (r &Animation) position_track_insert_key(track_idx i32, time f64, position Vector3) i32 {
     mut object_out := i32(0)
     classname := StringName.new("Animation")
     fnname := StringName.new("position_track_insert_key")
@@ -234,7 +234,7 @@ pub fn (mut r Animation) position_track_insert_key(track_idx i32, time f64, posi
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Animation) rotation_track_insert_key(track_idx i32, time f64, rotation Quaternion) i32 {
+pub fn (r &Animation) rotation_track_insert_key(track_idx i32, time f64, rotation Quaternion) i32 {
     mut object_out := i32(0)
     classname := StringName.new("Animation")
     fnname := StringName.new("rotation_track_insert_key")
@@ -248,7 +248,7 @@ pub fn (mut r Animation) rotation_track_insert_key(track_idx i32, time f64, rota
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Animation) scale_track_insert_key(track_idx i32, time f64, scale Vector3) i32 {
+pub fn (r &Animation) scale_track_insert_key(track_idx i32, time f64, scale Vector3) i32 {
     mut object_out := i32(0)
     classname := StringName.new("Animation")
     fnname := StringName.new("scale_track_insert_key")
@@ -262,7 +262,7 @@ pub fn (mut r Animation) scale_track_insert_key(track_idx i32, time f64, scale V
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Animation) blend_shape_track_insert_key(track_idx i32, time f64, amount f64) i32 {
+pub fn (r &Animation) blend_shape_track_insert_key(track_idx i32, time f64, amount f64) i32 {
     mut object_out := i32(0)
     classname := StringName.new("Animation")
     fnname := StringName.new("blend_shape_track_insert_key")
@@ -328,7 +328,7 @@ pub fn (r &Animation) blend_shape_track_interpolate(track_idx i32, time_sec f64)
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Animation) track_insert_key(track_idx i32, time f64, key Variant, transition f64) i32 {
+pub fn (r &Animation) track_insert_key(track_idx i32, time f64, key Variant, transition f64) i32 {
     mut object_out := i32(0)
     classname := StringName.new("Animation")
     fnname := StringName.new("track_insert_key")
@@ -343,7 +343,7 @@ pub fn (mut r Animation) track_insert_key(track_idx i32, time f64, key Variant, 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Animation) track_remove_key(track_idx i32, key_idx i32) {
+pub fn (r &Animation) track_remove_key(track_idx i32, key_idx i32) {
     classname := StringName.new("Animation")
     fnname := StringName.new("track_remove_key")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -354,7 +354,7 @@ pub fn (mut r Animation) track_remove_key(track_idx i32, key_idx i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Animation) track_remove_key_at_time(track_idx i32, time f64) {
+pub fn (r &Animation) track_remove_key_at_time(track_idx i32, time f64) {
     classname := StringName.new("Animation")
     fnname := StringName.new("track_remove_key_at_time")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1602489585)
@@ -365,7 +365,7 @@ pub fn (mut r Animation) track_remove_key_at_time(track_idx i32, time f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Animation) track_set_key_value(track_idx i32, key i32, value Variant) {
+pub fn (r &Animation) track_set_key_value(track_idx i32, key i32, value Variant) {
     classname := StringName.new("Animation")
     fnname := StringName.new("track_set_key_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2060538656)
@@ -377,7 +377,7 @@ pub fn (mut r Animation) track_set_key_value(track_idx i32, key i32, value Varia
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Animation) track_set_key_transition(track_idx i32, key_idx i32, transition f64) {
+pub fn (r &Animation) track_set_key_transition(track_idx i32, key_idx i32, transition f64) {
     classname := StringName.new("Animation")
     fnname := StringName.new("track_set_key_transition")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3506521499)
@@ -389,7 +389,7 @@ pub fn (mut r Animation) track_set_key_transition(track_idx i32, key_idx i32, tr
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Animation) track_set_key_time(track_idx i32, key_idx i32, time f64) {
+pub fn (r &Animation) track_set_key_time(track_idx i32, key_idx i32, time f64) {
     classname := StringName.new("Animation")
     fnname := StringName.new("track_set_key_time")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3506521499)
@@ -467,7 +467,7 @@ pub fn (r &Animation) track_find_key(track_idx i32, time f64, find_mode Animatio
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Animation) track_set_interpolation_type(track_idx i32, interpolation AnimationInterpolationType) {
+pub fn (r &Animation) track_set_interpolation_type(track_idx i32, interpolation AnimationInterpolationType) {
     classname := StringName.new("Animation")
     fnname := StringName.new("track_set_interpolation_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4112932513)
@@ -491,7 +491,7 @@ pub fn (r &Animation) track_get_interpolation_type(track_idx i32) AnimationInter
     fnname.deinit()
    return unsafe{AnimationInterpolationType(object_out)}
 }
-pub fn (mut r Animation) track_set_interpolation_loop_wrap(track_idx i32, interpolation bool) {
+pub fn (r &Animation) track_set_interpolation_loop_wrap(track_idx i32, interpolation bool) {
     classname := StringName.new("Animation")
     fnname := StringName.new("track_set_interpolation_loop_wrap")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -526,7 +526,7 @@ pub fn (r &Animation) track_is_compressed(track_idx i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Animation) value_track_set_update_mode(track_idx i32, mode AnimationUpdateMode) {
+pub fn (r &Animation) value_track_set_update_mode(track_idx i32, mode AnimationUpdateMode) {
     classname := StringName.new("Animation")
     fnname := StringName.new("value_track_set_update_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2854058312)
@@ -591,7 +591,7 @@ pub fn (r &Animation) method_track_get_params(track_idx i32, key_idx i32) Array 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Animation) bezier_track_insert_key(track_idx i32, time f64, value f64, in_handle Vector2, out_handle Vector2) i32 {
+pub fn (r &Animation) bezier_track_insert_key(track_idx i32, time f64, value f64, in_handle Vector2, out_handle Vector2) i32 {
     mut object_out := i32(0)
     classname := StringName.new("Animation")
     fnname := StringName.new("bezier_track_insert_key")
@@ -607,7 +607,7 @@ pub fn (mut r Animation) bezier_track_insert_key(track_idx i32, time f64, value 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Animation) bezier_track_set_key_value(track_idx i32, key_idx i32, value f64) {
+pub fn (r &Animation) bezier_track_set_key_value(track_idx i32, key_idx i32, value f64) {
     classname := StringName.new("Animation")
     fnname := StringName.new("bezier_track_set_key_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3506521499)
@@ -619,7 +619,7 @@ pub fn (mut r Animation) bezier_track_set_key_value(track_idx i32, key_idx i32, 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Animation) bezier_track_set_key_in_handle(track_idx i32, key_idx i32, in_handle Vector2, balanced_value_time_ratio f64) {
+pub fn (r &Animation) bezier_track_set_key_in_handle(track_idx i32, key_idx i32, in_handle Vector2, balanced_value_time_ratio f64) {
     classname := StringName.new("Animation")
     fnname := StringName.new("bezier_track_set_key_in_handle")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1719223284)
@@ -632,7 +632,7 @@ pub fn (mut r Animation) bezier_track_set_key_in_handle(track_idx i32, key_idx i
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Animation) bezier_track_set_key_out_handle(track_idx i32, key_idx i32, out_handle Vector2, balanced_value_time_ratio f64) {
+pub fn (r &Animation) bezier_track_set_key_out_handle(track_idx i32, key_idx i32, out_handle Vector2, balanced_value_time_ratio f64) {
     classname := StringName.new("Animation")
     fnname := StringName.new("bezier_track_set_key_out_handle")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1719223284)
@@ -697,7 +697,7 @@ pub fn (r &Animation) bezier_track_interpolate(track_idx i32, time f64) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Animation) audio_track_insert_key(track_idx i32, time f64, stream Resource, start_offset f64, end_offset f64) i32 {
+pub fn (r &Animation) audio_track_insert_key(track_idx i32, time f64, stream Resource, start_offset f64, end_offset f64) i32 {
     mut object_out := i32(0)
     classname := StringName.new("Animation")
     fnname := StringName.new("audio_track_insert_key")
@@ -713,7 +713,7 @@ pub fn (mut r Animation) audio_track_insert_key(track_idx i32, time f64, stream 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Animation) audio_track_set_key_stream(track_idx i32, key_idx i32, stream Resource) {
+pub fn (r &Animation) audio_track_set_key_stream(track_idx i32, key_idx i32, stream Resource) {
     classname := StringName.new("Animation")
     fnname := StringName.new("audio_track_set_key_stream")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3886397084)
@@ -725,7 +725,7 @@ pub fn (mut r Animation) audio_track_set_key_stream(track_idx i32, key_idx i32, 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Animation) audio_track_set_key_start_offset(track_idx i32, key_idx i32, offset f64) {
+pub fn (r &Animation) audio_track_set_key_start_offset(track_idx i32, key_idx i32, offset f64) {
     classname := StringName.new("Animation")
     fnname := StringName.new("audio_track_set_key_start_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3506521499)
@@ -737,7 +737,7 @@ pub fn (mut r Animation) audio_track_set_key_start_offset(track_idx i32, key_idx
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Animation) audio_track_set_key_end_offset(track_idx i32, key_idx i32, offset f64) {
+pub fn (r &Animation) audio_track_set_key_end_offset(track_idx i32, key_idx i32, offset f64) {
     classname := StringName.new("Animation")
     fnname := StringName.new("audio_track_set_key_end_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3506521499)
@@ -788,7 +788,7 @@ pub fn (r &Animation) audio_track_get_key_end_offset(track_idx i32, key_idx i32)
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Animation) audio_track_set_use_blend(track_idx i32, enable bool) {
+pub fn (r &Animation) audio_track_set_use_blend(track_idx i32, enable bool) {
     classname := StringName.new("Animation")
     fnname := StringName.new("audio_track_set_use_blend")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -811,7 +811,7 @@ pub fn (r &Animation) audio_track_is_use_blend(track_idx i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Animation) animation_track_insert_key(track_idx i32, time f64, animation string) i32 {
+pub fn (r &Animation) animation_track_insert_key(track_idx i32, time f64, animation string) i32 {
     mut object_out := i32(0)
     classname := StringName.new("Animation")
     fnname := StringName.new("animation_track_insert_key")
@@ -827,7 +827,7 @@ pub fn (mut r Animation) animation_track_insert_key(track_idx i32, time f64, ani
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Animation) animation_track_set_key_animation(track_idx i32, key_idx i32, animation string) {
+pub fn (r &Animation) animation_track_set_key_animation(track_idx i32, key_idx i32, animation string) {
     classname := StringName.new("Animation")
     fnname := StringName.new("animation_track_set_key_animation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 117615382)
@@ -856,7 +856,7 @@ pub fn (r &Animation) animation_track_get_key_animation(track_idx i32, key_idx i
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r Animation) set_length(time_sec f64) {
+pub fn (r &Animation) set_length(time_sec f64) {
     classname := StringName.new("Animation")
     fnname := StringName.new("set_length")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -876,7 +876,7 @@ pub fn (r &Animation) get_length() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Animation) set_loop_mode(loop_mode AnimationLoopMode) {
+pub fn (r &Animation) set_loop_mode(loop_mode AnimationLoopMode) {
     classname := StringName.new("Animation")
     fnname := StringName.new("set_loop_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3155355575)
@@ -897,7 +897,7 @@ pub fn (r &Animation) get_loop_mode() AnimationLoopMode {
     fnname.deinit()
    return unsafe{AnimationLoopMode(object_out)}
 }
-pub fn (mut r Animation) set_step(size_sec f64) {
+pub fn (r &Animation) set_step(size_sec f64) {
     classname := StringName.new("Animation")
     fnname := StringName.new("set_step")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -917,7 +917,7 @@ pub fn (r &Animation) get_step() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Animation) clear() {
+pub fn (r &Animation) clear() {
     classname := StringName.new("Animation")
     fnname := StringName.new("clear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -925,7 +925,7 @@ pub fn (mut r Animation) clear() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Animation) copy_track(track_idx i32, to_animation Animation) {
+pub fn (r &Animation) copy_track(track_idx i32, to_animation Animation) {
     classname := StringName.new("Animation")
     fnname := StringName.new("copy_track")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 148001024)
@@ -936,7 +936,7 @@ pub fn (mut r Animation) copy_track(track_idx i32, to_animation Animation) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Animation) compress(page_size u32, fps u32, split_tolerance f64) {
+pub fn (r &Animation) compress(page_size u32, fps u32, split_tolerance f64) {
     classname := StringName.new("Animation")
     fnname := StringName.new("compress")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3608408117)

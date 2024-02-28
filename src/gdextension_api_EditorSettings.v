@@ -19,7 +19,7 @@ pub fn (r &EditorSettings) has_setting(name string) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorSettings) set_setting(name string, value Variant) {
+pub fn (r &EditorSettings) set_setting(name string, value Variant) {
     classname := StringName.new("EditorSettings")
     fnname := StringName.new("set_setting")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 402577236)
@@ -46,7 +46,7 @@ pub fn (r &EditorSettings) get_setting(name string) Variant {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorSettings) erase(property string) {
+pub fn (r &EditorSettings) erase(property string) {
     classname := StringName.new("EditorSettings")
     fnname := StringName.new("erase")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -58,7 +58,7 @@ pub fn (mut r EditorSettings) erase(property string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorSettings) set_initial_value(name string, value Variant, update_current bool) {
+pub fn (r &EditorSettings) set_initial_value(name string, value Variant, update_current bool) {
     classname := StringName.new("EditorSettings")
     fnname := StringName.new("set_initial_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1529169264)
@@ -72,7 +72,7 @@ pub fn (mut r EditorSettings) set_initial_value(name string, value Variant, upda
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorSettings) add_property_info(info Dictionary) {
+pub fn (r &EditorSettings) add_property_info(info Dictionary) {
     classname := StringName.new("EditorSettings")
     fnname := StringName.new("add_property_info")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4155329257)
@@ -82,7 +82,7 @@ pub fn (mut r EditorSettings) add_property_info(info Dictionary) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorSettings) set_project_metadata(section string, key string, data Variant) {
+pub fn (r &EditorSettings) set_project_metadata(section string, key string, data Variant) {
     classname := StringName.new("EditorSettings")
     fnname := StringName.new("set_project_metadata")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2504492430)
@@ -116,7 +116,7 @@ pub fn (r &EditorSettings) get_project_metadata(section string, key string, defa
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorSettings) set_favorites(dirs PackedStringArray) {
+pub fn (r &EditorSettings) set_favorites(dirs PackedStringArray) {
     classname := StringName.new("EditorSettings")
     fnname := StringName.new("set_favorites")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4015028928)
@@ -136,7 +136,7 @@ pub fn (r &EditorSettings) get_favorites() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorSettings) set_recent_dirs(dirs PackedStringArray) {
+pub fn (r &EditorSettings) set_recent_dirs(dirs PackedStringArray) {
     classname := StringName.new("EditorSettings")
     fnname := StringName.new("set_recent_dirs")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4015028928)
@@ -156,7 +156,7 @@ pub fn (r &EditorSettings) get_recent_dirs() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorSettings) set_builtin_action_override(name string, actions_list Array) {
+pub fn (r &EditorSettings) set_builtin_action_override(name string, actions_list Array) {
     classname := StringName.new("EditorSettings")
     fnname := StringName.new("set_builtin_action_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1209351045)
@@ -193,7 +193,7 @@ pub fn (r &EditorSettings) get_changed_settings() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorSettings) mark_setting_changed(setting string) {
+pub fn (r &EditorSettings) mark_setting_changed(setting string) {
     classname := StringName.new("EditorSettings")
     fnname := StringName.new("mark_setting_changed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)

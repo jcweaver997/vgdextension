@@ -5,7 +5,7 @@ pub struct SeparationRayShape3D {
     Shape3D
 }
 
-pub fn (mut r SeparationRayShape3D) set_length(length f64) {
+pub fn (r &SeparationRayShape3D) set_length(length f64) {
     classname := StringName.new("SeparationRayShape3D")
     fnname := StringName.new("set_length")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -25,7 +25,7 @@ pub fn (r &SeparationRayShape3D) get_length() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SeparationRayShape3D) set_slide_on_slope(active bool) {
+pub fn (r &SeparationRayShape3D) set_slide_on_slope(active bool) {
     classname := StringName.new("SeparationRayShape3D")
     fnname := StringName.new("set_slide_on_slope")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

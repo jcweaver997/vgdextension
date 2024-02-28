@@ -5,7 +5,7 @@ pub struct TextLine {
     RefCounted
 }
 
-pub fn (mut r TextLine) clear() {
+pub fn (r &TextLine) clear() {
     classname := StringName.new("TextLine")
     fnname := StringName.new("clear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -13,7 +13,7 @@ pub fn (mut r TextLine) clear() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextLine) set_direction(direction TextServerDirection) {
+pub fn (r &TextLine) set_direction(direction TextServerDirection) {
     classname := StringName.new("TextLine")
     fnname := StringName.new("set_direction")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1418190634)
@@ -34,7 +34,7 @@ pub fn (r &TextLine) get_direction() TextServerDirection {
     fnname.deinit()
    return unsafe{TextServerDirection(object_out)}
 }
-pub fn (mut r TextLine) set_orientation(orientation TextServerOrientation) {
+pub fn (r &TextLine) set_orientation(orientation TextServerOrientation) {
     classname := StringName.new("TextLine")
     fnname := StringName.new("set_orientation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 42823726)
@@ -55,7 +55,7 @@ pub fn (r &TextLine) get_orientation() TextServerOrientation {
     fnname.deinit()
    return unsafe{TextServerOrientation(object_out)}
 }
-pub fn (mut r TextLine) set_preserve_invalid(enabled bool) {
+pub fn (r &TextLine) set_preserve_invalid(enabled bool) {
     classname := StringName.new("TextLine")
     fnname := StringName.new("set_preserve_invalid")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -75,7 +75,7 @@ pub fn (r &TextLine) get_preserve_invalid() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextLine) set_preserve_control(enabled bool) {
+pub fn (r &TextLine) set_preserve_control(enabled bool) {
     classname := StringName.new("TextLine")
     fnname := StringName.new("set_preserve_control")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -95,7 +95,7 @@ pub fn (r &TextLine) get_preserve_control() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextLine) set_bidi_override(override Array) {
+pub fn (r &TextLine) set_bidi_override(override Array) {
     classname := StringName.new("TextLine")
     fnname := StringName.new("set_bidi_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)
@@ -105,7 +105,7 @@ pub fn (mut r TextLine) set_bidi_override(override Array) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextLine) add_string(text string, font Font, font_size i32, language string, meta Variant) bool {
+pub fn (r &TextLine) add_string(text string, font Font, font_size i32, language string, meta Variant) bool {
     mut object_out := false
     classname := StringName.new("TextLine")
     fnname := StringName.new("add_string")
@@ -125,7 +125,7 @@ pub fn (mut r TextLine) add_string(text string, font Font, font_size i32, langua
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextLine) add_object(key Variant, size Vector2, inline_align InlineAlignment, length i32, baseline f64) bool {
+pub fn (r &TextLine) add_object(key Variant, size Vector2, inline_align InlineAlignment, length i32, baseline f64) bool {
     mut object_out := false
     classname := StringName.new("TextLine")
     fnname := StringName.new("add_object")
@@ -142,7 +142,7 @@ pub fn (mut r TextLine) add_object(key Variant, size Vector2, inline_align Inlin
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextLine) resize_object(key Variant, size Vector2, inline_align InlineAlignment, baseline f64) bool {
+pub fn (r &TextLine) resize_object(key Variant, size Vector2, inline_align InlineAlignment, baseline f64) bool {
     mut object_out := false
     classname := StringName.new("TextLine")
     fnname := StringName.new("resize_object")
@@ -158,7 +158,7 @@ pub fn (mut r TextLine) resize_object(key Variant, size Vector2, inline_align In
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextLine) set_width(width f64) {
+pub fn (r &TextLine) set_width(width f64) {
     classname := StringName.new("TextLine")
     fnname := StringName.new("set_width")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -178,7 +178,7 @@ pub fn (r &TextLine) get_width() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextLine) set_horizontal_alignment(alignment HorizontalAlignment) {
+pub fn (r &TextLine) set_horizontal_alignment(alignment HorizontalAlignment) {
     classname := StringName.new("TextLine")
     fnname := StringName.new("set_horizontal_alignment")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2312603777)
@@ -199,7 +199,7 @@ pub fn (r &TextLine) get_horizontal_alignment() HorizontalAlignment {
     fnname.deinit()
    return unsafe{HorizontalAlignment(object_out)}
 }
-pub fn (mut r TextLine) tab_align(tab_stops PackedFloat32Array) {
+pub fn (r &TextLine) tab_align(tab_stops PackedFloat32Array) {
     classname := StringName.new("TextLine")
     fnname := StringName.new("tab_align")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2899603908)
@@ -209,7 +209,7 @@ pub fn (mut r TextLine) tab_align(tab_stops PackedFloat32Array) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextLine) set_flags(flags TextServerJustificationFlag) {
+pub fn (r &TextLine) set_flags(flags TextServerJustificationFlag) {
     classname := StringName.new("TextLine")
     fnname := StringName.new("set_flags")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2877345813)
@@ -230,7 +230,7 @@ pub fn (r &TextLine) get_flags() TextServerJustificationFlag {
     fnname.deinit()
    return unsafe{TextServerJustificationFlag(object_out)}
 }
-pub fn (mut r TextLine) set_text_overrun_behavior(overrun_behavior TextServerOverrunBehavior) {
+pub fn (r &TextLine) set_text_overrun_behavior(overrun_behavior TextServerOverrunBehavior) {
     classname := StringName.new("TextLine")
     fnname := StringName.new("set_text_overrun_behavior")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1008890932)

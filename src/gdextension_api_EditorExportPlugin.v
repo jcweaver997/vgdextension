@@ -10,7 +10,7 @@ pub interface IEditorExportPluginExportFile {
     virt_export_file(path String, type_name String, features PackedStringArray)
 }
 
-pub fn (mut r EditorExportPlugin) uexport_file(path string, type_name string, features PackedStringArray) {
+pub fn (r &EditorExportPlugin) uexport_file(path string, type_name string, features PackedStringArray) {
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("_export_file")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -31,7 +31,7 @@ pub interface IEditorExportPluginExportBegin {
     virt_export_begin(features PackedStringArray, is_debug bool, path String, flags u32)
 }
 
-pub fn (mut r EditorExportPlugin) uexport_begin(features PackedStringArray, is_debug bool, path string, flags u32) {
+pub fn (r &EditorExportPlugin) uexport_begin(features PackedStringArray, is_debug bool, path string, flags u32) {
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("_export_begin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -51,7 +51,7 @@ pub interface IEditorExportPluginExportEnd {
     virt_export_end()
 }
 
-pub fn (mut r EditorExportPlugin) uexport_end() {
+pub fn (r &EditorExportPlugin) uexport_end() {
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("_export_end")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -82,7 +82,7 @@ pub interface IEditorExportPluginCustomizeResource {
     virt_customize_resource(resource Resource, path String) Resource
 }
 
-pub fn (mut r EditorExportPlugin) ucustomize_resource(resource Resource, path string) Resource {
+pub fn (r &EditorExportPlugin) ucustomize_resource(resource Resource, path string) Resource {
     mut object_out := Resource{}
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("_customize_resource")
@@ -120,7 +120,7 @@ pub interface IEditorExportPluginCustomizeScene {
     virt_customize_scene(scene Node, path String) Node
 }
 
-pub fn (mut r EditorExportPlugin) ucustomize_scene(scene Node, path string) Node {
+pub fn (r &EditorExportPlugin) ucustomize_scene(scene Node, path string) Node {
     mut object_out := Node{}
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("_customize_scene")
@@ -155,7 +155,7 @@ pub interface IEditorExportPluginEndCustomizeScenes {
     virt_end_customize_scenes()
 }
 
-pub fn (mut r EditorExportPlugin) uend_customize_scenes() {
+pub fn (r &EditorExportPlugin) uend_customize_scenes() {
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("_end_customize_scenes")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -168,7 +168,7 @@ pub interface IEditorExportPluginEndCustomizeResources {
     virt_end_customize_resources()
 }
 
-pub fn (mut r EditorExportPlugin) uend_customize_resources() {
+pub fn (r &EditorExportPlugin) uend_customize_resources() {
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("_end_customize_resources")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -398,7 +398,7 @@ pub fn (r &EditorExportPlugin) uget_android_manifest_element_contents(platform E
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r EditorExportPlugin) add_shared_object(path string, tags PackedStringArray, target string) {
+pub fn (r &EditorExportPlugin) add_shared_object(path string, tags PackedStringArray, target string) {
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("add_shared_object")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3098291045)
@@ -414,7 +414,7 @@ pub fn (mut r EditorExportPlugin) add_shared_object(path string, tags PackedStri
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorExportPlugin) add_ios_project_static_lib(path string) {
+pub fn (r &EditorExportPlugin) add_ios_project_static_lib(path string) {
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("add_ios_project_static_lib")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -426,7 +426,7 @@ pub fn (mut r EditorExportPlugin) add_ios_project_static_lib(path string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorExportPlugin) add_file(path string, file PackedByteArray, remap bool) {
+pub fn (r &EditorExportPlugin) add_file(path string, file PackedByteArray, remap bool) {
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("add_file")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 527928637)
@@ -440,7 +440,7 @@ pub fn (mut r EditorExportPlugin) add_file(path string, file PackedByteArray, re
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorExportPlugin) add_ios_framework(path string) {
+pub fn (r &EditorExportPlugin) add_ios_framework(path string) {
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("add_ios_framework")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -452,7 +452,7 @@ pub fn (mut r EditorExportPlugin) add_ios_framework(path string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorExportPlugin) add_ios_embedded_framework(path string) {
+pub fn (r &EditorExportPlugin) add_ios_embedded_framework(path string) {
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("add_ios_embedded_framework")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -464,7 +464,7 @@ pub fn (mut r EditorExportPlugin) add_ios_embedded_framework(path string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorExportPlugin) add_ios_plist_content(plist_content string) {
+pub fn (r &EditorExportPlugin) add_ios_plist_content(plist_content string) {
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("add_ios_plist_content")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -476,7 +476,7 @@ pub fn (mut r EditorExportPlugin) add_ios_plist_content(plist_content string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorExportPlugin) add_ios_linker_flags(flags string) {
+pub fn (r &EditorExportPlugin) add_ios_linker_flags(flags string) {
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("add_ios_linker_flags")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -488,7 +488,7 @@ pub fn (mut r EditorExportPlugin) add_ios_linker_flags(flags string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorExportPlugin) add_ios_bundle_file(path string) {
+pub fn (r &EditorExportPlugin) add_ios_bundle_file(path string) {
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("add_ios_bundle_file")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -500,7 +500,7 @@ pub fn (mut r EditorExportPlugin) add_ios_bundle_file(path string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorExportPlugin) add_ios_cpp_code(code string) {
+pub fn (r &EditorExportPlugin) add_ios_cpp_code(code string) {
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("add_ios_cpp_code")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -512,7 +512,7 @@ pub fn (mut r EditorExportPlugin) add_ios_cpp_code(code string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorExportPlugin) add_macos_plugin_file(path string) {
+pub fn (r &EditorExportPlugin) add_macos_plugin_file(path string) {
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("add_macos_plugin_file")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -524,7 +524,7 @@ pub fn (mut r EditorExportPlugin) add_macos_plugin_file(path string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorExportPlugin) skip() {
+pub fn (r &EditorExportPlugin) skip() {
     classname := StringName.new("EditorExportPlugin")
     fnname := StringName.new("skip")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

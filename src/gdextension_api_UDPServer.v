@@ -5,7 +5,7 @@ pub struct UDPServer {
     RefCounted
 }
 
-pub fn (mut r UDPServer) listen(port u16, bind_address string) GDError {
+pub fn (r &UDPServer) listen(port u16, bind_address string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("UDPServer")
     fnname := StringName.new("listen")
@@ -20,7 +20,7 @@ pub fn (mut r UDPServer) listen(port u16, bind_address string) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r UDPServer) poll() GDError {
+pub fn (r &UDPServer) poll() GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("UDPServer")
     fnname := StringName.new("poll")
@@ -60,7 +60,7 @@ pub fn (r &UDPServer) is_listening() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r UDPServer) take_connection() PacketPeerUDP {
+pub fn (r &UDPServer) take_connection() PacketPeerUDP {
     mut object_out := PacketPeerUDP{}
     classname := StringName.new("UDPServer")
     fnname := StringName.new("take_connection")
@@ -70,7 +70,7 @@ pub fn (mut r UDPServer) take_connection() PacketPeerUDP {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r UDPServer) stop() {
+pub fn (r &UDPServer) stop() {
     classname := StringName.new("UDPServer")
     fnname := StringName.new("stop")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -78,7 +78,7 @@ pub fn (mut r UDPServer) stop() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r UDPServer) set_max_pending_connections(max_pending_connections i32) {
+pub fn (r &UDPServer) set_max_pending_connections(max_pending_connections i32) {
     classname := StringName.new("UDPServer")
     fnname := StringName.new("set_max_pending_connections")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

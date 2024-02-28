@@ -5,7 +5,7 @@ pub struct SphereShape3D {
     Shape3D
 }
 
-pub fn (mut r SphereShape3D) set_radius(radius f64) {
+pub fn (r &SphereShape3D) set_radius(radius f64) {
     classname := StringName.new("SphereShape3D")
     fnname := StringName.new("set_radius")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

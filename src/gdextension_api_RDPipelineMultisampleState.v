@@ -5,7 +5,7 @@ pub struct RDPipelineMultisampleState {
     RefCounted
 }
 
-pub fn (mut r RDPipelineMultisampleState) set_sample_count(p_member RenderingDeviceTextureSamples) {
+pub fn (r &RDPipelineMultisampleState) set_sample_count(p_member RenderingDeviceTextureSamples) {
     classname := StringName.new("RDPipelineMultisampleState")
     fnname := StringName.new("set_sample_count")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3774171498)
@@ -26,7 +26,7 @@ pub fn (r &RDPipelineMultisampleState) get_sample_count() RenderingDeviceTexture
     fnname.deinit()
    return unsafe{RenderingDeviceTextureSamples(object_out)}
 }
-pub fn (mut r RDPipelineMultisampleState) set_enable_sample_shading(p_member bool) {
+pub fn (r &RDPipelineMultisampleState) set_enable_sample_shading(p_member bool) {
     classname := StringName.new("RDPipelineMultisampleState")
     fnname := StringName.new("set_enable_sample_shading")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -46,7 +46,7 @@ pub fn (r &RDPipelineMultisampleState) get_enable_sample_shading() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDPipelineMultisampleState) set_min_sample_shading(p_member f64) {
+pub fn (r &RDPipelineMultisampleState) set_min_sample_shading(p_member f64) {
     classname := StringName.new("RDPipelineMultisampleState")
     fnname := StringName.new("set_min_sample_shading")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -66,7 +66,7 @@ pub fn (r &RDPipelineMultisampleState) get_min_sample_shading() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDPipelineMultisampleState) set_enable_alpha_to_coverage(p_member bool) {
+pub fn (r &RDPipelineMultisampleState) set_enable_alpha_to_coverage(p_member bool) {
     classname := StringName.new("RDPipelineMultisampleState")
     fnname := StringName.new("set_enable_alpha_to_coverage")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -86,7 +86,7 @@ pub fn (r &RDPipelineMultisampleState) get_enable_alpha_to_coverage() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDPipelineMultisampleState) set_enable_alpha_to_one(p_member bool) {
+pub fn (r &RDPipelineMultisampleState) set_enable_alpha_to_one(p_member bool) {
     classname := StringName.new("RDPipelineMultisampleState")
     fnname := StringName.new("set_enable_alpha_to_one")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -106,7 +106,7 @@ pub fn (r &RDPipelineMultisampleState) get_enable_alpha_to_one() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDPipelineMultisampleState) set_sample_masks(masks Array) {
+pub fn (r &RDPipelineMultisampleState) set_sample_masks(masks Array) {
     classname := StringName.new("RDPipelineMultisampleState")
     fnname := StringName.new("set_sample_masks")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)

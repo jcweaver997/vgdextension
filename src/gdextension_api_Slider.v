@@ -5,7 +5,7 @@ pub struct Slider {
     Range
 }
 
-pub fn (mut r Slider) set_ticks(count i32) {
+pub fn (r &Slider) set_ticks(count i32) {
     classname := StringName.new("Slider")
     fnname := StringName.new("set_ticks")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -35,7 +35,7 @@ pub fn (r &Slider) get_ticks_on_borders() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Slider) set_ticks_on_borders(ticks_on_border bool) {
+pub fn (r &Slider) set_ticks_on_borders(ticks_on_border bool) {
     classname := StringName.new("Slider")
     fnname := StringName.new("set_ticks_on_borders")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -45,7 +45,7 @@ pub fn (mut r Slider) set_ticks_on_borders(ticks_on_border bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Slider) set_editable(editable bool) {
+pub fn (r &Slider) set_editable(editable bool) {
     classname := StringName.new("Slider")
     fnname := StringName.new("set_editable")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -65,7 +65,7 @@ pub fn (r &Slider) is_editable() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Slider) set_scrollable(scrollable bool) {
+pub fn (r &Slider) set_scrollable(scrollable bool) {
     classname := StringName.new("Slider")
     fnname := StringName.new("set_scrollable")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

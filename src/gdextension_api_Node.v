@@ -43,7 +43,7 @@ pub interface INodeProcess {
     virt_process(delta f64)
 }
 
-pub fn (mut r Node) uprocess(delta f64) {
+pub fn (r &Node) uprocess(delta f64) {
     classname := StringName.new("Node")
     fnname := StringName.new("_process")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -58,7 +58,7 @@ pub interface INodePhysicsProcess {
     virt_physics_process(delta f64)
 }
 
-pub fn (mut r Node) uphysics_process(delta f64) {
+pub fn (r &Node) uphysics_process(delta f64) {
     classname := StringName.new("Node")
     fnname := StringName.new("_physics_process")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -73,7 +73,7 @@ pub interface INodeEnterTree {
     virt_enter_tree()
 }
 
-pub fn (mut r Node) uenter_tree() {
+pub fn (r &Node) uenter_tree() {
     classname := StringName.new("Node")
     fnname := StringName.new("_enter_tree")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -86,7 +86,7 @@ pub interface INodeExitTree {
     virt_exit_tree()
 }
 
-pub fn (mut r Node) uexit_tree() {
+pub fn (r &Node) uexit_tree() {
     classname := StringName.new("Node")
     fnname := StringName.new("_exit_tree")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -99,7 +99,7 @@ pub interface INodeReady {
     virt_ready()
 }
 
-pub fn (mut r Node) uready() {
+pub fn (r &Node) uready() {
     classname := StringName.new("Node")
     fnname := StringName.new("_ready")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -127,7 +127,7 @@ pub interface INodeInput {
     virt_input(event InputEvent)
 }
 
-pub fn (mut r Node) uinput(event InputEvent) {
+pub fn (r &Node) uinput(event InputEvent) {
     classname := StringName.new("Node")
     fnname := StringName.new("_input")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -142,7 +142,7 @@ pub interface INodeShortcutInput {
     virt_shortcut_input(event InputEvent)
 }
 
-pub fn (mut r Node) ushortcut_input(event InputEvent) {
+pub fn (r &Node) ushortcut_input(event InputEvent) {
     classname := StringName.new("Node")
     fnname := StringName.new("_shortcut_input")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -157,7 +157,7 @@ pub interface INodeUnhandledInput {
     virt_unhandled_input(event InputEvent)
 }
 
-pub fn (mut r Node) uunhandled_input(event InputEvent) {
+pub fn (r &Node) uunhandled_input(event InputEvent) {
     classname := StringName.new("Node")
     fnname := StringName.new("_unhandled_input")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -172,7 +172,7 @@ pub interface INodeUnhandledKeyInput {
     virt_unhandled_key_input(event InputEvent)
 }
 
-pub fn (mut r Node) uunhandled_key_input(event InputEvent) {
+pub fn (r &Node) uunhandled_key_input(event InputEvent) {
     classname := StringName.new("Node")
     fnname := StringName.new("_unhandled_key_input")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -190,7 +190,7 @@ pub fn Node.print_orphan_nodes() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node) add_sibling(sibling Node, force_readable_name bool) {
+pub fn (r &Node) add_sibling(sibling Node, force_readable_name bool) {
     classname := StringName.new("Node")
     fnname := StringName.new("add_sibling")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2570952461)
@@ -201,7 +201,7 @@ pub fn (mut r Node) add_sibling(sibling Node, force_readable_name bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node) set_name(name string) {
+pub fn (r &Node) set_name(name string) {
     classname := StringName.new("Node")
     fnname := StringName.new("set_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -225,7 +225,7 @@ pub fn (r &Node) get_name() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r Node) add_child(node Node, force_readable_name bool, internal NodeInternalMode) {
+pub fn (r &Node) add_child(node Node, force_readable_name bool, internal NodeInternalMode) {
     classname := StringName.new("Node")
     fnname := StringName.new("add_child")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3863233950)
@@ -238,7 +238,7 @@ pub fn (mut r Node) add_child(node Node, force_readable_name bool, internal Node
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node) remove_child(node Node) {
+pub fn (r &Node) remove_child(node Node) {
     classname := StringName.new("Node")
     fnname := StringName.new("remove_child")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
@@ -248,7 +248,7 @@ pub fn (mut r Node) remove_child(node Node) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node) reparent(new_parent Node, keep_global_transform bool) {
+pub fn (r &Node) reparent(new_parent Node, keep_global_transform bool) {
     classname := StringName.new("Node")
     fnname := StringName.new("reparent")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3685795103)
@@ -403,7 +403,7 @@ pub fn (r &Node) has_node_and_resource(path NodePath) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node) get_node_and_resource(path NodePath) Array {
+pub fn (r &Node) get_node_and_resource(path NodePath) Array {
     mut object_out := Array{}
     classname := StringName.new("Node")
     fnname := StringName.new("get_node_and_resource")
@@ -472,7 +472,7 @@ pub fn (r &Node) get_path_to(node Node, use_unique_path bool) NodePath {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node) add_to_group(group string, persistent bool) {
+pub fn (r &Node) add_to_group(group string, persistent bool) {
     classname := StringName.new("Node")
     fnname := StringName.new("add_to_group")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3683006648)
@@ -485,7 +485,7 @@ pub fn (mut r Node) add_to_group(group string, persistent bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node) remove_from_group(group string) {
+pub fn (r &Node) remove_from_group(group string) {
     classname := StringName.new("Node")
     fnname := StringName.new("remove_from_group")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -511,7 +511,7 @@ pub fn (r &Node) is_in_group(group string) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node) move_child(child_node Node, to_index i32) {
+pub fn (r &Node) move_child(child_node Node, to_index i32) {
     classname := StringName.new("Node")
     fnname := StringName.new("move_child")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3315886247)
@@ -532,7 +532,7 @@ pub fn (r &Node) get_groups() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node) set_owner(owner Node) {
+pub fn (r &Node) set_owner(owner Node) {
     classname := StringName.new("Node")
     fnname := StringName.new("set_owner")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
@@ -564,7 +564,7 @@ pub fn (r &Node) get_index(include_internal bool) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node) print_tree() {
+pub fn (r &Node) print_tree() {
     classname := StringName.new("Node")
     fnname := StringName.new("print_tree")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -572,7 +572,7 @@ pub fn (mut r Node) print_tree() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node) print_tree_pretty() {
+pub fn (r &Node) print_tree_pretty() {
     classname := StringName.new("Node")
     fnname := StringName.new("print_tree_pretty")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -580,7 +580,7 @@ pub fn (mut r Node) print_tree_pretty() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node) get_tree_string() string {
+pub fn (r &Node) get_tree_string() string {
     mut object_out := String{}
     classname := StringName.new("Node")
     fnname := StringName.new("get_tree_string")
@@ -592,7 +592,7 @@ pub fn (mut r Node) get_tree_string() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r Node) get_tree_string_pretty() string {
+pub fn (r &Node) get_tree_string_pretty() string {
     mut object_out := String{}
     classname := StringName.new("Node")
     fnname := StringName.new("get_tree_string_pretty")
@@ -604,7 +604,7 @@ pub fn (mut r Node) get_tree_string_pretty() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r Node) set_scene_file_path(scene_file_path string) {
+pub fn (r &Node) set_scene_file_path(scene_file_path string) {
     classname := StringName.new("Node")
     fnname := StringName.new("set_scene_file_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -628,7 +628,7 @@ pub fn (r &Node) get_scene_file_path() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r Node) propagate_notification(what i32) {
+pub fn (r &Node) propagate_notification(what i32) {
     classname := StringName.new("Node")
     fnname := StringName.new("propagate_notification")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -638,7 +638,7 @@ pub fn (mut r Node) propagate_notification(what i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node) propagate_call(method string, gdargs Array, parent_first bool) {
+pub fn (r &Node) propagate_call(method string, gdargs Array, parent_first bool) {
     classname := StringName.new("Node")
     fnname := StringName.new("propagate_call")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1871007965)
@@ -652,7 +652,7 @@ pub fn (mut r Node) propagate_call(method string, gdargs Array, parent_first boo
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node) set_physics_process(enable bool) {
+pub fn (r &Node) set_physics_process(enable bool) {
     classname := StringName.new("Node")
     fnname := StringName.new("set_physics_process")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -692,7 +692,7 @@ pub fn (r &Node) get_process_delta_time() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node) set_process(enable bool) {
+pub fn (r &Node) set_process(enable bool) {
     classname := StringName.new("Node")
     fnname := StringName.new("set_process")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -702,7 +702,7 @@ pub fn (mut r Node) set_process(enable bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node) set_process_priority(priority i32) {
+pub fn (r &Node) set_process_priority(priority i32) {
     classname := StringName.new("Node")
     fnname := StringName.new("set_process_priority")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -722,7 +722,7 @@ pub fn (r &Node) get_process_priority() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node) set_physics_process_priority(priority i32) {
+pub fn (r &Node) set_physics_process_priority(priority i32) {
     classname := StringName.new("Node")
     fnname := StringName.new("set_physics_process_priority")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -752,7 +752,7 @@ pub fn (r &Node) is_processing() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node) set_process_input(enable bool) {
+pub fn (r &Node) set_process_input(enable bool) {
     classname := StringName.new("Node")
     fnname := StringName.new("set_process_input")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -772,7 +772,7 @@ pub fn (r &Node) is_processing_input() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node) set_process_shortcut_input(enable bool) {
+pub fn (r &Node) set_process_shortcut_input(enable bool) {
     classname := StringName.new("Node")
     fnname := StringName.new("set_process_shortcut_input")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -792,7 +792,7 @@ pub fn (r &Node) is_processing_shortcut_input() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node) set_process_unhandled_input(enable bool) {
+pub fn (r &Node) set_process_unhandled_input(enable bool) {
     classname := StringName.new("Node")
     fnname := StringName.new("set_process_unhandled_input")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -812,7 +812,7 @@ pub fn (r &Node) is_processing_unhandled_input() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node) set_process_unhandled_key_input(enable bool) {
+pub fn (r &Node) set_process_unhandled_key_input(enable bool) {
     classname := StringName.new("Node")
     fnname := StringName.new("set_process_unhandled_key_input")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -832,7 +832,7 @@ pub fn (r &Node) is_processing_unhandled_key_input() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node) set_process_mode(mode NodeProcessMode) {
+pub fn (r &Node) set_process_mode(mode NodeProcessMode) {
     classname := StringName.new("Node")
     fnname := StringName.new("set_process_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1841290486)
@@ -863,7 +863,7 @@ pub fn (r &Node) can_process() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node) set_process_thread_group(mode NodeProcessThreadGroup) {
+pub fn (r &Node) set_process_thread_group(mode NodeProcessThreadGroup) {
     classname := StringName.new("Node")
     fnname := StringName.new("set_process_thread_group")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2275442745)
@@ -884,7 +884,7 @@ pub fn (r &Node) get_process_thread_group() NodeProcessThreadGroup {
     fnname.deinit()
    return unsafe{NodeProcessThreadGroup(object_out)}
 }
-pub fn (mut r Node) set_process_thread_messages(flags NodeProcessThreadMessages) {
+pub fn (r &Node) set_process_thread_messages(flags NodeProcessThreadMessages) {
     classname := StringName.new("Node")
     fnname := StringName.new("set_process_thread_messages")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1357280998)
@@ -905,7 +905,7 @@ pub fn (r &Node) get_process_thread_messages() NodeProcessThreadMessages {
     fnname.deinit()
    return unsafe{NodeProcessThreadMessages(object_out)}
 }
-pub fn (mut r Node) set_process_thread_group_order(order i32) {
+pub fn (r &Node) set_process_thread_group_order(order i32) {
     classname := StringName.new("Node")
     fnname := StringName.new("set_process_thread_group_order")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -925,7 +925,7 @@ pub fn (r &Node) get_process_thread_group_order() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node) set_display_folded(fold bool) {
+pub fn (r &Node) set_display_folded(fold bool) {
     classname := StringName.new("Node")
     fnname := StringName.new("set_display_folded")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -945,7 +945,7 @@ pub fn (r &Node) is_displayed_folded() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node) set_process_internal(enable bool) {
+pub fn (r &Node) set_process_internal(enable bool) {
     classname := StringName.new("Node")
     fnname := StringName.new("set_process_internal")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -965,7 +965,7 @@ pub fn (r &Node) is_processing_internal() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node) set_physics_process_internal(enable bool) {
+pub fn (r &Node) set_physics_process_internal(enable bool) {
     classname := StringName.new("Node")
     fnname := StringName.new("set_physics_process_internal")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -1015,7 +1015,7 @@ pub fn (r &Node) get_tree() SceneTree {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node) create_tween() Tween {
+pub fn (r &Node) create_tween() Tween {
     mut object_out := Tween{}
     classname := StringName.new("Node")
     fnname := StringName.new("create_tween")
@@ -1037,7 +1037,7 @@ pub fn (r &Node) duplicate(flags i32) Node {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node) replace_by(node Node, keep_groups bool) {
+pub fn (r &Node) replace_by(node Node, keep_groups bool) {
     classname := StringName.new("Node")
     fnname := StringName.new("replace_by")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2570952461)
@@ -1048,7 +1048,7 @@ pub fn (mut r Node) replace_by(node Node, keep_groups bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node) set_scene_instance_load_placeholder(load_placeholder bool) {
+pub fn (r &Node) set_scene_instance_load_placeholder(load_placeholder bool) {
     classname := StringName.new("Node")
     fnname := StringName.new("set_scene_instance_load_placeholder")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -1068,7 +1068,7 @@ pub fn (r &Node) get_scene_instance_load_placeholder() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node) set_editable_instance(node Node, is_editable bool) {
+pub fn (r &Node) set_editable_instance(node Node, is_editable bool) {
     classname := StringName.new("Node")
     fnname := StringName.new("set_editable_instance")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2731852923)
@@ -1101,7 +1101,7 @@ pub fn (r &Node) get_viewport() Viewport {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node) queue_free() {
+pub fn (r &Node) queue_free() {
     classname := StringName.new("Node")
     fnname := StringName.new("queue_free")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -1109,7 +1109,7 @@ pub fn (mut r Node) queue_free() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node) request_ready() {
+pub fn (r &Node) request_ready() {
     classname := StringName.new("Node")
     fnname := StringName.new("request_ready")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -1127,7 +1127,7 @@ pub fn (r &Node) is_node_ready() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node) set_multiplayer_authority(id i32, recursive bool) {
+pub fn (r &Node) set_multiplayer_authority(id i32, recursive bool) {
     classname := StringName.new("Node")
     fnname := StringName.new("set_multiplayer_authority")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 972357352)
@@ -1168,7 +1168,7 @@ pub fn (r &Node) get_multiplayer() MultiplayerAPI {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node) rpc_config(method string, config Variant) {
+pub fn (r &Node) rpc_config(method string, config Variant) {
     classname := StringName.new("Node")
     fnname := StringName.new("rpc_config")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3776071444)
@@ -1181,7 +1181,7 @@ pub fn (mut r Node) rpc_config(method string, config Variant) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node) set_editor_description(editor_description string) {
+pub fn (r &Node) set_editor_description(editor_description string) {
     classname := StringName.new("Node")
     fnname := StringName.new("set_editor_description")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -1205,7 +1205,7 @@ pub fn (r &Node) get_editor_description() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r Node) set_unique_name_in_owner(enable bool) {
+pub fn (r &Node) set_unique_name_in_owner(enable bool) {
     classname := StringName.new("Node")
     fnname := StringName.new("set_unique_name_in_owner")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -1225,7 +1225,7 @@ pub fn (r &Node) is_unique_name_in_owner() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node) update_configuration_warnings() {
+pub fn (r &Node) update_configuration_warnings() {
     classname := StringName.new("Node")
     fnname := StringName.new("update_configuration_warnings")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -1233,7 +1233,7 @@ pub fn (mut r Node) update_configuration_warnings() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node) set_deferred_thread_group(property string, value Variant) {
+pub fn (r &Node) set_deferred_thread_group(property string, value Variant) {
     classname := StringName.new("Node")
     fnname := StringName.new("set_deferred_thread_group")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3776071444)
@@ -1246,7 +1246,7 @@ pub fn (mut r Node) set_deferred_thread_group(property string, value Variant) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node) notify_deferred_thread_group(what i32) {
+pub fn (r &Node) notify_deferred_thread_group(what i32) {
     classname := StringName.new("Node")
     fnname := StringName.new("notify_deferred_thread_group")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -1256,7 +1256,7 @@ pub fn (mut r Node) notify_deferred_thread_group(what i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node) set_thread_safe(property string, value Variant) {
+pub fn (r &Node) set_thread_safe(property string, value Variant) {
     classname := StringName.new("Node")
     fnname := StringName.new("set_thread_safe")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3776071444)
@@ -1269,7 +1269,7 @@ pub fn (mut r Node) set_thread_safe(property string, value Variant) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node) notify_thread_safe(what i32) {
+pub fn (r &Node) notify_thread_safe(what i32) {
     classname := StringName.new("Node")
     fnname := StringName.new("notify_thread_safe")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

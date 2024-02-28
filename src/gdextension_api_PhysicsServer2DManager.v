@@ -14,7 +14,7 @@ pub fn PhysicsServer2DManager.get_singleton() PhysicsServer2DManager {
     return o
 }
 
-pub fn (mut r PhysicsServer2DManager) register_server(name string, create_callback Callable) {
+pub fn (r &PhysicsServer2DManager) register_server(name string, create_callback Callable) {
     classname := StringName.new("PhysicsServer2DManager")
     fnname := StringName.new("register_server")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2137474292)
@@ -27,7 +27,7 @@ pub fn (mut r PhysicsServer2DManager) register_server(name string, create_callba
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PhysicsServer2DManager) set_default_server(name string, priority i32) {
+pub fn (r &PhysicsServer2DManager) set_default_server(name string, priority i32) {
     classname := StringName.new("PhysicsServer2DManager")
     fnname := StringName.new("set_default_server")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2956805083)

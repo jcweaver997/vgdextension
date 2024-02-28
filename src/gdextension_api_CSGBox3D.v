@@ -5,7 +5,7 @@ pub struct CSGBox3D {
     CSGPrimitive3D
 }
 
-pub fn (mut r CSGBox3D) set_size(size Vector3) {
+pub fn (r &CSGBox3D) set_size(size Vector3) {
     classname := StringName.new("CSGBox3D")
     fnname := StringName.new("set_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -25,7 +25,7 @@ pub fn (r &CSGBox3D) get_size() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CSGBox3D) set_material(material Material) {
+pub fn (r &CSGBox3D) set_material(material Material) {
     classname := StringName.new("CSGBox3D")
     fnname := StringName.new("set_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2757459619)

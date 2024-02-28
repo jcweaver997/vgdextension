@@ -41,7 +41,7 @@ pub struct Generic6DOFJoint3D {
     Joint3D
 }
 
-pub fn (mut r Generic6DOFJoint3D) set_param_x(param Generic6DOFJoint3DParam, value f64) {
+pub fn (r &Generic6DOFJoint3D) set_param_x(param Generic6DOFJoint3DParam, value f64) {
     classname := StringName.new("Generic6DOFJoint3D")
     fnname := StringName.new("set_param_x")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2018184242)
@@ -66,7 +66,7 @@ pub fn (r &Generic6DOFJoint3D) get_param_x(param Generic6DOFJoint3DParam) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Generic6DOFJoint3D) set_param_y(param Generic6DOFJoint3DParam, value f64) {
+pub fn (r &Generic6DOFJoint3D) set_param_y(param Generic6DOFJoint3DParam, value f64) {
     classname := StringName.new("Generic6DOFJoint3D")
     fnname := StringName.new("set_param_y")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2018184242)
@@ -91,7 +91,7 @@ pub fn (r &Generic6DOFJoint3D) get_param_y(param Generic6DOFJoint3DParam) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Generic6DOFJoint3D) set_param_z(param Generic6DOFJoint3DParam, value f64) {
+pub fn (r &Generic6DOFJoint3D) set_param_z(param Generic6DOFJoint3DParam, value f64) {
     classname := StringName.new("Generic6DOFJoint3D")
     fnname := StringName.new("set_param_z")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2018184242)
@@ -116,7 +116,7 @@ pub fn (r &Generic6DOFJoint3D) get_param_z(param Generic6DOFJoint3DParam) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Generic6DOFJoint3D) set_flag_x(flag Generic6DOFJoint3DFlag, value bool) {
+pub fn (r &Generic6DOFJoint3D) set_flag_x(flag Generic6DOFJoint3DFlag, value bool) {
     classname := StringName.new("Generic6DOFJoint3D")
     fnname := StringName.new("set_flag_x")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2451594564)
@@ -141,7 +141,7 @@ pub fn (r &Generic6DOFJoint3D) get_flag_x(flag Generic6DOFJoint3DFlag) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Generic6DOFJoint3D) set_flag_y(flag Generic6DOFJoint3DFlag, value bool) {
+pub fn (r &Generic6DOFJoint3D) set_flag_y(flag Generic6DOFJoint3DFlag, value bool) {
     classname := StringName.new("Generic6DOFJoint3D")
     fnname := StringName.new("set_flag_y")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2451594564)
@@ -166,7 +166,7 @@ pub fn (r &Generic6DOFJoint3D) get_flag_y(flag Generic6DOFJoint3DFlag) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Generic6DOFJoint3D) set_flag_z(flag Generic6DOFJoint3DFlag, value bool) {
+pub fn (r &Generic6DOFJoint3D) set_flag_z(flag Generic6DOFJoint3DFlag, value bool) {
     classname := StringName.new("Generic6DOFJoint3D")
     fnname := StringName.new("set_flag_z")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2451594564)

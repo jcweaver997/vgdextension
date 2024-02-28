@@ -5,7 +5,7 @@ pub struct CameraAttributes {
     Resource
 }
 
-pub fn (mut r CameraAttributes) set_exposure_multiplier(multiplier f64) {
+pub fn (r &CameraAttributes) set_exposure_multiplier(multiplier f64) {
     classname := StringName.new("CameraAttributes")
     fnname := StringName.new("set_exposure_multiplier")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -25,7 +25,7 @@ pub fn (r &CameraAttributes) get_exposure_multiplier() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CameraAttributes) set_exposure_sensitivity(sensitivity f64) {
+pub fn (r &CameraAttributes) set_exposure_sensitivity(sensitivity f64) {
     classname := StringName.new("CameraAttributes")
     fnname := StringName.new("set_exposure_sensitivity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -45,7 +45,7 @@ pub fn (r &CameraAttributes) get_exposure_sensitivity() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CameraAttributes) set_auto_exposure_enabled(enabled bool) {
+pub fn (r &CameraAttributes) set_auto_exposure_enabled(enabled bool) {
     classname := StringName.new("CameraAttributes")
     fnname := StringName.new("set_auto_exposure_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -65,7 +65,7 @@ pub fn (r &CameraAttributes) is_auto_exposure_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CameraAttributes) set_auto_exposure_speed(exposure_speed f64) {
+pub fn (r &CameraAttributes) set_auto_exposure_speed(exposure_speed f64) {
     classname := StringName.new("CameraAttributes")
     fnname := StringName.new("set_auto_exposure_speed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -85,7 +85,7 @@ pub fn (r &CameraAttributes) get_auto_exposure_speed() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CameraAttributes) set_auto_exposure_scale(exposure_grey f64) {
+pub fn (r &CameraAttributes) set_auto_exposure_scale(exposure_grey f64) {
     classname := StringName.new("CameraAttributes")
     fnname := StringName.new("set_auto_exposure_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

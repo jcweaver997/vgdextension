@@ -234,7 +234,7 @@ pub fn (r &Input) get_vector(negative_x string, positive_x string, negative_y st
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Input) add_joy_mapping(mapping string, update_existing bool) {
+pub fn (r &Input) add_joy_mapping(mapping string, update_existing bool) {
     classname := StringName.new("Input")
     fnname := StringName.new("add_joy_mapping")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1168363258)
@@ -247,7 +247,7 @@ pub fn (mut r Input) add_joy_mapping(mapping string, update_existing bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Input) remove_joy_mapping(guid string) {
+pub fn (r &Input) remove_joy_mapping(guid string) {
     classname := StringName.new("Input")
     fnname := StringName.new("remove_joy_mapping")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -259,7 +259,7 @@ pub fn (mut r Input) remove_joy_mapping(guid string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Input) is_joy_known(device i32) bool {
+pub fn (r &Input) is_joy_known(device i32) bool {
     mut object_out := false
     classname := StringName.new("Input")
     fnname := StringName.new("is_joy_known")
@@ -285,7 +285,7 @@ pub fn (r &Input) get_joy_axis(device i32, axis JoyAxis) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Input) get_joy_name(device i32) string {
+pub fn (r &Input) get_joy_name(device i32) string {
     mut object_out := String{}
     classname := StringName.new("Input")
     fnname := StringName.new("get_joy_name")
@@ -338,7 +338,7 @@ pub fn (r &Input) should_ignore_device(vendor_id i32, product_id i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Input) get_connected_joypads() Array {
+pub fn (r &Input) get_connected_joypads() Array {
     mut object_out := Array{}
     classname := StringName.new("Input")
     fnname := StringName.new("get_connected_joypads")
@@ -348,7 +348,7 @@ pub fn (mut r Input) get_connected_joypads() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Input) get_joy_vibration_strength(device i32) Vector2 {
+pub fn (r &Input) get_joy_vibration_strength(device i32) Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("Input")
     fnname := StringName.new("get_joy_vibration_strength")
@@ -360,7 +360,7 @@ pub fn (mut r Input) get_joy_vibration_strength(device i32) Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Input) get_joy_vibration_duration(device i32) f64 {
+pub fn (r &Input) get_joy_vibration_duration(device i32) f64 {
     mut object_out := f64(0)
     classname := StringName.new("Input")
     fnname := StringName.new("get_joy_vibration_duration")
@@ -372,7 +372,7 @@ pub fn (mut r Input) get_joy_vibration_duration(device i32) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Input) start_joy_vibration(device i32, weak_magnitude f64, strong_magnitude f64, duration f64) {
+pub fn (r &Input) start_joy_vibration(device i32, weak_magnitude f64, strong_magnitude f64, duration f64) {
     classname := StringName.new("Input")
     fnname := StringName.new("start_joy_vibration")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2576575033)
@@ -385,7 +385,7 @@ pub fn (mut r Input) start_joy_vibration(device i32, weak_magnitude f64, strong_
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Input) stop_joy_vibration(device i32) {
+pub fn (r &Input) stop_joy_vibration(device i32) {
     classname := StringName.new("Input")
     fnname := StringName.new("stop_joy_vibration")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -395,7 +395,7 @@ pub fn (mut r Input) stop_joy_vibration(device i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Input) vibrate_handheld(duration_ms i32) {
+pub fn (r &Input) vibrate_handheld(duration_ms i32) {
     classname := StringName.new("Input")
     fnname := StringName.new("vibrate_handheld")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 955504365)
@@ -445,7 +445,7 @@ pub fn (r &Input) get_gyroscope() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Input) set_gravity(value Vector3) {
+pub fn (r &Input) set_gravity(value Vector3) {
     classname := StringName.new("Input")
     fnname := StringName.new("set_gravity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -455,7 +455,7 @@ pub fn (mut r Input) set_gravity(value Vector3) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Input) set_accelerometer(value Vector3) {
+pub fn (r &Input) set_accelerometer(value Vector3) {
     classname := StringName.new("Input")
     fnname := StringName.new("set_accelerometer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -465,7 +465,7 @@ pub fn (mut r Input) set_accelerometer(value Vector3) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Input) set_magnetometer(value Vector3) {
+pub fn (r &Input) set_magnetometer(value Vector3) {
     classname := StringName.new("Input")
     fnname := StringName.new("set_magnetometer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -475,7 +475,7 @@ pub fn (mut r Input) set_magnetometer(value Vector3) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Input) set_gyroscope(value Vector3) {
+pub fn (r &Input) set_gyroscope(value Vector3) {
     classname := StringName.new("Input")
     fnname := StringName.new("set_gyroscope")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -485,7 +485,7 @@ pub fn (mut r Input) set_gyroscope(value Vector3) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Input) get_last_mouse_velocity() Vector2 {
+pub fn (r &Input) get_last_mouse_velocity() Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("Input")
     fnname := StringName.new("get_last_mouse_velocity")
@@ -505,7 +505,7 @@ pub fn (r &Input) get_mouse_button_mask() MouseButtonMask {
     fnname.deinit()
    return unsafe{MouseButtonMask(object_out)}
 }
-pub fn (mut r Input) set_mouse_mode(mode InputMouseMode) {
+pub fn (r &Input) set_mouse_mode(mode InputMouseMode) {
     classname := StringName.new("Input")
     fnname := StringName.new("set_mouse_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2228490894)
@@ -526,7 +526,7 @@ pub fn (r &Input) get_mouse_mode() InputMouseMode {
     fnname.deinit()
    return unsafe{InputMouseMode(object_out)}
 }
-pub fn (mut r Input) warp_mouse(position Vector2) {
+pub fn (r &Input) warp_mouse(position Vector2) {
     classname := StringName.new("Input")
     fnname := StringName.new("warp_mouse")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -536,7 +536,7 @@ pub fn (mut r Input) warp_mouse(position Vector2) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Input) action_press(action string, strength f64) {
+pub fn (r &Input) action_press(action string, strength f64) {
     classname := StringName.new("Input")
     fnname := StringName.new("action_press")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1713091165)
@@ -549,7 +549,7 @@ pub fn (mut r Input) action_press(action string, strength f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Input) action_release(action string) {
+pub fn (r &Input) action_release(action string) {
     classname := StringName.new("Input")
     fnname := StringName.new("action_release")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -561,7 +561,7 @@ pub fn (mut r Input) action_release(action string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Input) set_default_cursor_shape(shape InputCursorShape) {
+pub fn (r &Input) set_default_cursor_shape(shape InputCursorShape) {
     classname := StringName.new("Input")
     fnname := StringName.new("set_default_cursor_shape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2124816902)
@@ -582,7 +582,7 @@ pub fn (r &Input) get_current_cursor_shape() InputCursorShape {
     fnname.deinit()
    return unsafe{InputCursorShape(object_out)}
 }
-pub fn (mut r Input) set_custom_mouse_cursor(image Resource, shape InputCursorShape, hotspot Vector2) {
+pub fn (r &Input) set_custom_mouse_cursor(image Resource, shape InputCursorShape, hotspot Vector2) {
     classname := StringName.new("Input")
     fnname := StringName.new("set_custom_mouse_cursor")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 703945977)
@@ -595,7 +595,7 @@ pub fn (mut r Input) set_custom_mouse_cursor(image Resource, shape InputCursorSh
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Input) parse_input_event(event InputEvent) {
+pub fn (r &Input) parse_input_event(event InputEvent) {
     classname := StringName.new("Input")
     fnname := StringName.new("parse_input_event")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3754044979)
@@ -605,7 +605,7 @@ pub fn (mut r Input) parse_input_event(event InputEvent) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Input) set_use_accumulated_input(enable bool) {
+pub fn (r &Input) set_use_accumulated_input(enable bool) {
     classname := StringName.new("Input")
     fnname := StringName.new("set_use_accumulated_input")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -615,7 +615,7 @@ pub fn (mut r Input) set_use_accumulated_input(enable bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Input) is_using_accumulated_input() bool {
+pub fn (r &Input) is_using_accumulated_input() bool {
     mut object_out := false
     classname := StringName.new("Input")
     fnname := StringName.new("is_using_accumulated_input")
@@ -625,7 +625,7 @@ pub fn (mut r Input) is_using_accumulated_input() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Input) flush_buffered_events() {
+pub fn (r &Input) flush_buffered_events() {
     classname := StringName.new("Input")
     fnname := StringName.new("flush_buffered_events")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

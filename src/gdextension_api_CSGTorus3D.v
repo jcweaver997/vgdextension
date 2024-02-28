@@ -5,7 +5,7 @@ pub struct CSGTorus3D {
     CSGPrimitive3D
 }
 
-pub fn (mut r CSGTorus3D) set_inner_radius(radius f64) {
+pub fn (r &CSGTorus3D) set_inner_radius(radius f64) {
     classname := StringName.new("CSGTorus3D")
     fnname := StringName.new("set_inner_radius")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -25,7 +25,7 @@ pub fn (r &CSGTorus3D) get_inner_radius() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CSGTorus3D) set_outer_radius(radius f64) {
+pub fn (r &CSGTorus3D) set_outer_radius(radius f64) {
     classname := StringName.new("CSGTorus3D")
     fnname := StringName.new("set_outer_radius")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -45,7 +45,7 @@ pub fn (r &CSGTorus3D) get_outer_radius() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CSGTorus3D) set_sides(sides i32) {
+pub fn (r &CSGTorus3D) set_sides(sides i32) {
     classname := StringName.new("CSGTorus3D")
     fnname := StringName.new("set_sides")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -65,7 +65,7 @@ pub fn (r &CSGTorus3D) get_sides() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CSGTorus3D) set_ring_sides(sides i32) {
+pub fn (r &CSGTorus3D) set_ring_sides(sides i32) {
     classname := StringName.new("CSGTorus3D")
     fnname := StringName.new("set_ring_sides")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -85,7 +85,7 @@ pub fn (r &CSGTorus3D) get_ring_sides() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CSGTorus3D) set_material(material Material) {
+pub fn (r &CSGTorus3D) set_material(material Material) {
     classname := StringName.new("CSGTorus3D")
     fnname := StringName.new("set_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2757459619)
@@ -105,7 +105,7 @@ pub fn (r &CSGTorus3D) get_material() Material {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CSGTorus3D) set_smooth_faces(smooth_faces bool) {
+pub fn (r &CSGTorus3D) set_smooth_faces(smooth_faces bool) {
     classname := StringName.new("CSGTorus3D")
     fnname := StringName.new("set_smooth_faces")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

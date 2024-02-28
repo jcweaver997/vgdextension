@@ -11,7 +11,7 @@ pub struct LinkButton {
     BaseButton
 }
 
-pub fn (mut r LinkButton) set_text(text string) {
+pub fn (r &LinkButton) set_text(text string) {
     classname := StringName.new("LinkButton")
     fnname := StringName.new("set_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -35,7 +35,7 @@ pub fn (r &LinkButton) get_text() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r LinkButton) set_text_direction(direction ControlTextDirection) {
+pub fn (r &LinkButton) set_text_direction(direction ControlTextDirection) {
     classname := StringName.new("LinkButton")
     fnname := StringName.new("set_text_direction")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 119160795)
@@ -56,7 +56,7 @@ pub fn (r &LinkButton) get_text_direction() ControlTextDirection {
     fnname.deinit()
    return unsafe{ControlTextDirection(object_out)}
 }
-pub fn (mut r LinkButton) set_language(language string) {
+pub fn (r &LinkButton) set_language(language string) {
     classname := StringName.new("LinkButton")
     fnname := StringName.new("set_language")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -80,7 +80,7 @@ pub fn (r &LinkButton) get_language() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r LinkButton) set_uri(uri string) {
+pub fn (r &LinkButton) set_uri(uri string) {
     classname := StringName.new("LinkButton")
     fnname := StringName.new("set_uri")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -104,7 +104,7 @@ pub fn (r &LinkButton) get_uri() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r LinkButton) set_underline_mode(underline_mode LinkButtonUnderlineMode) {
+pub fn (r &LinkButton) set_underline_mode(underline_mode LinkButtonUnderlineMode) {
     classname := StringName.new("LinkButton")
     fnname := StringName.new("set_underline_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4032947085)
@@ -125,7 +125,7 @@ pub fn (r &LinkButton) get_underline_mode() LinkButtonUnderlineMode {
     fnname.deinit()
    return unsafe{LinkButtonUnderlineMode(object_out)}
 }
-pub fn (mut r LinkButton) set_structured_text_bidi_override(parser TextServerStructuredTextParser) {
+pub fn (r &LinkButton) set_structured_text_bidi_override(parser TextServerStructuredTextParser) {
     classname := StringName.new("LinkButton")
     fnname := StringName.new("set_structured_text_bidi_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 55961453)
@@ -146,7 +146,7 @@ pub fn (r &LinkButton) get_structured_text_bidi_override() TextServerStructuredT
     fnname.deinit()
    return unsafe{TextServerStructuredTextParser(object_out)}
 }
-pub fn (mut r LinkButton) set_structured_text_bidi_override_options(gdargs Array) {
+pub fn (r &LinkButton) set_structured_text_bidi_override_options(gdargs Array) {
     classname := StringName.new("LinkButton")
     fnname := StringName.new("set_structured_text_bidi_override_options")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)

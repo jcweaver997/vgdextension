@@ -5,7 +5,7 @@ pub struct RDPipelineRasterizationState {
     RefCounted
 }
 
-pub fn (mut r RDPipelineRasterizationState) set_enable_depth_clamp(p_member bool) {
+pub fn (r &RDPipelineRasterizationState) set_enable_depth_clamp(p_member bool) {
     classname := StringName.new("RDPipelineRasterizationState")
     fnname := StringName.new("set_enable_depth_clamp")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -25,7 +25,7 @@ pub fn (r &RDPipelineRasterizationState) get_enable_depth_clamp() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDPipelineRasterizationState) set_discard_primitives(p_member bool) {
+pub fn (r &RDPipelineRasterizationState) set_discard_primitives(p_member bool) {
     classname := StringName.new("RDPipelineRasterizationState")
     fnname := StringName.new("set_discard_primitives")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -45,7 +45,7 @@ pub fn (r &RDPipelineRasterizationState) get_discard_primitives() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDPipelineRasterizationState) set_wireframe(p_member bool) {
+pub fn (r &RDPipelineRasterizationState) set_wireframe(p_member bool) {
     classname := StringName.new("RDPipelineRasterizationState")
     fnname := StringName.new("set_wireframe")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -65,7 +65,7 @@ pub fn (r &RDPipelineRasterizationState) get_wireframe() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDPipelineRasterizationState) set_cull_mode(p_member RenderingDevicePolygonCullMode) {
+pub fn (r &RDPipelineRasterizationState) set_cull_mode(p_member RenderingDevicePolygonCullMode) {
     classname := StringName.new("RDPipelineRasterizationState")
     fnname := StringName.new("set_cull_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2662586502)
@@ -86,7 +86,7 @@ pub fn (r &RDPipelineRasterizationState) get_cull_mode() RenderingDevicePolygonC
     fnname.deinit()
    return unsafe{RenderingDevicePolygonCullMode(object_out)}
 }
-pub fn (mut r RDPipelineRasterizationState) set_front_face(p_member RenderingDevicePolygonFrontFace) {
+pub fn (r &RDPipelineRasterizationState) set_front_face(p_member RenderingDevicePolygonFrontFace) {
     classname := StringName.new("RDPipelineRasterizationState")
     fnname := StringName.new("set_front_face")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2637251213)
@@ -107,7 +107,7 @@ pub fn (r &RDPipelineRasterizationState) get_front_face() RenderingDevicePolygon
     fnname.deinit()
    return unsafe{RenderingDevicePolygonFrontFace(object_out)}
 }
-pub fn (mut r RDPipelineRasterizationState) set_depth_bias_enabled(p_member bool) {
+pub fn (r &RDPipelineRasterizationState) set_depth_bias_enabled(p_member bool) {
     classname := StringName.new("RDPipelineRasterizationState")
     fnname := StringName.new("set_depth_bias_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -127,7 +127,7 @@ pub fn (r &RDPipelineRasterizationState) get_depth_bias_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDPipelineRasterizationState) set_depth_bias_constant_factor(p_member f64) {
+pub fn (r &RDPipelineRasterizationState) set_depth_bias_constant_factor(p_member f64) {
     classname := StringName.new("RDPipelineRasterizationState")
     fnname := StringName.new("set_depth_bias_constant_factor")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -147,7 +147,7 @@ pub fn (r &RDPipelineRasterizationState) get_depth_bias_constant_factor() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDPipelineRasterizationState) set_depth_bias_clamp(p_member f64) {
+pub fn (r &RDPipelineRasterizationState) set_depth_bias_clamp(p_member f64) {
     classname := StringName.new("RDPipelineRasterizationState")
     fnname := StringName.new("set_depth_bias_clamp")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -167,7 +167,7 @@ pub fn (r &RDPipelineRasterizationState) get_depth_bias_clamp() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDPipelineRasterizationState) set_depth_bias_slope_factor(p_member f64) {
+pub fn (r &RDPipelineRasterizationState) set_depth_bias_slope_factor(p_member f64) {
     classname := StringName.new("RDPipelineRasterizationState")
     fnname := StringName.new("set_depth_bias_slope_factor")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -187,7 +187,7 @@ pub fn (r &RDPipelineRasterizationState) get_depth_bias_slope_factor() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDPipelineRasterizationState) set_line_width(p_member f64) {
+pub fn (r &RDPipelineRasterizationState) set_line_width(p_member f64) {
     classname := StringName.new("RDPipelineRasterizationState")
     fnname := StringName.new("set_line_width")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -207,7 +207,7 @@ pub fn (r &RDPipelineRasterizationState) get_line_width() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDPipelineRasterizationState) set_patch_control_points(p_member u32) {
+pub fn (r &RDPipelineRasterizationState) set_patch_control_points(p_member u32) {
     classname := StringName.new("RDPipelineRasterizationState")
     fnname := StringName.new("set_patch_control_points")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

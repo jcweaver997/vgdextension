@@ -11,7 +11,7 @@ pub struct EditorUndoRedoManager {
     Object
 }
 
-pub fn (mut r EditorUndoRedoManager) create_action(name string, merge_mode UndoRedoMergeMode, custom_context Object, backward_undo_ops bool) {
+pub fn (r &EditorUndoRedoManager) create_action(name string, merge_mode UndoRedoMergeMode, custom_context Object, backward_undo_ops bool) {
     classname := StringName.new("EditorUndoRedoManager")
     fnname := StringName.new("create_action")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2107025470)
@@ -27,7 +27,7 @@ pub fn (mut r EditorUndoRedoManager) create_action(name string, merge_mode UndoR
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorUndoRedoManager) commit_action(execute bool) {
+pub fn (r &EditorUndoRedoManager) commit_action(execute bool) {
     classname := StringName.new("EditorUndoRedoManager")
     fnname := StringName.new("commit_action")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3216645846)
@@ -47,7 +47,7 @@ pub fn (r &EditorUndoRedoManager) is_committing_action() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorUndoRedoManager) add_do_property(object Object, property string, value Variant) {
+pub fn (r &EditorUndoRedoManager) add_do_property(object Object, property string, value Variant) {
     classname := StringName.new("EditorUndoRedoManager")
     fnname := StringName.new("add_do_property")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1017172818)
@@ -61,7 +61,7 @@ pub fn (mut r EditorUndoRedoManager) add_do_property(object Object, property str
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorUndoRedoManager) add_undo_property(object Object, property string, value Variant) {
+pub fn (r &EditorUndoRedoManager) add_undo_property(object Object, property string, value Variant) {
     classname := StringName.new("EditorUndoRedoManager")
     fnname := StringName.new("add_undo_property")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1017172818)
@@ -75,7 +75,7 @@ pub fn (mut r EditorUndoRedoManager) add_undo_property(object Object, property s
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorUndoRedoManager) add_do_reference(object Object) {
+pub fn (r &EditorUndoRedoManager) add_do_reference(object Object) {
     classname := StringName.new("EditorUndoRedoManager")
     fnname := StringName.new("add_do_reference")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3975164845)
@@ -85,7 +85,7 @@ pub fn (mut r EditorUndoRedoManager) add_do_reference(object Object) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorUndoRedoManager) add_undo_reference(object Object) {
+pub fn (r &EditorUndoRedoManager) add_undo_reference(object Object) {
     classname := StringName.new("EditorUndoRedoManager")
     fnname := StringName.new("add_undo_reference")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3975164845)

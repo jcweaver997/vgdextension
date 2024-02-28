@@ -17,7 +17,7 @@ pub fn (r &AudioEffectCapture) can_get_buffer(frames i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectCapture) get_buffer(frames i32) PackedVector2Array {
+pub fn (r &AudioEffectCapture) get_buffer(frames i32) PackedVector2Array {
     mut object_out := PackedVector2Array{}
     classname := StringName.new("AudioEffectCapture")
     fnname := StringName.new("get_buffer")
@@ -29,7 +29,7 @@ pub fn (mut r AudioEffectCapture) get_buffer(frames i32) PackedVector2Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectCapture) clear_buffer() {
+pub fn (r &AudioEffectCapture) clear_buffer() {
     classname := StringName.new("AudioEffectCapture")
     fnname := StringName.new("clear_buffer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -37,7 +37,7 @@ pub fn (mut r AudioEffectCapture) clear_buffer() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AudioEffectCapture) set_buffer_length(buffer_length_seconds f64) {
+pub fn (r &AudioEffectCapture) set_buffer_length(buffer_length_seconds f64) {
     classname := StringName.new("AudioEffectCapture")
     fnname := StringName.new("set_buffer_length")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -47,7 +47,7 @@ pub fn (mut r AudioEffectCapture) set_buffer_length(buffer_length_seconds f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AudioEffectCapture) get_buffer_length() f64 {
+pub fn (r &AudioEffectCapture) get_buffer_length() f64 {
     mut object_out := f64(0)
     classname := StringName.new("AudioEffectCapture")
     fnname := StringName.new("get_buffer_length")

@@ -17,7 +17,7 @@ pub struct OpenXRHand {
     Node3D
 }
 
-pub fn (mut r OpenXRHand) set_hand(hand OpenXRHandHands) {
+pub fn (r &OpenXRHand) set_hand(hand OpenXRHandHands) {
     classname := StringName.new("OpenXRHand")
     fnname := StringName.new("set_hand")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1849328560)
@@ -38,7 +38,7 @@ pub fn (r &OpenXRHand) get_hand() OpenXRHandHands {
     fnname.deinit()
    return unsafe{OpenXRHandHands(object_out)}
 }
-pub fn (mut r OpenXRHand) set_hand_skeleton(hand_skeleton NodePath) {
+pub fn (r &OpenXRHand) set_hand_skeleton(hand_skeleton NodePath) {
     classname := StringName.new("OpenXRHand")
     fnname := StringName.new("set_hand_skeleton")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1348162250)
@@ -58,7 +58,7 @@ pub fn (r &OpenXRHand) get_hand_skeleton() NodePath {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OpenXRHand) set_motion_range(motion_range OpenXRHandMotionRange) {
+pub fn (r &OpenXRHand) set_motion_range(motion_range OpenXRHandMotionRange) {
     classname := StringName.new("OpenXRHand")
     fnname := StringName.new("set_motion_range")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3326516003)

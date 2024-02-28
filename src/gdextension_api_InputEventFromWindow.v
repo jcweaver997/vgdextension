@@ -5,7 +5,7 @@ pub struct InputEventFromWindow {
     InputEvent
 }
 
-pub fn (mut r InputEventFromWindow) set_window_id(id i64) {
+pub fn (r &InputEventFromWindow) set_window_id(id i64) {
     classname := StringName.new("InputEventFromWindow")
     fnname := StringName.new("set_window_id")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

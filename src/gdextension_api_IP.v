@@ -28,7 +28,7 @@ pub fn IP.get_singleton() IP {
     return o
 }
 
-pub fn (mut r IP) resolve_hostname(host string, ip_type IPType) string {
+pub fn (r &IP) resolve_hostname(host string, ip_type IPType) string {
     mut object_out := String{}
     classname := StringName.new("IP")
     fnname := StringName.new("resolve_hostname")
@@ -46,7 +46,7 @@ pub fn (mut r IP) resolve_hostname(host string, ip_type IPType) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r IP) resolve_hostname_addresses(host string, ip_type IPType) PackedStringArray {
+pub fn (r &IP) resolve_hostname_addresses(host string, ip_type IPType) PackedStringArray {
     mut object_out := PackedStringArray{}
     classname := StringName.new("IP")
     fnname := StringName.new("resolve_hostname_addresses")
@@ -62,7 +62,7 @@ pub fn (mut r IP) resolve_hostname_addresses(host string, ip_type IPType) Packed
     fnname.deinit()
    return object_out
 }
-pub fn (mut r IP) resolve_hostname_queue_item(host string, ip_type IPType) i32 {
+pub fn (r &IP) resolve_hostname_queue_item(host string, ip_type IPType) i32 {
     mut object_out := i32(0)
     classname := StringName.new("IP")
     fnname := StringName.new("resolve_hostname_queue_item")
@@ -116,7 +116,7 @@ pub fn (r &IP) get_resolve_item_addresses(id i32) Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r IP) erase_resolve_item(id i32) {
+pub fn (r &IP) erase_resolve_item(id i32) {
     classname := StringName.new("IP")
     fnname := StringName.new("erase_resolve_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -146,7 +146,7 @@ pub fn (r &IP) get_local_interfaces() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r IP) clear_cache(hostname string) {
+pub fn (r &IP) clear_cache(hostname string) {
     classname := StringName.new("IP")
     fnname := StringName.new("clear_cache")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3005725572)

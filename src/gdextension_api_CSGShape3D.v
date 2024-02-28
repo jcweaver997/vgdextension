@@ -21,7 +21,7 @@ pub fn (r &CSGShape3D) is_root_shape() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CSGShape3D) set_operation(operation CSGShape3DOperation) {
+pub fn (r &CSGShape3D) set_operation(operation CSGShape3DOperation) {
     classname := StringName.new("CSGShape3D")
     fnname := StringName.new("set_operation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 811425055)
@@ -42,7 +42,7 @@ pub fn (r &CSGShape3D) get_operation() CSGShape3DOperation {
     fnname.deinit()
    return unsafe{CSGShape3DOperation(object_out)}
 }
-pub fn (mut r CSGShape3D) set_snap(snap f64) {
+pub fn (r &CSGShape3D) set_snap(snap f64) {
     classname := StringName.new("CSGShape3D")
     fnname := StringName.new("set_snap")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -62,7 +62,7 @@ pub fn (r &CSGShape3D) get_snap() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CSGShape3D) set_use_collision(operation bool) {
+pub fn (r &CSGShape3D) set_use_collision(operation bool) {
     classname := StringName.new("CSGShape3D")
     fnname := StringName.new("set_use_collision")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -82,7 +82,7 @@ pub fn (r &CSGShape3D) is_using_collision() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CSGShape3D) set_collision_layer(layer u32) {
+pub fn (r &CSGShape3D) set_collision_layer(layer u32) {
     classname := StringName.new("CSGShape3D")
     fnname := StringName.new("set_collision_layer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -102,7 +102,7 @@ pub fn (r &CSGShape3D) get_collision_layer() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CSGShape3D) set_collision_mask(mask u32) {
+pub fn (r &CSGShape3D) set_collision_mask(mask u32) {
     classname := StringName.new("CSGShape3D")
     fnname := StringName.new("set_collision_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -122,7 +122,7 @@ pub fn (r &CSGShape3D) get_collision_mask() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CSGShape3D) set_collision_mask_value(layer_number i32, value bool) {
+pub fn (r &CSGShape3D) set_collision_mask_value(layer_number i32, value bool) {
     classname := StringName.new("CSGShape3D")
     fnname := StringName.new("set_collision_mask_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -145,7 +145,7 @@ pub fn (r &CSGShape3D) get_collision_mask_value(layer_number i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CSGShape3D) set_collision_layer_value(layer_number i32, value bool) {
+pub fn (r &CSGShape3D) set_collision_layer_value(layer_number i32, value bool) {
     classname := StringName.new("CSGShape3D")
     fnname := StringName.new("set_collision_layer_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -168,7 +168,7 @@ pub fn (r &CSGShape3D) get_collision_layer_value(layer_number i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CSGShape3D) set_collision_priority(priority f64) {
+pub fn (r &CSGShape3D) set_collision_priority(priority f64) {
     classname := StringName.new("CSGShape3D")
     fnname := StringName.new("set_collision_priority")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -188,7 +188,7 @@ pub fn (r &CSGShape3D) get_collision_priority() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CSGShape3D) set_calculate_tangents(enabled bool) {
+pub fn (r &CSGShape3D) set_calculate_tangents(enabled bool) {
     classname := StringName.new("CSGShape3D")
     fnname := StringName.new("set_calculate_tangents")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

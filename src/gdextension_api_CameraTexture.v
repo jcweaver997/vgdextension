@@ -5,7 +5,7 @@ pub struct CameraTexture {
     Texture2D
 }
 
-pub fn (mut r CameraTexture) set_camera_feed_id(feed_id i32) {
+pub fn (r &CameraTexture) set_camera_feed_id(feed_id i32) {
     classname := StringName.new("CameraTexture")
     fnname := StringName.new("set_camera_feed_id")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -25,7 +25,7 @@ pub fn (r &CameraTexture) get_camera_feed_id() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CameraTexture) set_which_feed(which_feed CameraServerFeedImage) {
+pub fn (r &CameraTexture) set_which_feed(which_feed CameraServerFeedImage) {
     classname := StringName.new("CameraTexture")
     fnname := StringName.new("set_which_feed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1595299230)
@@ -46,7 +46,7 @@ pub fn (r &CameraTexture) get_which_feed() CameraServerFeedImage {
     fnname.deinit()
    return unsafe{CameraServerFeedImage(object_out)}
 }
-pub fn (mut r CameraTexture) set_camera_active(active bool) {
+pub fn (r &CameraTexture) set_camera_active(active bool) {
     classname := StringName.new("CameraTexture")
     fnname := StringName.new("set_camera_active")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

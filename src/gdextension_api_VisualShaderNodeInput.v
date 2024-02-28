@@ -5,7 +5,7 @@ pub struct VisualShaderNodeInput {
     VisualShaderNode
 }
 
-pub fn (mut r VisualShaderNodeInput) set_input_name(name string) {
+pub fn (r &VisualShaderNodeInput) set_input_name(name string) {
     classname := StringName.new("VisualShaderNodeInput")
     fnname := StringName.new("set_input_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)

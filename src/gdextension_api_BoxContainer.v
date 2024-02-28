@@ -11,7 +11,7 @@ pub struct BoxContainer {
     Container
 }
 
-pub fn (mut r BoxContainer) add_spacer(begin bool) Control {
+pub fn (r &BoxContainer) add_spacer(begin bool) Control {
     mut object_out := Control{}
     classname := StringName.new("BoxContainer")
     fnname := StringName.new("add_spacer")
@@ -23,7 +23,7 @@ pub fn (mut r BoxContainer) add_spacer(begin bool) Control {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r BoxContainer) set_alignment(alignment BoxContainerAlignmentMode) {
+pub fn (r &BoxContainer) set_alignment(alignment BoxContainerAlignmentMode) {
     classname := StringName.new("BoxContainer")
     fnname := StringName.new("set_alignment")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2456745134)
@@ -44,7 +44,7 @@ pub fn (r &BoxContainer) get_alignment() BoxContainerAlignmentMode {
     fnname.deinit()
    return unsafe{BoxContainerAlignmentMode(object_out)}
 }
-pub fn (mut r BoxContainer) set_vertical(vertical bool) {
+pub fn (r &BoxContainer) set_vertical(vertical bool) {
     classname := StringName.new("BoxContainer")
     fnname := StringName.new("set_vertical")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

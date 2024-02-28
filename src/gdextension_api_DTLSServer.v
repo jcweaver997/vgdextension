@@ -5,7 +5,7 @@ pub struct DTLSServer {
     RefCounted
 }
 
-pub fn (mut r DTLSServer) setup(server_options TLSOptions) GDError {
+pub fn (r &DTLSServer) setup(server_options TLSOptions) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("DTLSServer")
     fnname := StringName.new("setup")
@@ -17,7 +17,7 @@ pub fn (mut r DTLSServer) setup(server_options TLSOptions) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r DTLSServer) take_connection(udp_peer PacketPeerUDP) PacketPeerDTLS {
+pub fn (r &DTLSServer) take_connection(udp_peer PacketPeerUDP) PacketPeerDTLS {
     mut object_out := PacketPeerDTLS{}
     classname := StringName.new("DTLSServer")
     fnname := StringName.new("take_connection")

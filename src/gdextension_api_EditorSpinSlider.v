@@ -5,7 +5,7 @@ pub struct EditorSpinSlider {
     Range
 }
 
-pub fn (mut r EditorSpinSlider) set_label(label string) {
+pub fn (r &EditorSpinSlider) set_label(label string) {
     classname := StringName.new("EditorSpinSlider")
     fnname := StringName.new("set_label")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -29,7 +29,7 @@ pub fn (r &EditorSpinSlider) get_label() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r EditorSpinSlider) set_suffix(suffix string) {
+pub fn (r &EditorSpinSlider) set_suffix(suffix string) {
     classname := StringName.new("EditorSpinSlider")
     fnname := StringName.new("set_suffix")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -53,7 +53,7 @@ pub fn (r &EditorSpinSlider) get_suffix() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r EditorSpinSlider) set_read_only(read_only bool) {
+pub fn (r &EditorSpinSlider) set_read_only(read_only bool) {
     classname := StringName.new("EditorSpinSlider")
     fnname := StringName.new("set_read_only")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -73,7 +73,7 @@ pub fn (r &EditorSpinSlider) is_read_only() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorSpinSlider) set_flat(flat bool) {
+pub fn (r &EditorSpinSlider) set_flat(flat bool) {
     classname := StringName.new("EditorSpinSlider")
     fnname := StringName.new("set_flat")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -93,7 +93,7 @@ pub fn (r &EditorSpinSlider) is_flat() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorSpinSlider) set_hide_slider(hide_slider bool) {
+pub fn (r &EditorSpinSlider) set_hide_slider(hide_slider bool) {
     classname := StringName.new("EditorSpinSlider")
     fnname := StringName.new("set_hide_slider")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

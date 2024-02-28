@@ -5,7 +5,7 @@ pub struct PacketPeer {
     RefCounted
 }
 
-pub fn (mut r PacketPeer) get_var(allow_objects bool) Variant {
+pub fn (r &PacketPeer) get_var(allow_objects bool) Variant {
     mut object_out := Variant{}
     classname := StringName.new("PacketPeer")
     fnname := StringName.new("get_var")
@@ -17,7 +17,7 @@ pub fn (mut r PacketPeer) get_var(allow_objects bool) Variant {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PacketPeer) put_var(var Variant, full_objects bool) GDError {
+pub fn (r &PacketPeer) put_var(var Variant, full_objects bool) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("PacketPeer")
     fnname := StringName.new("put_var")
@@ -30,7 +30,7 @@ pub fn (mut r PacketPeer) put_var(var Variant, full_objects bool) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r PacketPeer) get_packet() PackedByteArray {
+pub fn (r &PacketPeer) get_packet() PackedByteArray {
     mut object_out := PackedByteArray{}
     classname := StringName.new("PacketPeer")
     fnname := StringName.new("get_packet")
@@ -40,7 +40,7 @@ pub fn (mut r PacketPeer) get_packet() PackedByteArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PacketPeer) put_packet(buffer PackedByteArray) GDError {
+pub fn (r &PacketPeer) put_packet(buffer PackedByteArray) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("PacketPeer")
     fnname := StringName.new("put_packet")
@@ -82,7 +82,7 @@ pub fn (r &PacketPeer) get_encode_buffer_max_size() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PacketPeer) set_encode_buffer_max_size(max_size i32) {
+pub fn (r &PacketPeer) set_encode_buffer_max_size(max_size i32) {
     classname := StringName.new("PacketPeer")
     fnname := StringName.new("set_encode_buffer_max_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

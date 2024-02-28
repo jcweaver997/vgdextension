@@ -10,7 +10,7 @@ pub interface IAudioStreamPlaybackStart {
     virt_start(from_pos f64)
 }
 
-pub fn (mut r AudioStreamPlayback) ustart(from_pos f64) {
+pub fn (r &AudioStreamPlayback) ustart(from_pos f64) {
     classname := StringName.new("AudioStreamPlayback")
     fnname := StringName.new("_start")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -25,7 +25,7 @@ pub interface IAudioStreamPlaybackStop {
     virt_stop()
 }
 
-pub fn (mut r AudioStreamPlayback) ustop() {
+pub fn (r &AudioStreamPlayback) ustop() {
     classname := StringName.new("AudioStreamPlayback")
     fnname := StringName.new("_stop")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -83,7 +83,7 @@ pub interface IAudioStreamPlaybackSeek {
     virt_seek(position f64)
 }
 
-pub fn (mut r AudioStreamPlayback) useek(position f64) {
+pub fn (r &AudioStreamPlayback) useek(position f64) {
     classname := StringName.new("AudioStreamPlayback")
     fnname := StringName.new("_seek")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -98,7 +98,7 @@ pub interface IAudioStreamPlaybackMix {
     virt_mix(buffer &AudioFrame, rate_scale f64, frames i32) i32
 }
 
-pub fn (mut r AudioStreamPlayback) umix(buffer &AudioFrame, rate_scale f64, frames i32) i32 {
+pub fn (r &AudioStreamPlayback) umix(buffer &AudioFrame, rate_scale f64, frames i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("AudioStreamPlayback")
     fnname := StringName.new("_mix")
@@ -117,7 +117,7 @@ pub interface IAudioStreamPlaybackTagUsedStreams {
     virt_tag_used_streams()
 }
 
-pub fn (mut r AudioStreamPlayback) utag_used_streams() {
+pub fn (r &AudioStreamPlayback) utag_used_streams() {
     classname := StringName.new("AudioStreamPlayback")
     fnname := StringName.new("_tag_used_streams")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)

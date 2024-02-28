@@ -14,7 +14,7 @@ pub struct AudioEffectPitchShift {
     AudioEffect
 }
 
-pub fn (mut r AudioEffectPitchShift) set_pitch_scale(rate f64) {
+pub fn (r &AudioEffectPitchShift) set_pitch_scale(rate f64) {
     classname := StringName.new("AudioEffectPitchShift")
     fnname := StringName.new("set_pitch_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -34,7 +34,7 @@ pub fn (r &AudioEffectPitchShift) get_pitch_scale() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectPitchShift) set_oversampling(amount i32) {
+pub fn (r &AudioEffectPitchShift) set_oversampling(amount i32) {
     classname := StringName.new("AudioEffectPitchShift")
     fnname := StringName.new("set_oversampling")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -54,7 +54,7 @@ pub fn (r &AudioEffectPitchShift) get_oversampling() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectPitchShift) set_fft_size(size AudioEffectPitchShiftFFTSize) {
+pub fn (r &AudioEffectPitchShift) set_fft_size(size AudioEffectPitchShiftFFTSize) {
     classname := StringName.new("AudioEffectPitchShift")
     fnname := StringName.new("set_fft_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2323518741)

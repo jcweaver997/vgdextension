@@ -14,7 +14,7 @@ pub fn NavigationMeshGenerator.get_singleton() NavigationMeshGenerator {
     return o
 }
 
-pub fn (mut r NavigationMeshGenerator) bake(navigation_mesh NavigationMesh, root_node Node) {
+pub fn (r &NavigationMeshGenerator) bake(navigation_mesh NavigationMesh, root_node Node) {
     classname := StringName.new("NavigationMeshGenerator")
     fnname := StringName.new("bake")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1401173477)
@@ -25,7 +25,7 @@ pub fn (mut r NavigationMeshGenerator) bake(navigation_mesh NavigationMesh, root
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationMeshGenerator) clear(navigation_mesh NavigationMesh) {
+pub fn (r &NavigationMeshGenerator) clear(navigation_mesh NavigationMesh) {
     classname := StringName.new("NavigationMeshGenerator")
     fnname := StringName.new("clear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2923361153)
@@ -35,7 +35,7 @@ pub fn (mut r NavigationMeshGenerator) clear(navigation_mesh NavigationMesh) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationMeshGenerator) parse_source_geometry_data(navigation_mesh NavigationMesh, source_geometry_data NavigationMeshSourceGeometryData3D, root_node Node, callback Callable) {
+pub fn (r &NavigationMeshGenerator) parse_source_geometry_data(navigation_mesh NavigationMesh, source_geometry_data NavigationMeshSourceGeometryData3D, root_node Node, callback Callable) {
     classname := StringName.new("NavigationMeshGenerator")
     fnname := StringName.new("parse_source_geometry_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 685862123)
@@ -48,7 +48,7 @@ pub fn (mut r NavigationMeshGenerator) parse_source_geometry_data(navigation_mes
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationMeshGenerator) bake_from_source_geometry_data(navigation_mesh NavigationMesh, source_geometry_data NavigationMeshSourceGeometryData3D, callback Callable) {
+pub fn (r &NavigationMeshGenerator) bake_from_source_geometry_data(navigation_mesh NavigationMesh, source_geometry_data NavigationMeshSourceGeometryData3D, callback Callable) {
     classname := StringName.new("NavigationMeshGenerator")
     fnname := StringName.new("bake_from_source_geometry_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2469318639)

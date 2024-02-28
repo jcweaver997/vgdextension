@@ -5,7 +5,7 @@ pub struct Font {
     Resource
 }
 
-pub fn (mut r Font) set_fallbacks(fallbacks Array) {
+pub fn (r &Font) set_fallbacks(fallbacks Array) {
     classname := StringName.new("Font")
     fnname := StringName.new("set_fallbacks")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)
@@ -201,7 +201,7 @@ pub fn (r &Font) get_opentype_features() Dictionary {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Font) set_cache_capacity(single_line i32, multi_line i32) {
+pub fn (r &Font) set_cache_capacity(single_line i32, multi_line i32) {
     classname := StringName.new("Font")
     fnname := StringName.new("set_cache_capacity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)

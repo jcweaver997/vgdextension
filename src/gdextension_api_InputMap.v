@@ -28,7 +28,7 @@ pub fn (r &InputMap) has_action(action string) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r InputMap) get_actions() Array {
+pub fn (r &InputMap) get_actions() Array {
     mut object_out := Array{}
     classname := StringName.new("InputMap")
     fnname := StringName.new("get_actions")
@@ -38,7 +38,7 @@ pub fn (mut r InputMap) get_actions() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r InputMap) add_action(action string, deadzone f64) {
+pub fn (r &InputMap) add_action(action string, deadzone f64) {
     classname := StringName.new("InputMap")
     fnname := StringName.new("add_action")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4100757082)
@@ -51,7 +51,7 @@ pub fn (mut r InputMap) add_action(action string, deadzone f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r InputMap) erase_action(action string) {
+pub fn (r &InputMap) erase_action(action string) {
     classname := StringName.new("InputMap")
     fnname := StringName.new("erase_action")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -63,7 +63,7 @@ pub fn (mut r InputMap) erase_action(action string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r InputMap) action_set_deadzone(action string, deadzone f64) {
+pub fn (r &InputMap) action_set_deadzone(action string, deadzone f64) {
     classname := StringName.new("InputMap")
     fnname := StringName.new("action_set_deadzone")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4135858297)
@@ -76,7 +76,7 @@ pub fn (mut r InputMap) action_set_deadzone(action string, deadzone f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r InputMap) action_get_deadzone(action string) f64 {
+pub fn (r &InputMap) action_get_deadzone(action string) f64 {
     mut object_out := f64(0)
     classname := StringName.new("InputMap")
     fnname := StringName.new("action_get_deadzone")
@@ -90,7 +90,7 @@ pub fn (mut r InputMap) action_get_deadzone(action string) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r InputMap) action_add_event(action string, event InputEvent) {
+pub fn (r &InputMap) action_add_event(action string, event InputEvent) {
     classname := StringName.new("InputMap")
     fnname := StringName.new("action_add_event")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 518302593)
@@ -103,7 +103,7 @@ pub fn (mut r InputMap) action_add_event(action string, event InputEvent) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r InputMap) action_has_event(action string, event InputEvent) bool {
+pub fn (r &InputMap) action_has_event(action string, event InputEvent) bool {
     mut object_out := false
     classname := StringName.new("InputMap")
     fnname := StringName.new("action_has_event")
@@ -118,7 +118,7 @@ pub fn (mut r InputMap) action_has_event(action string, event InputEvent) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r InputMap) action_erase_event(action string, event InputEvent) {
+pub fn (r &InputMap) action_erase_event(action string, event InputEvent) {
     classname := StringName.new("InputMap")
     fnname := StringName.new("action_erase_event")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 518302593)
@@ -131,7 +131,7 @@ pub fn (mut r InputMap) action_erase_event(action string, event InputEvent) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r InputMap) action_erase_events(action string) {
+pub fn (r &InputMap) action_erase_events(action string) {
     classname := StringName.new("InputMap")
     fnname := StringName.new("action_erase_events")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -143,7 +143,7 @@ pub fn (mut r InputMap) action_erase_events(action string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r InputMap) action_get_events(action string) Array {
+pub fn (r &InputMap) action_get_events(action string) Array {
     mut object_out := Array{}
     classname := StringName.new("InputMap")
     fnname := StringName.new("action_get_events")
@@ -173,7 +173,7 @@ pub fn (r &InputMap) event_is_action(event InputEvent, action string, exact_matc
     fnname.deinit()
    return object_out
 }
-pub fn (mut r InputMap) load_from_project_settings() {
+pub fn (r &InputMap) load_from_project_settings() {
     classname := StringName.new("InputMap")
     fnname := StringName.new("load_from_project_settings")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

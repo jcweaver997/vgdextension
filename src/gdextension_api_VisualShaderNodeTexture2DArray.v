@@ -5,7 +5,7 @@ pub struct VisualShaderNodeTexture2DArray {
     VisualShaderNodeSample3D
 }
 
-pub fn (mut r VisualShaderNodeTexture2DArray) set_texture_array(value Texture2DArray) {
+pub fn (r &VisualShaderNodeTexture2DArray) set_texture_array(value Texture2DArray) {
     classname := StringName.new("VisualShaderNodeTexture2DArray")
     fnname := StringName.new("set_texture_array")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2206200446)

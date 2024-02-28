@@ -5,7 +5,7 @@ pub struct ImporterMesh {
     Resource
 }
 
-pub fn (mut r ImporterMesh) add_blend_shape(name string) {
+pub fn (r &ImporterMesh) add_blend_shape(name string) {
     classname := StringName.new("ImporterMesh")
     fnname := StringName.new("add_blend_shape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -41,7 +41,7 @@ pub fn (r &ImporterMesh) get_blend_shape_name(blend_shape_idx i32) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r ImporterMesh) set_blend_shape_mode(mode MeshBlendShapeMode) {
+pub fn (r &ImporterMesh) set_blend_shape_mode(mode MeshBlendShapeMode) {
     classname := StringName.new("ImporterMesh")
     fnname := StringName.new("set_blend_shape_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 227983991)
@@ -62,7 +62,7 @@ pub fn (r &ImporterMesh) get_blend_shape_mode() MeshBlendShapeMode {
     fnname.deinit()
    return unsafe{MeshBlendShapeMode(object_out)}
 }
-pub fn (mut r ImporterMesh) add_surface(primitive MeshPrimitiveType, arrays Array, blend_shapes Array, lods Dictionary, material Material, name string, flags u64) {
+pub fn (r &ImporterMesh) add_surface(primitive MeshPrimitiveType, arrays Array, blend_shapes Array, lods Dictionary, material Material, name string, flags u64) {
     classname := StringName.new("ImporterMesh")
     fnname := StringName.new("add_surface")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1740448849)
@@ -91,7 +91,7 @@ pub fn (r &ImporterMesh) get_surface_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ImporterMesh) get_surface_primitive_type(surface_idx i32) MeshPrimitiveType {
+pub fn (r &ImporterMesh) get_surface_primitive_type(surface_idx i32) MeshPrimitiveType {
     mut object_out := i64(MeshPrimitiveType.primitive_points)
     classname := StringName.new("ImporterMesh")
     fnname := StringName.new("get_surface_primitive_type")
@@ -204,7 +204,7 @@ pub fn (r &ImporterMesh) get_surface_format(surface_idx i32) u64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ImporterMesh) set_surface_name(surface_idx i32, name string) {
+pub fn (r &ImporterMesh) set_surface_name(surface_idx i32, name string) {
     classname := StringName.new("ImporterMesh")
     fnname := StringName.new("set_surface_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
@@ -217,7 +217,7 @@ pub fn (mut r ImporterMesh) set_surface_name(surface_idx i32, name string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ImporterMesh) set_surface_material(surface_idx i32, material Material) {
+pub fn (r &ImporterMesh) set_surface_material(surface_idx i32, material Material) {
     classname := StringName.new("ImporterMesh")
     fnname := StringName.new("set_surface_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3671737478)
@@ -228,7 +228,7 @@ pub fn (mut r ImporterMesh) set_surface_material(surface_idx i32, material Mater
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ImporterMesh) generate_lods(normal_merge_angle f64, normal_split_angle f64, bone_transform_array Array) {
+pub fn (r &ImporterMesh) generate_lods(normal_merge_angle f64, normal_split_angle f64, bone_transform_array Array) {
     classname := StringName.new("ImporterMesh")
     fnname := StringName.new("generate_lods")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2491878677)
@@ -240,7 +240,7 @@ pub fn (mut r ImporterMesh) generate_lods(normal_merge_angle f64, normal_split_a
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ImporterMesh) get_mesh(base_mesh ArrayMesh) ArrayMesh {
+pub fn (r &ImporterMesh) get_mesh(base_mesh ArrayMesh) ArrayMesh {
     mut object_out := ArrayMesh{}
     classname := StringName.new("ImporterMesh")
     fnname := StringName.new("get_mesh")
@@ -252,7 +252,7 @@ pub fn (mut r ImporterMesh) get_mesh(base_mesh ArrayMesh) ArrayMesh {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ImporterMesh) clear() {
+pub fn (r &ImporterMesh) clear() {
     classname := StringName.new("ImporterMesh")
     fnname := StringName.new("clear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -260,7 +260,7 @@ pub fn (mut r ImporterMesh) clear() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ImporterMesh) set_lightmap_size_hint(size Vector2i) {
+pub fn (r &ImporterMesh) set_lightmap_size_hint(size Vector2i) {
     classname := StringName.new("ImporterMesh")
     fnname := StringName.new("set_lightmap_size_hint")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1130785943)

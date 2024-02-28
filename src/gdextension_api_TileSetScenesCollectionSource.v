@@ -5,7 +5,7 @@ pub struct TileSetScenesCollectionSource {
     TileSetSource
 }
 
-pub fn (mut r TileSetScenesCollectionSource) get_scene_tiles_count() i32 {
+pub fn (r &TileSetScenesCollectionSource) get_scene_tiles_count() i32 {
     mut object_out := i32(0)
     classname := StringName.new("TileSetScenesCollectionSource")
     fnname := StringName.new("get_scene_tiles_count")
@@ -15,7 +15,7 @@ pub fn (mut r TileSetScenesCollectionSource) get_scene_tiles_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSetScenesCollectionSource) get_scene_tile_id(index i32) i32 {
+pub fn (r &TileSetScenesCollectionSource) get_scene_tile_id(index i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("TileSetScenesCollectionSource")
     fnname := StringName.new("get_scene_tile_id")
@@ -27,7 +27,7 @@ pub fn (mut r TileSetScenesCollectionSource) get_scene_tile_id(index i32) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSetScenesCollectionSource) has_scene_tile_id(id i32) bool {
+pub fn (r &TileSetScenesCollectionSource) has_scene_tile_id(id i32) bool {
     mut object_out := false
     classname := StringName.new("TileSetScenesCollectionSource")
     fnname := StringName.new("has_scene_tile_id")
@@ -39,7 +39,7 @@ pub fn (mut r TileSetScenesCollectionSource) has_scene_tile_id(id i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSetScenesCollectionSource) create_scene_tile(packed_scene PackedScene, id_override i32) i32 {
+pub fn (r &TileSetScenesCollectionSource) create_scene_tile(packed_scene PackedScene, id_override i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("TileSetScenesCollectionSource")
     fnname := StringName.new("create_scene_tile")
@@ -52,7 +52,7 @@ pub fn (mut r TileSetScenesCollectionSource) create_scene_tile(packed_scene Pack
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSetScenesCollectionSource) set_scene_tile_id(id i32, new_id i32) {
+pub fn (r &TileSetScenesCollectionSource) set_scene_tile_id(id i32, new_id i32) {
     classname := StringName.new("TileSetScenesCollectionSource")
     fnname := StringName.new("set_scene_tile_id")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -63,7 +63,7 @@ pub fn (mut r TileSetScenesCollectionSource) set_scene_tile_id(id i32, new_id i3
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileSetScenesCollectionSource) set_scene_tile_scene(id i32, packed_scene PackedScene) {
+pub fn (r &TileSetScenesCollectionSource) set_scene_tile_scene(id i32, packed_scene PackedScene) {
     classname := StringName.new("TileSetScenesCollectionSource")
     fnname := StringName.new("set_scene_tile_scene")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3435852839)
@@ -86,7 +86,7 @@ pub fn (r &TileSetScenesCollectionSource) get_scene_tile_scene(id i32) PackedSce
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSetScenesCollectionSource) set_scene_tile_display_placeholder(id i32, display_placeholder bool) {
+pub fn (r &TileSetScenesCollectionSource) set_scene_tile_display_placeholder(id i32, display_placeholder bool) {
     classname := StringName.new("TileSetScenesCollectionSource")
     fnname := StringName.new("set_scene_tile_display_placeholder")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -109,7 +109,7 @@ pub fn (r &TileSetScenesCollectionSource) get_scene_tile_display_placeholder(id 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSetScenesCollectionSource) remove_scene_tile(id i32) {
+pub fn (r &TileSetScenesCollectionSource) remove_scene_tile(id i32) {
     classname := StringName.new("TileSetScenesCollectionSource")
     fnname := StringName.new("remove_scene_tile")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

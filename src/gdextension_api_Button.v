@@ -5,7 +5,7 @@ pub struct Button {
     BaseButton
 }
 
-pub fn (mut r Button) set_text(text string) {
+pub fn (r &Button) set_text(text string) {
     classname := StringName.new("Button")
     fnname := StringName.new("set_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -29,7 +29,7 @@ pub fn (r &Button) get_text() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r Button) set_text_overrun_behavior(overrun_behavior TextServerOverrunBehavior) {
+pub fn (r &Button) set_text_overrun_behavior(overrun_behavior TextServerOverrunBehavior) {
     classname := StringName.new("Button")
     fnname := StringName.new("set_text_overrun_behavior")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1008890932)
@@ -50,7 +50,7 @@ pub fn (r &Button) get_text_overrun_behavior() TextServerOverrunBehavior {
     fnname.deinit()
    return unsafe{TextServerOverrunBehavior(object_out)}
 }
-pub fn (mut r Button) set_text_direction(direction ControlTextDirection) {
+pub fn (r &Button) set_text_direction(direction ControlTextDirection) {
     classname := StringName.new("Button")
     fnname := StringName.new("set_text_direction")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 119160795)
@@ -71,7 +71,7 @@ pub fn (r &Button) get_text_direction() ControlTextDirection {
     fnname.deinit()
    return unsafe{ControlTextDirection(object_out)}
 }
-pub fn (mut r Button) set_language(language string) {
+pub fn (r &Button) set_language(language string) {
     classname := StringName.new("Button")
     fnname := StringName.new("set_language")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -95,7 +95,7 @@ pub fn (r &Button) get_language() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r Button) set_button_icon(texture Texture2D) {
+pub fn (r &Button) set_button_icon(texture Texture2D) {
     classname := StringName.new("Button")
     fnname := StringName.new("set_button_icon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
@@ -115,7 +115,7 @@ pub fn (r &Button) get_button_icon() Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Button) set_flat(enabled bool) {
+pub fn (r &Button) set_flat(enabled bool) {
     classname := StringName.new("Button")
     fnname := StringName.new("set_flat")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -135,7 +135,7 @@ pub fn (r &Button) is_flat() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Button) set_clip_text(enabled bool) {
+pub fn (r &Button) set_clip_text(enabled bool) {
     classname := StringName.new("Button")
     fnname := StringName.new("set_clip_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -155,7 +155,7 @@ pub fn (r &Button) get_clip_text() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Button) set_text_alignment(alignment HorizontalAlignment) {
+pub fn (r &Button) set_text_alignment(alignment HorizontalAlignment) {
     classname := StringName.new("Button")
     fnname := StringName.new("set_text_alignment")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2312603777)
@@ -176,7 +176,7 @@ pub fn (r &Button) get_text_alignment() HorizontalAlignment {
     fnname.deinit()
    return unsafe{HorizontalAlignment(object_out)}
 }
-pub fn (mut r Button) set_icon_alignment(icon_alignment HorizontalAlignment) {
+pub fn (r &Button) set_icon_alignment(icon_alignment HorizontalAlignment) {
     classname := StringName.new("Button")
     fnname := StringName.new("set_icon_alignment")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2312603777)
@@ -197,7 +197,7 @@ pub fn (r &Button) get_icon_alignment() HorizontalAlignment {
     fnname.deinit()
    return unsafe{HorizontalAlignment(object_out)}
 }
-pub fn (mut r Button) set_vertical_icon_alignment(vertical_icon_alignment VerticalAlignment) {
+pub fn (r &Button) set_vertical_icon_alignment(vertical_icon_alignment VerticalAlignment) {
     classname := StringName.new("Button")
     fnname := StringName.new("set_vertical_icon_alignment")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1796458609)
@@ -218,7 +218,7 @@ pub fn (r &Button) get_vertical_icon_alignment() VerticalAlignment {
     fnname.deinit()
    return unsafe{VerticalAlignment(object_out)}
 }
-pub fn (mut r Button) set_expand_icon(enabled bool) {
+pub fn (r &Button) set_expand_icon(enabled bool) {
     classname := StringName.new("Button")
     fnname := StringName.new("set_expand_icon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

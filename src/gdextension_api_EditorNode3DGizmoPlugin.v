@@ -106,7 +106,7 @@ pub interface IEditorNode3DGizmoPluginRedraw {
     virt_redraw(gizmo EditorNode3DGizmo)
 }
 
-pub fn (mut r EditorNode3DGizmoPlugin) uredraw(gizmo EditorNode3DGizmo) {
+pub fn (r &EditorNode3DGizmoPlugin) uredraw(gizmo EditorNode3DGizmo) {
     classname := StringName.new("EditorNode3DGizmoPlugin")
     fnname := StringName.new("_redraw")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -180,7 +180,7 @@ pub interface IEditorNode3DGizmoPluginSetHandle {
     virt_set_handle(gizmo EditorNode3DGizmo, handle_id i32, secondary bool, camera Camera3D, screen_pos Vector2)
 }
 
-pub fn (mut r EditorNode3DGizmoPlugin) uset_handle(gizmo EditorNode3DGizmo, handle_id i32, secondary bool, camera Camera3D, screen_pos Vector2) {
+pub fn (r &EditorNode3DGizmoPlugin) uset_handle(gizmo EditorNode3DGizmo, handle_id i32, secondary bool, camera Camera3D, screen_pos Vector2) {
     classname := StringName.new("EditorNode3DGizmoPlugin")
     fnname := StringName.new("_set_handle")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -199,7 +199,7 @@ pub interface IEditorNode3DGizmoPluginCommitHandle {
     virt_commit_handle(gizmo EditorNode3DGizmo, handle_id i32, secondary bool, restore Variant, cancel bool)
 }
 
-pub fn (mut r EditorNode3DGizmoPlugin) ucommit_handle(gizmo EditorNode3DGizmo, handle_id i32, secondary bool, restore Variant, cancel bool) {
+pub fn (r &EditorNode3DGizmoPlugin) ucommit_handle(gizmo EditorNode3DGizmo, handle_id i32, secondary bool, restore Variant, cancel bool) {
     classname := StringName.new("EditorNode3DGizmoPlugin")
     fnname := StringName.new("_commit_handle")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -274,7 +274,7 @@ pub interface IEditorNode3DGizmoPluginSetSubgizmoTransform {
     virt_set_subgizmo_transform(gizmo EditorNode3DGizmo, subgizmo_id i32, transform Transform3D)
 }
 
-pub fn (mut r EditorNode3DGizmoPlugin) uset_subgizmo_transform(gizmo EditorNode3DGizmo, subgizmo_id i32, transform Transform3D) {
+pub fn (r &EditorNode3DGizmoPlugin) uset_subgizmo_transform(gizmo EditorNode3DGizmo, subgizmo_id i32, transform Transform3D) {
     classname := StringName.new("EditorNode3DGizmoPlugin")
     fnname := StringName.new("_set_subgizmo_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -291,7 +291,7 @@ pub interface IEditorNode3DGizmoPluginCommitSubgizmos {
     virt_commit_subgizmos(gizmo EditorNode3DGizmo, ids PackedInt32Array, restores Array, cancel bool)
 }
 
-pub fn (mut r EditorNode3DGizmoPlugin) ucommit_subgizmos(gizmo EditorNode3DGizmo, ids PackedInt32Array, restores Array, cancel bool) {
+pub fn (r &EditorNode3DGizmoPlugin) ucommit_subgizmos(gizmo EditorNode3DGizmo, ids PackedInt32Array, restores Array, cancel bool) {
     classname := StringName.new("EditorNode3DGizmoPlugin")
     fnname := StringName.new("_commit_subgizmos")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -304,7 +304,7 @@ pub fn (mut r EditorNode3DGizmoPlugin) ucommit_subgizmos(gizmo EditorNode3DGizmo
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorNode3DGizmoPlugin) create_material(name string, color Color, billboard bool, on_top bool, use_vertex_color bool) {
+pub fn (r &EditorNode3DGizmoPlugin) create_material(name string, color Color, billboard bool, on_top bool, use_vertex_color bool) {
     classname := StringName.new("EditorNode3DGizmoPlugin")
     fnname := StringName.new("create_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3486012546)
@@ -320,7 +320,7 @@ pub fn (mut r EditorNode3DGizmoPlugin) create_material(name string, color Color,
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorNode3DGizmoPlugin) create_icon_material(name string, texture Texture2D, on_top bool, color Color) {
+pub fn (r &EditorNode3DGizmoPlugin) create_icon_material(name string, texture Texture2D, on_top bool, color Color) {
     classname := StringName.new("EditorNode3DGizmoPlugin")
     fnname := StringName.new("create_icon_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3804976916)
@@ -335,7 +335,7 @@ pub fn (mut r EditorNode3DGizmoPlugin) create_icon_material(name string, texture
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorNode3DGizmoPlugin) create_handle_material(name string, billboard bool, texture Texture2D) {
+pub fn (r &EditorNode3DGizmoPlugin) create_handle_material(name string, billboard bool, texture Texture2D) {
     classname := StringName.new("EditorNode3DGizmoPlugin")
     fnname := StringName.new("create_handle_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2486475223)
@@ -349,7 +349,7 @@ pub fn (mut r EditorNode3DGizmoPlugin) create_handle_material(name string, billb
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorNode3DGizmoPlugin) add_material(name string, material StandardMaterial3D) {
+pub fn (r &EditorNode3DGizmoPlugin) add_material(name string, material StandardMaterial3D) {
     classname := StringName.new("EditorNode3DGizmoPlugin")
     fnname := StringName.new("add_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1374068695)
@@ -362,7 +362,7 @@ pub fn (mut r EditorNode3DGizmoPlugin) add_material(name string, material Standa
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorNode3DGizmoPlugin) get_material(name string, gizmo EditorNode3DGizmo) StandardMaterial3D {
+pub fn (r &EditorNode3DGizmoPlugin) get_material(name string, gizmo EditorNode3DGizmo) StandardMaterial3D {
     mut object_out := StandardMaterial3D{}
     classname := StringName.new("EditorNode3DGizmoPlugin")
     fnname := StringName.new("get_material")

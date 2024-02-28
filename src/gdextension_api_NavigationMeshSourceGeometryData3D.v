@@ -5,7 +5,7 @@ pub struct NavigationMeshSourceGeometryData3D {
     Resource
 }
 
-pub fn (mut r NavigationMeshSourceGeometryData3D) set_vertices(vertices PackedFloat32Array) {
+pub fn (r &NavigationMeshSourceGeometryData3D) set_vertices(vertices PackedFloat32Array) {
     classname := StringName.new("NavigationMeshSourceGeometryData3D")
     fnname := StringName.new("set_vertices")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2899603908)
@@ -25,7 +25,7 @@ pub fn (r &NavigationMeshSourceGeometryData3D) get_vertices() PackedFloat32Array
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationMeshSourceGeometryData3D) set_indices(indices PackedInt32Array) {
+pub fn (r &NavigationMeshSourceGeometryData3D) set_indices(indices PackedInt32Array) {
     classname := StringName.new("NavigationMeshSourceGeometryData3D")
     fnname := StringName.new("set_indices")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3614634198)
@@ -45,7 +45,7 @@ pub fn (r &NavigationMeshSourceGeometryData3D) get_indices() PackedInt32Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationMeshSourceGeometryData3D) clear() {
+pub fn (r &NavigationMeshSourceGeometryData3D) clear() {
     classname := StringName.new("NavigationMeshSourceGeometryData3D")
     fnname := StringName.new("clear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -53,7 +53,7 @@ pub fn (mut r NavigationMeshSourceGeometryData3D) clear() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationMeshSourceGeometryData3D) has_data() bool {
+pub fn (r &NavigationMeshSourceGeometryData3D) has_data() bool {
     mut object_out := false
     classname := StringName.new("NavigationMeshSourceGeometryData3D")
     fnname := StringName.new("has_data")
@@ -63,7 +63,7 @@ pub fn (mut r NavigationMeshSourceGeometryData3D) has_data() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationMeshSourceGeometryData3D) add_mesh(mesh Mesh, xform Transform3D) {
+pub fn (r &NavigationMeshSourceGeometryData3D) add_mesh(mesh Mesh, xform Transform3D) {
     classname := StringName.new("NavigationMeshSourceGeometryData3D")
     fnname := StringName.new("add_mesh")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 975462459)
@@ -74,7 +74,7 @@ pub fn (mut r NavigationMeshSourceGeometryData3D) add_mesh(mesh Mesh, xform Tran
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationMeshSourceGeometryData3D) add_mesh_array(mesh_array Array, xform Transform3D) {
+pub fn (r &NavigationMeshSourceGeometryData3D) add_mesh_array(mesh_array Array, xform Transform3D) {
     classname := StringName.new("NavigationMeshSourceGeometryData3D")
     fnname := StringName.new("add_mesh_array")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4235710913)
@@ -85,7 +85,7 @@ pub fn (mut r NavigationMeshSourceGeometryData3D) add_mesh_array(mesh_array Arra
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationMeshSourceGeometryData3D) add_faces(faces PackedVector3Array, xform Transform3D) {
+pub fn (r &NavigationMeshSourceGeometryData3D) add_faces(faces PackedVector3Array, xform Transform3D) {
     classname := StringName.new("NavigationMeshSourceGeometryData3D")
     fnname := StringName.new("add_faces")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1440358797)

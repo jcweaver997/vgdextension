@@ -5,7 +5,7 @@ pub struct RDSamplerState {
     RefCounted
 }
 
-pub fn (mut r RDSamplerState) set_mag_filter(p_member RenderingDeviceSamplerFilter) {
+pub fn (r &RDSamplerState) set_mag_filter(p_member RenderingDeviceSamplerFilter) {
     classname := StringName.new("RDSamplerState")
     fnname := StringName.new("set_mag_filter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1493420382)
@@ -26,7 +26,7 @@ pub fn (r &RDSamplerState) get_mag_filter() RenderingDeviceSamplerFilter {
     fnname.deinit()
    return unsafe{RenderingDeviceSamplerFilter(object_out)}
 }
-pub fn (mut r RDSamplerState) set_min_filter(p_member RenderingDeviceSamplerFilter) {
+pub fn (r &RDSamplerState) set_min_filter(p_member RenderingDeviceSamplerFilter) {
     classname := StringName.new("RDSamplerState")
     fnname := StringName.new("set_min_filter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1493420382)
@@ -47,7 +47,7 @@ pub fn (r &RDSamplerState) get_min_filter() RenderingDeviceSamplerFilter {
     fnname.deinit()
    return unsafe{RenderingDeviceSamplerFilter(object_out)}
 }
-pub fn (mut r RDSamplerState) set_mip_filter(p_member RenderingDeviceSamplerFilter) {
+pub fn (r &RDSamplerState) set_mip_filter(p_member RenderingDeviceSamplerFilter) {
     classname := StringName.new("RDSamplerState")
     fnname := StringName.new("set_mip_filter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1493420382)
@@ -68,7 +68,7 @@ pub fn (r &RDSamplerState) get_mip_filter() RenderingDeviceSamplerFilter {
     fnname.deinit()
    return unsafe{RenderingDeviceSamplerFilter(object_out)}
 }
-pub fn (mut r RDSamplerState) set_repeat_u(p_member RenderingDeviceSamplerRepeatMode) {
+pub fn (r &RDSamplerState) set_repeat_u(p_member RenderingDeviceSamplerRepeatMode) {
     classname := StringName.new("RDSamplerState")
     fnname := StringName.new("set_repeat_u")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 246127626)
@@ -89,7 +89,7 @@ pub fn (r &RDSamplerState) get_repeat_u() RenderingDeviceSamplerRepeatMode {
     fnname.deinit()
    return unsafe{RenderingDeviceSamplerRepeatMode(object_out)}
 }
-pub fn (mut r RDSamplerState) set_repeat_v(p_member RenderingDeviceSamplerRepeatMode) {
+pub fn (r &RDSamplerState) set_repeat_v(p_member RenderingDeviceSamplerRepeatMode) {
     classname := StringName.new("RDSamplerState")
     fnname := StringName.new("set_repeat_v")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 246127626)
@@ -110,7 +110,7 @@ pub fn (r &RDSamplerState) get_repeat_v() RenderingDeviceSamplerRepeatMode {
     fnname.deinit()
    return unsafe{RenderingDeviceSamplerRepeatMode(object_out)}
 }
-pub fn (mut r RDSamplerState) set_repeat_w(p_member RenderingDeviceSamplerRepeatMode) {
+pub fn (r &RDSamplerState) set_repeat_w(p_member RenderingDeviceSamplerRepeatMode) {
     classname := StringName.new("RDSamplerState")
     fnname := StringName.new("set_repeat_w")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 246127626)
@@ -131,7 +131,7 @@ pub fn (r &RDSamplerState) get_repeat_w() RenderingDeviceSamplerRepeatMode {
     fnname.deinit()
    return unsafe{RenderingDeviceSamplerRepeatMode(object_out)}
 }
-pub fn (mut r RDSamplerState) set_lod_bias(p_member f64) {
+pub fn (r &RDSamplerState) set_lod_bias(p_member f64) {
     classname := StringName.new("RDSamplerState")
     fnname := StringName.new("set_lod_bias")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -151,7 +151,7 @@ pub fn (r &RDSamplerState) get_lod_bias() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDSamplerState) set_use_anisotropy(p_member bool) {
+pub fn (r &RDSamplerState) set_use_anisotropy(p_member bool) {
     classname := StringName.new("RDSamplerState")
     fnname := StringName.new("set_use_anisotropy")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -171,7 +171,7 @@ pub fn (r &RDSamplerState) get_use_anisotropy() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDSamplerState) set_anisotropy_max(p_member f64) {
+pub fn (r &RDSamplerState) set_anisotropy_max(p_member f64) {
     classname := StringName.new("RDSamplerState")
     fnname := StringName.new("set_anisotropy_max")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -191,7 +191,7 @@ pub fn (r &RDSamplerState) get_anisotropy_max() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDSamplerState) set_enable_compare(p_member bool) {
+pub fn (r &RDSamplerState) set_enable_compare(p_member bool) {
     classname := StringName.new("RDSamplerState")
     fnname := StringName.new("set_enable_compare")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -211,7 +211,7 @@ pub fn (r &RDSamplerState) get_enable_compare() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDSamplerState) set_compare_op(p_member RenderingDeviceCompareOperator) {
+pub fn (r &RDSamplerState) set_compare_op(p_member RenderingDeviceCompareOperator) {
     classname := StringName.new("RDSamplerState")
     fnname := StringName.new("set_compare_op")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2573711505)
@@ -232,7 +232,7 @@ pub fn (r &RDSamplerState) get_compare_op() RenderingDeviceCompareOperator {
     fnname.deinit()
    return unsafe{RenderingDeviceCompareOperator(object_out)}
 }
-pub fn (mut r RDSamplerState) set_min_lod(p_member f64) {
+pub fn (r &RDSamplerState) set_min_lod(p_member f64) {
     classname := StringName.new("RDSamplerState")
     fnname := StringName.new("set_min_lod")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -252,7 +252,7 @@ pub fn (r &RDSamplerState) get_min_lod() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDSamplerState) set_max_lod(p_member f64) {
+pub fn (r &RDSamplerState) set_max_lod(p_member f64) {
     classname := StringName.new("RDSamplerState")
     fnname := StringName.new("set_max_lod")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -272,7 +272,7 @@ pub fn (r &RDSamplerState) get_max_lod() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDSamplerState) set_border_color(p_member RenderingDeviceSamplerBorderColor) {
+pub fn (r &RDSamplerState) set_border_color(p_member RenderingDeviceSamplerBorderColor) {
     classname := StringName.new("RDSamplerState")
     fnname := StringName.new("set_border_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1115869595)
@@ -293,7 +293,7 @@ pub fn (r &RDSamplerState) get_border_color() RenderingDeviceSamplerBorderColor 
     fnname.deinit()
    return unsafe{RenderingDeviceSamplerBorderColor(object_out)}
 }
-pub fn (mut r RDSamplerState) set_unnormalized_uvw(p_member bool) {
+pub fn (r &RDSamplerState) set_unnormalized_uvw(p_member bool) {
     classname := StringName.new("RDSamplerState")
     fnname := StringName.new("set_unnormalized_uvw")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

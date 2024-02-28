@@ -10,7 +10,7 @@ pub interface IScriptExtensionEditorCanReloadFromFile {
     virt_editor_can_reload_from_file() bool
 }
 
-pub fn (mut r ScriptExtension) ueditor_can_reload_from_file() bool {
+pub fn (r &ScriptExtension) ueditor_can_reload_from_file() bool {
     mut object_out := false
     classname := StringName.new("ScriptExtension")
     fnname := StringName.new("_editor_can_reload_from_file")
@@ -25,7 +25,7 @@ pub interface IScriptExtensionPlaceholderErased {
     virt_placeholder_erased(placeholder voidptr)
 }
 
-pub fn (mut r ScriptExtension) uplaceholder_erased(placeholder voidptr) {
+pub fn (r &ScriptExtension) uplaceholder_erased(placeholder voidptr) {
     classname := StringName.new("ScriptExtension")
     fnname := StringName.new("_placeholder_erased")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -204,7 +204,7 @@ pub interface IScriptExtensionSetSourceCode {
     virt_set_source_code(code String)
 }
 
-pub fn (mut r ScriptExtension) uset_source_code(code string) {
+pub fn (r &ScriptExtension) uset_source_code(code string) {
     classname := StringName.new("ScriptExtension")
     fnname := StringName.new("_set_source_code")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -221,7 +221,7 @@ pub interface IScriptExtensionReload {
     virt_reload(keep_state bool) GDError
 }
 
-pub fn (mut r ScriptExtension) ureload(keep_state bool) GDError {
+pub fn (r &ScriptExtension) ureload(keep_state bool) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ScriptExtension")
     fnname := StringName.new("_reload")
@@ -459,7 +459,7 @@ pub interface IScriptExtensionUpdateExports {
     virt_update_exports()
 }
 
-pub fn (mut r ScriptExtension) uupdate_exports() {
+pub fn (r &ScriptExtension) uupdate_exports() {
     classname := StringName.new("ScriptExtension")
     fnname := StringName.new("_update_exports")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)

@@ -17,7 +17,7 @@ pub struct GradientTexture2D {
     Texture2D
 }
 
-pub fn (mut r GradientTexture2D) set_gradient(gradient Gradient) {
+pub fn (r &GradientTexture2D) set_gradient(gradient Gradient) {
     classname := StringName.new("GradientTexture2D")
     fnname := StringName.new("set_gradient")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2756054477)
@@ -37,7 +37,7 @@ pub fn (r &GradientTexture2D) get_gradient() Gradient {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GradientTexture2D) set_width(width i32) {
+pub fn (r &GradientTexture2D) set_width(width i32) {
     classname := StringName.new("GradientTexture2D")
     fnname := StringName.new("set_width")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -47,7 +47,7 @@ pub fn (mut r GradientTexture2D) set_width(width i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GradientTexture2D) set_height(height i32) {
+pub fn (r &GradientTexture2D) set_height(height i32) {
     classname := StringName.new("GradientTexture2D")
     fnname := StringName.new("set_height")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -57,7 +57,7 @@ pub fn (mut r GradientTexture2D) set_height(height i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GradientTexture2D) set_use_hdr(enabled bool) {
+pub fn (r &GradientTexture2D) set_use_hdr(enabled bool) {
     classname := StringName.new("GradientTexture2D")
     fnname := StringName.new("set_use_hdr")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -77,7 +77,7 @@ pub fn (r &GradientTexture2D) is_using_hdr() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GradientTexture2D) set_fill(fill GradientTexture2DFill) {
+pub fn (r &GradientTexture2D) set_fill(fill GradientTexture2DFill) {
     classname := StringName.new("GradientTexture2D")
     fnname := StringName.new("set_fill")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3623927636)
@@ -98,7 +98,7 @@ pub fn (r &GradientTexture2D) get_fill() GradientTexture2DFill {
     fnname.deinit()
    return unsafe{GradientTexture2DFill(object_out)}
 }
-pub fn (mut r GradientTexture2D) set_fill_from(fill_from Vector2) {
+pub fn (r &GradientTexture2D) set_fill_from(fill_from Vector2) {
     classname := StringName.new("GradientTexture2D")
     fnname := StringName.new("set_fill_from")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -118,7 +118,7 @@ pub fn (r &GradientTexture2D) get_fill_from() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GradientTexture2D) set_fill_to(fill_to Vector2) {
+pub fn (r &GradientTexture2D) set_fill_to(fill_to Vector2) {
     classname := StringName.new("GradientTexture2D")
     fnname := StringName.new("set_fill_to")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -138,7 +138,7 @@ pub fn (r &GradientTexture2D) get_fill_to() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GradientTexture2D) set_repeat(repeat GradientTexture2DRepeat) {
+pub fn (r &GradientTexture2D) set_repeat(repeat GradientTexture2DRepeat) {
     classname := StringName.new("GradientTexture2D")
     fnname := StringName.new("set_repeat")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1357597002)

@@ -5,7 +5,7 @@ pub struct FontFile {
     Font
 }
 
-pub fn (mut r FontFile) load_bitmap_font(path string) GDError {
+pub fn (r &FontFile) load_bitmap_font(path string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("FontFile")
     fnname := StringName.new("load_bitmap_font")
@@ -19,7 +19,7 @@ pub fn (mut r FontFile) load_bitmap_font(path string) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r FontFile) load_dynamic_font(path string) GDError {
+pub fn (r &FontFile) load_dynamic_font(path string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("FontFile")
     fnname := StringName.new("load_dynamic_font")
@@ -33,7 +33,7 @@ pub fn (mut r FontFile) load_dynamic_font(path string) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r FontFile) set_data(data PackedByteArray) {
+pub fn (r &FontFile) set_data(data PackedByteArray) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2971499966)
@@ -53,7 +53,7 @@ pub fn (r &FontFile) get_data() PackedByteArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontFile) set_font_name(name string) {
+pub fn (r &FontFile) set_font_name(name string) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_font_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -65,7 +65,7 @@ pub fn (mut r FontFile) set_font_name(name string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FontFile) set_font_style_name(name string) {
+pub fn (r &FontFile) set_font_style_name(name string) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_font_style_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -77,7 +77,7 @@ pub fn (mut r FontFile) set_font_style_name(name string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FontFile) set_font_style(style TextServerFontStyle) {
+pub fn (r &FontFile) set_font_style(style TextServerFontStyle) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_font_style")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 918070724)
@@ -88,7 +88,7 @@ pub fn (mut r FontFile) set_font_style(style TextServerFontStyle) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FontFile) set_font_weight(weight i32) {
+pub fn (r &FontFile) set_font_weight(weight i32) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_font_weight")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -98,7 +98,7 @@ pub fn (mut r FontFile) set_font_weight(weight i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FontFile) set_font_stretch(stretch i32) {
+pub fn (r &FontFile) set_font_stretch(stretch i32) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_font_stretch")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -108,7 +108,7 @@ pub fn (mut r FontFile) set_font_stretch(stretch i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FontFile) set_antialiasing(antialiasing TextServerFontAntialiasing) {
+pub fn (r &FontFile) set_antialiasing(antialiasing TextServerFontAntialiasing) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_antialiasing")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1669900)
@@ -129,7 +129,7 @@ pub fn (r &FontFile) get_antialiasing() TextServerFontAntialiasing {
     fnname.deinit()
    return unsafe{TextServerFontAntialiasing(object_out)}
 }
-pub fn (mut r FontFile) set_generate_mipmaps(generate_mipmaps bool) {
+pub fn (r &FontFile) set_generate_mipmaps(generate_mipmaps bool) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_generate_mipmaps")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -149,7 +149,7 @@ pub fn (r &FontFile) get_generate_mipmaps() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontFile) set_multichannel_signed_distance_field(msdf bool) {
+pub fn (r &FontFile) set_multichannel_signed_distance_field(msdf bool) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_multichannel_signed_distance_field")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -169,7 +169,7 @@ pub fn (r &FontFile) is_multichannel_signed_distance_field() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontFile) set_msdf_pixel_range(msdf_pixel_range i32) {
+pub fn (r &FontFile) set_msdf_pixel_range(msdf_pixel_range i32) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_msdf_pixel_range")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -189,7 +189,7 @@ pub fn (r &FontFile) get_msdf_pixel_range() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontFile) set_msdf_size(msdf_size i32) {
+pub fn (r &FontFile) set_msdf_size(msdf_size i32) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_msdf_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -209,7 +209,7 @@ pub fn (r &FontFile) get_msdf_size() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontFile) set_fixed_size(fixed_size i32) {
+pub fn (r &FontFile) set_fixed_size(fixed_size i32) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_fixed_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -229,7 +229,7 @@ pub fn (r &FontFile) get_fixed_size() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontFile) set_fixed_size_scale_mode(fixed_size_scale_mode TextServerFixedSizeScaleMode) {
+pub fn (r &FontFile) set_fixed_size_scale_mode(fixed_size_scale_mode TextServerFixedSizeScaleMode) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_fixed_size_scale_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1660989956)
@@ -250,7 +250,7 @@ pub fn (r &FontFile) get_fixed_size_scale_mode() TextServerFixedSizeScaleMode {
     fnname.deinit()
    return unsafe{TextServerFixedSizeScaleMode(object_out)}
 }
-pub fn (mut r FontFile) set_allow_system_fallback(allow_system_fallback bool) {
+pub fn (r &FontFile) set_allow_system_fallback(allow_system_fallback bool) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_allow_system_fallback")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -270,7 +270,7 @@ pub fn (r &FontFile) is_allow_system_fallback() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontFile) set_force_autohinter(force_autohinter bool) {
+pub fn (r &FontFile) set_force_autohinter(force_autohinter bool) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_force_autohinter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -290,7 +290,7 @@ pub fn (r &FontFile) is_force_autohinter() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontFile) set_hinting(hinting TextServerHinting) {
+pub fn (r &FontFile) set_hinting(hinting TextServerHinting) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_hinting")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1827459492)
@@ -311,7 +311,7 @@ pub fn (r &FontFile) get_hinting() TextServerHinting {
     fnname.deinit()
    return unsafe{TextServerHinting(object_out)}
 }
-pub fn (mut r FontFile) set_subpixel_positioning(subpixel_positioning TextServerSubpixelPositioning) {
+pub fn (r &FontFile) set_subpixel_positioning(subpixel_positioning TextServerSubpixelPositioning) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_subpixel_positioning")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4225742182)
@@ -332,7 +332,7 @@ pub fn (r &FontFile) get_subpixel_positioning() TextServerSubpixelPositioning {
     fnname.deinit()
    return unsafe{TextServerSubpixelPositioning(object_out)}
 }
-pub fn (mut r FontFile) set_oversampling(oversampling f64) {
+pub fn (r &FontFile) set_oversampling(oversampling f64) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_oversampling")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -362,7 +362,7 @@ pub fn (r &FontFile) get_cache_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontFile) clear_cache() {
+pub fn (r &FontFile) clear_cache() {
     classname := StringName.new("FontFile")
     fnname := StringName.new("clear_cache")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -370,7 +370,7 @@ pub fn (mut r FontFile) clear_cache() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FontFile) remove_cache(cache_index i32) {
+pub fn (r &FontFile) remove_cache(cache_index i32) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("remove_cache")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -392,7 +392,7 @@ pub fn (r &FontFile) get_size_cache_list(cache_index i32) Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontFile) clear_size_cache(cache_index i32) {
+pub fn (r &FontFile) clear_size_cache(cache_index i32) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("clear_size_cache")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -402,7 +402,7 @@ pub fn (mut r FontFile) clear_size_cache(cache_index i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FontFile) remove_size_cache(cache_index i32, size Vector2i) {
+pub fn (r &FontFile) remove_size_cache(cache_index i32, size Vector2i) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("remove_size_cache")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2311374912)
@@ -413,7 +413,7 @@ pub fn (mut r FontFile) remove_size_cache(cache_index i32, size Vector2i) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FontFile) set_variation_coordinates(cache_index i32, variation_coordinates Dictionary) {
+pub fn (r &FontFile) set_variation_coordinates(cache_index i32, variation_coordinates Dictionary) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_variation_coordinates")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 64545446)
@@ -436,7 +436,7 @@ pub fn (r &FontFile) get_variation_coordinates(cache_index i32) Dictionary {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontFile) set_embolden(cache_index i32, strength f64) {
+pub fn (r &FontFile) set_embolden(cache_index i32, strength f64) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_embolden")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1602489585)
@@ -459,7 +459,7 @@ pub fn (r &FontFile) get_embolden(cache_index i32) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontFile) set_transform(cache_index i32, transform Transform2D) {
+pub fn (r &FontFile) set_transform(cache_index i32, transform Transform2D) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 30160968)
@@ -482,7 +482,7 @@ pub fn (r &FontFile) get_transform(cache_index i32) Transform2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontFile) set_extra_spacing(cache_index i32, spacing TextServerSpacingType, value i64) {
+pub fn (r &FontFile) set_extra_spacing(cache_index i32, spacing TextServerSpacingType, value i64) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_extra_spacing")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 62942285)
@@ -509,7 +509,7 @@ pub fn (r &FontFile) get_extra_spacing(cache_index i32, spacing TextServerSpacin
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontFile) set_face_index(cache_index i32, face_index i64) {
+pub fn (r &FontFile) set_face_index(cache_index i32, face_index i64) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_face_index")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -532,7 +532,7 @@ pub fn (r &FontFile) get_face_index(cache_index i32) i64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontFile) set_cache_ascent(cache_index i32, size i32, ascent f64) {
+pub fn (r &FontFile) set_cache_ascent(cache_index i32, size i32, ascent f64) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_cache_ascent")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3506521499)
@@ -557,7 +557,7 @@ pub fn (r &FontFile) get_cache_ascent(cache_index i32, size i32) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontFile) set_cache_descent(cache_index i32, size i32, descent f64) {
+pub fn (r &FontFile) set_cache_descent(cache_index i32, size i32, descent f64) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_cache_descent")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3506521499)
@@ -582,7 +582,7 @@ pub fn (r &FontFile) get_cache_descent(cache_index i32, size i32) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontFile) set_cache_underline_position(cache_index i32, size i32, underline_position f64) {
+pub fn (r &FontFile) set_cache_underline_position(cache_index i32, size i32, underline_position f64) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_cache_underline_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3506521499)
@@ -607,7 +607,7 @@ pub fn (r &FontFile) get_cache_underline_position(cache_index i32, size i32) f64
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontFile) set_cache_underline_thickness(cache_index i32, size i32, underline_thickness f64) {
+pub fn (r &FontFile) set_cache_underline_thickness(cache_index i32, size i32, underline_thickness f64) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_cache_underline_thickness")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3506521499)
@@ -632,7 +632,7 @@ pub fn (r &FontFile) get_cache_underline_thickness(cache_index i32, size i32) f6
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontFile) set_cache_scale(cache_index i32, size i32, scale f64) {
+pub fn (r &FontFile) set_cache_scale(cache_index i32, size i32, scale f64) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_cache_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3506521499)
@@ -670,7 +670,7 @@ pub fn (r &FontFile) get_texture_count(cache_index i32, size Vector2i) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontFile) clear_textures(cache_index i32, size Vector2i) {
+pub fn (r &FontFile) clear_textures(cache_index i32, size Vector2i) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("clear_textures")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2311374912)
@@ -681,7 +681,7 @@ pub fn (mut r FontFile) clear_textures(cache_index i32, size Vector2i) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FontFile) remove_texture(cache_index i32, size Vector2i, texture_index i32) {
+pub fn (r &FontFile) remove_texture(cache_index i32, size Vector2i, texture_index i32) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("remove_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2328951467)
@@ -693,7 +693,7 @@ pub fn (mut r FontFile) remove_texture(cache_index i32, size Vector2i, texture_i
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FontFile) set_texture_image(cache_index i32, size Vector2i, texture_index i32, image Image) {
+pub fn (r &FontFile) set_texture_image(cache_index i32, size Vector2i, texture_index i32, image Image) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_texture_image")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4157974066)
@@ -720,7 +720,7 @@ pub fn (r &FontFile) get_texture_image(cache_index i32, size Vector2i, texture_i
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontFile) set_texture_offsets(cache_index i32, size Vector2i, texture_index i32, offset PackedInt32Array) {
+pub fn (r &FontFile) set_texture_offsets(cache_index i32, size Vector2i, texture_index i32, offset PackedInt32Array) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_texture_offsets")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2849993437)
@@ -760,7 +760,7 @@ pub fn (r &FontFile) get_glyph_list(cache_index i32, size Vector2i) PackedInt32A
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontFile) clear_glyphs(cache_index i32, size Vector2i) {
+pub fn (r &FontFile) clear_glyphs(cache_index i32, size Vector2i) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("clear_glyphs")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2311374912)
@@ -771,7 +771,7 @@ pub fn (mut r FontFile) clear_glyphs(cache_index i32, size Vector2i) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FontFile) remove_glyph(cache_index i32, size Vector2i, glyph i32) {
+pub fn (r &FontFile) remove_glyph(cache_index i32, size Vector2i, glyph i32) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("remove_glyph")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2328951467)
@@ -783,7 +783,7 @@ pub fn (mut r FontFile) remove_glyph(cache_index i32, size Vector2i, glyph i32) 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FontFile) set_glyph_advance(cache_index i32, size i32, glyph i32, advance Vector2) {
+pub fn (r &FontFile) set_glyph_advance(cache_index i32, size i32, glyph i32, advance Vector2) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_glyph_advance")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 947991729)
@@ -810,7 +810,7 @@ pub fn (r &FontFile) get_glyph_advance(cache_index i32, size i32, glyph i32) Vec
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontFile) set_glyph_offset(cache_index i32, size Vector2i, glyph i32, offset Vector2) {
+pub fn (r &FontFile) set_glyph_offset(cache_index i32, size Vector2i, glyph i32, offset Vector2) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_glyph_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 921719850)
@@ -837,7 +837,7 @@ pub fn (r &FontFile) get_glyph_offset(cache_index i32, size Vector2i, glyph i32)
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontFile) set_glyph_size(cache_index i32, size Vector2i, glyph i32, gl_size Vector2) {
+pub fn (r &FontFile) set_glyph_size(cache_index i32, size Vector2i, glyph i32, gl_size Vector2) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_glyph_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 921719850)
@@ -864,7 +864,7 @@ pub fn (r &FontFile) get_glyph_size(cache_index i32, size Vector2i, glyph i32) V
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontFile) set_glyph_uv_rect(cache_index i32, size Vector2i, glyph i32, uv_rect Rect2) {
+pub fn (r &FontFile) set_glyph_uv_rect(cache_index i32, size Vector2i, glyph i32, uv_rect Rect2) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_glyph_uv_rect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3821620992)
@@ -891,7 +891,7 @@ pub fn (r &FontFile) get_glyph_uv_rect(cache_index i32, size Vector2i, glyph i32
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontFile) set_glyph_texture_idx(cache_index i32, size Vector2i, glyph i32, texture_idx i32) {
+pub fn (r &FontFile) set_glyph_texture_idx(cache_index i32, size Vector2i, glyph i32, texture_idx i32) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_glyph_texture_idx")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 355564111)
@@ -931,7 +931,7 @@ pub fn (r &FontFile) get_kerning_list(cache_index i32, size i32) Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontFile) clear_kerning_map(cache_index i32, size i32) {
+pub fn (r &FontFile) clear_kerning_map(cache_index i32, size i32) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("clear_kerning_map")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -942,7 +942,7 @@ pub fn (mut r FontFile) clear_kerning_map(cache_index i32, size i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FontFile) remove_kerning(cache_index i32, size i32, glyph_pair Vector2i) {
+pub fn (r &FontFile) remove_kerning(cache_index i32, size i32, glyph_pair Vector2i) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("remove_kerning")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3930204747)
@@ -954,7 +954,7 @@ pub fn (mut r FontFile) remove_kerning(cache_index i32, size i32, glyph_pair Vec
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FontFile) set_kerning(cache_index i32, size i32, glyph_pair Vector2i, kerning Vector2) {
+pub fn (r &FontFile) set_kerning(cache_index i32, size i32, glyph_pair Vector2i, kerning Vector2) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_kerning")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3182200918)
@@ -981,7 +981,7 @@ pub fn (r &FontFile) get_kerning(cache_index i32, size i32, glyph_pair Vector2i)
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontFile) render_range(cache_index i32, size Vector2i, start i64, end i64) {
+pub fn (r &FontFile) render_range(cache_index i32, size Vector2i, start i64, end i64) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("render_range")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 355564111)
@@ -994,7 +994,7 @@ pub fn (mut r FontFile) render_range(cache_index i32, size Vector2i, start i64, 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FontFile) render_glyph(cache_index i32, size Vector2i, index i32) {
+pub fn (r &FontFile) render_glyph(cache_index i32, size Vector2i, index i32) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("render_glyph")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2328951467)
@@ -1006,7 +1006,7 @@ pub fn (mut r FontFile) render_glyph(cache_index i32, size Vector2i, index i32) 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FontFile) set_language_support_override(language string, supported bool) {
+pub fn (r &FontFile) set_language_support_override(language string, supported bool) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_language_support_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2678287736)
@@ -1033,7 +1033,7 @@ pub fn (r &FontFile) get_language_support_override(language string) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontFile) remove_language_support_override(language string) {
+pub fn (r &FontFile) remove_language_support_override(language string) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("remove_language_support_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -1055,7 +1055,7 @@ pub fn (r &FontFile) get_language_support_overrides() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontFile) set_script_support_override(script string, supported bool) {
+pub fn (r &FontFile) set_script_support_override(script string, supported bool) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_script_support_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2678287736)
@@ -1082,7 +1082,7 @@ pub fn (r &FontFile) get_script_support_override(script string) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontFile) remove_script_support_override(script string) {
+pub fn (r &FontFile) remove_script_support_override(script string) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("remove_script_support_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -1104,7 +1104,7 @@ pub fn (r &FontFile) get_script_support_overrides() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontFile) set_opentype_feature_overrides(overrides Dictionary) {
+pub fn (r &FontFile) set_opentype_feature_overrides(overrides Dictionary) {
     classname := StringName.new("FontFile")
     fnname := StringName.new("set_opentype_feature_overrides")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4155329257)

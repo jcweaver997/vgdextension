@@ -11,7 +11,7 @@ pub struct SplitContainer {
     Container
 }
 
-pub fn (mut r SplitContainer) set_split_offset(offset i32) {
+pub fn (r &SplitContainer) set_split_offset(offset i32) {
     classname := StringName.new("SplitContainer")
     fnname := StringName.new("set_split_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -31,7 +31,7 @@ pub fn (r &SplitContainer) get_split_offset() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SplitContainer) clamp_split_offset() {
+pub fn (r &SplitContainer) clamp_split_offset() {
     classname := StringName.new("SplitContainer")
     fnname := StringName.new("clamp_split_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -39,7 +39,7 @@ pub fn (mut r SplitContainer) clamp_split_offset() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SplitContainer) set_collapsed(collapsed bool) {
+pub fn (r &SplitContainer) set_collapsed(collapsed bool) {
     classname := StringName.new("SplitContainer")
     fnname := StringName.new("set_collapsed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -59,7 +59,7 @@ pub fn (r &SplitContainer) is_collapsed() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SplitContainer) set_dragger_visibility(mode SplitContainerDraggerVisibility) {
+pub fn (r &SplitContainer) set_dragger_visibility(mode SplitContainerDraggerVisibility) {
     classname := StringName.new("SplitContainer")
     fnname := StringName.new("set_dragger_visibility")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1168273952)
@@ -80,7 +80,7 @@ pub fn (r &SplitContainer) get_dragger_visibility() SplitContainerDraggerVisibil
     fnname.deinit()
    return unsafe{SplitContainerDraggerVisibility(object_out)}
 }
-pub fn (mut r SplitContainer) set_vertical(vertical bool) {
+pub fn (r &SplitContainer) set_vertical(vertical bool) {
     classname := StringName.new("SplitContainer")
     fnname := StringName.new("set_vertical")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

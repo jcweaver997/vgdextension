@@ -5,7 +5,7 @@ pub struct PlaceholderTextureLayered {
     TextureLayered
 }
 
-pub fn (mut r PlaceholderTextureLayered) set_size(size Vector2i) {
+pub fn (r &PlaceholderTextureLayered) set_size(size Vector2i) {
     classname := StringName.new("PlaceholderTextureLayered")
     fnname := StringName.new("set_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1130785943)
@@ -25,7 +25,7 @@ pub fn (r &PlaceholderTextureLayered) get_size() Vector2i {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PlaceholderTextureLayered) set_layers(layers i32) {
+pub fn (r &PlaceholderTextureLayered) set_layers(layers i32) {
     classname := StringName.new("PlaceholderTextureLayered")
     fnname := StringName.new("set_layers")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

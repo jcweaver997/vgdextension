@@ -5,7 +5,7 @@ pub struct CallbackTweener {
     Tweener
 }
 
-pub fn (mut r CallbackTweener) set_delay(delay f64) CallbackTweener {
+pub fn (r &CallbackTweener) set_delay(delay f64) CallbackTweener {
     mut object_out := CallbackTweener{}
     classname := StringName.new("CallbackTweener")
     fnname := StringName.new("set_delay")

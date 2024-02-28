@@ -5,7 +5,7 @@ pub struct OccluderInstance3D {
     Node3D
 }
 
-pub fn (mut r OccluderInstance3D) set_bake_mask(mask u32) {
+pub fn (r &OccluderInstance3D) set_bake_mask(mask u32) {
     classname := StringName.new("OccluderInstance3D")
     fnname := StringName.new("set_bake_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -25,7 +25,7 @@ pub fn (r &OccluderInstance3D) get_bake_mask() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OccluderInstance3D) set_bake_mask_value(layer_number i32, value bool) {
+pub fn (r &OccluderInstance3D) set_bake_mask_value(layer_number i32, value bool) {
     classname := StringName.new("OccluderInstance3D")
     fnname := StringName.new("set_bake_mask_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -48,7 +48,7 @@ pub fn (r &OccluderInstance3D) get_bake_mask_value(layer_number i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OccluderInstance3D) set_bake_simplification_distance(simplification_distance f64) {
+pub fn (r &OccluderInstance3D) set_bake_simplification_distance(simplification_distance f64) {
     classname := StringName.new("OccluderInstance3D")
     fnname := StringName.new("set_bake_simplification_distance")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -68,7 +68,7 @@ pub fn (r &OccluderInstance3D) get_bake_simplification_distance() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OccluderInstance3D) set_occluder(occluder Occluder3D) {
+pub fn (r &OccluderInstance3D) set_occluder(occluder Occluder3D) {
     classname := StringName.new("OccluderInstance3D")
     fnname := StringName.new("set_occluder")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1664878165)

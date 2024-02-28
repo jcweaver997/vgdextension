@@ -12,7 +12,7 @@ pub struct GDExtension {
     Resource
 }
 
-pub fn (mut r GDExtension) open_library(path string, entry_symbol string) GDError {
+pub fn (r &GDExtension) open_library(path string, entry_symbol string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("GDExtension")
     fnname := StringName.new("open_library")
@@ -29,7 +29,7 @@ pub fn (mut r GDExtension) open_library(path string, entry_symbol string) GDErro
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r GDExtension) close_library() {
+pub fn (r &GDExtension) close_library() {
     classname := StringName.new("GDExtension")
     fnname := StringName.new("close_library")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -57,7 +57,7 @@ pub fn (r &GDExtension) get_minimum_library_initialization_level() GDExtensionIn
     fnname.deinit()
    return unsafe{GDExtensionInitializationLevel(object_out)}
 }
-pub fn (mut r GDExtension) initialize_library(level GDExtensionInitializationLevel) {
+pub fn (r &GDExtension) initialize_library(level GDExtensionInitializationLevel) {
     classname := StringName.new("GDExtension")
     fnname := StringName.new("initialize_library")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3409922941)

@@ -36,7 +36,7 @@ pub interface ICanvasItemDraw {
     virt_draw()
 }
 
-pub fn (mut r CanvasItem) udraw() {
+pub fn (r &CanvasItem) udraw() {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("_draw")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -54,7 +54,7 @@ pub fn (r &CanvasItem) get_canvas_item() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CanvasItem) set_visible(visible bool) {
+pub fn (r &CanvasItem) set_visible(visible bool) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("set_visible")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -84,7 +84,7 @@ pub fn (r &CanvasItem) is_visible_in_tree() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CanvasItem) show() {
+pub fn (r &CanvasItem) show() {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("show")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -92,7 +92,7 @@ pub fn (mut r CanvasItem) show() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CanvasItem) hide() {
+pub fn (r &CanvasItem) hide() {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("hide")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -100,7 +100,7 @@ pub fn (mut r CanvasItem) hide() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CanvasItem) queue_redraw() {
+pub fn (r &CanvasItem) queue_redraw() {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("queue_redraw")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -108,7 +108,7 @@ pub fn (mut r CanvasItem) queue_redraw() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CanvasItem) move_to_front() {
+pub fn (r &CanvasItem) move_to_front() {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("move_to_front")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -116,7 +116,7 @@ pub fn (mut r CanvasItem) move_to_front() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CanvasItem) set_as_top_level(enable bool) {
+pub fn (r &CanvasItem) set_as_top_level(enable bool) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("set_as_top_level")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -136,7 +136,7 @@ pub fn (r &CanvasItem) is_set_as_top_level() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CanvasItem) set_light_mask(light_mask i32) {
+pub fn (r &CanvasItem) set_light_mask(light_mask i32) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("set_light_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -156,7 +156,7 @@ pub fn (r &CanvasItem) get_light_mask() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CanvasItem) set_modulate(modulate Color) {
+pub fn (r &CanvasItem) set_modulate(modulate Color) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("set_modulate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -176,7 +176,7 @@ pub fn (r &CanvasItem) get_modulate() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CanvasItem) set_self_modulate(self_modulate Color) {
+pub fn (r &CanvasItem) set_self_modulate(self_modulate Color) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("set_self_modulate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -196,7 +196,7 @@ pub fn (r &CanvasItem) get_self_modulate() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CanvasItem) set_z_index(z_index i32) {
+pub fn (r &CanvasItem) set_z_index(z_index i32) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("set_z_index")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -216,7 +216,7 @@ pub fn (r &CanvasItem) get_z_index() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CanvasItem) set_z_as_relative(enable bool) {
+pub fn (r &CanvasItem) set_z_as_relative(enable bool) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("set_z_as_relative")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -236,7 +236,7 @@ pub fn (r &CanvasItem) is_z_relative() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CanvasItem) set_y_sort_enabled(enabled bool) {
+pub fn (r &CanvasItem) set_y_sort_enabled(enabled bool) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("set_y_sort_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -256,7 +256,7 @@ pub fn (r &CanvasItem) is_y_sort_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CanvasItem) set_draw_behind_parent(enable bool) {
+pub fn (r &CanvasItem) set_draw_behind_parent(enable bool) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("set_draw_behind_parent")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -276,7 +276,7 @@ pub fn (r &CanvasItem) is_draw_behind_parent_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CanvasItem) draw_line(from Vector2, to Vector2, color Color, width f64, antialiased bool) {
+pub fn (r &CanvasItem) draw_line(from Vector2, to Vector2, color Color, width f64, antialiased bool) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("draw_line")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1562330099)
@@ -290,7 +290,7 @@ pub fn (mut r CanvasItem) draw_line(from Vector2, to Vector2, color Color, width
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CanvasItem) draw_dashed_line(from Vector2, to Vector2, color Color, width f64, dash f64, aligned bool) {
+pub fn (r &CanvasItem) draw_dashed_line(from Vector2, to Vector2, color Color, width f64, dash f64, aligned bool) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("draw_dashed_line")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 684651049)
@@ -305,7 +305,7 @@ pub fn (mut r CanvasItem) draw_dashed_line(from Vector2, to Vector2, color Color
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CanvasItem) draw_polyline(points PackedVector2Array, color Color, width f64, antialiased bool) {
+pub fn (r &CanvasItem) draw_polyline(points PackedVector2Array, color Color, width f64, antialiased bool) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("draw_polyline")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3797364428)
@@ -318,7 +318,7 @@ pub fn (mut r CanvasItem) draw_polyline(points PackedVector2Array, color Color, 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CanvasItem) draw_polyline_colors(points PackedVector2Array, colors PackedColorArray, width f64, antialiased bool) {
+pub fn (r &CanvasItem) draw_polyline_colors(points PackedVector2Array, colors PackedColorArray, width f64, antialiased bool) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("draw_polyline_colors")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2311979562)
@@ -331,7 +331,7 @@ pub fn (mut r CanvasItem) draw_polyline_colors(points PackedVector2Array, colors
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CanvasItem) draw_arc(center Vector2, radius f64, start_angle f64, end_angle f64, point_count i32, color Color, width f64, antialiased bool) {
+pub fn (r &CanvasItem) draw_arc(center Vector2, radius f64, start_angle f64, end_angle f64, point_count i32, color Color, width f64, antialiased bool) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("draw_arc")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4140652635)
@@ -348,7 +348,7 @@ pub fn (mut r CanvasItem) draw_arc(center Vector2, radius f64, start_angle f64, 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CanvasItem) draw_multiline(points PackedVector2Array, color Color, width f64) {
+pub fn (r &CanvasItem) draw_multiline(points PackedVector2Array, color Color, width f64) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("draw_multiline")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2239075205)
@@ -360,7 +360,7 @@ pub fn (mut r CanvasItem) draw_multiline(points PackedVector2Array, color Color,
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CanvasItem) draw_multiline_colors(points PackedVector2Array, colors PackedColorArray, width f64) {
+pub fn (r &CanvasItem) draw_multiline_colors(points PackedVector2Array, colors PackedColorArray, width f64) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("draw_multiline_colors")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4072951537)
@@ -372,7 +372,7 @@ pub fn (mut r CanvasItem) draw_multiline_colors(points PackedVector2Array, color
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CanvasItem) draw_rect(rect Rect2, color Color, filled bool, width f64) {
+pub fn (r &CanvasItem) draw_rect(rect Rect2, color Color, filled bool, width f64) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("draw_rect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2417231121)
@@ -385,7 +385,7 @@ pub fn (mut r CanvasItem) draw_rect(rect Rect2, color Color, filled bool, width 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CanvasItem) draw_circle(position Vector2, radius f64, color Color) {
+pub fn (r &CanvasItem) draw_circle(position Vector2, radius f64, color Color) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("draw_circle")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3063020269)
@@ -397,7 +397,7 @@ pub fn (mut r CanvasItem) draw_circle(position Vector2, radius f64, color Color)
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CanvasItem) draw_texture(texture Texture2D, position Vector2, modulate Color) {
+pub fn (r &CanvasItem) draw_texture(texture Texture2D, position Vector2, modulate Color) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("draw_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 520200117)
@@ -409,7 +409,7 @@ pub fn (mut r CanvasItem) draw_texture(texture Texture2D, position Vector2, modu
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CanvasItem) draw_texture_rect(texture Texture2D, rect Rect2, tile bool, modulate Color, transpose bool) {
+pub fn (r &CanvasItem) draw_texture_rect(texture Texture2D, rect Rect2, tile bool, modulate Color, transpose bool) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("draw_texture_rect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3832805018)
@@ -423,7 +423,7 @@ pub fn (mut r CanvasItem) draw_texture_rect(texture Texture2D, rect Rect2, tile 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CanvasItem) draw_texture_rect_region(texture Texture2D, rect Rect2, src_rect Rect2, modulate Color, transpose bool, clip_uv bool) {
+pub fn (r &CanvasItem) draw_texture_rect_region(texture Texture2D, rect Rect2, src_rect Rect2, modulate Color, transpose bool, clip_uv bool) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("draw_texture_rect_region")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3883821411)
@@ -438,7 +438,7 @@ pub fn (mut r CanvasItem) draw_texture_rect_region(texture Texture2D, rect Rect2
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CanvasItem) draw_msdf_texture_rect_region(texture Texture2D, rect Rect2, src_rect Rect2, modulate Color, outline f64, pixel_range f64, scale f64) {
+pub fn (r &CanvasItem) draw_msdf_texture_rect_region(texture Texture2D, rect Rect2, src_rect Rect2, modulate Color, outline f64, pixel_range f64, scale f64) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("draw_msdf_texture_rect_region")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4219163252)
@@ -454,7 +454,7 @@ pub fn (mut r CanvasItem) draw_msdf_texture_rect_region(texture Texture2D, rect 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CanvasItem) draw_lcd_texture_rect_region(texture Texture2D, rect Rect2, src_rect Rect2, modulate Color) {
+pub fn (r &CanvasItem) draw_lcd_texture_rect_region(texture Texture2D, rect Rect2, src_rect Rect2, modulate Color) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("draw_lcd_texture_rect_region")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3212350954)
@@ -467,7 +467,7 @@ pub fn (mut r CanvasItem) draw_lcd_texture_rect_region(texture Texture2D, rect R
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CanvasItem) draw_style_box(style_box StyleBox, rect Rect2) {
+pub fn (r &CanvasItem) draw_style_box(style_box StyleBox, rect Rect2) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("draw_style_box")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 388176283)
@@ -478,7 +478,7 @@ pub fn (mut r CanvasItem) draw_style_box(style_box StyleBox, rect Rect2) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CanvasItem) draw_primitive(points PackedVector2Array, colors PackedColorArray, uvs PackedVector2Array, texture Texture2D) {
+pub fn (r &CanvasItem) draw_primitive(points PackedVector2Array, colors PackedColorArray, uvs PackedVector2Array, texture Texture2D) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("draw_primitive")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3288481815)
@@ -491,7 +491,7 @@ pub fn (mut r CanvasItem) draw_primitive(points PackedVector2Array, colors Packe
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CanvasItem) draw_polygon(points PackedVector2Array, colors PackedColorArray, uvs PackedVector2Array, texture Texture2D) {
+pub fn (r &CanvasItem) draw_polygon(points PackedVector2Array, colors PackedColorArray, uvs PackedVector2Array, texture Texture2D) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("draw_polygon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 974537912)
@@ -504,7 +504,7 @@ pub fn (mut r CanvasItem) draw_polygon(points PackedVector2Array, colors PackedC
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CanvasItem) draw_colored_polygon(points PackedVector2Array, color Color, uvs PackedVector2Array, texture Texture2D) {
+pub fn (r &CanvasItem) draw_colored_polygon(points PackedVector2Array, color Color, uvs PackedVector2Array, texture Texture2D) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("draw_colored_polygon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 15245644)
@@ -658,7 +658,7 @@ pub fn (r &CanvasItem) draw_char_outline(font Font, pos Vector2, gdchar string, 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CanvasItem) draw_mesh(mesh Mesh, texture Texture2D, transform Transform2D, modulate Color) {
+pub fn (r &CanvasItem) draw_mesh(mesh Mesh, texture Texture2D, transform Transform2D, modulate Color) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("draw_mesh")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 153818295)
@@ -671,7 +671,7 @@ pub fn (mut r CanvasItem) draw_mesh(mesh Mesh, texture Texture2D, transform Tran
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CanvasItem) draw_multimesh(multimesh MultiMesh, texture Texture2D) {
+pub fn (r &CanvasItem) draw_multimesh(multimesh MultiMesh, texture Texture2D) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("draw_multimesh")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 937992368)
@@ -682,7 +682,7 @@ pub fn (mut r CanvasItem) draw_multimesh(multimesh MultiMesh, texture Texture2D)
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CanvasItem) draw_set_transform(position Vector2, rotation f64, scale Vector2) {
+pub fn (r &CanvasItem) draw_set_transform(position Vector2, rotation f64, scale Vector2) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("draw_set_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 288975085)
@@ -694,7 +694,7 @@ pub fn (mut r CanvasItem) draw_set_transform(position Vector2, rotation f64, sca
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CanvasItem) draw_set_transform_matrix(xform Transform2D) {
+pub fn (r &CanvasItem) draw_set_transform_matrix(xform Transform2D) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("draw_set_transform_matrix")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2761652528)
@@ -704,7 +704,7 @@ pub fn (mut r CanvasItem) draw_set_transform_matrix(xform Transform2D) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CanvasItem) draw_animation_slice(animation_length f64, slice_begin f64, slice_end f64, offset f64) {
+pub fn (r &CanvasItem) draw_animation_slice(animation_length f64, slice_begin f64, slice_end f64, offset f64) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("draw_animation_slice")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3112831842)
@@ -717,7 +717,7 @@ pub fn (mut r CanvasItem) draw_animation_slice(animation_length f64, slice_begin
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CanvasItem) draw_end_animation() {
+pub fn (r &CanvasItem) draw_end_animation() {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("draw_end_animation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -835,7 +835,7 @@ pub fn (r &CanvasItem) get_world_2d() World2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CanvasItem) set_material(material Material) {
+pub fn (r &CanvasItem) set_material(material Material) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("set_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2757459619)
@@ -855,7 +855,7 @@ pub fn (r &CanvasItem) get_material() Material {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CanvasItem) set_use_parent_material(enable bool) {
+pub fn (r &CanvasItem) set_use_parent_material(enable bool) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("set_use_parent_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -875,7 +875,7 @@ pub fn (r &CanvasItem) get_use_parent_material() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CanvasItem) set_notify_local_transform(enable bool) {
+pub fn (r &CanvasItem) set_notify_local_transform(enable bool) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("set_notify_local_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -895,7 +895,7 @@ pub fn (r &CanvasItem) is_local_transform_notification_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CanvasItem) set_notify_transform(enable bool) {
+pub fn (r &CanvasItem) set_notify_transform(enable bool) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("set_notify_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -915,7 +915,7 @@ pub fn (r &CanvasItem) is_transform_notification_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CanvasItem) force_update_transform() {
+pub fn (r &CanvasItem) force_update_transform() {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("force_update_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -947,7 +947,7 @@ pub fn (r &CanvasItem) make_input_local(event InputEvent) InputEvent {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CanvasItem) set_visibility_layer(layer u32) {
+pub fn (r &CanvasItem) set_visibility_layer(layer u32) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("set_visibility_layer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -967,7 +967,7 @@ pub fn (r &CanvasItem) get_visibility_layer() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CanvasItem) set_visibility_layer_bit(layer u32, enabled bool) {
+pub fn (r &CanvasItem) set_visibility_layer_bit(layer u32, enabled bool) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("set_visibility_layer_bit")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -990,7 +990,7 @@ pub fn (r &CanvasItem) get_visibility_layer_bit(layer u32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CanvasItem) set_texture_filter(mode CanvasItemTextureFilter) {
+pub fn (r &CanvasItem) set_texture_filter(mode CanvasItemTextureFilter) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("set_texture_filter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1037999706)
@@ -1011,7 +1011,7 @@ pub fn (r &CanvasItem) get_texture_filter() CanvasItemTextureFilter {
     fnname.deinit()
    return unsafe{CanvasItemTextureFilter(object_out)}
 }
-pub fn (mut r CanvasItem) set_texture_repeat(mode CanvasItemTextureRepeat) {
+pub fn (r &CanvasItem) set_texture_repeat(mode CanvasItemTextureRepeat) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("set_texture_repeat")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1716472974)
@@ -1032,7 +1032,7 @@ pub fn (r &CanvasItem) get_texture_repeat() CanvasItemTextureRepeat {
     fnname.deinit()
    return unsafe{CanvasItemTextureRepeat(object_out)}
 }
-pub fn (mut r CanvasItem) set_clip_children_mode(mode CanvasItemClipChildrenMode) {
+pub fn (r &CanvasItem) set_clip_children_mode(mode CanvasItemClipChildrenMode) {
     classname := StringName.new("CanvasItem")
     fnname := StringName.new("set_clip_children_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1319393776)

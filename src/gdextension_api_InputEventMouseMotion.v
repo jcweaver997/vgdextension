@@ -5,7 +5,7 @@ pub struct InputEventMouseMotion {
     InputEventMouse
 }
 
-pub fn (mut r InputEventMouseMotion) set_tilt(tilt Vector2) {
+pub fn (r &InputEventMouseMotion) set_tilt(tilt Vector2) {
     classname := StringName.new("InputEventMouseMotion")
     fnname := StringName.new("set_tilt")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -25,7 +25,7 @@ pub fn (r &InputEventMouseMotion) get_tilt() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r InputEventMouseMotion) set_pressure(pressure f64) {
+pub fn (r &InputEventMouseMotion) set_pressure(pressure f64) {
     classname := StringName.new("InputEventMouseMotion")
     fnname := StringName.new("set_pressure")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -45,7 +45,7 @@ pub fn (r &InputEventMouseMotion) get_pressure() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r InputEventMouseMotion) set_pen_inverted(pen_inverted bool) {
+pub fn (r &InputEventMouseMotion) set_pen_inverted(pen_inverted bool) {
     classname := StringName.new("InputEventMouseMotion")
     fnname := StringName.new("set_pen_inverted")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -65,7 +65,7 @@ pub fn (r &InputEventMouseMotion) get_pen_inverted() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r InputEventMouseMotion) set_relative(relative Vector2) {
+pub fn (r &InputEventMouseMotion) set_relative(relative Vector2) {
     classname := StringName.new("InputEventMouseMotion")
     fnname := StringName.new("set_relative")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -85,7 +85,7 @@ pub fn (r &InputEventMouseMotion) get_relative() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r InputEventMouseMotion) set_velocity(velocity Vector2) {
+pub fn (r &InputEventMouseMotion) set_velocity(velocity Vector2) {
     classname := StringName.new("InputEventMouseMotion")
     fnname := StringName.new("set_velocity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)

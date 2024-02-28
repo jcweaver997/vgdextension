@@ -15,7 +15,7 @@ pub struct Camera2D {
     Node2D
 }
 
-pub fn (mut r Camera2D) set_offset(offset Vector2) {
+pub fn (r &Camera2D) set_offset(offset Vector2) {
     classname := StringName.new("Camera2D")
     fnname := StringName.new("set_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -35,7 +35,7 @@ pub fn (r &Camera2D) get_offset() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Camera2D) set_anchor_mode(anchor_mode Camera2DAnchorMode) {
+pub fn (r &Camera2D) set_anchor_mode(anchor_mode Camera2DAnchorMode) {
     classname := StringName.new("Camera2D")
     fnname := StringName.new("set_anchor_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2050398218)
@@ -56,7 +56,7 @@ pub fn (r &Camera2D) get_anchor_mode() Camera2DAnchorMode {
     fnname.deinit()
    return unsafe{Camera2DAnchorMode(object_out)}
 }
-pub fn (mut r Camera2D) set_ignore_rotation(ignore bool) {
+pub fn (r &Camera2D) set_ignore_rotation(ignore bool) {
     classname := StringName.new("Camera2D")
     fnname := StringName.new("set_ignore_rotation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -76,7 +76,7 @@ pub fn (r &Camera2D) is_ignoring_rotation() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Camera2D) set_process_callback(mode Camera2DCamera2DProcessCallback) {
+pub fn (r &Camera2D) set_process_callback(mode Camera2DCamera2DProcessCallback) {
     classname := StringName.new("Camera2D")
     fnname := StringName.new("set_process_callback")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4201947462)
@@ -97,7 +97,7 @@ pub fn (r &Camera2D) get_process_callback() Camera2DCamera2DProcessCallback {
     fnname.deinit()
    return unsafe{Camera2DCamera2DProcessCallback(object_out)}
 }
-pub fn (mut r Camera2D) set_enabled(enabled bool) {
+pub fn (r &Camera2D) set_enabled(enabled bool) {
     classname := StringName.new("Camera2D")
     fnname := StringName.new("set_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -117,7 +117,7 @@ pub fn (r &Camera2D) is_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Camera2D) make_current() {
+pub fn (r &Camera2D) make_current() {
     classname := StringName.new("Camera2D")
     fnname := StringName.new("make_current")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -135,7 +135,7 @@ pub fn (r &Camera2D) is_current() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Camera2D) set_limit(margin Side, limit i32) {
+pub fn (r &Camera2D) set_limit(margin Side, limit i32) {
     classname := StringName.new("Camera2D")
     fnname := StringName.new("set_limit")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 437707142)
@@ -160,7 +160,7 @@ pub fn (r &Camera2D) get_limit(margin Side) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Camera2D) set_limit_smoothing_enabled(limit_smoothing_enabled bool) {
+pub fn (r &Camera2D) set_limit_smoothing_enabled(limit_smoothing_enabled bool) {
     classname := StringName.new("Camera2D")
     fnname := StringName.new("set_limit_smoothing_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -180,7 +180,7 @@ pub fn (r &Camera2D) is_limit_smoothing_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Camera2D) set_drag_vertical_enabled(enabled bool) {
+pub fn (r &Camera2D) set_drag_vertical_enabled(enabled bool) {
     classname := StringName.new("Camera2D")
     fnname := StringName.new("set_drag_vertical_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -200,7 +200,7 @@ pub fn (r &Camera2D) is_drag_vertical_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Camera2D) set_drag_horizontal_enabled(enabled bool) {
+pub fn (r &Camera2D) set_drag_horizontal_enabled(enabled bool) {
     classname := StringName.new("Camera2D")
     fnname := StringName.new("set_drag_horizontal_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -220,7 +220,7 @@ pub fn (r &Camera2D) is_drag_horizontal_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Camera2D) set_drag_vertical_offset(offset f64) {
+pub fn (r &Camera2D) set_drag_vertical_offset(offset f64) {
     classname := StringName.new("Camera2D")
     fnname := StringName.new("set_drag_vertical_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -240,7 +240,7 @@ pub fn (r &Camera2D) get_drag_vertical_offset() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Camera2D) set_drag_horizontal_offset(offset f64) {
+pub fn (r &Camera2D) set_drag_horizontal_offset(offset f64) {
     classname := StringName.new("Camera2D")
     fnname := StringName.new("set_drag_horizontal_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -260,7 +260,7 @@ pub fn (r &Camera2D) get_drag_horizontal_offset() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Camera2D) set_drag_margin(margin Side, drag_margin f64) {
+pub fn (r &Camera2D) set_drag_margin(margin Side, drag_margin f64) {
     classname := StringName.new("Camera2D")
     fnname := StringName.new("set_drag_margin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4290182280)
@@ -305,7 +305,7 @@ pub fn (r &Camera2D) get_screen_center_position() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Camera2D) set_zoom(zoom Vector2) {
+pub fn (r &Camera2D) set_zoom(zoom Vector2) {
     classname := StringName.new("Camera2D")
     fnname := StringName.new("set_zoom")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -325,7 +325,7 @@ pub fn (r &Camera2D) get_zoom() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Camera2D) set_custom_viewport(viewport Node) {
+pub fn (r &Camera2D) set_custom_viewport(viewport Node) {
     classname := StringName.new("Camera2D")
     fnname := StringName.new("set_custom_viewport")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
@@ -345,7 +345,7 @@ pub fn (r &Camera2D) get_custom_viewport() Node {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Camera2D) set_position_smoothing_speed(position_smoothing_speed f64) {
+pub fn (r &Camera2D) set_position_smoothing_speed(position_smoothing_speed f64) {
     classname := StringName.new("Camera2D")
     fnname := StringName.new("set_position_smoothing_speed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -365,7 +365,7 @@ pub fn (r &Camera2D) get_position_smoothing_speed() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Camera2D) set_position_smoothing_enabled(position_smoothing_speed bool) {
+pub fn (r &Camera2D) set_position_smoothing_enabled(position_smoothing_speed bool) {
     classname := StringName.new("Camera2D")
     fnname := StringName.new("set_position_smoothing_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -385,7 +385,7 @@ pub fn (r &Camera2D) is_position_smoothing_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Camera2D) set_rotation_smoothing_enabled(enabled bool) {
+pub fn (r &Camera2D) set_rotation_smoothing_enabled(enabled bool) {
     classname := StringName.new("Camera2D")
     fnname := StringName.new("set_rotation_smoothing_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -405,7 +405,7 @@ pub fn (r &Camera2D) is_rotation_smoothing_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Camera2D) set_rotation_smoothing_speed(speed f64) {
+pub fn (r &Camera2D) set_rotation_smoothing_speed(speed f64) {
     classname := StringName.new("Camera2D")
     fnname := StringName.new("set_rotation_smoothing_speed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -425,7 +425,7 @@ pub fn (r &Camera2D) get_rotation_smoothing_speed() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Camera2D) force_update_scroll() {
+pub fn (r &Camera2D) force_update_scroll() {
     classname := StringName.new("Camera2D")
     fnname := StringName.new("force_update_scroll")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -433,7 +433,7 @@ pub fn (mut r Camera2D) force_update_scroll() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Camera2D) reset_smoothing() {
+pub fn (r &Camera2D) reset_smoothing() {
     classname := StringName.new("Camera2D")
     fnname := StringName.new("reset_smoothing")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -441,7 +441,7 @@ pub fn (mut r Camera2D) reset_smoothing() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Camera2D) align() {
+pub fn (r &Camera2D) align() {
     classname := StringName.new("Camera2D")
     fnname := StringName.new("align")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -449,7 +449,7 @@ pub fn (mut r Camera2D) align() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Camera2D) set_screen_drawing_enabled(screen_drawing_enabled bool) {
+pub fn (r &Camera2D) set_screen_drawing_enabled(screen_drawing_enabled bool) {
     classname := StringName.new("Camera2D")
     fnname := StringName.new("set_screen_drawing_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -469,7 +469,7 @@ pub fn (r &Camera2D) is_screen_drawing_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Camera2D) set_limit_drawing_enabled(limit_drawing_enabled bool) {
+pub fn (r &Camera2D) set_limit_drawing_enabled(limit_drawing_enabled bool) {
     classname := StringName.new("Camera2D")
     fnname := StringName.new("set_limit_drawing_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -489,7 +489,7 @@ pub fn (r &Camera2D) is_limit_drawing_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Camera2D) set_margin_drawing_enabled(margin_drawing_enabled bool) {
+pub fn (r &Camera2D) set_margin_drawing_enabled(margin_drawing_enabled bool) {
     classname := StringName.new("Camera2D")
     fnname := StringName.new("set_margin_drawing_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

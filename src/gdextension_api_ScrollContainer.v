@@ -12,7 +12,7 @@ pub struct ScrollContainer {
     Container
 }
 
-pub fn (mut r ScrollContainer) set_h_scroll(value i32) {
+pub fn (r &ScrollContainer) set_h_scroll(value i32) {
     classname := StringName.new("ScrollContainer")
     fnname := StringName.new("set_h_scroll")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -32,7 +32,7 @@ pub fn (r &ScrollContainer) get_h_scroll() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ScrollContainer) set_v_scroll(value i32) {
+pub fn (r &ScrollContainer) set_v_scroll(value i32) {
     classname := StringName.new("ScrollContainer")
     fnname := StringName.new("set_v_scroll")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -52,7 +52,7 @@ pub fn (r &ScrollContainer) get_v_scroll() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ScrollContainer) set_horizontal_custom_step(value f64) {
+pub fn (r &ScrollContainer) set_horizontal_custom_step(value f64) {
     classname := StringName.new("ScrollContainer")
     fnname := StringName.new("set_horizontal_custom_step")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -72,7 +72,7 @@ pub fn (r &ScrollContainer) get_horizontal_custom_step() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ScrollContainer) set_vertical_custom_step(value f64) {
+pub fn (r &ScrollContainer) set_vertical_custom_step(value f64) {
     classname := StringName.new("ScrollContainer")
     fnname := StringName.new("set_vertical_custom_step")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -92,7 +92,7 @@ pub fn (r &ScrollContainer) get_vertical_custom_step() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ScrollContainer) set_horizontal_scroll_mode(enable ScrollContainerScrollMode) {
+pub fn (r &ScrollContainer) set_horizontal_scroll_mode(enable ScrollContainerScrollMode) {
     classname := StringName.new("ScrollContainer")
     fnname := StringName.new("set_horizontal_scroll_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2750506364)
@@ -113,7 +113,7 @@ pub fn (r &ScrollContainer) get_horizontal_scroll_mode() ScrollContainerScrollMo
     fnname.deinit()
    return unsafe{ScrollContainerScrollMode(object_out)}
 }
-pub fn (mut r ScrollContainer) set_vertical_scroll_mode(enable ScrollContainerScrollMode) {
+pub fn (r &ScrollContainer) set_vertical_scroll_mode(enable ScrollContainerScrollMode) {
     classname := StringName.new("ScrollContainer")
     fnname := StringName.new("set_vertical_scroll_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2750506364)
@@ -134,7 +134,7 @@ pub fn (r &ScrollContainer) get_vertical_scroll_mode() ScrollContainerScrollMode
     fnname.deinit()
    return unsafe{ScrollContainerScrollMode(object_out)}
 }
-pub fn (mut r ScrollContainer) set_deadzone(deadzone i32) {
+pub fn (r &ScrollContainer) set_deadzone(deadzone i32) {
     classname := StringName.new("ScrollContainer")
     fnname := StringName.new("set_deadzone")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -154,7 +154,7 @@ pub fn (r &ScrollContainer) get_deadzone() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ScrollContainer) set_follow_focus(enabled bool) {
+pub fn (r &ScrollContainer) set_follow_focus(enabled bool) {
     classname := StringName.new("ScrollContainer")
     fnname := StringName.new("set_follow_focus")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -174,7 +174,7 @@ pub fn (r &ScrollContainer) is_following_focus() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ScrollContainer) get_h_scroll_bar() HScrollBar {
+pub fn (r &ScrollContainer) get_h_scroll_bar() HScrollBar {
     mut object_out := HScrollBar{}
     classname := StringName.new("ScrollContainer")
     fnname := StringName.new("get_h_scroll_bar")
@@ -184,7 +184,7 @@ pub fn (mut r ScrollContainer) get_h_scroll_bar() HScrollBar {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ScrollContainer) get_v_scroll_bar() VScrollBar {
+pub fn (r &ScrollContainer) get_v_scroll_bar() VScrollBar {
     mut object_out := VScrollBar{}
     classname := StringName.new("ScrollContainer")
     fnname := StringName.new("get_v_scroll_bar")
@@ -194,7 +194,7 @@ pub fn (mut r ScrollContainer) get_v_scroll_bar() VScrollBar {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ScrollContainer) ensure_control_visible(control Control) {
+pub fn (r &ScrollContainer) ensure_control_visible(control Control) {
     classname := StringName.new("ScrollContainer")
     fnname := StringName.new("ensure_control_visible")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1496901182)

@@ -15,7 +15,7 @@ pub struct GPUParticlesCollisionSDF3D {
     GPUParticlesCollision3D
 }
 
-pub fn (mut r GPUParticlesCollisionSDF3D) set_size(size Vector3) {
+pub fn (r &GPUParticlesCollisionSDF3D) set_size(size Vector3) {
     classname := StringName.new("GPUParticlesCollisionSDF3D")
     fnname := StringName.new("set_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -35,7 +35,7 @@ pub fn (r &GPUParticlesCollisionSDF3D) get_size() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GPUParticlesCollisionSDF3D) set_resolution(resolution GPUParticlesCollisionSDF3DResolution) {
+pub fn (r &GPUParticlesCollisionSDF3D) set_resolution(resolution GPUParticlesCollisionSDF3DResolution) {
     classname := StringName.new("GPUParticlesCollisionSDF3D")
     fnname := StringName.new("set_resolution")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1155629297)
@@ -56,7 +56,7 @@ pub fn (r &GPUParticlesCollisionSDF3D) get_resolution() GPUParticlesCollisionSDF
     fnname.deinit()
    return unsafe{GPUParticlesCollisionSDF3DResolution(object_out)}
 }
-pub fn (mut r GPUParticlesCollisionSDF3D) set_texture(texture Texture3D) {
+pub fn (r &GPUParticlesCollisionSDF3D) set_texture(texture Texture3D) {
     classname := StringName.new("GPUParticlesCollisionSDF3D")
     fnname := StringName.new("set_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1188404210)
@@ -76,7 +76,7 @@ pub fn (r &GPUParticlesCollisionSDF3D) get_texture() Texture3D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GPUParticlesCollisionSDF3D) set_thickness(thickness f64) {
+pub fn (r &GPUParticlesCollisionSDF3D) set_thickness(thickness f64) {
     classname := StringName.new("GPUParticlesCollisionSDF3D")
     fnname := StringName.new("set_thickness")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -96,7 +96,7 @@ pub fn (r &GPUParticlesCollisionSDF3D) get_thickness() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GPUParticlesCollisionSDF3D) set_bake_mask(mask u32) {
+pub fn (r &GPUParticlesCollisionSDF3D) set_bake_mask(mask u32) {
     classname := StringName.new("GPUParticlesCollisionSDF3D")
     fnname := StringName.new("set_bake_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -116,7 +116,7 @@ pub fn (r &GPUParticlesCollisionSDF3D) get_bake_mask() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GPUParticlesCollisionSDF3D) set_bake_mask_value(layer_number i32, value bool) {
+pub fn (r &GPUParticlesCollisionSDF3D) set_bake_mask_value(layer_number i32, value bool) {
     classname := StringName.new("GPUParticlesCollisionSDF3D")
     fnname := StringName.new("set_bake_mask_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)

@@ -10,7 +10,7 @@ pub interface IEngineProfilerToggle {
     virt_toggle(enable bool, options Array)
 }
 
-pub fn (mut r EngineProfiler) utoggle(enable bool, options Array) {
+pub fn (r &EngineProfiler) utoggle(enable bool, options Array) {
     classname := StringName.new("EngineProfiler")
     fnname := StringName.new("_toggle")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -26,7 +26,7 @@ pub interface IEngineProfilerAddFrame {
     virt_add_frame(data Array)
 }
 
-pub fn (mut r EngineProfiler) uadd_frame(data Array) {
+pub fn (r &EngineProfiler) uadd_frame(data Array) {
     classname := StringName.new("EngineProfiler")
     fnname := StringName.new("_add_frame")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -41,7 +41,7 @@ pub interface IEngineProfilerTick {
     virt_tick(frame_time f64, process_time f64, physics_time f64, physics_frame_time f64)
 }
 
-pub fn (mut r EngineProfiler) utick(frame_time f64, process_time f64, physics_time f64, physics_frame_time f64) {
+pub fn (r &EngineProfiler) utick(frame_time f64, process_time f64, physics_time f64, physics_frame_time f64) {
     classname := StringName.new("EngineProfiler")
     fnname := StringName.new("_tick")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)

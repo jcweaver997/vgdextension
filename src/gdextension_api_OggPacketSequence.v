@@ -5,7 +5,7 @@ pub struct OggPacketSequence {
     Resource
 }
 
-pub fn (mut r OggPacketSequence) set_packet_data(packet_data Array) {
+pub fn (r &OggPacketSequence) set_packet_data(packet_data Array) {
     classname := StringName.new("OggPacketSequence")
     fnname := StringName.new("set_packet_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)
@@ -25,7 +25,7 @@ pub fn (r &OggPacketSequence) get_packet_data() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OggPacketSequence) set_packet_granule_positions(granule_positions PackedInt64Array) {
+pub fn (r &OggPacketSequence) set_packet_granule_positions(granule_positions PackedInt64Array) {
     classname := StringName.new("OggPacketSequence")
     fnname := StringName.new("set_packet_granule_positions")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3709968205)
@@ -45,7 +45,7 @@ pub fn (r &OggPacketSequence) get_packet_granule_positions() PackedInt64Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OggPacketSequence) set_sampling_rate(sampling_rate f64) {
+pub fn (r &OggPacketSequence) set_sampling_rate(sampling_rate f64) {
     classname := StringName.new("OggPacketSequence")
     fnname := StringName.new("set_sampling_rate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

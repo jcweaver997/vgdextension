@@ -14,7 +14,7 @@ pub fn JavaScriptBridge.get_singleton() JavaScriptBridge {
     return o
 }
 
-pub fn (mut r JavaScriptBridge) eval(code string, use_global_execution_context bool) Variant {
+pub fn (r &JavaScriptBridge) eval(code string, use_global_execution_context bool) Variant {
     mut object_out := Variant{}
     classname := StringName.new("JavaScriptBridge")
     fnname := StringName.new("eval")
@@ -29,7 +29,7 @@ pub fn (mut r JavaScriptBridge) eval(code string, use_global_execution_context b
     fnname.deinit()
    return object_out
 }
-pub fn (mut r JavaScriptBridge) get_interface(gdinterface string) JavaScriptObject {
+pub fn (r &JavaScriptBridge) get_interface(gdinterface string) JavaScriptObject {
     mut object_out := JavaScriptObject{}
     classname := StringName.new("JavaScriptBridge")
     fnname := StringName.new("get_interface")
@@ -43,7 +43,7 @@ pub fn (mut r JavaScriptBridge) get_interface(gdinterface string) JavaScriptObje
     fnname.deinit()
    return object_out
 }
-pub fn (mut r JavaScriptBridge) create_callback(callable Callable) JavaScriptObject {
+pub fn (r &JavaScriptBridge) create_callback(callable Callable) JavaScriptObject {
     mut object_out := JavaScriptObject{}
     classname := StringName.new("JavaScriptBridge")
     fnname := StringName.new("create_callback")
@@ -55,7 +55,7 @@ pub fn (mut r JavaScriptBridge) create_callback(callable Callable) JavaScriptObj
     fnname.deinit()
    return object_out
 }
-pub fn (mut r JavaScriptBridge) download_buffer(buffer PackedByteArray, name string, mime string) {
+pub fn (r &JavaScriptBridge) download_buffer(buffer PackedByteArray, name string, mime string) {
     classname := StringName.new("JavaScriptBridge")
     fnname := StringName.new("download_buffer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3352272093)
@@ -81,7 +81,7 @@ pub fn (r &JavaScriptBridge) pwa_needs_update() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r JavaScriptBridge) pwa_update() GDError {
+pub fn (r &JavaScriptBridge) pwa_update() GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("JavaScriptBridge")
     fnname := StringName.new("pwa_update")
@@ -91,7 +91,7 @@ pub fn (mut r JavaScriptBridge) pwa_update() GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r JavaScriptBridge) force_fs_sync() {
+pub fn (r &JavaScriptBridge) force_fs_sync() {
     classname := StringName.new("JavaScriptBridge")
     fnname := StringName.new("force_fs_sync")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

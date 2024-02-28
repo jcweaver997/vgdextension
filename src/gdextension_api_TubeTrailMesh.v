@@ -5,7 +5,7 @@ pub struct TubeTrailMesh {
     PrimitiveMesh
 }
 
-pub fn (mut r TubeTrailMesh) set_radius(radius f64) {
+pub fn (r &TubeTrailMesh) set_radius(radius f64) {
     classname := StringName.new("TubeTrailMesh")
     fnname := StringName.new("set_radius")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -25,7 +25,7 @@ pub fn (r &TubeTrailMesh) get_radius() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TubeTrailMesh) set_radial_steps(radial_steps i32) {
+pub fn (r &TubeTrailMesh) set_radial_steps(radial_steps i32) {
     classname := StringName.new("TubeTrailMesh")
     fnname := StringName.new("set_radial_steps")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -45,7 +45,7 @@ pub fn (r &TubeTrailMesh) get_radial_steps() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TubeTrailMesh) set_sections(sections i32) {
+pub fn (r &TubeTrailMesh) set_sections(sections i32) {
     classname := StringName.new("TubeTrailMesh")
     fnname := StringName.new("set_sections")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -65,7 +65,7 @@ pub fn (r &TubeTrailMesh) get_sections() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TubeTrailMesh) set_section_length(section_length f64) {
+pub fn (r &TubeTrailMesh) set_section_length(section_length f64) {
     classname := StringName.new("TubeTrailMesh")
     fnname := StringName.new("set_section_length")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -85,7 +85,7 @@ pub fn (r &TubeTrailMesh) get_section_length() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TubeTrailMesh) set_section_rings(section_rings i32) {
+pub fn (r &TubeTrailMesh) set_section_rings(section_rings i32) {
     classname := StringName.new("TubeTrailMesh")
     fnname := StringName.new("set_section_rings")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -105,7 +105,7 @@ pub fn (r &TubeTrailMesh) get_section_rings() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TubeTrailMesh) set_cap_top(cap_top bool) {
+pub fn (r &TubeTrailMesh) set_cap_top(cap_top bool) {
     classname := StringName.new("TubeTrailMesh")
     fnname := StringName.new("set_cap_top")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -125,7 +125,7 @@ pub fn (r &TubeTrailMesh) is_cap_top() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TubeTrailMesh) set_cap_bottom(cap_bottom bool) {
+pub fn (r &TubeTrailMesh) set_cap_bottom(cap_bottom bool) {
     classname := StringName.new("TubeTrailMesh")
     fnname := StringName.new("set_cap_bottom")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -145,7 +145,7 @@ pub fn (r &TubeTrailMesh) is_cap_bottom() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TubeTrailMesh) set_curve(curve Curve) {
+pub fn (r &TubeTrailMesh) set_curve(curve Curve) {
     classname := StringName.new("TubeTrailMesh")
     fnname := StringName.new("set_curve")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 270443179)

@@ -5,7 +5,7 @@ pub struct VisualShaderNodeExpression {
     VisualShaderNodeGroupBase
 }
 
-pub fn (mut r VisualShaderNodeExpression) set_expression(expression string) {
+pub fn (r &VisualShaderNodeExpression) set_expression(expression string) {
     classname := StringName.new("VisualShaderNodeExpression")
     fnname := StringName.new("set_expression")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)

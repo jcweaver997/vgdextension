@@ -57,7 +57,7 @@ pub fn (r &Translation) uget_message(src_message string, context string) string 
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r Translation) set_locale(locale string) {
+pub fn (r &Translation) set_locale(locale string) {
     classname := StringName.new("Translation")
     fnname := StringName.new("set_locale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -81,7 +81,7 @@ pub fn (r &Translation) get_locale() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r Translation) add_message(src_message string, xlated_message string, context string) {
+pub fn (r &Translation) add_message(src_message string, xlated_message string, context string) {
     classname := StringName.new("Translation")
     fnname := StringName.new("add_message")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3898530326)
@@ -99,7 +99,7 @@ pub fn (mut r Translation) add_message(src_message string, xlated_message string
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Translation) add_plural_message(src_message string, xlated_messages PackedStringArray, context string) {
+pub fn (r &Translation) add_plural_message(src_message string, xlated_messages PackedStringArray, context string) {
     classname := StringName.new("Translation")
     fnname := StringName.new("add_plural_message")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2356982266)
@@ -157,7 +157,7 @@ pub fn (r &Translation) get_plural_message(src_message string, src_plural_messag
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r Translation) erase_message(src_message string, context string) {
+pub fn (r &Translation) erase_message(src_message string, context string) {
     classname := StringName.new("Translation")
     fnname := StringName.new("erase_message")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3959009644)

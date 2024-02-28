@@ -61,7 +61,7 @@ pub interface IScriptLanguageExtensionInit {
     virt_init()
 }
 
-pub fn (mut r ScriptLanguageExtension) uinit() {
+pub fn (r &ScriptLanguageExtension) uinit() {
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_init")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -108,7 +108,7 @@ pub interface IScriptLanguageExtensionFinish {
     virt_finish()
 }
 
-pub fn (mut r ScriptLanguageExtension) ufinish() {
+pub fn (r &ScriptLanguageExtension) ufinish() {
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_finish")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -244,7 +244,7 @@ pub interface IScriptLanguageExtensionIsUsingTemplates {
     virt_is_using_templates() bool
 }
 
-pub fn (mut r ScriptLanguageExtension) uis_using_templates() bool {
+pub fn (r &ScriptLanguageExtension) uis_using_templates() bool {
     mut object_out := false
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_is_using_templates")
@@ -428,7 +428,7 @@ pub interface IScriptLanguageExtensionOpenInExternalEditor {
     virt_open_in_external_editor(script Script, line i32, column i32) GDError
 }
 
-pub fn (mut r ScriptLanguageExtension) uopen_in_external_editor(script Script, line i32, column i32) GDError {
+pub fn (r &ScriptLanguageExtension) uopen_in_external_editor(script Script, line i32, column i32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_open_in_external_editor")
@@ -447,7 +447,7 @@ pub interface IScriptLanguageExtensionOverridesExternalEditor {
     virt_overrides_external_editor() bool
 }
 
-pub fn (mut r ScriptLanguageExtension) uoverrides_external_editor() bool {
+pub fn (r &ScriptLanguageExtension) uoverrides_external_editor() bool {
     mut object_out := false
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_overrides_external_editor")
@@ -534,7 +534,7 @@ pub interface IScriptLanguageExtensionAddGlobalConstant {
     virt_add_global_constant(name StringName, value Variant)
 }
 
-pub fn (mut r ScriptLanguageExtension) uadd_global_constant(name string, value Variant) {
+pub fn (r &ScriptLanguageExtension) uadd_global_constant(name string, value Variant) {
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_add_global_constant")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -552,7 +552,7 @@ pub interface IScriptLanguageExtensionAddNamedGlobalConstant {
     virt_add_named_global_constant(name StringName, value Variant)
 }
 
-pub fn (mut r ScriptLanguageExtension) uadd_named_global_constant(name string, value Variant) {
+pub fn (r &ScriptLanguageExtension) uadd_named_global_constant(name string, value Variant) {
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_add_named_global_constant")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -570,7 +570,7 @@ pub interface IScriptLanguageExtensionRemoveNamedGlobalConstant {
     virt_remove_named_global_constant(name StringName)
 }
 
-pub fn (mut r ScriptLanguageExtension) uremove_named_global_constant(name string) {
+pub fn (r &ScriptLanguageExtension) uremove_named_global_constant(name string) {
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_remove_named_global_constant")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -587,7 +587,7 @@ pub interface IScriptLanguageExtensionThreadEnter {
     virt_thread_enter()
 }
 
-pub fn (mut r ScriptLanguageExtension) uthread_enter() {
+pub fn (r &ScriptLanguageExtension) uthread_enter() {
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_thread_enter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -600,7 +600,7 @@ pub interface IScriptLanguageExtensionThreadExit {
     virt_thread_exit()
 }
 
-pub fn (mut r ScriptLanguageExtension) uthread_exit() {
+pub fn (r &ScriptLanguageExtension) uthread_exit() {
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_thread_exit")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -681,7 +681,7 @@ pub interface IScriptLanguageExtensionDebugGetStackLevelLocals {
     virt_debug_get_stack_level_locals(level i32, max_subitems i32, max_depth i32) Dictionary
 }
 
-pub fn (mut r ScriptLanguageExtension) udebug_get_stack_level_locals(level i32, max_subitems i32, max_depth i32) Dictionary {
+pub fn (r &ScriptLanguageExtension) udebug_get_stack_level_locals(level i32, max_subitems i32, max_depth i32) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_debug_get_stack_level_locals")
@@ -700,7 +700,7 @@ pub interface IScriptLanguageExtensionDebugGetStackLevelMembers {
     virt_debug_get_stack_level_members(level i32, max_subitems i32, max_depth i32) Dictionary
 }
 
-pub fn (mut r ScriptLanguageExtension) udebug_get_stack_level_members(level i32, max_subitems i32, max_depth i32) Dictionary {
+pub fn (r &ScriptLanguageExtension) udebug_get_stack_level_members(level i32, max_subitems i32, max_depth i32) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_debug_get_stack_level_members")
@@ -719,7 +719,7 @@ pub interface IScriptLanguageExtensionDebugGetStackLevelInstance {
     virt_debug_get_stack_level_instance(level i32) voidptr
 }
 
-pub fn (mut r ScriptLanguageExtension) udebug_get_stack_level_instance(level i32) voidptr {
+pub fn (r &ScriptLanguageExtension) udebug_get_stack_level_instance(level i32) voidptr {
     mut object_out := unsafe{nil}
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_debug_get_stack_level_instance")
@@ -736,7 +736,7 @@ pub interface IScriptLanguageExtensionDebugGetGlobals {
     virt_debug_get_globals(max_subitems i32, max_depth i32) Dictionary
 }
 
-pub fn (mut r ScriptLanguageExtension) udebug_get_globals(max_subitems i32, max_depth i32) Dictionary {
+pub fn (r &ScriptLanguageExtension) udebug_get_globals(max_subitems i32, max_depth i32) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_debug_get_globals")
@@ -754,7 +754,7 @@ pub interface IScriptLanguageExtensionDebugParseStackLevelExpression {
     virt_debug_parse_stack_level_expression(level i32, expression String, max_subitems i32, max_depth i32) String
 }
 
-pub fn (mut r ScriptLanguageExtension) udebug_parse_stack_level_expression(level i32, expression string, max_subitems i32, max_depth i32) string {
+pub fn (r &ScriptLanguageExtension) udebug_parse_stack_level_expression(level i32, expression string, max_subitems i32, max_depth i32) string {
     mut object_out := String{}
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_debug_parse_stack_level_expression")
@@ -778,7 +778,7 @@ pub interface IScriptLanguageExtensionDebugGetCurrentStackInfo {
     virt_debug_get_current_stack_info() Array
 }
 
-pub fn (mut r ScriptLanguageExtension) udebug_get_current_stack_info() Array {
+pub fn (r &ScriptLanguageExtension) udebug_get_current_stack_info() Array {
     mut object_out := Array{}
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_debug_get_current_stack_info")
@@ -793,7 +793,7 @@ pub interface IScriptLanguageExtensionReloadAllScripts {
     virt_reload_all_scripts()
 }
 
-pub fn (mut r ScriptLanguageExtension) ureload_all_scripts() {
+pub fn (r &ScriptLanguageExtension) ureload_all_scripts() {
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_reload_all_scripts")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -806,7 +806,7 @@ pub interface IScriptLanguageExtensionReloadToolScript {
     virt_reload_tool_script(script Script, soft_reload bool)
 }
 
-pub fn (mut r ScriptLanguageExtension) ureload_tool_script(script Script, soft_reload bool) {
+pub fn (r &ScriptLanguageExtension) ureload_tool_script(script Script, soft_reload bool) {
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_reload_tool_script")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -882,7 +882,7 @@ pub interface IScriptLanguageExtensionProfilingStart {
     virt_profiling_start()
 }
 
-pub fn (mut r ScriptLanguageExtension) uprofiling_start() {
+pub fn (r &ScriptLanguageExtension) uprofiling_start() {
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_profiling_start")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -895,7 +895,7 @@ pub interface IScriptLanguageExtensionProfilingStop {
     virt_profiling_stop()
 }
 
-pub fn (mut r ScriptLanguageExtension) uprofiling_stop() {
+pub fn (r &ScriptLanguageExtension) uprofiling_stop() {
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_profiling_stop")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -908,7 +908,7 @@ pub interface IScriptLanguageExtensionProfilingGetAccumulatedData {
     virt_profiling_get_accumulated_data(info_array &ScriptLanguageExtensionProfilingInfo, info_max i32) i32
 }
 
-pub fn (mut r ScriptLanguageExtension) uprofiling_get_accumulated_data(info_array &ScriptLanguageExtensionProfilingInfo, info_max i32) i32 {
+pub fn (r &ScriptLanguageExtension) uprofiling_get_accumulated_data(info_array &ScriptLanguageExtensionProfilingInfo, info_max i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_profiling_get_accumulated_data")
@@ -926,7 +926,7 @@ pub interface IScriptLanguageExtensionProfilingGetFrameData {
     virt_profiling_get_frame_data(info_array &ScriptLanguageExtensionProfilingInfo, info_max i32) i32
 }
 
-pub fn (mut r ScriptLanguageExtension) uprofiling_get_frame_data(info_array &ScriptLanguageExtensionProfilingInfo, info_max i32) i32 {
+pub fn (r &ScriptLanguageExtension) uprofiling_get_frame_data(info_array &ScriptLanguageExtensionProfilingInfo, info_max i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_profiling_get_frame_data")
@@ -944,7 +944,7 @@ pub interface IScriptLanguageExtensionFrame {
     virt_frame()
 }
 
-pub fn (mut r ScriptLanguageExtension) uframe() {
+pub fn (r &ScriptLanguageExtension) uframe() {
     classname := StringName.new("ScriptLanguageExtension")
     fnname := StringName.new("_frame")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)

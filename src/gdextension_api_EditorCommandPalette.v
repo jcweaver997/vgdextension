@@ -5,7 +5,7 @@ pub struct EditorCommandPalette {
     ConfirmationDialog
 }
 
-pub fn (mut r EditorCommandPalette) add_command(command_name string, key_name string, binded_callable Callable, shortcut_text string) {
+pub fn (r &EditorCommandPalette) add_command(command_name string, key_name string, binded_callable Callable, shortcut_text string) {
     classname := StringName.new("EditorCommandPalette")
     fnname := StringName.new("add_command")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 864043298)
@@ -24,7 +24,7 @@ pub fn (mut r EditorCommandPalette) add_command(command_name string, key_name st
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorCommandPalette) remove_command(key_name string) {
+pub fn (r &EditorCommandPalette) remove_command(key_name string) {
     classname := StringName.new("EditorCommandPalette")
     fnname := StringName.new("remove_command")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)

@@ -5,7 +5,7 @@ pub struct VisibleOnScreenNotifier3D {
     VisualInstance3D
 }
 
-pub fn (mut r VisibleOnScreenNotifier3D) set_aabb(rect AABB) {
+pub fn (r &VisibleOnScreenNotifier3D) set_aabb(rect AABB) {
     classname := StringName.new("VisibleOnScreenNotifier3D")
     fnname := StringName.new("set_aabb")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 259215842)

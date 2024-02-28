@@ -5,7 +5,7 @@ pub struct RDShaderFile {
     Resource
 }
 
-pub fn (mut r RDShaderFile) set_bytecode(bytecode RDShaderSPIRV, version string) {
+pub fn (r &RDShaderFile) set_bytecode(bytecode RDShaderSPIRV, version string) {
     classname := StringName.new("RDShaderFile")
     fnname := StringName.new("set_bytecode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1558064255)
@@ -42,7 +42,7 @@ pub fn (r &RDShaderFile) get_version_list() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDShaderFile) set_base_error(error string) {
+pub fn (r &RDShaderFile) set_base_error(error string) {
     classname := StringName.new("RDShaderFile")
     fnname := StringName.new("set_base_error")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)

@@ -5,7 +5,7 @@ pub struct AnimationNodeTransition {
     AnimationNodeSync
 }
 
-pub fn (mut r AnimationNodeTransition) set_input_count(input_count i32) {
+pub fn (r &AnimationNodeTransition) set_input_count(input_count i32) {
     classname := StringName.new("AnimationNodeTransition")
     fnname := StringName.new("set_input_count")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -15,7 +15,7 @@ pub fn (mut r AnimationNodeTransition) set_input_count(input_count i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AnimationNodeTransition) set_input_as_auto_advance(input i32, enable bool) {
+pub fn (r &AnimationNodeTransition) set_input_as_auto_advance(input i32, enable bool) {
     classname := StringName.new("AnimationNodeTransition")
     fnname := StringName.new("set_input_as_auto_advance")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -38,7 +38,7 @@ pub fn (r &AnimationNodeTransition) is_input_set_as_auto_advance(input i32) bool
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNodeTransition) set_input_reset(input i32, enable bool) {
+pub fn (r &AnimationNodeTransition) set_input_reset(input i32, enable bool) {
     classname := StringName.new("AnimationNodeTransition")
     fnname := StringName.new("set_input_reset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -61,7 +61,7 @@ pub fn (r &AnimationNodeTransition) is_input_reset(input i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNodeTransition) set_xfade_time(time f64) {
+pub fn (r &AnimationNodeTransition) set_xfade_time(time f64) {
     classname := StringName.new("AnimationNodeTransition")
     fnname := StringName.new("set_xfade_time")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -81,7 +81,7 @@ pub fn (r &AnimationNodeTransition) get_xfade_time() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNodeTransition) set_xfade_curve(curve Curve) {
+pub fn (r &AnimationNodeTransition) set_xfade_curve(curve Curve) {
     classname := StringName.new("AnimationNodeTransition")
     fnname := StringName.new("set_xfade_curve")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 270443179)
@@ -101,7 +101,7 @@ pub fn (r &AnimationNodeTransition) get_xfade_curve() Curve {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNodeTransition) set_allow_transition_to_self(enable bool) {
+pub fn (r &AnimationNodeTransition) set_allow_transition_to_self(enable bool) {
     classname := StringName.new("AnimationNodeTransition")
     fnname := StringName.new("set_allow_transition_to_self")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

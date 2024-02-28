@@ -21,7 +21,7 @@ pub fn (r &Curve) get_point_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Curve) set_point_count(count i32) {
+pub fn (r &Curve) set_point_count(count i32) {
     classname := StringName.new("Curve")
     fnname := StringName.new("set_point_count")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -31,7 +31,7 @@ pub fn (mut r Curve) set_point_count(count i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Curve) add_point(position Vector2, left_tangent f64, right_tangent f64, left_mode CurveTangentMode, right_mode CurveTangentMode) i32 {
+pub fn (r &Curve) add_point(position Vector2, left_tangent f64, right_tangent f64, left_mode CurveTangentMode, right_mode CurveTangentMode) i32 {
     mut object_out := i32(0)
     classname := StringName.new("Curve")
     fnname := StringName.new("add_point")
@@ -49,7 +49,7 @@ pub fn (mut r Curve) add_point(position Vector2, left_tangent f64, right_tangent
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Curve) remove_point(index i32) {
+pub fn (r &Curve) remove_point(index i32) {
     classname := StringName.new("Curve")
     fnname := StringName.new("remove_point")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -59,7 +59,7 @@ pub fn (mut r Curve) remove_point(index i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Curve) clear_points() {
+pub fn (r &Curve) clear_points() {
     classname := StringName.new("Curve")
     fnname := StringName.new("clear_points")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -79,7 +79,7 @@ pub fn (r &Curve) get_point_position(index i32) Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Curve) set_point_value(index i32, y f64) {
+pub fn (r &Curve) set_point_value(index i32, y f64) {
     classname := StringName.new("Curve")
     fnname := StringName.new("set_point_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1602489585)
@@ -90,7 +90,7 @@ pub fn (mut r Curve) set_point_value(index i32, y f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Curve) set_point_offset(index i32, offset f64) i32 {
+pub fn (r &Curve) set_point_offset(index i32, offset f64) i32 {
     mut object_out := i32(0)
     classname := StringName.new("Curve")
     fnname := StringName.new("set_point_offset")
@@ -175,7 +175,7 @@ pub fn (r &Curve) get_point_right_mode(index i32) CurveTangentMode {
     fnname.deinit()
    return unsafe{CurveTangentMode(object_out)}
 }
-pub fn (mut r Curve) set_point_left_tangent(index i32, tangent f64) {
+pub fn (r &Curve) set_point_left_tangent(index i32, tangent f64) {
     classname := StringName.new("Curve")
     fnname := StringName.new("set_point_left_tangent")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1602489585)
@@ -186,7 +186,7 @@ pub fn (mut r Curve) set_point_left_tangent(index i32, tangent f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Curve) set_point_right_tangent(index i32, tangent f64) {
+pub fn (r &Curve) set_point_right_tangent(index i32, tangent f64) {
     classname := StringName.new("Curve")
     fnname := StringName.new("set_point_right_tangent")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1602489585)
@@ -197,7 +197,7 @@ pub fn (mut r Curve) set_point_right_tangent(index i32, tangent f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Curve) set_point_left_mode(index i32, mode CurveTangentMode) {
+pub fn (r &Curve) set_point_left_mode(index i32, mode CurveTangentMode) {
     classname := StringName.new("Curve")
     fnname := StringName.new("set_point_left_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1217242874)
@@ -209,7 +209,7 @@ pub fn (mut r Curve) set_point_left_mode(index i32, mode CurveTangentMode) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Curve) set_point_right_mode(index i32, mode CurveTangentMode) {
+pub fn (r &Curve) set_point_right_mode(index i32, mode CurveTangentMode) {
     classname := StringName.new("Curve")
     fnname := StringName.new("set_point_right_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1217242874)
@@ -231,7 +231,7 @@ pub fn (r &Curve) get_min_value() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Curve) set_min_value(min f64) {
+pub fn (r &Curve) set_min_value(min f64) {
     classname := StringName.new("Curve")
     fnname := StringName.new("set_min_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -251,7 +251,7 @@ pub fn (r &Curve) get_max_value() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Curve) set_max_value(max f64) {
+pub fn (r &Curve) set_max_value(max f64) {
     classname := StringName.new("Curve")
     fnname := StringName.new("set_max_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -261,7 +261,7 @@ pub fn (mut r Curve) set_max_value(max f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Curve) clean_dupes() {
+pub fn (r &Curve) clean_dupes() {
     classname := StringName.new("Curve")
     fnname := StringName.new("clean_dupes")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -269,7 +269,7 @@ pub fn (mut r Curve) clean_dupes() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Curve) bake() {
+pub fn (r &Curve) bake() {
     classname := StringName.new("Curve")
     fnname := StringName.new("bake")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -287,7 +287,7 @@ pub fn (r &Curve) get_bake_resolution() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Curve) set_bake_resolution(resolution i32) {
+pub fn (r &Curve) set_bake_resolution(resolution i32) {
     classname := StringName.new("Curve")
     fnname := StringName.new("set_bake_resolution")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

@@ -10,7 +10,7 @@ pub struct Timer {
     Node
 }
 
-pub fn (mut r Timer) set_wait_time(time_sec f64) {
+pub fn (r &Timer) set_wait_time(time_sec f64) {
     classname := StringName.new("Timer")
     fnname := StringName.new("set_wait_time")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -30,7 +30,7 @@ pub fn (r &Timer) get_wait_time() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Timer) set_one_shot(enable bool) {
+pub fn (r &Timer) set_one_shot(enable bool) {
     classname := StringName.new("Timer")
     fnname := StringName.new("set_one_shot")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -50,7 +50,7 @@ pub fn (r &Timer) is_one_shot() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Timer) set_autostart(enable bool) {
+pub fn (r &Timer) set_autostart(enable bool) {
     classname := StringName.new("Timer")
     fnname := StringName.new("set_autostart")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -70,7 +70,7 @@ pub fn (r &Timer) has_autostart() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Timer) start(time_sec f64) {
+pub fn (r &Timer) start(time_sec f64) {
     classname := StringName.new("Timer")
     fnname := StringName.new("start")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1392008558)
@@ -80,7 +80,7 @@ pub fn (mut r Timer) start(time_sec f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Timer) stop() {
+pub fn (r &Timer) stop() {
     classname := StringName.new("Timer")
     fnname := StringName.new("stop")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -88,7 +88,7 @@ pub fn (mut r Timer) stop() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Timer) set_paused(paused bool) {
+pub fn (r &Timer) set_paused(paused bool) {
     classname := StringName.new("Timer")
     fnname := StringName.new("set_paused")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -128,7 +128,7 @@ pub fn (r &Timer) get_time_left() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Timer) set_timer_process_callback(callback TimerTimerProcessCallback) {
+pub fn (r &Timer) set_timer_process_callback(callback TimerTimerProcessCallback) {
     classname := StringName.new("Timer")
     fnname := StringName.new("set_timer_process_callback")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3469495063)

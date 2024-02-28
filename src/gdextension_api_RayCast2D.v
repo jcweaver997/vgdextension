@@ -5,7 +5,7 @@ pub struct RayCast2D {
     Node2D
 }
 
-pub fn (mut r RayCast2D) set_enabled(enabled bool) {
+pub fn (r &RayCast2D) set_enabled(enabled bool) {
     classname := StringName.new("RayCast2D")
     fnname := StringName.new("set_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -25,7 +25,7 @@ pub fn (r &RayCast2D) is_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RayCast2D) set_target_position(local_point Vector2) {
+pub fn (r &RayCast2D) set_target_position(local_point Vector2) {
     classname := StringName.new("RayCast2D")
     fnname := StringName.new("set_target_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -55,7 +55,7 @@ pub fn (r &RayCast2D) is_colliding() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RayCast2D) force_raycast_update() {
+pub fn (r &RayCast2D) force_raycast_update() {
     classname := StringName.new("RayCast2D")
     fnname := StringName.new("force_raycast_update")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -113,7 +113,7 @@ pub fn (r &RayCast2D) get_collision_normal() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RayCast2D) add_exception_rid(rid RID) {
+pub fn (r &RayCast2D) add_exception_rid(rid RID) {
     classname := StringName.new("RayCast2D")
     fnname := StringName.new("add_exception_rid")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)
@@ -123,7 +123,7 @@ pub fn (mut r RayCast2D) add_exception_rid(rid RID) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RayCast2D) add_exception(node CollisionObject2D) {
+pub fn (r &RayCast2D) add_exception(node CollisionObject2D) {
     classname := StringName.new("RayCast2D")
     fnname := StringName.new("add_exception")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3090941106)
@@ -133,7 +133,7 @@ pub fn (mut r RayCast2D) add_exception(node CollisionObject2D) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RayCast2D) remove_exception_rid(rid RID) {
+pub fn (r &RayCast2D) remove_exception_rid(rid RID) {
     classname := StringName.new("RayCast2D")
     fnname := StringName.new("remove_exception_rid")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)
@@ -143,7 +143,7 @@ pub fn (mut r RayCast2D) remove_exception_rid(rid RID) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RayCast2D) remove_exception(node CollisionObject2D) {
+pub fn (r &RayCast2D) remove_exception(node CollisionObject2D) {
     classname := StringName.new("RayCast2D")
     fnname := StringName.new("remove_exception")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3090941106)
@@ -153,7 +153,7 @@ pub fn (mut r RayCast2D) remove_exception(node CollisionObject2D) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RayCast2D) clear_exceptions() {
+pub fn (r &RayCast2D) clear_exceptions() {
     classname := StringName.new("RayCast2D")
     fnname := StringName.new("clear_exceptions")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -161,7 +161,7 @@ pub fn (mut r RayCast2D) clear_exceptions() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RayCast2D) set_collision_mask(mask u32) {
+pub fn (r &RayCast2D) set_collision_mask(mask u32) {
     classname := StringName.new("RayCast2D")
     fnname := StringName.new("set_collision_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -181,7 +181,7 @@ pub fn (r &RayCast2D) get_collision_mask() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RayCast2D) set_collision_mask_value(layer_number i32, value bool) {
+pub fn (r &RayCast2D) set_collision_mask_value(layer_number i32, value bool) {
     classname := StringName.new("RayCast2D")
     fnname := StringName.new("set_collision_mask_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -204,7 +204,7 @@ pub fn (r &RayCast2D) get_collision_mask_value(layer_number i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RayCast2D) set_exclude_parent_body(mask bool) {
+pub fn (r &RayCast2D) set_exclude_parent_body(mask bool) {
     classname := StringName.new("RayCast2D")
     fnname := StringName.new("set_exclude_parent_body")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -224,7 +224,7 @@ pub fn (r &RayCast2D) get_exclude_parent_body() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RayCast2D) set_collide_with_areas(enable bool) {
+pub fn (r &RayCast2D) set_collide_with_areas(enable bool) {
     classname := StringName.new("RayCast2D")
     fnname := StringName.new("set_collide_with_areas")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -244,7 +244,7 @@ pub fn (r &RayCast2D) is_collide_with_areas_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RayCast2D) set_collide_with_bodies(enable bool) {
+pub fn (r &RayCast2D) set_collide_with_bodies(enable bool) {
     classname := StringName.new("RayCast2D")
     fnname := StringName.new("set_collide_with_bodies")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -264,7 +264,7 @@ pub fn (r &RayCast2D) is_collide_with_bodies_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RayCast2D) set_hit_from_inside(enable bool) {
+pub fn (r &RayCast2D) set_hit_from_inside(enable bool) {
     classname := StringName.new("RayCast2D")
     fnname := StringName.new("set_hit_from_inside")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

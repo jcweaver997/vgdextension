@@ -68,7 +68,7 @@ pub fn (r &Signal) get_name() StringName {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Signal) connect(callable Callable, flags i64) i64 {
+pub fn (r &Signal) connect(callable Callable, flags i64) i64 {
     mut object_out := i64(0)
     fnname := StringName.new("connect")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_signal, voidptr(&fnname), 979702392)
@@ -79,7 +79,7 @@ pub fn (mut r Signal) connect(callable Callable, flags i64) i64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Signal) disconnect(callable Callable) {
+pub fn (r &Signal) disconnect(callable Callable) {
     fnname := StringName.new("disconnect")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_signal, voidptr(&fnname), 3470848906)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 1)

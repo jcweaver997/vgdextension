@@ -5,7 +5,7 @@ pub struct ShaderInclude {
     Resource
 }
 
-pub fn (mut r ShaderInclude) set_code(code string) {
+pub fn (r &ShaderInclude) set_code(code string) {
     classname := StringName.new("ShaderInclude")
     fnname := StringName.new("set_code")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)

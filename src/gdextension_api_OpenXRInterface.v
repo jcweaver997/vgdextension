@@ -67,7 +67,7 @@ pub fn (r &OpenXRInterface) get_display_refresh_rate() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OpenXRInterface) set_display_refresh_rate(refresh_rate f64) {
+pub fn (r &OpenXRInterface) set_display_refresh_rate(refresh_rate f64) {
     classname := StringName.new("OpenXRInterface")
     fnname := StringName.new("set_display_refresh_rate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -87,7 +87,7 @@ pub fn (r &OpenXRInterface) get_render_target_size_multiplier() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OpenXRInterface) set_render_target_size_multiplier(multiplier f64) {
+pub fn (r &OpenXRInterface) set_render_target_size_multiplier(multiplier f64) {
     classname := StringName.new("OpenXRInterface")
     fnname := StringName.new("set_render_target_size_multiplier")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -117,7 +117,7 @@ pub fn (r &OpenXRInterface) get_foveation_level() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OpenXRInterface) set_foveation_level(foveation_level i32) {
+pub fn (r &OpenXRInterface) set_foveation_level(foveation_level i32) {
     classname := StringName.new("OpenXRInterface")
     fnname := StringName.new("set_foveation_level")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -137,7 +137,7 @@ pub fn (r &OpenXRInterface) get_foveation_dynamic() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OpenXRInterface) set_foveation_dynamic(foveation_dynamic bool) {
+pub fn (r &OpenXRInterface) set_foveation_dynamic(foveation_dynamic bool) {
     classname := StringName.new("OpenXRInterface")
     fnname := StringName.new("set_foveation_dynamic")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -161,7 +161,7 @@ pub fn (r &OpenXRInterface) is_action_set_active(name string) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OpenXRInterface) set_action_set_active(name string, active bool) {
+pub fn (r &OpenXRInterface) set_action_set_active(name string, active bool) {
     classname := StringName.new("OpenXRInterface")
     fnname := StringName.new("set_action_set_active")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2678287736)
@@ -194,7 +194,7 @@ pub fn (r &OpenXRInterface) get_available_display_refresh_rates() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OpenXRInterface) set_motion_range(hand OpenXRInterfaceHand, motion_range OpenXRInterfaceHandMotionRange) {
+pub fn (r &OpenXRInterface) set_motion_range(hand OpenXRInterfaceHand, motion_range OpenXRInterfaceHandMotionRange) {
     classname := StringName.new("OpenXRInterface")
     fnname := StringName.new("set_motion_range")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 855158159)
@@ -310,7 +310,7 @@ pub fn (r &OpenXRInterface) get_hand_joint_angular_velocity(hand OpenXRInterface
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OpenXRInterface) is_hand_tracking_supported() bool {
+pub fn (r &OpenXRInterface) is_hand_tracking_supported() bool {
     mut object_out := false
     classname := StringName.new("OpenXRInterface")
     fnname := StringName.new("is_hand_tracking_supported")
@@ -320,7 +320,7 @@ pub fn (mut r OpenXRInterface) is_hand_tracking_supported() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OpenXRInterface) is_eye_gaze_interaction_supported() bool {
+pub fn (r &OpenXRInterface) is_eye_gaze_interaction_supported() bool {
     mut object_out := false
     classname := StringName.new("OpenXRInterface")
     fnname := StringName.new("is_eye_gaze_interaction_supported")

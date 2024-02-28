@@ -5,7 +5,7 @@ pub struct OptimizedTranslation {
     Translation
 }
 
-pub fn (mut r OptimizedTranslation) generate(from Translation) {
+pub fn (r &OptimizedTranslation) generate(from Translation) {
     classname := StringName.new("OptimizedTranslation")
     fnname := StringName.new("generate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1466479800)

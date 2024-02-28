@@ -22,7 +22,7 @@ pub fn GDExtensionManager.get_singleton() GDExtensionManager {
     return o
 }
 
-pub fn (mut r GDExtensionManager) load_extension(path string) GDExtensionManagerLoadStatus {
+pub fn (r &GDExtensionManager) load_extension(path string) GDExtensionManagerLoadStatus {
     mut object_out := i64(GDExtensionManagerLoadStatus.load_status_ok)
     classname := StringName.new("GDExtensionManager")
     fnname := StringName.new("load_extension")
@@ -36,7 +36,7 @@ pub fn (mut r GDExtensionManager) load_extension(path string) GDExtensionManager
     fnname.deinit()
    return unsafe{GDExtensionManagerLoadStatus(object_out)}
 }
-pub fn (mut r GDExtensionManager) reload_extension(path string) GDExtensionManagerLoadStatus {
+pub fn (r &GDExtensionManager) reload_extension(path string) GDExtensionManagerLoadStatus {
     mut object_out := i64(GDExtensionManagerLoadStatus.load_status_ok)
     classname := StringName.new("GDExtensionManager")
     fnname := StringName.new("reload_extension")
@@ -50,7 +50,7 @@ pub fn (mut r GDExtensionManager) reload_extension(path string) GDExtensionManag
     fnname.deinit()
    return unsafe{GDExtensionManagerLoadStatus(object_out)}
 }
-pub fn (mut r GDExtensionManager) unload_extension(path string) GDExtensionManagerLoadStatus {
+pub fn (r &GDExtensionManager) unload_extension(path string) GDExtensionManagerLoadStatus {
     mut object_out := i64(GDExtensionManagerLoadStatus.load_status_ok)
     classname := StringName.new("GDExtensionManager")
     fnname := StringName.new("unload_extension")
@@ -88,7 +88,7 @@ pub fn (r &GDExtensionManager) get_loaded_extensions() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GDExtensionManager) get_extension(path string) GDExtension {
+pub fn (r &GDExtensionManager) get_extension(path string) GDExtension {
     mut object_out := GDExtension{}
     classname := StringName.new("GDExtensionManager")
     fnname := StringName.new("get_extension")

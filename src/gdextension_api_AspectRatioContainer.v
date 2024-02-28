@@ -18,7 +18,7 @@ pub struct AspectRatioContainer {
     Container
 }
 
-pub fn (mut r AspectRatioContainer) set_ratio(ratio f64) {
+pub fn (r &AspectRatioContainer) set_ratio(ratio f64) {
     classname := StringName.new("AspectRatioContainer")
     fnname := StringName.new("set_ratio")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -38,7 +38,7 @@ pub fn (r &AspectRatioContainer) get_ratio() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AspectRatioContainer) set_stretch_mode(stretch_mode AspectRatioContainerStretchMode) {
+pub fn (r &AspectRatioContainer) set_stretch_mode(stretch_mode AspectRatioContainerStretchMode) {
     classname := StringName.new("AspectRatioContainer")
     fnname := StringName.new("set_stretch_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1876743467)
@@ -59,7 +59,7 @@ pub fn (r &AspectRatioContainer) get_stretch_mode() AspectRatioContainerStretchM
     fnname.deinit()
    return unsafe{AspectRatioContainerStretchMode(object_out)}
 }
-pub fn (mut r AspectRatioContainer) set_alignment_horizontal(alignment_horizontal AspectRatioContainerAlignmentMode) {
+pub fn (r &AspectRatioContainer) set_alignment_horizontal(alignment_horizontal AspectRatioContainerAlignmentMode) {
     classname := StringName.new("AspectRatioContainer")
     fnname := StringName.new("set_alignment_horizontal")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2147829016)
@@ -80,7 +80,7 @@ pub fn (r &AspectRatioContainer) get_alignment_horizontal() AspectRatioContainer
     fnname.deinit()
    return unsafe{AspectRatioContainerAlignmentMode(object_out)}
 }
-pub fn (mut r AspectRatioContainer) set_alignment_vertical(alignment_vertical AspectRatioContainerAlignmentMode) {
+pub fn (r &AspectRatioContainer) set_alignment_vertical(alignment_vertical AspectRatioContainerAlignmentMode) {
     classname := StringName.new("AspectRatioContainer")
     fnname := StringName.new("set_alignment_vertical")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2147829016)

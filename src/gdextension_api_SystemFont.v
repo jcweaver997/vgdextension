@@ -5,7 +5,7 @@ pub struct SystemFont {
     Font
 }
 
-pub fn (mut r SystemFont) set_antialiasing(antialiasing TextServerFontAntialiasing) {
+pub fn (r &SystemFont) set_antialiasing(antialiasing TextServerFontAntialiasing) {
     classname := StringName.new("SystemFont")
     fnname := StringName.new("set_antialiasing")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1669900)
@@ -26,7 +26,7 @@ pub fn (r &SystemFont) get_antialiasing() TextServerFontAntialiasing {
     fnname.deinit()
    return unsafe{TextServerFontAntialiasing(object_out)}
 }
-pub fn (mut r SystemFont) set_generate_mipmaps(generate_mipmaps bool) {
+pub fn (r &SystemFont) set_generate_mipmaps(generate_mipmaps bool) {
     classname := StringName.new("SystemFont")
     fnname := StringName.new("set_generate_mipmaps")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -46,7 +46,7 @@ pub fn (r &SystemFont) get_generate_mipmaps() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SystemFont) set_allow_system_fallback(allow_system_fallback bool) {
+pub fn (r &SystemFont) set_allow_system_fallback(allow_system_fallback bool) {
     classname := StringName.new("SystemFont")
     fnname := StringName.new("set_allow_system_fallback")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -66,7 +66,7 @@ pub fn (r &SystemFont) is_allow_system_fallback() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SystemFont) set_force_autohinter(force_autohinter bool) {
+pub fn (r &SystemFont) set_force_autohinter(force_autohinter bool) {
     classname := StringName.new("SystemFont")
     fnname := StringName.new("set_force_autohinter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -86,7 +86,7 @@ pub fn (r &SystemFont) is_force_autohinter() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SystemFont) set_hinting(hinting TextServerHinting) {
+pub fn (r &SystemFont) set_hinting(hinting TextServerHinting) {
     classname := StringName.new("SystemFont")
     fnname := StringName.new("set_hinting")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1827459492)
@@ -107,7 +107,7 @@ pub fn (r &SystemFont) get_hinting() TextServerHinting {
     fnname.deinit()
    return unsafe{TextServerHinting(object_out)}
 }
-pub fn (mut r SystemFont) set_subpixel_positioning(subpixel_positioning TextServerSubpixelPositioning) {
+pub fn (r &SystemFont) set_subpixel_positioning(subpixel_positioning TextServerSubpixelPositioning) {
     classname := StringName.new("SystemFont")
     fnname := StringName.new("set_subpixel_positioning")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4225742182)
@@ -128,7 +128,7 @@ pub fn (r &SystemFont) get_subpixel_positioning() TextServerSubpixelPositioning 
     fnname.deinit()
    return unsafe{TextServerSubpixelPositioning(object_out)}
 }
-pub fn (mut r SystemFont) set_multichannel_signed_distance_field(msdf bool) {
+pub fn (r &SystemFont) set_multichannel_signed_distance_field(msdf bool) {
     classname := StringName.new("SystemFont")
     fnname := StringName.new("set_multichannel_signed_distance_field")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -148,7 +148,7 @@ pub fn (r &SystemFont) is_multichannel_signed_distance_field() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SystemFont) set_msdf_pixel_range(msdf_pixel_range i32) {
+pub fn (r &SystemFont) set_msdf_pixel_range(msdf_pixel_range i32) {
     classname := StringName.new("SystemFont")
     fnname := StringName.new("set_msdf_pixel_range")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -168,7 +168,7 @@ pub fn (r &SystemFont) get_msdf_pixel_range() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SystemFont) set_msdf_size(msdf_size i32) {
+pub fn (r &SystemFont) set_msdf_size(msdf_size i32) {
     classname := StringName.new("SystemFont")
     fnname := StringName.new("set_msdf_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -188,7 +188,7 @@ pub fn (r &SystemFont) get_msdf_size() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SystemFont) set_oversampling(oversampling f64) {
+pub fn (r &SystemFont) set_oversampling(oversampling f64) {
     classname := StringName.new("SystemFont")
     fnname := StringName.new("set_oversampling")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -218,7 +218,7 @@ pub fn (r &SystemFont) get_font_names() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SystemFont) set_font_names(names PackedStringArray) {
+pub fn (r &SystemFont) set_font_names(names PackedStringArray) {
     classname := StringName.new("SystemFont")
     fnname := StringName.new("set_font_names")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4015028928)
@@ -238,7 +238,7 @@ pub fn (r &SystemFont) get_font_italic() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SystemFont) set_font_italic(italic bool) {
+pub fn (r &SystemFont) set_font_italic(italic bool) {
     classname := StringName.new("SystemFont")
     fnname := StringName.new("set_font_italic")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -248,7 +248,7 @@ pub fn (mut r SystemFont) set_font_italic(italic bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SystemFont) set_font_weight(weight i32) {
+pub fn (r &SystemFont) set_font_weight(weight i32) {
     classname := StringName.new("SystemFont")
     fnname := StringName.new("set_font_weight")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -258,7 +258,7 @@ pub fn (mut r SystemFont) set_font_weight(weight i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SystemFont) set_font_stretch(stretch i32) {
+pub fn (r &SystemFont) set_font_stretch(stretch i32) {
     classname := StringName.new("SystemFont")
     fnname := StringName.new("set_font_stretch")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

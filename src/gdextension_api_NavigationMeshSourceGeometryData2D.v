@@ -5,7 +5,7 @@ pub struct NavigationMeshSourceGeometryData2D {
     Resource
 }
 
-pub fn (mut r NavigationMeshSourceGeometryData2D) clear() {
+pub fn (r &NavigationMeshSourceGeometryData2D) clear() {
     classname := StringName.new("NavigationMeshSourceGeometryData2D")
     fnname := StringName.new("clear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -13,7 +13,7 @@ pub fn (mut r NavigationMeshSourceGeometryData2D) clear() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationMeshSourceGeometryData2D) has_data() bool {
+pub fn (r &NavigationMeshSourceGeometryData2D) has_data() bool {
     mut object_out := false
     classname := StringName.new("NavigationMeshSourceGeometryData2D")
     fnname := StringName.new("has_data")
@@ -23,7 +23,7 @@ pub fn (mut r NavigationMeshSourceGeometryData2D) has_data() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationMeshSourceGeometryData2D) set_traversable_outlines(traversable_outlines Array) {
+pub fn (r &NavigationMeshSourceGeometryData2D) set_traversable_outlines(traversable_outlines Array) {
     classname := StringName.new("NavigationMeshSourceGeometryData2D")
     fnname := StringName.new("set_traversable_outlines")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)
@@ -43,7 +43,7 @@ pub fn (r &NavigationMeshSourceGeometryData2D) get_traversable_outlines() Array 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationMeshSourceGeometryData2D) set_obstruction_outlines(obstruction_outlines Array) {
+pub fn (r &NavigationMeshSourceGeometryData2D) set_obstruction_outlines(obstruction_outlines Array) {
     classname := StringName.new("NavigationMeshSourceGeometryData2D")
     fnname := StringName.new("set_obstruction_outlines")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)
@@ -63,7 +63,7 @@ pub fn (r &NavigationMeshSourceGeometryData2D) get_obstruction_outlines() Array 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationMeshSourceGeometryData2D) add_traversable_outline(shape_outline PackedVector2Array) {
+pub fn (r &NavigationMeshSourceGeometryData2D) add_traversable_outline(shape_outline PackedVector2Array) {
     classname := StringName.new("NavigationMeshSourceGeometryData2D")
     fnname := StringName.new("add_traversable_outline")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1509147220)
@@ -73,7 +73,7 @@ pub fn (mut r NavigationMeshSourceGeometryData2D) add_traversable_outline(shape_
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationMeshSourceGeometryData2D) add_obstruction_outline(shape_outline PackedVector2Array) {
+pub fn (r &NavigationMeshSourceGeometryData2D) add_obstruction_outline(shape_outline PackedVector2Array) {
     classname := StringName.new("NavigationMeshSourceGeometryData2D")
     fnname := StringName.new("add_obstruction_outline")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1509147220)

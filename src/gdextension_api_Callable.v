@@ -126,7 +126,7 @@ pub fn (r &Callable) hash() i64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Callable) bindv(arguments Array) Callable {
+pub fn (r &Callable) bindv(arguments Array) Callable {
     mut object_out := Callable{}
     fnname := StringName.new("bindv")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_callable, voidptr(&fnname), 3564560322)

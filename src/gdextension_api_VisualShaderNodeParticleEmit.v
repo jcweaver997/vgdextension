@@ -13,7 +13,7 @@ pub struct VisualShaderNodeParticleEmit {
     VisualShaderNode
 }
 
-pub fn (mut r VisualShaderNodeParticleEmit) set_flags(flags VisualShaderNodeParticleEmitEmitFlags) {
+pub fn (r &VisualShaderNodeParticleEmit) set_flags(flags VisualShaderNodeParticleEmitEmitFlags) {
     classname := StringName.new("VisualShaderNodeParticleEmit")
     fnname := StringName.new("set_flags")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3960756792)

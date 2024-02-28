@@ -11,7 +11,7 @@ pub struct MultiplayerSynchronizer {
     Node
 }
 
-pub fn (mut r MultiplayerSynchronizer) set_root_path(path NodePath) {
+pub fn (r &MultiplayerSynchronizer) set_root_path(path NodePath) {
     classname := StringName.new("MultiplayerSynchronizer")
     fnname := StringName.new("set_root_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1348162250)
@@ -31,7 +31,7 @@ pub fn (r &MultiplayerSynchronizer) get_root_path() NodePath {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MultiplayerSynchronizer) set_replication_interval(milliseconds f64) {
+pub fn (r &MultiplayerSynchronizer) set_replication_interval(milliseconds f64) {
     classname := StringName.new("MultiplayerSynchronizer")
     fnname := StringName.new("set_replication_interval")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -51,7 +51,7 @@ pub fn (r &MultiplayerSynchronizer) get_replication_interval() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MultiplayerSynchronizer) set_delta_interval(milliseconds f64) {
+pub fn (r &MultiplayerSynchronizer) set_delta_interval(milliseconds f64) {
     classname := StringName.new("MultiplayerSynchronizer")
     fnname := StringName.new("set_delta_interval")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -71,7 +71,7 @@ pub fn (r &MultiplayerSynchronizer) get_delta_interval() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MultiplayerSynchronizer) set_replication_config(config SceneReplicationConfig) {
+pub fn (r &MultiplayerSynchronizer) set_replication_config(config SceneReplicationConfig) {
     classname := StringName.new("MultiplayerSynchronizer")
     fnname := StringName.new("set_replication_config")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3889206742)
@@ -81,7 +81,7 @@ pub fn (mut r MultiplayerSynchronizer) set_replication_config(config SceneReplic
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r MultiplayerSynchronizer) get_replication_config() SceneReplicationConfig {
+pub fn (r &MultiplayerSynchronizer) get_replication_config() SceneReplicationConfig {
     mut object_out := SceneReplicationConfig{}
     classname := StringName.new("MultiplayerSynchronizer")
     fnname := StringName.new("get_replication_config")
@@ -91,7 +91,7 @@ pub fn (mut r MultiplayerSynchronizer) get_replication_config() SceneReplication
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MultiplayerSynchronizer) set_visibility_update_mode(mode MultiplayerSynchronizerVisibilityUpdateMode) {
+pub fn (r &MultiplayerSynchronizer) set_visibility_update_mode(mode MultiplayerSynchronizerVisibilityUpdateMode) {
     classname := StringName.new("MultiplayerSynchronizer")
     fnname := StringName.new("set_visibility_update_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3494860300)
@@ -112,7 +112,7 @@ pub fn (r &MultiplayerSynchronizer) get_visibility_update_mode() MultiplayerSync
     fnname.deinit()
    return unsafe{MultiplayerSynchronizerVisibilityUpdateMode(object_out)}
 }
-pub fn (mut r MultiplayerSynchronizer) update_visibility(for_peer i32) {
+pub fn (r &MultiplayerSynchronizer) update_visibility(for_peer i32) {
     classname := StringName.new("MultiplayerSynchronizer")
     fnname := StringName.new("update_visibility")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1995695955)
@@ -122,7 +122,7 @@ pub fn (mut r MultiplayerSynchronizer) update_visibility(for_peer i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r MultiplayerSynchronizer) set_visibility_public(visible bool) {
+pub fn (r &MultiplayerSynchronizer) set_visibility_public(visible bool) {
     classname := StringName.new("MultiplayerSynchronizer")
     fnname := StringName.new("set_visibility_public")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -142,7 +142,7 @@ pub fn (r &MultiplayerSynchronizer) is_visibility_public() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MultiplayerSynchronizer) add_visibility_filter(filter Callable) {
+pub fn (r &MultiplayerSynchronizer) add_visibility_filter(filter Callable) {
     classname := StringName.new("MultiplayerSynchronizer")
     fnname := StringName.new("add_visibility_filter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1611583062)
@@ -152,7 +152,7 @@ pub fn (mut r MultiplayerSynchronizer) add_visibility_filter(filter Callable) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r MultiplayerSynchronizer) remove_visibility_filter(filter Callable) {
+pub fn (r &MultiplayerSynchronizer) remove_visibility_filter(filter Callable) {
     classname := StringName.new("MultiplayerSynchronizer")
     fnname := StringName.new("remove_visibility_filter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1611583062)
@@ -162,7 +162,7 @@ pub fn (mut r MultiplayerSynchronizer) remove_visibility_filter(filter Callable)
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r MultiplayerSynchronizer) set_visibility_for(peer i32, visible bool) {
+pub fn (r &MultiplayerSynchronizer) set_visibility_for(peer i32, visible bool) {
     classname := StringName.new("MultiplayerSynchronizer")
     fnname := StringName.new("set_visibility_for")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)

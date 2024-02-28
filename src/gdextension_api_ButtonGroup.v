@@ -5,7 +5,7 @@ pub struct ButtonGroup {
     Resource
 }
 
-pub fn (mut r ButtonGroup) get_pressed_button() BaseButton {
+pub fn (r &ButtonGroup) get_pressed_button() BaseButton {
     mut object_out := BaseButton{}
     classname := StringName.new("ButtonGroup")
     fnname := StringName.new("get_pressed_button")
@@ -15,7 +15,7 @@ pub fn (mut r ButtonGroup) get_pressed_button() BaseButton {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ButtonGroup) get_buttons() Array {
+pub fn (r &ButtonGroup) get_buttons() Array {
     mut object_out := Array{}
     classname := StringName.new("ButtonGroup")
     fnname := StringName.new("get_buttons")
@@ -25,7 +25,7 @@ pub fn (mut r ButtonGroup) get_buttons() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ButtonGroup) set_allow_unpress(enabled bool) {
+pub fn (r &ButtonGroup) set_allow_unpress(enabled bool) {
     classname := StringName.new("ButtonGroup")
     fnname := StringName.new("set_allow_unpress")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -35,7 +35,7 @@ pub fn (mut r ButtonGroup) set_allow_unpress(enabled bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ButtonGroup) is_allow_unpress() bool {
+pub fn (r &ButtonGroup) is_allow_unpress() bool {
     mut object_out := false
     classname := StringName.new("ButtonGroup")
     fnname := StringName.new("is_allow_unpress")

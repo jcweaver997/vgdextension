@@ -13,7 +13,7 @@ pub struct Area2D {
     CollisionObject2D
 }
 
-pub fn (mut r Area2D) set_gravity_space_override_mode(space_override_mode Area2DSpaceOverride) {
+pub fn (r &Area2D) set_gravity_space_override_mode(space_override_mode Area2DSpaceOverride) {
     classname := StringName.new("Area2D")
     fnname := StringName.new("set_gravity_space_override_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2879900038)
@@ -34,7 +34,7 @@ pub fn (r &Area2D) get_gravity_space_override_mode() Area2DSpaceOverride {
     fnname.deinit()
    return unsafe{Area2DSpaceOverride(object_out)}
 }
-pub fn (mut r Area2D) set_gravity_is_point(enable bool) {
+pub fn (r &Area2D) set_gravity_is_point(enable bool) {
     classname := StringName.new("Area2D")
     fnname := StringName.new("set_gravity_is_point")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -54,7 +54,7 @@ pub fn (r &Area2D) is_gravity_a_point() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Area2D) set_gravity_point_unit_distance(distance_scale f64) {
+pub fn (r &Area2D) set_gravity_point_unit_distance(distance_scale f64) {
     classname := StringName.new("Area2D")
     fnname := StringName.new("set_gravity_point_unit_distance")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -74,7 +74,7 @@ pub fn (r &Area2D) get_gravity_point_unit_distance() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Area2D) set_gravity_point_center(center Vector2) {
+pub fn (r &Area2D) set_gravity_point_center(center Vector2) {
     classname := StringName.new("Area2D")
     fnname := StringName.new("set_gravity_point_center")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -94,7 +94,7 @@ pub fn (r &Area2D) get_gravity_point_center() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Area2D) set_gravity_direction(direction Vector2) {
+pub fn (r &Area2D) set_gravity_direction(direction Vector2) {
     classname := StringName.new("Area2D")
     fnname := StringName.new("set_gravity_direction")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -114,7 +114,7 @@ pub fn (r &Area2D) get_gravity_direction() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Area2D) set_gravity(gravity f64) {
+pub fn (r &Area2D) set_gravity(gravity f64) {
     classname := StringName.new("Area2D")
     fnname := StringName.new("set_gravity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -134,7 +134,7 @@ pub fn (r &Area2D) get_gravity() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Area2D) set_linear_damp_space_override_mode(space_override_mode Area2DSpaceOverride) {
+pub fn (r &Area2D) set_linear_damp_space_override_mode(space_override_mode Area2DSpaceOverride) {
     classname := StringName.new("Area2D")
     fnname := StringName.new("set_linear_damp_space_override_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2879900038)
@@ -155,7 +155,7 @@ pub fn (r &Area2D) get_linear_damp_space_override_mode() Area2DSpaceOverride {
     fnname.deinit()
    return unsafe{Area2DSpaceOverride(object_out)}
 }
-pub fn (mut r Area2D) set_angular_damp_space_override_mode(space_override_mode Area2DSpaceOverride) {
+pub fn (r &Area2D) set_angular_damp_space_override_mode(space_override_mode Area2DSpaceOverride) {
     classname := StringName.new("Area2D")
     fnname := StringName.new("set_angular_damp_space_override_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2879900038)
@@ -176,7 +176,7 @@ pub fn (r &Area2D) get_angular_damp_space_override_mode() Area2DSpaceOverride {
     fnname.deinit()
    return unsafe{Area2DSpaceOverride(object_out)}
 }
-pub fn (mut r Area2D) set_linear_damp(linear_damp f64) {
+pub fn (r &Area2D) set_linear_damp(linear_damp f64) {
     classname := StringName.new("Area2D")
     fnname := StringName.new("set_linear_damp")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -196,7 +196,7 @@ pub fn (r &Area2D) get_linear_damp() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Area2D) set_angular_damp(angular_damp f64) {
+pub fn (r &Area2D) set_angular_damp(angular_damp f64) {
     classname := StringName.new("Area2D")
     fnname := StringName.new("set_angular_damp")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -216,7 +216,7 @@ pub fn (r &Area2D) get_angular_damp() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Area2D) set_priority(priority i32) {
+pub fn (r &Area2D) set_priority(priority i32) {
     classname := StringName.new("Area2D")
     fnname := StringName.new("set_priority")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -236,7 +236,7 @@ pub fn (r &Area2D) get_priority() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Area2D) set_monitoring(enable bool) {
+pub fn (r &Area2D) set_monitoring(enable bool) {
     classname := StringName.new("Area2D")
     fnname := StringName.new("set_monitoring")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -256,7 +256,7 @@ pub fn (r &Area2D) is_monitoring() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Area2D) set_monitorable(enable bool) {
+pub fn (r &Area2D) set_monitorable(enable bool) {
     classname := StringName.new("Area2D")
     fnname := StringName.new("set_monitorable")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -340,7 +340,7 @@ pub fn (r &Area2D) overlaps_area(area Node) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Area2D) set_audio_bus_name(name string) {
+pub fn (r &Area2D) set_audio_bus_name(name string) {
     classname := StringName.new("Area2D")
     fnname := StringName.new("set_audio_bus_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -364,7 +364,7 @@ pub fn (r &Area2D) get_audio_bus_name() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r Area2D) set_audio_bus_override(enable bool) {
+pub fn (r &Area2D) set_audio_bus_override(enable bool) {
     classname := StringName.new("Area2D")
     fnname := StringName.new("set_audio_bus_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

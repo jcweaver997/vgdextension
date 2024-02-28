@@ -5,7 +5,7 @@ pub struct ResourcePreloader {
     Node
 }
 
-pub fn (mut r ResourcePreloader) add_resource(name string, resource Resource) {
+pub fn (r &ResourcePreloader) add_resource(name string, resource Resource) {
     classname := StringName.new("ResourcePreloader")
     fnname := StringName.new("add_resource")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1168801743)
@@ -18,7 +18,7 @@ pub fn (mut r ResourcePreloader) add_resource(name string, resource Resource) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ResourcePreloader) remove_resource(name string) {
+pub fn (r &ResourcePreloader) remove_resource(name string) {
     classname := StringName.new("ResourcePreloader")
     fnname := StringName.new("remove_resource")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -30,7 +30,7 @@ pub fn (mut r ResourcePreloader) remove_resource(name string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ResourcePreloader) rename_resource(name string, newname string) {
+pub fn (r &ResourcePreloader) rename_resource(name string, newname string) {
     classname := StringName.new("ResourcePreloader")
     fnname := StringName.new("rename_resource")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3740211285)

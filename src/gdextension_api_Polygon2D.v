@@ -5,7 +5,7 @@ pub struct Polygon2D {
     Node2D
 }
 
-pub fn (mut r Polygon2D) set_polygon(polygon PackedVector2Array) {
+pub fn (r &Polygon2D) set_polygon(polygon PackedVector2Array) {
     classname := StringName.new("Polygon2D")
     fnname := StringName.new("set_polygon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1509147220)
@@ -25,7 +25,7 @@ pub fn (r &Polygon2D) get_polygon() PackedVector2Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Polygon2D) set_uv(uv PackedVector2Array) {
+pub fn (r &Polygon2D) set_uv(uv PackedVector2Array) {
     classname := StringName.new("Polygon2D")
     fnname := StringName.new("set_uv")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1509147220)
@@ -45,7 +45,7 @@ pub fn (r &Polygon2D) get_uv() PackedVector2Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Polygon2D) set_color(color Color) {
+pub fn (r &Polygon2D) set_color(color Color) {
     classname := StringName.new("Polygon2D")
     fnname := StringName.new("set_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -65,7 +65,7 @@ pub fn (r &Polygon2D) get_color() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Polygon2D) set_polygons(polygons Array) {
+pub fn (r &Polygon2D) set_polygons(polygons Array) {
     classname := StringName.new("Polygon2D")
     fnname := StringName.new("set_polygons")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)
@@ -85,7 +85,7 @@ pub fn (r &Polygon2D) get_polygons() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Polygon2D) set_vertex_colors(vertex_colors PackedColorArray) {
+pub fn (r &Polygon2D) set_vertex_colors(vertex_colors PackedColorArray) {
     classname := StringName.new("Polygon2D")
     fnname := StringName.new("set_vertex_colors")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3546319833)
@@ -105,7 +105,7 @@ pub fn (r &Polygon2D) get_vertex_colors() PackedColorArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Polygon2D) set_texture(texture Texture2D) {
+pub fn (r &Polygon2D) set_texture(texture Texture2D) {
     classname := StringName.new("Polygon2D")
     fnname := StringName.new("set_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
@@ -125,7 +125,7 @@ pub fn (r &Polygon2D) get_texture() Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Polygon2D) set_texture_offset(texture_offset Vector2) {
+pub fn (r &Polygon2D) set_texture_offset(texture_offset Vector2) {
     classname := StringName.new("Polygon2D")
     fnname := StringName.new("set_texture_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -145,7 +145,7 @@ pub fn (r &Polygon2D) get_texture_offset() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Polygon2D) set_texture_rotation(texture_rotation f64) {
+pub fn (r &Polygon2D) set_texture_rotation(texture_rotation f64) {
     classname := StringName.new("Polygon2D")
     fnname := StringName.new("set_texture_rotation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -165,7 +165,7 @@ pub fn (r &Polygon2D) get_texture_rotation() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Polygon2D) set_texture_scale(texture_scale Vector2) {
+pub fn (r &Polygon2D) set_texture_scale(texture_scale Vector2) {
     classname := StringName.new("Polygon2D")
     fnname := StringName.new("set_texture_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -185,7 +185,7 @@ pub fn (r &Polygon2D) get_texture_scale() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Polygon2D) set_invert_enabled(invert bool) {
+pub fn (r &Polygon2D) set_invert_enabled(invert bool) {
     classname := StringName.new("Polygon2D")
     fnname := StringName.new("set_invert_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -205,7 +205,7 @@ pub fn (r &Polygon2D) get_invert_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Polygon2D) set_antialiased(antialiased bool) {
+pub fn (r &Polygon2D) set_antialiased(antialiased bool) {
     classname := StringName.new("Polygon2D")
     fnname := StringName.new("set_antialiased")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -225,7 +225,7 @@ pub fn (r &Polygon2D) get_antialiased() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Polygon2D) set_invert_border(invert_border f64) {
+pub fn (r &Polygon2D) set_invert_border(invert_border f64) {
     classname := StringName.new("Polygon2D")
     fnname := StringName.new("set_invert_border")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -245,7 +245,7 @@ pub fn (r &Polygon2D) get_invert_border() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Polygon2D) set_offset(offset Vector2) {
+pub fn (r &Polygon2D) set_offset(offset Vector2) {
     classname := StringName.new("Polygon2D")
     fnname := StringName.new("set_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -265,7 +265,7 @@ pub fn (r &Polygon2D) get_offset() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Polygon2D) add_bone(path NodePath, weights PackedFloat32Array) {
+pub fn (r &Polygon2D) add_bone(path NodePath, weights PackedFloat32Array) {
     classname := StringName.new("Polygon2D")
     fnname := StringName.new("add_bone")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 703042815)
@@ -310,7 +310,7 @@ pub fn (r &Polygon2D) get_bone_weights(index i32) PackedFloat32Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Polygon2D) erase_bone(index i32) {
+pub fn (r &Polygon2D) erase_bone(index i32) {
     classname := StringName.new("Polygon2D")
     fnname := StringName.new("erase_bone")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -320,7 +320,7 @@ pub fn (mut r Polygon2D) erase_bone(index i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Polygon2D) clear_bones() {
+pub fn (r &Polygon2D) clear_bones() {
     classname := StringName.new("Polygon2D")
     fnname := StringName.new("clear_bones")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -328,7 +328,7 @@ pub fn (mut r Polygon2D) clear_bones() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Polygon2D) set_bone_path(index i32, path NodePath) {
+pub fn (r &Polygon2D) set_bone_path(index i32, path NodePath) {
     classname := StringName.new("Polygon2D")
     fnname := StringName.new("set_bone_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2761262315)
@@ -339,7 +339,7 @@ pub fn (mut r Polygon2D) set_bone_path(index i32, path NodePath) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Polygon2D) set_bone_weights(index i32, weights PackedFloat32Array) {
+pub fn (r &Polygon2D) set_bone_weights(index i32, weights PackedFloat32Array) {
     classname := StringName.new("Polygon2D")
     fnname := StringName.new("set_bone_weights")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1345852415)
@@ -350,7 +350,7 @@ pub fn (mut r Polygon2D) set_bone_weights(index i32, weights PackedFloat32Array)
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Polygon2D) set_skeleton(skeleton NodePath) {
+pub fn (r &Polygon2D) set_skeleton(skeleton NodePath) {
     classname := StringName.new("Polygon2D")
     fnname := StringName.new("set_skeleton")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1348162250)
@@ -370,7 +370,7 @@ pub fn (r &Polygon2D) get_skeleton() NodePath {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Polygon2D) set_internal_vertex_count(internal_vertex_count i32) {
+pub fn (r &Polygon2D) set_internal_vertex_count(internal_vertex_count i32) {
     classname := StringName.new("Polygon2D")
     fnname := StringName.new("set_internal_vertex_count")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

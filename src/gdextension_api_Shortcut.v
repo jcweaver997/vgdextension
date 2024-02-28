@@ -5,7 +5,7 @@ pub struct Shortcut {
     Resource
 }
 
-pub fn (mut r Shortcut) set_events(events Array) {
+pub fn (r &Shortcut) set_events(events Array) {
     classname := StringName.new("Shortcut")
     fnname := StringName.new("set_events")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)

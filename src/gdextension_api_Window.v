@@ -75,7 +75,7 @@ pub fn (r &Window) uget_contents_minimum_size() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Window) set_title(title string) {
+pub fn (r &Window) set_title(title string) {
     classname := StringName.new("Window")
     fnname := StringName.new("set_title")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -109,7 +109,7 @@ pub fn (r &Window) get_window_id() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Window) set_initial_position(initial_position WindowWindowInitialPosition) {
+pub fn (r &Window) set_initial_position(initial_position WindowWindowInitialPosition) {
     classname := StringName.new("Window")
     fnname := StringName.new("set_initial_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4084468099)
@@ -130,7 +130,7 @@ pub fn (r &Window) get_initial_position() WindowWindowInitialPosition {
     fnname.deinit()
    return unsafe{WindowWindowInitialPosition(object_out)}
 }
-pub fn (mut r Window) set_current_screen(index i32) {
+pub fn (r &Window) set_current_screen(index i32) {
     classname := StringName.new("Window")
     fnname := StringName.new("set_current_screen")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -150,7 +150,7 @@ pub fn (r &Window) get_current_screen() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Window) set_position(position Vector2i) {
+pub fn (r &Window) set_position(position Vector2i) {
     classname := StringName.new("Window")
     fnname := StringName.new("set_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1130785943)
@@ -170,7 +170,7 @@ pub fn (r &Window) get_position() Vector2i {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Window) move_to_center() {
+pub fn (r &Window) move_to_center() {
     classname := StringName.new("Window")
     fnname := StringName.new("move_to_center")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -178,7 +178,7 @@ pub fn (mut r Window) move_to_center() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Window) set_size(size Vector2i) {
+pub fn (r &Window) set_size(size Vector2i) {
     classname := StringName.new("Window")
     fnname := StringName.new("set_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1130785943)
@@ -198,7 +198,7 @@ pub fn (r &Window) get_size() Vector2i {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Window) reset_size() {
+pub fn (r &Window) reset_size() {
     classname := StringName.new("Window")
     fnname := StringName.new("reset_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -226,7 +226,7 @@ pub fn (r &Window) get_size_with_decorations() Vector2i {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Window) set_max_size(max_size Vector2i) {
+pub fn (r &Window) set_max_size(max_size Vector2i) {
     classname := StringName.new("Window")
     fnname := StringName.new("set_max_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1130785943)
@@ -246,7 +246,7 @@ pub fn (r &Window) get_max_size() Vector2i {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Window) set_min_size(min_size Vector2i) {
+pub fn (r &Window) set_min_size(min_size Vector2i) {
     classname := StringName.new("Window")
     fnname := StringName.new("set_min_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1130785943)
@@ -266,7 +266,7 @@ pub fn (r &Window) get_min_size() Vector2i {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Window) set_mode(mode WindowMode) {
+pub fn (r &Window) set_mode(mode WindowMode) {
     classname := StringName.new("Window")
     fnname := StringName.new("set_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3095236531)
@@ -287,7 +287,7 @@ pub fn (r &Window) get_mode() WindowMode {
     fnname.deinit()
    return unsafe{WindowMode(object_out)}
 }
-pub fn (mut r Window) set_flag(flag WindowFlags, enabled bool) {
+pub fn (r &Window) set_flag(flag WindowFlags, enabled bool) {
     classname := StringName.new("Window")
     fnname := StringName.new("set_flag")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3426449779)
@@ -322,7 +322,7 @@ pub fn (r &Window) is_maximize_allowed() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Window) request_attention() {
+pub fn (r &Window) request_attention() {
     classname := StringName.new("Window")
     fnname := StringName.new("request_attention")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -330,7 +330,7 @@ pub fn (mut r Window) request_attention() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Window) move_to_foreground() {
+pub fn (r &Window) move_to_foreground() {
     classname := StringName.new("Window")
     fnname := StringName.new("move_to_foreground")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -338,7 +338,7 @@ pub fn (mut r Window) move_to_foreground() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Window) set_visible(visible bool) {
+pub fn (r &Window) set_visible(visible bool) {
     classname := StringName.new("Window")
     fnname := StringName.new("set_visible")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -358,7 +358,7 @@ pub fn (r &Window) is_visible() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Window) hide() {
+pub fn (r &Window) hide() {
     classname := StringName.new("Window")
     fnname := StringName.new("hide")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -366,7 +366,7 @@ pub fn (mut r Window) hide() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Window) show() {
+pub fn (r &Window) show() {
     classname := StringName.new("Window")
     fnname := StringName.new("show")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -374,7 +374,7 @@ pub fn (mut r Window) show() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Window) set_transient(transient bool) {
+pub fn (r &Window) set_transient(transient bool) {
     classname := StringName.new("Window")
     fnname := StringName.new("set_transient")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -394,7 +394,7 @@ pub fn (r &Window) is_transient() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Window) set_exclusive(exclusive bool) {
+pub fn (r &Window) set_exclusive(exclusive bool) {
     classname := StringName.new("Window")
     fnname := StringName.new("set_exclusive")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -414,7 +414,7 @@ pub fn (r &Window) is_exclusive() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Window) set_unparent_when_invisible(unparent bool) {
+pub fn (r &Window) set_unparent_when_invisible(unparent bool) {
     classname := StringName.new("Window")
     fnname := StringName.new("set_unparent_when_invisible")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -444,7 +444,7 @@ pub fn (r &Window) has_focus() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Window) grab_focus() {
+pub fn (r &Window) grab_focus() {
     classname := StringName.new("Window")
     fnname := StringName.new("grab_focus")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -452,7 +452,7 @@ pub fn (mut r Window) grab_focus() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Window) set_ime_active(active bool) {
+pub fn (r &Window) set_ime_active(active bool) {
     classname := StringName.new("Window")
     fnname := StringName.new("set_ime_active")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -462,7 +462,7 @@ pub fn (mut r Window) set_ime_active(active bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Window) set_ime_position(position Vector2i) {
+pub fn (r &Window) set_ime_position(position Vector2i) {
     classname := StringName.new("Window")
     fnname := StringName.new("set_ime_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1130785943)
@@ -492,7 +492,7 @@ pub fn (r &Window) get_contents_minimum_size() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Window) set_content_scale_size(size Vector2i) {
+pub fn (r &Window) set_content_scale_size(size Vector2i) {
     classname := StringName.new("Window")
     fnname := StringName.new("set_content_scale_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1130785943)
@@ -512,7 +512,7 @@ pub fn (r &Window) get_content_scale_size() Vector2i {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Window) set_content_scale_mode(mode WindowContentScaleMode) {
+pub fn (r &Window) set_content_scale_mode(mode WindowContentScaleMode) {
     classname := StringName.new("Window")
     fnname := StringName.new("set_content_scale_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2937716473)
@@ -533,7 +533,7 @@ pub fn (r &Window) get_content_scale_mode() WindowContentScaleMode {
     fnname.deinit()
    return unsafe{WindowContentScaleMode(object_out)}
 }
-pub fn (mut r Window) set_content_scale_aspect(aspect WindowContentScaleAspect) {
+pub fn (r &Window) set_content_scale_aspect(aspect WindowContentScaleAspect) {
     classname := StringName.new("Window")
     fnname := StringName.new("set_content_scale_aspect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2370399418)
@@ -554,7 +554,7 @@ pub fn (r &Window) get_content_scale_aspect() WindowContentScaleAspect {
     fnname.deinit()
    return unsafe{WindowContentScaleAspect(object_out)}
 }
-pub fn (mut r Window) set_content_scale_stretch(stretch WindowContentScaleStretch) {
+pub fn (r &Window) set_content_scale_stretch(stretch WindowContentScaleStretch) {
     classname := StringName.new("Window")
     fnname := StringName.new("set_content_scale_stretch")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 349355940)
@@ -575,7 +575,7 @@ pub fn (r &Window) get_content_scale_stretch() WindowContentScaleStretch {
     fnname.deinit()
    return unsafe{WindowContentScaleStretch(object_out)}
 }
-pub fn (mut r Window) set_keep_title_visible(title_visible bool) {
+pub fn (r &Window) set_keep_title_visible(title_visible bool) {
     classname := StringName.new("Window")
     fnname := StringName.new("set_keep_title_visible")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -595,7 +595,7 @@ pub fn (r &Window) get_keep_title_visible() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Window) set_content_scale_factor(factor f64) {
+pub fn (r &Window) set_content_scale_factor(factor f64) {
     classname := StringName.new("Window")
     fnname := StringName.new("set_content_scale_factor")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -615,7 +615,7 @@ pub fn (r &Window) get_content_scale_factor() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Window) set_use_font_oversampling(enable bool) {
+pub fn (r &Window) set_use_font_oversampling(enable bool) {
     classname := StringName.new("Window")
     fnname := StringName.new("set_use_font_oversampling")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -635,7 +635,7 @@ pub fn (r &Window) is_using_font_oversampling() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Window) set_mouse_passthrough_polygon(polygon PackedVector2Array) {
+pub fn (r &Window) set_mouse_passthrough_polygon(polygon PackedVector2Array) {
     classname := StringName.new("Window")
     fnname := StringName.new("set_mouse_passthrough_polygon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1509147220)
@@ -655,7 +655,7 @@ pub fn (r &Window) get_mouse_passthrough_polygon() PackedVector2Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Window) set_wrap_controls(enable bool) {
+pub fn (r &Window) set_wrap_controls(enable bool) {
     classname := StringName.new("Window")
     fnname := StringName.new("set_wrap_controls")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -675,7 +675,7 @@ pub fn (r &Window) is_wrapping_controls() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Window) child_controls_changed() {
+pub fn (r &Window) child_controls_changed() {
     classname := StringName.new("Window")
     fnname := StringName.new("child_controls_changed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -683,7 +683,7 @@ pub fn (mut r Window) child_controls_changed() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Window) set_theme(theme Theme) {
+pub fn (r &Window) set_theme(theme Theme) {
     classname := StringName.new("Window")
     fnname := StringName.new("set_theme")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2326690814)
@@ -703,7 +703,7 @@ pub fn (r &Window) get_theme() Theme {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Window) set_theme_type_variation(theme_type string) {
+pub fn (r &Window) set_theme_type_variation(theme_type string) {
     classname := StringName.new("Window")
     fnname := StringName.new("set_theme_type_variation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -727,7 +727,7 @@ pub fn (r &Window) get_theme_type_variation() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r Window) begin_bulk_theme_override() {
+pub fn (r &Window) begin_bulk_theme_override() {
     classname := StringName.new("Window")
     fnname := StringName.new("begin_bulk_theme_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -735,7 +735,7 @@ pub fn (mut r Window) begin_bulk_theme_override() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Window) end_bulk_theme_override() {
+pub fn (r &Window) end_bulk_theme_override() {
     classname := StringName.new("Window")
     fnname := StringName.new("end_bulk_theme_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -743,7 +743,7 @@ pub fn (mut r Window) end_bulk_theme_override() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Window) add_theme_icon_override(name string, texture Texture2D) {
+pub fn (r &Window) add_theme_icon_override(name string, texture Texture2D) {
     classname := StringName.new("Window")
     fnname := StringName.new("add_theme_icon_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1373065600)
@@ -756,7 +756,7 @@ pub fn (mut r Window) add_theme_icon_override(name string, texture Texture2D) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Window) add_theme_stylebox_override(name string, stylebox StyleBox) {
+pub fn (r &Window) add_theme_stylebox_override(name string, stylebox StyleBox) {
     classname := StringName.new("Window")
     fnname := StringName.new("add_theme_stylebox_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4188838905)
@@ -769,7 +769,7 @@ pub fn (mut r Window) add_theme_stylebox_override(name string, stylebox StyleBox
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Window) add_theme_font_override(name string, font Font) {
+pub fn (r &Window) add_theme_font_override(name string, font Font) {
     classname := StringName.new("Window")
     fnname := StringName.new("add_theme_font_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3518018674)
@@ -782,7 +782,7 @@ pub fn (mut r Window) add_theme_font_override(name string, font Font) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Window) add_theme_font_size_override(name string, font_size i32) {
+pub fn (r &Window) add_theme_font_size_override(name string, font_size i32) {
     classname := StringName.new("Window")
     fnname := StringName.new("add_theme_font_size_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2415702435)
@@ -795,7 +795,7 @@ pub fn (mut r Window) add_theme_font_size_override(name string, font_size i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Window) add_theme_color_override(name string, color Color) {
+pub fn (r &Window) add_theme_color_override(name string, color Color) {
     classname := StringName.new("Window")
     fnname := StringName.new("add_theme_color_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4260178595)
@@ -808,7 +808,7 @@ pub fn (mut r Window) add_theme_color_override(name string, color Color) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Window) add_theme_constant_override(name string, constant i32) {
+pub fn (r &Window) add_theme_constant_override(name string, constant i32) {
     classname := StringName.new("Window")
     fnname := StringName.new("add_theme_constant_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2415702435)
@@ -821,7 +821,7 @@ pub fn (mut r Window) add_theme_constant_override(name string, constant i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Window) remove_theme_icon_override(name string) {
+pub fn (r &Window) remove_theme_icon_override(name string) {
     classname := StringName.new("Window")
     fnname := StringName.new("remove_theme_icon_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -833,7 +833,7 @@ pub fn (mut r Window) remove_theme_icon_override(name string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Window) remove_theme_stylebox_override(name string) {
+pub fn (r &Window) remove_theme_stylebox_override(name string) {
     classname := StringName.new("Window")
     fnname := StringName.new("remove_theme_stylebox_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -845,7 +845,7 @@ pub fn (mut r Window) remove_theme_stylebox_override(name string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Window) remove_theme_font_override(name string) {
+pub fn (r &Window) remove_theme_font_override(name string) {
     classname := StringName.new("Window")
     fnname := StringName.new("remove_theme_font_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -857,7 +857,7 @@ pub fn (mut r Window) remove_theme_font_override(name string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Window) remove_theme_font_size_override(name string) {
+pub fn (r &Window) remove_theme_font_size_override(name string) {
     classname := StringName.new("Window")
     fnname := StringName.new("remove_theme_font_size_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -869,7 +869,7 @@ pub fn (mut r Window) remove_theme_font_size_override(name string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Window) remove_theme_color_override(name string) {
+pub fn (r &Window) remove_theme_color_override(name string) {
     classname := StringName.new("Window")
     fnname := StringName.new("remove_theme_color_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -881,7 +881,7 @@ pub fn (mut r Window) remove_theme_color_override(name string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Window) remove_theme_constant_override(name string) {
+pub fn (r &Window) remove_theme_constant_override(name string) {
     classname := StringName.new("Window")
     fnname := StringName.new("remove_theme_constant_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -1211,7 +1211,7 @@ pub fn (r &Window) get_theme_default_font_size() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Window) set_layout_direction(direction WindowLayoutDirection) {
+pub fn (r &Window) set_layout_direction(direction WindowLayoutDirection) {
     classname := StringName.new("Window")
     fnname := StringName.new("set_layout_direction")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3094704184)
@@ -1242,7 +1242,7 @@ pub fn (r &Window) is_layout_rtl() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Window) set_auto_translate(enable bool) {
+pub fn (r &Window) set_auto_translate(enable bool) {
     classname := StringName.new("Window")
     fnname := StringName.new("set_auto_translate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -1262,7 +1262,7 @@ pub fn (r &Window) is_auto_translating() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Window) popup(rect Rect2i) {
+pub fn (r &Window) popup(rect Rect2i) {
     classname := StringName.new("Window")
     fnname := StringName.new("popup")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1680304321)
@@ -1272,7 +1272,7 @@ pub fn (mut r Window) popup(rect Rect2i) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Window) popup_on_parent(parent_rect Rect2i) {
+pub fn (r &Window) popup_on_parent(parent_rect Rect2i) {
     classname := StringName.new("Window")
     fnname := StringName.new("popup_on_parent")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1763793166)
@@ -1282,7 +1282,7 @@ pub fn (mut r Window) popup_on_parent(parent_rect Rect2i) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Window) popup_centered(minsize Vector2i) {
+pub fn (r &Window) popup_centered(minsize Vector2i) {
     classname := StringName.new("Window")
     fnname := StringName.new("popup_centered")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3447975422)
@@ -1292,7 +1292,7 @@ pub fn (mut r Window) popup_centered(minsize Vector2i) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Window) popup_centered_ratio(ratio f64) {
+pub fn (r &Window) popup_centered_ratio(ratio f64) {
     classname := StringName.new("Window")
     fnname := StringName.new("popup_centered_ratio")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1014814997)
@@ -1302,7 +1302,7 @@ pub fn (mut r Window) popup_centered_ratio(ratio f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Window) popup_centered_clamped(minsize Vector2i, fallback_ratio f64) {
+pub fn (r &Window) popup_centered_clamped(minsize Vector2i, fallback_ratio f64) {
     classname := StringName.new("Window")
     fnname := StringName.new("popup_centered_clamped")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2613752477)
@@ -1313,7 +1313,7 @@ pub fn (mut r Window) popup_centered_clamped(minsize Vector2i, fallback_ratio f6
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Window) popup_exclusive(from_node Node, rect Rect2i) {
+pub fn (r &Window) popup_exclusive(from_node Node, rect Rect2i) {
     classname := StringName.new("Window")
     fnname := StringName.new("popup_exclusive")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2134721627)
@@ -1324,7 +1324,7 @@ pub fn (mut r Window) popup_exclusive(from_node Node, rect Rect2i) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Window) popup_exclusive_on_parent(from_node Node, parent_rect Rect2i) {
+pub fn (r &Window) popup_exclusive_on_parent(from_node Node, parent_rect Rect2i) {
     classname := StringName.new("Window")
     fnname := StringName.new("popup_exclusive_on_parent")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2344671043)
@@ -1335,7 +1335,7 @@ pub fn (mut r Window) popup_exclusive_on_parent(from_node Node, parent_rect Rect
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Window) popup_exclusive_centered(from_node Node, minsize Vector2i) {
+pub fn (r &Window) popup_exclusive_centered(from_node Node, minsize Vector2i) {
     classname := StringName.new("Window")
     fnname := StringName.new("popup_exclusive_centered")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3357594017)
@@ -1346,7 +1346,7 @@ pub fn (mut r Window) popup_exclusive_centered(from_node Node, minsize Vector2i)
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Window) popup_exclusive_centered_ratio(from_node Node, ratio f64) {
+pub fn (r &Window) popup_exclusive_centered_ratio(from_node Node, ratio f64) {
     classname := StringName.new("Window")
     fnname := StringName.new("popup_exclusive_centered_ratio")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2284776287)
@@ -1357,7 +1357,7 @@ pub fn (mut r Window) popup_exclusive_centered_ratio(from_node Node, ratio f64) 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Window) popup_exclusive_centered_clamped(from_node Node, minsize Vector2i, fallback_ratio f64) {
+pub fn (r &Window) popup_exclusive_centered_clamped(from_node Node, minsize Vector2i, fallback_ratio f64) {
     classname := StringName.new("Window")
     fnname := StringName.new("popup_exclusive_centered_clamped")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2612708785)

@@ -15,7 +15,7 @@ pub fn (r &PhysicsTestMotionParameters3D) get_from() Transform3D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsTestMotionParameters3D) set_from(from Transform3D) {
+pub fn (r &PhysicsTestMotionParameters3D) set_from(from Transform3D) {
     classname := StringName.new("PhysicsTestMotionParameters3D")
     fnname := StringName.new("set_from")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2952846383)
@@ -35,7 +35,7 @@ pub fn (r &PhysicsTestMotionParameters3D) get_motion() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsTestMotionParameters3D) set_motion(motion Vector3) {
+pub fn (r &PhysicsTestMotionParameters3D) set_motion(motion Vector3) {
     classname := StringName.new("PhysicsTestMotionParameters3D")
     fnname := StringName.new("set_motion")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -55,7 +55,7 @@ pub fn (r &PhysicsTestMotionParameters3D) get_margin() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsTestMotionParameters3D) set_margin(margin f64) {
+pub fn (r &PhysicsTestMotionParameters3D) set_margin(margin f64) {
     classname := StringName.new("PhysicsTestMotionParameters3D")
     fnname := StringName.new("set_margin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -75,7 +75,7 @@ pub fn (r &PhysicsTestMotionParameters3D) get_max_collisions() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsTestMotionParameters3D) set_max_collisions(max_collisions i32) {
+pub fn (r &PhysicsTestMotionParameters3D) set_max_collisions(max_collisions i32) {
     classname := StringName.new("PhysicsTestMotionParameters3D")
     fnname := StringName.new("set_max_collisions")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -95,7 +95,7 @@ pub fn (r &PhysicsTestMotionParameters3D) is_collide_separation_ray_enabled() bo
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsTestMotionParameters3D) set_collide_separation_ray_enabled(enabled bool) {
+pub fn (r &PhysicsTestMotionParameters3D) set_collide_separation_ray_enabled(enabled bool) {
     classname := StringName.new("PhysicsTestMotionParameters3D")
     fnname := StringName.new("set_collide_separation_ray_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -115,7 +115,7 @@ pub fn (r &PhysicsTestMotionParameters3D) get_exclude_bodies() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsTestMotionParameters3D) set_exclude_bodies(exclude_list Array) {
+pub fn (r &PhysicsTestMotionParameters3D) set_exclude_bodies(exclude_list Array) {
     classname := StringName.new("PhysicsTestMotionParameters3D")
     fnname := StringName.new("set_exclude_bodies")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)
@@ -135,7 +135,7 @@ pub fn (r &PhysicsTestMotionParameters3D) get_exclude_objects() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsTestMotionParameters3D) set_exclude_objects(exclude_list Array) {
+pub fn (r &PhysicsTestMotionParameters3D) set_exclude_objects(exclude_list Array) {
     classname := StringName.new("PhysicsTestMotionParameters3D")
     fnname := StringName.new("set_exclude_objects")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)
@@ -155,7 +155,7 @@ pub fn (r &PhysicsTestMotionParameters3D) is_recovery_as_collision_enabled() boo
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsTestMotionParameters3D) set_recovery_as_collision_enabled(enabled bool) {
+pub fn (r &PhysicsTestMotionParameters3D) set_recovery_as_collision_enabled(enabled bool) {
     classname := StringName.new("PhysicsTestMotionParameters3D")
     fnname := StringName.new("set_recovery_as_collision_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

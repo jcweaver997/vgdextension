@@ -51,13 +51,13 @@ pub fn (r &PackedVector2Array) is_empty() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PackedVector2Array) set(index i64, value Vector2) {
+pub fn (r &PackedVector2Array) set(index i64, value Vector2) {
     fnname := StringName.new("set")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedvector2array, voidptr(&fnname), 635767250)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 2)
     fnname.deinit()
 }
-pub fn (mut r PackedVector2Array) push_back(value Vector2) bool {
+pub fn (r &PackedVector2Array) push_back(value Vector2) bool {
     mut object_out := false
     fnname := StringName.new("push_back")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedvector2array, voidptr(&fnname), 4188891560)
@@ -67,7 +67,7 @@ pub fn (mut r PackedVector2Array) push_back(value Vector2) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PackedVector2Array) append(value Vector2) bool {
+pub fn (r &PackedVector2Array) append(value Vector2) bool {
     mut object_out := false
     fnname := StringName.new("append")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedvector2array, voidptr(&fnname), 4188891560)
@@ -77,19 +77,19 @@ pub fn (mut r PackedVector2Array) append(value Vector2) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PackedVector2Array) append_array(array PackedVector2Array) {
+pub fn (r &PackedVector2Array) append_array(array PackedVector2Array) {
     fnname := StringName.new("append_array")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedvector2array, voidptr(&fnname), 3887534835)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 1)
     fnname.deinit()
 }
-pub fn (mut r PackedVector2Array) remove_at(index i64) {
+pub fn (r &PackedVector2Array) remove_at(index i64) {
     fnname := StringName.new("remove_at")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedvector2array, voidptr(&fnname), 2823966027)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 1)
     fnname.deinit()
 }
-pub fn (mut r PackedVector2Array) insert(at_index i64, value Vector2) i64 {
+pub fn (r &PackedVector2Array) insert(at_index i64, value Vector2) i64 {
     mut object_out := i64(0)
     fnname := StringName.new("insert")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedvector2array, voidptr(&fnname), 2225629369)
@@ -100,13 +100,13 @@ pub fn (mut r PackedVector2Array) insert(at_index i64, value Vector2) i64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PackedVector2Array) fill(value Vector2) {
+pub fn (r &PackedVector2Array) fill(value Vector2) {
     fnname := StringName.new("fill")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedvector2array, voidptr(&fnname), 3790411178)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 1)
     fnname.deinit()
 }
-pub fn (mut r PackedVector2Array) resize(new_size i64) i64 {
+pub fn (r &PackedVector2Array) resize(new_size i64) i64 {
     mut object_out := i64(0)
     fnname := StringName.new("resize")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedvector2array, voidptr(&fnname), 848867239)
@@ -116,7 +116,7 @@ pub fn (mut r PackedVector2Array) resize(new_size i64) i64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PackedVector2Array) clear() {
+pub fn (r &PackedVector2Array) clear() {
     fnname := StringName.new("clear")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedvector2array, voidptr(&fnname), 3218959716)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 0)
@@ -132,7 +132,7 @@ pub fn (r &PackedVector2Array) has(value Vector2) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PackedVector2Array) reverse() {
+pub fn (r &PackedVector2Array) reverse() {
     fnname := StringName.new("reverse")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedvector2array, voidptr(&fnname), 3218959716)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 0)
@@ -157,13 +157,13 @@ pub fn (r &PackedVector2Array) to_byte_array() PackedByteArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PackedVector2Array) sort() {
+pub fn (r &PackedVector2Array) sort() {
     fnname := StringName.new("sort")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedvector2array, voidptr(&fnname), 3218959716)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 0)
     fnname.deinit()
 }
-pub fn (mut r PackedVector2Array) bsearch(value Vector2, before bool) i64 {
+pub fn (r &PackedVector2Array) bsearch(value Vector2, before bool) i64 {
     mut object_out := i64(0)
     fnname := StringName.new("bsearch")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedvector2array, voidptr(&fnname), 3778035805)
@@ -174,7 +174,7 @@ pub fn (mut r PackedVector2Array) bsearch(value Vector2, before bool) i64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PackedVector2Array) duplicate() PackedVector2Array {
+pub fn (r &PackedVector2Array) duplicate() PackedVector2Array {
     mut object_out := PackedVector2Array{}
     fnname := StringName.new("duplicate")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedvector2array, voidptr(&fnname), 3763646812)

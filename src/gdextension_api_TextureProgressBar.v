@@ -17,7 +17,7 @@ pub struct TextureProgressBar {
     Range
 }
 
-pub fn (mut r TextureProgressBar) set_under_texture(tex Texture2D) {
+pub fn (r &TextureProgressBar) set_under_texture(tex Texture2D) {
     classname := StringName.new("TextureProgressBar")
     fnname := StringName.new("set_under_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
@@ -37,7 +37,7 @@ pub fn (r &TextureProgressBar) get_under_texture() Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextureProgressBar) set_progress_texture(tex Texture2D) {
+pub fn (r &TextureProgressBar) set_progress_texture(tex Texture2D) {
     classname := StringName.new("TextureProgressBar")
     fnname := StringName.new("set_progress_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
@@ -57,7 +57,7 @@ pub fn (r &TextureProgressBar) get_progress_texture() Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextureProgressBar) set_over_texture(tex Texture2D) {
+pub fn (r &TextureProgressBar) set_over_texture(tex Texture2D) {
     classname := StringName.new("TextureProgressBar")
     fnname := StringName.new("set_over_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
@@ -77,7 +77,7 @@ pub fn (r &TextureProgressBar) get_over_texture() Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextureProgressBar) set_fill_mode(mode i32) {
+pub fn (r &TextureProgressBar) set_fill_mode(mode i32) {
     classname := StringName.new("TextureProgressBar")
     fnname := StringName.new("set_fill_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -87,7 +87,7 @@ pub fn (mut r TextureProgressBar) set_fill_mode(mode i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextureProgressBar) get_fill_mode() i32 {
+pub fn (r &TextureProgressBar) get_fill_mode() i32 {
     mut object_out := i32(0)
     classname := StringName.new("TextureProgressBar")
     fnname := StringName.new("get_fill_mode")
@@ -97,7 +97,7 @@ pub fn (mut r TextureProgressBar) get_fill_mode() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextureProgressBar) set_tint_under(tint Color) {
+pub fn (r &TextureProgressBar) set_tint_under(tint Color) {
     classname := StringName.new("TextureProgressBar")
     fnname := StringName.new("set_tint_under")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -117,7 +117,7 @@ pub fn (r &TextureProgressBar) get_tint_under() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextureProgressBar) set_tint_progress(tint Color) {
+pub fn (r &TextureProgressBar) set_tint_progress(tint Color) {
     classname := StringName.new("TextureProgressBar")
     fnname := StringName.new("set_tint_progress")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -137,7 +137,7 @@ pub fn (r &TextureProgressBar) get_tint_progress() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextureProgressBar) set_tint_over(tint Color) {
+pub fn (r &TextureProgressBar) set_tint_over(tint Color) {
     classname := StringName.new("TextureProgressBar")
     fnname := StringName.new("set_tint_over")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -157,7 +157,7 @@ pub fn (r &TextureProgressBar) get_tint_over() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextureProgressBar) set_texture_progress_offset(offset Vector2) {
+pub fn (r &TextureProgressBar) set_texture_progress_offset(offset Vector2) {
     classname := StringName.new("TextureProgressBar")
     fnname := StringName.new("set_texture_progress_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -177,7 +177,7 @@ pub fn (r &TextureProgressBar) get_texture_progress_offset() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextureProgressBar) set_radial_initial_angle(mode f64) {
+pub fn (r &TextureProgressBar) set_radial_initial_angle(mode f64) {
     classname := StringName.new("TextureProgressBar")
     fnname := StringName.new("set_radial_initial_angle")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -187,7 +187,7 @@ pub fn (mut r TextureProgressBar) set_radial_initial_angle(mode f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextureProgressBar) get_radial_initial_angle() f64 {
+pub fn (r &TextureProgressBar) get_radial_initial_angle() f64 {
     mut object_out := f64(0)
     classname := StringName.new("TextureProgressBar")
     fnname := StringName.new("get_radial_initial_angle")
@@ -197,7 +197,7 @@ pub fn (mut r TextureProgressBar) get_radial_initial_angle() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextureProgressBar) set_radial_center_offset(mode Vector2) {
+pub fn (r &TextureProgressBar) set_radial_center_offset(mode Vector2) {
     classname := StringName.new("TextureProgressBar")
     fnname := StringName.new("set_radial_center_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -207,7 +207,7 @@ pub fn (mut r TextureProgressBar) set_radial_center_offset(mode Vector2) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextureProgressBar) get_radial_center_offset() Vector2 {
+pub fn (r &TextureProgressBar) get_radial_center_offset() Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("TextureProgressBar")
     fnname := StringName.new("get_radial_center_offset")
@@ -217,7 +217,7 @@ pub fn (mut r TextureProgressBar) get_radial_center_offset() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextureProgressBar) set_fill_degrees(mode f64) {
+pub fn (r &TextureProgressBar) set_fill_degrees(mode f64) {
     classname := StringName.new("TextureProgressBar")
     fnname := StringName.new("set_fill_degrees")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -227,7 +227,7 @@ pub fn (mut r TextureProgressBar) set_fill_degrees(mode f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextureProgressBar) get_fill_degrees() f64 {
+pub fn (r &TextureProgressBar) get_fill_degrees() f64 {
     mut object_out := f64(0)
     classname := StringName.new("TextureProgressBar")
     fnname := StringName.new("get_fill_degrees")
@@ -237,7 +237,7 @@ pub fn (mut r TextureProgressBar) get_fill_degrees() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextureProgressBar) set_stretch_margin(margin Side, value i32) {
+pub fn (r &TextureProgressBar) set_stretch_margin(margin Side, value i32) {
     classname := StringName.new("TextureProgressBar")
     fnname := StringName.new("set_stretch_margin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 437707142)
@@ -262,7 +262,7 @@ pub fn (r &TextureProgressBar) get_stretch_margin(margin Side) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextureProgressBar) set_nine_patch_stretch(stretch bool) {
+pub fn (r &TextureProgressBar) set_nine_patch_stretch(stretch bool) {
     classname := StringName.new("TextureProgressBar")
     fnname := StringName.new("set_nine_patch_stretch")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

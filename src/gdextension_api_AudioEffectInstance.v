@@ -10,7 +10,7 @@ pub interface IAudioEffectInstanceProcess {
     virt_process(src_buffer voidptr, dst_buffer &AudioFrame, frame_count i32)
 }
 
-pub fn (mut r AudioEffectInstance) uprocess(src_buffer voidptr, dst_buffer &AudioFrame, frame_count i32) {
+pub fn (r &AudioEffectInstance) uprocess(src_buffer voidptr, dst_buffer &AudioFrame, frame_count i32) {
     classname := StringName.new("AudioEffectInstance")
     fnname := StringName.new("_process")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)

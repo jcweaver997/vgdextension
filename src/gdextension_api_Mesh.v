@@ -213,7 +213,7 @@ pub interface IMeshSurfaceSetMaterial {
     virt_surface_set_material(index i32, material Material)
 }
 
-pub fn (mut r Mesh) usurface_set_material(index i32, material Material) {
+pub fn (r &Mesh) usurface_set_material(index i32, material Material) {
     classname := StringName.new("Mesh")
     fnname := StringName.new("_surface_set_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -280,7 +280,7 @@ pub interface IMeshSetBlendShapeName {
     virt_set_blend_shape_name(index i32, name StringName)
 }
 
-pub fn (mut r Mesh) uset_blend_shape_name(index i32, name string) {
+pub fn (r &Mesh) uset_blend_shape_name(index i32, name string) {
     classname := StringName.new("Mesh")
     fnname := StringName.new("_set_blend_shape_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -308,7 +308,7 @@ pub fn (r &Mesh) uget_aabb() AABB {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Mesh) set_lightmap_size_hint(size Vector2i) {
+pub fn (r &Mesh) set_lightmap_size_hint(size Vector2i) {
     classname := StringName.new("Mesh")
     fnname := StringName.new("set_lightmap_size_hint")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1130785943)
@@ -382,7 +382,7 @@ pub fn (r &Mesh) surface_get_blend_shape_arrays(surf_idx i32) Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Mesh) surface_set_material(surf_idx i32, material Material) {
+pub fn (r &Mesh) surface_set_material(surf_idx i32, material Material) {
     classname := StringName.new("Mesh")
     fnname := StringName.new("surface_set_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3671737478)

@@ -27,7 +27,7 @@ pub fn (r &ImageTexture) get_format() ImageFormat {
     fnname.deinit()
    return unsafe{ImageFormat(object_out)}
 }
-pub fn (mut r ImageTexture) set_image(image Image) {
+pub fn (r &ImageTexture) set_image(image Image) {
     classname := StringName.new("ImageTexture")
     fnname := StringName.new("set_image")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 532598488)
@@ -37,7 +37,7 @@ pub fn (mut r ImageTexture) set_image(image Image) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ImageTexture) update(image Image) {
+pub fn (r &ImageTexture) update(image Image) {
     classname := StringName.new("ImageTexture")
     fnname := StringName.new("update")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 532598488)
@@ -47,7 +47,7 @@ pub fn (mut r ImageTexture) update(image Image) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ImageTexture) set_size_override(size Vector2i) {
+pub fn (r &ImageTexture) set_size_override(size Vector2i) {
     classname := StringName.new("ImageTexture")
     fnname := StringName.new("set_size_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1130785943)

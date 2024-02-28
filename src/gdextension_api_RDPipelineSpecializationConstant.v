@@ -5,7 +5,7 @@ pub struct RDPipelineSpecializationConstant {
     RefCounted
 }
 
-pub fn (mut r RDPipelineSpecializationConstant) set_value(value Variant) {
+pub fn (r &RDPipelineSpecializationConstant) set_value(value Variant) {
     classname := StringName.new("RDPipelineSpecializationConstant")
     fnname := StringName.new("set_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1114965689)
@@ -25,7 +25,7 @@ pub fn (r &RDPipelineSpecializationConstant) get_value() Variant {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDPipelineSpecializationConstant) set_constant_id(constant_id u32) {
+pub fn (r &RDPipelineSpecializationConstant) set_constant_id(constant_id u32) {
     classname := StringName.new("RDPipelineSpecializationConstant")
     fnname := StringName.new("set_constant_id")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

@@ -43,7 +43,7 @@ pub interface IEditorPluginForwardCanvasGuiInput {
     virt_forward_canvas_gui_input(event InputEvent) bool
 }
 
-pub fn (mut r EditorPlugin) uforward_canvas_gui_input(event InputEvent) bool {
+pub fn (r &EditorPlugin) uforward_canvas_gui_input(event InputEvent) bool {
     mut object_out := false
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("_forward_canvas_gui_input")
@@ -60,7 +60,7 @@ pub interface IEditorPluginForwardCanvasDrawOverViewport {
     virt_forward_canvas_draw_over_viewport(viewport_control Control)
 }
 
-pub fn (mut r EditorPlugin) uforward_canvas_draw_over_viewport(viewport_control Control) {
+pub fn (r &EditorPlugin) uforward_canvas_draw_over_viewport(viewport_control Control) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("_forward_canvas_draw_over_viewport")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -75,7 +75,7 @@ pub interface IEditorPluginForwardCanvasForceDrawOverViewport {
     virt_forward_canvas_force_draw_over_viewport(viewport_control Control)
 }
 
-pub fn (mut r EditorPlugin) uforward_canvas_force_draw_over_viewport(viewport_control Control) {
+pub fn (r &EditorPlugin) uforward_canvas_force_draw_over_viewport(viewport_control Control) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("_forward_canvas_force_draw_over_viewport")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -90,7 +90,7 @@ pub interface IEditorPluginForward3dGuiInput {
     virt_forward_3d_gui_input(viewport_camera Camera3D, event InputEvent) i32
 }
 
-pub fn (mut r EditorPlugin) uforward_3d_gui_input(viewport_camera Camera3D, event InputEvent) i32 {
+pub fn (r &EditorPlugin) uforward_3d_gui_input(viewport_camera Camera3D, event InputEvent) i32 {
     mut object_out := i32(0)
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("_forward_3d_gui_input")
@@ -108,7 +108,7 @@ pub interface IEditorPluginForward3dDrawOverViewport {
     virt_forward_3d_draw_over_viewport(viewport_control Control)
 }
 
-pub fn (mut r EditorPlugin) uforward_3d_draw_over_viewport(viewport_control Control) {
+pub fn (r &EditorPlugin) uforward_3d_draw_over_viewport(viewport_control Control) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("_forward_3d_draw_over_viewport")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -123,7 +123,7 @@ pub interface IEditorPluginForward3dForceDrawOverViewport {
     virt_forward_3d_force_draw_over_viewport(viewport_control Control)
 }
 
-pub fn (mut r EditorPlugin) uforward_3d_force_draw_over_viewport(viewport_control Control) {
+pub fn (r &EditorPlugin) uforward_3d_force_draw_over_viewport(viewport_control Control) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("_forward_3d_force_draw_over_viewport")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -185,7 +185,7 @@ pub interface IEditorPluginMakeVisible {
     virt_make_visible(visible bool)
 }
 
-pub fn (mut r EditorPlugin) umake_visible(visible bool) {
+pub fn (r &EditorPlugin) umake_visible(visible bool) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("_make_visible")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -200,7 +200,7 @@ pub interface IEditorPluginEdit {
     virt_edit(object Object)
 }
 
-pub fn (mut r EditorPlugin) uedit(object Object) {
+pub fn (r &EditorPlugin) uedit(object Object) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("_edit")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -247,7 +247,7 @@ pub interface IEditorPluginSetState {
     virt_set_state(state Dictionary)
 }
 
-pub fn (mut r EditorPlugin) uset_state(state Dictionary) {
+pub fn (r &EditorPlugin) uset_state(state Dictionary) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("_set_state")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -262,7 +262,7 @@ pub interface IEditorPluginClear {
     virt_clear()
 }
 
-pub fn (mut r EditorPlugin) uclear() {
+pub fn (r &EditorPlugin) uclear() {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("_clear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -296,7 +296,7 @@ pub interface IEditorPluginSaveExternalData {
     virt_save_external_data()
 }
 
-pub fn (mut r EditorPlugin) usave_external_data() {
+pub fn (r &EditorPlugin) usave_external_data() {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("_save_external_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -309,7 +309,7 @@ pub interface IEditorPluginApplyChanges {
     virt_apply_changes()
 }
 
-pub fn (mut r EditorPlugin) uapply_changes() {
+pub fn (r &EditorPlugin) uapply_changes() {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("_apply_changes")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -337,7 +337,7 @@ pub interface IEditorPluginSetWindowLayout {
     virt_set_window_layout(configuration ConfigFile)
 }
 
-pub fn (mut r EditorPlugin) uset_window_layout(configuration ConfigFile) {
+pub fn (r &EditorPlugin) uset_window_layout(configuration ConfigFile) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("_set_window_layout")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -352,7 +352,7 @@ pub interface IEditorPluginGetWindowLayout {
     virt_get_window_layout(configuration ConfigFile)
 }
 
-pub fn (mut r EditorPlugin) uget_window_layout(configuration ConfigFile) {
+pub fn (r &EditorPlugin) uget_window_layout(configuration ConfigFile) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("_get_window_layout")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -367,7 +367,7 @@ pub interface IEditorPluginBuild {
     virt_build() bool
 }
 
-pub fn (mut r EditorPlugin) ubuild() bool {
+pub fn (r &EditorPlugin) ubuild() bool {
     mut object_out := false
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("_build")
@@ -382,7 +382,7 @@ pub interface IEditorPluginEnablePlugin {
     virt_enable_plugin()
 }
 
-pub fn (mut r EditorPlugin) uenable_plugin() {
+pub fn (r &EditorPlugin) uenable_plugin() {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("_enable_plugin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -395,7 +395,7 @@ pub interface IEditorPluginDisablePlugin {
     virt_disable_plugin()
 }
 
-pub fn (mut r EditorPlugin) udisable_plugin() {
+pub fn (r &EditorPlugin) udisable_plugin() {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("_disable_plugin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -403,7 +403,7 @@ pub fn (mut r EditorPlugin) udisable_plugin() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) add_control_to_container(container EditorPluginCustomControlContainer, control Control) {
+pub fn (r &EditorPlugin) add_control_to_container(container EditorPluginCustomControlContainer, control Control) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("add_control_to_container")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3092750152)
@@ -415,7 +415,7 @@ pub fn (mut r EditorPlugin) add_control_to_container(container EditorPluginCusto
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) add_control_to_bottom_panel(control Control, title string) Button {
+pub fn (r &EditorPlugin) add_control_to_bottom_panel(control Control, title string) Button {
     mut object_out := Button{}
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("add_control_to_bottom_panel")
@@ -430,7 +430,7 @@ pub fn (mut r EditorPlugin) add_control_to_bottom_panel(control Control, title s
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorPlugin) add_control_to_dock(slot EditorPluginDockSlot, control Control) {
+pub fn (r &EditorPlugin) add_control_to_dock(slot EditorPluginDockSlot, control Control) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("add_control_to_dock")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3354871258)
@@ -442,7 +442,7 @@ pub fn (mut r EditorPlugin) add_control_to_dock(slot EditorPluginDockSlot, contr
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) remove_control_from_docks(control Control) {
+pub fn (r &EditorPlugin) remove_control_from_docks(control Control) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("remove_control_from_docks")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1496901182)
@@ -452,7 +452,7 @@ pub fn (mut r EditorPlugin) remove_control_from_docks(control Control) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) remove_control_from_bottom_panel(control Control) {
+pub fn (r &EditorPlugin) remove_control_from_bottom_panel(control Control) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("remove_control_from_bottom_panel")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1496901182)
@@ -462,7 +462,7 @@ pub fn (mut r EditorPlugin) remove_control_from_bottom_panel(control Control) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) remove_control_from_container(container EditorPluginCustomControlContainer, control Control) {
+pub fn (r &EditorPlugin) remove_control_from_container(container EditorPluginCustomControlContainer, control Control) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("remove_control_from_container")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3092750152)
@@ -474,7 +474,7 @@ pub fn (mut r EditorPlugin) remove_control_from_container(container EditorPlugin
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) add_tool_menu_item(name string, callable Callable) {
+pub fn (r &EditorPlugin) add_tool_menu_item(name string, callable Callable) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("add_tool_menu_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2137474292)
@@ -487,7 +487,7 @@ pub fn (mut r EditorPlugin) add_tool_menu_item(name string, callable Callable) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) add_tool_submenu_item(name string, submenu PopupMenu) {
+pub fn (r &EditorPlugin) add_tool_submenu_item(name string, submenu PopupMenu) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("add_tool_submenu_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1019428915)
@@ -500,7 +500,7 @@ pub fn (mut r EditorPlugin) add_tool_submenu_item(name string, submenu PopupMenu
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) remove_tool_menu_item(name string) {
+pub fn (r &EditorPlugin) remove_tool_menu_item(name string) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("remove_tool_menu_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -512,7 +512,7 @@ pub fn (mut r EditorPlugin) remove_tool_menu_item(name string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) get_export_as_menu() PopupMenu {
+pub fn (r &EditorPlugin) get_export_as_menu() PopupMenu {
     mut object_out := PopupMenu{}
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("get_export_as_menu")
@@ -522,7 +522,7 @@ pub fn (mut r EditorPlugin) get_export_as_menu() PopupMenu {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorPlugin) add_custom_type(type_name string, base string, script Script, icon Texture2D) {
+pub fn (r &EditorPlugin) add_custom_type(type_name string, base string, script Script, icon Texture2D) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("add_custom_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1986814599)
@@ -539,7 +539,7 @@ pub fn (mut r EditorPlugin) add_custom_type(type_name string, base string, scrip
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) remove_custom_type(type_name string) {
+pub fn (r &EditorPlugin) remove_custom_type(type_name string) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("remove_custom_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -551,7 +551,7 @@ pub fn (mut r EditorPlugin) remove_custom_type(type_name string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) add_autoload_singleton(name string, path string) {
+pub fn (r &EditorPlugin) add_autoload_singleton(name string, path string) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("add_autoload_singleton")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3186203200)
@@ -566,7 +566,7 @@ pub fn (mut r EditorPlugin) add_autoload_singleton(name string, path string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) remove_autoload_singleton(name string) {
+pub fn (r &EditorPlugin) remove_autoload_singleton(name string) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("remove_autoload_singleton")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -588,7 +588,7 @@ pub fn (r &EditorPlugin) update_overlays() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorPlugin) make_bottom_panel_item_visible(item Control) {
+pub fn (r &EditorPlugin) make_bottom_panel_item_visible(item Control) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("make_bottom_panel_item_visible")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1496901182)
@@ -598,7 +598,7 @@ pub fn (mut r EditorPlugin) make_bottom_panel_item_visible(item Control) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) hide_bottom_panel() {
+pub fn (r &EditorPlugin) hide_bottom_panel() {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("hide_bottom_panel")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -606,7 +606,7 @@ pub fn (mut r EditorPlugin) hide_bottom_panel() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) get_undo_redo() EditorUndoRedoManager {
+pub fn (r &EditorPlugin) get_undo_redo() EditorUndoRedoManager {
     mut object_out := EditorUndoRedoManager{}
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("get_undo_redo")
@@ -616,7 +616,7 @@ pub fn (mut r EditorPlugin) get_undo_redo() EditorUndoRedoManager {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorPlugin) add_undo_redo_inspector_hook_callback(callable Callable) {
+pub fn (r &EditorPlugin) add_undo_redo_inspector_hook_callback(callable Callable) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("add_undo_redo_inspector_hook_callback")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1611583062)
@@ -626,7 +626,7 @@ pub fn (mut r EditorPlugin) add_undo_redo_inspector_hook_callback(callable Calla
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) remove_undo_redo_inspector_hook_callback(callable Callable) {
+pub fn (r &EditorPlugin) remove_undo_redo_inspector_hook_callback(callable Callable) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("remove_undo_redo_inspector_hook_callback")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1611583062)
@@ -636,7 +636,7 @@ pub fn (mut r EditorPlugin) remove_undo_redo_inspector_hook_callback(callable Ca
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) queue_save_layout() {
+pub fn (r &EditorPlugin) queue_save_layout() {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("queue_save_layout")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -644,7 +644,7 @@ pub fn (mut r EditorPlugin) queue_save_layout() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) add_translation_parser_plugin(parser EditorTranslationParserPlugin) {
+pub fn (r &EditorPlugin) add_translation_parser_plugin(parser EditorTranslationParserPlugin) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("add_translation_parser_plugin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3116463128)
@@ -654,7 +654,7 @@ pub fn (mut r EditorPlugin) add_translation_parser_plugin(parser EditorTranslati
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) remove_translation_parser_plugin(parser EditorTranslationParserPlugin) {
+pub fn (r &EditorPlugin) remove_translation_parser_plugin(parser EditorTranslationParserPlugin) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("remove_translation_parser_plugin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3116463128)
@@ -664,7 +664,7 @@ pub fn (mut r EditorPlugin) remove_translation_parser_plugin(parser EditorTransl
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) add_import_plugin(importer EditorImportPlugin, first_priority bool) {
+pub fn (r &EditorPlugin) add_import_plugin(importer EditorImportPlugin, first_priority bool) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("add_import_plugin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3113975762)
@@ -675,7 +675,7 @@ pub fn (mut r EditorPlugin) add_import_plugin(importer EditorImportPlugin, first
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) remove_import_plugin(importer EditorImportPlugin) {
+pub fn (r &EditorPlugin) remove_import_plugin(importer EditorImportPlugin) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("remove_import_plugin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2312482773)
@@ -685,7 +685,7 @@ pub fn (mut r EditorPlugin) remove_import_plugin(importer EditorImportPlugin) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) add_scene_format_importer_plugin(scene_format_importer EditorSceneFormatImporter, first_priority bool) {
+pub fn (r &EditorPlugin) add_scene_format_importer_plugin(scene_format_importer EditorSceneFormatImporter, first_priority bool) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("add_scene_format_importer_plugin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2764104752)
@@ -696,7 +696,7 @@ pub fn (mut r EditorPlugin) add_scene_format_importer_plugin(scene_format_import
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) remove_scene_format_importer_plugin(scene_format_importer EditorSceneFormatImporter) {
+pub fn (r &EditorPlugin) remove_scene_format_importer_plugin(scene_format_importer EditorSceneFormatImporter) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("remove_scene_format_importer_plugin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2637776123)
@@ -706,7 +706,7 @@ pub fn (mut r EditorPlugin) remove_scene_format_importer_plugin(scene_format_imp
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) add_scene_post_import_plugin(scene_import_plugin EditorScenePostImportPlugin, first_priority bool) {
+pub fn (r &EditorPlugin) add_scene_post_import_plugin(scene_import_plugin EditorScenePostImportPlugin, first_priority bool) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("add_scene_post_import_plugin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3492436322)
@@ -717,7 +717,7 @@ pub fn (mut r EditorPlugin) add_scene_post_import_plugin(scene_import_plugin Edi
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) remove_scene_post_import_plugin(scene_import_plugin EditorScenePostImportPlugin) {
+pub fn (r &EditorPlugin) remove_scene_post_import_plugin(scene_import_plugin EditorScenePostImportPlugin) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("remove_scene_post_import_plugin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3045178206)
@@ -727,7 +727,7 @@ pub fn (mut r EditorPlugin) remove_scene_post_import_plugin(scene_import_plugin 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) add_export_plugin(plugin EditorExportPlugin) {
+pub fn (r &EditorPlugin) add_export_plugin(plugin EditorExportPlugin) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("add_export_plugin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4095952207)
@@ -737,7 +737,7 @@ pub fn (mut r EditorPlugin) add_export_plugin(plugin EditorExportPlugin) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) remove_export_plugin(plugin EditorExportPlugin) {
+pub fn (r &EditorPlugin) remove_export_plugin(plugin EditorExportPlugin) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("remove_export_plugin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4095952207)
@@ -747,7 +747,7 @@ pub fn (mut r EditorPlugin) remove_export_plugin(plugin EditorExportPlugin) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) add_node_3d_gizmo_plugin(plugin EditorNode3DGizmoPlugin) {
+pub fn (r &EditorPlugin) add_node_3d_gizmo_plugin(plugin EditorNode3DGizmoPlugin) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("add_node_3d_gizmo_plugin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1541015022)
@@ -757,7 +757,7 @@ pub fn (mut r EditorPlugin) add_node_3d_gizmo_plugin(plugin EditorNode3DGizmoPlu
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) remove_node_3d_gizmo_plugin(plugin EditorNode3DGizmoPlugin) {
+pub fn (r &EditorPlugin) remove_node_3d_gizmo_plugin(plugin EditorNode3DGizmoPlugin) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("remove_node_3d_gizmo_plugin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1541015022)
@@ -767,7 +767,7 @@ pub fn (mut r EditorPlugin) remove_node_3d_gizmo_plugin(plugin EditorNode3DGizmo
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) add_inspector_plugin(plugin EditorInspectorPlugin) {
+pub fn (r &EditorPlugin) add_inspector_plugin(plugin EditorInspectorPlugin) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("add_inspector_plugin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 546395733)
@@ -777,7 +777,7 @@ pub fn (mut r EditorPlugin) add_inspector_plugin(plugin EditorInspectorPlugin) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) remove_inspector_plugin(plugin EditorInspectorPlugin) {
+pub fn (r &EditorPlugin) remove_inspector_plugin(plugin EditorInspectorPlugin) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("remove_inspector_plugin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 546395733)
@@ -787,7 +787,7 @@ pub fn (mut r EditorPlugin) remove_inspector_plugin(plugin EditorInspectorPlugin
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) add_resource_conversion_plugin(plugin EditorResourceConversionPlugin) {
+pub fn (r &EditorPlugin) add_resource_conversion_plugin(plugin EditorResourceConversionPlugin) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("add_resource_conversion_plugin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2124849111)
@@ -797,7 +797,7 @@ pub fn (mut r EditorPlugin) add_resource_conversion_plugin(plugin EditorResource
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) remove_resource_conversion_plugin(plugin EditorResourceConversionPlugin) {
+pub fn (r &EditorPlugin) remove_resource_conversion_plugin(plugin EditorResourceConversionPlugin) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("remove_resource_conversion_plugin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2124849111)
@@ -807,7 +807,7 @@ pub fn (mut r EditorPlugin) remove_resource_conversion_plugin(plugin EditorResou
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) set_input_event_forwarding_always_enabled() {
+pub fn (r &EditorPlugin) set_input_event_forwarding_always_enabled() {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("set_input_event_forwarding_always_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -815,7 +815,7 @@ pub fn (mut r EditorPlugin) set_input_event_forwarding_always_enabled() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) set_force_draw_over_forwarding_enabled() {
+pub fn (r &EditorPlugin) set_force_draw_over_forwarding_enabled() {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("set_force_draw_over_forwarding_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -823,7 +823,7 @@ pub fn (mut r EditorPlugin) set_force_draw_over_forwarding_enabled() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) get_editor_interface() EditorInterface {
+pub fn (r &EditorPlugin) get_editor_interface() EditorInterface {
     mut object_out := EditorInterface{}
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("get_editor_interface")
@@ -833,7 +833,7 @@ pub fn (mut r EditorPlugin) get_editor_interface() EditorInterface {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorPlugin) get_script_create_dialog() ScriptCreateDialog {
+pub fn (r &EditorPlugin) get_script_create_dialog() ScriptCreateDialog {
     mut object_out := ScriptCreateDialog{}
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("get_script_create_dialog")
@@ -843,7 +843,7 @@ pub fn (mut r EditorPlugin) get_script_create_dialog() ScriptCreateDialog {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorPlugin) add_debugger_plugin(script EditorDebuggerPlugin) {
+pub fn (r &EditorPlugin) add_debugger_plugin(script EditorDebuggerPlugin) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("add_debugger_plugin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3749880309)
@@ -853,7 +853,7 @@ pub fn (mut r EditorPlugin) add_debugger_plugin(script EditorDebuggerPlugin) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorPlugin) remove_debugger_plugin(script EditorDebuggerPlugin) {
+pub fn (r &EditorPlugin) remove_debugger_plugin(script EditorDebuggerPlugin) {
     classname := StringName.new("EditorPlugin")
     fnname := StringName.new("remove_debugger_plugin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3749880309)

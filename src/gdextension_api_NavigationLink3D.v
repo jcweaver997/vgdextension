@@ -15,7 +15,7 @@ pub fn (r &NavigationLink3D) get_rid() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationLink3D) set_enabled(enabled bool) {
+pub fn (r &NavigationLink3D) set_enabled(enabled bool) {
     classname := StringName.new("NavigationLink3D")
     fnname := StringName.new("set_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -35,7 +35,7 @@ pub fn (r &NavigationLink3D) is_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationLink3D) set_bidirectional(bidirectional bool) {
+pub fn (r &NavigationLink3D) set_bidirectional(bidirectional bool) {
     classname := StringName.new("NavigationLink3D")
     fnname := StringName.new("set_bidirectional")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -55,7 +55,7 @@ pub fn (r &NavigationLink3D) is_bidirectional() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationLink3D) set_navigation_layers(navigation_layers u32) {
+pub fn (r &NavigationLink3D) set_navigation_layers(navigation_layers u32) {
     classname := StringName.new("NavigationLink3D")
     fnname := StringName.new("set_navigation_layers")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -75,7 +75,7 @@ pub fn (r &NavigationLink3D) get_navigation_layers() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationLink3D) set_navigation_layer_value(layer_number i32, value bool) {
+pub fn (r &NavigationLink3D) set_navigation_layer_value(layer_number i32, value bool) {
     classname := StringName.new("NavigationLink3D")
     fnname := StringName.new("set_navigation_layer_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -98,7 +98,7 @@ pub fn (r &NavigationLink3D) get_navigation_layer_value(layer_number i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationLink3D) set_start_position(position Vector3) {
+pub fn (r &NavigationLink3D) set_start_position(position Vector3) {
     classname := StringName.new("NavigationLink3D")
     fnname := StringName.new("set_start_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -118,7 +118,7 @@ pub fn (r &NavigationLink3D) get_start_position() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationLink3D) set_end_position(position Vector3) {
+pub fn (r &NavigationLink3D) set_end_position(position Vector3) {
     classname := StringName.new("NavigationLink3D")
     fnname := StringName.new("set_end_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -138,7 +138,7 @@ pub fn (r &NavigationLink3D) get_end_position() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationLink3D) set_global_start_position(position Vector3) {
+pub fn (r &NavigationLink3D) set_global_start_position(position Vector3) {
     classname := StringName.new("NavigationLink3D")
     fnname := StringName.new("set_global_start_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -158,7 +158,7 @@ pub fn (r &NavigationLink3D) get_global_start_position() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationLink3D) set_global_end_position(position Vector3) {
+pub fn (r &NavigationLink3D) set_global_end_position(position Vector3) {
     classname := StringName.new("NavigationLink3D")
     fnname := StringName.new("set_global_end_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -178,7 +178,7 @@ pub fn (r &NavigationLink3D) get_global_end_position() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationLink3D) set_enter_cost(enter_cost f64) {
+pub fn (r &NavigationLink3D) set_enter_cost(enter_cost f64) {
     classname := StringName.new("NavigationLink3D")
     fnname := StringName.new("set_enter_cost")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -198,7 +198,7 @@ pub fn (r &NavigationLink3D) get_enter_cost() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationLink3D) set_travel_cost(travel_cost f64) {
+pub fn (r &NavigationLink3D) set_travel_cost(travel_cost f64) {
     classname := StringName.new("NavigationLink3D")
     fnname := StringName.new("set_travel_cost")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

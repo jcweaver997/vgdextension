@@ -5,7 +5,7 @@ pub struct StreamPeerGZIP {
     StreamPeer
 }
 
-pub fn (mut r StreamPeerGZIP) start_compression(use_deflate bool, buffer_size i32) GDError {
+pub fn (r &StreamPeerGZIP) start_compression(use_deflate bool, buffer_size i32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("StreamPeerGZIP")
     fnname := StringName.new("start_compression")
@@ -18,7 +18,7 @@ pub fn (mut r StreamPeerGZIP) start_compression(use_deflate bool, buffer_size i3
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r StreamPeerGZIP) start_decompression(use_deflate bool, buffer_size i32) GDError {
+pub fn (r &StreamPeerGZIP) start_decompression(use_deflate bool, buffer_size i32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("StreamPeerGZIP")
     fnname := StringName.new("start_decompression")
@@ -31,7 +31,7 @@ pub fn (mut r StreamPeerGZIP) start_decompression(use_deflate bool, buffer_size 
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r StreamPeerGZIP) finish() GDError {
+pub fn (r &StreamPeerGZIP) finish() GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("StreamPeerGZIP")
     fnname := StringName.new("finish")
@@ -41,7 +41,7 @@ pub fn (mut r StreamPeerGZIP) finish() GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r StreamPeerGZIP) clear() {
+pub fn (r &StreamPeerGZIP) clear() {
     classname := StringName.new("StreamPeerGZIP")
     fnname := StringName.new("clear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

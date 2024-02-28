@@ -11,7 +11,7 @@ pub struct UndoRedo {
     Object
 }
 
-pub fn (mut r UndoRedo) create_action(name string, merge_mode UndoRedoMergeMode, backward_undo_ops bool) {
+pub fn (r &UndoRedo) create_action(name string, merge_mode UndoRedoMergeMode, backward_undo_ops bool) {
     classname := StringName.new("UndoRedo")
     fnname := StringName.new("create_action")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3171901514)
@@ -26,7 +26,7 @@ pub fn (mut r UndoRedo) create_action(name string, merge_mode UndoRedoMergeMode,
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r UndoRedo) commit_action(execute bool) {
+pub fn (r &UndoRedo) commit_action(execute bool) {
     classname := StringName.new("UndoRedo")
     fnname := StringName.new("commit_action")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3216645846)
@@ -46,7 +46,7 @@ pub fn (r &UndoRedo) is_committing_action() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r UndoRedo) add_do_method(callable Callable) {
+pub fn (r &UndoRedo) add_do_method(callable Callable) {
     classname := StringName.new("UndoRedo")
     fnname := StringName.new("add_do_method")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1611583062)
@@ -56,7 +56,7 @@ pub fn (mut r UndoRedo) add_do_method(callable Callable) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r UndoRedo) add_undo_method(callable Callable) {
+pub fn (r &UndoRedo) add_undo_method(callable Callable) {
     classname := StringName.new("UndoRedo")
     fnname := StringName.new("add_undo_method")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1611583062)
@@ -66,7 +66,7 @@ pub fn (mut r UndoRedo) add_undo_method(callable Callable) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r UndoRedo) add_do_property(object Object, property string, value Variant) {
+pub fn (r &UndoRedo) add_do_property(object Object, property string, value Variant) {
     classname := StringName.new("UndoRedo")
     fnname := StringName.new("add_do_property")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1017172818)
@@ -80,7 +80,7 @@ pub fn (mut r UndoRedo) add_do_property(object Object, property string, value Va
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r UndoRedo) add_undo_property(object Object, property string, value Variant) {
+pub fn (r &UndoRedo) add_undo_property(object Object, property string, value Variant) {
     classname := StringName.new("UndoRedo")
     fnname := StringName.new("add_undo_property")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1017172818)
@@ -94,7 +94,7 @@ pub fn (mut r UndoRedo) add_undo_property(object Object, property string, value 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r UndoRedo) add_do_reference(object Object) {
+pub fn (r &UndoRedo) add_do_reference(object Object) {
     classname := StringName.new("UndoRedo")
     fnname := StringName.new("add_do_reference")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3975164845)
@@ -104,7 +104,7 @@ pub fn (mut r UndoRedo) add_do_reference(object Object) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r UndoRedo) add_undo_reference(object Object) {
+pub fn (r &UndoRedo) add_undo_reference(object Object) {
     classname := StringName.new("UndoRedo")
     fnname := StringName.new("add_undo_reference")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3975164845)
@@ -114,7 +114,7 @@ pub fn (mut r UndoRedo) add_undo_reference(object Object) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r UndoRedo) start_force_keep_in_merge_ends() {
+pub fn (r &UndoRedo) start_force_keep_in_merge_ends() {
     classname := StringName.new("UndoRedo")
     fnname := StringName.new("start_force_keep_in_merge_ends")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -122,7 +122,7 @@ pub fn (mut r UndoRedo) start_force_keep_in_merge_ends() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r UndoRedo) end_force_keep_in_merge_ends() {
+pub fn (r &UndoRedo) end_force_keep_in_merge_ends() {
     classname := StringName.new("UndoRedo")
     fnname := StringName.new("end_force_keep_in_merge_ends")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -130,7 +130,7 @@ pub fn (mut r UndoRedo) end_force_keep_in_merge_ends() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r UndoRedo) get_history_count() i32 {
+pub fn (r &UndoRedo) get_history_count() i32 {
     mut object_out := i32(0)
     classname := StringName.new("UndoRedo")
     fnname := StringName.new("get_history_count")
@@ -140,7 +140,7 @@ pub fn (mut r UndoRedo) get_history_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r UndoRedo) get_current_action() i32 {
+pub fn (r &UndoRedo) get_current_action() i32 {
     mut object_out := i32(0)
     classname := StringName.new("UndoRedo")
     fnname := StringName.new("get_current_action")
@@ -150,7 +150,7 @@ pub fn (mut r UndoRedo) get_current_action() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r UndoRedo) get_action_name(id i32) string {
+pub fn (r &UndoRedo) get_action_name(id i32) string {
     mut object_out := String{}
     classname := StringName.new("UndoRedo")
     fnname := StringName.new("get_action_name")
@@ -164,7 +164,7 @@ pub fn (mut r UndoRedo) get_action_name(id i32) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r UndoRedo) clear_history(increase_version bool) {
+pub fn (r &UndoRedo) clear_history(increase_version bool) {
     classname := StringName.new("UndoRedo")
     fnname := StringName.new("clear_history")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3216645846)
@@ -216,7 +216,7 @@ pub fn (r &UndoRedo) get_version() u64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r UndoRedo) redo() bool {
+pub fn (r &UndoRedo) redo() bool {
     mut object_out := false
     classname := StringName.new("UndoRedo")
     fnname := StringName.new("redo")
@@ -226,7 +226,7 @@ pub fn (mut r UndoRedo) redo() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r UndoRedo) undo() bool {
+pub fn (r &UndoRedo) undo() bool {
     mut object_out := false
     classname := StringName.new("UndoRedo")
     fnname := StringName.new("undo")

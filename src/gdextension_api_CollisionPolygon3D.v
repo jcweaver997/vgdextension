@@ -5,7 +5,7 @@ pub struct CollisionPolygon3D {
     Node3D
 }
 
-pub fn (mut r CollisionPolygon3D) set_depth(depth f64) {
+pub fn (r &CollisionPolygon3D) set_depth(depth f64) {
     classname := StringName.new("CollisionPolygon3D")
     fnname := StringName.new("set_depth")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -25,7 +25,7 @@ pub fn (r &CollisionPolygon3D) get_depth() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CollisionPolygon3D) set_polygon(polygon PackedVector2Array) {
+pub fn (r &CollisionPolygon3D) set_polygon(polygon PackedVector2Array) {
     classname := StringName.new("CollisionPolygon3D")
     fnname := StringName.new("set_polygon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1509147220)
@@ -45,7 +45,7 @@ pub fn (r &CollisionPolygon3D) get_polygon() PackedVector2Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CollisionPolygon3D) set_disabled(disabled bool) {
+pub fn (r &CollisionPolygon3D) set_disabled(disabled bool) {
     classname := StringName.new("CollisionPolygon3D")
     fnname := StringName.new("set_disabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -65,7 +65,7 @@ pub fn (r &CollisionPolygon3D) is_disabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CollisionPolygon3D) set_margin(margin f64) {
+pub fn (r &CollisionPolygon3D) set_margin(margin f64) {
     classname := StringName.new("CollisionPolygon3D")
     fnname := StringName.new("set_margin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

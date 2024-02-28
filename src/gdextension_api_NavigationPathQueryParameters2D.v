@@ -22,7 +22,7 @@ pub struct NavigationPathQueryParameters2D {
     RefCounted
 }
 
-pub fn (mut r NavigationPathQueryParameters2D) set_pathfinding_algorithm(pathfinding_algorithm NavigationPathQueryParameters2DPathfindingAlgorithm) {
+pub fn (r &NavigationPathQueryParameters2D) set_pathfinding_algorithm(pathfinding_algorithm NavigationPathQueryParameters2DPathfindingAlgorithm) {
     classname := StringName.new("NavigationPathQueryParameters2D")
     fnname := StringName.new("set_pathfinding_algorithm")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2783519915)
@@ -43,7 +43,7 @@ pub fn (r &NavigationPathQueryParameters2D) get_pathfinding_algorithm() Navigati
     fnname.deinit()
    return unsafe{NavigationPathQueryParameters2DPathfindingAlgorithm(object_out)}
 }
-pub fn (mut r NavigationPathQueryParameters2D) set_path_postprocessing(path_postprocessing NavigationPathQueryParameters2DPathPostProcessing) {
+pub fn (r &NavigationPathQueryParameters2D) set_path_postprocessing(path_postprocessing NavigationPathQueryParameters2DPathPostProcessing) {
     classname := StringName.new("NavigationPathQueryParameters2D")
     fnname := StringName.new("set_path_postprocessing")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2864409082)
@@ -64,7 +64,7 @@ pub fn (r &NavigationPathQueryParameters2D) get_path_postprocessing() Navigation
     fnname.deinit()
    return unsafe{NavigationPathQueryParameters2DPathPostProcessing(object_out)}
 }
-pub fn (mut r NavigationPathQueryParameters2D) set_map(mape RID) {
+pub fn (r &NavigationPathQueryParameters2D) set_map(mape RID) {
     classname := StringName.new("NavigationPathQueryParameters2D")
     fnname := StringName.new("set_map")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)
@@ -84,7 +84,7 @@ pub fn (r &NavigationPathQueryParameters2D) get_map() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationPathQueryParameters2D) set_start_position(start_position Vector2) {
+pub fn (r &NavigationPathQueryParameters2D) set_start_position(start_position Vector2) {
     classname := StringName.new("NavigationPathQueryParameters2D")
     fnname := StringName.new("set_start_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -104,7 +104,7 @@ pub fn (r &NavigationPathQueryParameters2D) get_start_position() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationPathQueryParameters2D) set_target_position(target_position Vector2) {
+pub fn (r &NavigationPathQueryParameters2D) set_target_position(target_position Vector2) {
     classname := StringName.new("NavigationPathQueryParameters2D")
     fnname := StringName.new("set_target_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -124,7 +124,7 @@ pub fn (r &NavigationPathQueryParameters2D) get_target_position() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationPathQueryParameters2D) set_navigation_layers(navigation_layers u32) {
+pub fn (r &NavigationPathQueryParameters2D) set_navigation_layers(navigation_layers u32) {
     classname := StringName.new("NavigationPathQueryParameters2D")
     fnname := StringName.new("set_navigation_layers")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -144,7 +144,7 @@ pub fn (r &NavigationPathQueryParameters2D) get_navigation_layers() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationPathQueryParameters2D) set_metadata_flags(flags NavigationPathQueryParameters2DPathMetadataFlags) {
+pub fn (r &NavigationPathQueryParameters2D) set_metadata_flags(flags NavigationPathQueryParameters2DPathMetadataFlags) {
     classname := StringName.new("NavigationPathQueryParameters2D")
     fnname := StringName.new("set_metadata_flags")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 24274129)

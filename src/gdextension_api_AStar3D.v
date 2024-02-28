@@ -51,7 +51,7 @@ pub fn (r &AStar3D) get_available_point_id() i64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AStar3D) add_point(id i64, position Vector3, weight_scale f64) {
+pub fn (r &AStar3D) add_point(id i64, position Vector3, weight_scale f64) {
     classname := StringName.new("AStar3D")
     fnname := StringName.new("add_point")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1038703438)
@@ -75,7 +75,7 @@ pub fn (r &AStar3D) get_point_position(id i64) Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AStar3D) set_point_position(id i64, position Vector3) {
+pub fn (r &AStar3D) set_point_position(id i64, position Vector3) {
     classname := StringName.new("AStar3D")
     fnname := StringName.new("set_point_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1530502735)
@@ -98,7 +98,7 @@ pub fn (r &AStar3D) get_point_weight_scale(id i64) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AStar3D) set_point_weight_scale(id i64, weight_scale f64) {
+pub fn (r &AStar3D) set_point_weight_scale(id i64, weight_scale f64) {
     classname := StringName.new("AStar3D")
     fnname := StringName.new("set_point_weight_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1602489585)
@@ -109,7 +109,7 @@ pub fn (mut r AStar3D) set_point_weight_scale(id i64, weight_scale f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AStar3D) remove_point(id i64) {
+pub fn (r &AStar3D) remove_point(id i64) {
     classname := StringName.new("AStar3D")
     fnname := StringName.new("remove_point")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -131,7 +131,7 @@ pub fn (r &AStar3D) has_point(id i64) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AStar3D) get_point_connections(id i64) PackedInt64Array {
+pub fn (r &AStar3D) get_point_connections(id i64) PackedInt64Array {
     mut object_out := PackedInt64Array{}
     classname := StringName.new("AStar3D")
     fnname := StringName.new("get_point_connections")
@@ -143,7 +143,7 @@ pub fn (mut r AStar3D) get_point_connections(id i64) PackedInt64Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AStar3D) get_point_ids() PackedInt64Array {
+pub fn (r &AStar3D) get_point_ids() PackedInt64Array {
     mut object_out := PackedInt64Array{}
     classname := StringName.new("AStar3D")
     fnname := StringName.new("get_point_ids")
@@ -153,7 +153,7 @@ pub fn (mut r AStar3D) get_point_ids() PackedInt64Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AStar3D) set_point_disabled(id i64, disabled bool) {
+pub fn (r &AStar3D) set_point_disabled(id i64, disabled bool) {
     classname := StringName.new("AStar3D")
     fnname := StringName.new("set_point_disabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 972357352)
@@ -176,7 +176,7 @@ pub fn (r &AStar3D) is_point_disabled(id i64) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AStar3D) connect_points(id i64, to_id i64, bidirectional bool) {
+pub fn (r &AStar3D) connect_points(id i64, to_id i64, bidirectional bool) {
     classname := StringName.new("AStar3D")
     fnname := StringName.new("connect_points")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3710494224)
@@ -188,7 +188,7 @@ pub fn (mut r AStar3D) connect_points(id i64, to_id i64, bidirectional bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AStar3D) disconnect_points(id i64, to_id i64, bidirectional bool) {
+pub fn (r &AStar3D) disconnect_points(id i64, to_id i64, bidirectional bool) {
     classname := StringName.new("AStar3D")
     fnname := StringName.new("disconnect_points")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3710494224)
@@ -234,7 +234,7 @@ pub fn (r &AStar3D) get_point_capacity() i64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AStar3D) reserve_space(num_nodes i64) {
+pub fn (r &AStar3D) reserve_space(num_nodes i64) {
     classname := StringName.new("AStar3D")
     fnname := StringName.new("reserve_space")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -244,7 +244,7 @@ pub fn (mut r AStar3D) reserve_space(num_nodes i64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AStar3D) clear() {
+pub fn (r &AStar3D) clear() {
     classname := StringName.new("AStar3D")
     fnname := StringName.new("clear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -277,7 +277,7 @@ pub fn (r &AStar3D) get_closest_position_in_segment(to_position Vector3) Vector3
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AStar3D) get_point_path(from_id i64, to_id i64) PackedVector3Array {
+pub fn (r &AStar3D) get_point_path(from_id i64, to_id i64) PackedVector3Array {
     mut object_out := PackedVector3Array{}
     classname := StringName.new("AStar3D")
     fnname := StringName.new("get_point_path")
@@ -290,7 +290,7 @@ pub fn (mut r AStar3D) get_point_path(from_id i64, to_id i64) PackedVector3Array
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AStar3D) get_id_path(from_id i64, to_id i64) PackedInt64Array {
+pub fn (r &AStar3D) get_id_path(from_id i64, to_id i64) PackedInt64Array {
     mut object_out := PackedInt64Array{}
     classname := StringName.new("AStar3D")
     fnname := StringName.new("get_id_path")

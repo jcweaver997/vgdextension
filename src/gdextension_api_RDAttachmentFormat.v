@@ -5,7 +5,7 @@ pub struct RDAttachmentFormat {
     RefCounted
 }
 
-pub fn (mut r RDAttachmentFormat) set_format(p_member RenderingDeviceDataFormat) {
+pub fn (r &RDAttachmentFormat) set_format(p_member RenderingDeviceDataFormat) {
     classname := StringName.new("RDAttachmentFormat")
     fnname := StringName.new("set_format")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 565531219)
@@ -26,7 +26,7 @@ pub fn (r &RDAttachmentFormat) get_format() RenderingDeviceDataFormat {
     fnname.deinit()
    return unsafe{RenderingDeviceDataFormat(object_out)}
 }
-pub fn (mut r RDAttachmentFormat) set_samples(p_member RenderingDeviceTextureSamples) {
+pub fn (r &RDAttachmentFormat) set_samples(p_member RenderingDeviceTextureSamples) {
     classname := StringName.new("RDAttachmentFormat")
     fnname := StringName.new("set_samples")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3774171498)
@@ -47,7 +47,7 @@ pub fn (r &RDAttachmentFormat) get_samples() RenderingDeviceTextureSamples {
     fnname.deinit()
    return unsafe{RenderingDeviceTextureSamples(object_out)}
 }
-pub fn (mut r RDAttachmentFormat) set_usage_flags(p_member u32) {
+pub fn (r &RDAttachmentFormat) set_usage_flags(p_member u32) {
     classname := StringName.new("RDAttachmentFormat")
     fnname := StringName.new("set_usage_flags")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

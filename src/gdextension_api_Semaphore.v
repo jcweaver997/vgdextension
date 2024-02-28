@@ -5,7 +5,7 @@ pub struct Semaphore {
     RefCounted
 }
 
-pub fn (mut r Semaphore) wait() {
+pub fn (r &Semaphore) wait() {
     classname := StringName.new("Semaphore")
     fnname := StringName.new("wait")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -13,7 +13,7 @@ pub fn (mut r Semaphore) wait() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Semaphore) try_wait() bool {
+pub fn (r &Semaphore) try_wait() bool {
     mut object_out := false
     classname := StringName.new("Semaphore")
     fnname := StringName.new("try_wait")
@@ -23,7 +23,7 @@ pub fn (mut r Semaphore) try_wait() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Semaphore) post() {
+pub fn (r &Semaphore) post() {
     classname := StringName.new("Semaphore")
     fnname := StringName.new("post")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

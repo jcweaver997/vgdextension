@@ -17,7 +17,7 @@ pub struct Gradient {
     Resource
 }
 
-pub fn (mut r Gradient) add_point(offset f64, color Color) {
+pub fn (r &Gradient) add_point(offset f64, color Color) {
     classname := StringName.new("Gradient")
     fnname := StringName.new("add_point")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3629403827)
@@ -28,7 +28,7 @@ pub fn (mut r Gradient) add_point(offset f64, color Color) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Gradient) remove_point(point i32) {
+pub fn (r &Gradient) remove_point(point i32) {
     classname := StringName.new("Gradient")
     fnname := StringName.new("remove_point")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -38,7 +38,7 @@ pub fn (mut r Gradient) remove_point(point i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Gradient) set_offset(point i32, offset f64) {
+pub fn (r &Gradient) set_offset(point i32, offset f64) {
     classname := StringName.new("Gradient")
     fnname := StringName.new("set_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1602489585)
@@ -49,7 +49,7 @@ pub fn (mut r Gradient) set_offset(point i32, offset f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Gradient) get_offset(point i32) f64 {
+pub fn (r &Gradient) get_offset(point i32) f64 {
     mut object_out := f64(0)
     classname := StringName.new("Gradient")
     fnname := StringName.new("get_offset")
@@ -61,7 +61,7 @@ pub fn (mut r Gradient) get_offset(point i32) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Gradient) reverse() {
+pub fn (r &Gradient) reverse() {
     classname := StringName.new("Gradient")
     fnname := StringName.new("reverse")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -69,7 +69,7 @@ pub fn (mut r Gradient) reverse() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Gradient) set_color(point i32, color Color) {
+pub fn (r &Gradient) set_color(point i32, color Color) {
     classname := StringName.new("Gradient")
     fnname := StringName.new("set_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2878471219)
@@ -80,7 +80,7 @@ pub fn (mut r Gradient) set_color(point i32, color Color) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Gradient) get_color(point i32) Color {
+pub fn (r &Gradient) get_color(point i32) Color {
     mut object_out := Color{}
     classname := StringName.new("Gradient")
     fnname := StringName.new("get_color")
@@ -92,7 +92,7 @@ pub fn (mut r Gradient) get_color(point i32) Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Gradient) sample(offset f64) Color {
+pub fn (r &Gradient) sample(offset f64) Color {
     mut object_out := Color{}
     classname := StringName.new("Gradient")
     fnname := StringName.new("sample")
@@ -114,7 +114,7 @@ pub fn (r &Gradient) get_point_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Gradient) set_offsets(offsets PackedFloat32Array) {
+pub fn (r &Gradient) set_offsets(offsets PackedFloat32Array) {
     classname := StringName.new("Gradient")
     fnname := StringName.new("set_offsets")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2899603908)
@@ -134,7 +134,7 @@ pub fn (r &Gradient) get_offsets() PackedFloat32Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Gradient) set_colors(colors PackedColorArray) {
+pub fn (r &Gradient) set_colors(colors PackedColorArray) {
     classname := StringName.new("Gradient")
     fnname := StringName.new("set_colors")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3546319833)
@@ -154,7 +154,7 @@ pub fn (r &Gradient) get_colors() PackedColorArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Gradient) set_interpolation_mode(interpolation_mode GradientInterpolationMode) {
+pub fn (r &Gradient) set_interpolation_mode(interpolation_mode GradientInterpolationMode) {
     classname := StringName.new("Gradient")
     fnname := StringName.new("set_interpolation_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1971444490)
@@ -165,7 +165,7 @@ pub fn (mut r Gradient) set_interpolation_mode(interpolation_mode GradientInterp
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Gradient) get_interpolation_mode() GradientInterpolationMode {
+pub fn (r &Gradient) get_interpolation_mode() GradientInterpolationMode {
     mut object_out := i64(GradientInterpolationMode.gradient_interpolate_linear)
     classname := StringName.new("Gradient")
     fnname := StringName.new("get_interpolation_mode")
@@ -175,7 +175,7 @@ pub fn (mut r Gradient) get_interpolation_mode() GradientInterpolationMode {
     fnname.deinit()
    return unsafe{GradientInterpolationMode(object_out)}
 }
-pub fn (mut r Gradient) set_interpolation_color_space(interpolation_color_space GradientColorSpace) {
+pub fn (r &Gradient) set_interpolation_color_space(interpolation_color_space GradientColorSpace) {
     classname := StringName.new("Gradient")
     fnname := StringName.new("set_interpolation_color_space")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3685995981)
@@ -186,7 +186,7 @@ pub fn (mut r Gradient) set_interpolation_color_space(interpolation_color_space 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Gradient) get_interpolation_color_space() GradientColorSpace {
+pub fn (r &Gradient) get_interpolation_color_space() GradientColorSpace {
     mut object_out := i64(GradientColorSpace.gradient_color_space_srgb)
     classname := StringName.new("Gradient")
     fnname := StringName.new("get_interpolation_color_space")

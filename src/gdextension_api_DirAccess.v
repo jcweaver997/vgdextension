@@ -29,7 +29,7 @@ pub fn DirAccess.get_open_error() GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r DirAccess) list_dir_begin() GDError {
+pub fn (r &DirAccess) list_dir_begin() GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("DirAccess")
     fnname := StringName.new("list_dir_begin")
@@ -39,7 +39,7 @@ pub fn (mut r DirAccess) list_dir_begin() GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r DirAccess) get_next() string {
+pub fn (r &DirAccess) get_next() string {
     mut object_out := String{}
     classname := StringName.new("DirAccess")
     fnname := StringName.new("get_next")
@@ -61,7 +61,7 @@ pub fn (r &DirAccess) current_is_dir() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DirAccess) list_dir_end() {
+pub fn (r &DirAccess) list_dir_end() {
     classname := StringName.new("DirAccess")
     fnname := StringName.new("list_dir_end")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -69,7 +69,7 @@ pub fn (mut r DirAccess) list_dir_end() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DirAccess) get_files() PackedStringArray {
+pub fn (r &DirAccess) get_files() PackedStringArray {
     mut object_out := PackedStringArray{}
     classname := StringName.new("DirAccess")
     fnname := StringName.new("get_files")
@@ -93,7 +93,7 @@ pub fn DirAccess.get_files_at(path string) PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DirAccess) get_directories() PackedStringArray {
+pub fn (r &DirAccess) get_directories() PackedStringArray {
     mut object_out := PackedStringArray{}
     classname := StringName.new("DirAccess")
     fnname := StringName.new("get_directories")
@@ -141,7 +141,7 @@ pub fn DirAccess.get_drive_name(idx i32) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r DirAccess) get_current_drive() i32 {
+pub fn (r &DirAccess) get_current_drive() i32 {
     mut object_out := i32(0)
     classname := StringName.new("DirAccess")
     fnname := StringName.new("get_current_drive")
@@ -151,7 +151,7 @@ pub fn (mut r DirAccess) get_current_drive() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DirAccess) change_dir(to_dir string) GDError {
+pub fn (r &DirAccess) change_dir(to_dir string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("DirAccess")
     fnname := StringName.new("change_dir")
@@ -179,7 +179,7 @@ pub fn (r &DirAccess) get_current_dir(include_drive bool) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r DirAccess) make_dir(path string) GDError {
+pub fn (r &DirAccess) make_dir(path string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("DirAccess")
     fnname := StringName.new("make_dir")
@@ -207,7 +207,7 @@ pub fn DirAccess.make_dir_absolute(path string) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r DirAccess) make_dir_recursive(path string) GDError {
+pub fn (r &DirAccess) make_dir_recursive(path string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("DirAccess")
     fnname := StringName.new("make_dir_recursive")
@@ -235,7 +235,7 @@ pub fn DirAccess.make_dir_recursive_absolute(path string) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r DirAccess) file_exists(path string) bool {
+pub fn (r &DirAccess) file_exists(path string) bool {
     mut object_out := false
     classname := StringName.new("DirAccess")
     fnname := StringName.new("file_exists")
@@ -249,7 +249,7 @@ pub fn (mut r DirAccess) file_exists(path string) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DirAccess) dir_exists(path string) bool {
+pub fn (r &DirAccess) dir_exists(path string) bool {
     mut object_out := false
     classname := StringName.new("DirAccess")
     fnname := StringName.new("dir_exists")
@@ -277,7 +277,7 @@ pub fn DirAccess.dir_exists_absolute(path string) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DirAccess) get_space_left() u64 {
+pub fn (r &DirAccess) get_space_left() u64 {
     mut object_out := u64(0)
     classname := StringName.new("DirAccess")
     fnname := StringName.new("get_space_left")
@@ -287,7 +287,7 @@ pub fn (mut r DirAccess) get_space_left() u64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DirAccess) copy(from string, to string, chmod_flags i32) GDError {
+pub fn (r &DirAccess) copy(from string, to string, chmod_flags i32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("DirAccess")
     fnname := StringName.new("copy")
@@ -323,7 +323,7 @@ pub fn DirAccess.copy_absolute(from string, to string, chmod_flags i32) GDError 
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r DirAccess) rename(from string, to string) GDError {
+pub fn (r &DirAccess) rename(from string, to string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("DirAccess")
     fnname := StringName.new("rename")
@@ -357,7 +357,7 @@ pub fn DirAccess.rename_absolute(from string, to string) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r DirAccess) remove(path string) GDError {
+pub fn (r &DirAccess) remove(path string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("DirAccess")
     fnname := StringName.new("remove")
@@ -385,7 +385,7 @@ pub fn DirAccess.remove_absolute(path string) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r DirAccess) set_include_navigational(enable bool) {
+pub fn (r &DirAccess) set_include_navigational(enable bool) {
     classname := StringName.new("DirAccess")
     fnname := StringName.new("set_include_navigational")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -405,7 +405,7 @@ pub fn (r &DirAccess) get_include_navigational() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DirAccess) set_include_hidden(enable bool) {
+pub fn (r &DirAccess) set_include_hidden(enable bool) {
     classname := StringName.new("DirAccess")
     fnname := StringName.new("set_include_hidden")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

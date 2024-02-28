@@ -5,7 +5,7 @@ pub struct ColorRect {
     Control
 }
 
-pub fn (mut r ColorRect) set_color(color Color) {
+pub fn (r &ColorRect) set_color(color Color) {
     classname := StringName.new("ColorRect")
     fnname := StringName.new("set_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)

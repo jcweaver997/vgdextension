@@ -55,7 +55,7 @@ pub interface IWebRTCPeerConnectionExtensionInitialize {
     virt_initialize(p_config Dictionary) GDError
 }
 
-pub fn (mut r WebRTCPeerConnectionExtension) uinitialize(p_config Dictionary) GDError {
+pub fn (r &WebRTCPeerConnectionExtension) uinitialize(p_config Dictionary) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("WebRTCPeerConnectionExtension")
     fnname := StringName.new("_initialize")
@@ -72,7 +72,7 @@ pub interface IWebRTCPeerConnectionExtensionCreateDataChannel {
     virt_create_data_channel(p_label String, p_config Dictionary) WebRTCDataChannel
 }
 
-pub fn (mut r WebRTCPeerConnectionExtension) ucreate_data_channel(p_label string, p_config Dictionary) WebRTCDataChannel {
+pub fn (r &WebRTCPeerConnectionExtension) ucreate_data_channel(p_label string, p_config Dictionary) WebRTCDataChannel {
     mut object_out := WebRTCDataChannel{}
     classname := StringName.new("WebRTCPeerConnectionExtension")
     fnname := StringName.new("_create_data_channel")
@@ -92,7 +92,7 @@ pub interface IWebRTCPeerConnectionExtensionCreateOffer {
     virt_create_offer() GDError
 }
 
-pub fn (mut r WebRTCPeerConnectionExtension) ucreate_offer() GDError {
+pub fn (r &WebRTCPeerConnectionExtension) ucreate_offer() GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("WebRTCPeerConnectionExtension")
     fnname := StringName.new("_create_offer")
@@ -107,7 +107,7 @@ pub interface IWebRTCPeerConnectionExtensionSetRemoteDescription {
     virt_set_remote_description(p_type String, p_sdp String) GDError
 }
 
-pub fn (mut r WebRTCPeerConnectionExtension) uset_remote_description(p_type string, p_sdp string) GDError {
+pub fn (r &WebRTCPeerConnectionExtension) uset_remote_description(p_type string, p_sdp string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("WebRTCPeerConnectionExtension")
     fnname := StringName.new("_set_remote_description")
@@ -129,7 +129,7 @@ pub interface IWebRTCPeerConnectionExtensionSetLocalDescription {
     virt_set_local_description(p_type String, p_sdp String) GDError
 }
 
-pub fn (mut r WebRTCPeerConnectionExtension) uset_local_description(p_type string, p_sdp string) GDError {
+pub fn (r &WebRTCPeerConnectionExtension) uset_local_description(p_type string, p_sdp string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("WebRTCPeerConnectionExtension")
     fnname := StringName.new("_set_local_description")
@@ -151,7 +151,7 @@ pub interface IWebRTCPeerConnectionExtensionAddIceCandidate {
     virt_add_ice_candidate(p_sdp_mid_name String, p_sdp_mline_index i32, p_sdp_name String) GDError
 }
 
-pub fn (mut r WebRTCPeerConnectionExtension) uadd_ice_candidate(p_sdp_mid_name string, p_sdp_mline_index i32, p_sdp_name string) GDError {
+pub fn (r &WebRTCPeerConnectionExtension) uadd_ice_candidate(p_sdp_mid_name string, p_sdp_mline_index i32, p_sdp_name string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("WebRTCPeerConnectionExtension")
     fnname := StringName.new("_add_ice_candidate")
@@ -174,7 +174,7 @@ pub interface IWebRTCPeerConnectionExtensionPoll {
     virt_poll() GDError
 }
 
-pub fn (mut r WebRTCPeerConnectionExtension) upoll() GDError {
+pub fn (r &WebRTCPeerConnectionExtension) upoll() GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("WebRTCPeerConnectionExtension")
     fnname := StringName.new("_poll")
@@ -189,7 +189,7 @@ pub interface IWebRTCPeerConnectionExtensionClose {
     virt_close()
 }
 
-pub fn (mut r WebRTCPeerConnectionExtension) uclose() {
+pub fn (r &WebRTCPeerConnectionExtension) uclose() {
     classname := StringName.new("WebRTCPeerConnectionExtension")
     fnname := StringName.new("_close")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)

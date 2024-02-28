@@ -19,7 +19,7 @@ pub fn CameraServer.get_singleton() CameraServer {
     return o
 }
 
-pub fn (mut r CameraServer) get_feed(index i32) CameraFeed {
+pub fn (r &CameraServer) get_feed(index i32) CameraFeed {
     mut object_out := CameraFeed{}
     classname := StringName.new("CameraServer")
     fnname := StringName.new("get_feed")
@@ -31,7 +31,7 @@ pub fn (mut r CameraServer) get_feed(index i32) CameraFeed {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CameraServer) get_feed_count() i32 {
+pub fn (r &CameraServer) get_feed_count() i32 {
     mut object_out := i32(0)
     classname := StringName.new("CameraServer")
     fnname := StringName.new("get_feed_count")
@@ -41,7 +41,7 @@ pub fn (mut r CameraServer) get_feed_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CameraServer) feeds() Array {
+pub fn (r &CameraServer) feeds() Array {
     mut object_out := Array{}
     classname := StringName.new("CameraServer")
     fnname := StringName.new("feeds")
@@ -51,7 +51,7 @@ pub fn (mut r CameraServer) feeds() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CameraServer) add_feed(feed CameraFeed) {
+pub fn (r &CameraServer) add_feed(feed CameraFeed) {
     classname := StringName.new("CameraServer")
     fnname := StringName.new("add_feed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3204782488)
@@ -61,7 +61,7 @@ pub fn (mut r CameraServer) add_feed(feed CameraFeed) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CameraServer) remove_feed(feed CameraFeed) {
+pub fn (r &CameraServer) remove_feed(feed CameraFeed) {
     classname := StringName.new("CameraServer")
     fnname := StringName.new("remove_feed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3204782488)

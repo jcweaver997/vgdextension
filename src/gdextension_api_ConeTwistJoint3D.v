@@ -14,7 +14,7 @@ pub struct ConeTwistJoint3D {
     Joint3D
 }
 
-pub fn (mut r ConeTwistJoint3D) set_param(param ConeTwistJoint3DParam, value f64) {
+pub fn (r &ConeTwistJoint3D) set_param(param ConeTwistJoint3DParam, value f64) {
     classname := StringName.new("ConeTwistJoint3D")
     fnname := StringName.new("set_param")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1062470226)

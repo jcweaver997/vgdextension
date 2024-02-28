@@ -11,7 +11,7 @@ pub struct XRPose {
     RefCounted
 }
 
-pub fn (mut r XRPose) set_has_tracking_data(has_tracking_data bool) {
+pub fn (r &XRPose) set_has_tracking_data(has_tracking_data bool) {
     classname := StringName.new("XRPose")
     fnname := StringName.new("set_has_tracking_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -31,7 +31,7 @@ pub fn (r &XRPose) get_has_tracking_data() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r XRPose) set_name(name string) {
+pub fn (r &XRPose) set_name(name string) {
     classname := StringName.new("XRPose")
     fnname := StringName.new("set_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -55,7 +55,7 @@ pub fn (r &XRPose) get_name() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r XRPose) set_transform(transform Transform3D) {
+pub fn (r &XRPose) set_transform(transform Transform3D) {
     classname := StringName.new("XRPose")
     fnname := StringName.new("set_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2952846383)
@@ -85,7 +85,7 @@ pub fn (r &XRPose) get_adjusted_transform() Transform3D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r XRPose) set_linear_velocity(velocity Vector3) {
+pub fn (r &XRPose) set_linear_velocity(velocity Vector3) {
     classname := StringName.new("XRPose")
     fnname := StringName.new("set_linear_velocity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -105,7 +105,7 @@ pub fn (r &XRPose) get_linear_velocity() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r XRPose) set_angular_velocity(velocity Vector3) {
+pub fn (r &XRPose) set_angular_velocity(velocity Vector3) {
     classname := StringName.new("XRPose")
     fnname := StringName.new("set_angular_velocity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -125,7 +125,7 @@ pub fn (r &XRPose) get_angular_velocity() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r XRPose) set_tracking_confidence(tracking_confidence XRPoseTrackingConfidence) {
+pub fn (r &XRPose) set_tracking_confidence(tracking_confidence XRPoseTrackingConfidence) {
     classname := StringName.new("XRPose")
     fnname := StringName.new("set_tracking_confidence")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4171656666)

@@ -5,7 +5,7 @@ pub struct ShapeCast2D {
     Node2D
 }
 
-pub fn (mut r ShapeCast2D) set_enabled(enabled bool) {
+pub fn (r &ShapeCast2D) set_enabled(enabled bool) {
     classname := StringName.new("ShapeCast2D")
     fnname := StringName.new("set_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -25,7 +25,7 @@ pub fn (r &ShapeCast2D) is_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ShapeCast2D) set_shape(shape Shape2D) {
+pub fn (r &ShapeCast2D) set_shape(shape Shape2D) {
     classname := StringName.new("ShapeCast2D")
     fnname := StringName.new("set_shape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 771364740)
@@ -45,7 +45,7 @@ pub fn (r &ShapeCast2D) get_shape() Shape2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ShapeCast2D) set_target_position(local_point Vector2) {
+pub fn (r &ShapeCast2D) set_target_position(local_point Vector2) {
     classname := StringName.new("ShapeCast2D")
     fnname := StringName.new("set_target_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -65,7 +65,7 @@ pub fn (r &ShapeCast2D) get_target_position() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ShapeCast2D) set_margin(margin f64) {
+pub fn (r &ShapeCast2D) set_margin(margin f64) {
     classname := StringName.new("ShapeCast2D")
     fnname := StringName.new("set_margin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -85,7 +85,7 @@ pub fn (r &ShapeCast2D) get_margin() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ShapeCast2D) set_max_results(max_results i32) {
+pub fn (r &ShapeCast2D) set_max_results(max_results i32) {
     classname := StringName.new("ShapeCast2D")
     fnname := StringName.new("set_max_results")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -125,7 +125,7 @@ pub fn (r &ShapeCast2D) get_collision_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ShapeCast2D) force_shapecast_update() {
+pub fn (r &ShapeCast2D) force_shapecast_update() {
     classname := StringName.new("ShapeCast2D")
     fnname := StringName.new("force_shapecast_update")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -213,7 +213,7 @@ pub fn (r &ShapeCast2D) get_closest_collision_unsafe_fraction() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ShapeCast2D) add_exception_rid(rid RID) {
+pub fn (r &ShapeCast2D) add_exception_rid(rid RID) {
     classname := StringName.new("ShapeCast2D")
     fnname := StringName.new("add_exception_rid")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)
@@ -223,7 +223,7 @@ pub fn (mut r ShapeCast2D) add_exception_rid(rid RID) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ShapeCast2D) add_exception(node CollisionObject2D) {
+pub fn (r &ShapeCast2D) add_exception(node CollisionObject2D) {
     classname := StringName.new("ShapeCast2D")
     fnname := StringName.new("add_exception")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3090941106)
@@ -233,7 +233,7 @@ pub fn (mut r ShapeCast2D) add_exception(node CollisionObject2D) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ShapeCast2D) remove_exception_rid(rid RID) {
+pub fn (r &ShapeCast2D) remove_exception_rid(rid RID) {
     classname := StringName.new("ShapeCast2D")
     fnname := StringName.new("remove_exception_rid")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)
@@ -243,7 +243,7 @@ pub fn (mut r ShapeCast2D) remove_exception_rid(rid RID) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ShapeCast2D) remove_exception(node CollisionObject2D) {
+pub fn (r &ShapeCast2D) remove_exception(node CollisionObject2D) {
     classname := StringName.new("ShapeCast2D")
     fnname := StringName.new("remove_exception")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3090941106)
@@ -253,7 +253,7 @@ pub fn (mut r ShapeCast2D) remove_exception(node CollisionObject2D) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ShapeCast2D) clear_exceptions() {
+pub fn (r &ShapeCast2D) clear_exceptions() {
     classname := StringName.new("ShapeCast2D")
     fnname := StringName.new("clear_exceptions")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -261,7 +261,7 @@ pub fn (mut r ShapeCast2D) clear_exceptions() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ShapeCast2D) set_collision_mask(mask u32) {
+pub fn (r &ShapeCast2D) set_collision_mask(mask u32) {
     classname := StringName.new("ShapeCast2D")
     fnname := StringName.new("set_collision_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -281,7 +281,7 @@ pub fn (r &ShapeCast2D) get_collision_mask() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ShapeCast2D) set_collision_mask_value(layer_number i32, value bool) {
+pub fn (r &ShapeCast2D) set_collision_mask_value(layer_number i32, value bool) {
     classname := StringName.new("ShapeCast2D")
     fnname := StringName.new("set_collision_mask_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -304,7 +304,7 @@ pub fn (r &ShapeCast2D) get_collision_mask_value(layer_number i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ShapeCast2D) set_exclude_parent_body(mask bool) {
+pub fn (r &ShapeCast2D) set_exclude_parent_body(mask bool) {
     classname := StringName.new("ShapeCast2D")
     fnname := StringName.new("set_exclude_parent_body")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -324,7 +324,7 @@ pub fn (r &ShapeCast2D) get_exclude_parent_body() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ShapeCast2D) set_collide_with_areas(enable bool) {
+pub fn (r &ShapeCast2D) set_collide_with_areas(enable bool) {
     classname := StringName.new("ShapeCast2D")
     fnname := StringName.new("set_collide_with_areas")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -344,7 +344,7 @@ pub fn (r &ShapeCast2D) is_collide_with_areas_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ShapeCast2D) set_collide_with_bodies(enable bool) {
+pub fn (r &ShapeCast2D) set_collide_with_bodies(enable bool) {
     classname := StringName.new("ShapeCast2D")
     fnname := StringName.new("set_collide_with_bodies")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

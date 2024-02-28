@@ -24,7 +24,7 @@ pub struct EditorFileDialog {
     ConfirmationDialog
 }
 
-pub fn (mut r EditorFileDialog) clear_filters() {
+pub fn (r &EditorFileDialog) clear_filters() {
     classname := StringName.new("EditorFileDialog")
     fnname := StringName.new("clear_filters")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -32,7 +32,7 @@ pub fn (mut r EditorFileDialog) clear_filters() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorFileDialog) add_filter(filter string, description string) {
+pub fn (r &EditorFileDialog) add_filter(filter string, description string) {
     classname := StringName.new("EditorFileDialog")
     fnname := StringName.new("add_filter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3388804757)
@@ -47,7 +47,7 @@ pub fn (mut r EditorFileDialog) add_filter(filter string, description string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorFileDialog) set_filters(filters PackedStringArray) {
+pub fn (r &EditorFileDialog) set_filters(filters PackedStringArray) {
     classname := StringName.new("EditorFileDialog")
     fnname := StringName.new("set_filters")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4015028928)
@@ -103,7 +103,7 @@ pub fn (r &EditorFileDialog) get_current_path() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r EditorFileDialog) set_current_dir(dir string) {
+pub fn (r &EditorFileDialog) set_current_dir(dir string) {
     classname := StringName.new("EditorFileDialog")
     fnname := StringName.new("set_current_dir")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -115,7 +115,7 @@ pub fn (mut r EditorFileDialog) set_current_dir(dir string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorFileDialog) set_current_file(file string) {
+pub fn (r &EditorFileDialog) set_current_file(file string) {
     classname := StringName.new("EditorFileDialog")
     fnname := StringName.new("set_current_file")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -127,7 +127,7 @@ pub fn (mut r EditorFileDialog) set_current_file(file string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorFileDialog) set_current_path(path string) {
+pub fn (r &EditorFileDialog) set_current_path(path string) {
     classname := StringName.new("EditorFileDialog")
     fnname := StringName.new("set_current_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -139,7 +139,7 @@ pub fn (mut r EditorFileDialog) set_current_path(path string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorFileDialog) set_file_mode(mode EditorFileDialogFileMode) {
+pub fn (r &EditorFileDialog) set_file_mode(mode EditorFileDialogFileMode) {
     classname := StringName.new("EditorFileDialog")
     fnname := StringName.new("set_file_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 274150415)
@@ -160,7 +160,7 @@ pub fn (r &EditorFileDialog) get_file_mode() EditorFileDialogFileMode {
     fnname.deinit()
    return unsafe{EditorFileDialogFileMode(object_out)}
 }
-pub fn (mut r EditorFileDialog) get_vbox() VBoxContainer {
+pub fn (r &EditorFileDialog) get_vbox() VBoxContainer {
     mut object_out := VBoxContainer{}
     classname := StringName.new("EditorFileDialog")
     fnname := StringName.new("get_vbox")
@@ -170,7 +170,7 @@ pub fn (mut r EditorFileDialog) get_vbox() VBoxContainer {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorFileDialog) get_line_edit() LineEdit {
+pub fn (r &EditorFileDialog) get_line_edit() LineEdit {
     mut object_out := LineEdit{}
     classname := StringName.new("EditorFileDialog")
     fnname := StringName.new("get_line_edit")
@@ -180,7 +180,7 @@ pub fn (mut r EditorFileDialog) get_line_edit() LineEdit {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorFileDialog) set_access(access EditorFileDialogAccess) {
+pub fn (r &EditorFileDialog) set_access(access EditorFileDialogAccess) {
     classname := StringName.new("EditorFileDialog")
     fnname := StringName.new("set_access")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3882893764)
@@ -201,7 +201,7 @@ pub fn (r &EditorFileDialog) get_access() EditorFileDialogAccess {
     fnname.deinit()
    return unsafe{EditorFileDialogAccess(object_out)}
 }
-pub fn (mut r EditorFileDialog) set_show_hidden_files(show bool) {
+pub fn (r &EditorFileDialog) set_show_hidden_files(show bool) {
     classname := StringName.new("EditorFileDialog")
     fnname := StringName.new("set_show_hidden_files")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -221,7 +221,7 @@ pub fn (r &EditorFileDialog) is_showing_hidden_files() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorFileDialog) set_display_mode(mode EditorFileDialogDisplayMode) {
+pub fn (r &EditorFileDialog) set_display_mode(mode EditorFileDialogDisplayMode) {
     classname := StringName.new("EditorFileDialog")
     fnname := StringName.new("set_display_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3049004050)
@@ -242,7 +242,7 @@ pub fn (r &EditorFileDialog) get_display_mode() EditorFileDialogDisplayMode {
     fnname.deinit()
    return unsafe{EditorFileDialogDisplayMode(object_out)}
 }
-pub fn (mut r EditorFileDialog) set_disable_overwrite_warning(disable bool) {
+pub fn (r &EditorFileDialog) set_disable_overwrite_warning(disable bool) {
     classname := StringName.new("EditorFileDialog")
     fnname := StringName.new("set_disable_overwrite_warning")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -262,7 +262,7 @@ pub fn (r &EditorFileDialog) is_overwrite_warning_disabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorFileDialog) add_side_menu(menu Control, title string) {
+pub fn (r &EditorFileDialog) add_side_menu(menu Control, title string) {
     classname := StringName.new("EditorFileDialog")
     fnname := StringName.new("add_side_menu")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 402368861)
@@ -275,7 +275,7 @@ pub fn (mut r EditorFileDialog) add_side_menu(menu Control, title string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorFileDialog) invalidate() {
+pub fn (r &EditorFileDialog) invalidate() {
     classname := StringName.new("EditorFileDialog")
     fnname := StringName.new("invalidate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

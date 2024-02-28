@@ -5,7 +5,7 @@ pub struct SegmentShape2D {
     Shape2D
 }
 
-pub fn (mut r SegmentShape2D) set_a(a Vector2) {
+pub fn (r &SegmentShape2D) set_a(a Vector2) {
     classname := StringName.new("SegmentShape2D")
     fnname := StringName.new("set_a")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -25,7 +25,7 @@ pub fn (r &SegmentShape2D) get_a() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SegmentShape2D) set_b(b Vector2) {
+pub fn (r &SegmentShape2D) set_b(b Vector2) {
     classname := StringName.new("SegmentShape2D")
     fnname := StringName.new("set_b")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)

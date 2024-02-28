@@ -10,7 +10,7 @@ pub struct MultiMesh {
     Resource
 }
 
-pub fn (mut r MultiMesh) set_mesh(mesh Mesh) {
+pub fn (r &MultiMesh) set_mesh(mesh Mesh) {
     classname := StringName.new("MultiMesh")
     fnname := StringName.new("set_mesh")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 194775623)
@@ -30,7 +30,7 @@ pub fn (r &MultiMesh) get_mesh() Mesh {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MultiMesh) set_use_colors(enable bool) {
+pub fn (r &MultiMesh) set_use_colors(enable bool) {
     classname := StringName.new("MultiMesh")
     fnname := StringName.new("set_use_colors")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -50,7 +50,7 @@ pub fn (r &MultiMesh) is_using_colors() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MultiMesh) set_use_custom_data(enable bool) {
+pub fn (r &MultiMesh) set_use_custom_data(enable bool) {
     classname := StringName.new("MultiMesh")
     fnname := StringName.new("set_use_custom_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -70,7 +70,7 @@ pub fn (r &MultiMesh) is_using_custom_data() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MultiMesh) set_transform_format(format MultiMeshTransformFormat) {
+pub fn (r &MultiMesh) set_transform_format(format MultiMeshTransformFormat) {
     classname := StringName.new("MultiMesh")
     fnname := StringName.new("set_transform_format")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2404750322)
@@ -91,7 +91,7 @@ pub fn (r &MultiMesh) get_transform_format() MultiMeshTransformFormat {
     fnname.deinit()
    return unsafe{MultiMeshTransformFormat(object_out)}
 }
-pub fn (mut r MultiMesh) set_instance_count(count i32) {
+pub fn (r &MultiMesh) set_instance_count(count i32) {
     classname := StringName.new("MultiMesh")
     fnname := StringName.new("set_instance_count")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -111,7 +111,7 @@ pub fn (r &MultiMesh) get_instance_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MultiMesh) set_visible_instance_count(count i32) {
+pub fn (r &MultiMesh) set_visible_instance_count(count i32) {
     classname := StringName.new("MultiMesh")
     fnname := StringName.new("set_visible_instance_count")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -131,7 +131,7 @@ pub fn (r &MultiMesh) get_visible_instance_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MultiMesh) set_instance_transform(instance i32, transform Transform3D) {
+pub fn (r &MultiMesh) set_instance_transform(instance i32, transform Transform3D) {
     classname := StringName.new("MultiMesh")
     fnname := StringName.new("set_instance_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3616898986)
@@ -142,7 +142,7 @@ pub fn (mut r MultiMesh) set_instance_transform(instance i32, transform Transfor
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r MultiMesh) set_instance_transform_2d(instance i32, transform Transform2D) {
+pub fn (r &MultiMesh) set_instance_transform_2d(instance i32, transform Transform2D) {
     classname := StringName.new("MultiMesh")
     fnname := StringName.new("set_instance_transform_2d")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 30160968)
@@ -177,7 +177,7 @@ pub fn (r &MultiMesh) get_instance_transform_2d(instance i32) Transform2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MultiMesh) set_instance_color(instance i32, color Color) {
+pub fn (r &MultiMesh) set_instance_color(instance i32, color Color) {
     classname := StringName.new("MultiMesh")
     fnname := StringName.new("set_instance_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2878471219)
@@ -200,7 +200,7 @@ pub fn (r &MultiMesh) get_instance_color(instance i32) Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MultiMesh) set_instance_custom_data(instance i32, custom_data Color) {
+pub fn (r &MultiMesh) set_instance_custom_data(instance i32, custom_data Color) {
     classname := StringName.new("MultiMesh")
     fnname := StringName.new("set_instance_custom_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2878471219)
@@ -243,7 +243,7 @@ pub fn (r &MultiMesh) get_buffer() PackedFloat32Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MultiMesh) set_buffer(buffer PackedFloat32Array) {
+pub fn (r &MultiMesh) set_buffer(buffer PackedFloat32Array) {
     classname := StringName.new("MultiMesh")
     fnname := StringName.new("set_buffer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2899603908)

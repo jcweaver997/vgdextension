@@ -81,7 +81,7 @@ pub fn (r &StyleBox) get_minimum_size() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r StyleBox) set_content_margin(margin Side, offset f64) {
+pub fn (r &StyleBox) set_content_margin(margin Side, offset f64) {
     classname := StringName.new("StyleBox")
     fnname := StringName.new("set_content_margin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4290182280)
@@ -93,7 +93,7 @@ pub fn (mut r StyleBox) set_content_margin(margin Side, offset f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r StyleBox) set_content_margin_all(offset f64) {
+pub fn (r &StyleBox) set_content_margin_all(offset f64) {
     classname := StringName.new("StyleBox")
     fnname := StringName.new("set_content_margin_all")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

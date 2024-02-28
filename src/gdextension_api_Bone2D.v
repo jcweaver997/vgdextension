@@ -5,7 +5,7 @@ pub struct Bone2D {
     Node2D
 }
 
-pub fn (mut r Bone2D) set_rest(rest Transform2D) {
+pub fn (r &Bone2D) set_rest(rest Transform2D) {
     classname := StringName.new("Bone2D")
     fnname := StringName.new("set_rest")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2761652528)
@@ -25,7 +25,7 @@ pub fn (r &Bone2D) get_rest() Transform2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Bone2D) apply_rest() {
+pub fn (r &Bone2D) apply_rest() {
     classname := StringName.new("Bone2D")
     fnname := StringName.new("apply_rest")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -53,7 +53,7 @@ pub fn (r &Bone2D) get_index_in_skeleton() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Bone2D) set_autocalculate_length_and_angle(auto_calculate bool) {
+pub fn (r &Bone2D) set_autocalculate_length_and_angle(auto_calculate bool) {
     classname := StringName.new("Bone2D")
     fnname := StringName.new("set_autocalculate_length_and_angle")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -73,7 +73,7 @@ pub fn (r &Bone2D) get_autocalculate_length_and_angle() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Bone2D) set_length(length f64) {
+pub fn (r &Bone2D) set_length(length f64) {
     classname := StringName.new("Bone2D")
     fnname := StringName.new("set_length")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -93,7 +93,7 @@ pub fn (r &Bone2D) get_length() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Bone2D) set_bone_angle(angle f64) {
+pub fn (r &Bone2D) set_bone_angle(angle f64) {
     classname := StringName.new("Bone2D")
     fnname := StringName.new("set_bone_angle")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

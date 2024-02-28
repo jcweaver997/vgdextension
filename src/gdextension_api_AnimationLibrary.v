@@ -5,7 +5,7 @@ pub struct AnimationLibrary {
     Resource
 }
 
-pub fn (mut r AnimationLibrary) add_animation(name string, animation Animation) GDError {
+pub fn (r &AnimationLibrary) add_animation(name string, animation Animation) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("AnimationLibrary")
     fnname := StringName.new("add_animation")
@@ -20,7 +20,7 @@ pub fn (mut r AnimationLibrary) add_animation(name string, animation Animation) 
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r AnimationLibrary) remove_animation(name string) {
+pub fn (r &AnimationLibrary) remove_animation(name string) {
     classname := StringName.new("AnimationLibrary")
     fnname := StringName.new("remove_animation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -32,7 +32,7 @@ pub fn (mut r AnimationLibrary) remove_animation(name string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AnimationLibrary) rename_animation(name string, newname string) {
+pub fn (r &AnimationLibrary) rename_animation(name string, newname string) {
     classname := StringName.new("AnimationLibrary")
     fnname := StringName.new("rename_animation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3740211285)

@@ -5,7 +5,7 @@ pub struct Mutex {
     RefCounted
 }
 
-pub fn (mut r Mutex) gdlock() {
+pub fn (r &Mutex) gdlock() {
     classname := StringName.new("Mutex")
     fnname := StringName.new("lock")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -13,7 +13,7 @@ pub fn (mut r Mutex) gdlock() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Mutex) try_lock() bool {
+pub fn (r &Mutex) try_lock() bool {
     mut object_out := false
     classname := StringName.new("Mutex")
     fnname := StringName.new("try_lock")
@@ -23,7 +23,7 @@ pub fn (mut r Mutex) try_lock() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Mutex) unlock() {
+pub fn (r &Mutex) unlock() {
     classname := StringName.new("Mutex")
     fnname := StringName.new("unlock")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

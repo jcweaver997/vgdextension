@@ -11,7 +11,7 @@ pub struct GLTFDocument {
     Resource
 }
 
-pub fn (mut r GLTFDocument) append_from_file(path string, state GLTFState, flags u32, base_path string) GDError {
+pub fn (r &GLTFDocument) append_from_file(path string, state GLTFState, flags u32, base_path string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("GLTFDocument")
     fnname := StringName.new("append_from_file")
@@ -30,7 +30,7 @@ pub fn (mut r GLTFDocument) append_from_file(path string, state GLTFState, flags
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r GLTFDocument) append_from_buffer(bytes PackedByteArray, base_path string, state GLTFState, flags u32) GDError {
+pub fn (r &GLTFDocument) append_from_buffer(bytes PackedByteArray, base_path string, state GLTFState, flags u32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("GLTFDocument")
     fnname := StringName.new("append_from_buffer")
@@ -47,7 +47,7 @@ pub fn (mut r GLTFDocument) append_from_buffer(bytes PackedByteArray, base_path 
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r GLTFDocument) append_from_scene(node Node, state GLTFState, flags u32) GDError {
+pub fn (r &GLTFDocument) append_from_scene(node Node, state GLTFState, flags u32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("GLTFDocument")
     fnname := StringName.new("append_from_scene")
@@ -61,7 +61,7 @@ pub fn (mut r GLTFDocument) append_from_scene(node Node, state GLTFState, flags 
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r GLTFDocument) generate_scene(state GLTFState, bake_fps f64, trimming bool, remove_immutable_tracks bool) Node {
+pub fn (r &GLTFDocument) generate_scene(state GLTFState, bake_fps f64, trimming bool, remove_immutable_tracks bool) Node {
     mut object_out := Node{}
     classname := StringName.new("GLTFDocument")
     fnname := StringName.new("generate_scene")
@@ -76,7 +76,7 @@ pub fn (mut r GLTFDocument) generate_scene(state GLTFState, bake_fps f64, trimmi
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFDocument) generate_buffer(state GLTFState) PackedByteArray {
+pub fn (r &GLTFDocument) generate_buffer(state GLTFState) PackedByteArray {
     mut object_out := PackedByteArray{}
     classname := StringName.new("GLTFDocument")
     fnname := StringName.new("generate_buffer")
@@ -88,7 +88,7 @@ pub fn (mut r GLTFDocument) generate_buffer(state GLTFState) PackedByteArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFDocument) write_to_filesystem(state GLTFState, path string) GDError {
+pub fn (r &GLTFDocument) write_to_filesystem(state GLTFState, path string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("GLTFDocument")
     fnname := StringName.new("write_to_filesystem")
@@ -103,7 +103,7 @@ pub fn (mut r GLTFDocument) write_to_filesystem(state GLTFState, path string) GD
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r GLTFDocument) set_image_format(image_format string) {
+pub fn (r &GLTFDocument) set_image_format(image_format string) {
     classname := StringName.new("GLTFDocument")
     fnname := StringName.new("set_image_format")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -127,7 +127,7 @@ pub fn (r &GLTFDocument) get_image_format() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r GLTFDocument) set_lossy_quality(lossy_quality f64) {
+pub fn (r &GLTFDocument) set_lossy_quality(lossy_quality f64) {
     classname := StringName.new("GLTFDocument")
     fnname := StringName.new("set_lossy_quality")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -147,7 +147,7 @@ pub fn (r &GLTFDocument) get_lossy_quality() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFDocument) set_root_node_mode(root_node_mode GLTFDocumentRootNodeMode) {
+pub fn (r &GLTFDocument) set_root_node_mode(root_node_mode GLTFDocumentRootNodeMode) {
     classname := StringName.new("GLTFDocument")
     fnname := StringName.new("set_root_node_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 463633402)

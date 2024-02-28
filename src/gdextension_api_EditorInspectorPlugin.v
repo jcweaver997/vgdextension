@@ -27,7 +27,7 @@ pub interface IEditorInspectorPluginParseBegin {
     virt_parse_begin(object Object)
 }
 
-pub fn (mut r EditorInspectorPlugin) uparse_begin(object Object) {
+pub fn (r &EditorInspectorPlugin) uparse_begin(object Object) {
     classname := StringName.new("EditorInspectorPlugin")
     fnname := StringName.new("_parse_begin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -42,7 +42,7 @@ pub interface IEditorInspectorPluginParseCategory {
     virt_parse_category(object Object, category String)
 }
 
-pub fn (mut r EditorInspectorPlugin) uparse_category(object Object, category string) {
+pub fn (r &EditorInspectorPlugin) uparse_category(object Object, category string) {
     classname := StringName.new("EditorInspectorPlugin")
     fnname := StringName.new("_parse_category")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -60,7 +60,7 @@ pub interface IEditorInspectorPluginParseGroup {
     virt_parse_group(object Object, group String)
 }
 
-pub fn (mut r EditorInspectorPlugin) uparse_group(object Object, group string) {
+pub fn (r &EditorInspectorPlugin) uparse_group(object Object, group string) {
     classname := StringName.new("EditorInspectorPlugin")
     fnname := StringName.new("_parse_group")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -78,7 +78,7 @@ pub interface IEditorInspectorPluginParseProperty {
     virt_parse_property(object Object, type_name VariantType, name String, hint_type PropertyHint, hint_string String, usage_flags PropertyUsageFlags, wide bool) bool
 }
 
-pub fn (mut r EditorInspectorPlugin) uparse_property(object Object, type_name VariantType, name string, hint_type PropertyHint, hint_string string, usage_flags PropertyUsageFlags, wide bool) bool {
+pub fn (r &EditorInspectorPlugin) uparse_property(object Object, type_name VariantType, name string, hint_type PropertyHint, hint_string string, usage_flags PropertyUsageFlags, wide bool) bool {
     mut object_out := false
     classname := StringName.new("EditorInspectorPlugin")
     fnname := StringName.new("_parse_property")
@@ -108,7 +108,7 @@ pub interface IEditorInspectorPluginParseEnd {
     virt_parse_end(object Object)
 }
 
-pub fn (mut r EditorInspectorPlugin) uparse_end(object Object) {
+pub fn (r &EditorInspectorPlugin) uparse_end(object Object) {
     classname := StringName.new("EditorInspectorPlugin")
     fnname := StringName.new("_parse_end")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -118,7 +118,7 @@ pub fn (mut r EditorInspectorPlugin) uparse_end(object Object) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorInspectorPlugin) add_custom_control(control Control) {
+pub fn (r &EditorInspectorPlugin) add_custom_control(control Control) {
     classname := StringName.new("EditorInspectorPlugin")
     fnname := StringName.new("add_custom_control")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1496901182)
@@ -128,7 +128,7 @@ pub fn (mut r EditorInspectorPlugin) add_custom_control(control Control) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorInspectorPlugin) add_property_editor(property string, editor Control, add_to_end bool) {
+pub fn (r &EditorInspectorPlugin) add_property_editor(property string, editor Control, add_to_end bool) {
     classname := StringName.new("EditorInspectorPlugin")
     fnname := StringName.new("add_property_editor")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3406284123)
@@ -142,7 +142,7 @@ pub fn (mut r EditorInspectorPlugin) add_property_editor(property string, editor
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorInspectorPlugin) add_property_editor_for_multiple_properties(label string, properties PackedStringArray, editor Control) {
+pub fn (r &EditorInspectorPlugin) add_property_editor_for_multiple_properties(label string, properties PackedStringArray, editor Control) {
     classname := StringName.new("EditorInspectorPlugin")
     fnname := StringName.new("add_property_editor_for_multiple_properties")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 788598683)

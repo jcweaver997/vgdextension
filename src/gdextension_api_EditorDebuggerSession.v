@@ -5,7 +5,7 @@ pub struct EditorDebuggerSession {
     RefCounted
 }
 
-pub fn (mut r EditorDebuggerSession) send_message(message string, data Array) {
+pub fn (r &EditorDebuggerSession) send_message(message string, data Array) {
     classname := StringName.new("EditorDebuggerSession")
     fnname := StringName.new("send_message")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 85656714)
@@ -18,7 +18,7 @@ pub fn (mut r EditorDebuggerSession) send_message(message string, data Array) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorDebuggerSession) toggle_profiler(profiler string, enable bool, data Array) {
+pub fn (r &EditorDebuggerSession) toggle_profiler(profiler string, enable bool, data Array) {
     classname := StringName.new("EditorDebuggerSession")
     fnname := StringName.new("toggle_profiler")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1198443697)
@@ -32,7 +32,7 @@ pub fn (mut r EditorDebuggerSession) toggle_profiler(profiler string, enable boo
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorDebuggerSession) is_breaked() bool {
+pub fn (r &EditorDebuggerSession) is_breaked() bool {
     mut object_out := false
     classname := StringName.new("EditorDebuggerSession")
     fnname := StringName.new("is_breaked")
@@ -42,7 +42,7 @@ pub fn (mut r EditorDebuggerSession) is_breaked() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorDebuggerSession) is_debuggable() bool {
+pub fn (r &EditorDebuggerSession) is_debuggable() bool {
     mut object_out := false
     classname := StringName.new("EditorDebuggerSession")
     fnname := StringName.new("is_debuggable")
@@ -52,7 +52,7 @@ pub fn (mut r EditorDebuggerSession) is_debuggable() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorDebuggerSession) is_active() bool {
+pub fn (r &EditorDebuggerSession) is_active() bool {
     mut object_out := false
     classname := StringName.new("EditorDebuggerSession")
     fnname := StringName.new("is_active")
@@ -62,7 +62,7 @@ pub fn (mut r EditorDebuggerSession) is_active() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorDebuggerSession) add_session_tab(control Control) {
+pub fn (r &EditorDebuggerSession) add_session_tab(control Control) {
     classname := StringName.new("EditorDebuggerSession")
     fnname := StringName.new("add_session_tab")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1496901182)
@@ -72,7 +72,7 @@ pub fn (mut r EditorDebuggerSession) add_session_tab(control Control) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorDebuggerSession) remove_session_tab(control Control) {
+pub fn (r &EditorDebuggerSession) remove_session_tab(control Control) {
     classname := StringName.new("EditorDebuggerSession")
     fnname := StringName.new("remove_session_tab")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1496901182)

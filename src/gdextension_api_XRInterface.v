@@ -59,7 +59,7 @@ pub fn (r &XRInterface) get_capabilities() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r XRInterface) is_primary() bool {
+pub fn (r &XRInterface) is_primary() bool {
     mut object_out := false
     classname := StringName.new("XRInterface")
     fnname := StringName.new("is_primary")
@@ -69,7 +69,7 @@ pub fn (mut r XRInterface) is_primary() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r XRInterface) set_primary(primary bool) {
+pub fn (r &XRInterface) set_primary(primary bool) {
     classname := StringName.new("XRInterface")
     fnname := StringName.new("set_primary")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -89,7 +89,7 @@ pub fn (r &XRInterface) is_initialized() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r XRInterface) initialize() bool {
+pub fn (r &XRInterface) initialize() bool {
     mut object_out := false
     classname := StringName.new("XRInterface")
     fnname := StringName.new("initialize")
@@ -99,7 +99,7 @@ pub fn (mut r XRInterface) initialize() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r XRInterface) uninitialize() {
+pub fn (r &XRInterface) uninitialize() {
     classname := StringName.new("XRInterface")
     fnname := StringName.new("uninitialize")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -107,7 +107,7 @@ pub fn (mut r XRInterface) uninitialize() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r XRInterface) get_system_info() Dictionary {
+pub fn (r &XRInterface) get_system_info() Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("XRInterface")
     fnname := StringName.new("get_system_info")
@@ -127,7 +127,7 @@ pub fn (r &XRInterface) get_tracking_status() XRInterfaceTrackingStatus {
     fnname.deinit()
    return unsafe{XRInterfaceTrackingStatus(object_out)}
 }
-pub fn (mut r XRInterface) get_render_target_size() Vector2 {
+pub fn (r &XRInterface) get_render_target_size() Vector2 {
     mut object_out := Vector2{}
     classname := StringName.new("XRInterface")
     fnname := StringName.new("get_render_target_size")
@@ -137,7 +137,7 @@ pub fn (mut r XRInterface) get_render_target_size() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r XRInterface) get_view_count() u32 {
+pub fn (r &XRInterface) get_view_count() u32 {
     mut object_out := u32(0)
     classname := StringName.new("XRInterface")
     fnname := StringName.new("get_view_count")
@@ -147,7 +147,7 @@ pub fn (mut r XRInterface) get_view_count() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r XRInterface) trigger_haptic_pulse(action_name string, tracker_name string, frequency f64, amplitude f64, duration_sec f64, delay_sec f64) {
+pub fn (r &XRInterface) trigger_haptic_pulse(action_name string, tracker_name string, frequency f64, amplitude f64, duration_sec f64, delay_sec f64) {
     classname := StringName.new("XRInterface")
     fnname := StringName.new("trigger_haptic_pulse")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3752640163)
@@ -166,7 +166,7 @@ pub fn (mut r XRInterface) trigger_haptic_pulse(action_name string, tracker_name
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r XRInterface) supports_play_area_mode(mode XRInterfacePlayAreaMode) bool {
+pub fn (r &XRInterface) supports_play_area_mode(mode XRInterfacePlayAreaMode) bool {
     mut object_out := false
     classname := StringName.new("XRInterface")
     fnname := StringName.new("supports_play_area_mode")
@@ -189,7 +189,7 @@ pub fn (r &XRInterface) get_play_area_mode() XRInterfacePlayAreaMode {
     fnname.deinit()
    return unsafe{XRInterfacePlayAreaMode(object_out)}
 }
-pub fn (mut r XRInterface) set_play_area_mode(mode XRInterfacePlayAreaMode) bool {
+pub fn (r &XRInterface) set_play_area_mode(mode XRInterfacePlayAreaMode) bool {
     mut object_out := false
     classname := StringName.new("XRInterface")
     fnname := StringName.new("set_play_area_mode")
@@ -222,7 +222,7 @@ pub fn (r &XRInterface) get_anchor_detection_is_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r XRInterface) set_anchor_detection_is_enabled(enable bool) {
+pub fn (r &XRInterface) set_anchor_detection_is_enabled(enable bool) {
     classname := StringName.new("XRInterface")
     fnname := StringName.new("set_anchor_detection_is_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -232,7 +232,7 @@ pub fn (mut r XRInterface) set_anchor_detection_is_enabled(enable bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r XRInterface) get_camera_feed_id() i32 {
+pub fn (r &XRInterface) get_camera_feed_id() i32 {
     mut object_out := i32(0)
     classname := StringName.new("XRInterface")
     fnname := StringName.new("get_camera_feed_id")
@@ -242,7 +242,7 @@ pub fn (mut r XRInterface) get_camera_feed_id() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r XRInterface) is_passthrough_supported() bool {
+pub fn (r &XRInterface) is_passthrough_supported() bool {
     mut object_out := false
     classname := StringName.new("XRInterface")
     fnname := StringName.new("is_passthrough_supported")
@@ -252,7 +252,7 @@ pub fn (mut r XRInterface) is_passthrough_supported() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r XRInterface) is_passthrough_enabled() bool {
+pub fn (r &XRInterface) is_passthrough_enabled() bool {
     mut object_out := false
     classname := StringName.new("XRInterface")
     fnname := StringName.new("is_passthrough_enabled")
@@ -262,7 +262,7 @@ pub fn (mut r XRInterface) is_passthrough_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r XRInterface) start_passthrough() bool {
+pub fn (r &XRInterface) start_passthrough() bool {
     mut object_out := false
     classname := StringName.new("XRInterface")
     fnname := StringName.new("start_passthrough")
@@ -272,7 +272,7 @@ pub fn (mut r XRInterface) start_passthrough() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r XRInterface) stop_passthrough() {
+pub fn (r &XRInterface) stop_passthrough() {
     classname := StringName.new("XRInterface")
     fnname := StringName.new("stop_passthrough")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -280,7 +280,7 @@ pub fn (mut r XRInterface) stop_passthrough() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r XRInterface) get_transform_for_view(view u32, cam_transform Transform3D) Transform3D {
+pub fn (r &XRInterface) get_transform_for_view(view u32, cam_transform Transform3D) Transform3D {
     mut object_out := Transform3D{}
     classname := StringName.new("XRInterface")
     fnname := StringName.new("get_transform_for_view")
@@ -293,7 +293,7 @@ pub fn (mut r XRInterface) get_transform_for_view(view u32, cam_transform Transf
     fnname.deinit()
    return object_out
 }
-pub fn (mut r XRInterface) get_projection_for_view(view u32, aspect f64, near f64, far f64) Projection {
+pub fn (r &XRInterface) get_projection_for_view(view u32, aspect f64, near f64, far f64) Projection {
     mut object_out := Projection{}
     classname := StringName.new("XRInterface")
     fnname := StringName.new("get_projection_for_view")
@@ -308,7 +308,7 @@ pub fn (mut r XRInterface) get_projection_for_view(view u32, aspect f64, near f6
     fnname.deinit()
    return object_out
 }
-pub fn (mut r XRInterface) get_supported_environment_blend_modes() Array {
+pub fn (r &XRInterface) get_supported_environment_blend_modes() Array {
     mut object_out := Array{}
     classname := StringName.new("XRInterface")
     fnname := StringName.new("get_supported_environment_blend_modes")
@@ -318,7 +318,7 @@ pub fn (mut r XRInterface) get_supported_environment_blend_modes() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r XRInterface) set_environment_blend_mode(mode XRInterfaceEnvironmentBlendMode) bool {
+pub fn (r &XRInterface) set_environment_blend_mode(mode XRInterfaceEnvironmentBlendMode) bool {
     mut object_out := false
     classname := StringName.new("XRInterface")
     fnname := StringName.new("set_environment_blend_mode")

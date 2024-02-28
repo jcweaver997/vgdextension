@@ -32,7 +32,7 @@ pub struct GeometryInstance3D {
     VisualInstance3D
 }
 
-pub fn (mut r GeometryInstance3D) set_material_override(material Material) {
+pub fn (r &GeometryInstance3D) set_material_override(material Material) {
     classname := StringName.new("GeometryInstance3D")
     fnname := StringName.new("set_material_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2757459619)
@@ -52,7 +52,7 @@ pub fn (r &GeometryInstance3D) get_material_override() Material {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GeometryInstance3D) set_material_overlay(material Material) {
+pub fn (r &GeometryInstance3D) set_material_overlay(material Material) {
     classname := StringName.new("GeometryInstance3D")
     fnname := StringName.new("set_material_overlay")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2757459619)
@@ -72,7 +72,7 @@ pub fn (r &GeometryInstance3D) get_material_overlay() Material {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GeometryInstance3D) set_cast_shadows_setting(shadow_casting_setting GeometryInstance3DShadowCastingSetting) {
+pub fn (r &GeometryInstance3D) set_cast_shadows_setting(shadow_casting_setting GeometryInstance3DShadowCastingSetting) {
     classname := StringName.new("GeometryInstance3D")
     fnname := StringName.new("set_cast_shadows_setting")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 856677339)
@@ -93,7 +93,7 @@ pub fn (r &GeometryInstance3D) get_cast_shadows_setting() GeometryInstance3DShad
     fnname.deinit()
    return unsafe{GeometryInstance3DShadowCastingSetting(object_out)}
 }
-pub fn (mut r GeometryInstance3D) set_lod_bias(bias f64) {
+pub fn (r &GeometryInstance3D) set_lod_bias(bias f64) {
     classname := StringName.new("GeometryInstance3D")
     fnname := StringName.new("set_lod_bias")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -113,7 +113,7 @@ pub fn (r &GeometryInstance3D) get_lod_bias() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GeometryInstance3D) set_transparency(transparency f64) {
+pub fn (r &GeometryInstance3D) set_transparency(transparency f64) {
     classname := StringName.new("GeometryInstance3D")
     fnname := StringName.new("set_transparency")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -133,7 +133,7 @@ pub fn (r &GeometryInstance3D) get_transparency() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GeometryInstance3D) set_visibility_range_end_margin(distance f64) {
+pub fn (r &GeometryInstance3D) set_visibility_range_end_margin(distance f64) {
     classname := StringName.new("GeometryInstance3D")
     fnname := StringName.new("set_visibility_range_end_margin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -153,7 +153,7 @@ pub fn (r &GeometryInstance3D) get_visibility_range_end_margin() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GeometryInstance3D) set_visibility_range_end(distance f64) {
+pub fn (r &GeometryInstance3D) set_visibility_range_end(distance f64) {
     classname := StringName.new("GeometryInstance3D")
     fnname := StringName.new("set_visibility_range_end")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -173,7 +173,7 @@ pub fn (r &GeometryInstance3D) get_visibility_range_end() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GeometryInstance3D) set_visibility_range_begin_margin(distance f64) {
+pub fn (r &GeometryInstance3D) set_visibility_range_begin_margin(distance f64) {
     classname := StringName.new("GeometryInstance3D")
     fnname := StringName.new("set_visibility_range_begin_margin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -193,7 +193,7 @@ pub fn (r &GeometryInstance3D) get_visibility_range_begin_margin() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GeometryInstance3D) set_visibility_range_begin(distance f64) {
+pub fn (r &GeometryInstance3D) set_visibility_range_begin(distance f64) {
     classname := StringName.new("GeometryInstance3D")
     fnname := StringName.new("set_visibility_range_begin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -213,7 +213,7 @@ pub fn (r &GeometryInstance3D) get_visibility_range_begin() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GeometryInstance3D) set_visibility_range_fade_mode(mode GeometryInstance3DVisibilityRangeFadeMode) {
+pub fn (r &GeometryInstance3D) set_visibility_range_fade_mode(mode GeometryInstance3DVisibilityRangeFadeMode) {
     classname := StringName.new("GeometryInstance3D")
     fnname := StringName.new("set_visibility_range_fade_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1440117808)
@@ -234,7 +234,7 @@ pub fn (r &GeometryInstance3D) get_visibility_range_fade_mode() GeometryInstance
     fnname.deinit()
    return unsafe{GeometryInstance3DVisibilityRangeFadeMode(object_out)}
 }
-pub fn (mut r GeometryInstance3D) set_instance_shader_parameter(name string, value Variant) {
+pub fn (r &GeometryInstance3D) set_instance_shader_parameter(name string, value Variant) {
     classname := StringName.new("GeometryInstance3D")
     fnname := StringName.new("set_instance_shader_parameter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3776071444)
@@ -261,7 +261,7 @@ pub fn (r &GeometryInstance3D) get_instance_shader_parameter(name string) Varian
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GeometryInstance3D) set_extra_cull_margin(margin f64) {
+pub fn (r &GeometryInstance3D) set_extra_cull_margin(margin f64) {
     classname := StringName.new("GeometryInstance3D")
     fnname := StringName.new("set_extra_cull_margin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -281,7 +281,7 @@ pub fn (r &GeometryInstance3D) get_extra_cull_margin() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GeometryInstance3D) set_lightmap_scale(scale GeometryInstance3DLightmapScale) {
+pub fn (r &GeometryInstance3D) set_lightmap_scale(scale GeometryInstance3DLightmapScale) {
     classname := StringName.new("GeometryInstance3D")
     fnname := StringName.new("set_lightmap_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2462696582)
@@ -302,7 +302,7 @@ pub fn (r &GeometryInstance3D) get_lightmap_scale() GeometryInstance3DLightmapSc
     fnname.deinit()
    return unsafe{GeometryInstance3DLightmapScale(object_out)}
 }
-pub fn (mut r GeometryInstance3D) set_gi_mode(mode GeometryInstance3DGIMode) {
+pub fn (r &GeometryInstance3D) set_gi_mode(mode GeometryInstance3DGIMode) {
     classname := StringName.new("GeometryInstance3D")
     fnname := StringName.new("set_gi_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2548557163)
@@ -323,7 +323,7 @@ pub fn (r &GeometryInstance3D) get_gi_mode() GeometryInstance3DGIMode {
     fnname.deinit()
    return unsafe{GeometryInstance3DGIMode(object_out)}
 }
-pub fn (mut r GeometryInstance3D) set_ignore_occlusion_culling(ignore_culling bool) {
+pub fn (r &GeometryInstance3D) set_ignore_occlusion_culling(ignore_culling bool) {
     classname := StringName.new("GeometryInstance3D")
     fnname := StringName.new("set_ignore_occlusion_culling")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -333,7 +333,7 @@ pub fn (mut r GeometryInstance3D) set_ignore_occlusion_culling(ignore_culling bo
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GeometryInstance3D) is_ignoring_occlusion_culling() bool {
+pub fn (r &GeometryInstance3D) is_ignoring_occlusion_culling() bool {
     mut object_out := false
     classname := StringName.new("GeometryInstance3D")
     fnname := StringName.new("is_ignoring_occlusion_culling")
@@ -343,7 +343,7 @@ pub fn (mut r GeometryInstance3D) is_ignoring_occlusion_culling() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GeometryInstance3D) set_custom_aabb(aabb AABB) {
+pub fn (r &GeometryInstance3D) set_custom_aabb(aabb AABB) {
     classname := StringName.new("GeometryInstance3D")
     fnname := StringName.new("set_custom_aabb")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 259215842)

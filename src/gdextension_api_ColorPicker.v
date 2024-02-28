@@ -20,7 +20,7 @@ pub struct ColorPicker {
     VBoxContainer
 }
 
-pub fn (mut r ColorPicker) set_pick_color(color Color) {
+pub fn (r &ColorPicker) set_pick_color(color Color) {
     classname := StringName.new("ColorPicker")
     fnname := StringName.new("set_pick_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -40,7 +40,7 @@ pub fn (r &ColorPicker) get_pick_color() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ColorPicker) set_deferred_mode(mode bool) {
+pub fn (r &ColorPicker) set_deferred_mode(mode bool) {
     classname := StringName.new("ColorPicker")
     fnname := StringName.new("set_deferred_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -60,7 +60,7 @@ pub fn (r &ColorPicker) is_deferred_mode() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ColorPicker) set_color_mode(color_mode ColorPickerColorModeType) {
+pub fn (r &ColorPicker) set_color_mode(color_mode ColorPickerColorModeType) {
     classname := StringName.new("ColorPicker")
     fnname := StringName.new("set_color_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1579114136)
@@ -81,7 +81,7 @@ pub fn (r &ColorPicker) get_color_mode() ColorPickerColorModeType {
     fnname.deinit()
    return unsafe{ColorPickerColorModeType(object_out)}
 }
-pub fn (mut r ColorPicker) set_edit_alpha(show bool) {
+pub fn (r &ColorPicker) set_edit_alpha(show bool) {
     classname := StringName.new("ColorPicker")
     fnname := StringName.new("set_edit_alpha")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -101,7 +101,7 @@ pub fn (r &ColorPicker) is_editing_alpha() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ColorPicker) set_can_add_swatches(enabled bool) {
+pub fn (r &ColorPicker) set_can_add_swatches(enabled bool) {
     classname := StringName.new("ColorPicker")
     fnname := StringName.new("set_can_add_swatches")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -121,7 +121,7 @@ pub fn (r &ColorPicker) are_swatches_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ColorPicker) set_presets_visible(visible bool) {
+pub fn (r &ColorPicker) set_presets_visible(visible bool) {
     classname := StringName.new("ColorPicker")
     fnname := StringName.new("set_presets_visible")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -141,7 +141,7 @@ pub fn (r &ColorPicker) are_presets_visible() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ColorPicker) set_modes_visible(visible bool) {
+pub fn (r &ColorPicker) set_modes_visible(visible bool) {
     classname := StringName.new("ColorPicker")
     fnname := StringName.new("set_modes_visible")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -161,7 +161,7 @@ pub fn (r &ColorPicker) are_modes_visible() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ColorPicker) set_sampler_visible(visible bool) {
+pub fn (r &ColorPicker) set_sampler_visible(visible bool) {
     classname := StringName.new("ColorPicker")
     fnname := StringName.new("set_sampler_visible")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -181,7 +181,7 @@ pub fn (r &ColorPicker) is_sampler_visible() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ColorPicker) set_sliders_visible(visible bool) {
+pub fn (r &ColorPicker) set_sliders_visible(visible bool) {
     classname := StringName.new("ColorPicker")
     fnname := StringName.new("set_sliders_visible")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -201,7 +201,7 @@ pub fn (r &ColorPicker) are_sliders_visible() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ColorPicker) set_hex_visible(visible bool) {
+pub fn (r &ColorPicker) set_hex_visible(visible bool) {
     classname := StringName.new("ColorPicker")
     fnname := StringName.new("set_hex_visible")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -221,7 +221,7 @@ pub fn (r &ColorPicker) is_hex_visible() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ColorPicker) add_preset(color Color) {
+pub fn (r &ColorPicker) add_preset(color Color) {
     classname := StringName.new("ColorPicker")
     fnname := StringName.new("add_preset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -231,7 +231,7 @@ pub fn (mut r ColorPicker) add_preset(color Color) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ColorPicker) erase_preset(color Color) {
+pub fn (r &ColorPicker) erase_preset(color Color) {
     classname := StringName.new("ColorPicker")
     fnname := StringName.new("erase_preset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -251,7 +251,7 @@ pub fn (r &ColorPicker) get_presets() PackedColorArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ColorPicker) add_recent_preset(color Color) {
+pub fn (r &ColorPicker) add_recent_preset(color Color) {
     classname := StringName.new("ColorPicker")
     fnname := StringName.new("add_recent_preset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -261,7 +261,7 @@ pub fn (mut r ColorPicker) add_recent_preset(color Color) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ColorPicker) erase_recent_preset(color Color) {
+pub fn (r &ColorPicker) erase_recent_preset(color Color) {
     classname := StringName.new("ColorPicker")
     fnname := StringName.new("erase_recent_preset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -281,7 +281,7 @@ pub fn (r &ColorPicker) get_recent_presets() PackedColorArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ColorPicker) set_picker_shape(shape ColorPickerPickerShapeType) {
+pub fn (r &ColorPicker) set_picker_shape(shape ColorPickerPickerShapeType) {
     classname := StringName.new("ColorPicker")
     fnname := StringName.new("set_picker_shape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3981373861)

@@ -5,7 +5,7 @@ pub struct StyleBoxFlat {
     StyleBox
 }
 
-pub fn (mut r StyleBoxFlat) set_bg_color(color Color) {
+pub fn (r &StyleBoxFlat) set_bg_color(color Color) {
     classname := StringName.new("StyleBoxFlat")
     fnname := StringName.new("set_bg_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -25,7 +25,7 @@ pub fn (r &StyleBoxFlat) get_bg_color() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r StyleBoxFlat) set_border_color(color Color) {
+pub fn (r &StyleBoxFlat) set_border_color(color Color) {
     classname := StringName.new("StyleBoxFlat")
     fnname := StringName.new("set_border_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -45,7 +45,7 @@ pub fn (r &StyleBoxFlat) get_border_color() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r StyleBoxFlat) set_border_width_all(width i32) {
+pub fn (r &StyleBoxFlat) set_border_width_all(width i32) {
     classname := StringName.new("StyleBoxFlat")
     fnname := StringName.new("set_border_width_all")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -65,7 +65,7 @@ pub fn (r &StyleBoxFlat) get_border_width_min() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r StyleBoxFlat) set_border_width(margin Side, width i32) {
+pub fn (r &StyleBoxFlat) set_border_width(margin Side, width i32) {
     classname := StringName.new("StyleBoxFlat")
     fnname := StringName.new("set_border_width")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 437707142)
@@ -90,7 +90,7 @@ pub fn (r &StyleBoxFlat) get_border_width(margin Side) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r StyleBoxFlat) set_border_blend(blend bool) {
+pub fn (r &StyleBoxFlat) set_border_blend(blend bool) {
     classname := StringName.new("StyleBoxFlat")
     fnname := StringName.new("set_border_blend")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -110,7 +110,7 @@ pub fn (r &StyleBoxFlat) get_border_blend() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r StyleBoxFlat) set_corner_radius_all(radius i32) {
+pub fn (r &StyleBoxFlat) set_corner_radius_all(radius i32) {
     classname := StringName.new("StyleBoxFlat")
     fnname := StringName.new("set_corner_radius_all")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -120,7 +120,7 @@ pub fn (mut r StyleBoxFlat) set_corner_radius_all(radius i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r StyleBoxFlat) set_corner_radius(corner Corner, radius i32) {
+pub fn (r &StyleBoxFlat) set_corner_radius(corner Corner, radius i32) {
     classname := StringName.new("StyleBoxFlat")
     fnname := StringName.new("set_corner_radius")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2696158768)
@@ -145,7 +145,7 @@ pub fn (r &StyleBoxFlat) get_corner_radius(corner Corner) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r StyleBoxFlat) set_expand_margin(margin Side, size f64) {
+pub fn (r &StyleBoxFlat) set_expand_margin(margin Side, size f64) {
     classname := StringName.new("StyleBoxFlat")
     fnname := StringName.new("set_expand_margin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4290182280)
@@ -157,7 +157,7 @@ pub fn (mut r StyleBoxFlat) set_expand_margin(margin Side, size f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r StyleBoxFlat) set_expand_margin_all(size f64) {
+pub fn (r &StyleBoxFlat) set_expand_margin_all(size f64) {
     classname := StringName.new("StyleBoxFlat")
     fnname := StringName.new("set_expand_margin_all")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -180,7 +180,7 @@ pub fn (r &StyleBoxFlat) get_expand_margin(margin Side) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r StyleBoxFlat) set_draw_center(draw_center bool) {
+pub fn (r &StyleBoxFlat) set_draw_center(draw_center bool) {
     classname := StringName.new("StyleBoxFlat")
     fnname := StringName.new("set_draw_center")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -200,7 +200,7 @@ pub fn (r &StyleBoxFlat) is_draw_center_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r StyleBoxFlat) set_skew(skew Vector2) {
+pub fn (r &StyleBoxFlat) set_skew(skew Vector2) {
     classname := StringName.new("StyleBoxFlat")
     fnname := StringName.new("set_skew")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -220,7 +220,7 @@ pub fn (r &StyleBoxFlat) get_skew() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r StyleBoxFlat) set_shadow_color(color Color) {
+pub fn (r &StyleBoxFlat) set_shadow_color(color Color) {
     classname := StringName.new("StyleBoxFlat")
     fnname := StringName.new("set_shadow_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -240,7 +240,7 @@ pub fn (r &StyleBoxFlat) get_shadow_color() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r StyleBoxFlat) set_shadow_size(size i32) {
+pub fn (r &StyleBoxFlat) set_shadow_size(size i32) {
     classname := StringName.new("StyleBoxFlat")
     fnname := StringName.new("set_shadow_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -260,7 +260,7 @@ pub fn (r &StyleBoxFlat) get_shadow_size() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r StyleBoxFlat) set_shadow_offset(offset Vector2) {
+pub fn (r &StyleBoxFlat) set_shadow_offset(offset Vector2) {
     classname := StringName.new("StyleBoxFlat")
     fnname := StringName.new("set_shadow_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -280,7 +280,7 @@ pub fn (r &StyleBoxFlat) get_shadow_offset() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r StyleBoxFlat) set_anti_aliased(anti_aliased bool) {
+pub fn (r &StyleBoxFlat) set_anti_aliased(anti_aliased bool) {
     classname := StringName.new("StyleBoxFlat")
     fnname := StringName.new("set_anti_aliased")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -300,7 +300,7 @@ pub fn (r &StyleBoxFlat) is_anti_aliased() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r StyleBoxFlat) set_aa_size(size f64) {
+pub fn (r &StyleBoxFlat) set_aa_size(size f64) {
     classname := StringName.new("StyleBoxFlat")
     fnname := StringName.new("set_aa_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -320,7 +320,7 @@ pub fn (r &StyleBoxFlat) get_aa_size() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r StyleBoxFlat) set_corner_detail(detail i32) {
+pub fn (r &StyleBoxFlat) set_corner_detail(detail i32) {
     classname := StringName.new("StyleBoxFlat")
     fnname := StringName.new("set_corner_detail")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

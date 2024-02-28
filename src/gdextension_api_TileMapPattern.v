@@ -5,7 +5,7 @@ pub struct TileMapPattern {
     Resource
 }
 
-pub fn (mut r TileMapPattern) set_cell(coords Vector2i, source_id i32, atlas_coords Vector2i, alternative_tile i32) {
+pub fn (r &TileMapPattern) set_cell(coords Vector2i, source_id i32, atlas_coords Vector2i, alternative_tile i32) {
     classname := StringName.new("TileMapPattern")
     fnname := StringName.new("set_cell")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2224802556)
@@ -30,7 +30,7 @@ pub fn (r &TileMapPattern) has_cell(coords Vector2i) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileMapPattern) remove_cell(coords Vector2i, update_size bool) {
+pub fn (r &TileMapPattern) remove_cell(coords Vector2i, update_size bool) {
     classname := StringName.new("TileMapPattern")
     fnname := StringName.new("remove_cell")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4153096796)
@@ -97,7 +97,7 @@ pub fn (r &TileMapPattern) get_size() Vector2i {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileMapPattern) set_size(size Vector2i) {
+pub fn (r &TileMapPattern) set_size(size Vector2i) {
     classname := StringName.new("TileMapPattern")
     fnname := StringName.new("set_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1130785943)

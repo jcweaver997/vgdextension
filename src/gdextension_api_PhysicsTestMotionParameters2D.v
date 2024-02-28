@@ -15,7 +15,7 @@ pub fn (r &PhysicsTestMotionParameters2D) get_from() Transform2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsTestMotionParameters2D) set_from(from Transform2D) {
+pub fn (r &PhysicsTestMotionParameters2D) set_from(from Transform2D) {
     classname := StringName.new("PhysicsTestMotionParameters2D")
     fnname := StringName.new("set_from")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2761652528)
@@ -35,7 +35,7 @@ pub fn (r &PhysicsTestMotionParameters2D) get_motion() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsTestMotionParameters2D) set_motion(motion Vector2) {
+pub fn (r &PhysicsTestMotionParameters2D) set_motion(motion Vector2) {
     classname := StringName.new("PhysicsTestMotionParameters2D")
     fnname := StringName.new("set_motion")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -55,7 +55,7 @@ pub fn (r &PhysicsTestMotionParameters2D) get_margin() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsTestMotionParameters2D) set_margin(margin f64) {
+pub fn (r &PhysicsTestMotionParameters2D) set_margin(margin f64) {
     classname := StringName.new("PhysicsTestMotionParameters2D")
     fnname := StringName.new("set_margin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -75,7 +75,7 @@ pub fn (r &PhysicsTestMotionParameters2D) is_collide_separation_ray_enabled() bo
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsTestMotionParameters2D) set_collide_separation_ray_enabled(enabled bool) {
+pub fn (r &PhysicsTestMotionParameters2D) set_collide_separation_ray_enabled(enabled bool) {
     classname := StringName.new("PhysicsTestMotionParameters2D")
     fnname := StringName.new("set_collide_separation_ray_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -95,7 +95,7 @@ pub fn (r &PhysicsTestMotionParameters2D) get_exclude_bodies() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsTestMotionParameters2D) set_exclude_bodies(exclude_list Array) {
+pub fn (r &PhysicsTestMotionParameters2D) set_exclude_bodies(exclude_list Array) {
     classname := StringName.new("PhysicsTestMotionParameters2D")
     fnname := StringName.new("set_exclude_bodies")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)
@@ -115,7 +115,7 @@ pub fn (r &PhysicsTestMotionParameters2D) get_exclude_objects() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsTestMotionParameters2D) set_exclude_objects(exclude_list Array) {
+pub fn (r &PhysicsTestMotionParameters2D) set_exclude_objects(exclude_list Array) {
     classname := StringName.new("PhysicsTestMotionParameters2D")
     fnname := StringName.new("set_exclude_objects")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)
@@ -135,7 +135,7 @@ pub fn (r &PhysicsTestMotionParameters2D) is_recovery_as_collision_enabled() boo
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsTestMotionParameters2D) set_recovery_as_collision_enabled(enabled bool) {
+pub fn (r &PhysicsTestMotionParameters2D) set_recovery_as_collision_enabled(enabled bool) {
     classname := StringName.new("PhysicsTestMotionParameters2D")
     fnname := StringName.new("set_recovery_as_collision_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

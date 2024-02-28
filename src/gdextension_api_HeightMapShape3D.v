@@ -5,7 +5,7 @@ pub struct HeightMapShape3D {
     Shape3D
 }
 
-pub fn (mut r HeightMapShape3D) set_map_width(width i32) {
+pub fn (r &HeightMapShape3D) set_map_width(width i32) {
     classname := StringName.new("HeightMapShape3D")
     fnname := StringName.new("set_map_width")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -25,7 +25,7 @@ pub fn (r &HeightMapShape3D) get_map_width() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r HeightMapShape3D) set_map_depth(height i32) {
+pub fn (r &HeightMapShape3D) set_map_depth(height i32) {
     classname := StringName.new("HeightMapShape3D")
     fnname := StringName.new("set_map_depth")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -45,7 +45,7 @@ pub fn (r &HeightMapShape3D) get_map_depth() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r HeightMapShape3D) set_map_data(data PackedFloat32Array) {
+pub fn (r &HeightMapShape3D) set_map_data(data PackedFloat32Array) {
     classname := StringName.new("HeightMapShape3D")
     fnname := StringName.new("set_map_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2899603908)

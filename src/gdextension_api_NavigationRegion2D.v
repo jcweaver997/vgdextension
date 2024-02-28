@@ -15,7 +15,7 @@ pub fn (r &NavigationRegion2D) get_rid() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationRegion2D) set_navigation_polygon(navigation_polygon NavigationPolygon) {
+pub fn (r &NavigationRegion2D) set_navigation_polygon(navigation_polygon NavigationPolygon) {
     classname := StringName.new("NavigationRegion2D")
     fnname := StringName.new("set_navigation_polygon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1515040758)
@@ -35,7 +35,7 @@ pub fn (r &NavigationRegion2D) get_navigation_polygon() NavigationPolygon {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationRegion2D) set_enabled(enabled bool) {
+pub fn (r &NavigationRegion2D) set_enabled(enabled bool) {
     classname := StringName.new("NavigationRegion2D")
     fnname := StringName.new("set_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -55,7 +55,7 @@ pub fn (r &NavigationRegion2D) is_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationRegion2D) set_navigation_map(navigation_map RID) {
+pub fn (r &NavigationRegion2D) set_navigation_map(navigation_map RID) {
     classname := StringName.new("NavigationRegion2D")
     fnname := StringName.new("set_navigation_map")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)
@@ -75,7 +75,7 @@ pub fn (r &NavigationRegion2D) get_navigation_map() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationRegion2D) set_use_edge_connections(enabled bool) {
+pub fn (r &NavigationRegion2D) set_use_edge_connections(enabled bool) {
     classname := StringName.new("NavigationRegion2D")
     fnname := StringName.new("set_use_edge_connections")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -95,7 +95,7 @@ pub fn (r &NavigationRegion2D) get_use_edge_connections() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationRegion2D) set_navigation_layers(navigation_layers u32) {
+pub fn (r &NavigationRegion2D) set_navigation_layers(navigation_layers u32) {
     classname := StringName.new("NavigationRegion2D")
     fnname := StringName.new("set_navigation_layers")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -115,7 +115,7 @@ pub fn (r &NavigationRegion2D) get_navigation_layers() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationRegion2D) set_navigation_layer_value(layer_number i32, value bool) {
+pub fn (r &NavigationRegion2D) set_navigation_layer_value(layer_number i32, value bool) {
     classname := StringName.new("NavigationRegion2D")
     fnname := StringName.new("set_navigation_layer_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -138,7 +138,7 @@ pub fn (r &NavigationRegion2D) get_navigation_layer_value(layer_number i32) bool
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationRegion2D) set_constrain_avoidance(enabled bool) {
+pub fn (r &NavigationRegion2D) set_constrain_avoidance(enabled bool) {
     classname := StringName.new("NavigationRegion2D")
     fnname := StringName.new("set_constrain_avoidance")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -158,7 +158,7 @@ pub fn (r &NavigationRegion2D) get_constrain_avoidance() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationRegion2D) set_avoidance_layers(layers u32) {
+pub fn (r &NavigationRegion2D) set_avoidance_layers(layers u32) {
     classname := StringName.new("NavigationRegion2D")
     fnname := StringName.new("set_avoidance_layers")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -178,7 +178,7 @@ pub fn (r &NavigationRegion2D) get_avoidance_layers() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationRegion2D) set_avoidance_layer_value(layer_number i32, value bool) {
+pub fn (r &NavigationRegion2D) set_avoidance_layer_value(layer_number i32, value bool) {
     classname := StringName.new("NavigationRegion2D")
     fnname := StringName.new("set_avoidance_layer_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -211,7 +211,7 @@ pub fn (r &NavigationRegion2D) get_region_rid() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationRegion2D) set_enter_cost(enter_cost f64) {
+pub fn (r &NavigationRegion2D) set_enter_cost(enter_cost f64) {
     classname := StringName.new("NavigationRegion2D")
     fnname := StringName.new("set_enter_cost")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -231,7 +231,7 @@ pub fn (r &NavigationRegion2D) get_enter_cost() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationRegion2D) set_travel_cost(travel_cost f64) {
+pub fn (r &NavigationRegion2D) set_travel_cost(travel_cost f64) {
     classname := StringName.new("NavigationRegion2D")
     fnname := StringName.new("set_travel_cost")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -251,7 +251,7 @@ pub fn (r &NavigationRegion2D) get_travel_cost() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationRegion2D) bake_navigation_polygon(on_thread bool) {
+pub fn (r &NavigationRegion2D) bake_navigation_polygon(on_thread bool) {
     classname := StringName.new("NavigationRegion2D")
     fnname := StringName.new("bake_navigation_polygon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3216645846)

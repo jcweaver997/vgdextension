@@ -5,7 +5,7 @@ pub struct AudioStreamGeneratorPlayback {
     AudioStreamPlaybackResampled
 }
 
-pub fn (mut r AudioStreamGeneratorPlayback) push_frame(frame Vector2) bool {
+pub fn (r &AudioStreamGeneratorPlayback) push_frame(frame Vector2) bool {
     mut object_out := false
     classname := StringName.new("AudioStreamGeneratorPlayback")
     fnname := StringName.new("push_frame")
@@ -29,7 +29,7 @@ pub fn (r &AudioStreamGeneratorPlayback) can_push_buffer(amount i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamGeneratorPlayback) push_buffer(frames PackedVector2Array) bool {
+pub fn (r &AudioStreamGeneratorPlayback) push_buffer(frames PackedVector2Array) bool {
     mut object_out := false
     classname := StringName.new("AudioStreamGeneratorPlayback")
     fnname := StringName.new("push_buffer")
@@ -61,7 +61,7 @@ pub fn (r &AudioStreamGeneratorPlayback) get_skips() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamGeneratorPlayback) clear_buffer() {
+pub fn (r &AudioStreamGeneratorPlayback) clear_buffer() {
     classname := StringName.new("AudioStreamGeneratorPlayback")
     fnname := StringName.new("clear_buffer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

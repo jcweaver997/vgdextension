@@ -5,7 +5,7 @@ pub struct CodeHighlighter {
     SyntaxHighlighter
 }
 
-pub fn (mut r CodeHighlighter) add_keyword_color(keyword string, color Color) {
+pub fn (r &CodeHighlighter) add_keyword_color(keyword string, color Color) {
     classname := StringName.new("CodeHighlighter")
     fnname := StringName.new("add_keyword_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1636512886)
@@ -18,7 +18,7 @@ pub fn (mut r CodeHighlighter) add_keyword_color(keyword string, color Color) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CodeHighlighter) remove_keyword_color(keyword string) {
+pub fn (r &CodeHighlighter) remove_keyword_color(keyword string) {
     classname := StringName.new("CodeHighlighter")
     fnname := StringName.new("remove_keyword_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -58,7 +58,7 @@ pub fn (r &CodeHighlighter) get_keyword_color(keyword string) Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeHighlighter) set_keyword_colors(keywords Dictionary) {
+pub fn (r &CodeHighlighter) set_keyword_colors(keywords Dictionary) {
     classname := StringName.new("CodeHighlighter")
     fnname := StringName.new("set_keyword_colors")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4155329257)
@@ -68,7 +68,7 @@ pub fn (mut r CodeHighlighter) set_keyword_colors(keywords Dictionary) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CodeHighlighter) clear_keyword_colors() {
+pub fn (r &CodeHighlighter) clear_keyword_colors() {
     classname := StringName.new("CodeHighlighter")
     fnname := StringName.new("clear_keyword_colors")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -86,7 +86,7 @@ pub fn (r &CodeHighlighter) get_keyword_colors() Dictionary {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeHighlighter) add_member_keyword_color(member_keyword string, color Color) {
+pub fn (r &CodeHighlighter) add_member_keyword_color(member_keyword string, color Color) {
     classname := StringName.new("CodeHighlighter")
     fnname := StringName.new("add_member_keyword_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1636512886)
@@ -99,7 +99,7 @@ pub fn (mut r CodeHighlighter) add_member_keyword_color(member_keyword string, c
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CodeHighlighter) remove_member_keyword_color(member_keyword string) {
+pub fn (r &CodeHighlighter) remove_member_keyword_color(member_keyword string) {
     classname := StringName.new("CodeHighlighter")
     fnname := StringName.new("remove_member_keyword_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -139,7 +139,7 @@ pub fn (r &CodeHighlighter) get_member_keyword_color(member_keyword string) Colo
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeHighlighter) set_member_keyword_colors(member_keyword Dictionary) {
+pub fn (r &CodeHighlighter) set_member_keyword_colors(member_keyword Dictionary) {
     classname := StringName.new("CodeHighlighter")
     fnname := StringName.new("set_member_keyword_colors")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4155329257)
@@ -149,7 +149,7 @@ pub fn (mut r CodeHighlighter) set_member_keyword_colors(member_keyword Dictiona
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CodeHighlighter) clear_member_keyword_colors() {
+pub fn (r &CodeHighlighter) clear_member_keyword_colors() {
     classname := StringName.new("CodeHighlighter")
     fnname := StringName.new("clear_member_keyword_colors")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -167,7 +167,7 @@ pub fn (r &CodeHighlighter) get_member_keyword_colors() Dictionary {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeHighlighter) add_color_region(start_key string, end_key string, color Color, line_only bool) {
+pub fn (r &CodeHighlighter) add_color_region(start_key string, end_key string, color Color, line_only bool) {
     classname := StringName.new("CodeHighlighter")
     fnname := StringName.new("add_color_region")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2924977451)
@@ -184,7 +184,7 @@ pub fn (mut r CodeHighlighter) add_color_region(start_key string, end_key string
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CodeHighlighter) remove_color_region(start_key string) {
+pub fn (r &CodeHighlighter) remove_color_region(start_key string) {
     classname := StringName.new("CodeHighlighter")
     fnname := StringName.new("remove_color_region")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -210,7 +210,7 @@ pub fn (r &CodeHighlighter) has_color_region(start_key string) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeHighlighter) set_color_regions(color_regions Dictionary) {
+pub fn (r &CodeHighlighter) set_color_regions(color_regions Dictionary) {
     classname := StringName.new("CodeHighlighter")
     fnname := StringName.new("set_color_regions")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4155329257)
@@ -220,7 +220,7 @@ pub fn (mut r CodeHighlighter) set_color_regions(color_regions Dictionary) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CodeHighlighter) clear_color_regions() {
+pub fn (r &CodeHighlighter) clear_color_regions() {
     classname := StringName.new("CodeHighlighter")
     fnname := StringName.new("clear_color_regions")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -238,7 +238,7 @@ pub fn (r &CodeHighlighter) get_color_regions() Dictionary {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeHighlighter) set_function_color(color Color) {
+pub fn (r &CodeHighlighter) set_function_color(color Color) {
     classname := StringName.new("CodeHighlighter")
     fnname := StringName.new("set_function_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -258,7 +258,7 @@ pub fn (r &CodeHighlighter) get_function_color() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeHighlighter) set_number_color(color Color) {
+pub fn (r &CodeHighlighter) set_number_color(color Color) {
     classname := StringName.new("CodeHighlighter")
     fnname := StringName.new("set_number_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -278,7 +278,7 @@ pub fn (r &CodeHighlighter) get_number_color() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeHighlighter) set_symbol_color(color Color) {
+pub fn (r &CodeHighlighter) set_symbol_color(color Color) {
     classname := StringName.new("CodeHighlighter")
     fnname := StringName.new("set_symbol_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -298,7 +298,7 @@ pub fn (r &CodeHighlighter) get_symbol_color() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CodeHighlighter) set_member_variable_color(color Color) {
+pub fn (r &CodeHighlighter) set_member_variable_color(color Color) {
     classname := StringName.new("CodeHighlighter")
     fnname := StringName.new("set_member_variable_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)

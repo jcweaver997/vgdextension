@@ -5,7 +5,7 @@ pub struct InputEvent {
     Resource
 }
 
-pub fn (mut r InputEvent) set_device(device i32) {
+pub fn (r &InputEvent) set_device(device i32) {
     classname := StringName.new("InputEvent")
     fnname := StringName.new("set_device")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -161,7 +161,7 @@ pub fn (r &InputEvent) is_action_type() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r InputEvent) accumulate(with_event InputEvent) bool {
+pub fn (r &InputEvent) accumulate(with_event InputEvent) bool {
     mut object_out := false
     classname := StringName.new("InputEvent")
     fnname := StringName.new("accumulate")

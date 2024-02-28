@@ -15,7 +15,7 @@ pub struct Theme {
     Resource
 }
 
-pub fn (mut r Theme) set_icon(name string, theme_type string, texture Texture2D) {
+pub fn (r &Theme) set_icon(name string, theme_type string, texture Texture2D) {
     classname := StringName.new("Theme")
     fnname := StringName.new("set_icon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2188371082)
@@ -65,7 +65,7 @@ pub fn (r &Theme) has_icon(name string, theme_type string) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Theme) rename_icon(old_name string, name string, theme_type string) {
+pub fn (r &Theme) rename_icon(old_name string, name string, theme_type string) {
     classname := StringName.new("Theme")
     fnname := StringName.new("rename_icon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 642128662)
@@ -83,7 +83,7 @@ pub fn (mut r Theme) rename_icon(old_name string, name string, theme_type string
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Theme) clear_icon(name string, theme_type string) {
+pub fn (r &Theme) clear_icon(name string, theme_type string) {
     classname := StringName.new("Theme")
     fnname := StringName.new("clear_icon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3740211285)
@@ -122,7 +122,7 @@ pub fn (r &Theme) get_icon_type_list() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Theme) set_stylebox(name string, theme_type string, texture StyleBox) {
+pub fn (r &Theme) set_stylebox(name string, theme_type string, texture StyleBox) {
     classname := StringName.new("Theme")
     fnname := StringName.new("set_stylebox")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2075907568)
@@ -172,7 +172,7 @@ pub fn (r &Theme) has_stylebox(name string, theme_type string) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Theme) rename_stylebox(old_name string, name string, theme_type string) {
+pub fn (r &Theme) rename_stylebox(old_name string, name string, theme_type string) {
     classname := StringName.new("Theme")
     fnname := StringName.new("rename_stylebox")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 642128662)
@@ -190,7 +190,7 @@ pub fn (mut r Theme) rename_stylebox(old_name string, name string, theme_type st
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Theme) clear_stylebox(name string, theme_type string) {
+pub fn (r &Theme) clear_stylebox(name string, theme_type string) {
     classname := StringName.new("Theme")
     fnname := StringName.new("clear_stylebox")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3740211285)
@@ -229,7 +229,7 @@ pub fn (r &Theme) get_stylebox_type_list() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Theme) set_font(name string, theme_type string, font Font) {
+pub fn (r &Theme) set_font(name string, theme_type string, font Font) {
     classname := StringName.new("Theme")
     fnname := StringName.new("set_font")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 177292320)
@@ -279,7 +279,7 @@ pub fn (r &Theme) has_font(name string, theme_type string) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Theme) rename_font(old_name string, name string, theme_type string) {
+pub fn (r &Theme) rename_font(old_name string, name string, theme_type string) {
     classname := StringName.new("Theme")
     fnname := StringName.new("rename_font")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 642128662)
@@ -297,7 +297,7 @@ pub fn (mut r Theme) rename_font(old_name string, name string, theme_type string
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Theme) clear_font(name string, theme_type string) {
+pub fn (r &Theme) clear_font(name string, theme_type string) {
     classname := StringName.new("Theme")
     fnname := StringName.new("clear_font")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3740211285)
@@ -336,7 +336,7 @@ pub fn (r &Theme) get_font_type_list() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Theme) set_font_size(name string, theme_type string, font_size i32) {
+pub fn (r &Theme) set_font_size(name string, theme_type string, font_size i32) {
     classname := StringName.new("Theme")
     fnname := StringName.new("set_font_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 281601298)
@@ -386,7 +386,7 @@ pub fn (r &Theme) has_font_size(name string, theme_type string) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Theme) rename_font_size(old_name string, name string, theme_type string) {
+pub fn (r &Theme) rename_font_size(old_name string, name string, theme_type string) {
     classname := StringName.new("Theme")
     fnname := StringName.new("rename_font_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 642128662)
@@ -404,7 +404,7 @@ pub fn (mut r Theme) rename_font_size(old_name string, name string, theme_type s
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Theme) clear_font_size(name string, theme_type string) {
+pub fn (r &Theme) clear_font_size(name string, theme_type string) {
     classname := StringName.new("Theme")
     fnname := StringName.new("clear_font_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3740211285)
@@ -443,7 +443,7 @@ pub fn (r &Theme) get_font_size_type_list() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Theme) set_color(name string, theme_type string, color Color) {
+pub fn (r &Theme) set_color(name string, theme_type string, color Color) {
     classname := StringName.new("Theme")
     fnname := StringName.new("set_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4111215154)
@@ -493,7 +493,7 @@ pub fn (r &Theme) has_color(name string, theme_type string) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Theme) rename_color(old_name string, name string, theme_type string) {
+pub fn (r &Theme) rename_color(old_name string, name string, theme_type string) {
     classname := StringName.new("Theme")
     fnname := StringName.new("rename_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 642128662)
@@ -511,7 +511,7 @@ pub fn (mut r Theme) rename_color(old_name string, name string, theme_type strin
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Theme) clear_color(name string, theme_type string) {
+pub fn (r &Theme) clear_color(name string, theme_type string) {
     classname := StringName.new("Theme")
     fnname := StringName.new("clear_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3740211285)
@@ -550,7 +550,7 @@ pub fn (r &Theme) get_color_type_list() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Theme) set_constant(name string, theme_type string, constant i32) {
+pub fn (r &Theme) set_constant(name string, theme_type string, constant i32) {
     classname := StringName.new("Theme")
     fnname := StringName.new("set_constant")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 281601298)
@@ -600,7 +600,7 @@ pub fn (r &Theme) has_constant(name string, theme_type string) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Theme) rename_constant(old_name string, name string, theme_type string) {
+pub fn (r &Theme) rename_constant(old_name string, name string, theme_type string) {
     classname := StringName.new("Theme")
     fnname := StringName.new("rename_constant")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 642128662)
@@ -618,7 +618,7 @@ pub fn (mut r Theme) rename_constant(old_name string, name string, theme_type st
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Theme) clear_constant(name string, theme_type string) {
+pub fn (r &Theme) clear_constant(name string, theme_type string) {
     classname := StringName.new("Theme")
     fnname := StringName.new("clear_constant")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3740211285)
@@ -657,7 +657,7 @@ pub fn (r &Theme) get_constant_type_list() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Theme) set_default_base_scale(base_scale f64) {
+pub fn (r &Theme) set_default_base_scale(base_scale f64) {
     classname := StringName.new("Theme")
     fnname := StringName.new("set_default_base_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -687,7 +687,7 @@ pub fn (r &Theme) has_default_base_scale() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Theme) set_default_font(font Font) {
+pub fn (r &Theme) set_default_font(font Font) {
     classname := StringName.new("Theme")
     fnname := StringName.new("set_default_font")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1262170328)
@@ -717,7 +717,7 @@ pub fn (r &Theme) has_default_font() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Theme) set_default_font_size(font_size i32) {
+pub fn (r &Theme) set_default_font_size(font_size i32) {
     classname := StringName.new("Theme")
     fnname := StringName.new("set_default_font_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -747,7 +747,7 @@ pub fn (r &Theme) has_default_font_size() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Theme) set_theme_item(data_type ThemeDataType, name string, theme_type string, value Variant) {
+pub fn (r &Theme) set_theme_item(data_type ThemeDataType, name string, theme_type string, value Variant) {
     classname := StringName.new("Theme")
     fnname := StringName.new("set_theme_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2492983623)
@@ -803,7 +803,7 @@ pub fn (r &Theme) has_theme_item(data_type ThemeDataType, name string, theme_typ
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Theme) rename_theme_item(data_type ThemeDataType, old_name string, name string, theme_type string) {
+pub fn (r &Theme) rename_theme_item(data_type ThemeDataType, old_name string, name string, theme_type string) {
     classname := StringName.new("Theme")
     fnname := StringName.new("rename_theme_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3900867553)
@@ -823,7 +823,7 @@ pub fn (mut r Theme) rename_theme_item(data_type ThemeDataType, old_name string,
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Theme) clear_theme_item(data_type ThemeDataType, name string, theme_type string) {
+pub fn (r &Theme) clear_theme_item(data_type ThemeDataType, name string, theme_type string) {
     classname := StringName.new("Theme")
     fnname := StringName.new("clear_theme_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2965505587)
@@ -869,7 +869,7 @@ pub fn (r &Theme) get_theme_item_type_list(data_type ThemeDataType) PackedString
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Theme) set_type_variation(theme_type string, base_type string) {
+pub fn (r &Theme) set_type_variation(theme_type string, base_type string) {
     classname := StringName.new("Theme")
     fnname := StringName.new("set_type_variation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3740211285)
@@ -901,7 +901,7 @@ pub fn (r &Theme) is_type_variation(theme_type string, base_type string) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Theme) clear_type_variation(theme_type string) {
+pub fn (r &Theme) clear_type_variation(theme_type string) {
     classname := StringName.new("Theme")
     fnname := StringName.new("clear_type_variation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -943,7 +943,7 @@ pub fn (r &Theme) get_type_variation_list(base_type string) PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Theme) add_type(theme_type string) {
+pub fn (r &Theme) add_type(theme_type string) {
     classname := StringName.new("Theme")
     fnname := StringName.new("add_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -955,7 +955,7 @@ pub fn (mut r Theme) add_type(theme_type string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Theme) remove_type(theme_type string) {
+pub fn (r &Theme) remove_type(theme_type string) {
     classname := StringName.new("Theme")
     fnname := StringName.new("remove_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -977,7 +977,7 @@ pub fn (r &Theme) get_type_list() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Theme) merge_with(other Theme) {
+pub fn (r &Theme) merge_with(other Theme) {
     classname := StringName.new("Theme")
     fnname := StringName.new("merge_with")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2326690814)
@@ -987,7 +987,7 @@ pub fn (mut r Theme) merge_with(other Theme) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Theme) clear() {
+pub fn (r &Theme) clear() {
     classname := StringName.new("Theme")
     fnname := StringName.new("clear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

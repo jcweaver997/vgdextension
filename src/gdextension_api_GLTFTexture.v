@@ -15,7 +15,7 @@ pub fn (r &GLTFTexture) get_src_image() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFTexture) set_src_image(src_image i32) {
+pub fn (r &GLTFTexture) set_src_image(src_image i32) {
     classname := StringName.new("GLTFTexture")
     fnname := StringName.new("set_src_image")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -35,7 +35,7 @@ pub fn (r &GLTFTexture) get_sampler() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFTexture) set_sampler(sampler i32) {
+pub fn (r &GLTFTexture) set_sampler(sampler i32) {
     classname := StringName.new("GLTFTexture")
     fnname := StringName.new("set_sampler")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

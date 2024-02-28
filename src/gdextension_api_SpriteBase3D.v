@@ -21,7 +21,7 @@ pub struct SpriteBase3D {
     GeometryInstance3D
 }
 
-pub fn (mut r SpriteBase3D) set_centered(centered bool) {
+pub fn (r &SpriteBase3D) set_centered(centered bool) {
     classname := StringName.new("SpriteBase3D")
     fnname := StringName.new("set_centered")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -41,7 +41,7 @@ pub fn (r &SpriteBase3D) is_centered() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SpriteBase3D) set_offset(offset Vector2) {
+pub fn (r &SpriteBase3D) set_offset(offset Vector2) {
     classname := StringName.new("SpriteBase3D")
     fnname := StringName.new("set_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -61,7 +61,7 @@ pub fn (r &SpriteBase3D) get_offset() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SpriteBase3D) set_flip_h(flip_h bool) {
+pub fn (r &SpriteBase3D) set_flip_h(flip_h bool) {
     classname := StringName.new("SpriteBase3D")
     fnname := StringName.new("set_flip_h")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -81,7 +81,7 @@ pub fn (r &SpriteBase3D) is_flipped_h() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SpriteBase3D) set_flip_v(flip_v bool) {
+pub fn (r &SpriteBase3D) set_flip_v(flip_v bool) {
     classname := StringName.new("SpriteBase3D")
     fnname := StringName.new("set_flip_v")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -101,7 +101,7 @@ pub fn (r &SpriteBase3D) is_flipped_v() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SpriteBase3D) set_modulate(modulate Color) {
+pub fn (r &SpriteBase3D) set_modulate(modulate Color) {
     classname := StringName.new("SpriteBase3D")
     fnname := StringName.new("set_modulate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -121,7 +121,7 @@ pub fn (r &SpriteBase3D) get_modulate() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SpriteBase3D) set_render_priority(priority i32) {
+pub fn (r &SpriteBase3D) set_render_priority(priority i32) {
     classname := StringName.new("SpriteBase3D")
     fnname := StringName.new("set_render_priority")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -141,7 +141,7 @@ pub fn (r &SpriteBase3D) get_render_priority() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SpriteBase3D) set_pixel_size(pixel_size f64) {
+pub fn (r &SpriteBase3D) set_pixel_size(pixel_size f64) {
     classname := StringName.new("SpriteBase3D")
     fnname := StringName.new("set_pixel_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -161,7 +161,7 @@ pub fn (r &SpriteBase3D) get_pixel_size() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SpriteBase3D) set_axis(axis Vector3Axis) {
+pub fn (r &SpriteBase3D) set_axis(axis Vector3Axis) {
     classname := StringName.new("SpriteBase3D")
     fnname := StringName.new("set_axis")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1144690656)
@@ -182,7 +182,7 @@ pub fn (r &SpriteBase3D) get_axis() Vector3Axis {
     fnname.deinit()
    return unsafe{Vector3Axis(object_out)}
 }
-pub fn (mut r SpriteBase3D) set_draw_flag(flag SpriteBase3DDrawFlags, enabled bool) {
+pub fn (r &SpriteBase3D) set_draw_flag(flag SpriteBase3DDrawFlags, enabled bool) {
     classname := StringName.new("SpriteBase3D")
     fnname := StringName.new("set_draw_flag")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1135633219)
@@ -207,7 +207,7 @@ pub fn (r &SpriteBase3D) get_draw_flag(flag SpriteBase3DDrawFlags) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SpriteBase3D) set_alpha_cut_mode(mode SpriteBase3DAlphaCutMode) {
+pub fn (r &SpriteBase3D) set_alpha_cut_mode(mode SpriteBase3DAlphaCutMode) {
     classname := StringName.new("SpriteBase3D")
     fnname := StringName.new("set_alpha_cut_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 227561226)
@@ -228,7 +228,7 @@ pub fn (r &SpriteBase3D) get_alpha_cut_mode() SpriteBase3DAlphaCutMode {
     fnname.deinit()
    return unsafe{SpriteBase3DAlphaCutMode(object_out)}
 }
-pub fn (mut r SpriteBase3D) set_alpha_scissor_threshold(threshold f64) {
+pub fn (r &SpriteBase3D) set_alpha_scissor_threshold(threshold f64) {
     classname := StringName.new("SpriteBase3D")
     fnname := StringName.new("set_alpha_scissor_threshold")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -248,7 +248,7 @@ pub fn (r &SpriteBase3D) get_alpha_scissor_threshold() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SpriteBase3D) set_alpha_hash_scale(threshold f64) {
+pub fn (r &SpriteBase3D) set_alpha_hash_scale(threshold f64) {
     classname := StringName.new("SpriteBase3D")
     fnname := StringName.new("set_alpha_hash_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -268,7 +268,7 @@ pub fn (r &SpriteBase3D) get_alpha_hash_scale() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SpriteBase3D) set_alpha_antialiasing(alpha_aa BaseMaterial3DAlphaAntiAliasing) {
+pub fn (r &SpriteBase3D) set_alpha_antialiasing(alpha_aa BaseMaterial3DAlphaAntiAliasing) {
     classname := StringName.new("SpriteBase3D")
     fnname := StringName.new("set_alpha_antialiasing")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3212649852)
@@ -289,7 +289,7 @@ pub fn (r &SpriteBase3D) get_alpha_antialiasing() BaseMaterial3DAlphaAntiAliasin
     fnname.deinit()
    return unsafe{BaseMaterial3DAlphaAntiAliasing(object_out)}
 }
-pub fn (mut r SpriteBase3D) set_alpha_antialiasing_edge(edge f64) {
+pub fn (r &SpriteBase3D) set_alpha_antialiasing_edge(edge f64) {
     classname := StringName.new("SpriteBase3D")
     fnname := StringName.new("set_alpha_antialiasing_edge")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -309,7 +309,7 @@ pub fn (r &SpriteBase3D) get_alpha_antialiasing_edge() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SpriteBase3D) set_billboard_mode(mode BaseMaterial3DBillboardMode) {
+pub fn (r &SpriteBase3D) set_billboard_mode(mode BaseMaterial3DBillboardMode) {
     classname := StringName.new("SpriteBase3D")
     fnname := StringName.new("set_billboard_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4202036497)
@@ -330,7 +330,7 @@ pub fn (r &SpriteBase3D) get_billboard_mode() BaseMaterial3DBillboardMode {
     fnname.deinit()
    return unsafe{BaseMaterial3DBillboardMode(object_out)}
 }
-pub fn (mut r SpriteBase3D) set_texture_filter(mode BaseMaterial3DTextureFilter) {
+pub fn (r &SpriteBase3D) set_texture_filter(mode BaseMaterial3DTextureFilter) {
     classname := StringName.new("SpriteBase3D")
     fnname := StringName.new("set_texture_filter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 22904437)

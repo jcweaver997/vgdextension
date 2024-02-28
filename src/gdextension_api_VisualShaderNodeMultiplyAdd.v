@@ -13,7 +13,7 @@ pub struct VisualShaderNodeMultiplyAdd {
     VisualShaderNode
 }
 
-pub fn (mut r VisualShaderNodeMultiplyAdd) set_op_type(type_name VisualShaderNodeMultiplyAddOpType) {
+pub fn (r &VisualShaderNodeMultiplyAdd) set_op_type(type_name VisualShaderNodeMultiplyAddOpType) {
     classname := StringName.new("VisualShaderNodeMultiplyAdd")
     fnname := StringName.new("set_op_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1409862380)

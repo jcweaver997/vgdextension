@@ -5,7 +5,7 @@ pub struct RDUniform {
     RefCounted
 }
 
-pub fn (mut r RDUniform) set_uniform_type(p_member RenderingDeviceUniformType) {
+pub fn (r &RDUniform) set_uniform_type(p_member RenderingDeviceUniformType) {
     classname := StringName.new("RDUniform")
     fnname := StringName.new("set_uniform_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1664894931)
@@ -26,7 +26,7 @@ pub fn (r &RDUniform) get_uniform_type() RenderingDeviceUniformType {
     fnname.deinit()
    return unsafe{RenderingDeviceUniformType(object_out)}
 }
-pub fn (mut r RDUniform) set_binding(p_member i32) {
+pub fn (r &RDUniform) set_binding(p_member i32) {
     classname := StringName.new("RDUniform")
     fnname := StringName.new("set_binding")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -46,7 +46,7 @@ pub fn (r &RDUniform) get_binding() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDUniform) add_id(id RID) {
+pub fn (r &RDUniform) add_id(id RID) {
     classname := StringName.new("RDUniform")
     fnname := StringName.new("add_id")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)
@@ -56,7 +56,7 @@ pub fn (mut r RDUniform) add_id(id RID) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RDUniform) clear_ids() {
+pub fn (r &RDUniform) clear_ids() {
     classname := StringName.new("RDUniform")
     fnname := StringName.new("clear_ids")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

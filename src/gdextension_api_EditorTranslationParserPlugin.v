@@ -10,7 +10,7 @@ pub interface IEditorTranslationParserPluginParseFile {
     virt_parse_file(path String, msgids Array, msgids_context_plural Array)
 }
 
-pub fn (mut r EditorTranslationParserPlugin) uparse_file(path string, msgids Array, msgids_context_plural Array) {
+pub fn (r &EditorTranslationParserPlugin) uparse_file(path string, msgids Array, msgids_context_plural Array) {
     classname := StringName.new("EditorTranslationParserPlugin")
     fnname := StringName.new("_parse_file")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)

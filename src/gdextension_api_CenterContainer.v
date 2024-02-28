@@ -5,7 +5,7 @@ pub struct CenterContainer {
     Container
 }
 
-pub fn (mut r CenterContainer) set_use_top_left(enable bool) {
+pub fn (r &CenterContainer) set_use_top_left(enable bool) {
     classname := StringName.new("CenterContainer")
     fnname := StringName.new("set_use_top_left")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

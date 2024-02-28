@@ -11,7 +11,7 @@ pub struct AnimationTree {
     AnimationMixer
 }
 
-pub fn (mut r AnimationTree) set_tree_root(animation_node AnimationRootNode) {
+pub fn (r &AnimationTree) set_tree_root(animation_node AnimationRootNode) {
     classname := StringName.new("AnimationTree")
     fnname := StringName.new("set_tree_root")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2581683800)
@@ -31,7 +31,7 @@ pub fn (r &AnimationTree) get_tree_root() AnimationRootNode {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationTree) set_advance_expression_base_node(path NodePath) {
+pub fn (r &AnimationTree) set_advance_expression_base_node(path NodePath) {
     classname := StringName.new("AnimationTree")
     fnname := StringName.new("set_advance_expression_base_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1348162250)
@@ -51,7 +51,7 @@ pub fn (r &AnimationTree) get_advance_expression_base_node() NodePath {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationTree) set_animation_player(path NodePath) {
+pub fn (r &AnimationTree) set_animation_player(path NodePath) {
     classname := StringName.new("AnimationTree")
     fnname := StringName.new("set_animation_player")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1348162250)
@@ -71,7 +71,7 @@ pub fn (r &AnimationTree) get_animation_player() NodePath {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationTree) set_process_callback(mode AnimationTreeAnimationProcessCallback) {
+pub fn (r &AnimationTree) set_process_callback(mode AnimationTreeAnimationProcessCallback) {
     classname := StringName.new("AnimationTree")
     fnname := StringName.new("set_process_callback")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1723352826)

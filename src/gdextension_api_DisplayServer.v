@@ -173,7 +173,7 @@ pub fn (r &DisplayServer) get_name() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r DisplayServer) global_menu_set_popup_callbacks(menu_root string, open_callback Callable, close_callback Callable) {
+pub fn (r &DisplayServer) global_menu_set_popup_callbacks(menu_root string, open_callback Callable, close_callback Callable) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_set_popup_callbacks")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3893727526)
@@ -187,7 +187,7 @@ pub fn (mut r DisplayServer) global_menu_set_popup_callbacks(menu_root string, o
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) global_menu_add_submenu_item(menu_root string, label string, submenu string, index i32) i32 {
+pub fn (r &DisplayServer) global_menu_add_submenu_item(menu_root string, label string, submenu string, index i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_add_submenu_item")
@@ -208,7 +208,7 @@ pub fn (mut r DisplayServer) global_menu_add_submenu_item(menu_root string, labe
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) global_menu_add_item(menu_root string, label string, callback Callable, key_callback Callable, tag Variant, accelerator Key, index i32) i32 {
+pub fn (r &DisplayServer) global_menu_add_item(menu_root string, label string, callback Callable, key_callback Callable, tag Variant, accelerator Key, index i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_add_item")
@@ -231,7 +231,7 @@ pub fn (mut r DisplayServer) global_menu_add_item(menu_root string, label string
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) global_menu_add_check_item(menu_root string, label string, callback Callable, key_callback Callable, tag Variant, accelerator Key, index i32) i32 {
+pub fn (r &DisplayServer) global_menu_add_check_item(menu_root string, label string, callback Callable, key_callback Callable, tag Variant, accelerator Key, index i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_add_check_item")
@@ -254,7 +254,7 @@ pub fn (mut r DisplayServer) global_menu_add_check_item(menu_root string, label 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) global_menu_add_icon_item(menu_root string, icon Texture2D, label string, callback Callable, key_callback Callable, tag Variant, accelerator Key, index i32) i32 {
+pub fn (r &DisplayServer) global_menu_add_icon_item(menu_root string, icon Texture2D, label string, callback Callable, key_callback Callable, tag Variant, accelerator Key, index i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_add_icon_item")
@@ -278,7 +278,7 @@ pub fn (mut r DisplayServer) global_menu_add_icon_item(menu_root string, icon Te
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) global_menu_add_icon_check_item(menu_root string, icon Texture2D, label string, callback Callable, key_callback Callable, tag Variant, accelerator Key, index i32) i32 {
+pub fn (r &DisplayServer) global_menu_add_icon_check_item(menu_root string, icon Texture2D, label string, callback Callable, key_callback Callable, tag Variant, accelerator Key, index i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_add_icon_check_item")
@@ -302,7 +302,7 @@ pub fn (mut r DisplayServer) global_menu_add_icon_check_item(menu_root string, i
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) global_menu_add_radio_check_item(menu_root string, label string, callback Callable, key_callback Callable, tag Variant, accelerator Key, index i32) i32 {
+pub fn (r &DisplayServer) global_menu_add_radio_check_item(menu_root string, label string, callback Callable, key_callback Callable, tag Variant, accelerator Key, index i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_add_radio_check_item")
@@ -325,7 +325,7 @@ pub fn (mut r DisplayServer) global_menu_add_radio_check_item(menu_root string, 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) global_menu_add_icon_radio_check_item(menu_root string, icon Texture2D, label string, callback Callable, key_callback Callable, tag Variant, accelerator Key, index i32) i32 {
+pub fn (r &DisplayServer) global_menu_add_icon_radio_check_item(menu_root string, icon Texture2D, label string, callback Callable, key_callback Callable, tag Variant, accelerator Key, index i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_add_icon_radio_check_item")
@@ -349,7 +349,7 @@ pub fn (mut r DisplayServer) global_menu_add_icon_radio_check_item(menu_root str
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) global_menu_add_multistate_item(menu_root string, label string, max_states i32, default_state i32, callback Callable, key_callback Callable, tag Variant, accelerator Key, index i32) i32 {
+pub fn (r &DisplayServer) global_menu_add_multistate_item(menu_root string, label string, max_states i32, default_state i32, callback Callable, key_callback Callable, tag Variant, accelerator Key, index i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_add_multistate_item")
@@ -374,7 +374,7 @@ pub fn (mut r DisplayServer) global_menu_add_multistate_item(menu_root string, l
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) global_menu_add_separator(menu_root string, index i32) i32 {
+pub fn (r &DisplayServer) global_menu_add_separator(menu_root string, index i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_add_separator")
@@ -667,7 +667,7 @@ pub fn (r &DisplayServer) global_menu_get_item_indentation_level(menu_root strin
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) global_menu_set_item_checked(menu_root string, idx i32, checked bool) {
+pub fn (r &DisplayServer) global_menu_set_item_checked(menu_root string, idx i32, checked bool) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_set_item_checked")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4108344793)
@@ -681,7 +681,7 @@ pub fn (mut r DisplayServer) global_menu_set_item_checked(menu_root string, idx 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) global_menu_set_item_checkable(menu_root string, idx i32, checkable bool) {
+pub fn (r &DisplayServer) global_menu_set_item_checkable(menu_root string, idx i32, checkable bool) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_set_item_checkable")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4108344793)
@@ -695,7 +695,7 @@ pub fn (mut r DisplayServer) global_menu_set_item_checkable(menu_root string, id
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) global_menu_set_item_radio_checkable(menu_root string, idx i32, checkable bool) {
+pub fn (r &DisplayServer) global_menu_set_item_radio_checkable(menu_root string, idx i32, checkable bool) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_set_item_radio_checkable")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4108344793)
@@ -709,7 +709,7 @@ pub fn (mut r DisplayServer) global_menu_set_item_radio_checkable(menu_root stri
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) global_menu_set_item_callback(menu_root string, idx i32, callback Callable) {
+pub fn (r &DisplayServer) global_menu_set_item_callback(menu_root string, idx i32, callback Callable) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_set_item_callback")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3809915389)
@@ -723,7 +723,7 @@ pub fn (mut r DisplayServer) global_menu_set_item_callback(menu_root string, idx
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) global_menu_set_item_hover_callbacks(menu_root string, idx i32, callback Callable) {
+pub fn (r &DisplayServer) global_menu_set_item_hover_callbacks(menu_root string, idx i32, callback Callable) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_set_item_hover_callbacks")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3809915389)
@@ -737,7 +737,7 @@ pub fn (mut r DisplayServer) global_menu_set_item_hover_callbacks(menu_root stri
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) global_menu_set_item_key_callback(menu_root string, idx i32, key_callback Callable) {
+pub fn (r &DisplayServer) global_menu_set_item_key_callback(menu_root string, idx i32, key_callback Callable) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_set_item_key_callback")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3809915389)
@@ -751,7 +751,7 @@ pub fn (mut r DisplayServer) global_menu_set_item_key_callback(menu_root string,
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) global_menu_set_item_tag(menu_root string, idx i32, tag Variant) {
+pub fn (r &DisplayServer) global_menu_set_item_tag(menu_root string, idx i32, tag Variant) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_set_item_tag")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 453659863)
@@ -765,7 +765,7 @@ pub fn (mut r DisplayServer) global_menu_set_item_tag(menu_root string, idx i32,
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) global_menu_set_item_text(menu_root string, idx i32, text string) {
+pub fn (r &DisplayServer) global_menu_set_item_text(menu_root string, idx i32, text string) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_set_item_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 965966136)
@@ -781,7 +781,7 @@ pub fn (mut r DisplayServer) global_menu_set_item_text(menu_root string, idx i32
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) global_menu_set_item_submenu(menu_root string, idx i32, submenu string) {
+pub fn (r &DisplayServer) global_menu_set_item_submenu(menu_root string, idx i32, submenu string) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_set_item_submenu")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 965966136)
@@ -797,7 +797,7 @@ pub fn (mut r DisplayServer) global_menu_set_item_submenu(menu_root string, idx 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) global_menu_set_item_accelerator(menu_root string, idx i32, keycode Key) {
+pub fn (r &DisplayServer) global_menu_set_item_accelerator(menu_root string, idx i32, keycode Key) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_set_item_accelerator")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 566943293)
@@ -812,7 +812,7 @@ pub fn (mut r DisplayServer) global_menu_set_item_accelerator(menu_root string, 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) global_menu_set_item_disabled(menu_root string, idx i32, disabled bool) {
+pub fn (r &DisplayServer) global_menu_set_item_disabled(menu_root string, idx i32, disabled bool) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_set_item_disabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4108344793)
@@ -826,7 +826,7 @@ pub fn (mut r DisplayServer) global_menu_set_item_disabled(menu_root string, idx
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) global_menu_set_item_hidden(menu_root string, idx i32, hidden bool) {
+pub fn (r &DisplayServer) global_menu_set_item_hidden(menu_root string, idx i32, hidden bool) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_set_item_hidden")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4108344793)
@@ -840,7 +840,7 @@ pub fn (mut r DisplayServer) global_menu_set_item_hidden(menu_root string, idx i
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) global_menu_set_item_tooltip(menu_root string, idx i32, tooltip string) {
+pub fn (r &DisplayServer) global_menu_set_item_tooltip(menu_root string, idx i32, tooltip string) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_set_item_tooltip")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 965966136)
@@ -856,7 +856,7 @@ pub fn (mut r DisplayServer) global_menu_set_item_tooltip(menu_root string, idx 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) global_menu_set_item_state(menu_root string, idx i32, state i32) {
+pub fn (r &DisplayServer) global_menu_set_item_state(menu_root string, idx i32, state i32) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_set_item_state")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3474840532)
@@ -870,7 +870,7 @@ pub fn (mut r DisplayServer) global_menu_set_item_state(menu_root string, idx i3
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) global_menu_set_item_max_states(menu_root string, idx i32, max_states i32) {
+pub fn (r &DisplayServer) global_menu_set_item_max_states(menu_root string, idx i32, max_states i32) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_set_item_max_states")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3474840532)
@@ -884,7 +884,7 @@ pub fn (mut r DisplayServer) global_menu_set_item_max_states(menu_root string, i
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) global_menu_set_item_icon(menu_root string, idx i32, icon Texture2D) {
+pub fn (r &DisplayServer) global_menu_set_item_icon(menu_root string, idx i32, icon Texture2D) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_set_item_icon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3201338066)
@@ -898,7 +898,7 @@ pub fn (mut r DisplayServer) global_menu_set_item_icon(menu_root string, idx i32
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) global_menu_set_item_indentation_level(menu_root string, idx i32, level i32) {
+pub fn (r &DisplayServer) global_menu_set_item_indentation_level(menu_root string, idx i32, level i32) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_set_item_indentation_level")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3474840532)
@@ -926,7 +926,7 @@ pub fn (r &DisplayServer) global_menu_get_item_count(menu_root string) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) global_menu_remove_item(menu_root string, idx i32) {
+pub fn (r &DisplayServer) global_menu_remove_item(menu_root string, idx i32) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_remove_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2956805083)
@@ -939,7 +939,7 @@ pub fn (mut r DisplayServer) global_menu_remove_item(menu_root string, idx i32) 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) global_menu_clear(menu_root string) {
+pub fn (r &DisplayServer) global_menu_clear(menu_root string) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("global_menu_clear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -995,7 +995,7 @@ pub fn (r &DisplayServer) tts_get_voices_for_language(language string) PackedStr
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) tts_speak(text string, voice string, volume i32, pitch f64, rate f64, utterance_id i32, interrupt bool) {
+pub fn (r &DisplayServer) tts_speak(text string, voice string, volume i32, pitch f64, rate f64, utterance_id i32, interrupt bool) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("tts_speak")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 903992738)
@@ -1015,7 +1015,7 @@ pub fn (mut r DisplayServer) tts_speak(text string, voice string, volume i32, pi
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) tts_pause() {
+pub fn (r &DisplayServer) tts_pause() {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("tts_pause")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -1023,7 +1023,7 @@ pub fn (mut r DisplayServer) tts_pause() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) tts_resume() {
+pub fn (r &DisplayServer) tts_resume() {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("tts_resume")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -1031,7 +1031,7 @@ pub fn (mut r DisplayServer) tts_resume() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) tts_stop() {
+pub fn (r &DisplayServer) tts_stop() {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("tts_stop")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -1039,7 +1039,7 @@ pub fn (mut r DisplayServer) tts_stop() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) tts_set_utterance_callback(event DisplayServerTTSUtteranceEvent, callable Callable) {
+pub fn (r &DisplayServer) tts_set_utterance_callback(event DisplayServerTTSUtteranceEvent, callable Callable) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("tts_set_utterance_callback")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 109679083)
@@ -1081,7 +1081,7 @@ pub fn (r &DisplayServer) get_accent_color() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) mouse_set_mode(mouse_mode DisplayServerMouseMode) {
+pub fn (r &DisplayServer) mouse_set_mode(mouse_mode DisplayServerMouseMode) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("mouse_set_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 348288463)
@@ -1102,7 +1102,7 @@ pub fn (r &DisplayServer) mouse_get_mode() DisplayServerMouseMode {
     fnname.deinit()
    return unsafe{DisplayServerMouseMode(object_out)}
 }
-pub fn (mut r DisplayServer) warp_mouse(position Vector2i) {
+pub fn (r &DisplayServer) warp_mouse(position Vector2i) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("warp_mouse")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1130785943)
@@ -1132,7 +1132,7 @@ pub fn (r &DisplayServer) mouse_get_button_state() MouseButtonMask {
     fnname.deinit()
    return unsafe{MouseButtonMask(object_out)}
 }
-pub fn (mut r DisplayServer) clipboard_set(clipboard string) {
+pub fn (r &DisplayServer) clipboard_set(clipboard string) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("clipboard_set")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -1186,7 +1186,7 @@ pub fn (r &DisplayServer) clipboard_has_image() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) clipboard_set_primary(clipboard_primary string) {
+pub fn (r &DisplayServer) clipboard_set_primary(clipboard_primary string) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("clipboard_set_primary")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -1388,7 +1388,7 @@ pub fn (r &DisplayServer) screen_get_image(screen i32) Image {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) screen_set_orientation(orientation DisplayServerScreenOrientation, screen i32) {
+pub fn (r &DisplayServer) screen_set_orientation(orientation DisplayServerScreenOrientation, screen i32) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("screen_set_orientation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2211511631)
@@ -1412,7 +1412,7 @@ pub fn (r &DisplayServer) screen_get_orientation(screen i32) DisplayServerScreen
     fnname.deinit()
    return unsafe{DisplayServerScreenOrientation(object_out)}
 }
-pub fn (mut r DisplayServer) screen_set_keep_on(enable bool) {
+pub fn (r &DisplayServer) screen_set_keep_on(enable bool) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("screen_set_keep_on")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -1478,7 +1478,7 @@ pub fn (r &DisplayServer) window_get_active_popup() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) window_set_popup_safe_rect(window i32, rect Rect2i) {
+pub fn (r &DisplayServer) window_set_popup_safe_rect(window i32, rect Rect2i) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("window_set_popup_safe_rect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3317281434)
@@ -1501,7 +1501,7 @@ pub fn (r &DisplayServer) window_get_popup_safe_rect(window i32) Rect2i {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) window_set_title(title string, window_id i32) {
+pub fn (r &DisplayServer) window_set_title(title string, window_id i32) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("window_set_title")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 441246282)
@@ -1529,7 +1529,7 @@ pub fn (r &DisplayServer) window_get_title_size(title string, window_id i32) Vec
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) window_set_mouse_passthrough(region PackedVector2Array, window_id i32) {
+pub fn (r &DisplayServer) window_set_mouse_passthrough(region PackedVector2Array, window_id i32) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("window_set_mouse_passthrough")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1993637420)
@@ -1552,7 +1552,7 @@ pub fn (r &DisplayServer) window_get_current_screen(window_id i32) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) window_set_current_screen(screen i32, window_id i32) {
+pub fn (r &DisplayServer) window_set_current_screen(screen i32, window_id i32) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("window_set_current_screen")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2230941749)
@@ -1587,7 +1587,7 @@ pub fn (r &DisplayServer) window_get_position_with_decorations(window_id i32) Ve
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) window_set_position(position Vector2i, window_id i32) {
+pub fn (r &DisplayServer) window_set_position(position Vector2i, window_id i32) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("window_set_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2019273902)
@@ -1610,7 +1610,7 @@ pub fn (r &DisplayServer) window_get_size(window_id i32) Vector2i {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) window_set_size(size Vector2i, window_id i32) {
+pub fn (r &DisplayServer) window_set_size(size Vector2i, window_id i32) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("window_set_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2019273902)
@@ -1621,7 +1621,7 @@ pub fn (mut r DisplayServer) window_set_size(size Vector2i, window_id i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) window_set_rect_changed_callback(callback Callable, window_id i32) {
+pub fn (r &DisplayServer) window_set_rect_changed_callback(callback Callable, window_id i32) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("window_set_rect_changed_callback")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1091192925)
@@ -1632,7 +1632,7 @@ pub fn (mut r DisplayServer) window_set_rect_changed_callback(callback Callable,
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) window_set_window_event_callback(callback Callable, window_id i32) {
+pub fn (r &DisplayServer) window_set_window_event_callback(callback Callable, window_id i32) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("window_set_window_event_callback")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1091192925)
@@ -1643,7 +1643,7 @@ pub fn (mut r DisplayServer) window_set_window_event_callback(callback Callable,
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) window_set_input_event_callback(callback Callable, window_id i32) {
+pub fn (r &DisplayServer) window_set_input_event_callback(callback Callable, window_id i32) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("window_set_input_event_callback")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1091192925)
@@ -1654,7 +1654,7 @@ pub fn (mut r DisplayServer) window_set_input_event_callback(callback Callable, 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) window_set_input_text_callback(callback Callable, window_id i32) {
+pub fn (r &DisplayServer) window_set_input_text_callback(callback Callable, window_id i32) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("window_set_input_text_callback")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1091192925)
@@ -1665,7 +1665,7 @@ pub fn (mut r DisplayServer) window_set_input_text_callback(callback Callable, w
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) window_set_drop_files_callback(callback Callable, window_id i32) {
+pub fn (r &DisplayServer) window_set_drop_files_callback(callback Callable, window_id i32) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("window_set_drop_files_callback")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1091192925)
@@ -1700,7 +1700,7 @@ pub fn (r &DisplayServer) window_get_max_size(window_id i32) Vector2i {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) window_set_max_size(max_size Vector2i, window_id i32) {
+pub fn (r &DisplayServer) window_set_max_size(max_size Vector2i, window_id i32) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("window_set_max_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2019273902)
@@ -1723,7 +1723,7 @@ pub fn (r &DisplayServer) window_get_min_size(window_id i32) Vector2i {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) window_set_min_size(min_size Vector2i, window_id i32) {
+pub fn (r &DisplayServer) window_set_min_size(min_size Vector2i, window_id i32) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("window_set_min_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2019273902)
@@ -1758,7 +1758,7 @@ pub fn (r &DisplayServer) window_get_mode(window_id i32) DisplayServerWindowMode
     fnname.deinit()
    return unsafe{DisplayServerWindowMode(object_out)}
 }
-pub fn (mut r DisplayServer) window_set_mode(mode DisplayServerWindowMode, window_id i32) {
+pub fn (r &DisplayServer) window_set_mode(mode DisplayServerWindowMode, window_id i32) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("window_set_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1319965401)
@@ -1770,7 +1770,7 @@ pub fn (mut r DisplayServer) window_set_mode(mode DisplayServerWindowMode, windo
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) window_set_flag(flag DisplayServerWindowFlags, enabled bool, window_id i32) {
+pub fn (r &DisplayServer) window_set_flag(flag DisplayServerWindowFlags, enabled bool, window_id i32) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("window_set_flag")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 254894155)
@@ -1797,7 +1797,7 @@ pub fn (r &DisplayServer) window_get_flag(flag DisplayServerWindowFlags, window_
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) window_set_window_buttons_offset(offset Vector2i, window_id i32) {
+pub fn (r &DisplayServer) window_set_window_buttons_offset(offset Vector2i, window_id i32) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("window_set_window_buttons_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2019273902)
@@ -1820,7 +1820,7 @@ pub fn (r &DisplayServer) window_get_safe_title_margins(window_id i32) Vector3i 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) window_request_attention(window_id i32) {
+pub fn (r &DisplayServer) window_request_attention(window_id i32) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("window_request_attention")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1995695955)
@@ -1830,7 +1830,7 @@ pub fn (mut r DisplayServer) window_request_attention(window_id i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) window_move_to_foreground(window_id i32) {
+pub fn (r &DisplayServer) window_move_to_foreground(window_id i32) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("window_move_to_foreground")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1995695955)
@@ -1864,7 +1864,7 @@ pub fn (r &DisplayServer) window_can_draw(window_id i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) window_set_transient(window_id i32, parent_window_id i32) {
+pub fn (r &DisplayServer) window_set_transient(window_id i32, parent_window_id i32) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("window_set_transient")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -1875,7 +1875,7 @@ pub fn (mut r DisplayServer) window_set_transient(window_id i32, parent_window_i
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) window_set_exclusive(window_id i32, exclusive bool) {
+pub fn (r &DisplayServer) window_set_exclusive(window_id i32, exclusive bool) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("window_set_exclusive")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -1886,7 +1886,7 @@ pub fn (mut r DisplayServer) window_set_exclusive(window_id i32, exclusive bool)
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) window_set_ime_active(active bool, window_id i32) {
+pub fn (r &DisplayServer) window_set_ime_active(active bool, window_id i32) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("window_set_ime_active")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1661950165)
@@ -1897,7 +1897,7 @@ pub fn (mut r DisplayServer) window_set_ime_active(active bool, window_id i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) window_set_ime_position(position Vector2i, window_id i32) {
+pub fn (r &DisplayServer) window_set_ime_position(position Vector2i, window_id i32) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("window_set_ime_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2019273902)
@@ -1908,7 +1908,7 @@ pub fn (mut r DisplayServer) window_set_ime_position(position Vector2i, window_i
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) window_set_vsync_mode(vsync_mode DisplayServerVSyncMode, window_id i32) {
+pub fn (r &DisplayServer) window_set_vsync_mode(vsync_mode DisplayServerVSyncMode, window_id i32) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("window_set_vsync_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2179333492)
@@ -1986,7 +1986,7 @@ pub fn (r &DisplayServer) ime_get_text() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r DisplayServer) virtual_keyboard_show(existing_text string, position Rect2, type_name DisplayServerVirtualKeyboardType, max_length i32, cursor_start i32, cursor_end i32) {
+pub fn (r &DisplayServer) virtual_keyboard_show(existing_text string, position Rect2, type_name DisplayServerVirtualKeyboardType, max_length i32, cursor_start i32, cursor_end i32) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("virtual_keyboard_show")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3042891259)
@@ -2004,7 +2004,7 @@ pub fn (mut r DisplayServer) virtual_keyboard_show(existing_text string, positio
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) virtual_keyboard_hide() {
+pub fn (r &DisplayServer) virtual_keyboard_hide() {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("virtual_keyboard_hide")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -2022,7 +2022,7 @@ pub fn (r &DisplayServer) virtual_keyboard_get_height() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) cursor_set_shape(shape DisplayServerCursorShape) {
+pub fn (r &DisplayServer) cursor_set_shape(shape DisplayServerCursorShape) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("cursor_set_shape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2026291549)
@@ -2043,7 +2043,7 @@ pub fn (r &DisplayServer) cursor_get_shape() DisplayServerCursorShape {
     fnname.deinit()
    return unsafe{DisplayServerCursorShape(object_out)}
 }
-pub fn (mut r DisplayServer) cursor_set_custom_image(cursor Resource, shape DisplayServerCursorShape, hotspot Vector2) {
+pub fn (r &DisplayServer) cursor_set_custom_image(cursor Resource, shape DisplayServerCursorShape, hotspot Vector2) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("cursor_set_custom_image")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1816663697)
@@ -2056,7 +2056,7 @@ pub fn (mut r DisplayServer) cursor_set_custom_image(cursor Resource, shape Disp
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) get_swap_cancel_ok() bool {
+pub fn (r &DisplayServer) get_swap_cancel_ok() bool {
     mut object_out := false
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("get_swap_cancel_ok")
@@ -2066,7 +2066,7 @@ pub fn (mut r DisplayServer) get_swap_cancel_ok() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) enable_for_stealing_focus(process_id i64) {
+pub fn (r &DisplayServer) enable_for_stealing_focus(process_id i64) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("enable_for_stealing_focus")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -2076,7 +2076,7 @@ pub fn (mut r DisplayServer) enable_for_stealing_focus(process_id i64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) dialog_show(title string, description string, buttons PackedStringArray, callback Callable) GDError {
+pub fn (r &DisplayServer) dialog_show(title string, description string, buttons PackedStringArray, callback Callable) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("dialog_show")
@@ -2095,7 +2095,7 @@ pub fn (mut r DisplayServer) dialog_show(title string, description string, butto
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r DisplayServer) dialog_input_text(title string, description string, existing_text string, callback Callable) GDError {
+pub fn (r &DisplayServer) dialog_input_text(title string, description string, existing_text string, callback Callable) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("dialog_input_text")
@@ -2116,7 +2116,7 @@ pub fn (mut r DisplayServer) dialog_input_text(title string, description string,
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r DisplayServer) file_dialog_show(title string, current_directory string, filename string, show_hidden bool, mode DisplayServerFileDialogMode, filters PackedStringArray, callback Callable) GDError {
+pub fn (r &DisplayServer) file_dialog_show(title string, current_directory string, filename string, show_hidden bool, mode DisplayServerFileDialogMode, filters PackedStringArray, callback Callable) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("file_dialog_show")
@@ -2161,7 +2161,7 @@ pub fn (r &DisplayServer) keyboard_get_current_layout() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DisplayServer) keyboard_set_current_layout(index i32) {
+pub fn (r &DisplayServer) keyboard_set_current_layout(index i32) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("keyboard_set_current_layout")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -2225,7 +2225,7 @@ pub fn (r &DisplayServer) keyboard_get_label_from_physical(keycode Key) Key {
     fnname.deinit()
    return unsafe{Key(object_out)}
 }
-pub fn (mut r DisplayServer) process_events() {
+pub fn (r &DisplayServer) process_events() {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("process_events")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -2233,7 +2233,7 @@ pub fn (mut r DisplayServer) process_events() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) force_process_and_drop_events() {
+pub fn (r &DisplayServer) force_process_and_drop_events() {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("force_process_and_drop_events")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -2241,7 +2241,7 @@ pub fn (mut r DisplayServer) force_process_and_drop_events() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) set_native_icon(filename string) {
+pub fn (r &DisplayServer) set_native_icon(filename string) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("set_native_icon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -2253,7 +2253,7 @@ pub fn (mut r DisplayServer) set_native_icon(filename string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r DisplayServer) set_icon(image Image) {
+pub fn (r &DisplayServer) set_icon(image Image) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("set_icon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 532598488)
@@ -2299,7 +2299,7 @@ pub fn (r &DisplayServer) tablet_get_current_driver() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r DisplayServer) tablet_set_current_driver(name string) {
+pub fn (r &DisplayServer) tablet_set_current_driver(name string) {
     classname := StringName.new("DisplayServer")
     fnname := StringName.new("tablet_set_current_driver")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)

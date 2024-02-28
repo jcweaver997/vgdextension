@@ -5,7 +5,7 @@ pub struct CompressedTextureLayered {
     TextureLayered
 }
 
-pub fn (mut r CompressedTextureLayered) load(path string) GDError {
+pub fn (r &CompressedTextureLayered) load(path string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("CompressedTextureLayered")
     fnname := StringName.new("load")

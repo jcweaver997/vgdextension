@@ -5,7 +5,7 @@ pub struct InputEventPanGesture {
     InputEventGesture
 }
 
-pub fn (mut r InputEventPanGesture) set_delta(delta Vector2) {
+pub fn (r &InputEventPanGesture) set_delta(delta Vector2) {
     classname := StringName.new("InputEventPanGesture")
     fnname := StringName.new("set_delta")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)

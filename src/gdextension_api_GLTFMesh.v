@@ -5,7 +5,7 @@ pub struct GLTFMesh {
     Resource
 }
 
-pub fn (mut r GLTFMesh) get_mesh() ImporterMesh {
+pub fn (r &GLTFMesh) get_mesh() ImporterMesh {
     mut object_out := ImporterMesh{}
     classname := StringName.new("GLTFMesh")
     fnname := StringName.new("get_mesh")
@@ -15,7 +15,7 @@ pub fn (mut r GLTFMesh) get_mesh() ImporterMesh {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFMesh) set_mesh(mesh ImporterMesh) {
+pub fn (r &GLTFMesh) set_mesh(mesh ImporterMesh) {
     classname := StringName.new("GLTFMesh")
     fnname := StringName.new("set_mesh")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2255166972)
@@ -25,7 +25,7 @@ pub fn (mut r GLTFMesh) set_mesh(mesh ImporterMesh) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFMesh) get_blend_weights() PackedFloat32Array {
+pub fn (r &GLTFMesh) get_blend_weights() PackedFloat32Array {
     mut object_out := PackedFloat32Array{}
     classname := StringName.new("GLTFMesh")
     fnname := StringName.new("get_blend_weights")
@@ -35,7 +35,7 @@ pub fn (mut r GLTFMesh) get_blend_weights() PackedFloat32Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFMesh) set_blend_weights(blend_weights PackedFloat32Array) {
+pub fn (r &GLTFMesh) set_blend_weights(blend_weights PackedFloat32Array) {
     classname := StringName.new("GLTFMesh")
     fnname := StringName.new("set_blend_weights")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2899603908)
@@ -45,7 +45,7 @@ pub fn (mut r GLTFMesh) set_blend_weights(blend_weights PackedFloat32Array) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFMesh) get_instance_materials() Array {
+pub fn (r &GLTFMesh) get_instance_materials() Array {
     mut object_out := Array{}
     classname := StringName.new("GLTFMesh")
     fnname := StringName.new("get_instance_materials")
@@ -55,7 +55,7 @@ pub fn (mut r GLTFMesh) get_instance_materials() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFMesh) set_instance_materials(instance_materials Array) {
+pub fn (r &GLTFMesh) set_instance_materials(instance_materials Array) {
     classname := StringName.new("GLTFMesh")
     fnname := StringName.new("set_instance_materials")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)

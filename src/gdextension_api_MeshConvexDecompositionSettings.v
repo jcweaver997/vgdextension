@@ -10,7 +10,7 @@ pub struct MeshConvexDecompositionSettings {
     RefCounted
 }
 
-pub fn (mut r MeshConvexDecompositionSettings) set_max_concavity(max_concavity f64) {
+pub fn (r &MeshConvexDecompositionSettings) set_max_concavity(max_concavity f64) {
     classname := StringName.new("MeshConvexDecompositionSettings")
     fnname := StringName.new("set_max_concavity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -30,7 +30,7 @@ pub fn (r &MeshConvexDecompositionSettings) get_max_concavity() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MeshConvexDecompositionSettings) set_symmetry_planes_clipping_bias(symmetry_planes_clipping_bias f64) {
+pub fn (r &MeshConvexDecompositionSettings) set_symmetry_planes_clipping_bias(symmetry_planes_clipping_bias f64) {
     classname := StringName.new("MeshConvexDecompositionSettings")
     fnname := StringName.new("set_symmetry_planes_clipping_bias")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -50,7 +50,7 @@ pub fn (r &MeshConvexDecompositionSettings) get_symmetry_planes_clipping_bias() 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MeshConvexDecompositionSettings) set_revolution_axes_clipping_bias(revolution_axes_clipping_bias f64) {
+pub fn (r &MeshConvexDecompositionSettings) set_revolution_axes_clipping_bias(revolution_axes_clipping_bias f64) {
     classname := StringName.new("MeshConvexDecompositionSettings")
     fnname := StringName.new("set_revolution_axes_clipping_bias")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -70,7 +70,7 @@ pub fn (r &MeshConvexDecompositionSettings) get_revolution_axes_clipping_bias() 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MeshConvexDecompositionSettings) set_min_volume_per_convex_hull(min_volume_per_convex_hull f64) {
+pub fn (r &MeshConvexDecompositionSettings) set_min_volume_per_convex_hull(min_volume_per_convex_hull f64) {
     classname := StringName.new("MeshConvexDecompositionSettings")
     fnname := StringName.new("set_min_volume_per_convex_hull")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -90,7 +90,7 @@ pub fn (r &MeshConvexDecompositionSettings) get_min_volume_per_convex_hull() f64
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MeshConvexDecompositionSettings) set_resolution(min_volume_per_convex_hull u32) {
+pub fn (r &MeshConvexDecompositionSettings) set_resolution(min_volume_per_convex_hull u32) {
     classname := StringName.new("MeshConvexDecompositionSettings")
     fnname := StringName.new("set_resolution")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -110,7 +110,7 @@ pub fn (r &MeshConvexDecompositionSettings) get_resolution() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MeshConvexDecompositionSettings) set_max_num_vertices_per_convex_hull(max_num_vertices_per_convex_hull u32) {
+pub fn (r &MeshConvexDecompositionSettings) set_max_num_vertices_per_convex_hull(max_num_vertices_per_convex_hull u32) {
     classname := StringName.new("MeshConvexDecompositionSettings")
     fnname := StringName.new("set_max_num_vertices_per_convex_hull")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -130,7 +130,7 @@ pub fn (r &MeshConvexDecompositionSettings) get_max_num_vertices_per_convex_hull
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MeshConvexDecompositionSettings) set_plane_downsampling(plane_downsampling u32) {
+pub fn (r &MeshConvexDecompositionSettings) set_plane_downsampling(plane_downsampling u32) {
     classname := StringName.new("MeshConvexDecompositionSettings")
     fnname := StringName.new("set_plane_downsampling")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -150,7 +150,7 @@ pub fn (r &MeshConvexDecompositionSettings) get_plane_downsampling() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MeshConvexDecompositionSettings) set_convex_hull_downsampling(convex_hull_downsampling u32) {
+pub fn (r &MeshConvexDecompositionSettings) set_convex_hull_downsampling(convex_hull_downsampling u32) {
     classname := StringName.new("MeshConvexDecompositionSettings")
     fnname := StringName.new("set_convex_hull_downsampling")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -170,7 +170,7 @@ pub fn (r &MeshConvexDecompositionSettings) get_convex_hull_downsampling() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MeshConvexDecompositionSettings) set_normalize_mesh(normalize_mesh bool) {
+pub fn (r &MeshConvexDecompositionSettings) set_normalize_mesh(normalize_mesh bool) {
     classname := StringName.new("MeshConvexDecompositionSettings")
     fnname := StringName.new("set_normalize_mesh")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -190,7 +190,7 @@ pub fn (r &MeshConvexDecompositionSettings) get_normalize_mesh() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MeshConvexDecompositionSettings) set_mode(mode MeshConvexDecompositionSettingsMode) {
+pub fn (r &MeshConvexDecompositionSettings) set_mode(mode MeshConvexDecompositionSettingsMode) {
     classname := StringName.new("MeshConvexDecompositionSettings")
     fnname := StringName.new("set_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1668072869)
@@ -211,7 +211,7 @@ pub fn (r &MeshConvexDecompositionSettings) get_mode() MeshConvexDecompositionSe
     fnname.deinit()
    return unsafe{MeshConvexDecompositionSettingsMode(object_out)}
 }
-pub fn (mut r MeshConvexDecompositionSettings) set_convex_hull_approximation(convex_hull_approximation bool) {
+pub fn (r &MeshConvexDecompositionSettings) set_convex_hull_approximation(convex_hull_approximation bool) {
     classname := StringName.new("MeshConvexDecompositionSettings")
     fnname := StringName.new("set_convex_hull_approximation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -231,7 +231,7 @@ pub fn (r &MeshConvexDecompositionSettings) get_convex_hull_approximation() bool
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MeshConvexDecompositionSettings) set_max_convex_hulls(max_convex_hulls u32) {
+pub fn (r &MeshConvexDecompositionSettings) set_max_convex_hulls(max_convex_hulls u32) {
     classname := StringName.new("MeshConvexDecompositionSettings")
     fnname := StringName.new("set_max_convex_hulls")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -251,7 +251,7 @@ pub fn (r &MeshConvexDecompositionSettings) get_max_convex_hulls() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MeshConvexDecompositionSettings) set_project_hull_vertices(project_hull_vertices bool) {
+pub fn (r &MeshConvexDecompositionSettings) set_project_hull_vertices(project_hull_vertices bool) {
     classname := StringName.new("MeshConvexDecompositionSettings")
     fnname := StringName.new("set_project_hull_vertices")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

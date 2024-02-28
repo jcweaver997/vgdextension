@@ -117,7 +117,7 @@ pub struct Viewport {
     Node
 }
 
-pub fn (mut r Viewport) set_world_2d(world_2d World2D) {
+pub fn (r &Viewport) set_world_2d(world_2d World2D) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_world_2d")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2736080068)
@@ -147,7 +147,7 @@ pub fn (r &Viewport) find_world_2d() World2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Viewport) set_canvas_transform(xform Transform2D) {
+pub fn (r &Viewport) set_canvas_transform(xform Transform2D) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_canvas_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2761652528)
@@ -167,7 +167,7 @@ pub fn (r &Viewport) get_canvas_transform() Transform2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Viewport) set_global_canvas_transform(xform Transform2D) {
+pub fn (r &Viewport) set_global_canvas_transform(xform Transform2D) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_global_canvas_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2761652528)
@@ -217,7 +217,7 @@ pub fn (r &Viewport) get_visible_rect() Rect2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Viewport) set_transparent_background(enable bool) {
+pub fn (r &Viewport) set_transparent_background(enable bool) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_transparent_background")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -237,7 +237,7 @@ pub fn (r &Viewport) has_transparent_background() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Viewport) set_use_hdr_2d(enable bool) {
+pub fn (r &Viewport) set_use_hdr_2d(enable bool) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_use_hdr_2d")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -257,7 +257,7 @@ pub fn (r &Viewport) is_using_hdr_2d() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Viewport) set_msaa_2d(msaa ViewportMSAA) {
+pub fn (r &Viewport) set_msaa_2d(msaa ViewportMSAA) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_msaa_2d")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3330258708)
@@ -278,7 +278,7 @@ pub fn (r &Viewport) get_msaa_2d() ViewportMSAA {
     fnname.deinit()
    return unsafe{ViewportMSAA(object_out)}
 }
-pub fn (mut r Viewport) set_msaa_3d(msaa ViewportMSAA) {
+pub fn (r &Viewport) set_msaa_3d(msaa ViewportMSAA) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_msaa_3d")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3330258708)
@@ -299,7 +299,7 @@ pub fn (r &Viewport) get_msaa_3d() ViewportMSAA {
     fnname.deinit()
    return unsafe{ViewportMSAA(object_out)}
 }
-pub fn (mut r Viewport) set_screen_space_aa(screen_space_aa ViewportScreenSpaceAA) {
+pub fn (r &Viewport) set_screen_space_aa(screen_space_aa ViewportScreenSpaceAA) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_screen_space_aa")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3544169389)
@@ -320,7 +320,7 @@ pub fn (r &Viewport) get_screen_space_aa() ViewportScreenSpaceAA {
     fnname.deinit()
    return unsafe{ViewportScreenSpaceAA(object_out)}
 }
-pub fn (mut r Viewport) set_use_taa(enable bool) {
+pub fn (r &Viewport) set_use_taa(enable bool) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_use_taa")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -340,7 +340,7 @@ pub fn (r &Viewport) is_using_taa() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Viewport) set_use_debanding(enable bool) {
+pub fn (r &Viewport) set_use_debanding(enable bool) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_use_debanding")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -360,7 +360,7 @@ pub fn (r &Viewport) is_using_debanding() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Viewport) set_use_occlusion_culling(enable bool) {
+pub fn (r &Viewport) set_use_occlusion_culling(enable bool) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_use_occlusion_culling")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -380,7 +380,7 @@ pub fn (r &Viewport) is_using_occlusion_culling() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Viewport) set_debug_draw(debug_draw ViewportDebugDraw) {
+pub fn (r &Viewport) set_debug_draw(debug_draw ViewportDebugDraw) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_debug_draw")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1970246205)
@@ -401,7 +401,7 @@ pub fn (r &Viewport) get_debug_draw() ViewportDebugDraw {
     fnname.deinit()
    return unsafe{ViewportDebugDraw(object_out)}
 }
-pub fn (mut r Viewport) get_render_info(type_name ViewportRenderInfoType, info ViewportRenderInfo) i32 {
+pub fn (r &Viewport) get_render_info(type_name ViewportRenderInfoType, info ViewportRenderInfo) i32 {
     mut object_out := i32(0)
     classname := StringName.new("Viewport")
     fnname := StringName.new("get_render_info")
@@ -426,7 +426,7 @@ pub fn (r &Viewport) get_texture() ViewportTexture {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Viewport) set_physics_object_picking(enable bool) {
+pub fn (r &Viewport) set_physics_object_picking(enable bool) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_physics_object_picking")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -436,7 +436,7 @@ pub fn (mut r Viewport) set_physics_object_picking(enable bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Viewport) get_physics_object_picking() bool {
+pub fn (r &Viewport) get_physics_object_picking() bool {
     mut object_out := false
     classname := StringName.new("Viewport")
     fnname := StringName.new("get_physics_object_picking")
@@ -446,7 +446,7 @@ pub fn (mut r Viewport) get_physics_object_picking() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Viewport) set_physics_object_picking_sort(enable bool) {
+pub fn (r &Viewport) set_physics_object_picking_sort(enable bool) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_physics_object_picking_sort")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -456,7 +456,7 @@ pub fn (mut r Viewport) set_physics_object_picking_sort(enable bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Viewport) get_physics_object_picking_sort() bool {
+pub fn (r &Viewport) get_physics_object_picking_sort() bool {
     mut object_out := false
     classname := StringName.new("Viewport")
     fnname := StringName.new("get_physics_object_picking_sort")
@@ -476,7 +476,7 @@ pub fn (r &Viewport) get_viewport_rid() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Viewport) push_text_input(text string) {
+pub fn (r &Viewport) push_text_input(text string) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("push_text_input")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -488,7 +488,7 @@ pub fn (mut r Viewport) push_text_input(text string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Viewport) push_input(event InputEvent, in_local_coords bool) {
+pub fn (r &Viewport) push_input(event InputEvent, in_local_coords bool) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("push_input")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3644664830)
@@ -499,7 +499,7 @@ pub fn (mut r Viewport) push_input(event InputEvent, in_local_coords bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Viewport) push_unhandled_input(event InputEvent, in_local_coords bool) {
+pub fn (r &Viewport) push_unhandled_input(event InputEvent, in_local_coords bool) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("push_unhandled_input")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3644664830)
@@ -520,7 +520,7 @@ pub fn (r &Viewport) get_camera_2d() Camera2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Viewport) set_as_audio_listener_2d(enable bool) {
+pub fn (r &Viewport) set_as_audio_listener_2d(enable bool) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_as_audio_listener_2d")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -550,7 +550,7 @@ pub fn (r &Viewport) get_mouse_position() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Viewport) warp_mouse(position Vector2) {
+pub fn (r &Viewport) warp_mouse(position Vector2) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("warp_mouse")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -560,7 +560,7 @@ pub fn (mut r Viewport) warp_mouse(position Vector2) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Viewport) update_mouse_cursor_state() {
+pub fn (r &Viewport) update_mouse_cursor_state() {
     classname := StringName.new("Viewport")
     fnname := StringName.new("update_mouse_cursor_state")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -598,7 +598,7 @@ pub fn (r &Viewport) gui_is_drag_successful() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Viewport) gui_release_focus() {
+pub fn (r &Viewport) gui_release_focus() {
     classname := StringName.new("Viewport")
     fnname := StringName.new("gui_release_focus")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -616,7 +616,7 @@ pub fn (r &Viewport) gui_get_focus_owner() Control {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Viewport) set_disable_input(disable bool) {
+pub fn (r &Viewport) set_disable_input(disable bool) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_disable_input")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -636,7 +636,7 @@ pub fn (r &Viewport) is_input_disabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Viewport) set_positional_shadow_atlas_size(size i32) {
+pub fn (r &Viewport) set_positional_shadow_atlas_size(size i32) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_positional_shadow_atlas_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -656,7 +656,7 @@ pub fn (r &Viewport) get_positional_shadow_atlas_size() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Viewport) set_positional_shadow_atlas_16_bits(enable bool) {
+pub fn (r &Viewport) set_positional_shadow_atlas_16_bits(enable bool) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_positional_shadow_atlas_16_bits")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -676,7 +676,7 @@ pub fn (r &Viewport) get_positional_shadow_atlas_16_bits() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Viewport) set_snap_controls_to_pixels(enabled bool) {
+pub fn (r &Viewport) set_snap_controls_to_pixels(enabled bool) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_snap_controls_to_pixels")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -696,7 +696,7 @@ pub fn (r &Viewport) is_snap_controls_to_pixels_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Viewport) set_snap_2d_transforms_to_pixel(enabled bool) {
+pub fn (r &Viewport) set_snap_2d_transforms_to_pixel(enabled bool) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_snap_2d_transforms_to_pixel")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -716,7 +716,7 @@ pub fn (r &Viewport) is_snap_2d_transforms_to_pixel_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Viewport) set_snap_2d_vertices_to_pixel(enabled bool) {
+pub fn (r &Viewport) set_snap_2d_vertices_to_pixel(enabled bool) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_snap_2d_vertices_to_pixel")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -736,7 +736,7 @@ pub fn (r &Viewport) is_snap_2d_vertices_to_pixel_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Viewport) set_positional_shadow_atlas_quadrant_subdiv(quadrant i32, subdiv ViewportPositionalShadowAtlasQuadrantSubdiv) {
+pub fn (r &Viewport) set_positional_shadow_atlas_quadrant_subdiv(quadrant i32, subdiv ViewportPositionalShadowAtlasQuadrantSubdiv) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_positional_shadow_atlas_quadrant_subdiv")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2596956071)
@@ -760,7 +760,7 @@ pub fn (r &Viewport) get_positional_shadow_atlas_quadrant_subdiv(quadrant i32) V
     fnname.deinit()
    return unsafe{ViewportPositionalShadowAtlasQuadrantSubdiv(object_out)}
 }
-pub fn (mut r Viewport) set_input_as_handled() {
+pub fn (r &Viewport) set_input_as_handled() {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_input_as_handled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -778,7 +778,7 @@ pub fn (r &Viewport) is_input_handled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Viewport) set_handle_input_locally(enable bool) {
+pub fn (r &Viewport) set_handle_input_locally(enable bool) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_handle_input_locally")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -798,7 +798,7 @@ pub fn (r &Viewport) is_handling_input_locally() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Viewport) set_default_canvas_item_texture_filter(mode ViewportDefaultCanvasItemTextureFilter) {
+pub fn (r &Viewport) set_default_canvas_item_texture_filter(mode ViewportDefaultCanvasItemTextureFilter) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_default_canvas_item_texture_filter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2815160100)
@@ -819,7 +819,7 @@ pub fn (r &Viewport) get_default_canvas_item_texture_filter() ViewportDefaultCan
     fnname.deinit()
    return unsafe{ViewportDefaultCanvasItemTextureFilter(object_out)}
 }
-pub fn (mut r Viewport) set_embedding_subwindows(enable bool) {
+pub fn (r &Viewport) set_embedding_subwindows(enable bool) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_embedding_subwindows")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -849,7 +849,7 @@ pub fn (r &Viewport) get_embedded_subwindows() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Viewport) set_canvas_cull_mask(mask u32) {
+pub fn (r &Viewport) set_canvas_cull_mask(mask u32) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_canvas_cull_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -869,7 +869,7 @@ pub fn (r &Viewport) get_canvas_cull_mask() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Viewport) set_canvas_cull_mask_bit(layer u32, enable bool) {
+pub fn (r &Viewport) set_canvas_cull_mask_bit(layer u32, enable bool) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_canvas_cull_mask_bit")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -892,7 +892,7 @@ pub fn (r &Viewport) get_canvas_cull_mask_bit(layer u32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Viewport) set_default_canvas_item_texture_repeat(mode ViewportDefaultCanvasItemTextureRepeat) {
+pub fn (r &Viewport) set_default_canvas_item_texture_repeat(mode ViewportDefaultCanvasItemTextureRepeat) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_default_canvas_item_texture_repeat")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1658513413)
@@ -913,7 +913,7 @@ pub fn (r &Viewport) get_default_canvas_item_texture_repeat() ViewportDefaultCan
     fnname.deinit()
    return unsafe{ViewportDefaultCanvasItemTextureRepeat(object_out)}
 }
-pub fn (mut r Viewport) set_sdf_oversize(oversize ViewportSDFOversize) {
+pub fn (r &Viewport) set_sdf_oversize(oversize ViewportSDFOversize) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_sdf_oversize")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2574159017)
@@ -934,7 +934,7 @@ pub fn (r &Viewport) get_sdf_oversize() ViewportSDFOversize {
     fnname.deinit()
    return unsafe{ViewportSDFOversize(object_out)}
 }
-pub fn (mut r Viewport) set_sdf_scale(scale ViewportSDFScale) {
+pub fn (r &Viewport) set_sdf_scale(scale ViewportSDFScale) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_sdf_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1402773951)
@@ -955,7 +955,7 @@ pub fn (r &Viewport) get_sdf_scale() ViewportSDFScale {
     fnname.deinit()
    return unsafe{ViewportSDFScale(object_out)}
 }
-pub fn (mut r Viewport) set_mesh_lod_threshold(pixels f64) {
+pub fn (r &Viewport) set_mesh_lod_threshold(pixels f64) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_mesh_lod_threshold")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -975,7 +975,7 @@ pub fn (r &Viewport) get_mesh_lod_threshold() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Viewport) set_world_3d(world_3d World3D) {
+pub fn (r &Viewport) set_world_3d(world_3d World3D) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_world_3d")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1400875337)
@@ -1005,7 +1005,7 @@ pub fn (r &Viewport) find_world_3d() World3D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Viewport) set_use_own_world_3d(enable bool) {
+pub fn (r &Viewport) set_use_own_world_3d(enable bool) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_use_own_world_3d")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -1035,7 +1035,7 @@ pub fn (r &Viewport) get_camera_3d() Camera3D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Viewport) set_as_audio_listener_3d(enable bool) {
+pub fn (r &Viewport) set_as_audio_listener_3d(enable bool) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_as_audio_listener_3d")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -1055,7 +1055,7 @@ pub fn (r &Viewport) is_audio_listener_3d() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Viewport) set_disable_3d(disable bool) {
+pub fn (r &Viewport) set_disable_3d(disable bool) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_disable_3d")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -1075,7 +1075,7 @@ pub fn (r &Viewport) is_3d_disabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Viewport) set_use_xr(use bool) {
+pub fn (r &Viewport) set_use_xr(use bool) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_use_xr")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -1085,7 +1085,7 @@ pub fn (mut r Viewport) set_use_xr(use bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Viewport) is_using_xr() bool {
+pub fn (r &Viewport) is_using_xr() bool {
     mut object_out := false
     classname := StringName.new("Viewport")
     fnname := StringName.new("is_using_xr")
@@ -1095,7 +1095,7 @@ pub fn (mut r Viewport) is_using_xr() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Viewport) set_scaling_3d_mode(scaling_3d_mode ViewportScaling3DMode) {
+pub fn (r &Viewport) set_scaling_3d_mode(scaling_3d_mode ViewportScaling3DMode) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_scaling_3d_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1531597597)
@@ -1116,7 +1116,7 @@ pub fn (r &Viewport) get_scaling_3d_mode() ViewportScaling3DMode {
     fnname.deinit()
    return unsafe{ViewportScaling3DMode(object_out)}
 }
-pub fn (mut r Viewport) set_scaling_3d_scale(scale f64) {
+pub fn (r &Viewport) set_scaling_3d_scale(scale f64) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_scaling_3d_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -1136,7 +1136,7 @@ pub fn (r &Viewport) get_scaling_3d_scale() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Viewport) set_fsr_sharpness(fsr_sharpness f64) {
+pub fn (r &Viewport) set_fsr_sharpness(fsr_sharpness f64) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_fsr_sharpness")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -1156,7 +1156,7 @@ pub fn (r &Viewport) get_fsr_sharpness() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Viewport) set_texture_mipmap_bias(texture_mipmap_bias f64) {
+pub fn (r &Viewport) set_texture_mipmap_bias(texture_mipmap_bias f64) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_texture_mipmap_bias")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -1176,7 +1176,7 @@ pub fn (r &Viewport) get_texture_mipmap_bias() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Viewport) set_vrs_mode(mode ViewportVRSMode) {
+pub fn (r &Viewport) set_vrs_mode(mode ViewportVRSMode) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_vrs_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2749867817)
@@ -1197,7 +1197,7 @@ pub fn (r &Viewport) get_vrs_mode() ViewportVRSMode {
     fnname.deinit()
    return unsafe{ViewportVRSMode(object_out)}
 }
-pub fn (mut r Viewport) set_vrs_texture(texture Texture2D) {
+pub fn (r &Viewport) set_vrs_texture(texture Texture2D) {
     classname := StringName.new("Viewport")
     fnname := StringName.new("set_vrs_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)

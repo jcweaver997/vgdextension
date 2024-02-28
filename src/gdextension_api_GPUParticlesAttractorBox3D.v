@@ -5,7 +5,7 @@ pub struct GPUParticlesAttractorBox3D {
     GPUParticlesAttractor3D
 }
 
-pub fn (mut r GPUParticlesAttractorBox3D) set_size(size Vector3) {
+pub fn (r &GPUParticlesAttractorBox3D) set_size(size Vector3) {
     classname := StringName.new("GPUParticlesAttractorBox3D")
     fnname := StringName.new("set_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)

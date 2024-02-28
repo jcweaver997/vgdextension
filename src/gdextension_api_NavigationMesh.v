@@ -26,7 +26,7 @@ pub struct NavigationMesh {
     Resource
 }
 
-pub fn (mut r NavigationMesh) set_sample_partition_type(sample_partition_type NavigationMeshSamplePartitionType) {
+pub fn (r &NavigationMesh) set_sample_partition_type(sample_partition_type NavigationMeshSamplePartitionType) {
     classname := StringName.new("NavigationMesh")
     fnname := StringName.new("set_sample_partition_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2472437533)
@@ -47,7 +47,7 @@ pub fn (r &NavigationMesh) get_sample_partition_type() NavigationMeshSampleParti
     fnname.deinit()
    return unsafe{NavigationMeshSamplePartitionType(object_out)}
 }
-pub fn (mut r NavigationMesh) set_parsed_geometry_type(geometry_type NavigationMeshParsedGeometryType) {
+pub fn (r &NavigationMesh) set_parsed_geometry_type(geometry_type NavigationMeshParsedGeometryType) {
     classname := StringName.new("NavigationMesh")
     fnname := StringName.new("set_parsed_geometry_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3064713163)
@@ -68,7 +68,7 @@ pub fn (r &NavigationMesh) get_parsed_geometry_type() NavigationMeshParsedGeomet
     fnname.deinit()
    return unsafe{NavigationMeshParsedGeometryType(object_out)}
 }
-pub fn (mut r NavigationMesh) set_collision_mask(mask u32) {
+pub fn (r &NavigationMesh) set_collision_mask(mask u32) {
     classname := StringName.new("NavigationMesh")
     fnname := StringName.new("set_collision_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -88,7 +88,7 @@ pub fn (r &NavigationMesh) get_collision_mask() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationMesh) set_collision_mask_value(layer_number i32, value bool) {
+pub fn (r &NavigationMesh) set_collision_mask_value(layer_number i32, value bool) {
     classname := StringName.new("NavigationMesh")
     fnname := StringName.new("set_collision_mask_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -111,7 +111,7 @@ pub fn (r &NavigationMesh) get_collision_mask_value(layer_number i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationMesh) set_source_geometry_mode(mask NavigationMeshSourceGeometryMode) {
+pub fn (r &NavigationMesh) set_source_geometry_mode(mask NavigationMeshSourceGeometryMode) {
     classname := StringName.new("NavigationMesh")
     fnname := StringName.new("set_source_geometry_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2700825194)
@@ -132,7 +132,7 @@ pub fn (r &NavigationMesh) get_source_geometry_mode() NavigationMeshSourceGeomet
     fnname.deinit()
    return unsafe{NavigationMeshSourceGeometryMode(object_out)}
 }
-pub fn (mut r NavigationMesh) set_source_group_name(mask string) {
+pub fn (r &NavigationMesh) set_source_group_name(mask string) {
     classname := StringName.new("NavigationMesh")
     fnname := StringName.new("set_source_group_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -156,7 +156,7 @@ pub fn (r &NavigationMesh) get_source_group_name() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r NavigationMesh) set_cell_size(cell_size f64) {
+pub fn (r &NavigationMesh) set_cell_size(cell_size f64) {
     classname := StringName.new("NavigationMesh")
     fnname := StringName.new("set_cell_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -176,7 +176,7 @@ pub fn (r &NavigationMesh) get_cell_size() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationMesh) set_cell_height(cell_height f64) {
+pub fn (r &NavigationMesh) set_cell_height(cell_height f64) {
     classname := StringName.new("NavigationMesh")
     fnname := StringName.new("set_cell_height")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -196,7 +196,7 @@ pub fn (r &NavigationMesh) get_cell_height() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationMesh) set_agent_height(agent_height f64) {
+pub fn (r &NavigationMesh) set_agent_height(agent_height f64) {
     classname := StringName.new("NavigationMesh")
     fnname := StringName.new("set_agent_height")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -216,7 +216,7 @@ pub fn (r &NavigationMesh) get_agent_height() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationMesh) set_agent_radius(agent_radius f64) {
+pub fn (r &NavigationMesh) set_agent_radius(agent_radius f64) {
     classname := StringName.new("NavigationMesh")
     fnname := StringName.new("set_agent_radius")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -226,7 +226,7 @@ pub fn (mut r NavigationMesh) set_agent_radius(agent_radius f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationMesh) get_agent_radius() f64 {
+pub fn (r &NavigationMesh) get_agent_radius() f64 {
     mut object_out := f64(0)
     classname := StringName.new("NavigationMesh")
     fnname := StringName.new("get_agent_radius")
@@ -236,7 +236,7 @@ pub fn (mut r NavigationMesh) get_agent_radius() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationMesh) set_agent_max_climb(agent_max_climb f64) {
+pub fn (r &NavigationMesh) set_agent_max_climb(agent_max_climb f64) {
     classname := StringName.new("NavigationMesh")
     fnname := StringName.new("set_agent_max_climb")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -256,7 +256,7 @@ pub fn (r &NavigationMesh) get_agent_max_climb() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationMesh) set_agent_max_slope(agent_max_slope f64) {
+pub fn (r &NavigationMesh) set_agent_max_slope(agent_max_slope f64) {
     classname := StringName.new("NavigationMesh")
     fnname := StringName.new("set_agent_max_slope")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -276,7 +276,7 @@ pub fn (r &NavigationMesh) get_agent_max_slope() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationMesh) set_region_min_size(region_min_size f64) {
+pub fn (r &NavigationMesh) set_region_min_size(region_min_size f64) {
     classname := StringName.new("NavigationMesh")
     fnname := StringName.new("set_region_min_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -296,7 +296,7 @@ pub fn (r &NavigationMesh) get_region_min_size() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationMesh) set_region_merge_size(region_merge_size f64) {
+pub fn (r &NavigationMesh) set_region_merge_size(region_merge_size f64) {
     classname := StringName.new("NavigationMesh")
     fnname := StringName.new("set_region_merge_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -316,7 +316,7 @@ pub fn (r &NavigationMesh) get_region_merge_size() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationMesh) set_edge_max_length(edge_max_length f64) {
+pub fn (r &NavigationMesh) set_edge_max_length(edge_max_length f64) {
     classname := StringName.new("NavigationMesh")
     fnname := StringName.new("set_edge_max_length")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -336,7 +336,7 @@ pub fn (r &NavigationMesh) get_edge_max_length() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationMesh) set_edge_max_error(edge_max_error f64) {
+pub fn (r &NavigationMesh) set_edge_max_error(edge_max_error f64) {
     classname := StringName.new("NavigationMesh")
     fnname := StringName.new("set_edge_max_error")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -356,7 +356,7 @@ pub fn (r &NavigationMesh) get_edge_max_error() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationMesh) set_vertices_per_polygon(vertices_per_polygon f64) {
+pub fn (r &NavigationMesh) set_vertices_per_polygon(vertices_per_polygon f64) {
     classname := StringName.new("NavigationMesh")
     fnname := StringName.new("set_vertices_per_polygon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -376,7 +376,7 @@ pub fn (r &NavigationMesh) get_vertices_per_polygon() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationMesh) set_detail_sample_distance(detail_sample_dist f64) {
+pub fn (r &NavigationMesh) set_detail_sample_distance(detail_sample_dist f64) {
     classname := StringName.new("NavigationMesh")
     fnname := StringName.new("set_detail_sample_distance")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -396,7 +396,7 @@ pub fn (r &NavigationMesh) get_detail_sample_distance() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationMesh) set_detail_sample_max_error(detail_sample_max_error f64) {
+pub fn (r &NavigationMesh) set_detail_sample_max_error(detail_sample_max_error f64) {
     classname := StringName.new("NavigationMesh")
     fnname := StringName.new("set_detail_sample_max_error")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -416,7 +416,7 @@ pub fn (r &NavigationMesh) get_detail_sample_max_error() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationMesh) set_filter_low_hanging_obstacles(filter_low_hanging_obstacles bool) {
+pub fn (r &NavigationMesh) set_filter_low_hanging_obstacles(filter_low_hanging_obstacles bool) {
     classname := StringName.new("NavigationMesh")
     fnname := StringName.new("set_filter_low_hanging_obstacles")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -436,7 +436,7 @@ pub fn (r &NavigationMesh) get_filter_low_hanging_obstacles() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationMesh) set_filter_ledge_spans(filter_ledge_spans bool) {
+pub fn (r &NavigationMesh) set_filter_ledge_spans(filter_ledge_spans bool) {
     classname := StringName.new("NavigationMesh")
     fnname := StringName.new("set_filter_ledge_spans")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -456,7 +456,7 @@ pub fn (r &NavigationMesh) get_filter_ledge_spans() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationMesh) set_filter_walkable_low_height_spans(filter_walkable_low_height_spans bool) {
+pub fn (r &NavigationMesh) set_filter_walkable_low_height_spans(filter_walkable_low_height_spans bool) {
     classname := StringName.new("NavigationMesh")
     fnname := StringName.new("set_filter_walkable_low_height_spans")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -476,7 +476,7 @@ pub fn (r &NavigationMesh) get_filter_walkable_low_height_spans() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationMesh) set_filter_baking_aabb(baking_aabb AABB) {
+pub fn (r &NavigationMesh) set_filter_baking_aabb(baking_aabb AABB) {
     classname := StringName.new("NavigationMesh")
     fnname := StringName.new("set_filter_baking_aabb")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 259215842)
@@ -496,7 +496,7 @@ pub fn (r &NavigationMesh) get_filter_baking_aabb() AABB {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationMesh) set_filter_baking_aabb_offset(baking_aabb_offset Vector3) {
+pub fn (r &NavigationMesh) set_filter_baking_aabb_offset(baking_aabb_offset Vector3) {
     classname := StringName.new("NavigationMesh")
     fnname := StringName.new("set_filter_baking_aabb_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -516,7 +516,7 @@ pub fn (r &NavigationMesh) get_filter_baking_aabb_offset() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationMesh) set_vertices(vertices PackedVector3Array) {
+pub fn (r &NavigationMesh) set_vertices(vertices PackedVector3Array) {
     classname := StringName.new("NavigationMesh")
     fnname := StringName.new("set_vertices")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 334873810)
@@ -536,7 +536,7 @@ pub fn (r &NavigationMesh) get_vertices() PackedVector3Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationMesh) add_polygon(polygon PackedInt32Array) {
+pub fn (r &NavigationMesh) add_polygon(polygon PackedInt32Array) {
     classname := StringName.new("NavigationMesh")
     fnname := StringName.new("add_polygon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3614634198)
@@ -556,7 +556,7 @@ pub fn (r &NavigationMesh) get_polygon_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationMesh) get_polygon(idx i32) PackedInt32Array {
+pub fn (r &NavigationMesh) get_polygon(idx i32) PackedInt32Array {
     mut object_out := PackedInt32Array{}
     classname := StringName.new("NavigationMesh")
     fnname := StringName.new("get_polygon")
@@ -568,7 +568,7 @@ pub fn (mut r NavigationMesh) get_polygon(idx i32) PackedInt32Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NavigationMesh) clear_polygons() {
+pub fn (r &NavigationMesh) clear_polygons() {
     classname := StringName.new("NavigationMesh")
     fnname := StringName.new("clear_polygons")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -576,7 +576,7 @@ pub fn (mut r NavigationMesh) clear_polygons() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationMesh) create_from_mesh(mesh Mesh) {
+pub fn (r &NavigationMesh) create_from_mesh(mesh Mesh) {
     classname := StringName.new("NavigationMesh")
     fnname := StringName.new("create_from_mesh")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 194775623)
@@ -586,7 +586,7 @@ pub fn (mut r NavigationMesh) create_from_mesh(mesh Mesh) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NavigationMesh) clear() {
+pub fn (r &NavigationMesh) clear() {
     classname := StringName.new("NavigationMesh")
     fnname := StringName.new("clear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

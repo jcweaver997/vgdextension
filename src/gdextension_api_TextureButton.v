@@ -15,7 +15,7 @@ pub struct TextureButton {
     BaseButton
 }
 
-pub fn (mut r TextureButton) set_texture_normal(texture Texture2D) {
+pub fn (r &TextureButton) set_texture_normal(texture Texture2D) {
     classname := StringName.new("TextureButton")
     fnname := StringName.new("set_texture_normal")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
@@ -25,7 +25,7 @@ pub fn (mut r TextureButton) set_texture_normal(texture Texture2D) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextureButton) set_texture_pressed(texture Texture2D) {
+pub fn (r &TextureButton) set_texture_pressed(texture Texture2D) {
     classname := StringName.new("TextureButton")
     fnname := StringName.new("set_texture_pressed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
@@ -35,7 +35,7 @@ pub fn (mut r TextureButton) set_texture_pressed(texture Texture2D) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextureButton) set_texture_hover(texture Texture2D) {
+pub fn (r &TextureButton) set_texture_hover(texture Texture2D) {
     classname := StringName.new("TextureButton")
     fnname := StringName.new("set_texture_hover")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
@@ -45,7 +45,7 @@ pub fn (mut r TextureButton) set_texture_hover(texture Texture2D) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextureButton) set_texture_disabled(texture Texture2D) {
+pub fn (r &TextureButton) set_texture_disabled(texture Texture2D) {
     classname := StringName.new("TextureButton")
     fnname := StringName.new("set_texture_disabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
@@ -55,7 +55,7 @@ pub fn (mut r TextureButton) set_texture_disabled(texture Texture2D) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextureButton) set_texture_focused(texture Texture2D) {
+pub fn (r &TextureButton) set_texture_focused(texture Texture2D) {
     classname := StringName.new("TextureButton")
     fnname := StringName.new("set_texture_focused")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
@@ -65,7 +65,7 @@ pub fn (mut r TextureButton) set_texture_focused(texture Texture2D) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextureButton) set_click_mask(mask BitMap) {
+pub fn (r &TextureButton) set_click_mask(mask BitMap) {
     classname := StringName.new("TextureButton")
     fnname := StringName.new("set_click_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 698588216)
@@ -75,7 +75,7 @@ pub fn (mut r TextureButton) set_click_mask(mask BitMap) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextureButton) set_ignore_texture_size(ignore bool) {
+pub fn (r &TextureButton) set_ignore_texture_size(ignore bool) {
     classname := StringName.new("TextureButton")
     fnname := StringName.new("set_ignore_texture_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -85,7 +85,7 @@ pub fn (mut r TextureButton) set_ignore_texture_size(ignore bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextureButton) set_stretch_mode(mode TextureButtonStretchMode) {
+pub fn (r &TextureButton) set_stretch_mode(mode TextureButtonStretchMode) {
     classname := StringName.new("TextureButton")
     fnname := StringName.new("set_stretch_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 252530840)
@@ -96,7 +96,7 @@ pub fn (mut r TextureButton) set_stretch_mode(mode TextureButtonStretchMode) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextureButton) set_flip_h(enable bool) {
+pub fn (r &TextureButton) set_flip_h(enable bool) {
     classname := StringName.new("TextureButton")
     fnname := StringName.new("set_flip_h")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -116,7 +116,7 @@ pub fn (r &TextureButton) is_flipped_h() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextureButton) set_flip_v(enable bool) {
+pub fn (r &TextureButton) set_flip_v(enable bool) {
     classname := StringName.new("TextureButton")
     fnname := StringName.new("set_flip_v")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

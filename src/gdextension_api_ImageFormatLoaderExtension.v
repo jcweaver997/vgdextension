@@ -25,7 +25,7 @@ pub interface IImageFormatLoaderExtensionLoadImage {
     virt_load_image(image Image, fileaccess FileAccess, flags ImageFormatLoaderLoaderFlags, scale f64) GDError
 }
 
-pub fn (mut r ImageFormatLoaderExtension) uload_image(image Image, fileaccess FileAccess, flags ImageFormatLoaderLoaderFlags, scale f64) GDError {
+pub fn (r &ImageFormatLoaderExtension) uload_image(image Image, fileaccess FileAccess, flags ImageFormatLoaderLoaderFlags, scale f64) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ImageFormatLoaderExtension")
     fnname := StringName.new("_load_image")
@@ -41,7 +41,7 @@ pub fn (mut r ImageFormatLoaderExtension) uload_image(image Image, fileaccess Fi
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r ImageFormatLoaderExtension) add_format_loader() {
+pub fn (r &ImageFormatLoaderExtension) add_format_loader() {
     classname := StringName.new("ImageFormatLoaderExtension")
     fnname := StringName.new("add_format_loader")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -49,7 +49,7 @@ pub fn (mut r ImageFormatLoaderExtension) add_format_loader() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ImageFormatLoaderExtension) remove_format_loader() {
+pub fn (r &ImageFormatLoaderExtension) remove_format_loader() {
     classname := StringName.new("ImageFormatLoaderExtension")
     fnname := StringName.new("remove_format_loader")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

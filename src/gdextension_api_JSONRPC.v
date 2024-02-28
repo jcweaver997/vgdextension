@@ -13,7 +13,7 @@ pub struct JSONRPC {
     Object
 }
 
-pub fn (mut r JSONRPC) set_scope(scope string, target Object) {
+pub fn (r &JSONRPC) set_scope(scope string, target Object) {
     classname := StringName.new("JSONRPC")
     fnname := StringName.new("set_scope")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2572618360)
@@ -26,7 +26,7 @@ pub fn (mut r JSONRPC) set_scope(scope string, target Object) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r JSONRPC) process_action(action Variant, recurse bool) Variant {
+pub fn (r &JSONRPC) process_action(action Variant, recurse bool) Variant {
     mut object_out := Variant{}
     classname := StringName.new("JSONRPC")
     fnname := StringName.new("process_action")
@@ -39,7 +39,7 @@ pub fn (mut r JSONRPC) process_action(action Variant, recurse bool) Variant {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r JSONRPC) process_string(action string) string {
+pub fn (r &JSONRPC) process_string(action string) string {
     mut object_out := String{}
     classname := StringName.new("JSONRPC")
     fnname := StringName.new("process_string")
@@ -55,7 +55,7 @@ pub fn (mut r JSONRPC) process_string(action string) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r JSONRPC) make_request(method string, params Variant, id Variant) Dictionary {
+pub fn (r &JSONRPC) make_request(method string, params Variant, id Variant) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("JSONRPC")
     fnname := StringName.new("make_request")
@@ -71,7 +71,7 @@ pub fn (mut r JSONRPC) make_request(method string, params Variant, id Variant) D
     fnname.deinit()
    return object_out
 }
-pub fn (mut r JSONRPC) make_response(result Variant, id Variant) Dictionary {
+pub fn (r &JSONRPC) make_response(result Variant, id Variant) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("JSONRPC")
     fnname := StringName.new("make_response")
@@ -84,7 +84,7 @@ pub fn (mut r JSONRPC) make_response(result Variant, id Variant) Dictionary {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r JSONRPC) make_notification(method string, params Variant) Dictionary {
+pub fn (r &JSONRPC) make_notification(method string, params Variant) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("JSONRPC")
     fnname := StringName.new("make_notification")

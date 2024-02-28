@@ -5,7 +5,7 @@ pub struct Skin {
     Resource
 }
 
-pub fn (mut r Skin) set_bind_count(bind_count i32) {
+pub fn (r &Skin) set_bind_count(bind_count i32) {
     classname := StringName.new("Skin")
     fnname := StringName.new("set_bind_count")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -25,7 +25,7 @@ pub fn (r &Skin) get_bind_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Skin) add_bind(bone i32, pose Transform3D) {
+pub fn (r &Skin) add_bind(bone i32, pose Transform3D) {
     classname := StringName.new("Skin")
     fnname := StringName.new("add_bind")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3616898986)
@@ -36,7 +36,7 @@ pub fn (mut r Skin) add_bind(bone i32, pose Transform3D) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Skin) add_named_bind(name string, pose Transform3D) {
+pub fn (r &Skin) add_named_bind(name string, pose Transform3D) {
     classname := StringName.new("Skin")
     fnname := StringName.new("add_named_bind")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3154712474)
@@ -49,7 +49,7 @@ pub fn (mut r Skin) add_named_bind(name string, pose Transform3D) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Skin) set_bind_pose(bind_index i32, pose Transform3D) {
+pub fn (r &Skin) set_bind_pose(bind_index i32, pose Transform3D) {
     classname := StringName.new("Skin")
     fnname := StringName.new("set_bind_pose")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3616898986)
@@ -72,7 +72,7 @@ pub fn (r &Skin) get_bind_pose(bind_index i32) Transform3D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Skin) set_bind_name(bind_index i32, name string) {
+pub fn (r &Skin) set_bind_name(bind_index i32, name string) {
     classname := StringName.new("Skin")
     fnname := StringName.new("set_bind_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3780747571)
@@ -99,7 +99,7 @@ pub fn (r &Skin) get_bind_name(bind_index i32) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r Skin) set_bind_bone(bind_index i32, bone i32) {
+pub fn (r &Skin) set_bind_bone(bind_index i32, bone i32) {
     classname := StringName.new("Skin")
     fnname := StringName.new("set_bind_bone")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -122,7 +122,7 @@ pub fn (r &Skin) get_bind_bone(bind_index i32) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Skin) clear_binds() {
+pub fn (r &Skin) clear_binds() {
     classname := StringName.new("Skin")
     fnname := StringName.new("clear_binds")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

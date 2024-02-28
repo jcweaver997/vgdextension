@@ -25,7 +25,7 @@ pub interface IEditorVCSInterfaceInitialize {
     virt_initialize(project_path String) bool
 }
 
-pub fn (mut r EditorVCSInterface) uinitialize(project_path string) bool {
+pub fn (r &EditorVCSInterface) uinitialize(project_path string) bool {
     mut object_out := false
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_initialize")
@@ -44,7 +44,7 @@ pub interface IEditorVCSInterfaceSetCredentials {
     virt_set_credentials(username String, password String, ssh_public_key_path String, ssh_private_key_path String, ssh_passphrase String)
 }
 
-pub fn (mut r EditorVCSInterface) uset_credentials(username string, password string, ssh_public_key_path string, ssh_private_key_path string, ssh_passphrase string) {
+pub fn (r &EditorVCSInterface) uset_credentials(username string, password string, ssh_public_key_path string, ssh_private_key_path string, ssh_passphrase string) {
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_set_credentials")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -73,7 +73,7 @@ pub interface IEditorVCSInterfaceGetModifiedFilesData {
     virt_get_modified_files_data() Array
 }
 
-pub fn (mut r EditorVCSInterface) uget_modified_files_data() Array {
+pub fn (r &EditorVCSInterface) uget_modified_files_data() Array {
     mut object_out := Array{}
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_get_modified_files_data")
@@ -88,7 +88,7 @@ pub interface IEditorVCSInterfaceStageFile {
     virt_stage_file(file_path String)
 }
 
-pub fn (mut r EditorVCSInterface) ustage_file(file_path string) {
+pub fn (r &EditorVCSInterface) ustage_file(file_path string) {
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_stage_file")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -105,7 +105,7 @@ pub interface IEditorVCSInterfaceUnstageFile {
     virt_unstage_file(file_path String)
 }
 
-pub fn (mut r EditorVCSInterface) uunstage_file(file_path string) {
+pub fn (r &EditorVCSInterface) uunstage_file(file_path string) {
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_unstage_file")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -122,7 +122,7 @@ pub interface IEditorVCSInterfaceDiscardFile {
     virt_discard_file(file_path String)
 }
 
-pub fn (mut r EditorVCSInterface) udiscard_file(file_path string) {
+pub fn (r &EditorVCSInterface) udiscard_file(file_path string) {
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_discard_file")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -139,7 +139,7 @@ pub interface IEditorVCSInterfaceCommit {
     virt_commit(msg String)
 }
 
-pub fn (mut r EditorVCSInterface) ucommit(msg string) {
+pub fn (r &EditorVCSInterface) ucommit(msg string) {
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_commit")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -156,7 +156,7 @@ pub interface IEditorVCSInterfaceGetDiff {
     virt_get_diff(identifier String, area i32) Array
 }
 
-pub fn (mut r EditorVCSInterface) uget_diff(identifier string, area i32) Array {
+pub fn (r &EditorVCSInterface) uget_diff(identifier string, area i32) Array {
     mut object_out := Array{}
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_get_diff")
@@ -176,7 +176,7 @@ pub interface IEditorVCSInterfaceShutDown {
     virt_shut_down() bool
 }
 
-pub fn (mut r EditorVCSInterface) ushut_down() bool {
+pub fn (r &EditorVCSInterface) ushut_down() bool {
     mut object_out := false
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_shut_down")
@@ -191,7 +191,7 @@ pub interface IEditorVCSInterfaceGetVcsName {
     virt_get_vcs_name() String
 }
 
-pub fn (mut r EditorVCSInterface) uget_vcs_name() string {
+pub fn (r &EditorVCSInterface) uget_vcs_name() string {
     mut object_out := String{}
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_get_vcs_name")
@@ -208,7 +208,7 @@ pub interface IEditorVCSInterfaceGetPreviousCommits {
     virt_get_previous_commits(max_commits i32) Array
 }
 
-pub fn (mut r EditorVCSInterface) uget_previous_commits(max_commits i32) Array {
+pub fn (r &EditorVCSInterface) uget_previous_commits(max_commits i32) Array {
     mut object_out := Array{}
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_get_previous_commits")
@@ -225,7 +225,7 @@ pub interface IEditorVCSInterfaceGetBranchList {
     virt_get_branch_list() Array
 }
 
-pub fn (mut r EditorVCSInterface) uget_branch_list() Array {
+pub fn (r &EditorVCSInterface) uget_branch_list() Array {
     mut object_out := Array{}
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_get_branch_list")
@@ -240,7 +240,7 @@ pub interface IEditorVCSInterfaceGetRemotes {
     virt_get_remotes() Array
 }
 
-pub fn (mut r EditorVCSInterface) uget_remotes() Array {
+pub fn (r &EditorVCSInterface) uget_remotes() Array {
     mut object_out := Array{}
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_get_remotes")
@@ -255,7 +255,7 @@ pub interface IEditorVCSInterfaceCreateBranch {
     virt_create_branch(branch_name String)
 }
 
-pub fn (mut r EditorVCSInterface) ucreate_branch(branch_name string) {
+pub fn (r &EditorVCSInterface) ucreate_branch(branch_name string) {
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_create_branch")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -272,7 +272,7 @@ pub interface IEditorVCSInterfaceRemoveBranch {
     virt_remove_branch(branch_name String)
 }
 
-pub fn (mut r EditorVCSInterface) uremove_branch(branch_name string) {
+pub fn (r &EditorVCSInterface) uremove_branch(branch_name string) {
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_remove_branch")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -289,7 +289,7 @@ pub interface IEditorVCSInterfaceCreateRemote {
     virt_create_remote(remote_name String, remote_url String)
 }
 
-pub fn (mut r EditorVCSInterface) ucreate_remote(remote_name string, remote_url string) {
+pub fn (r &EditorVCSInterface) ucreate_remote(remote_name string, remote_url string) {
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_create_remote")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -309,7 +309,7 @@ pub interface IEditorVCSInterfaceRemoveRemote {
     virt_remove_remote(remote_name String)
 }
 
-pub fn (mut r EditorVCSInterface) uremove_remote(remote_name string) {
+pub fn (r &EditorVCSInterface) uremove_remote(remote_name string) {
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_remove_remote")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -326,7 +326,7 @@ pub interface IEditorVCSInterfaceGetCurrentBranchName {
     virt_get_current_branch_name() String
 }
 
-pub fn (mut r EditorVCSInterface) uget_current_branch_name() string {
+pub fn (r &EditorVCSInterface) uget_current_branch_name() string {
     mut object_out := String{}
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_get_current_branch_name")
@@ -343,7 +343,7 @@ pub interface IEditorVCSInterfaceCheckoutBranch {
     virt_checkout_branch(branch_name String) bool
 }
 
-pub fn (mut r EditorVCSInterface) ucheckout_branch(branch_name string) bool {
+pub fn (r &EditorVCSInterface) ucheckout_branch(branch_name string) bool {
     mut object_out := false
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_checkout_branch")
@@ -362,7 +362,7 @@ pub interface IEditorVCSInterfacePull {
     virt_pull(remote String)
 }
 
-pub fn (mut r EditorVCSInterface) upull(remote string) {
+pub fn (r &EditorVCSInterface) upull(remote string) {
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_pull")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -379,7 +379,7 @@ pub interface IEditorVCSInterfacePush {
     virt_push(remote String, force bool)
 }
 
-pub fn (mut r EditorVCSInterface) upush(remote string, force bool) {
+pub fn (r &EditorVCSInterface) upush(remote string, force bool) {
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_push")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -397,7 +397,7 @@ pub interface IEditorVCSInterfaceFetch {
     virt_fetch(remote String)
 }
 
-pub fn (mut r EditorVCSInterface) ufetch(remote string) {
+pub fn (r &EditorVCSInterface) ufetch(remote string) {
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_fetch")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -414,7 +414,7 @@ pub interface IEditorVCSInterfaceGetLineDiff {
     virt_get_line_diff(file_path String, text String) Array
 }
 
-pub fn (mut r EditorVCSInterface) uget_line_diff(file_path string, text string) Array {
+pub fn (r &EditorVCSInterface) uget_line_diff(file_path string, text string) Array {
     mut object_out := Array{}
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("_get_line_diff")
@@ -431,7 +431,7 @@ pub fn (mut r EditorVCSInterface) uget_line_diff(file_path string, text string) 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorVCSInterface) create_diff_line(new_line_no i32, old_line_no i32, content string, status string) Dictionary {
+pub fn (r &EditorVCSInterface) create_diff_line(new_line_no i32, old_line_no i32, content string, status string) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("create_diff_line")
@@ -450,7 +450,7 @@ pub fn (mut r EditorVCSInterface) create_diff_line(new_line_no i32, old_line_no 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorVCSInterface) create_diff_hunk(old_start i32, new_start i32, old_lines i32, new_lines i32) Dictionary {
+pub fn (r &EditorVCSInterface) create_diff_hunk(old_start i32, new_start i32, old_lines i32, new_lines i32) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("create_diff_hunk")
@@ -465,7 +465,7 @@ pub fn (mut r EditorVCSInterface) create_diff_hunk(old_start i32, new_start i32,
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorVCSInterface) create_diff_file(new_file string, old_file string) Dictionary {
+pub fn (r &EditorVCSInterface) create_diff_file(new_file string, old_file string) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("create_diff_file")
@@ -482,7 +482,7 @@ pub fn (mut r EditorVCSInterface) create_diff_file(new_file string, old_file str
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorVCSInterface) create_commit(msg string, author string, id string, unix_timestamp i64, offset_minutes i64) Dictionary {
+pub fn (r &EditorVCSInterface) create_commit(msg string, author string, id string, unix_timestamp i64, offset_minutes i64) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("create_commit")
@@ -504,7 +504,7 @@ pub fn (mut r EditorVCSInterface) create_commit(msg string, author string, id st
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorVCSInterface) create_status_file(file_path string, change_type EditorVCSInterfaceChangeType, area EditorVCSInterfaceTreeArea) Dictionary {
+pub fn (r &EditorVCSInterface) create_status_file(file_path string, change_type EditorVCSInterfaceChangeType, area EditorVCSInterfaceTreeArea) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("create_status_file")
@@ -522,7 +522,7 @@ pub fn (mut r EditorVCSInterface) create_status_file(file_path string, change_ty
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorVCSInterface) add_diff_hunks_into_diff_file(diff_file Dictionary, diff_hunks Array) Dictionary {
+pub fn (r &EditorVCSInterface) add_diff_hunks_into_diff_file(diff_file Dictionary, diff_hunks Array) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("add_diff_hunks_into_diff_file")
@@ -535,7 +535,7 @@ pub fn (mut r EditorVCSInterface) add_diff_hunks_into_diff_file(diff_file Dictio
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorVCSInterface) add_line_diffs_into_diff_hunk(diff_hunk Dictionary, line_diffs Array) Dictionary {
+pub fn (r &EditorVCSInterface) add_line_diffs_into_diff_hunk(diff_hunk Dictionary, line_diffs Array) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("add_line_diffs_into_diff_hunk")
@@ -548,7 +548,7 @@ pub fn (mut r EditorVCSInterface) add_line_diffs_into_diff_hunk(diff_hunk Dictio
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorVCSInterface) popup_error(msg string) {
+pub fn (r &EditorVCSInterface) popup_error(msg string) {
     classname := StringName.new("EditorVCSInterface")
     fnname := StringName.new("popup_error")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)

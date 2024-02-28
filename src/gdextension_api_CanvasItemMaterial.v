@@ -19,7 +19,7 @@ pub struct CanvasItemMaterial {
     Material
 }
 
-pub fn (mut r CanvasItemMaterial) set_blend_mode(blend_mode CanvasItemMaterialBlendMode) {
+pub fn (r &CanvasItemMaterial) set_blend_mode(blend_mode CanvasItemMaterialBlendMode) {
     classname := StringName.new("CanvasItemMaterial")
     fnname := StringName.new("set_blend_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1786054936)
@@ -40,7 +40,7 @@ pub fn (r &CanvasItemMaterial) get_blend_mode() CanvasItemMaterialBlendMode {
     fnname.deinit()
    return unsafe{CanvasItemMaterialBlendMode(object_out)}
 }
-pub fn (mut r CanvasItemMaterial) set_light_mode(light_mode CanvasItemMaterialLightMode) {
+pub fn (r &CanvasItemMaterial) set_light_mode(light_mode CanvasItemMaterialLightMode) {
     classname := StringName.new("CanvasItemMaterial")
     fnname := StringName.new("set_light_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 628074070)
@@ -61,7 +61,7 @@ pub fn (r &CanvasItemMaterial) get_light_mode() CanvasItemMaterialLightMode {
     fnname.deinit()
    return unsafe{CanvasItemMaterialLightMode(object_out)}
 }
-pub fn (mut r CanvasItemMaterial) set_particles_animation(particles_anim bool) {
+pub fn (r &CanvasItemMaterial) set_particles_animation(particles_anim bool) {
     classname := StringName.new("CanvasItemMaterial")
     fnname := StringName.new("set_particles_animation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -81,7 +81,7 @@ pub fn (r &CanvasItemMaterial) get_particles_animation() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CanvasItemMaterial) set_particles_anim_h_frames(frames i32) {
+pub fn (r &CanvasItemMaterial) set_particles_anim_h_frames(frames i32) {
     classname := StringName.new("CanvasItemMaterial")
     fnname := StringName.new("set_particles_anim_h_frames")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -101,7 +101,7 @@ pub fn (r &CanvasItemMaterial) get_particles_anim_h_frames() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CanvasItemMaterial) set_particles_anim_v_frames(frames i32) {
+pub fn (r &CanvasItemMaterial) set_particles_anim_v_frames(frames i32) {
     classname := StringName.new("CanvasItemMaterial")
     fnname := StringName.new("set_particles_anim_v_frames")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -121,7 +121,7 @@ pub fn (r &CanvasItemMaterial) get_particles_anim_v_frames() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CanvasItemMaterial) set_particles_anim_loop(loop bool) {
+pub fn (r &CanvasItemMaterial) set_particles_anim_loop(loop bool) {
     classname := StringName.new("CanvasItemMaterial")
     fnname := StringName.new("set_particles_anim_loop")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

@@ -5,7 +5,7 @@ pub struct MultiplayerSpawner {
     Node
 }
 
-pub fn (mut r MultiplayerSpawner) add_spawnable_scene(path string) {
+pub fn (r &MultiplayerSpawner) add_spawnable_scene(path string) {
     classname := StringName.new("MultiplayerSpawner")
     fnname := StringName.new("add_spawnable_scene")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -41,7 +41,7 @@ pub fn (r &MultiplayerSpawner) get_spawnable_scene(index i32) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r MultiplayerSpawner) clear_spawnable_scenes() {
+pub fn (r &MultiplayerSpawner) clear_spawnable_scenes() {
     classname := StringName.new("MultiplayerSpawner")
     fnname := StringName.new("clear_spawnable_scenes")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -49,7 +49,7 @@ pub fn (mut r MultiplayerSpawner) clear_spawnable_scenes() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r MultiplayerSpawner) gdspawn(data Variant) Node {
+pub fn (r &MultiplayerSpawner) gdspawn(data Variant) Node {
     mut object_out := Node{}
     classname := StringName.new("MultiplayerSpawner")
     fnname := StringName.new("spawn")
@@ -71,7 +71,7 @@ pub fn (r &MultiplayerSpawner) get_spawn_path() NodePath {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MultiplayerSpawner) set_spawn_path(path NodePath) {
+pub fn (r &MultiplayerSpawner) set_spawn_path(path NodePath) {
     classname := StringName.new("MultiplayerSpawner")
     fnname := StringName.new("set_spawn_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1348162250)
@@ -91,7 +91,7 @@ pub fn (r &MultiplayerSpawner) get_spawn_limit() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MultiplayerSpawner) set_spawn_limit(limit u32) {
+pub fn (r &MultiplayerSpawner) set_spawn_limit(limit u32) {
     classname := StringName.new("MultiplayerSpawner")
     fnname := StringName.new("set_spawn_limit")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -111,7 +111,7 @@ pub fn (r &MultiplayerSpawner) get_spawn_function() Callable {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MultiplayerSpawner) set_spawn_function(spawn_function Callable) {
+pub fn (r &MultiplayerSpawner) set_spawn_function(spawn_function Callable) {
     classname := StringName.new("MultiplayerSpawner")
     fnname := StringName.new("set_spawn_function")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1611583062)

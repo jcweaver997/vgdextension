@@ -12,7 +12,7 @@ pub struct WebXRInterface {
     XRInterface
 }
 
-pub fn (mut r WebXRInterface) is_session_supported(session_mode string) {
+pub fn (r &WebXRInterface) is_session_supported(session_mode string) {
     classname := StringName.new("WebXRInterface")
     fnname := StringName.new("is_session_supported")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -24,7 +24,7 @@ pub fn (mut r WebXRInterface) is_session_supported(session_mode string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r WebXRInterface) set_session_mode(session_mode string) {
+pub fn (r &WebXRInterface) set_session_mode(session_mode string) {
     classname := StringName.new("WebXRInterface")
     fnname := StringName.new("set_session_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -48,7 +48,7 @@ pub fn (r &WebXRInterface) get_session_mode() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r WebXRInterface) set_required_features(required_features string) {
+pub fn (r &WebXRInterface) set_required_features(required_features string) {
     classname := StringName.new("WebXRInterface")
     fnname := StringName.new("set_required_features")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -72,7 +72,7 @@ pub fn (r &WebXRInterface) get_required_features() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r WebXRInterface) set_optional_features(optional_features string) {
+pub fn (r &WebXRInterface) set_optional_features(optional_features string) {
     classname := StringName.new("WebXRInterface")
     fnname := StringName.new("set_optional_features")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -108,7 +108,7 @@ pub fn (r &WebXRInterface) get_reference_space_type() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r WebXRInterface) set_requested_reference_space_types(requested_reference_space_types string) {
+pub fn (r &WebXRInterface) set_requested_reference_space_types(requested_reference_space_types string) {
     classname := StringName.new("WebXRInterface")
     fnname := StringName.new("set_requested_reference_space_types")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -190,7 +190,7 @@ pub fn (r &WebXRInterface) get_display_refresh_rate() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r WebXRInterface) set_display_refresh_rate(refresh_rate f64) {
+pub fn (r &WebXRInterface) set_display_refresh_rate(refresh_rate f64) {
     classname := StringName.new("WebXRInterface")
     fnname := StringName.new("set_display_refresh_rate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

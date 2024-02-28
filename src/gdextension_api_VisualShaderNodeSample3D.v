@@ -11,7 +11,7 @@ pub struct VisualShaderNodeSample3D {
     VisualShaderNode
 }
 
-pub fn (mut r VisualShaderNodeSample3D) set_source(value VisualShaderNodeSample3DSource) {
+pub fn (r &VisualShaderNodeSample3D) set_source(value VisualShaderNodeSample3DSource) {
     classname := StringName.new("VisualShaderNodeSample3D")
     fnname := StringName.new("set_source")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3315130991)

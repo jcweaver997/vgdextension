@@ -5,7 +5,7 @@ pub struct LightOccluder2D {
     Node2D
 }
 
-pub fn (mut r LightOccluder2D) set_occluder_polygon(polygon OccluderPolygon2D) {
+pub fn (r &LightOccluder2D) set_occluder_polygon(polygon OccluderPolygon2D) {
     classname := StringName.new("LightOccluder2D")
     fnname := StringName.new("set_occluder_polygon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3258315893)
@@ -25,7 +25,7 @@ pub fn (r &LightOccluder2D) get_occluder_polygon() OccluderPolygon2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LightOccluder2D) set_occluder_light_mask(mask i32) {
+pub fn (r &LightOccluder2D) set_occluder_light_mask(mask i32) {
     classname := StringName.new("LightOccluder2D")
     fnname := StringName.new("set_occluder_light_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -45,7 +45,7 @@ pub fn (r &LightOccluder2D) get_occluder_light_mask() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LightOccluder2D) set_as_sdf_collision(enable bool) {
+pub fn (r &LightOccluder2D) set_as_sdf_collision(enable bool) {
     classname := StringName.new("LightOccluder2D")
     fnname := StringName.new("set_as_sdf_collision")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

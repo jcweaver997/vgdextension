@@ -22,7 +22,7 @@ pub fn (r &RenderSceneBuffersRD) has_texture(context string, name string) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderSceneBuffersRD) create_texture(context string, name string, data_format RenderingDeviceDataFormat, usage_bits u32, texture_samples RenderingDeviceTextureSamples, size Vector2i, layers u32, mipmaps u32, unique bool) RID {
+pub fn (r &RenderSceneBuffersRD) create_texture(context string, name string, data_format RenderingDeviceDataFormat, usage_bits u32, texture_samples RenderingDeviceTextureSamples, size Vector2i, layers u32, mipmaps u32, unique bool) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderSceneBuffersRD")
     fnname := StringName.new("create_texture")
@@ -48,7 +48,7 @@ pub fn (mut r RenderSceneBuffersRD) create_texture(context string, name string, 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderSceneBuffersRD) create_texture_from_format(context string, name string, format RDTextureFormat, view RDTextureView, unique bool) RID {
+pub fn (r &RenderSceneBuffersRD) create_texture_from_format(context string, name string, format RDTextureFormat, view RDTextureView, unique bool) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderSceneBuffersRD")
     fnname := StringName.new("create_texture_from_format")
@@ -68,7 +68,7 @@ pub fn (mut r RenderSceneBuffersRD) create_texture_from_format(context string, n
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderSceneBuffersRD) create_texture_view(context string, name string, view_name string, view RDTextureView) RID {
+pub fn (r &RenderSceneBuffersRD) create_texture_view(context string, name string, view_name string, view RDTextureView) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderSceneBuffersRD")
     fnname := StringName.new("create_texture_view")
@@ -123,7 +123,7 @@ pub fn (r &RenderSceneBuffersRD) get_texture_format(context string, name string)
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderSceneBuffersRD) get_texture_slice(context string, name string, layer u32, mipmap u32, layers u32, mipmaps u32) RID {
+pub fn (r &RenderSceneBuffersRD) get_texture_slice(context string, name string, layer u32, mipmap u32, layers u32, mipmaps u32) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderSceneBuffersRD")
     fnname := StringName.new("get_texture_slice")
@@ -144,7 +144,7 @@ pub fn (mut r RenderSceneBuffersRD) get_texture_slice(context string, name strin
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderSceneBuffersRD) get_texture_slice_view(context string, name string, layer u32, mipmap u32, layers u32, mipmaps u32, view RDTextureView) RID {
+pub fn (r &RenderSceneBuffersRD) get_texture_slice_view(context string, name string, layer u32, mipmap u32, layers u32, mipmaps u32, view RDTextureView) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderSceneBuffersRD")
     fnname := StringName.new("get_texture_slice_view")
@@ -166,7 +166,7 @@ pub fn (mut r RenderSceneBuffersRD) get_texture_slice_view(context string, name 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderSceneBuffersRD) get_texture_slice_size(context string, name string, mipmap u32) Vector2i {
+pub fn (r &RenderSceneBuffersRD) get_texture_slice_size(context string, name string, mipmap u32) Vector2i {
     mut object_out := Vector2i{}
     classname := StringName.new("RenderSceneBuffersRD")
     fnname := StringName.new("get_texture_slice_size")
@@ -184,7 +184,7 @@ pub fn (mut r RenderSceneBuffersRD) get_texture_slice_size(context string, name 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderSceneBuffersRD) clear_context(context string) {
+pub fn (r &RenderSceneBuffersRD) clear_context(context string) {
     classname := StringName.new("RenderSceneBuffersRD")
     fnname := StringName.new("clear_context")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -196,7 +196,7 @@ pub fn (mut r RenderSceneBuffersRD) clear_context(context string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderSceneBuffersRD) get_color_texture() RID {
+pub fn (r &RenderSceneBuffersRD) get_color_texture() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderSceneBuffersRD")
     fnname := StringName.new("get_color_texture")
@@ -206,7 +206,7 @@ pub fn (mut r RenderSceneBuffersRD) get_color_texture() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderSceneBuffersRD) get_color_layer(layer u32) RID {
+pub fn (r &RenderSceneBuffersRD) get_color_layer(layer u32) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderSceneBuffersRD")
     fnname := StringName.new("get_color_layer")
@@ -218,7 +218,7 @@ pub fn (mut r RenderSceneBuffersRD) get_color_layer(layer u32) RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderSceneBuffersRD) get_depth_texture() RID {
+pub fn (r &RenderSceneBuffersRD) get_depth_texture() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderSceneBuffersRD")
     fnname := StringName.new("get_depth_texture")
@@ -228,7 +228,7 @@ pub fn (mut r RenderSceneBuffersRD) get_depth_texture() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderSceneBuffersRD) get_depth_layer(layer u32) RID {
+pub fn (r &RenderSceneBuffersRD) get_depth_layer(layer u32) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderSceneBuffersRD")
     fnname := StringName.new("get_depth_layer")
@@ -240,7 +240,7 @@ pub fn (mut r RenderSceneBuffersRD) get_depth_layer(layer u32) RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderSceneBuffersRD) get_velocity_texture() RID {
+pub fn (r &RenderSceneBuffersRD) get_velocity_texture() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderSceneBuffersRD")
     fnname := StringName.new("get_velocity_texture")
@@ -250,7 +250,7 @@ pub fn (mut r RenderSceneBuffersRD) get_velocity_texture() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderSceneBuffersRD) get_velocity_layer(layer u32) RID {
+pub fn (r &RenderSceneBuffersRD) get_velocity_layer(layer u32) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderSceneBuffersRD")
     fnname := StringName.new("get_velocity_layer")

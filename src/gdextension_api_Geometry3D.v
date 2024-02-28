@@ -14,7 +14,7 @@ pub fn Geometry3D.get_singleton() Geometry3D {
     return o
 }
 
-pub fn (mut r Geometry3D) compute_convex_mesh_points(planes Array) PackedVector3Array {
+pub fn (r &Geometry3D) compute_convex_mesh_points(planes Array) PackedVector3Array {
     mut object_out := PackedVector3Array{}
     classname := StringName.new("Geometry3D")
     fnname := StringName.new("compute_convex_mesh_points")
@@ -26,7 +26,7 @@ pub fn (mut r Geometry3D) compute_convex_mesh_points(planes Array) PackedVector3
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Geometry3D) build_box_planes(extents Vector3) Array {
+pub fn (r &Geometry3D) build_box_planes(extents Vector3) Array {
     mut object_out := Array{}
     classname := StringName.new("Geometry3D")
     fnname := StringName.new("build_box_planes")
@@ -38,7 +38,7 @@ pub fn (mut r Geometry3D) build_box_planes(extents Vector3) Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Geometry3D) build_cylinder_planes(radius f64, height f64, sides i32, axis Vector3Axis) Array {
+pub fn (r &Geometry3D) build_cylinder_planes(radius f64, height f64, sides i32, axis Vector3Axis) Array {
     mut object_out := Array{}
     classname := StringName.new("Geometry3D")
     fnname := StringName.new("build_cylinder_planes")
@@ -54,7 +54,7 @@ pub fn (mut r Geometry3D) build_cylinder_planes(radius f64, height f64, sides i3
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Geometry3D) build_capsule_planes(radius f64, height f64, sides i32, lats i32, axis Vector3Axis) Array {
+pub fn (r &Geometry3D) build_capsule_planes(radius f64, height f64, sides i32, lats i32, axis Vector3Axis) Array {
     mut object_out := Array{}
     classname := StringName.new("Geometry3D")
     fnname := StringName.new("build_capsule_planes")
@@ -71,7 +71,7 @@ pub fn (mut r Geometry3D) build_capsule_planes(radius f64, height f64, sides i32
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Geometry3D) get_closest_points_between_segments(p1 Vector3, p2 Vector3, q1 Vector3, q2 Vector3) PackedVector3Array {
+pub fn (r &Geometry3D) get_closest_points_between_segments(p1 Vector3, p2 Vector3, q1 Vector3, q2 Vector3) PackedVector3Array {
     mut object_out := PackedVector3Array{}
     classname := StringName.new("Geometry3D")
     fnname := StringName.new("get_closest_points_between_segments")
@@ -86,7 +86,7 @@ pub fn (mut r Geometry3D) get_closest_points_between_segments(p1 Vector3, p2 Vec
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Geometry3D) get_closest_point_to_segment(point Vector3, s1 Vector3, s2 Vector3) Vector3 {
+pub fn (r &Geometry3D) get_closest_point_to_segment(point Vector3, s1 Vector3, s2 Vector3) Vector3 {
     mut object_out := Vector3{}
     classname := StringName.new("Geometry3D")
     fnname := StringName.new("get_closest_point_to_segment")
@@ -100,7 +100,7 @@ pub fn (mut r Geometry3D) get_closest_point_to_segment(point Vector3, s1 Vector3
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Geometry3D) get_closest_point_to_segment_uncapped(point Vector3, s1 Vector3, s2 Vector3) Vector3 {
+pub fn (r &Geometry3D) get_closest_point_to_segment_uncapped(point Vector3, s1 Vector3, s2 Vector3) Vector3 {
     mut object_out := Vector3{}
     classname := StringName.new("Geometry3D")
     fnname := StringName.new("get_closest_point_to_segment_uncapped")
@@ -114,7 +114,7 @@ pub fn (mut r Geometry3D) get_closest_point_to_segment_uncapped(point Vector3, s
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Geometry3D) get_triangle_barycentric_coords(point Vector3, a Vector3, b Vector3, c Vector3) Vector3 {
+pub fn (r &Geometry3D) get_triangle_barycentric_coords(point Vector3, a Vector3, b Vector3, c Vector3) Vector3 {
     mut object_out := Vector3{}
     classname := StringName.new("Geometry3D")
     fnname := StringName.new("get_triangle_barycentric_coords")
@@ -129,7 +129,7 @@ pub fn (mut r Geometry3D) get_triangle_barycentric_coords(point Vector3, a Vecto
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Geometry3D) ray_intersects_triangle(from Vector3, dir Vector3, a Vector3, b Vector3, c Vector3) Variant {
+pub fn (r &Geometry3D) ray_intersects_triangle(from Vector3, dir Vector3, a Vector3, b Vector3, c Vector3) Variant {
     mut object_out := Variant{}
     classname := StringName.new("Geometry3D")
     fnname := StringName.new("ray_intersects_triangle")
@@ -145,7 +145,7 @@ pub fn (mut r Geometry3D) ray_intersects_triangle(from Vector3, dir Vector3, a V
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Geometry3D) segment_intersects_triangle(from Vector3, to Vector3, a Vector3, b Vector3, c Vector3) Variant {
+pub fn (r &Geometry3D) segment_intersects_triangle(from Vector3, to Vector3, a Vector3, b Vector3, c Vector3) Variant {
     mut object_out := Variant{}
     classname := StringName.new("Geometry3D")
     fnname := StringName.new("segment_intersects_triangle")
@@ -161,7 +161,7 @@ pub fn (mut r Geometry3D) segment_intersects_triangle(from Vector3, to Vector3, 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Geometry3D) segment_intersects_sphere(from Vector3, to Vector3, sphere_position Vector3, sphere_radius f64) PackedVector3Array {
+pub fn (r &Geometry3D) segment_intersects_sphere(from Vector3, to Vector3, sphere_position Vector3, sphere_radius f64) PackedVector3Array {
     mut object_out := PackedVector3Array{}
     classname := StringName.new("Geometry3D")
     fnname := StringName.new("segment_intersects_sphere")
@@ -176,7 +176,7 @@ pub fn (mut r Geometry3D) segment_intersects_sphere(from Vector3, to Vector3, sp
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Geometry3D) segment_intersects_cylinder(from Vector3, to Vector3, height f64, radius f64) PackedVector3Array {
+pub fn (r &Geometry3D) segment_intersects_cylinder(from Vector3, to Vector3, height f64, radius f64) PackedVector3Array {
     mut object_out := PackedVector3Array{}
     classname := StringName.new("Geometry3D")
     fnname := StringName.new("segment_intersects_cylinder")
@@ -191,7 +191,7 @@ pub fn (mut r Geometry3D) segment_intersects_cylinder(from Vector3, to Vector3, 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Geometry3D) segment_intersects_convex(from Vector3, to Vector3, planes Array) PackedVector3Array {
+pub fn (r &Geometry3D) segment_intersects_convex(from Vector3, to Vector3, planes Array) PackedVector3Array {
     mut object_out := PackedVector3Array{}
     classname := StringName.new("Geometry3D")
     fnname := StringName.new("segment_intersects_convex")
@@ -205,7 +205,7 @@ pub fn (mut r Geometry3D) segment_intersects_convex(from Vector3, to Vector3, pl
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Geometry3D) clip_polygon(points PackedVector3Array, plane Plane) PackedVector3Array {
+pub fn (r &Geometry3D) clip_polygon(points PackedVector3Array, plane Plane) PackedVector3Array {
     mut object_out := PackedVector3Array{}
     classname := StringName.new("Geometry3D")
     fnname := StringName.new("clip_polygon")

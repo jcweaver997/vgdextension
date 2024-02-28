@@ -5,7 +5,7 @@ pub struct Sprite2D {
     Node2D
 }
 
-pub fn (mut r Sprite2D) set_texture(texture Texture2D) {
+pub fn (r &Sprite2D) set_texture(texture Texture2D) {
     classname := StringName.new("Sprite2D")
     fnname := StringName.new("set_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
@@ -25,7 +25,7 @@ pub fn (r &Sprite2D) get_texture() Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Sprite2D) set_centered(centered bool) {
+pub fn (r &Sprite2D) set_centered(centered bool) {
     classname := StringName.new("Sprite2D")
     fnname := StringName.new("set_centered")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -45,7 +45,7 @@ pub fn (r &Sprite2D) is_centered() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Sprite2D) set_offset(offset Vector2) {
+pub fn (r &Sprite2D) set_offset(offset Vector2) {
     classname := StringName.new("Sprite2D")
     fnname := StringName.new("set_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -65,7 +65,7 @@ pub fn (r &Sprite2D) get_offset() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Sprite2D) set_flip_h(flip_h bool) {
+pub fn (r &Sprite2D) set_flip_h(flip_h bool) {
     classname := StringName.new("Sprite2D")
     fnname := StringName.new("set_flip_h")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -85,7 +85,7 @@ pub fn (r &Sprite2D) is_flipped_h() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Sprite2D) set_flip_v(flip_v bool) {
+pub fn (r &Sprite2D) set_flip_v(flip_v bool) {
     classname := StringName.new("Sprite2D")
     fnname := StringName.new("set_flip_v")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -105,7 +105,7 @@ pub fn (r &Sprite2D) is_flipped_v() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Sprite2D) set_region_enabled(enabled bool) {
+pub fn (r &Sprite2D) set_region_enabled(enabled bool) {
     classname := StringName.new("Sprite2D")
     fnname := StringName.new("set_region_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -137,7 +137,7 @@ pub fn (r &Sprite2D) is_pixel_opaque(pos Vector2) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Sprite2D) set_region_rect(rect Rect2) {
+pub fn (r &Sprite2D) set_region_rect(rect Rect2) {
     classname := StringName.new("Sprite2D")
     fnname := StringName.new("set_region_rect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2046264180)
@@ -157,7 +157,7 @@ pub fn (r &Sprite2D) get_region_rect() Rect2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Sprite2D) set_region_filter_clip_enabled(enabled bool) {
+pub fn (r &Sprite2D) set_region_filter_clip_enabled(enabled bool) {
     classname := StringName.new("Sprite2D")
     fnname := StringName.new("set_region_filter_clip_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -177,7 +177,7 @@ pub fn (r &Sprite2D) is_region_filter_clip_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Sprite2D) set_frame(frame i32) {
+pub fn (r &Sprite2D) set_frame(frame i32) {
     classname := StringName.new("Sprite2D")
     fnname := StringName.new("set_frame")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -197,7 +197,7 @@ pub fn (r &Sprite2D) get_frame() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Sprite2D) set_frame_coords(coords Vector2i) {
+pub fn (r &Sprite2D) set_frame_coords(coords Vector2i) {
     classname := StringName.new("Sprite2D")
     fnname := StringName.new("set_frame_coords")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1130785943)
@@ -217,7 +217,7 @@ pub fn (r &Sprite2D) get_frame_coords() Vector2i {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Sprite2D) set_vframes(vframes i32) {
+pub fn (r &Sprite2D) set_vframes(vframes i32) {
     classname := StringName.new("Sprite2D")
     fnname := StringName.new("set_vframes")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -237,7 +237,7 @@ pub fn (r &Sprite2D) get_vframes() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Sprite2D) set_hframes(hframes i32) {
+pub fn (r &Sprite2D) set_hframes(hframes i32) {
     classname := StringName.new("Sprite2D")
     fnname := StringName.new("set_hframes")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

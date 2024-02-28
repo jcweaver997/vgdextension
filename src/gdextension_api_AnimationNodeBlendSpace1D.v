@@ -11,7 +11,7 @@ pub struct AnimationNodeBlendSpace1D {
     AnimationRootNode
 }
 
-pub fn (mut r AnimationNodeBlendSpace1D) add_blend_point(node AnimationRootNode, pos f64, at_index i32) {
+pub fn (r &AnimationNodeBlendSpace1D) add_blend_point(node AnimationRootNode, pos f64, at_index i32) {
     classname := StringName.new("AnimationNodeBlendSpace1D")
     fnname := StringName.new("add_blend_point")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 285050433)
@@ -23,7 +23,7 @@ pub fn (mut r AnimationNodeBlendSpace1D) add_blend_point(node AnimationRootNode,
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AnimationNodeBlendSpace1D) set_blend_point_position(point i32, pos f64) {
+pub fn (r &AnimationNodeBlendSpace1D) set_blend_point_position(point i32, pos f64) {
     classname := StringName.new("AnimationNodeBlendSpace1D")
     fnname := StringName.new("set_blend_point_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1602489585)
@@ -46,7 +46,7 @@ pub fn (r &AnimationNodeBlendSpace1D) get_blend_point_position(point i32) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNodeBlendSpace1D) set_blend_point_node(point i32, node AnimationRootNode) {
+pub fn (r &AnimationNodeBlendSpace1D) set_blend_point_node(point i32, node AnimationRootNode) {
     classname := StringName.new("AnimationNodeBlendSpace1D")
     fnname := StringName.new("set_blend_point_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4240341528)
@@ -69,7 +69,7 @@ pub fn (r &AnimationNodeBlendSpace1D) get_blend_point_node(point i32) AnimationR
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNodeBlendSpace1D) remove_blend_point(point i32) {
+pub fn (r &AnimationNodeBlendSpace1D) remove_blend_point(point i32) {
     classname := StringName.new("AnimationNodeBlendSpace1D")
     fnname := StringName.new("remove_blend_point")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -89,7 +89,7 @@ pub fn (r &AnimationNodeBlendSpace1D) get_blend_point_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNodeBlendSpace1D) set_min_space(min_space f64) {
+pub fn (r &AnimationNodeBlendSpace1D) set_min_space(min_space f64) {
     classname := StringName.new("AnimationNodeBlendSpace1D")
     fnname := StringName.new("set_min_space")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -109,7 +109,7 @@ pub fn (r &AnimationNodeBlendSpace1D) get_min_space() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNodeBlendSpace1D) set_max_space(max_space f64) {
+pub fn (r &AnimationNodeBlendSpace1D) set_max_space(max_space f64) {
     classname := StringName.new("AnimationNodeBlendSpace1D")
     fnname := StringName.new("set_max_space")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -129,7 +129,7 @@ pub fn (r &AnimationNodeBlendSpace1D) get_max_space() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNodeBlendSpace1D) set_snap(snap f64) {
+pub fn (r &AnimationNodeBlendSpace1D) set_snap(snap f64) {
     classname := StringName.new("AnimationNodeBlendSpace1D")
     fnname := StringName.new("set_snap")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -149,7 +149,7 @@ pub fn (r &AnimationNodeBlendSpace1D) get_snap() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNodeBlendSpace1D) set_value_label(text string) {
+pub fn (r &AnimationNodeBlendSpace1D) set_value_label(text string) {
     classname := StringName.new("AnimationNodeBlendSpace1D")
     fnname := StringName.new("set_value_label")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -173,7 +173,7 @@ pub fn (r &AnimationNodeBlendSpace1D) get_value_label() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r AnimationNodeBlendSpace1D) set_blend_mode(mode AnimationNodeBlendSpace1DBlendMode) {
+pub fn (r &AnimationNodeBlendSpace1D) set_blend_mode(mode AnimationNodeBlendSpace1DBlendMode) {
     classname := StringName.new("AnimationNodeBlendSpace1D")
     fnname := StringName.new("set_blend_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2600869457)
@@ -194,7 +194,7 @@ pub fn (r &AnimationNodeBlendSpace1D) get_blend_mode() AnimationNodeBlendSpace1D
     fnname.deinit()
    return unsafe{AnimationNodeBlendSpace1DBlendMode(object_out)}
 }
-pub fn (mut r AnimationNodeBlendSpace1D) set_use_sync(enable bool) {
+pub fn (r &AnimationNodeBlendSpace1D) set_use_sync(enable bool) {
     classname := StringName.new("AnimationNodeBlendSpace1D")
     fnname := StringName.new("set_use_sync")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

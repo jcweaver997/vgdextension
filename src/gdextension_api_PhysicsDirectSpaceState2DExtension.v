@@ -10,7 +10,7 @@ pub interface IPhysicsDirectSpaceState2DExtensionIntersectRay {
     virt_intersect_ray(from Vector2, to Vector2, collision_mask u32, collide_with_bodies bool, collide_with_areas bool, hit_from_inside bool, result &PhysicsServer2DExtensionRayResult) bool
 }
 
-pub fn (mut r PhysicsDirectSpaceState2DExtension) uintersect_ray(from Vector2, to Vector2, collision_mask u32, collide_with_bodies bool, collide_with_areas bool, hit_from_inside bool, result &PhysicsServer2DExtensionRayResult) bool {
+pub fn (r &PhysicsDirectSpaceState2DExtension) uintersect_ray(from Vector2, to Vector2, collision_mask u32, collide_with_bodies bool, collide_with_areas bool, hit_from_inside bool, result &PhysicsServer2DExtensionRayResult) bool {
     mut object_out := false
     classname := StringName.new("PhysicsDirectSpaceState2DExtension")
     fnname := StringName.new("_intersect_ray")
@@ -33,7 +33,7 @@ pub interface IPhysicsDirectSpaceState2DExtensionIntersectPoint {
     virt_intersect_point(position Vector2, canvas_instance_id u64, collision_mask u32, collide_with_bodies bool, collide_with_areas bool, results &PhysicsServer2DExtensionShapeResult, max_results i32) i32
 }
 
-pub fn (mut r PhysicsDirectSpaceState2DExtension) uintersect_point(position Vector2, canvas_instance_id u64, collision_mask u32, collide_with_bodies bool, collide_with_areas bool, results &PhysicsServer2DExtensionShapeResult, max_results i32) i32 {
+pub fn (r &PhysicsDirectSpaceState2DExtension) uintersect_point(position Vector2, canvas_instance_id u64, collision_mask u32, collide_with_bodies bool, collide_with_areas bool, results &PhysicsServer2DExtensionShapeResult, max_results i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("PhysicsDirectSpaceState2DExtension")
     fnname := StringName.new("_intersect_point")
@@ -56,7 +56,7 @@ pub interface IPhysicsDirectSpaceState2DExtensionIntersectShape {
     virt_intersect_shape(shape_rid RID, transform Transform2D, motion Vector2, margin f64, collision_mask u32, collide_with_bodies bool, collide_with_areas bool, result &PhysicsServer2DExtensionShapeResult, max_results i32) i32
 }
 
-pub fn (mut r PhysicsDirectSpaceState2DExtension) uintersect_shape(shape_rid RID, transform Transform2D, motion Vector2, margin f64, collision_mask u32, collide_with_bodies bool, collide_with_areas bool, result &PhysicsServer2DExtensionShapeResult, max_results i32) i32 {
+pub fn (r &PhysicsDirectSpaceState2DExtension) uintersect_shape(shape_rid RID, transform Transform2D, motion Vector2, margin f64, collision_mask u32, collide_with_bodies bool, collide_with_areas bool, result &PhysicsServer2DExtensionShapeResult, max_results i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("PhysicsDirectSpaceState2DExtension")
     fnname := StringName.new("_intersect_shape")
@@ -81,7 +81,7 @@ pub interface IPhysicsDirectSpaceState2DExtensionCastMotion {
     virt_cast_motion(shape_rid RID, transform Transform2D, motion Vector2, margin f64, collision_mask u32, collide_with_bodies bool, collide_with_areas bool, closest_safe &f64, closest_unsafe &f64) bool
 }
 
-pub fn (mut r PhysicsDirectSpaceState2DExtension) ucast_motion(shape_rid RID, transform Transform2D, motion Vector2, margin f64, collision_mask u32, collide_with_bodies bool, collide_with_areas bool, closest_safe &f64, closest_unsafe &f64) bool {
+pub fn (r &PhysicsDirectSpaceState2DExtension) ucast_motion(shape_rid RID, transform Transform2D, motion Vector2, margin f64, collision_mask u32, collide_with_bodies bool, collide_with_areas bool, closest_safe &f64, closest_unsafe &f64) bool {
     mut object_out := false
     classname := StringName.new("PhysicsDirectSpaceState2DExtension")
     fnname := StringName.new("_cast_motion")
@@ -106,7 +106,7 @@ pub interface IPhysicsDirectSpaceState2DExtensionCollideShape {
     virt_collide_shape(shape_rid RID, transform Transform2D, motion Vector2, margin f64, collision_mask u32, collide_with_bodies bool, collide_with_areas bool, results voidptr, max_results i32, result_count &i32) bool
 }
 
-pub fn (mut r PhysicsDirectSpaceState2DExtension) ucollide_shape(shape_rid RID, transform Transform2D, motion Vector2, margin f64, collision_mask u32, collide_with_bodies bool, collide_with_areas bool, results voidptr, max_results i32, result_count &i32) bool {
+pub fn (r &PhysicsDirectSpaceState2DExtension) ucollide_shape(shape_rid RID, transform Transform2D, motion Vector2, margin f64, collision_mask u32, collide_with_bodies bool, collide_with_areas bool, results voidptr, max_results i32, result_count &i32) bool {
     mut object_out := false
     classname := StringName.new("PhysicsDirectSpaceState2DExtension")
     fnname := StringName.new("_collide_shape")
@@ -132,7 +132,7 @@ pub interface IPhysicsDirectSpaceState2DExtensionRestInfo {
     virt_rest_info(shape_rid RID, transform Transform2D, motion Vector2, margin f64, collision_mask u32, collide_with_bodies bool, collide_with_areas bool, rest_info &PhysicsServer2DExtensionShapeRestInfo) bool
 }
 
-pub fn (mut r PhysicsDirectSpaceState2DExtension) urest_info(shape_rid RID, transform Transform2D, motion Vector2, margin f64, collision_mask u32, collide_with_bodies bool, collide_with_areas bool, rest_info &PhysicsServer2DExtensionShapeRestInfo) bool {
+pub fn (r &PhysicsDirectSpaceState2DExtension) urest_info(shape_rid RID, transform Transform2D, motion Vector2, margin f64, collision_mask u32, collide_with_bodies bool, collide_with_areas bool, rest_info &PhysicsServer2DExtensionShapeRestInfo) bool {
     mut object_out := false
     classname := StringName.new("PhysicsDirectSpaceState2DExtension")
     fnname := StringName.new("_rest_info")

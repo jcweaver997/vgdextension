@@ -5,7 +5,7 @@ pub struct RDFramebufferPass {
     RefCounted
 }
 
-pub fn (mut r RDFramebufferPass) set_color_attachments(p_member PackedInt32Array) {
+pub fn (r &RDFramebufferPass) set_color_attachments(p_member PackedInt32Array) {
     classname := StringName.new("RDFramebufferPass")
     fnname := StringName.new("set_color_attachments")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3614634198)
@@ -25,7 +25,7 @@ pub fn (r &RDFramebufferPass) get_color_attachments() PackedInt32Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDFramebufferPass) set_input_attachments(p_member PackedInt32Array) {
+pub fn (r &RDFramebufferPass) set_input_attachments(p_member PackedInt32Array) {
     classname := StringName.new("RDFramebufferPass")
     fnname := StringName.new("set_input_attachments")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3614634198)
@@ -45,7 +45,7 @@ pub fn (r &RDFramebufferPass) get_input_attachments() PackedInt32Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDFramebufferPass) set_resolve_attachments(p_member PackedInt32Array) {
+pub fn (r &RDFramebufferPass) set_resolve_attachments(p_member PackedInt32Array) {
     classname := StringName.new("RDFramebufferPass")
     fnname := StringName.new("set_resolve_attachments")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3614634198)
@@ -65,7 +65,7 @@ pub fn (r &RDFramebufferPass) get_resolve_attachments() PackedInt32Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDFramebufferPass) set_preserve_attachments(p_member PackedInt32Array) {
+pub fn (r &RDFramebufferPass) set_preserve_attachments(p_member PackedInt32Array) {
     classname := StringName.new("RDFramebufferPass")
     fnname := StringName.new("set_preserve_attachments")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3614634198)
@@ -85,7 +85,7 @@ pub fn (r &RDFramebufferPass) get_preserve_attachments() PackedInt32Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDFramebufferPass) set_depth_attachment(p_member i32) {
+pub fn (r &RDFramebufferPass) set_depth_attachment(p_member i32) {
     classname := StringName.new("RDFramebufferPass")
     fnname := StringName.new("set_depth_attachment")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

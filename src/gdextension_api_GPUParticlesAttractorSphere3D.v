@@ -5,7 +5,7 @@ pub struct GPUParticlesAttractorSphere3D {
     GPUParticlesAttractor3D
 }
 
-pub fn (mut r GPUParticlesAttractorSphere3D) set_radius(radius f64) {
+pub fn (r &GPUParticlesAttractorSphere3D) set_radius(radius f64) {
     classname := StringName.new("GPUParticlesAttractorSphere3D")
     fnname := StringName.new("set_radius")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

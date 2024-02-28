@@ -5,7 +5,7 @@ pub struct ENetMultiplayerPeer {
     MultiplayerPeer
 }
 
-pub fn (mut r ENetMultiplayerPeer) create_server(port i32, max_clients i32, max_channels i32, in_bandwidth i32, out_bandwidth i32) GDError {
+pub fn (r &ENetMultiplayerPeer) create_server(port i32, max_clients i32, max_channels i32, in_bandwidth i32, out_bandwidth i32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ENetMultiplayerPeer")
     fnname := StringName.new("create_server")
@@ -21,7 +21,7 @@ pub fn (mut r ENetMultiplayerPeer) create_server(port i32, max_clients i32, max_
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r ENetMultiplayerPeer) create_client(address string, port i32, channel_count i32, in_bandwidth i32, out_bandwidth i32, local_port i32) GDError {
+pub fn (r &ENetMultiplayerPeer) create_client(address string, port i32, channel_count i32, in_bandwidth i32, out_bandwidth i32, local_port i32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ENetMultiplayerPeer")
     fnname := StringName.new("create_client")
@@ -40,7 +40,7 @@ pub fn (mut r ENetMultiplayerPeer) create_client(address string, port i32, chann
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r ENetMultiplayerPeer) create_mesh(unique_id i32) GDError {
+pub fn (r &ENetMultiplayerPeer) create_mesh(unique_id i32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ENetMultiplayerPeer")
     fnname := StringName.new("create_mesh")
@@ -52,7 +52,7 @@ pub fn (mut r ENetMultiplayerPeer) create_mesh(unique_id i32) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r ENetMultiplayerPeer) add_mesh_peer(peer_id i32, host ENetConnection) GDError {
+pub fn (r &ENetMultiplayerPeer) add_mesh_peer(peer_id i32, host ENetConnection) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ENetMultiplayerPeer")
     fnname := StringName.new("add_mesh_peer")
@@ -65,7 +65,7 @@ pub fn (mut r ENetMultiplayerPeer) add_mesh_peer(peer_id i32, host ENetConnectio
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r ENetMultiplayerPeer) set_bind_ip(ip string) {
+pub fn (r &ENetMultiplayerPeer) set_bind_ip(ip string) {
     classname := StringName.new("ENetMultiplayerPeer")
     fnname := StringName.new("set_bind_ip")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)

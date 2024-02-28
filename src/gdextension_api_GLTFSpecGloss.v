@@ -5,7 +5,7 @@ pub struct GLTFSpecGloss {
     Resource
 }
 
-pub fn (mut r GLTFSpecGloss) get_diffuse_img() Image {
+pub fn (r &GLTFSpecGloss) get_diffuse_img() Image {
     mut object_out := Image{}
     classname := StringName.new("GLTFSpecGloss")
     fnname := StringName.new("get_diffuse_img")
@@ -15,7 +15,7 @@ pub fn (mut r GLTFSpecGloss) get_diffuse_img() Image {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFSpecGloss) set_diffuse_img(diffuse_img Image) {
+pub fn (r &GLTFSpecGloss) set_diffuse_img(diffuse_img Image) {
     classname := StringName.new("GLTFSpecGloss")
     fnname := StringName.new("set_diffuse_img")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 532598488)
@@ -25,7 +25,7 @@ pub fn (mut r GLTFSpecGloss) set_diffuse_img(diffuse_img Image) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFSpecGloss) get_diffuse_factor() Color {
+pub fn (r &GLTFSpecGloss) get_diffuse_factor() Color {
     mut object_out := Color{}
     classname := StringName.new("GLTFSpecGloss")
     fnname := StringName.new("get_diffuse_factor")
@@ -35,7 +35,7 @@ pub fn (mut r GLTFSpecGloss) get_diffuse_factor() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFSpecGloss) set_diffuse_factor(diffuse_factor Color) {
+pub fn (r &GLTFSpecGloss) set_diffuse_factor(diffuse_factor Color) {
     classname := StringName.new("GLTFSpecGloss")
     fnname := StringName.new("set_diffuse_factor")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -45,7 +45,7 @@ pub fn (mut r GLTFSpecGloss) set_diffuse_factor(diffuse_factor Color) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFSpecGloss) get_gloss_factor() f64 {
+pub fn (r &GLTFSpecGloss) get_gloss_factor() f64 {
     mut object_out := f64(0)
     classname := StringName.new("GLTFSpecGloss")
     fnname := StringName.new("get_gloss_factor")
@@ -55,7 +55,7 @@ pub fn (mut r GLTFSpecGloss) get_gloss_factor() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFSpecGloss) set_gloss_factor(gloss_factor f64) {
+pub fn (r &GLTFSpecGloss) set_gloss_factor(gloss_factor f64) {
     classname := StringName.new("GLTFSpecGloss")
     fnname := StringName.new("set_gloss_factor")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -65,7 +65,7 @@ pub fn (mut r GLTFSpecGloss) set_gloss_factor(gloss_factor f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFSpecGloss) get_specular_factor() Color {
+pub fn (r &GLTFSpecGloss) get_specular_factor() Color {
     mut object_out := Color{}
     classname := StringName.new("GLTFSpecGloss")
     fnname := StringName.new("get_specular_factor")
@@ -75,7 +75,7 @@ pub fn (mut r GLTFSpecGloss) get_specular_factor() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFSpecGloss) set_specular_factor(specular_factor Color) {
+pub fn (r &GLTFSpecGloss) set_specular_factor(specular_factor Color) {
     classname := StringName.new("GLTFSpecGloss")
     fnname := StringName.new("set_specular_factor")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -85,7 +85,7 @@ pub fn (mut r GLTFSpecGloss) set_specular_factor(specular_factor Color) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFSpecGloss) get_spec_gloss_img() Image {
+pub fn (r &GLTFSpecGloss) get_spec_gloss_img() Image {
     mut object_out := Image{}
     classname := StringName.new("GLTFSpecGloss")
     fnname := StringName.new("get_spec_gloss_img")
@@ -95,7 +95,7 @@ pub fn (mut r GLTFSpecGloss) get_spec_gloss_img() Image {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFSpecGloss) set_spec_gloss_img(spec_gloss_img Image) {
+pub fn (r &GLTFSpecGloss) set_spec_gloss_img(spec_gloss_img Image) {
     classname := StringName.new("GLTFSpecGloss")
     fnname := StringName.new("set_spec_gloss_img")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 532598488)

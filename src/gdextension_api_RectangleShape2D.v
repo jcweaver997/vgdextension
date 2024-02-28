@@ -5,7 +5,7 @@ pub struct RectangleShape2D {
     Shape2D
 }
 
-pub fn (mut r RectangleShape2D) set_size(size Vector2) {
+pub fn (r &RectangleShape2D) set_size(size Vector2) {
     classname := StringName.new("RectangleShape2D")
     fnname := StringName.new("set_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)

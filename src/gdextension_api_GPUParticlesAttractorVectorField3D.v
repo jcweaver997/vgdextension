@@ -5,7 +5,7 @@ pub struct GPUParticlesAttractorVectorField3D {
     GPUParticlesAttractor3D
 }
 
-pub fn (mut r GPUParticlesAttractorVectorField3D) set_size(size Vector3) {
+pub fn (r &GPUParticlesAttractorVectorField3D) set_size(size Vector3) {
     classname := StringName.new("GPUParticlesAttractorVectorField3D")
     fnname := StringName.new("set_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -25,7 +25,7 @@ pub fn (r &GPUParticlesAttractorVectorField3D) get_size() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GPUParticlesAttractorVectorField3D) set_texture(texture Texture3D) {
+pub fn (r &GPUParticlesAttractorVectorField3D) set_texture(texture Texture3D) {
     classname := StringName.new("GPUParticlesAttractorVectorField3D")
     fnname := StringName.new("set_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1188404210)

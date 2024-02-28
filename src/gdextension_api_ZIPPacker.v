@@ -11,7 +11,7 @@ pub struct ZIPPacker {
     RefCounted
 }
 
-pub fn (mut r ZIPPacker) open(path string, append ZIPPackerZipAppend) GDError {
+pub fn (r &ZIPPacker) open(path string, append ZIPPackerZipAppend) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ZIPPacker")
     fnname := StringName.new("open")
@@ -27,7 +27,7 @@ pub fn (mut r ZIPPacker) open(path string, append ZIPPackerZipAppend) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r ZIPPacker) start_file(path string) GDError {
+pub fn (r &ZIPPacker) start_file(path string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ZIPPacker")
     fnname := StringName.new("start_file")
@@ -41,7 +41,7 @@ pub fn (mut r ZIPPacker) start_file(path string) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r ZIPPacker) write_file(data PackedByteArray) GDError {
+pub fn (r &ZIPPacker) write_file(data PackedByteArray) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ZIPPacker")
     fnname := StringName.new("write_file")
@@ -53,7 +53,7 @@ pub fn (mut r ZIPPacker) write_file(data PackedByteArray) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r ZIPPacker) close_file() GDError {
+pub fn (r &ZIPPacker) close_file() GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ZIPPacker")
     fnname := StringName.new("close_file")
@@ -63,7 +63,7 @@ pub fn (mut r ZIPPacker) close_file() GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r ZIPPacker) close() GDError {
+pub fn (r &ZIPPacker) close() GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ZIPPacker")
     fnname := StringName.new("close")

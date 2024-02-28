@@ -35,7 +35,7 @@ pub struct ENetPacketPeer {
     PacketPeer
 }
 
-pub fn (mut r ENetPacketPeer) peer_disconnect(data i32) {
+pub fn (r &ENetPacketPeer) peer_disconnect(data i32) {
     classname := StringName.new("ENetPacketPeer")
     fnname := StringName.new("peer_disconnect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1995695955)
@@ -45,7 +45,7 @@ pub fn (mut r ENetPacketPeer) peer_disconnect(data i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ENetPacketPeer) peer_disconnect_later(data i32) {
+pub fn (r &ENetPacketPeer) peer_disconnect_later(data i32) {
     classname := StringName.new("ENetPacketPeer")
     fnname := StringName.new("peer_disconnect_later")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1995695955)
@@ -55,7 +55,7 @@ pub fn (mut r ENetPacketPeer) peer_disconnect_later(data i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ENetPacketPeer) peer_disconnect_now(data i32) {
+pub fn (r &ENetPacketPeer) peer_disconnect_now(data i32) {
     classname := StringName.new("ENetPacketPeer")
     fnname := StringName.new("peer_disconnect_now")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1995695955)
@@ -65,7 +65,7 @@ pub fn (mut r ENetPacketPeer) peer_disconnect_now(data i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ENetPacketPeer) ping() {
+pub fn (r &ENetPacketPeer) ping() {
     classname := StringName.new("ENetPacketPeer")
     fnname := StringName.new("ping")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -73,7 +73,7 @@ pub fn (mut r ENetPacketPeer) ping() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ENetPacketPeer) ping_interval(ping_interval i32) {
+pub fn (r &ENetPacketPeer) ping_interval(ping_interval i32) {
     classname := StringName.new("ENetPacketPeer")
     fnname := StringName.new("ping_interval")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -83,7 +83,7 @@ pub fn (mut r ENetPacketPeer) ping_interval(ping_interval i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ENetPacketPeer) reset() {
+pub fn (r &ENetPacketPeer) reset() {
     classname := StringName.new("ENetPacketPeer")
     fnname := StringName.new("reset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -91,7 +91,7 @@ pub fn (mut r ENetPacketPeer) reset() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ENetPacketPeer) send(channel i32, packet PackedByteArray, flags i32) GDError {
+pub fn (r &ENetPacketPeer) send(channel i32, packet PackedByteArray, flags i32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ENetPacketPeer")
     fnname := StringName.new("send")
@@ -105,7 +105,7 @@ pub fn (mut r ENetPacketPeer) send(channel i32, packet PackedByteArray, flags i3
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r ENetPacketPeer) throttle_configure(interval i32, acceleration i32, deceleration i32) {
+pub fn (r &ENetPacketPeer) throttle_configure(interval i32, acceleration i32, deceleration i32) {
     classname := StringName.new("ENetPacketPeer")
     fnname := StringName.new("throttle_configure")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1649997291)
@@ -117,7 +117,7 @@ pub fn (mut r ENetPacketPeer) throttle_configure(interval i32, acceleration i32,
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ENetPacketPeer) set_timeout(timeout i32, timeout_min i32, timeout_max i32) {
+pub fn (r &ENetPacketPeer) set_timeout(timeout i32, timeout_min i32, timeout_max i32) {
     classname := StringName.new("ENetPacketPeer")
     fnname := StringName.new("set_timeout")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1649997291)
@@ -151,7 +151,7 @@ pub fn (r &ENetPacketPeer) get_remote_port() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ENetPacketPeer) get_statistic(statistic ENetPacketPeerPeerStatistic) f64 {
+pub fn (r &ENetPacketPeer) get_statistic(statistic ENetPacketPeerPeerStatistic) f64 {
     mut object_out := f64(0)
     classname := StringName.new("ENetPacketPeer")
     fnname := StringName.new("get_statistic")

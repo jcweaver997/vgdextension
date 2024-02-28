@@ -173,7 +173,7 @@ pub interface IControlGetDragData {
     virt_get_drag_data(at_position Vector2) Variant
 }
 
-pub fn (mut r Control) uget_drag_data(at_position Vector2) Variant {
+pub fn (r &Control) uget_drag_data(at_position Vector2) Variant {
     mut object_out := Variant{}
     classname := StringName.new("Control")
     fnname := StringName.new("_get_drag_data")
@@ -208,7 +208,7 @@ pub interface IControlDropData {
     virt_drop_data(at_position Vector2, data Variant)
 }
 
-pub fn (mut r Control) udrop_data(at_position Vector2, data Variant) {
+pub fn (r &Control) udrop_data(at_position Vector2, data Variant) {
     classname := StringName.new("Control")
     fnname := StringName.new("_drop_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -243,7 +243,7 @@ pub interface IControlGuiInput {
     virt_gui_input(event InputEvent)
 }
 
-pub fn (mut r Control) ugui_input(event InputEvent) {
+pub fn (r &Control) ugui_input(event InputEvent) {
     classname := StringName.new("Control")
     fnname := StringName.new("_gui_input")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -253,7 +253,7 @@ pub fn (mut r Control) ugui_input(event InputEvent) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) accept_event() {
+pub fn (r &Control) accept_event() {
     classname := StringName.new("Control")
     fnname := StringName.new("accept_event")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -281,7 +281,7 @@ pub fn (r &Control) get_combined_minimum_size() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Control) set_anchors_preset(preset ControlLayoutPreset, keep_offsets bool) {
+pub fn (r &Control) set_anchors_preset(preset ControlLayoutPreset, keep_offsets bool) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_anchors_preset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 509135270)
@@ -293,7 +293,7 @@ pub fn (mut r Control) set_anchors_preset(preset ControlLayoutPreset, keep_offse
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) set_offsets_preset(preset ControlLayoutPreset, resize_mode ControlLayoutPresetMode, margin i32) {
+pub fn (r &Control) set_offsets_preset(preset ControlLayoutPreset, resize_mode ControlLayoutPresetMode, margin i32) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_offsets_preset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3724524307)
@@ -307,7 +307,7 @@ pub fn (mut r Control) set_offsets_preset(preset ControlLayoutPreset, resize_mod
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) set_anchors_and_offsets_preset(preset ControlLayoutPreset, resize_mode ControlLayoutPresetMode, margin i32) {
+pub fn (r &Control) set_anchors_and_offsets_preset(preset ControlLayoutPreset, resize_mode ControlLayoutPresetMode, margin i32) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_anchors_and_offsets_preset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3724524307)
@@ -321,7 +321,7 @@ pub fn (mut r Control) set_anchors_and_offsets_preset(preset ControlLayoutPreset
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) set_anchor(side Side, anchor f64, keep_offset bool, push_opposite_anchor bool) {
+pub fn (r &Control) set_anchor(side Side, anchor f64, keep_offset bool, push_opposite_anchor bool) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_anchor")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2302782885)
@@ -348,7 +348,7 @@ pub fn (r &Control) get_anchor(side Side) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Control) set_offset(side Side, offset f64) {
+pub fn (r &Control) set_offset(side Side, offset f64) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4290182280)
@@ -373,7 +373,7 @@ pub fn (r &Control) get_offset(offset Side) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Control) set_anchor_and_offset(side Side, anchor f64, offset f64, push_opposite_anchor bool) {
+pub fn (r &Control) set_anchor_and_offset(side Side, anchor f64, offset f64, push_opposite_anchor bool) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_anchor_and_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4031722181)
@@ -387,7 +387,7 @@ pub fn (mut r Control) set_anchor_and_offset(side Side, anchor f64, offset f64, 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) set_begin(position Vector2) {
+pub fn (r &Control) set_begin(position Vector2) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_begin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -397,7 +397,7 @@ pub fn (mut r Control) set_begin(position Vector2) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) set_end(position Vector2) {
+pub fn (r &Control) set_end(position Vector2) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_end")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -407,7 +407,7 @@ pub fn (mut r Control) set_end(position Vector2) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) set_position(position Vector2, keep_offsets bool) {
+pub fn (r &Control) set_position(position Vector2, keep_offsets bool) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2436320129)
@@ -418,7 +418,7 @@ pub fn (mut r Control) set_position(position Vector2, keep_offsets bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) set_size(size Vector2, keep_offsets bool) {
+pub fn (r &Control) set_size(size Vector2, keep_offsets bool) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2436320129)
@@ -429,7 +429,7 @@ pub fn (mut r Control) set_size(size Vector2, keep_offsets bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) reset_size() {
+pub fn (r &Control) reset_size() {
     classname := StringName.new("Control")
     fnname := StringName.new("reset_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -437,7 +437,7 @@ pub fn (mut r Control) reset_size() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) set_custom_minimum_size(size Vector2) {
+pub fn (r &Control) set_custom_minimum_size(size Vector2) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_custom_minimum_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -447,7 +447,7 @@ pub fn (mut r Control) set_custom_minimum_size(size Vector2) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) set_global_position(position Vector2, keep_offsets bool) {
+pub fn (r &Control) set_global_position(position Vector2, keep_offsets bool) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_global_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2436320129)
@@ -458,7 +458,7 @@ pub fn (mut r Control) set_global_position(position Vector2, keep_offsets bool) 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) set_rotation(radians f64) {
+pub fn (r &Control) set_rotation(radians f64) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_rotation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -468,7 +468,7 @@ pub fn (mut r Control) set_rotation(radians f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) set_rotation_degrees(degrees f64) {
+pub fn (r &Control) set_rotation_degrees(degrees f64) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_rotation_degrees")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -478,7 +478,7 @@ pub fn (mut r Control) set_rotation_degrees(degrees f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) set_scale(scale Vector2) {
+pub fn (r &Control) set_scale(scale Vector2) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -488,7 +488,7 @@ pub fn (mut r Control) set_scale(scale Vector2) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) set_pivot_offset(pivot_offset Vector2) {
+pub fn (r &Control) set_pivot_offset(pivot_offset Vector2) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_pivot_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -638,7 +638,7 @@ pub fn (r &Control) get_global_rect() Rect2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Control) set_focus_mode(mode ControlFocusMode) {
+pub fn (r &Control) set_focus_mode(mode ControlFocusMode) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_focus_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3232914922)
@@ -669,7 +669,7 @@ pub fn (r &Control) has_focus() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Control) grab_focus() {
+pub fn (r &Control) grab_focus() {
     classname := StringName.new("Control")
     fnname := StringName.new("grab_focus")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -677,7 +677,7 @@ pub fn (mut r Control) grab_focus() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) release_focus() {
+pub fn (r &Control) release_focus() {
     classname := StringName.new("Control")
     fnname := StringName.new("release_focus")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -718,7 +718,7 @@ pub fn (r &Control) find_valid_focus_neighbor(side Side) Control {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Control) set_h_size_flags(flags ControlSizeFlags) {
+pub fn (r &Control) set_h_size_flags(flags ControlSizeFlags) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_h_size_flags")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 394851643)
@@ -739,7 +739,7 @@ pub fn (r &Control) get_h_size_flags() ControlSizeFlags {
     fnname.deinit()
    return unsafe{ControlSizeFlags(object_out)}
 }
-pub fn (mut r Control) set_stretch_ratio(ratio f64) {
+pub fn (r &Control) set_stretch_ratio(ratio f64) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_stretch_ratio")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -759,7 +759,7 @@ pub fn (r &Control) get_stretch_ratio() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Control) set_v_size_flags(flags ControlSizeFlags) {
+pub fn (r &Control) set_v_size_flags(flags ControlSizeFlags) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_v_size_flags")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 394851643)
@@ -780,7 +780,7 @@ pub fn (r &Control) get_v_size_flags() ControlSizeFlags {
     fnname.deinit()
    return unsafe{ControlSizeFlags(object_out)}
 }
-pub fn (mut r Control) set_theme(theme Theme) {
+pub fn (r &Control) set_theme(theme Theme) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_theme")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2326690814)
@@ -800,7 +800,7 @@ pub fn (r &Control) get_theme() Theme {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Control) set_theme_type_variation(theme_type string) {
+pub fn (r &Control) set_theme_type_variation(theme_type string) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_theme_type_variation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -824,7 +824,7 @@ pub fn (r &Control) get_theme_type_variation() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r Control) begin_bulk_theme_override() {
+pub fn (r &Control) begin_bulk_theme_override() {
     classname := StringName.new("Control")
     fnname := StringName.new("begin_bulk_theme_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -832,7 +832,7 @@ pub fn (mut r Control) begin_bulk_theme_override() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) end_bulk_theme_override() {
+pub fn (r &Control) end_bulk_theme_override() {
     classname := StringName.new("Control")
     fnname := StringName.new("end_bulk_theme_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -840,7 +840,7 @@ pub fn (mut r Control) end_bulk_theme_override() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) add_theme_icon_override(name string, texture Texture2D) {
+pub fn (r &Control) add_theme_icon_override(name string, texture Texture2D) {
     classname := StringName.new("Control")
     fnname := StringName.new("add_theme_icon_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1373065600)
@@ -853,7 +853,7 @@ pub fn (mut r Control) add_theme_icon_override(name string, texture Texture2D) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) add_theme_stylebox_override(name string, stylebox StyleBox) {
+pub fn (r &Control) add_theme_stylebox_override(name string, stylebox StyleBox) {
     classname := StringName.new("Control")
     fnname := StringName.new("add_theme_stylebox_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4188838905)
@@ -866,7 +866,7 @@ pub fn (mut r Control) add_theme_stylebox_override(name string, stylebox StyleBo
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) add_theme_font_override(name string, font Font) {
+pub fn (r &Control) add_theme_font_override(name string, font Font) {
     classname := StringName.new("Control")
     fnname := StringName.new("add_theme_font_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3518018674)
@@ -879,7 +879,7 @@ pub fn (mut r Control) add_theme_font_override(name string, font Font) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) add_theme_font_size_override(name string, font_size i32) {
+pub fn (r &Control) add_theme_font_size_override(name string, font_size i32) {
     classname := StringName.new("Control")
     fnname := StringName.new("add_theme_font_size_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2415702435)
@@ -892,7 +892,7 @@ pub fn (mut r Control) add_theme_font_size_override(name string, font_size i32) 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) add_theme_color_override(name string, color Color) {
+pub fn (r &Control) add_theme_color_override(name string, color Color) {
     classname := StringName.new("Control")
     fnname := StringName.new("add_theme_color_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4260178595)
@@ -905,7 +905,7 @@ pub fn (mut r Control) add_theme_color_override(name string, color Color) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) add_theme_constant_override(name string, constant i32) {
+pub fn (r &Control) add_theme_constant_override(name string, constant i32) {
     classname := StringName.new("Control")
     fnname := StringName.new("add_theme_constant_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2415702435)
@@ -918,7 +918,7 @@ pub fn (mut r Control) add_theme_constant_override(name string, constant i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) remove_theme_icon_override(name string) {
+pub fn (r &Control) remove_theme_icon_override(name string) {
     classname := StringName.new("Control")
     fnname := StringName.new("remove_theme_icon_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -930,7 +930,7 @@ pub fn (mut r Control) remove_theme_icon_override(name string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) remove_theme_stylebox_override(name string) {
+pub fn (r &Control) remove_theme_stylebox_override(name string) {
     classname := StringName.new("Control")
     fnname := StringName.new("remove_theme_stylebox_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -942,7 +942,7 @@ pub fn (mut r Control) remove_theme_stylebox_override(name string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) remove_theme_font_override(name string) {
+pub fn (r &Control) remove_theme_font_override(name string) {
     classname := StringName.new("Control")
     fnname := StringName.new("remove_theme_font_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -954,7 +954,7 @@ pub fn (mut r Control) remove_theme_font_override(name string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) remove_theme_font_size_override(name string) {
+pub fn (r &Control) remove_theme_font_size_override(name string) {
     classname := StringName.new("Control")
     fnname := StringName.new("remove_theme_font_size_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -966,7 +966,7 @@ pub fn (mut r Control) remove_theme_font_size_override(name string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) remove_theme_color_override(name string) {
+pub fn (r &Control) remove_theme_color_override(name string) {
     classname := StringName.new("Control")
     fnname := StringName.new("remove_theme_color_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -978,7 +978,7 @@ pub fn (mut r Control) remove_theme_color_override(name string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) remove_theme_constant_override(name string) {
+pub fn (r &Control) remove_theme_constant_override(name string) {
     classname := StringName.new("Control")
     fnname := StringName.new("remove_theme_constant_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -1318,7 +1318,7 @@ pub fn (r &Control) get_parent_control() Control {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Control) set_h_grow_direction(direction ControlGrowDirection) {
+pub fn (r &Control) set_h_grow_direction(direction ControlGrowDirection) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_h_grow_direction")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2022385301)
@@ -1339,7 +1339,7 @@ pub fn (r &Control) get_h_grow_direction() ControlGrowDirection {
     fnname.deinit()
    return unsafe{ControlGrowDirection(object_out)}
 }
-pub fn (mut r Control) set_v_grow_direction(direction ControlGrowDirection) {
+pub fn (r &Control) set_v_grow_direction(direction ControlGrowDirection) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_v_grow_direction")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2022385301)
@@ -1360,7 +1360,7 @@ pub fn (r &Control) get_v_grow_direction() ControlGrowDirection {
     fnname.deinit()
    return unsafe{ControlGrowDirection(object_out)}
 }
-pub fn (mut r Control) set_tooltip_text(hint string) {
+pub fn (r &Control) set_tooltip_text(hint string) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_tooltip_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -1398,7 +1398,7 @@ pub fn (r &Control) get_tooltip(at_position Vector2) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r Control) set_default_cursor_shape(shape ControlCursorShape) {
+pub fn (r &Control) set_default_cursor_shape(shape ControlCursorShape) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_default_cursor_shape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 217062046)
@@ -1431,7 +1431,7 @@ pub fn (r &Control) get_cursor_shape(position Vector2) ControlCursorShape {
     fnname.deinit()
    return unsafe{ControlCursorShape(object_out)}
 }
-pub fn (mut r Control) set_focus_neighbor(side Side, neighbor NodePath) {
+pub fn (r &Control) set_focus_neighbor(side Side, neighbor NodePath) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_focus_neighbor")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2024461774)
@@ -1456,7 +1456,7 @@ pub fn (r &Control) get_focus_neighbor(side Side) NodePath {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Control) set_focus_next(next NodePath) {
+pub fn (r &Control) set_focus_next(next NodePath) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_focus_next")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1348162250)
@@ -1476,7 +1476,7 @@ pub fn (r &Control) get_focus_next() NodePath {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Control) set_focus_previous(previous NodePath) {
+pub fn (r &Control) set_focus_previous(previous NodePath) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_focus_previous")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1348162250)
@@ -1496,7 +1496,7 @@ pub fn (r &Control) get_focus_previous() NodePath {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Control) force_drag(data Variant, preview Control) {
+pub fn (r &Control) force_drag(data Variant, preview Control) {
     classname := StringName.new("Control")
     fnname := StringName.new("force_drag")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3191844692)
@@ -1507,7 +1507,7 @@ pub fn (mut r Control) force_drag(data Variant, preview Control) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) set_mouse_filter(filter ControlMouseFilter) {
+pub fn (r &Control) set_mouse_filter(filter ControlMouseFilter) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_mouse_filter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3891156122)
@@ -1528,7 +1528,7 @@ pub fn (r &Control) get_mouse_filter() ControlMouseFilter {
     fnname.deinit()
    return unsafe{ControlMouseFilter(object_out)}
 }
-pub fn (mut r Control) set_force_pass_scroll_events(force_pass_scroll_events bool) {
+pub fn (r &Control) set_force_pass_scroll_events(force_pass_scroll_events bool) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_force_pass_scroll_events")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -1548,7 +1548,7 @@ pub fn (r &Control) is_force_pass_scroll_events() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Control) set_clip_contents(enable bool) {
+pub fn (r &Control) set_clip_contents(enable bool) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_clip_contents")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -1558,7 +1558,7 @@ pub fn (mut r Control) set_clip_contents(enable bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) is_clipping_contents() bool {
+pub fn (r &Control) is_clipping_contents() bool {
     mut object_out := false
     classname := StringName.new("Control")
     fnname := StringName.new("is_clipping_contents")
@@ -1568,7 +1568,7 @@ pub fn (mut r Control) is_clipping_contents() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Control) grab_click_focus() {
+pub fn (r &Control) grab_click_focus() {
     classname := StringName.new("Control")
     fnname := StringName.new("grab_click_focus")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -1576,7 +1576,7 @@ pub fn (mut r Control) grab_click_focus() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) set_drag_forwarding(drag_func Callable, can_drop_func Callable, drop_func Callable) {
+pub fn (r &Control) set_drag_forwarding(drag_func Callable, can_drop_func Callable, drop_func Callable) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_drag_forwarding")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1076571380)
@@ -1588,7 +1588,7 @@ pub fn (mut r Control) set_drag_forwarding(drag_func Callable, can_drop_func Cal
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) set_drag_preview(control Control) {
+pub fn (r &Control) set_drag_preview(control Control) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_drag_preview")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1496901182)
@@ -1608,7 +1608,7 @@ pub fn (r &Control) is_drag_successful() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Control) warp_mouse(position Vector2) {
+pub fn (r &Control) warp_mouse(position Vector2) {
     classname := StringName.new("Control")
     fnname := StringName.new("warp_mouse")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -1618,7 +1618,7 @@ pub fn (mut r Control) warp_mouse(position Vector2) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) set_shortcut_context(node Node) {
+pub fn (r &Control) set_shortcut_context(node Node) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_shortcut_context")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
@@ -1638,7 +1638,7 @@ pub fn (r &Control) get_shortcut_context() Node {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Control) update_minimum_size() {
+pub fn (r &Control) update_minimum_size() {
     classname := StringName.new("Control")
     fnname := StringName.new("update_minimum_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -1646,7 +1646,7 @@ pub fn (mut r Control) update_minimum_size() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Control) set_layout_direction(direction ControlLayoutDirection) {
+pub fn (r &Control) set_layout_direction(direction ControlLayoutDirection) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_layout_direction")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3310692370)
@@ -1677,7 +1677,7 @@ pub fn (r &Control) is_layout_rtl() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Control) set_auto_translate(enable bool) {
+pub fn (r &Control) set_auto_translate(enable bool) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_auto_translate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -1697,7 +1697,7 @@ pub fn (r &Control) is_auto_translating() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Control) set_localize_numeral_system(enable bool) {
+pub fn (r &Control) set_localize_numeral_system(enable bool) {
     classname := StringName.new("Control")
     fnname := StringName.new("set_localize_numeral_system")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

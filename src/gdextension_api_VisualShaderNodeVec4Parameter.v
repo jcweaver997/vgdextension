@@ -5,7 +5,7 @@ pub struct VisualShaderNodeVec4Parameter {
     VisualShaderNodeParameter
 }
 
-pub fn (mut r VisualShaderNodeVec4Parameter) set_default_value_enabled(enabled bool) {
+pub fn (r &VisualShaderNodeVec4Parameter) set_default_value_enabled(enabled bool) {
     classname := StringName.new("VisualShaderNodeVec4Parameter")
     fnname := StringName.new("set_default_value_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -25,7 +25,7 @@ pub fn (r &VisualShaderNodeVec4Parameter) is_default_value_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VisualShaderNodeVec4Parameter) set_default_value(value Vector4) {
+pub fn (r &VisualShaderNodeVec4Parameter) set_default_value(value Vector4) {
     classname := StringName.new("VisualShaderNodeVec4Parameter")
     fnname := StringName.new("set_default_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 643568085)

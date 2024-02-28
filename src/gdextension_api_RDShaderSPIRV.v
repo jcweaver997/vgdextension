@@ -5,7 +5,7 @@ pub struct RDShaderSPIRV {
     Resource
 }
 
-pub fn (mut r RDShaderSPIRV) set_stage_bytecode(stage RenderingDeviceShaderStage, bytecode PackedByteArray) {
+pub fn (r &RDShaderSPIRV) set_stage_bytecode(stage RenderingDeviceShaderStage, bytecode PackedByteArray) {
     classname := StringName.new("RDShaderSPIRV")
     fnname := StringName.new("set_stage_bytecode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3514097977)
@@ -30,7 +30,7 @@ pub fn (r &RDShaderSPIRV) get_stage_bytecode(stage RenderingDeviceShaderStage) P
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDShaderSPIRV) set_stage_compile_error(stage RenderingDeviceShaderStage, compile_error string) {
+pub fn (r &RDShaderSPIRV) set_stage_compile_error(stage RenderingDeviceShaderStage, compile_error string) {
     classname := StringName.new("RDShaderSPIRV")
     fnname := StringName.new("set_stage_compile_error")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 620821314)

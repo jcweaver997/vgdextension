@@ -5,7 +5,7 @@ pub struct RenderSceneBuffers {
     RefCounted
 }
 
-pub fn (mut r RenderSceneBuffers) configure(config RenderSceneBuffersConfiguration) {
+pub fn (r &RenderSceneBuffers) configure(config RenderSceneBuffersConfiguration) {
     classname := StringName.new("RenderSceneBuffers")
     fnname := StringName.new("configure")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3072623270)

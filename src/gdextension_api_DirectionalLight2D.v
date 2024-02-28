@@ -5,7 +5,7 @@ pub struct DirectionalLight2D {
     Light2D
 }
 
-pub fn (mut r DirectionalLight2D) set_max_distance(pixels f64) {
+pub fn (r &DirectionalLight2D) set_max_distance(pixels f64) {
     classname := StringName.new("DirectionalLight2D")
     fnname := StringName.new("set_max_distance")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

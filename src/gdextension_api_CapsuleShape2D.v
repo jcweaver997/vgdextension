@@ -5,7 +5,7 @@ pub struct CapsuleShape2D {
     Shape2D
 }
 
-pub fn (mut r CapsuleShape2D) set_radius(radius f64) {
+pub fn (r &CapsuleShape2D) set_radius(radius f64) {
     classname := StringName.new("CapsuleShape2D")
     fnname := StringName.new("set_radius")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -25,7 +25,7 @@ pub fn (r &CapsuleShape2D) get_radius() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CapsuleShape2D) set_height(height f64) {
+pub fn (r &CapsuleShape2D) set_height(height f64) {
     classname := StringName.new("CapsuleShape2D")
     fnname := StringName.new("set_height")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

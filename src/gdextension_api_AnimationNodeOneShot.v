@@ -17,7 +17,7 @@ pub struct AnimationNodeOneShot {
     AnimationNodeSync
 }
 
-pub fn (mut r AnimationNodeOneShot) set_fadein_time(time f64) {
+pub fn (r &AnimationNodeOneShot) set_fadein_time(time f64) {
     classname := StringName.new("AnimationNodeOneShot")
     fnname := StringName.new("set_fadein_time")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -37,7 +37,7 @@ pub fn (r &AnimationNodeOneShot) get_fadein_time() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNodeOneShot) set_fadein_curve(curve Curve) {
+pub fn (r &AnimationNodeOneShot) set_fadein_curve(curve Curve) {
     classname := StringName.new("AnimationNodeOneShot")
     fnname := StringName.new("set_fadein_curve")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 270443179)
@@ -57,7 +57,7 @@ pub fn (r &AnimationNodeOneShot) get_fadein_curve() Curve {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNodeOneShot) set_fadeout_time(time f64) {
+pub fn (r &AnimationNodeOneShot) set_fadeout_time(time f64) {
     classname := StringName.new("AnimationNodeOneShot")
     fnname := StringName.new("set_fadeout_time")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -77,7 +77,7 @@ pub fn (r &AnimationNodeOneShot) get_fadeout_time() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNodeOneShot) set_fadeout_curve(curve Curve) {
+pub fn (r &AnimationNodeOneShot) set_fadeout_curve(curve Curve) {
     classname := StringName.new("AnimationNodeOneShot")
     fnname := StringName.new("set_fadeout_curve")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 270443179)
@@ -97,7 +97,7 @@ pub fn (r &AnimationNodeOneShot) get_fadeout_curve() Curve {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNodeOneShot) set_autorestart(active bool) {
+pub fn (r &AnimationNodeOneShot) set_autorestart(active bool) {
     classname := StringName.new("AnimationNodeOneShot")
     fnname := StringName.new("set_autorestart")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -117,7 +117,7 @@ pub fn (r &AnimationNodeOneShot) has_autorestart() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNodeOneShot) set_autorestart_delay(time f64) {
+pub fn (r &AnimationNodeOneShot) set_autorestart_delay(time f64) {
     classname := StringName.new("AnimationNodeOneShot")
     fnname := StringName.new("set_autorestart_delay")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -137,7 +137,7 @@ pub fn (r &AnimationNodeOneShot) get_autorestart_delay() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNodeOneShot) set_autorestart_random_delay(time f64) {
+pub fn (r &AnimationNodeOneShot) set_autorestart_random_delay(time f64) {
     classname := StringName.new("AnimationNodeOneShot")
     fnname := StringName.new("set_autorestart_random_delay")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -157,7 +157,7 @@ pub fn (r &AnimationNodeOneShot) get_autorestart_random_delay() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNodeOneShot) set_mix_mode(mode AnimationNodeOneShotMixMode) {
+pub fn (r &AnimationNodeOneShot) set_mix_mode(mode AnimationNodeOneShotMixMode) {
     classname := StringName.new("AnimationNodeOneShot")
     fnname := StringName.new("set_mix_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1018899799)

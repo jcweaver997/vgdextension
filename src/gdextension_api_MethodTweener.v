@@ -5,7 +5,7 @@ pub struct MethodTweener {
     Tweener
 }
 
-pub fn (mut r MethodTweener) set_delay(delay f64) MethodTweener {
+pub fn (r &MethodTweener) set_delay(delay f64) MethodTweener {
     mut object_out := MethodTweener{}
     classname := StringName.new("MethodTweener")
     fnname := StringName.new("set_delay")
@@ -17,7 +17,7 @@ pub fn (mut r MethodTweener) set_delay(delay f64) MethodTweener {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MethodTweener) set_trans(trans TweenTransitionType) MethodTweener {
+pub fn (r &MethodTweener) set_trans(trans TweenTransitionType) MethodTweener {
     mut object_out := MethodTweener{}
     classname := StringName.new("MethodTweener")
     fnname := StringName.new("set_trans")
@@ -30,7 +30,7 @@ pub fn (mut r MethodTweener) set_trans(trans TweenTransitionType) MethodTweener 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MethodTweener) set_ease(ease TweenEaseType) MethodTweener {
+pub fn (r &MethodTweener) set_ease(ease TweenEaseType) MethodTweener {
     mut object_out := MethodTweener{}
     classname := StringName.new("MethodTweener")
     fnname := StringName.new("set_ease")

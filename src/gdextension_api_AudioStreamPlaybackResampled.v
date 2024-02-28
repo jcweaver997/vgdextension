@@ -10,7 +10,7 @@ pub interface IAudioStreamPlaybackResampledMixResampled {
     virt_mix_resampled(dst_buffer &AudioFrame, frame_count i32) i32
 }
 
-pub fn (mut r AudioStreamPlaybackResampled) umix_resampled(dst_buffer &AudioFrame, frame_count i32) i32 {
+pub fn (r &AudioStreamPlaybackResampled) umix_resampled(dst_buffer &AudioFrame, frame_count i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("AudioStreamPlaybackResampled")
     fnname := StringName.new("_mix_resampled")
@@ -38,7 +38,7 @@ pub fn (r &AudioStreamPlaybackResampled) uget_stream_sampling_rate() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlaybackResampled) begin_resample() {
+pub fn (r &AudioStreamPlaybackResampled) begin_resample() {
     classname := StringName.new("AudioStreamPlaybackResampled")
     fnname := StringName.new("begin_resample")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

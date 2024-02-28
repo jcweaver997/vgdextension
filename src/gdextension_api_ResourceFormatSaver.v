@@ -10,7 +10,7 @@ pub interface IResourceFormatSaverSave {
     virt_save(resource Resource, path String, flags u32) GDError
 }
 
-pub fn (mut r ResourceFormatSaver) usave(resource Resource, path string, flags u32) GDError {
+pub fn (r &ResourceFormatSaver) usave(resource Resource, path string, flags u32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ResourceFormatSaver")
     fnname := StringName.new("_save")
@@ -31,7 +31,7 @@ pub interface IResourceFormatSaverSetUid {
     virt_set_uid(path String, uid i64) GDError
 }
 
-pub fn (mut r ResourceFormatSaver) uset_uid(path string, uid i64) GDError {
+pub fn (r &ResourceFormatSaver) uset_uid(path string, uid i64) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ResourceFormatSaver")
     fnname := StringName.new("_set_uid")

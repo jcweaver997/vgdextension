@@ -5,7 +5,7 @@ pub struct InputEventMouse {
     InputEventWithModifiers
 }
 
-pub fn (mut r InputEventMouse) set_button_mask(button_mask MouseButtonMask) {
+pub fn (r &InputEventMouse) set_button_mask(button_mask MouseButtonMask) {
     classname := StringName.new("InputEventMouse")
     fnname := StringName.new("set_button_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3950145251)
@@ -26,7 +26,7 @@ pub fn (r &InputEventMouse) get_button_mask() MouseButtonMask {
     fnname.deinit()
    return unsafe{MouseButtonMask(object_out)}
 }
-pub fn (mut r InputEventMouse) set_position(position Vector2) {
+pub fn (r &InputEventMouse) set_position(position Vector2) {
     classname := StringName.new("InputEventMouse")
     fnname := StringName.new("set_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -46,7 +46,7 @@ pub fn (r &InputEventMouse) get_position() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r InputEventMouse) set_global_position(global_position Vector2) {
+pub fn (r &InputEventMouse) set_global_position(global_position Vector2) {
     classname := StringName.new("InputEventMouse")
     fnname := StringName.new("set_global_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)

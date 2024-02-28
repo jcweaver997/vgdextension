@@ -5,7 +5,7 @@ pub struct ConvexPolygonShape2D {
     Shape2D
 }
 
-pub fn (mut r ConvexPolygonShape2D) set_point_cloud(point_cloud PackedVector2Array) {
+pub fn (r &ConvexPolygonShape2D) set_point_cloud(point_cloud PackedVector2Array) {
     classname := StringName.new("ConvexPolygonShape2D")
     fnname := StringName.new("set_point_cloud")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1509147220)
@@ -15,7 +15,7 @@ pub fn (mut r ConvexPolygonShape2D) set_point_cloud(point_cloud PackedVector2Arr
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ConvexPolygonShape2D) set_points(points PackedVector2Array) {
+pub fn (r &ConvexPolygonShape2D) set_points(points PackedVector2Array) {
     classname := StringName.new("ConvexPolygonShape2D")
     fnname := StringName.new("set_points")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1509147220)

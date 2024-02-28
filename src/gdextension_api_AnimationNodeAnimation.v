@@ -10,7 +10,7 @@ pub struct AnimationNodeAnimation {
     AnimationRootNode
 }
 
-pub fn (mut r AnimationNodeAnimation) set_animation(name string) {
+pub fn (r &AnimationNodeAnimation) set_animation(name string) {
     classname := StringName.new("AnimationNodeAnimation")
     fnname := StringName.new("set_animation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -34,7 +34,7 @@ pub fn (r &AnimationNodeAnimation) get_animation() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r AnimationNodeAnimation) set_play_mode(mode AnimationNodeAnimationPlayMode) {
+pub fn (r &AnimationNodeAnimation) set_play_mode(mode AnimationNodeAnimationPlayMode) {
     classname := StringName.new("AnimationNodeAnimation")
     fnname := StringName.new("set_play_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3347718873)

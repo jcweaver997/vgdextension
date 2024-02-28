@@ -21,7 +21,7 @@ pub interface IEditorScenePostImportPluginGetInternalImportOptions {
     virt_get_internal_import_options(category i32)
 }
 
-pub fn (mut r EditorScenePostImportPlugin) uget_internal_import_options(category i32) {
+pub fn (r &EditorScenePostImportPlugin) uget_internal_import_options(category i32) {
     classname := StringName.new("EditorScenePostImportPlugin")
     fnname := StringName.new("_get_internal_import_options")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -77,7 +77,7 @@ pub interface IEditorScenePostImportPluginInternalProcess {
     virt_internal_process(category i32, base_node Node, node Node, resource Resource)
 }
 
-pub fn (mut r EditorScenePostImportPlugin) uinternal_process(category i32, base_node Node, node Node, resource Resource) {
+pub fn (r &EditorScenePostImportPlugin) uinternal_process(category i32, base_node Node, node Node, resource Resource) {
     classname := StringName.new("EditorScenePostImportPlugin")
     fnname := StringName.new("_internal_process")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -95,7 +95,7 @@ pub interface IEditorScenePostImportPluginGetImportOptions {
     virt_get_import_options(path String)
 }
 
-pub fn (mut r EditorScenePostImportPlugin) uget_import_options(path string) {
+pub fn (r &EditorScenePostImportPlugin) uget_import_options(path string) {
     classname := StringName.new("EditorScenePostImportPlugin")
     fnname := StringName.new("_get_import_options")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -135,7 +135,7 @@ pub interface IEditorScenePostImportPluginPreProcess {
     virt_pre_process(scene Node)
 }
 
-pub fn (mut r EditorScenePostImportPlugin) upre_process(scene Node) {
+pub fn (r &EditorScenePostImportPlugin) upre_process(scene Node) {
     classname := StringName.new("EditorScenePostImportPlugin")
     fnname := StringName.new("_pre_process")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -150,7 +150,7 @@ pub interface IEditorScenePostImportPluginPostProcess {
     virt_post_process(scene Node)
 }
 
-pub fn (mut r EditorScenePostImportPlugin) upost_process(scene Node) {
+pub fn (r &EditorScenePostImportPlugin) upost_process(scene Node) {
     classname := StringName.new("EditorScenePostImportPlugin")
     fnname := StringName.new("_post_process")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -174,7 +174,7 @@ pub fn (r &EditorScenePostImportPlugin) get_option_value(name string) Variant {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorScenePostImportPlugin) add_import_option(name string, value Variant) {
+pub fn (r &EditorScenePostImportPlugin) add_import_option(name string, value Variant) {
     classname := StringName.new("EditorScenePostImportPlugin")
     fnname := StringName.new("add_import_option")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 402577236)
@@ -187,7 +187,7 @@ pub fn (mut r EditorScenePostImportPlugin) add_import_option(name string, value 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorScenePostImportPlugin) add_import_option_advanced(type_name VariantType, name string, default_value Variant, hint PropertyHint, hint_string string, usage_flags i32) {
+pub fn (r &EditorScenePostImportPlugin) add_import_option_advanced(type_name VariantType, name string, default_value Variant, hint PropertyHint, hint_string string, usage_flags i32) {
     classname := StringName.new("EditorScenePostImportPlugin")
     fnname := StringName.new("add_import_option_advanced")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3674075649)

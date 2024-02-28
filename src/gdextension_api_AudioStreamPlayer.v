@@ -11,7 +11,7 @@ pub struct AudioStreamPlayer {
     Node
 }
 
-pub fn (mut r AudioStreamPlayer) set_stream(stream AudioStream) {
+pub fn (r &AudioStreamPlayer) set_stream(stream AudioStream) {
     classname := StringName.new("AudioStreamPlayer")
     fnname := StringName.new("set_stream")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2210767741)
@@ -31,7 +31,7 @@ pub fn (r &AudioStreamPlayer) get_stream() AudioStream {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer) set_volume_db(volume_db f64) {
+pub fn (r &AudioStreamPlayer) set_volume_db(volume_db f64) {
     classname := StringName.new("AudioStreamPlayer")
     fnname := StringName.new("set_volume_db")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -51,7 +51,7 @@ pub fn (r &AudioStreamPlayer) get_volume_db() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer) set_pitch_scale(pitch_scale f64) {
+pub fn (r &AudioStreamPlayer) set_pitch_scale(pitch_scale f64) {
     classname := StringName.new("AudioStreamPlayer")
     fnname := StringName.new("set_pitch_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -71,7 +71,7 @@ pub fn (r &AudioStreamPlayer) get_pitch_scale() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer) play(from_position f64) {
+pub fn (r &AudioStreamPlayer) play(from_position f64) {
     classname := StringName.new("AudioStreamPlayer")
     fnname := StringName.new("play")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1958160172)
@@ -81,7 +81,7 @@ pub fn (mut r AudioStreamPlayer) play(from_position f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AudioStreamPlayer) seek(to_position f64) {
+pub fn (r &AudioStreamPlayer) seek(to_position f64) {
     classname := StringName.new("AudioStreamPlayer")
     fnname := StringName.new("seek")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -91,7 +91,7 @@ pub fn (mut r AudioStreamPlayer) seek(to_position f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AudioStreamPlayer) stop() {
+pub fn (r &AudioStreamPlayer) stop() {
     classname := StringName.new("AudioStreamPlayer")
     fnname := StringName.new("stop")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -109,7 +109,7 @@ pub fn (r &AudioStreamPlayer) is_playing() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer) get_playback_position() f64 {
+pub fn (r &AudioStreamPlayer) get_playback_position() f64 {
     mut object_out := f64(0)
     classname := StringName.new("AudioStreamPlayer")
     fnname := StringName.new("get_playback_position")
@@ -119,7 +119,7 @@ pub fn (mut r AudioStreamPlayer) get_playback_position() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer) set_bus(bus string) {
+pub fn (r &AudioStreamPlayer) set_bus(bus string) {
     classname := StringName.new("AudioStreamPlayer")
     fnname := StringName.new("set_bus")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -143,7 +143,7 @@ pub fn (r &AudioStreamPlayer) get_bus() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r AudioStreamPlayer) set_autoplay(enable bool) {
+pub fn (r &AudioStreamPlayer) set_autoplay(enable bool) {
     classname := StringName.new("AudioStreamPlayer")
     fnname := StringName.new("set_autoplay")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -153,7 +153,7 @@ pub fn (mut r AudioStreamPlayer) set_autoplay(enable bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AudioStreamPlayer) is_autoplay_enabled() bool {
+pub fn (r &AudioStreamPlayer) is_autoplay_enabled() bool {
     mut object_out := false
     classname := StringName.new("AudioStreamPlayer")
     fnname := StringName.new("is_autoplay_enabled")
@@ -163,7 +163,7 @@ pub fn (mut r AudioStreamPlayer) is_autoplay_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer) set_mix_target(mix_target AudioStreamPlayerMixTarget) {
+pub fn (r &AudioStreamPlayer) set_mix_target(mix_target AudioStreamPlayerMixTarget) {
     classname := StringName.new("AudioStreamPlayer")
     fnname := StringName.new("set_mix_target")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2300306138)
@@ -184,7 +184,7 @@ pub fn (r &AudioStreamPlayer) get_mix_target() AudioStreamPlayerMixTarget {
     fnname.deinit()
    return unsafe{AudioStreamPlayerMixTarget(object_out)}
 }
-pub fn (mut r AudioStreamPlayer) set_stream_paused(pause bool) {
+pub fn (r &AudioStreamPlayer) set_stream_paused(pause bool) {
     classname := StringName.new("AudioStreamPlayer")
     fnname := StringName.new("set_stream_paused")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -204,7 +204,7 @@ pub fn (r &AudioStreamPlayer) get_stream_paused() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer) set_max_polyphony(max_polyphony i32) {
+pub fn (r &AudioStreamPlayer) set_max_polyphony(max_polyphony i32) {
     classname := StringName.new("AudioStreamPlayer")
     fnname := StringName.new("set_max_polyphony")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -224,7 +224,7 @@ pub fn (r &AudioStreamPlayer) get_max_polyphony() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer) has_stream_playback() bool {
+pub fn (r &AudioStreamPlayer) has_stream_playback() bool {
     mut object_out := false
     classname := StringName.new("AudioStreamPlayer")
     fnname := StringName.new("has_stream_playback")
@@ -234,7 +234,7 @@ pub fn (mut r AudioStreamPlayer) has_stream_playback() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer) get_stream_playback() AudioStreamPlayback {
+pub fn (r &AudioStreamPlayer) get_stream_playback() AudioStreamPlayback {
     mut object_out := AudioStreamPlayback{}
     classname := StringName.new("AudioStreamPlayer")
     fnname := StringName.new("get_stream_playback")

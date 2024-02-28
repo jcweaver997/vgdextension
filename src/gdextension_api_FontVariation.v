@@ -5,7 +5,7 @@ pub struct FontVariation {
     Font
 }
 
-pub fn (mut r FontVariation) set_base_font(font Font) {
+pub fn (r &FontVariation) set_base_font(font Font) {
     classname := StringName.new("FontVariation")
     fnname := StringName.new("set_base_font")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1262170328)
@@ -25,7 +25,7 @@ pub fn (r &FontVariation) get_base_font() Font {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontVariation) set_variation_opentype(coords Dictionary) {
+pub fn (r &FontVariation) set_variation_opentype(coords Dictionary) {
     classname := StringName.new("FontVariation")
     fnname := StringName.new("set_variation_opentype")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4155329257)
@@ -45,7 +45,7 @@ pub fn (r &FontVariation) get_variation_opentype() Dictionary {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontVariation) set_variation_embolden(strength f64) {
+pub fn (r &FontVariation) set_variation_embolden(strength f64) {
     classname := StringName.new("FontVariation")
     fnname := StringName.new("set_variation_embolden")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -65,7 +65,7 @@ pub fn (r &FontVariation) get_variation_embolden() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontVariation) set_variation_face_index(face_index i32) {
+pub fn (r &FontVariation) set_variation_face_index(face_index i32) {
     classname := StringName.new("FontVariation")
     fnname := StringName.new("set_variation_face_index")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -85,7 +85,7 @@ pub fn (r &FontVariation) get_variation_face_index() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontVariation) set_variation_transform(transform Transform2D) {
+pub fn (r &FontVariation) set_variation_transform(transform Transform2D) {
     classname := StringName.new("FontVariation")
     fnname := StringName.new("set_variation_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2761652528)
@@ -105,7 +105,7 @@ pub fn (r &FontVariation) get_variation_transform() Transform2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FontVariation) set_opentype_features(features Dictionary) {
+pub fn (r &FontVariation) set_opentype_features(features Dictionary) {
     classname := StringName.new("FontVariation")
     fnname := StringName.new("set_opentype_features")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4155329257)
@@ -115,7 +115,7 @@ pub fn (mut r FontVariation) set_opentype_features(features Dictionary) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FontVariation) set_spacing(spacing TextServerSpacingType, value i32) {
+pub fn (r &FontVariation) set_spacing(spacing TextServerSpacingType, value i32) {
     classname := StringName.new("FontVariation")
     fnname := StringName.new("set_spacing")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3122339690)

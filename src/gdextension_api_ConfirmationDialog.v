@@ -5,7 +5,7 @@ pub struct ConfirmationDialog {
     AcceptDialog
 }
 
-pub fn (mut r ConfirmationDialog) get_cancel_button() Button {
+pub fn (r &ConfirmationDialog) get_cancel_button() Button {
     mut object_out := Button{}
     classname := StringName.new("ConfirmationDialog")
     fnname := StringName.new("get_cancel_button")
@@ -15,7 +15,7 @@ pub fn (mut r ConfirmationDialog) get_cancel_button() Button {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ConfirmationDialog) set_cancel_button_text(text string) {
+pub fn (r &ConfirmationDialog) set_cancel_button_text(text string) {
     classname := StringName.new("ConfirmationDialog")
     fnname := StringName.new("set_cancel_button_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)

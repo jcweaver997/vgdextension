@@ -5,7 +5,7 @@ pub struct AudioStreamPolyphonic {
     AudioStream
 }
 
-pub fn (mut r AudioStreamPolyphonic) set_polyphony(voices i32) {
+pub fn (r &AudioStreamPolyphonic) set_polyphony(voices i32) {
     classname := StringName.new("AudioStreamPolyphonic")
     fnname := StringName.new("set_polyphony")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

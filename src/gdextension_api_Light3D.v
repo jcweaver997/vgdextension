@@ -36,7 +36,7 @@ pub struct Light3D {
     VisualInstance3D
 }
 
-pub fn (mut r Light3D) set_editor_only(editor_only bool) {
+pub fn (r &Light3D) set_editor_only(editor_only bool) {
     classname := StringName.new("Light3D")
     fnname := StringName.new("set_editor_only")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -56,7 +56,7 @@ pub fn (r &Light3D) is_editor_only() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Light3D) set_param(param Light3DParam, value f64) {
+pub fn (r &Light3D) set_param(param Light3DParam, value f64) {
     classname := StringName.new("Light3D")
     fnname := StringName.new("set_param")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1722734213)
@@ -81,7 +81,7 @@ pub fn (r &Light3D) get_param(param Light3DParam) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Light3D) set_shadow(enabled bool) {
+pub fn (r &Light3D) set_shadow(enabled bool) {
     classname := StringName.new("Light3D")
     fnname := StringName.new("set_shadow")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -101,7 +101,7 @@ pub fn (r &Light3D) has_shadow() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Light3D) set_negative(enabled bool) {
+pub fn (r &Light3D) set_negative(enabled bool) {
     classname := StringName.new("Light3D")
     fnname := StringName.new("set_negative")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -121,7 +121,7 @@ pub fn (r &Light3D) is_negative() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Light3D) set_cull_mask(cull_mask u32) {
+pub fn (r &Light3D) set_cull_mask(cull_mask u32) {
     classname := StringName.new("Light3D")
     fnname := StringName.new("set_cull_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -141,7 +141,7 @@ pub fn (r &Light3D) get_cull_mask() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Light3D) set_enable_distance_fade(enable bool) {
+pub fn (r &Light3D) set_enable_distance_fade(enable bool) {
     classname := StringName.new("Light3D")
     fnname := StringName.new("set_enable_distance_fade")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -161,7 +161,7 @@ pub fn (r &Light3D) is_distance_fade_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Light3D) set_distance_fade_begin(distance f64) {
+pub fn (r &Light3D) set_distance_fade_begin(distance f64) {
     classname := StringName.new("Light3D")
     fnname := StringName.new("set_distance_fade_begin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -181,7 +181,7 @@ pub fn (r &Light3D) get_distance_fade_begin() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Light3D) set_distance_fade_shadow(distance f64) {
+pub fn (r &Light3D) set_distance_fade_shadow(distance f64) {
     classname := StringName.new("Light3D")
     fnname := StringName.new("set_distance_fade_shadow")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -201,7 +201,7 @@ pub fn (r &Light3D) get_distance_fade_shadow() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Light3D) set_distance_fade_length(distance f64) {
+pub fn (r &Light3D) set_distance_fade_length(distance f64) {
     classname := StringName.new("Light3D")
     fnname := StringName.new("set_distance_fade_length")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -221,7 +221,7 @@ pub fn (r &Light3D) get_distance_fade_length() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Light3D) set_color(color Color) {
+pub fn (r &Light3D) set_color(color Color) {
     classname := StringName.new("Light3D")
     fnname := StringName.new("set_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -241,7 +241,7 @@ pub fn (r &Light3D) get_color() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Light3D) set_shadow_reverse_cull_face(enable bool) {
+pub fn (r &Light3D) set_shadow_reverse_cull_face(enable bool) {
     classname := StringName.new("Light3D")
     fnname := StringName.new("set_shadow_reverse_cull_face")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -261,7 +261,7 @@ pub fn (r &Light3D) get_shadow_reverse_cull_face() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Light3D) set_bake_mode(bake_mode Light3DBakeMode) {
+pub fn (r &Light3D) set_bake_mode(bake_mode Light3DBakeMode) {
     classname := StringName.new("Light3D")
     fnname := StringName.new("set_bake_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 37739303)
@@ -282,7 +282,7 @@ pub fn (r &Light3D) get_bake_mode() Light3DBakeMode {
     fnname.deinit()
    return unsafe{Light3DBakeMode(object_out)}
 }
-pub fn (mut r Light3D) set_projector(projector Texture2D) {
+pub fn (r &Light3D) set_projector(projector Texture2D) {
     classname := StringName.new("Light3D")
     fnname := StringName.new("set_projector")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
@@ -302,7 +302,7 @@ pub fn (r &Light3D) get_projector() Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Light3D) set_temperature(temperature f64) {
+pub fn (r &Light3D) set_temperature(temperature f64) {
     classname := StringName.new("Light3D")
     fnname := StringName.new("set_temperature")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

@@ -14,7 +14,7 @@ pub struct AudioEffectSpectrumAnalyzer {
     AudioEffect
 }
 
-pub fn (mut r AudioEffectSpectrumAnalyzer) set_buffer_length(seconds f64) {
+pub fn (r &AudioEffectSpectrumAnalyzer) set_buffer_length(seconds f64) {
     classname := StringName.new("AudioEffectSpectrumAnalyzer")
     fnname := StringName.new("set_buffer_length")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -34,7 +34,7 @@ pub fn (r &AudioEffectSpectrumAnalyzer) get_buffer_length() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectSpectrumAnalyzer) set_tap_back_pos(seconds f64) {
+pub fn (r &AudioEffectSpectrumAnalyzer) set_tap_back_pos(seconds f64) {
     classname := StringName.new("AudioEffectSpectrumAnalyzer")
     fnname := StringName.new("set_tap_back_pos")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -54,7 +54,7 @@ pub fn (r &AudioEffectSpectrumAnalyzer) get_tap_back_pos() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectSpectrumAnalyzer) set_fft_size(size AudioEffectSpectrumAnalyzerFFTSize) {
+pub fn (r &AudioEffectSpectrumAnalyzer) set_fft_size(size AudioEffectSpectrumAnalyzerFFTSize) {
     classname := StringName.new("AudioEffectSpectrumAnalyzer")
     fnname := StringName.new("set_fft_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1202879215)

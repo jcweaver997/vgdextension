@@ -5,7 +5,7 @@ pub struct AnimatedSprite3D {
     SpriteBase3D
 }
 
-pub fn (mut r AnimatedSprite3D) set_sprite_frames(sprite_frames SpriteFrames) {
+pub fn (r &AnimatedSprite3D) set_sprite_frames(sprite_frames SpriteFrames) {
     classname := StringName.new("AnimatedSprite3D")
     fnname := StringName.new("set_sprite_frames")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 905781144)
@@ -25,7 +25,7 @@ pub fn (r &AnimatedSprite3D) get_sprite_frames() SpriteFrames {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimatedSprite3D) set_animation(name string) {
+pub fn (r &AnimatedSprite3D) set_animation(name string) {
     classname := StringName.new("AnimatedSprite3D")
     fnname := StringName.new("set_animation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -49,7 +49,7 @@ pub fn (r &AnimatedSprite3D) get_animation() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r AnimatedSprite3D) set_autoplay(name string) {
+pub fn (r &AnimatedSprite3D) set_autoplay(name string) {
     classname := StringName.new("AnimatedSprite3D")
     fnname := StringName.new("set_autoplay")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -83,7 +83,7 @@ pub fn (r &AnimatedSprite3D) is_playing() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimatedSprite3D) play(name string, custom_speed f64, from_end bool) {
+pub fn (r &AnimatedSprite3D) play(name string, custom_speed f64, from_end bool) {
     classname := StringName.new("AnimatedSprite3D")
     fnname := StringName.new("play")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2372066587)
@@ -97,7 +97,7 @@ pub fn (mut r AnimatedSprite3D) play(name string, custom_speed f64, from_end boo
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AnimatedSprite3D) play_backwards(name string) {
+pub fn (r &AnimatedSprite3D) play_backwards(name string) {
     classname := StringName.new("AnimatedSprite3D")
     fnname := StringName.new("play_backwards")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1421762485)
@@ -109,7 +109,7 @@ pub fn (mut r AnimatedSprite3D) play_backwards(name string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AnimatedSprite3D) pause() {
+pub fn (r &AnimatedSprite3D) pause() {
     classname := StringName.new("AnimatedSprite3D")
     fnname := StringName.new("pause")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -117,7 +117,7 @@ pub fn (mut r AnimatedSprite3D) pause() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AnimatedSprite3D) stop() {
+pub fn (r &AnimatedSprite3D) stop() {
     classname := StringName.new("AnimatedSprite3D")
     fnname := StringName.new("stop")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -125,7 +125,7 @@ pub fn (mut r AnimatedSprite3D) stop() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AnimatedSprite3D) set_frame(frame i32) {
+pub fn (r &AnimatedSprite3D) set_frame(frame i32) {
     classname := StringName.new("AnimatedSprite3D")
     fnname := StringName.new("set_frame")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -145,7 +145,7 @@ pub fn (r &AnimatedSprite3D) get_frame() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimatedSprite3D) set_frame_progress(progress f64) {
+pub fn (r &AnimatedSprite3D) set_frame_progress(progress f64) {
     classname := StringName.new("AnimatedSprite3D")
     fnname := StringName.new("set_frame_progress")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -165,7 +165,7 @@ pub fn (r &AnimatedSprite3D) get_frame_progress() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimatedSprite3D) set_frame_and_progress(frame i32, progress f64) {
+pub fn (r &AnimatedSprite3D) set_frame_and_progress(frame i32, progress f64) {
     classname := StringName.new("AnimatedSprite3D")
     fnname := StringName.new("set_frame_and_progress")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1602489585)
@@ -176,7 +176,7 @@ pub fn (mut r AnimatedSprite3D) set_frame_and_progress(frame i32, progress f64) 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AnimatedSprite3D) set_speed_scale(speed_scale f64) {
+pub fn (r &AnimatedSprite3D) set_speed_scale(speed_scale f64) {
     classname := StringName.new("AnimatedSprite3D")
     fnname := StringName.new("set_speed_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

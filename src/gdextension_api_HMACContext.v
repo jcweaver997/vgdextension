@@ -5,7 +5,7 @@ pub struct HMACContext {
     RefCounted
 }
 
-pub fn (mut r HMACContext) start(hash_type HashingContextHashType, key PackedByteArray) GDError {
+pub fn (r &HMACContext) start(hash_type HashingContextHashType, key PackedByteArray) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("HMACContext")
     fnname := StringName.new("start")
@@ -19,7 +19,7 @@ pub fn (mut r HMACContext) start(hash_type HashingContextHashType, key PackedByt
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r HMACContext) update(data PackedByteArray) GDError {
+pub fn (r &HMACContext) update(data PackedByteArray) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("HMACContext")
     fnname := StringName.new("update")
@@ -31,7 +31,7 @@ pub fn (mut r HMACContext) update(data PackedByteArray) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r HMACContext) finish() PackedByteArray {
+pub fn (r &HMACContext) finish() PackedByteArray {
     mut object_out := PackedByteArray{}
     classname := StringName.new("HMACContext")
     fnname := StringName.new("finish")

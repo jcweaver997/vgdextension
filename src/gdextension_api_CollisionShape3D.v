@@ -5,7 +5,7 @@ pub struct CollisionShape3D {
     Node3D
 }
 
-pub fn (mut r CollisionShape3D) resource_changed(resource Resource) {
+pub fn (r &CollisionShape3D) resource_changed(resource Resource) {
     classname := StringName.new("CollisionShape3D")
     fnname := StringName.new("resource_changed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 968641751)
@@ -15,7 +15,7 @@ pub fn (mut r CollisionShape3D) resource_changed(resource Resource) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CollisionShape3D) set_shape(shape Shape3D) {
+pub fn (r &CollisionShape3D) set_shape(shape Shape3D) {
     classname := StringName.new("CollisionShape3D")
     fnname := StringName.new("set_shape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1549710052)
@@ -35,7 +35,7 @@ pub fn (r &CollisionShape3D) get_shape() Shape3D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CollisionShape3D) set_disabled(enable bool) {
+pub fn (r &CollisionShape3D) set_disabled(enable bool) {
     classname := StringName.new("CollisionShape3D")
     fnname := StringName.new("set_disabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -55,7 +55,7 @@ pub fn (r &CollisionShape3D) is_disabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CollisionShape3D) make_convex_from_siblings() {
+pub fn (r &CollisionShape3D) make_convex_from_siblings() {
     classname := StringName.new("CollisionShape3D")
     fnname := StringName.new("make_convex_from_siblings")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

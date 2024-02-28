@@ -5,7 +5,7 @@ pub struct AudioEffectReverb {
     AudioEffect
 }
 
-pub fn (mut r AudioEffectReverb) set_predelay_msec(msec f64) {
+pub fn (r &AudioEffectReverb) set_predelay_msec(msec f64) {
     classname := StringName.new("AudioEffectReverb")
     fnname := StringName.new("set_predelay_msec")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -25,7 +25,7 @@ pub fn (r &AudioEffectReverb) get_predelay_msec() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectReverb) set_predelay_feedback(feedback f64) {
+pub fn (r &AudioEffectReverb) set_predelay_feedback(feedback f64) {
     classname := StringName.new("AudioEffectReverb")
     fnname := StringName.new("set_predelay_feedback")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -45,7 +45,7 @@ pub fn (r &AudioEffectReverb) get_predelay_feedback() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectReverb) set_room_size(size f64) {
+pub fn (r &AudioEffectReverb) set_room_size(size f64) {
     classname := StringName.new("AudioEffectReverb")
     fnname := StringName.new("set_room_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -65,7 +65,7 @@ pub fn (r &AudioEffectReverb) get_room_size() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectReverb) set_damping(amount f64) {
+pub fn (r &AudioEffectReverb) set_damping(amount f64) {
     classname := StringName.new("AudioEffectReverb")
     fnname := StringName.new("set_damping")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -85,7 +85,7 @@ pub fn (r &AudioEffectReverb) get_damping() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectReverb) set_spread(amount f64) {
+pub fn (r &AudioEffectReverb) set_spread(amount f64) {
     classname := StringName.new("AudioEffectReverb")
     fnname := StringName.new("set_spread")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -105,7 +105,7 @@ pub fn (r &AudioEffectReverb) get_spread() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectReverb) set_dry(amount f64) {
+pub fn (r &AudioEffectReverb) set_dry(amount f64) {
     classname := StringName.new("AudioEffectReverb")
     fnname := StringName.new("set_dry")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -125,7 +125,7 @@ pub fn (r &AudioEffectReverb) get_dry() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectReverb) set_wet(amount f64) {
+pub fn (r &AudioEffectReverb) set_wet(amount f64) {
     classname := StringName.new("AudioEffectReverb")
     fnname := StringName.new("set_wet")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -145,7 +145,7 @@ pub fn (r &AudioEffectReverb) get_wet() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectReverb) set_hpf(amount f64) {
+pub fn (r &AudioEffectReverb) set_hpf(amount f64) {
     classname := StringName.new("AudioEffectReverb")
     fnname := StringName.new("set_hpf")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

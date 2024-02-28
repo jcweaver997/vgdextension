@@ -59,7 +59,7 @@ pub fn (r &UPNP) get_device(index i32) UPNPDevice {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r UPNP) add_device(device UPNPDevice) {
+pub fn (r &UPNP) add_device(device UPNPDevice) {
     classname := StringName.new("UPNP")
     fnname := StringName.new("add_device")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 986715920)
@@ -69,7 +69,7 @@ pub fn (mut r UPNP) add_device(device UPNPDevice) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r UPNP) set_device(index i32, device UPNPDevice) {
+pub fn (r &UPNP) set_device(index i32, device UPNPDevice) {
     classname := StringName.new("UPNP")
     fnname := StringName.new("set_device")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3015133723)
@@ -80,7 +80,7 @@ pub fn (mut r UPNP) set_device(index i32, device UPNPDevice) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r UPNP) remove_device(index i32) {
+pub fn (r &UPNP) remove_device(index i32) {
     classname := StringName.new("UPNP")
     fnname := StringName.new("remove_device")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -90,7 +90,7 @@ pub fn (mut r UPNP) remove_device(index i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r UPNP) clear_devices() {
+pub fn (r &UPNP) clear_devices() {
     classname := StringName.new("UPNP")
     fnname := StringName.new("clear_devices")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -108,7 +108,7 @@ pub fn (r &UPNP) get_gateway() UPNPDevice {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r UPNP) discover(timeout i32, ttl i32, device_filter string) i32 {
+pub fn (r &UPNP) discover(timeout i32, ttl i32, device_filter string) i32 {
     mut object_out := i32(0)
     classname := StringName.new("UPNP")
     fnname := StringName.new("discover")
@@ -171,7 +171,7 @@ pub fn (r &UPNP) delete_port_mapping(port i32, proto string) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r UPNP) set_discover_multicast_if(m_if string) {
+pub fn (r &UPNP) set_discover_multicast_if(m_if string) {
     classname := StringName.new("UPNP")
     fnname := StringName.new("set_discover_multicast_if")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -195,7 +195,7 @@ pub fn (r &UPNP) get_discover_multicast_if() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r UPNP) set_discover_local_port(port i32) {
+pub fn (r &UPNP) set_discover_local_port(port i32) {
     classname := StringName.new("UPNP")
     fnname := StringName.new("set_discover_local_port")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -215,7 +215,7 @@ pub fn (r &UPNP) get_discover_local_port() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r UPNP) set_discover_ipv6(ipv6 bool) {
+pub fn (r &UPNP) set_discover_ipv6(ipv6 bool) {
     classname := StringName.new("UPNP")
     fnname := StringName.new("set_discover_ipv6")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

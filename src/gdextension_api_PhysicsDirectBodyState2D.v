@@ -75,7 +75,7 @@ pub fn (r &PhysicsDirectBodyState2D) get_inverse_inertia() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsDirectBodyState2D) set_linear_velocity(velocity Vector2) {
+pub fn (r &PhysicsDirectBodyState2D) set_linear_velocity(velocity Vector2) {
     classname := StringName.new("PhysicsDirectBodyState2D")
     fnname := StringName.new("set_linear_velocity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -95,7 +95,7 @@ pub fn (r &PhysicsDirectBodyState2D) get_linear_velocity() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsDirectBodyState2D) set_angular_velocity(velocity f64) {
+pub fn (r &PhysicsDirectBodyState2D) set_angular_velocity(velocity f64) {
     classname := StringName.new("PhysicsDirectBodyState2D")
     fnname := StringName.new("set_angular_velocity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -115,7 +115,7 @@ pub fn (r &PhysicsDirectBodyState2D) get_angular_velocity() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsDirectBodyState2D) set_transform(transform Transform2D) {
+pub fn (r &PhysicsDirectBodyState2D) set_transform(transform Transform2D) {
     classname := StringName.new("PhysicsDirectBodyState2D")
     fnname := StringName.new("set_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2761652528)
@@ -147,7 +147,7 @@ pub fn (r &PhysicsDirectBodyState2D) get_velocity_at_local_position(local_positi
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsDirectBodyState2D) apply_central_impulse(impulse Vector2) {
+pub fn (r &PhysicsDirectBodyState2D) apply_central_impulse(impulse Vector2) {
     classname := StringName.new("PhysicsDirectBodyState2D")
     fnname := StringName.new("apply_central_impulse")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -157,7 +157,7 @@ pub fn (mut r PhysicsDirectBodyState2D) apply_central_impulse(impulse Vector2) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PhysicsDirectBodyState2D) apply_torque_impulse(impulse f64) {
+pub fn (r &PhysicsDirectBodyState2D) apply_torque_impulse(impulse f64) {
     classname := StringName.new("PhysicsDirectBodyState2D")
     fnname := StringName.new("apply_torque_impulse")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -167,7 +167,7 @@ pub fn (mut r PhysicsDirectBodyState2D) apply_torque_impulse(impulse f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PhysicsDirectBodyState2D) apply_impulse(impulse Vector2, position Vector2) {
+pub fn (r &PhysicsDirectBodyState2D) apply_impulse(impulse Vector2, position Vector2) {
     classname := StringName.new("PhysicsDirectBodyState2D")
     fnname := StringName.new("apply_impulse")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4288681949)
@@ -178,7 +178,7 @@ pub fn (mut r PhysicsDirectBodyState2D) apply_impulse(impulse Vector2, position 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PhysicsDirectBodyState2D) apply_central_force(force Vector2) {
+pub fn (r &PhysicsDirectBodyState2D) apply_central_force(force Vector2) {
     classname := StringName.new("PhysicsDirectBodyState2D")
     fnname := StringName.new("apply_central_force")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3862383994)
@@ -188,7 +188,7 @@ pub fn (mut r PhysicsDirectBodyState2D) apply_central_force(force Vector2) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PhysicsDirectBodyState2D) apply_force(force Vector2, position Vector2) {
+pub fn (r &PhysicsDirectBodyState2D) apply_force(force Vector2, position Vector2) {
     classname := StringName.new("PhysicsDirectBodyState2D")
     fnname := StringName.new("apply_force")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4288681949)
@@ -199,7 +199,7 @@ pub fn (mut r PhysicsDirectBodyState2D) apply_force(force Vector2, position Vect
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PhysicsDirectBodyState2D) apply_torque(torque f64) {
+pub fn (r &PhysicsDirectBodyState2D) apply_torque(torque f64) {
     classname := StringName.new("PhysicsDirectBodyState2D")
     fnname := StringName.new("apply_torque")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -209,7 +209,7 @@ pub fn (mut r PhysicsDirectBodyState2D) apply_torque(torque f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PhysicsDirectBodyState2D) add_constant_central_force(force Vector2) {
+pub fn (r &PhysicsDirectBodyState2D) add_constant_central_force(force Vector2) {
     classname := StringName.new("PhysicsDirectBodyState2D")
     fnname := StringName.new("add_constant_central_force")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3862383994)
@@ -219,7 +219,7 @@ pub fn (mut r PhysicsDirectBodyState2D) add_constant_central_force(force Vector2
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PhysicsDirectBodyState2D) add_constant_force(force Vector2, position Vector2) {
+pub fn (r &PhysicsDirectBodyState2D) add_constant_force(force Vector2, position Vector2) {
     classname := StringName.new("PhysicsDirectBodyState2D")
     fnname := StringName.new("add_constant_force")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4288681949)
@@ -230,7 +230,7 @@ pub fn (mut r PhysicsDirectBodyState2D) add_constant_force(force Vector2, positi
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PhysicsDirectBodyState2D) add_constant_torque(torque f64) {
+pub fn (r &PhysicsDirectBodyState2D) add_constant_torque(torque f64) {
     classname := StringName.new("PhysicsDirectBodyState2D")
     fnname := StringName.new("add_constant_torque")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -240,7 +240,7 @@ pub fn (mut r PhysicsDirectBodyState2D) add_constant_torque(torque f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PhysicsDirectBodyState2D) set_constant_force(force Vector2) {
+pub fn (r &PhysicsDirectBodyState2D) set_constant_force(force Vector2) {
     classname := StringName.new("PhysicsDirectBodyState2D")
     fnname := StringName.new("set_constant_force")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -260,7 +260,7 @@ pub fn (r &PhysicsDirectBodyState2D) get_constant_force() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsDirectBodyState2D) set_constant_torque(torque f64) {
+pub fn (r &PhysicsDirectBodyState2D) set_constant_torque(torque f64) {
     classname := StringName.new("PhysicsDirectBodyState2D")
     fnname := StringName.new("set_constant_torque")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -280,7 +280,7 @@ pub fn (r &PhysicsDirectBodyState2D) get_constant_torque() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsDirectBodyState2D) set_sleep_state(enabled bool) {
+pub fn (r &PhysicsDirectBodyState2D) set_sleep_state(enabled bool) {
     classname := StringName.new("PhysicsDirectBodyState2D")
     fnname := StringName.new("set_sleep_state")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -452,7 +452,7 @@ pub fn (r &PhysicsDirectBodyState2D) get_step() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsDirectBodyState2D) integrate_forces() {
+pub fn (r &PhysicsDirectBodyState2D) integrate_forces() {
     classname := StringName.new("PhysicsDirectBodyState2D")
     fnname := StringName.new("integrate_forces")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -460,7 +460,7 @@ pub fn (mut r PhysicsDirectBodyState2D) integrate_forces() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PhysicsDirectBodyState2D) get_space_state() PhysicsDirectSpaceState2D {
+pub fn (r &PhysicsDirectBodyState2D) get_space_state() PhysicsDirectSpaceState2D {
     mut object_out := PhysicsDirectSpaceState2D{}
     classname := StringName.new("PhysicsDirectBodyState2D")
     fnname := StringName.new("get_space_state")

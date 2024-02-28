@@ -39,7 +39,7 @@ pub fn (r &Object) is_class(class string) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Object) set(property string, value Variant) {
+pub fn (r &Object) set(property string, value Variant) {
     classname := StringName.new("Object")
     fnname := StringName.new("set")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3776071444)
@@ -66,7 +66,7 @@ pub fn (r &Object) get(property string) Variant {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Object) set_indexed(property_path NodePath, value Variant) {
+pub fn (r &Object) set_indexed(property_path NodePath, value Variant) {
     classname := StringName.new("Object")
     fnname := StringName.new("set_indexed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3500910842)
@@ -137,7 +137,7 @@ pub fn (r &Object) property_get_revert(property string) Variant {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Object) notification(what i32, reversed bool) {
+pub fn (r &Object) notification(what i32, reversed bool) {
     classname := StringName.new("Object")
     fnname := StringName.new("notification")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4023243586)
@@ -148,7 +148,7 @@ pub fn (mut r Object) notification(what i32, reversed bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Object) to_string() string {
+pub fn (r &Object) to_string() string {
     mut object_out := String{}
     classname := StringName.new("Object")
     fnname := StringName.new("to_string")
@@ -170,7 +170,7 @@ pub fn (r &Object) get_instance_id() u64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Object) set_script(script Variant) {
+pub fn (r &Object) set_script(script Variant) {
     classname := StringName.new("Object")
     fnname := StringName.new("set_script")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1114965689)
@@ -190,7 +190,7 @@ pub fn (r &Object) get_script() Variant {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Object) set_meta(name string, value Variant) {
+pub fn (r &Object) set_meta(name string, value Variant) {
     classname := StringName.new("Object")
     fnname := StringName.new("set_meta")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3776071444)
@@ -203,7 +203,7 @@ pub fn (mut r Object) set_meta(name string, value Variant) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Object) remove_meta(name string) {
+pub fn (r &Object) remove_meta(name string) {
     classname := StringName.new("Object")
     fnname := StringName.new("remove_meta")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -254,7 +254,7 @@ pub fn (r &Object) get_meta_list() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Object) add_user_signal(signal string, arguments Array) {
+pub fn (r &Object) add_user_signal(signal string, arguments Array) {
     classname := StringName.new("Object")
     fnname := StringName.new("add_user_signal")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 85656714)
@@ -281,7 +281,7 @@ pub fn (r &Object) has_user_signal(signal string) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Object) set_deferred(property string, value Variant) {
+pub fn (r &Object) set_deferred(property string, value Variant) {
     classname := StringName.new("Object")
     fnname := StringName.new("set_deferred")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3776071444)
@@ -294,7 +294,7 @@ pub fn (mut r Object) set_deferred(property string, value Variant) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Object) callv(method string, arg_array Array) Variant {
+pub fn (r &Object) callv(method string, arg_array Array) Variant {
     mut object_out := Variant{}
     classname := StringName.new("Object")
     fnname := StringName.new("callv")
@@ -371,7 +371,7 @@ pub fn (r &Object) get_incoming_connections() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Object) connect(signal string, callable Callable, flags u32) GDError {
+pub fn (r &Object) connect(signal string, callable Callable, flags u32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("Object")
     fnname := StringName.new("connect")
@@ -387,7 +387,7 @@ pub fn (mut r Object) connect(signal string, callable Callable, flags u32) GDErr
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r Object) disconnect(signal string, callable Callable) {
+pub fn (r &Object) disconnect(signal string, callable Callable) {
     classname := StringName.new("Object")
     fnname := StringName.new("disconnect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1874754934)
@@ -415,7 +415,7 @@ pub fn (r &Object) is_connected(signal string, callable Callable) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Object) set_block_signals(enable bool) {
+pub fn (r &Object) set_block_signals(enable bool) {
     classname := StringName.new("Object")
     fnname := StringName.new("set_block_signals")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -435,7 +435,7 @@ pub fn (r &Object) is_blocking_signals() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Object) notify_property_list_changed() {
+pub fn (r &Object) notify_property_list_changed() {
     classname := StringName.new("Object")
     fnname := StringName.new("notify_property_list_changed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -443,7 +443,7 @@ pub fn (mut r Object) notify_property_list_changed() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Object) set_message_translation(enable bool) {
+pub fn (r &Object) set_message_translation(enable bool) {
     classname := StringName.new("Object")
     fnname := StringName.new("set_message_translation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -515,7 +515,7 @@ pub fn (r &Object) is_queued_for_deletion() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Object) cancel_free() {
+pub fn (r &Object) cancel_free() {
     classname := StringName.new("Object")
     fnname := StringName.new("cancel_free")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

@@ -5,7 +5,7 @@ pub struct GLTFAccessor {
     Resource
 }
 
-pub fn (mut r GLTFAccessor) get_buffer_view() i32 {
+pub fn (r &GLTFAccessor) get_buffer_view() i32 {
     mut object_out := i32(0)
     classname := StringName.new("GLTFAccessor")
     fnname := StringName.new("get_buffer_view")
@@ -15,7 +15,7 @@ pub fn (mut r GLTFAccessor) get_buffer_view() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFAccessor) set_buffer_view(buffer_view i32) {
+pub fn (r &GLTFAccessor) set_buffer_view(buffer_view i32) {
     classname := StringName.new("GLTFAccessor")
     fnname := StringName.new("set_buffer_view")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -25,7 +25,7 @@ pub fn (mut r GLTFAccessor) set_buffer_view(buffer_view i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFAccessor) get_byte_offset() i32 {
+pub fn (r &GLTFAccessor) get_byte_offset() i32 {
     mut object_out := i32(0)
     classname := StringName.new("GLTFAccessor")
     fnname := StringName.new("get_byte_offset")
@@ -35,7 +35,7 @@ pub fn (mut r GLTFAccessor) get_byte_offset() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFAccessor) set_byte_offset(byte_offset i32) {
+pub fn (r &GLTFAccessor) set_byte_offset(byte_offset i32) {
     classname := StringName.new("GLTFAccessor")
     fnname := StringName.new("set_byte_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -45,7 +45,7 @@ pub fn (mut r GLTFAccessor) set_byte_offset(byte_offset i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFAccessor) get_component_type() i32 {
+pub fn (r &GLTFAccessor) get_component_type() i32 {
     mut object_out := i32(0)
     classname := StringName.new("GLTFAccessor")
     fnname := StringName.new("get_component_type")
@@ -55,7 +55,7 @@ pub fn (mut r GLTFAccessor) get_component_type() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFAccessor) set_component_type(component_type i32) {
+pub fn (r &GLTFAccessor) set_component_type(component_type i32) {
     classname := StringName.new("GLTFAccessor")
     fnname := StringName.new("set_component_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -65,7 +65,7 @@ pub fn (mut r GLTFAccessor) set_component_type(component_type i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFAccessor) get_normalized() bool {
+pub fn (r &GLTFAccessor) get_normalized() bool {
     mut object_out := false
     classname := StringName.new("GLTFAccessor")
     fnname := StringName.new("get_normalized")
@@ -75,7 +75,7 @@ pub fn (mut r GLTFAccessor) get_normalized() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFAccessor) set_normalized(normalized bool) {
+pub fn (r &GLTFAccessor) set_normalized(normalized bool) {
     classname := StringName.new("GLTFAccessor")
     fnname := StringName.new("set_normalized")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -85,7 +85,7 @@ pub fn (mut r GLTFAccessor) set_normalized(normalized bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFAccessor) get_count() i32 {
+pub fn (r &GLTFAccessor) get_count() i32 {
     mut object_out := i32(0)
     classname := StringName.new("GLTFAccessor")
     fnname := StringName.new("get_count")
@@ -95,7 +95,7 @@ pub fn (mut r GLTFAccessor) get_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFAccessor) set_count(count i32) {
+pub fn (r &GLTFAccessor) set_count(count i32) {
     classname := StringName.new("GLTFAccessor")
     fnname := StringName.new("set_count")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -105,7 +105,7 @@ pub fn (mut r GLTFAccessor) set_count(count i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFAccessor) get_type() i32 {
+pub fn (r &GLTFAccessor) get_type() i32 {
     mut object_out := i32(0)
     classname := StringName.new("GLTFAccessor")
     fnname := StringName.new("get_type")
@@ -115,7 +115,7 @@ pub fn (mut r GLTFAccessor) get_type() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFAccessor) set_type(type_name i32) {
+pub fn (r &GLTFAccessor) set_type(type_name i32) {
     classname := StringName.new("GLTFAccessor")
     fnname := StringName.new("set_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -125,7 +125,7 @@ pub fn (mut r GLTFAccessor) set_type(type_name i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFAccessor) get_min() PackedFloat64Array {
+pub fn (r &GLTFAccessor) get_min() PackedFloat64Array {
     mut object_out := PackedFloat64Array{}
     classname := StringName.new("GLTFAccessor")
     fnname := StringName.new("get_min")
@@ -135,7 +135,7 @@ pub fn (mut r GLTFAccessor) get_min() PackedFloat64Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFAccessor) set_min(min PackedFloat64Array) {
+pub fn (r &GLTFAccessor) set_min(min PackedFloat64Array) {
     classname := StringName.new("GLTFAccessor")
     fnname := StringName.new("set_min")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2576592201)
@@ -145,7 +145,7 @@ pub fn (mut r GLTFAccessor) set_min(min PackedFloat64Array) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFAccessor) get_max() PackedFloat64Array {
+pub fn (r &GLTFAccessor) get_max() PackedFloat64Array {
     mut object_out := PackedFloat64Array{}
     classname := StringName.new("GLTFAccessor")
     fnname := StringName.new("get_max")
@@ -155,7 +155,7 @@ pub fn (mut r GLTFAccessor) get_max() PackedFloat64Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFAccessor) set_max(max PackedFloat64Array) {
+pub fn (r &GLTFAccessor) set_max(max PackedFloat64Array) {
     classname := StringName.new("GLTFAccessor")
     fnname := StringName.new("set_max")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2576592201)
@@ -165,7 +165,7 @@ pub fn (mut r GLTFAccessor) set_max(max PackedFloat64Array) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFAccessor) get_sparse_count() i32 {
+pub fn (r &GLTFAccessor) get_sparse_count() i32 {
     mut object_out := i32(0)
     classname := StringName.new("GLTFAccessor")
     fnname := StringName.new("get_sparse_count")
@@ -175,7 +175,7 @@ pub fn (mut r GLTFAccessor) get_sparse_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFAccessor) set_sparse_count(sparse_count i32) {
+pub fn (r &GLTFAccessor) set_sparse_count(sparse_count i32) {
     classname := StringName.new("GLTFAccessor")
     fnname := StringName.new("set_sparse_count")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -185,7 +185,7 @@ pub fn (mut r GLTFAccessor) set_sparse_count(sparse_count i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFAccessor) get_sparse_indices_buffer_view() i32 {
+pub fn (r &GLTFAccessor) get_sparse_indices_buffer_view() i32 {
     mut object_out := i32(0)
     classname := StringName.new("GLTFAccessor")
     fnname := StringName.new("get_sparse_indices_buffer_view")
@@ -195,7 +195,7 @@ pub fn (mut r GLTFAccessor) get_sparse_indices_buffer_view() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFAccessor) set_sparse_indices_buffer_view(sparse_indices_buffer_view i32) {
+pub fn (r &GLTFAccessor) set_sparse_indices_buffer_view(sparse_indices_buffer_view i32) {
     classname := StringName.new("GLTFAccessor")
     fnname := StringName.new("set_sparse_indices_buffer_view")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -205,7 +205,7 @@ pub fn (mut r GLTFAccessor) set_sparse_indices_buffer_view(sparse_indices_buffer
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFAccessor) get_sparse_indices_byte_offset() i32 {
+pub fn (r &GLTFAccessor) get_sparse_indices_byte_offset() i32 {
     mut object_out := i32(0)
     classname := StringName.new("GLTFAccessor")
     fnname := StringName.new("get_sparse_indices_byte_offset")
@@ -215,7 +215,7 @@ pub fn (mut r GLTFAccessor) get_sparse_indices_byte_offset() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFAccessor) set_sparse_indices_byte_offset(sparse_indices_byte_offset i32) {
+pub fn (r &GLTFAccessor) set_sparse_indices_byte_offset(sparse_indices_byte_offset i32) {
     classname := StringName.new("GLTFAccessor")
     fnname := StringName.new("set_sparse_indices_byte_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -225,7 +225,7 @@ pub fn (mut r GLTFAccessor) set_sparse_indices_byte_offset(sparse_indices_byte_o
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFAccessor) get_sparse_indices_component_type() i32 {
+pub fn (r &GLTFAccessor) get_sparse_indices_component_type() i32 {
     mut object_out := i32(0)
     classname := StringName.new("GLTFAccessor")
     fnname := StringName.new("get_sparse_indices_component_type")
@@ -235,7 +235,7 @@ pub fn (mut r GLTFAccessor) get_sparse_indices_component_type() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFAccessor) set_sparse_indices_component_type(sparse_indices_component_type i32) {
+pub fn (r &GLTFAccessor) set_sparse_indices_component_type(sparse_indices_component_type i32) {
     classname := StringName.new("GLTFAccessor")
     fnname := StringName.new("set_sparse_indices_component_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -245,7 +245,7 @@ pub fn (mut r GLTFAccessor) set_sparse_indices_component_type(sparse_indices_com
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFAccessor) get_sparse_values_buffer_view() i32 {
+pub fn (r &GLTFAccessor) get_sparse_values_buffer_view() i32 {
     mut object_out := i32(0)
     classname := StringName.new("GLTFAccessor")
     fnname := StringName.new("get_sparse_values_buffer_view")
@@ -255,7 +255,7 @@ pub fn (mut r GLTFAccessor) get_sparse_values_buffer_view() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFAccessor) set_sparse_values_buffer_view(sparse_values_buffer_view i32) {
+pub fn (r &GLTFAccessor) set_sparse_values_buffer_view(sparse_values_buffer_view i32) {
     classname := StringName.new("GLTFAccessor")
     fnname := StringName.new("set_sparse_values_buffer_view")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -265,7 +265,7 @@ pub fn (mut r GLTFAccessor) set_sparse_values_buffer_view(sparse_values_buffer_v
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFAccessor) get_sparse_values_byte_offset() i32 {
+pub fn (r &GLTFAccessor) get_sparse_values_byte_offset() i32 {
     mut object_out := i32(0)
     classname := StringName.new("GLTFAccessor")
     fnname := StringName.new("get_sparse_values_byte_offset")
@@ -275,7 +275,7 @@ pub fn (mut r GLTFAccessor) get_sparse_values_byte_offset() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFAccessor) set_sparse_values_byte_offset(sparse_values_byte_offset i32) {
+pub fn (r &GLTFAccessor) set_sparse_values_byte_offset(sparse_values_byte_offset i32) {
     classname := StringName.new("GLTFAccessor")
     fnname := StringName.new("set_sparse_values_byte_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

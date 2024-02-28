@@ -17,7 +17,7 @@ pub fn (r &EditorInspector) get_selected_path() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r EditorInspector) get_edited_object() Object {
+pub fn (r &EditorInspector) get_edited_object() Object {
     mut object_out := Object{}
     classname := StringName.new("EditorInspector")
     fnname := StringName.new("get_edited_object")

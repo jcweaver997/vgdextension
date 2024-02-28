@@ -5,7 +5,7 @@ pub struct PanoramaSkyMaterial {
     Material
 }
 
-pub fn (mut r PanoramaSkyMaterial) set_panorama(texture Texture2D) {
+pub fn (r &PanoramaSkyMaterial) set_panorama(texture Texture2D) {
     classname := StringName.new("PanoramaSkyMaterial")
     fnname := StringName.new("set_panorama")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
@@ -25,7 +25,7 @@ pub fn (r &PanoramaSkyMaterial) get_panorama() Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PanoramaSkyMaterial) set_filtering_enabled(enabled bool) {
+pub fn (r &PanoramaSkyMaterial) set_filtering_enabled(enabled bool) {
     classname := StringName.new("PanoramaSkyMaterial")
     fnname := StringName.new("set_filtering_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

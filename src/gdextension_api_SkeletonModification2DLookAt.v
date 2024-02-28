@@ -5,7 +5,7 @@ pub struct SkeletonModification2DLookAt {
     SkeletonModification2D
 }
 
-pub fn (mut r SkeletonModification2DLookAt) set_bone2d_node(bone2d_nodepath NodePath) {
+pub fn (r &SkeletonModification2DLookAt) set_bone2d_node(bone2d_nodepath NodePath) {
     classname := StringName.new("SkeletonModification2DLookAt")
     fnname := StringName.new("set_bone2d_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1348162250)
@@ -25,7 +25,7 @@ pub fn (r &SkeletonModification2DLookAt) get_bone2d_node() NodePath {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonModification2DLookAt) set_bone_index(bone_idx i32) {
+pub fn (r &SkeletonModification2DLookAt) set_bone_index(bone_idx i32) {
     classname := StringName.new("SkeletonModification2DLookAt")
     fnname := StringName.new("set_bone_index")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -45,7 +45,7 @@ pub fn (r &SkeletonModification2DLookAt) get_bone_index() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonModification2DLookAt) set_target_node(target_nodepath NodePath) {
+pub fn (r &SkeletonModification2DLookAt) set_target_node(target_nodepath NodePath) {
     classname := StringName.new("SkeletonModification2DLookAt")
     fnname := StringName.new("set_target_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1348162250)
@@ -65,7 +65,7 @@ pub fn (r &SkeletonModification2DLookAt) get_target_node() NodePath {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonModification2DLookAt) set_additional_rotation(rotation f64) {
+pub fn (r &SkeletonModification2DLookAt) set_additional_rotation(rotation f64) {
     classname := StringName.new("SkeletonModification2DLookAt")
     fnname := StringName.new("set_additional_rotation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -85,7 +85,7 @@ pub fn (r &SkeletonModification2DLookAt) get_additional_rotation() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonModification2DLookAt) set_enable_constraint(enable_constraint bool) {
+pub fn (r &SkeletonModification2DLookAt) set_enable_constraint(enable_constraint bool) {
     classname := StringName.new("SkeletonModification2DLookAt")
     fnname := StringName.new("set_enable_constraint")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -105,7 +105,7 @@ pub fn (r &SkeletonModification2DLookAt) get_enable_constraint() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonModification2DLookAt) set_constraint_angle_min(angle_min f64) {
+pub fn (r &SkeletonModification2DLookAt) set_constraint_angle_min(angle_min f64) {
     classname := StringName.new("SkeletonModification2DLookAt")
     fnname := StringName.new("set_constraint_angle_min")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -125,7 +125,7 @@ pub fn (r &SkeletonModification2DLookAt) get_constraint_angle_min() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonModification2DLookAt) set_constraint_angle_max(angle_max f64) {
+pub fn (r &SkeletonModification2DLookAt) set_constraint_angle_max(angle_max f64) {
     classname := StringName.new("SkeletonModification2DLookAt")
     fnname := StringName.new("set_constraint_angle_max")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -145,7 +145,7 @@ pub fn (r &SkeletonModification2DLookAt) get_constraint_angle_max() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonModification2DLookAt) set_constraint_angle_invert(invert bool) {
+pub fn (r &SkeletonModification2DLookAt) set_constraint_angle_invert(invert bool) {
     classname := StringName.new("SkeletonModification2DLookAt")
     fnname := StringName.new("set_constraint_angle_invert")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

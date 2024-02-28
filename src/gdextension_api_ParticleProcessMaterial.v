@@ -61,7 +61,7 @@ pub struct ParticleProcessMaterial {
     Material
 }
 
-pub fn (mut r ParticleProcessMaterial) set_direction(degrees Vector3) {
+pub fn (r &ParticleProcessMaterial) set_direction(degrees Vector3) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_direction")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -81,7 +81,7 @@ pub fn (r &ParticleProcessMaterial) get_direction() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_inherit_velocity_ratio(ratio f64) {
+pub fn (r &ParticleProcessMaterial) set_inherit_velocity_ratio(ratio f64) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_inherit_velocity_ratio")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -91,7 +91,7 @@ pub fn (mut r ParticleProcessMaterial) set_inherit_velocity_ratio(ratio f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ParticleProcessMaterial) get_inherit_velocity_ratio() f64 {
+pub fn (r &ParticleProcessMaterial) get_inherit_velocity_ratio() f64 {
     mut object_out := f64(0)
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("get_inherit_velocity_ratio")
@@ -101,7 +101,7 @@ pub fn (mut r ParticleProcessMaterial) get_inherit_velocity_ratio() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_spread(degrees f64) {
+pub fn (r &ParticleProcessMaterial) set_spread(degrees f64) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_spread")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -121,7 +121,7 @@ pub fn (r &ParticleProcessMaterial) get_spread() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_flatness(amount f64) {
+pub fn (r &ParticleProcessMaterial) set_flatness(amount f64) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_flatness")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -141,7 +141,7 @@ pub fn (r &ParticleProcessMaterial) get_flatness() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_param_min(param ParticleProcessMaterialParameter, value f64) {
+pub fn (r &ParticleProcessMaterial) set_param_min(param ParticleProcessMaterialParameter, value f64) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_param_min")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2295964248)
@@ -166,7 +166,7 @@ pub fn (r &ParticleProcessMaterial) get_param_min(param ParticleProcessMaterialP
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_param_max(param ParticleProcessMaterialParameter, value f64) {
+pub fn (r &ParticleProcessMaterial) set_param_max(param ParticleProcessMaterialParameter, value f64) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_param_max")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2295964248)
@@ -191,7 +191,7 @@ pub fn (r &ParticleProcessMaterial) get_param_max(param ParticleProcessMaterialP
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_param_texture(param ParticleProcessMaterialParameter, texture Texture2D) {
+pub fn (r &ParticleProcessMaterial) set_param_texture(param ParticleProcessMaterialParameter, texture Texture2D) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_param_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 526976089)
@@ -216,7 +216,7 @@ pub fn (r &ParticleProcessMaterial) get_param_texture(param ParticleProcessMater
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_color(color Color) {
+pub fn (r &ParticleProcessMaterial) set_color(color Color) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -236,7 +236,7 @@ pub fn (r &ParticleProcessMaterial) get_color() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_color_ramp(ramp Texture2D) {
+pub fn (r &ParticleProcessMaterial) set_color_ramp(ramp Texture2D) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_color_ramp")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
@@ -256,7 +256,7 @@ pub fn (r &ParticleProcessMaterial) get_color_ramp() Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_alpha_curve(curve Texture2D) {
+pub fn (r &ParticleProcessMaterial) set_alpha_curve(curve Texture2D) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_alpha_curve")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
@@ -276,7 +276,7 @@ pub fn (r &ParticleProcessMaterial) get_alpha_curve() Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_emission_curve(curve Texture2D) {
+pub fn (r &ParticleProcessMaterial) set_emission_curve(curve Texture2D) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_emission_curve")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
@@ -296,7 +296,7 @@ pub fn (r &ParticleProcessMaterial) get_emission_curve() Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_color_initial_ramp(ramp Texture2D) {
+pub fn (r &ParticleProcessMaterial) set_color_initial_ramp(ramp Texture2D) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_color_initial_ramp")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
@@ -316,7 +316,7 @@ pub fn (r &ParticleProcessMaterial) get_color_initial_ramp() Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_velocity_limit_curve(curve Texture2D) {
+pub fn (r &ParticleProcessMaterial) set_velocity_limit_curve(curve Texture2D) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_velocity_limit_curve")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
@@ -336,7 +336,7 @@ pub fn (r &ParticleProcessMaterial) get_velocity_limit_curve() Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_particle_flag(particle_flag ParticleProcessMaterialParticleFlags, enable bool) {
+pub fn (r &ParticleProcessMaterial) set_particle_flag(particle_flag ParticleProcessMaterialParticleFlags, enable bool) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_particle_flag")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1711815571)
@@ -361,7 +361,7 @@ pub fn (r &ParticleProcessMaterial) get_particle_flag(particle_flag ParticleProc
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_velocity_pivot(pivot Vector3) {
+pub fn (r &ParticleProcessMaterial) set_velocity_pivot(pivot Vector3) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_velocity_pivot")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -371,7 +371,7 @@ pub fn (mut r ParticleProcessMaterial) set_velocity_pivot(pivot Vector3) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ParticleProcessMaterial) get_velocity_pivot() Vector3 {
+pub fn (r &ParticleProcessMaterial) get_velocity_pivot() Vector3 {
     mut object_out := Vector3{}
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("get_velocity_pivot")
@@ -381,7 +381,7 @@ pub fn (mut r ParticleProcessMaterial) get_velocity_pivot() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_emission_shape(shape ParticleProcessMaterialEmissionShape) {
+pub fn (r &ParticleProcessMaterial) set_emission_shape(shape ParticleProcessMaterialEmissionShape) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_emission_shape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 461501442)
@@ -402,7 +402,7 @@ pub fn (r &ParticleProcessMaterial) get_emission_shape() ParticleProcessMaterial
     fnname.deinit()
    return unsafe{ParticleProcessMaterialEmissionShape(object_out)}
 }
-pub fn (mut r ParticleProcessMaterial) set_emission_sphere_radius(radius f64) {
+pub fn (r &ParticleProcessMaterial) set_emission_sphere_radius(radius f64) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_emission_sphere_radius")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -422,7 +422,7 @@ pub fn (r &ParticleProcessMaterial) get_emission_sphere_radius() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_emission_box_extents(extents Vector3) {
+pub fn (r &ParticleProcessMaterial) set_emission_box_extents(extents Vector3) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_emission_box_extents")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -442,7 +442,7 @@ pub fn (r &ParticleProcessMaterial) get_emission_box_extents() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_emission_point_texture(texture Texture2D) {
+pub fn (r &ParticleProcessMaterial) set_emission_point_texture(texture Texture2D) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_emission_point_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
@@ -462,7 +462,7 @@ pub fn (r &ParticleProcessMaterial) get_emission_point_texture() Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_emission_normal_texture(texture Texture2D) {
+pub fn (r &ParticleProcessMaterial) set_emission_normal_texture(texture Texture2D) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_emission_normal_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
@@ -482,7 +482,7 @@ pub fn (r &ParticleProcessMaterial) get_emission_normal_texture() Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_emission_color_texture(texture Texture2D) {
+pub fn (r &ParticleProcessMaterial) set_emission_color_texture(texture Texture2D) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_emission_color_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
@@ -502,7 +502,7 @@ pub fn (r &ParticleProcessMaterial) get_emission_color_texture() Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_emission_point_count(point_count i32) {
+pub fn (r &ParticleProcessMaterial) set_emission_point_count(point_count i32) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_emission_point_count")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -522,7 +522,7 @@ pub fn (r &ParticleProcessMaterial) get_emission_point_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_emission_ring_axis(axis Vector3) {
+pub fn (r &ParticleProcessMaterial) set_emission_ring_axis(axis Vector3) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_emission_ring_axis")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -542,7 +542,7 @@ pub fn (r &ParticleProcessMaterial) get_emission_ring_axis() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_emission_ring_height(height f64) {
+pub fn (r &ParticleProcessMaterial) set_emission_ring_height(height f64) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_emission_ring_height")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -562,7 +562,7 @@ pub fn (r &ParticleProcessMaterial) get_emission_ring_height() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_emission_ring_radius(radius f64) {
+pub fn (r &ParticleProcessMaterial) set_emission_ring_radius(radius f64) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_emission_ring_radius")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -582,7 +582,7 @@ pub fn (r &ParticleProcessMaterial) get_emission_ring_radius() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_emission_ring_inner_radius(inner_radius f64) {
+pub fn (r &ParticleProcessMaterial) set_emission_ring_inner_radius(inner_radius f64) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_emission_ring_inner_radius")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -602,7 +602,7 @@ pub fn (r &ParticleProcessMaterial) get_emission_ring_inner_radius() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_emission_shape_offset(emission_shape_offset Vector3) {
+pub fn (r &ParticleProcessMaterial) set_emission_shape_offset(emission_shape_offset Vector3) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_emission_shape_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -622,7 +622,7 @@ pub fn (r &ParticleProcessMaterial) get_emission_shape_offset() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_emission_shape_scale(emission_shape_scale Vector3) {
+pub fn (r &ParticleProcessMaterial) set_emission_shape_scale(emission_shape_scale Vector3) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_emission_shape_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -652,7 +652,7 @@ pub fn (r &ParticleProcessMaterial) get_turbulence_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_turbulence_enabled(turbulence_enabled bool) {
+pub fn (r &ParticleProcessMaterial) set_turbulence_enabled(turbulence_enabled bool) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_turbulence_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -672,7 +672,7 @@ pub fn (r &ParticleProcessMaterial) get_turbulence_noise_strength() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_turbulence_noise_strength(turbulence_noise_strength f64) {
+pub fn (r &ParticleProcessMaterial) set_turbulence_noise_strength(turbulence_noise_strength f64) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_turbulence_noise_strength")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -692,7 +692,7 @@ pub fn (r &ParticleProcessMaterial) get_turbulence_noise_scale() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_turbulence_noise_scale(turbulence_noise_scale f64) {
+pub fn (r &ParticleProcessMaterial) set_turbulence_noise_scale(turbulence_noise_scale f64) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_turbulence_noise_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -712,7 +712,7 @@ pub fn (r &ParticleProcessMaterial) get_turbulence_noise_speed_random() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_turbulence_noise_speed_random(turbulence_noise_speed_random f64) {
+pub fn (r &ParticleProcessMaterial) set_turbulence_noise_speed_random(turbulence_noise_speed_random f64) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_turbulence_noise_speed_random")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -732,7 +732,7 @@ pub fn (r &ParticleProcessMaterial) get_turbulence_noise_speed() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_turbulence_noise_speed(turbulence_noise_speed Vector3) {
+pub fn (r &ParticleProcessMaterial) set_turbulence_noise_speed(turbulence_noise_speed Vector3) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_turbulence_noise_speed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -752,7 +752,7 @@ pub fn (r &ParticleProcessMaterial) get_gravity() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_gravity(accel_vec Vector3) {
+pub fn (r &ParticleProcessMaterial) set_gravity(accel_vec Vector3) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_gravity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -762,7 +762,7 @@ pub fn (mut r ParticleProcessMaterial) set_gravity(accel_vec Vector3) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ParticleProcessMaterial) set_lifetime_randomness(randomness f64) {
+pub fn (r &ParticleProcessMaterial) set_lifetime_randomness(randomness f64) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_lifetime_randomness")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -792,7 +792,7 @@ pub fn (r &ParticleProcessMaterial) get_sub_emitter_mode() ParticleProcessMateri
     fnname.deinit()
    return unsafe{ParticleProcessMaterialSubEmitterMode(object_out)}
 }
-pub fn (mut r ParticleProcessMaterial) set_sub_emitter_mode(mode ParticleProcessMaterialSubEmitterMode) {
+pub fn (r &ParticleProcessMaterial) set_sub_emitter_mode(mode ParticleProcessMaterialSubEmitterMode) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_sub_emitter_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2161806672)
@@ -813,7 +813,7 @@ pub fn (r &ParticleProcessMaterial) get_sub_emitter_frequency() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_sub_emitter_frequency(hz f64) {
+pub fn (r &ParticleProcessMaterial) set_sub_emitter_frequency(hz f64) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_sub_emitter_frequency")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -833,7 +833,7 @@ pub fn (r &ParticleProcessMaterial) get_sub_emitter_amount_at_end() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_sub_emitter_amount_at_end(amount i32) {
+pub fn (r &ParticleProcessMaterial) set_sub_emitter_amount_at_end(amount i32) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_sub_emitter_amount_at_end")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -853,7 +853,7 @@ pub fn (r &ParticleProcessMaterial) get_sub_emitter_amount_at_collision() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_sub_emitter_amount_at_collision(amount i32) {
+pub fn (r &ParticleProcessMaterial) set_sub_emitter_amount_at_collision(amount i32) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_sub_emitter_amount_at_collision")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -873,7 +873,7 @@ pub fn (r &ParticleProcessMaterial) get_sub_emitter_keep_velocity() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_sub_emitter_keep_velocity(enable bool) {
+pub fn (r &ParticleProcessMaterial) set_sub_emitter_keep_velocity(enable bool) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_sub_emitter_keep_velocity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -883,7 +883,7 @@ pub fn (mut r ParticleProcessMaterial) set_sub_emitter_keep_velocity(enable bool
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ParticleProcessMaterial) set_attractor_interaction_enabled(enabled bool) {
+pub fn (r &ParticleProcessMaterial) set_attractor_interaction_enabled(enabled bool) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_attractor_interaction_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -903,7 +903,7 @@ pub fn (r &ParticleProcessMaterial) is_attractor_interaction_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_collision_mode(mode ParticleProcessMaterialCollisionMode) {
+pub fn (r &ParticleProcessMaterial) set_collision_mode(mode ParticleProcessMaterialCollisionMode) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_collision_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 653804659)
@@ -924,7 +924,7 @@ pub fn (r &ParticleProcessMaterial) get_collision_mode() ParticleProcessMaterial
     fnname.deinit()
    return unsafe{ParticleProcessMaterialCollisionMode(object_out)}
 }
-pub fn (mut r ParticleProcessMaterial) set_collision_use_scale(radius bool) {
+pub fn (r &ParticleProcessMaterial) set_collision_use_scale(radius bool) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_collision_use_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -944,7 +944,7 @@ pub fn (r &ParticleProcessMaterial) is_collision_using_scale() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_collision_friction(friction f64) {
+pub fn (r &ParticleProcessMaterial) set_collision_friction(friction f64) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_collision_friction")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -964,7 +964,7 @@ pub fn (r &ParticleProcessMaterial) get_collision_friction() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ParticleProcessMaterial) set_collision_bounce(bounce f64) {
+pub fn (r &ParticleProcessMaterial) set_collision_bounce(bounce f64) {
     classname := StringName.new("ParticleProcessMaterial")
     fnname := StringName.new("set_collision_bounce")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

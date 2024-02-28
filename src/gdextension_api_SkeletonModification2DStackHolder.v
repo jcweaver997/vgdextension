@@ -5,7 +5,7 @@ pub struct SkeletonModification2DStackHolder {
     SkeletonModification2D
 }
 
-pub fn (mut r SkeletonModification2DStackHolder) set_held_modification_stack(held_modification_stack SkeletonModificationStack2D) {
+pub fn (r &SkeletonModification2DStackHolder) set_held_modification_stack(held_modification_stack SkeletonModificationStack2D) {
     classname := StringName.new("SkeletonModification2DStackHolder")
     fnname := StringName.new("set_held_modification_stack")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3907307132)

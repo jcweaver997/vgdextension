@@ -15,7 +15,7 @@ pub fn (r &MenuButton) get_popup() PopupMenu {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MenuButton) show_popup() {
+pub fn (r &MenuButton) show_popup() {
     classname := StringName.new("MenuButton")
     fnname := StringName.new("show_popup")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -23,7 +23,7 @@ pub fn (mut r MenuButton) show_popup() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r MenuButton) set_switch_on_hover(enable bool) {
+pub fn (r &MenuButton) set_switch_on_hover(enable bool) {
     classname := StringName.new("MenuButton")
     fnname := StringName.new("set_switch_on_hover")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -33,7 +33,7 @@ pub fn (mut r MenuButton) set_switch_on_hover(enable bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r MenuButton) is_switch_on_hover() bool {
+pub fn (r &MenuButton) is_switch_on_hover() bool {
     mut object_out := false
     classname := StringName.new("MenuButton")
     fnname := StringName.new("is_switch_on_hover")
@@ -43,7 +43,7 @@ pub fn (mut r MenuButton) is_switch_on_hover() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MenuButton) set_disable_shortcuts(disabled bool) {
+pub fn (r &MenuButton) set_disable_shortcuts(disabled bool) {
     classname := StringName.new("MenuButton")
     fnname := StringName.new("set_disable_shortcuts")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -53,7 +53,7 @@ pub fn (mut r MenuButton) set_disable_shortcuts(disabled bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r MenuButton) set_item_count(count i32) {
+pub fn (r &MenuButton) set_item_count(count i32) {
     classname := StringName.new("MenuButton")
     fnname := StringName.new("set_item_count")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

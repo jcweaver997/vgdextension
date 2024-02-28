@@ -5,7 +5,7 @@ pub struct PhysicsShapeQueryParameters3D {
     RefCounted
 }
 
-pub fn (mut r PhysicsShapeQueryParameters3D) set_shape(shape Resource) {
+pub fn (r &PhysicsShapeQueryParameters3D) set_shape(shape Resource) {
     classname := StringName.new("PhysicsShapeQueryParameters3D")
     fnname := StringName.new("set_shape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 968641751)
@@ -25,7 +25,7 @@ pub fn (r &PhysicsShapeQueryParameters3D) get_shape() Resource {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsShapeQueryParameters3D) set_shape_rid(shape RID) {
+pub fn (r &PhysicsShapeQueryParameters3D) set_shape_rid(shape RID) {
     classname := StringName.new("PhysicsShapeQueryParameters3D")
     fnname := StringName.new("set_shape_rid")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)
@@ -45,7 +45,7 @@ pub fn (r &PhysicsShapeQueryParameters3D) get_shape_rid() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsShapeQueryParameters3D) set_transform(transform Transform3D) {
+pub fn (r &PhysicsShapeQueryParameters3D) set_transform(transform Transform3D) {
     classname := StringName.new("PhysicsShapeQueryParameters3D")
     fnname := StringName.new("set_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2952846383)
@@ -65,7 +65,7 @@ pub fn (r &PhysicsShapeQueryParameters3D) get_transform() Transform3D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsShapeQueryParameters3D) set_motion(motion Vector3) {
+pub fn (r &PhysicsShapeQueryParameters3D) set_motion(motion Vector3) {
     classname := StringName.new("PhysicsShapeQueryParameters3D")
     fnname := StringName.new("set_motion")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -85,7 +85,7 @@ pub fn (r &PhysicsShapeQueryParameters3D) get_motion() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsShapeQueryParameters3D) set_margin(margin f64) {
+pub fn (r &PhysicsShapeQueryParameters3D) set_margin(margin f64) {
     classname := StringName.new("PhysicsShapeQueryParameters3D")
     fnname := StringName.new("set_margin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -105,7 +105,7 @@ pub fn (r &PhysicsShapeQueryParameters3D) get_margin() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsShapeQueryParameters3D) set_collision_mask(collision_mask u32) {
+pub fn (r &PhysicsShapeQueryParameters3D) set_collision_mask(collision_mask u32) {
     classname := StringName.new("PhysicsShapeQueryParameters3D")
     fnname := StringName.new("set_collision_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -125,7 +125,7 @@ pub fn (r &PhysicsShapeQueryParameters3D) get_collision_mask() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsShapeQueryParameters3D) set_exclude(exclude Array) {
+pub fn (r &PhysicsShapeQueryParameters3D) set_exclude(exclude Array) {
     classname := StringName.new("PhysicsShapeQueryParameters3D")
     fnname := StringName.new("set_exclude")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)
@@ -145,7 +145,7 @@ pub fn (r &PhysicsShapeQueryParameters3D) get_exclude() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsShapeQueryParameters3D) set_collide_with_bodies(enable bool) {
+pub fn (r &PhysicsShapeQueryParameters3D) set_collide_with_bodies(enable bool) {
     classname := StringName.new("PhysicsShapeQueryParameters3D")
     fnname := StringName.new("set_collide_with_bodies")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -165,7 +165,7 @@ pub fn (r &PhysicsShapeQueryParameters3D) is_collide_with_bodies_enabled() bool 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsShapeQueryParameters3D) set_collide_with_areas(enable bool) {
+pub fn (r &PhysicsShapeQueryParameters3D) set_collide_with_areas(enable bool) {
     classname := StringName.new("PhysicsShapeQueryParameters3D")
     fnname := StringName.new("set_collide_with_areas")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

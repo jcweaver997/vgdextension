@@ -11,7 +11,7 @@ pub struct AnimationNodeStateMachine {
     AnimationRootNode
 }
 
-pub fn (mut r AnimationNodeStateMachine) add_node(name string, node AnimationNode, position Vector2) {
+pub fn (r &AnimationNodeStateMachine) add_node(name string, node AnimationNode, position Vector2) {
     classname := StringName.new("AnimationNodeStateMachine")
     fnname := StringName.new("add_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1980270704)
@@ -25,7 +25,7 @@ pub fn (mut r AnimationNodeStateMachine) add_node(name string, node AnimationNod
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AnimationNodeStateMachine) replace_node(name string, node AnimationNode) {
+pub fn (r &AnimationNodeStateMachine) replace_node(name string, node AnimationNode) {
     classname := StringName.new("AnimationNodeStateMachine")
     fnname := StringName.new("replace_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2559412862)
@@ -52,7 +52,7 @@ pub fn (r &AnimationNodeStateMachine) get_node(name string) AnimationNode {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNodeStateMachine) remove_node(name string) {
+pub fn (r &AnimationNodeStateMachine) remove_node(name string) {
     classname := StringName.new("AnimationNodeStateMachine")
     fnname := StringName.new("remove_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -64,7 +64,7 @@ pub fn (mut r AnimationNodeStateMachine) remove_node(name string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AnimationNodeStateMachine) rename_node(name string, new_name string) {
+pub fn (r &AnimationNodeStateMachine) rename_node(name string, new_name string) {
     classname := StringName.new("AnimationNodeStateMachine")
     fnname := StringName.new("rename_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3740211285)
@@ -107,7 +107,7 @@ pub fn (r &AnimationNodeStateMachine) get_node_name(node AnimationNode) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r AnimationNodeStateMachine) set_node_position(name string, position Vector2) {
+pub fn (r &AnimationNodeStateMachine) set_node_position(name string, position Vector2) {
     classname := StringName.new("AnimationNodeStateMachine")
     fnname := StringName.new("set_node_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1999414630)
@@ -151,7 +151,7 @@ pub fn (r &AnimationNodeStateMachine) has_transition(from string, to string) boo
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNodeStateMachine) add_transition(from string, to string, transition AnimationNodeStateMachineTransition) {
+pub fn (r &AnimationNodeStateMachine) add_transition(from string, to string, transition AnimationNodeStateMachineTransition) {
     classname := StringName.new("AnimationNodeStateMachine")
     fnname := StringName.new("add_transition")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 795486887)
@@ -217,7 +217,7 @@ pub fn (r &AnimationNodeStateMachine) get_transition_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNodeStateMachine) remove_transition_by_index(idx i32) {
+pub fn (r &AnimationNodeStateMachine) remove_transition_by_index(idx i32) {
     classname := StringName.new("AnimationNodeStateMachine")
     fnname := StringName.new("remove_transition_by_index")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -227,7 +227,7 @@ pub fn (mut r AnimationNodeStateMachine) remove_transition_by_index(idx i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AnimationNodeStateMachine) remove_transition(from string, to string) {
+pub fn (r &AnimationNodeStateMachine) remove_transition(from string, to string) {
     classname := StringName.new("AnimationNodeStateMachine")
     fnname := StringName.new("remove_transition")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3740211285)
@@ -242,7 +242,7 @@ pub fn (mut r AnimationNodeStateMachine) remove_transition(from string, to strin
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AnimationNodeStateMachine) set_graph_offset(offset Vector2) {
+pub fn (r &AnimationNodeStateMachine) set_graph_offset(offset Vector2) {
     classname := StringName.new("AnimationNodeStateMachine")
     fnname := StringName.new("set_graph_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -262,7 +262,7 @@ pub fn (r &AnimationNodeStateMachine) get_graph_offset() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNodeStateMachine) set_state_machine_type(state_machine_type AnimationNodeStateMachineStateMachineType) {
+pub fn (r &AnimationNodeStateMachine) set_state_machine_type(state_machine_type AnimationNodeStateMachineStateMachineType) {
     classname := StringName.new("AnimationNodeStateMachine")
     fnname := StringName.new("set_state_machine_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2584759088)
@@ -283,7 +283,7 @@ pub fn (r &AnimationNodeStateMachine) get_state_machine_type() AnimationNodeStat
     fnname.deinit()
    return unsafe{AnimationNodeStateMachineStateMachineType(object_out)}
 }
-pub fn (mut r AnimationNodeStateMachine) set_allow_transition_to_self(enable bool) {
+pub fn (r &AnimationNodeStateMachine) set_allow_transition_to_self(enable bool) {
     classname := StringName.new("AnimationNodeStateMachine")
     fnname := StringName.new("set_allow_transition_to_self")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -303,7 +303,7 @@ pub fn (r &AnimationNodeStateMachine) is_allow_transition_to_self() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNodeStateMachine) set_reset_ends(enable bool) {
+pub fn (r &AnimationNodeStateMachine) set_reset_ends(enable bool) {
     classname := StringName.new("AnimationNodeStateMachine")
     fnname := StringName.new("set_reset_ends")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

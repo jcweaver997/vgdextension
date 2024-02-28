@@ -5,7 +5,7 @@ pub struct StyleBoxLine {
     StyleBox
 }
 
-pub fn (mut r StyleBoxLine) set_color(color Color) {
+pub fn (r &StyleBoxLine) set_color(color Color) {
     classname := StringName.new("StyleBoxLine")
     fnname := StringName.new("set_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -25,7 +25,7 @@ pub fn (r &StyleBoxLine) get_color() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r StyleBoxLine) set_thickness(thickness i32) {
+pub fn (r &StyleBoxLine) set_thickness(thickness i32) {
     classname := StringName.new("StyleBoxLine")
     fnname := StringName.new("set_thickness")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -45,7 +45,7 @@ pub fn (r &StyleBoxLine) get_thickness() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r StyleBoxLine) set_grow_begin(offset f64) {
+pub fn (r &StyleBoxLine) set_grow_begin(offset f64) {
     classname := StringName.new("StyleBoxLine")
     fnname := StringName.new("set_grow_begin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -65,7 +65,7 @@ pub fn (r &StyleBoxLine) get_grow_begin() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r StyleBoxLine) set_grow_end(offset f64) {
+pub fn (r &StyleBoxLine) set_grow_end(offset f64) {
     classname := StringName.new("StyleBoxLine")
     fnname := StringName.new("set_grow_end")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -85,7 +85,7 @@ pub fn (r &StyleBoxLine) get_grow_end() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r StyleBoxLine) set_vertical(vertical bool) {
+pub fn (r &StyleBoxLine) set_vertical(vertical bool) {
     classname := StringName.new("StyleBoxLine")
     fnname := StringName.new("set_vertical")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

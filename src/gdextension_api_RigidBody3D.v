@@ -25,7 +25,7 @@ pub interface IRigidBody3DIntegrateForces {
     virt_integrate_forces(state PhysicsDirectBodyState3D)
 }
 
-pub fn (mut r RigidBody3D) uintegrate_forces(state PhysicsDirectBodyState3D) {
+pub fn (r &RigidBody3D) uintegrate_forces(state PhysicsDirectBodyState3D) {
     classname := StringName.new("RigidBody3D")
     fnname := StringName.new("_integrate_forces")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -35,7 +35,7 @@ pub fn (mut r RigidBody3D) uintegrate_forces(state PhysicsDirectBodyState3D) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RigidBody3D) set_mass(mass f64) {
+pub fn (r &RigidBody3D) set_mass(mass f64) {
     classname := StringName.new("RigidBody3D")
     fnname := StringName.new("set_mass")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -55,7 +55,7 @@ pub fn (r &RigidBody3D) get_mass() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RigidBody3D) set_inertia(inertia Vector3) {
+pub fn (r &RigidBody3D) set_inertia(inertia Vector3) {
     classname := StringName.new("RigidBody3D")
     fnname := StringName.new("set_inertia")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -75,7 +75,7 @@ pub fn (r &RigidBody3D) get_inertia() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RigidBody3D) set_center_of_mass_mode(mode RigidBody3DCenterOfMassMode) {
+pub fn (r &RigidBody3D) set_center_of_mass_mode(mode RigidBody3DCenterOfMassMode) {
     classname := StringName.new("RigidBody3D")
     fnname := StringName.new("set_center_of_mass_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3625866032)
@@ -96,7 +96,7 @@ pub fn (r &RigidBody3D) get_center_of_mass_mode() RigidBody3DCenterOfMassMode {
     fnname.deinit()
    return unsafe{RigidBody3DCenterOfMassMode(object_out)}
 }
-pub fn (mut r RigidBody3D) set_center_of_mass(center_of_mass Vector3) {
+pub fn (r &RigidBody3D) set_center_of_mass(center_of_mass Vector3) {
     classname := StringName.new("RigidBody3D")
     fnname := StringName.new("set_center_of_mass")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -116,7 +116,7 @@ pub fn (r &RigidBody3D) get_center_of_mass() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RigidBody3D) set_physics_material_override(physics_material_override PhysicsMaterial) {
+pub fn (r &RigidBody3D) set_physics_material_override(physics_material_override PhysicsMaterial) {
     classname := StringName.new("RigidBody3D")
     fnname := StringName.new("set_physics_material_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1784508650)
@@ -136,7 +136,7 @@ pub fn (r &RigidBody3D) get_physics_material_override() PhysicsMaterial {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RigidBody3D) set_linear_velocity(linear_velocity Vector3) {
+pub fn (r &RigidBody3D) set_linear_velocity(linear_velocity Vector3) {
     classname := StringName.new("RigidBody3D")
     fnname := StringName.new("set_linear_velocity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -156,7 +156,7 @@ pub fn (r &RigidBody3D) get_linear_velocity() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RigidBody3D) set_angular_velocity(angular_velocity Vector3) {
+pub fn (r &RigidBody3D) set_angular_velocity(angular_velocity Vector3) {
     classname := StringName.new("RigidBody3D")
     fnname := StringName.new("set_angular_velocity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -186,7 +186,7 @@ pub fn (r &RigidBody3D) get_inverse_inertia_tensor() Basis {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RigidBody3D) set_gravity_scale(gravity_scale f64) {
+pub fn (r &RigidBody3D) set_gravity_scale(gravity_scale f64) {
     classname := StringName.new("RigidBody3D")
     fnname := StringName.new("set_gravity_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -206,7 +206,7 @@ pub fn (r &RigidBody3D) get_gravity_scale() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RigidBody3D) set_linear_damp_mode(linear_damp_mode RigidBody3DDampMode) {
+pub fn (r &RigidBody3D) set_linear_damp_mode(linear_damp_mode RigidBody3DDampMode) {
     classname := StringName.new("RigidBody3D")
     fnname := StringName.new("set_linear_damp_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1802035050)
@@ -227,7 +227,7 @@ pub fn (r &RigidBody3D) get_linear_damp_mode() RigidBody3DDampMode {
     fnname.deinit()
    return unsafe{RigidBody3DDampMode(object_out)}
 }
-pub fn (mut r RigidBody3D) set_angular_damp_mode(angular_damp_mode RigidBody3DDampMode) {
+pub fn (r &RigidBody3D) set_angular_damp_mode(angular_damp_mode RigidBody3DDampMode) {
     classname := StringName.new("RigidBody3D")
     fnname := StringName.new("set_angular_damp_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1802035050)
@@ -248,7 +248,7 @@ pub fn (r &RigidBody3D) get_angular_damp_mode() RigidBody3DDampMode {
     fnname.deinit()
    return unsafe{RigidBody3DDampMode(object_out)}
 }
-pub fn (mut r RigidBody3D) set_linear_damp(linear_damp f64) {
+pub fn (r &RigidBody3D) set_linear_damp(linear_damp f64) {
     classname := StringName.new("RigidBody3D")
     fnname := StringName.new("set_linear_damp")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -268,7 +268,7 @@ pub fn (r &RigidBody3D) get_linear_damp() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RigidBody3D) set_angular_damp(angular_damp f64) {
+pub fn (r &RigidBody3D) set_angular_damp(angular_damp f64) {
     classname := StringName.new("RigidBody3D")
     fnname := StringName.new("set_angular_damp")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -288,7 +288,7 @@ pub fn (r &RigidBody3D) get_angular_damp() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RigidBody3D) set_max_contacts_reported(amount i32) {
+pub fn (r &RigidBody3D) set_max_contacts_reported(amount i32) {
     classname := StringName.new("RigidBody3D")
     fnname := StringName.new("set_max_contacts_reported")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -318,7 +318,7 @@ pub fn (r &RigidBody3D) get_contact_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RigidBody3D) set_use_custom_integrator(enable bool) {
+pub fn (r &RigidBody3D) set_use_custom_integrator(enable bool) {
     classname := StringName.new("RigidBody3D")
     fnname := StringName.new("set_use_custom_integrator")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -328,7 +328,7 @@ pub fn (mut r RigidBody3D) set_use_custom_integrator(enable bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RigidBody3D) is_using_custom_integrator() bool {
+pub fn (r &RigidBody3D) is_using_custom_integrator() bool {
     mut object_out := false
     classname := StringName.new("RigidBody3D")
     fnname := StringName.new("is_using_custom_integrator")
@@ -338,7 +338,7 @@ pub fn (mut r RigidBody3D) is_using_custom_integrator() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RigidBody3D) set_contact_monitor(enabled bool) {
+pub fn (r &RigidBody3D) set_contact_monitor(enabled bool) {
     classname := StringName.new("RigidBody3D")
     fnname := StringName.new("set_contact_monitor")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -358,7 +358,7 @@ pub fn (r &RigidBody3D) is_contact_monitor_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RigidBody3D) set_use_continuous_collision_detection(enable bool) {
+pub fn (r &RigidBody3D) set_use_continuous_collision_detection(enable bool) {
     classname := StringName.new("RigidBody3D")
     fnname := StringName.new("set_use_continuous_collision_detection")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -378,7 +378,7 @@ pub fn (r &RigidBody3D) is_using_continuous_collision_detection() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RigidBody3D) set_axis_velocity(axis_velocity Vector3) {
+pub fn (r &RigidBody3D) set_axis_velocity(axis_velocity Vector3) {
     classname := StringName.new("RigidBody3D")
     fnname := StringName.new("set_axis_velocity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -388,7 +388,7 @@ pub fn (mut r RigidBody3D) set_axis_velocity(axis_velocity Vector3) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RigidBody3D) apply_central_impulse(impulse Vector3) {
+pub fn (r &RigidBody3D) apply_central_impulse(impulse Vector3) {
     classname := StringName.new("RigidBody3D")
     fnname := StringName.new("apply_central_impulse")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -398,7 +398,7 @@ pub fn (mut r RigidBody3D) apply_central_impulse(impulse Vector3) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RigidBody3D) apply_impulse(impulse Vector3, position Vector3) {
+pub fn (r &RigidBody3D) apply_impulse(impulse Vector3, position Vector3) {
     classname := StringName.new("RigidBody3D")
     fnname := StringName.new("apply_impulse")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2754756483)
@@ -409,7 +409,7 @@ pub fn (mut r RigidBody3D) apply_impulse(impulse Vector3, position Vector3) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RigidBody3D) apply_torque_impulse(impulse Vector3) {
+pub fn (r &RigidBody3D) apply_torque_impulse(impulse Vector3) {
     classname := StringName.new("RigidBody3D")
     fnname := StringName.new("apply_torque_impulse")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -419,7 +419,7 @@ pub fn (mut r RigidBody3D) apply_torque_impulse(impulse Vector3) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RigidBody3D) apply_central_force(force Vector3) {
+pub fn (r &RigidBody3D) apply_central_force(force Vector3) {
     classname := StringName.new("RigidBody3D")
     fnname := StringName.new("apply_central_force")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -429,7 +429,7 @@ pub fn (mut r RigidBody3D) apply_central_force(force Vector3) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RigidBody3D) apply_force(force Vector3, position Vector3) {
+pub fn (r &RigidBody3D) apply_force(force Vector3, position Vector3) {
     classname := StringName.new("RigidBody3D")
     fnname := StringName.new("apply_force")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2754756483)
@@ -440,7 +440,7 @@ pub fn (mut r RigidBody3D) apply_force(force Vector3, position Vector3) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RigidBody3D) apply_torque(torque Vector3) {
+pub fn (r &RigidBody3D) apply_torque(torque Vector3) {
     classname := StringName.new("RigidBody3D")
     fnname := StringName.new("apply_torque")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -450,7 +450,7 @@ pub fn (mut r RigidBody3D) apply_torque(torque Vector3) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RigidBody3D) add_constant_central_force(force Vector3) {
+pub fn (r &RigidBody3D) add_constant_central_force(force Vector3) {
     classname := StringName.new("RigidBody3D")
     fnname := StringName.new("add_constant_central_force")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -460,7 +460,7 @@ pub fn (mut r RigidBody3D) add_constant_central_force(force Vector3) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RigidBody3D) add_constant_force(force Vector3, position Vector3) {
+pub fn (r &RigidBody3D) add_constant_force(force Vector3, position Vector3) {
     classname := StringName.new("RigidBody3D")
     fnname := StringName.new("add_constant_force")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2754756483)
@@ -471,7 +471,7 @@ pub fn (mut r RigidBody3D) add_constant_force(force Vector3, position Vector3) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RigidBody3D) add_constant_torque(torque Vector3) {
+pub fn (r &RigidBody3D) add_constant_torque(torque Vector3) {
     classname := StringName.new("RigidBody3D")
     fnname := StringName.new("add_constant_torque")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -481,7 +481,7 @@ pub fn (mut r RigidBody3D) add_constant_torque(torque Vector3) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RigidBody3D) set_constant_force(force Vector3) {
+pub fn (r &RigidBody3D) set_constant_force(force Vector3) {
     classname := StringName.new("RigidBody3D")
     fnname := StringName.new("set_constant_force")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -501,7 +501,7 @@ pub fn (r &RigidBody3D) get_constant_force() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RigidBody3D) set_constant_torque(torque Vector3) {
+pub fn (r &RigidBody3D) set_constant_torque(torque Vector3) {
     classname := StringName.new("RigidBody3D")
     fnname := StringName.new("set_constant_torque")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -521,7 +521,7 @@ pub fn (r &RigidBody3D) get_constant_torque() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RigidBody3D) set_sleeping(sleeping bool) {
+pub fn (r &RigidBody3D) set_sleeping(sleeping bool) {
     classname := StringName.new("RigidBody3D")
     fnname := StringName.new("set_sleeping")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -541,7 +541,7 @@ pub fn (r &RigidBody3D) is_sleeping() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RigidBody3D) set_can_sleep(able_to_sleep bool) {
+pub fn (r &RigidBody3D) set_can_sleep(able_to_sleep bool) {
     classname := StringName.new("RigidBody3D")
     fnname := StringName.new("set_can_sleep")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -561,7 +561,7 @@ pub fn (r &RigidBody3D) is_able_to_sleep() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RigidBody3D) set_lock_rotation_enabled(lock_rotation bool) {
+pub fn (r &RigidBody3D) set_lock_rotation_enabled(lock_rotation bool) {
     classname := StringName.new("RigidBody3D")
     fnname := StringName.new("set_lock_rotation_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -581,7 +581,7 @@ pub fn (r &RigidBody3D) is_lock_rotation_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RigidBody3D) set_freeze_enabled(freeze_mode bool) {
+pub fn (r &RigidBody3D) set_freeze_enabled(freeze_mode bool) {
     classname := StringName.new("RigidBody3D")
     fnname := StringName.new("set_freeze_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -601,7 +601,7 @@ pub fn (r &RigidBody3D) is_freeze_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RigidBody3D) set_freeze_mode(freeze_mode RigidBody3DFreezeMode) {
+pub fn (r &RigidBody3D) set_freeze_mode(freeze_mode RigidBody3DFreezeMode) {
     classname := StringName.new("RigidBody3D")
     fnname := StringName.new("set_freeze_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1319914653)

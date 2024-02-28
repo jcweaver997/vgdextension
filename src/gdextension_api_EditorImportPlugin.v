@@ -220,7 +220,7 @@ pub fn (r &EditorImportPlugin) uimport(source_file string, save_path string, opt
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r EditorImportPlugin) append_import_external_resource(path string, custom_options Dictionary, custom_importer string, generator_parameters Variant) GDError {
+pub fn (r &EditorImportPlugin) append_import_external_resource(path string, custom_options Dictionary, custom_importer string, generator_parameters Variant) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("EditorImportPlugin")
     fnname := StringName.new("append_import_external_resource")

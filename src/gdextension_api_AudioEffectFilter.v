@@ -12,7 +12,7 @@ pub struct AudioEffectFilter {
     AudioEffect
 }
 
-pub fn (mut r AudioEffectFilter) set_cutoff(freq f64) {
+pub fn (r &AudioEffectFilter) set_cutoff(freq f64) {
     classname := StringName.new("AudioEffectFilter")
     fnname := StringName.new("set_cutoff")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -32,7 +32,7 @@ pub fn (r &AudioEffectFilter) get_cutoff() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectFilter) set_resonance(amount f64) {
+pub fn (r &AudioEffectFilter) set_resonance(amount f64) {
     classname := StringName.new("AudioEffectFilter")
     fnname := StringName.new("set_resonance")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -52,7 +52,7 @@ pub fn (r &AudioEffectFilter) get_resonance() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectFilter) set_gain(amount f64) {
+pub fn (r &AudioEffectFilter) set_gain(amount f64) {
     classname := StringName.new("AudioEffectFilter")
     fnname := StringName.new("set_gain")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -72,7 +72,7 @@ pub fn (r &AudioEffectFilter) get_gain() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectFilter) set_db(amount AudioEffectFilterFilterDB) {
+pub fn (r &AudioEffectFilter) set_db(amount AudioEffectFilterFilterDB) {
     classname := StringName.new("AudioEffectFilter")
     fnname := StringName.new("set_db")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 771740901)

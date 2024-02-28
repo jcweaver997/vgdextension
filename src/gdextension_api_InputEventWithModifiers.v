@@ -5,7 +5,7 @@ pub struct InputEventWithModifiers {
     InputEventFromWindow
 }
 
-pub fn (mut r InputEventWithModifiers) set_command_or_control_autoremap(enable bool) {
+pub fn (r &InputEventWithModifiers) set_command_or_control_autoremap(enable bool) {
     classname := StringName.new("InputEventWithModifiers")
     fnname := StringName.new("set_command_or_control_autoremap")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -35,7 +35,7 @@ pub fn (r &InputEventWithModifiers) is_command_or_control_pressed() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r InputEventWithModifiers) set_alt_pressed(pressed bool) {
+pub fn (r &InputEventWithModifiers) set_alt_pressed(pressed bool) {
     classname := StringName.new("InputEventWithModifiers")
     fnname := StringName.new("set_alt_pressed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -55,7 +55,7 @@ pub fn (r &InputEventWithModifiers) is_alt_pressed() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r InputEventWithModifiers) set_shift_pressed(pressed bool) {
+pub fn (r &InputEventWithModifiers) set_shift_pressed(pressed bool) {
     classname := StringName.new("InputEventWithModifiers")
     fnname := StringName.new("set_shift_pressed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -75,7 +75,7 @@ pub fn (r &InputEventWithModifiers) is_shift_pressed() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r InputEventWithModifiers) set_ctrl_pressed(pressed bool) {
+pub fn (r &InputEventWithModifiers) set_ctrl_pressed(pressed bool) {
     classname := StringName.new("InputEventWithModifiers")
     fnname := StringName.new("set_ctrl_pressed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -95,7 +95,7 @@ pub fn (r &InputEventWithModifiers) is_ctrl_pressed() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r InputEventWithModifiers) set_meta_pressed(pressed bool) {
+pub fn (r &InputEventWithModifiers) set_meta_pressed(pressed bool) {
     classname := StringName.new("InputEventWithModifiers")
     fnname := StringName.new("set_meta_pressed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

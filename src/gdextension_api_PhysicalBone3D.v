@@ -24,7 +24,7 @@ pub interface IPhysicalBone3DIntegrateForces {
     virt_integrate_forces(state PhysicsDirectBodyState3D)
 }
 
-pub fn (mut r PhysicalBone3D) uintegrate_forces(state PhysicsDirectBodyState3D) {
+pub fn (r &PhysicalBone3D) uintegrate_forces(state PhysicsDirectBodyState3D) {
     classname := StringName.new("PhysicalBone3D")
     fnname := StringName.new("_integrate_forces")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -34,7 +34,7 @@ pub fn (mut r PhysicalBone3D) uintegrate_forces(state PhysicsDirectBodyState3D) 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PhysicalBone3D) apply_central_impulse(impulse Vector3) {
+pub fn (r &PhysicalBone3D) apply_central_impulse(impulse Vector3) {
     classname := StringName.new("PhysicalBone3D")
     fnname := StringName.new("apply_central_impulse")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -44,7 +44,7 @@ pub fn (mut r PhysicalBone3D) apply_central_impulse(impulse Vector3) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PhysicalBone3D) apply_impulse(impulse Vector3, position Vector3) {
+pub fn (r &PhysicalBone3D) apply_impulse(impulse Vector3, position Vector3) {
     classname := StringName.new("PhysicalBone3D")
     fnname := StringName.new("apply_impulse")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2754756483)
@@ -55,7 +55,7 @@ pub fn (mut r PhysicalBone3D) apply_impulse(impulse Vector3, position Vector3) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PhysicalBone3D) set_joint_type(joint_type PhysicalBone3DJointType) {
+pub fn (r &PhysicalBone3D) set_joint_type(joint_type PhysicalBone3DJointType) {
     classname := StringName.new("PhysicalBone3D")
     fnname := StringName.new("set_joint_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2289552604)
@@ -76,7 +76,7 @@ pub fn (r &PhysicalBone3D) get_joint_type() PhysicalBone3DJointType {
     fnname.deinit()
    return unsafe{PhysicalBone3DJointType(object_out)}
 }
-pub fn (mut r PhysicalBone3D) set_joint_offset(offset Transform3D) {
+pub fn (r &PhysicalBone3D) set_joint_offset(offset Transform3D) {
     classname := StringName.new("PhysicalBone3D")
     fnname := StringName.new("set_joint_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2952846383)
@@ -96,7 +96,7 @@ pub fn (r &PhysicalBone3D) get_joint_offset() Transform3D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicalBone3D) set_joint_rotation(euler Vector3) {
+pub fn (r &PhysicalBone3D) set_joint_rotation(euler Vector3) {
     classname := StringName.new("PhysicalBone3D")
     fnname := StringName.new("set_joint_rotation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -116,7 +116,7 @@ pub fn (r &PhysicalBone3D) get_joint_rotation() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicalBone3D) set_body_offset(offset Transform3D) {
+pub fn (r &PhysicalBone3D) set_body_offset(offset Transform3D) {
     classname := StringName.new("PhysicalBone3D")
     fnname := StringName.new("set_body_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2952846383)
@@ -136,7 +136,7 @@ pub fn (r &PhysicalBone3D) get_body_offset() Transform3D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicalBone3D) get_simulate_physics() bool {
+pub fn (r &PhysicalBone3D) get_simulate_physics() bool {
     mut object_out := false
     classname := StringName.new("PhysicalBone3D")
     fnname := StringName.new("get_simulate_physics")
@@ -146,7 +146,7 @@ pub fn (mut r PhysicalBone3D) get_simulate_physics() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicalBone3D) is_simulating_physics() bool {
+pub fn (r &PhysicalBone3D) is_simulating_physics() bool {
     mut object_out := false
     classname := StringName.new("PhysicalBone3D")
     fnname := StringName.new("is_simulating_physics")
@@ -166,7 +166,7 @@ pub fn (r &PhysicalBone3D) get_bone_id() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicalBone3D) set_mass(mass f64) {
+pub fn (r &PhysicalBone3D) set_mass(mass f64) {
     classname := StringName.new("PhysicalBone3D")
     fnname := StringName.new("set_mass")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -186,7 +186,7 @@ pub fn (r &PhysicalBone3D) get_mass() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicalBone3D) set_friction(friction f64) {
+pub fn (r &PhysicalBone3D) set_friction(friction f64) {
     classname := StringName.new("PhysicalBone3D")
     fnname := StringName.new("set_friction")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -206,7 +206,7 @@ pub fn (r &PhysicalBone3D) get_friction() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicalBone3D) set_bounce(bounce f64) {
+pub fn (r &PhysicalBone3D) set_bounce(bounce f64) {
     classname := StringName.new("PhysicalBone3D")
     fnname := StringName.new("set_bounce")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -226,7 +226,7 @@ pub fn (r &PhysicalBone3D) get_bounce() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicalBone3D) set_gravity_scale(gravity_scale f64) {
+pub fn (r &PhysicalBone3D) set_gravity_scale(gravity_scale f64) {
     classname := StringName.new("PhysicalBone3D")
     fnname := StringName.new("set_gravity_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -246,7 +246,7 @@ pub fn (r &PhysicalBone3D) get_gravity_scale() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicalBone3D) set_linear_damp_mode(linear_damp_mode PhysicalBone3DDampMode) {
+pub fn (r &PhysicalBone3D) set_linear_damp_mode(linear_damp_mode PhysicalBone3DDampMode) {
     classname := StringName.new("PhysicalBone3D")
     fnname := StringName.new("set_linear_damp_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1244972221)
@@ -267,7 +267,7 @@ pub fn (r &PhysicalBone3D) get_linear_damp_mode() PhysicalBone3DDampMode {
     fnname.deinit()
    return unsafe{PhysicalBone3DDampMode(object_out)}
 }
-pub fn (mut r PhysicalBone3D) set_angular_damp_mode(angular_damp_mode PhysicalBone3DDampMode) {
+pub fn (r &PhysicalBone3D) set_angular_damp_mode(angular_damp_mode PhysicalBone3DDampMode) {
     classname := StringName.new("PhysicalBone3D")
     fnname := StringName.new("set_angular_damp_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1244972221)
@@ -288,7 +288,7 @@ pub fn (r &PhysicalBone3D) get_angular_damp_mode() PhysicalBone3DDampMode {
     fnname.deinit()
    return unsafe{PhysicalBone3DDampMode(object_out)}
 }
-pub fn (mut r PhysicalBone3D) set_linear_damp(linear_damp f64) {
+pub fn (r &PhysicalBone3D) set_linear_damp(linear_damp f64) {
     classname := StringName.new("PhysicalBone3D")
     fnname := StringName.new("set_linear_damp")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -308,7 +308,7 @@ pub fn (r &PhysicalBone3D) get_linear_damp() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicalBone3D) set_angular_damp(angular_damp f64) {
+pub fn (r &PhysicalBone3D) set_angular_damp(angular_damp f64) {
     classname := StringName.new("PhysicalBone3D")
     fnname := StringName.new("set_angular_damp")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -328,7 +328,7 @@ pub fn (r &PhysicalBone3D) get_angular_damp() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicalBone3D) set_linear_velocity(linear_velocity Vector3) {
+pub fn (r &PhysicalBone3D) set_linear_velocity(linear_velocity Vector3) {
     classname := StringName.new("PhysicalBone3D")
     fnname := StringName.new("set_linear_velocity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -348,7 +348,7 @@ pub fn (r &PhysicalBone3D) get_linear_velocity() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicalBone3D) set_angular_velocity(angular_velocity Vector3) {
+pub fn (r &PhysicalBone3D) set_angular_velocity(angular_velocity Vector3) {
     classname := StringName.new("PhysicalBone3D")
     fnname := StringName.new("set_angular_velocity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -368,7 +368,7 @@ pub fn (r &PhysicalBone3D) get_angular_velocity() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicalBone3D) set_use_custom_integrator(enable bool) {
+pub fn (r &PhysicalBone3D) set_use_custom_integrator(enable bool) {
     classname := StringName.new("PhysicalBone3D")
     fnname := StringName.new("set_use_custom_integrator")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -378,7 +378,7 @@ pub fn (mut r PhysicalBone3D) set_use_custom_integrator(enable bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PhysicalBone3D) is_using_custom_integrator() bool {
+pub fn (r &PhysicalBone3D) is_using_custom_integrator() bool {
     mut object_out := false
     classname := StringName.new("PhysicalBone3D")
     fnname := StringName.new("is_using_custom_integrator")
@@ -388,7 +388,7 @@ pub fn (mut r PhysicalBone3D) is_using_custom_integrator() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicalBone3D) set_can_sleep(able_to_sleep bool) {
+pub fn (r &PhysicalBone3D) set_can_sleep(able_to_sleep bool) {
     classname := StringName.new("PhysicalBone3D")
     fnname := StringName.new("set_can_sleep")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

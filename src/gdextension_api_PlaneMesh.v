@@ -11,7 +11,7 @@ pub struct PlaneMesh {
     PrimitiveMesh
 }
 
-pub fn (mut r PlaneMesh) set_size(size Vector2) {
+pub fn (r &PlaneMesh) set_size(size Vector2) {
     classname := StringName.new("PlaneMesh")
     fnname := StringName.new("set_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -31,7 +31,7 @@ pub fn (r &PlaneMesh) get_size() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PlaneMesh) set_subdivide_width(subdivide i32) {
+pub fn (r &PlaneMesh) set_subdivide_width(subdivide i32) {
     classname := StringName.new("PlaneMesh")
     fnname := StringName.new("set_subdivide_width")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -51,7 +51,7 @@ pub fn (r &PlaneMesh) get_subdivide_width() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PlaneMesh) set_subdivide_depth(subdivide i32) {
+pub fn (r &PlaneMesh) set_subdivide_depth(subdivide i32) {
     classname := StringName.new("PlaneMesh")
     fnname := StringName.new("set_subdivide_depth")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -71,7 +71,7 @@ pub fn (r &PlaneMesh) get_subdivide_depth() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PlaneMesh) set_center_offset(offset Vector3) {
+pub fn (r &PlaneMesh) set_center_offset(offset Vector3) {
     classname := StringName.new("PlaneMesh")
     fnname := StringName.new("set_center_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -91,7 +91,7 @@ pub fn (r &PlaneMesh) get_center_offset() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PlaneMesh) set_orientation(orientation PlaneMeshOrientation) {
+pub fn (r &PlaneMesh) set_orientation(orientation PlaneMeshOrientation) {
     classname := StringName.new("PlaneMesh")
     fnname := StringName.new("set_orientation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2751399687)

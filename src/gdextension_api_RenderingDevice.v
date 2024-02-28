@@ -563,7 +563,7 @@ pub struct RenderingDevice {
     Object
 }
 
-pub fn (mut r RenderingDevice) texture_create(format RDTextureFormat, view RDTextureView, data Array) RID {
+pub fn (r &RenderingDevice) texture_create(format RDTextureFormat, view RDTextureView, data Array) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("texture_create")
@@ -577,7 +577,7 @@ pub fn (mut r RenderingDevice) texture_create(format RDTextureFormat, view RDTex
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) texture_create_shared(view RDTextureView, with_texture RID) RID {
+pub fn (r &RenderingDevice) texture_create_shared(view RDTextureView, with_texture RID) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("texture_create_shared")
@@ -590,7 +590,7 @@ pub fn (mut r RenderingDevice) texture_create_shared(view RDTextureView, with_te
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) texture_create_shared_from_slice(view RDTextureView, with_texture RID, layer u32, mipmap u32, mipmaps u32, slice_type RenderingDeviceTextureSliceType) RID {
+pub fn (r &RenderingDevice) texture_create_shared_from_slice(view RDTextureView, with_texture RID, layer u32, mipmap u32, mipmaps u32, slice_type RenderingDeviceTextureSliceType) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("texture_create_shared_from_slice")
@@ -608,7 +608,7 @@ pub fn (mut r RenderingDevice) texture_create_shared_from_slice(view RDTextureVi
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) texture_create_from_extension(type_name RenderingDeviceTextureType, format RenderingDeviceDataFormat, samples RenderingDeviceTextureSamples, usage_flags RenderingDeviceTextureUsageBits, image u64, width u64, height u64, depth u64, layers u64) RID {
+pub fn (r &RenderingDevice) texture_create_from_extension(type_name RenderingDeviceTextureType, format RenderingDeviceDataFormat, samples RenderingDeviceTextureSamples, usage_flags RenderingDeviceTextureUsageBits, image u64, width u64, height u64, depth u64, layers u64) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("texture_create_from_extension")
@@ -632,7 +632,7 @@ pub fn (mut r RenderingDevice) texture_create_from_extension(type_name Rendering
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) texture_update(texture RID, layer u32, data PackedByteArray, post_barrier RenderingDeviceBarrierMask) GDError {
+pub fn (r &RenderingDevice) texture_update(texture RID, layer u32, data PackedByteArray, post_barrier RenderingDeviceBarrierMask) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("texture_update")
@@ -648,7 +648,7 @@ pub fn (mut r RenderingDevice) texture_update(texture RID, layer u32, data Packe
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r RenderingDevice) texture_get_data(texture RID, layer u32) PackedByteArray {
+pub fn (r &RenderingDevice) texture_get_data(texture RID, layer u32) PackedByteArray {
     mut object_out := PackedByteArray{}
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("texture_get_data")
@@ -676,7 +676,7 @@ pub fn (r &RenderingDevice) texture_is_format_supported_for_usage(format Renderi
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) texture_is_shared(texture RID) bool {
+pub fn (r &RenderingDevice) texture_is_shared(texture RID) bool {
     mut object_out := false
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("texture_is_shared")
@@ -688,7 +688,7 @@ pub fn (mut r RenderingDevice) texture_is_shared(texture RID) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) texture_is_valid(texture RID) bool {
+pub fn (r &RenderingDevice) texture_is_valid(texture RID) bool {
     mut object_out := false
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("texture_is_valid")
@@ -700,7 +700,7 @@ pub fn (mut r RenderingDevice) texture_is_valid(texture RID) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) texture_copy(from_texture RID, to_texture RID, from_pos Vector3, to_pos Vector3, size Vector3, src_mipmap u32, dst_mipmap u32, src_layer u32, dst_layer u32, post_barrier RenderingDeviceBarrierMask) GDError {
+pub fn (r &RenderingDevice) texture_copy(from_texture RID, to_texture RID, from_pos Vector3, to_pos Vector3, size Vector3, src_mipmap u32, dst_mipmap u32, src_layer u32, dst_layer u32, post_barrier RenderingDeviceBarrierMask) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("texture_copy")
@@ -722,7 +722,7 @@ pub fn (mut r RenderingDevice) texture_copy(from_texture RID, to_texture RID, fr
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r RenderingDevice) texture_clear(texture RID, color Color, base_mipmap u32, mipmap_count u32, base_layer u32, layer_count u32, post_barrier RenderingDeviceBarrierMask) GDError {
+pub fn (r &RenderingDevice) texture_clear(texture RID, color Color, base_mipmap u32, mipmap_count u32, base_layer u32, layer_count u32, post_barrier RenderingDeviceBarrierMask) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("texture_clear")
@@ -741,7 +741,7 @@ pub fn (mut r RenderingDevice) texture_clear(texture RID, color Color, base_mipm
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r RenderingDevice) texture_resolve_multisample(from_texture RID, to_texture RID, post_barrier RenderingDeviceBarrierMask) GDError {
+pub fn (r &RenderingDevice) texture_resolve_multisample(from_texture RID, to_texture RID, post_barrier RenderingDeviceBarrierMask) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("texture_resolve_multisample")
@@ -756,7 +756,7 @@ pub fn (mut r RenderingDevice) texture_resolve_multisample(from_texture RID, to_
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r RenderingDevice) texture_get_format(texture RID) RDTextureFormat {
+pub fn (r &RenderingDevice) texture_get_format(texture RID) RDTextureFormat {
     mut object_out := RDTextureFormat{}
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("texture_get_format")
@@ -768,7 +768,7 @@ pub fn (mut r RenderingDevice) texture_get_format(texture RID) RDTextureFormat {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) texture_get_native_handle(texture RID) u64 {
+pub fn (r &RenderingDevice) texture_get_native_handle(texture RID) u64 {
     mut object_out := u64(0)
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("texture_get_native_handle")
@@ -780,7 +780,7 @@ pub fn (mut r RenderingDevice) texture_get_native_handle(texture RID) u64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) framebuffer_format_create(attachments Array, view_count u32) i64 {
+pub fn (r &RenderingDevice) framebuffer_format_create(attachments Array, view_count u32) i64 {
     mut object_out := i64(0)
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("framebuffer_format_create")
@@ -793,7 +793,7 @@ pub fn (mut r RenderingDevice) framebuffer_format_create(attachments Array, view
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) framebuffer_format_create_multipass(attachments Array, passes Array, view_count u32) i64 {
+pub fn (r &RenderingDevice) framebuffer_format_create_multipass(attachments Array, passes Array, view_count u32) i64 {
     mut object_out := i64(0)
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("framebuffer_format_create_multipass")
@@ -807,7 +807,7 @@ pub fn (mut r RenderingDevice) framebuffer_format_create_multipass(attachments A
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) framebuffer_format_create_empty(samples RenderingDeviceTextureSamples) i64 {
+pub fn (r &RenderingDevice) framebuffer_format_create_empty(samples RenderingDeviceTextureSamples) i64 {
     mut object_out := i64(0)
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("framebuffer_format_create_empty")
@@ -820,7 +820,7 @@ pub fn (mut r RenderingDevice) framebuffer_format_create_empty(samples Rendering
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) framebuffer_format_get_texture_samples(format i64, render_pass u32) RenderingDeviceTextureSamples {
+pub fn (r &RenderingDevice) framebuffer_format_get_texture_samples(format i64, render_pass u32) RenderingDeviceTextureSamples {
     mut object_out := i64(RenderingDeviceTextureSamples.texture_samples_1)
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("framebuffer_format_get_texture_samples")
@@ -833,7 +833,7 @@ pub fn (mut r RenderingDevice) framebuffer_format_get_texture_samples(format i64
     fnname.deinit()
    return unsafe{RenderingDeviceTextureSamples(object_out)}
 }
-pub fn (mut r RenderingDevice) framebuffer_create(textures Array, validate_with_format i64, view_count u32) RID {
+pub fn (r &RenderingDevice) framebuffer_create(textures Array, validate_with_format i64, view_count u32) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("framebuffer_create")
@@ -847,7 +847,7 @@ pub fn (mut r RenderingDevice) framebuffer_create(textures Array, validate_with_
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) framebuffer_create_multipass(textures Array, passes Array, validate_with_format i64, view_count u32) RID {
+pub fn (r &RenderingDevice) framebuffer_create_multipass(textures Array, passes Array, validate_with_format i64, view_count u32) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("framebuffer_create_multipass")
@@ -862,7 +862,7 @@ pub fn (mut r RenderingDevice) framebuffer_create_multipass(textures Array, pass
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) framebuffer_create_empty(size Vector2i, samples RenderingDeviceTextureSamples, validate_with_format i64) RID {
+pub fn (r &RenderingDevice) framebuffer_create_empty(size Vector2i, samples RenderingDeviceTextureSamples, validate_with_format i64) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("framebuffer_create_empty")
@@ -877,7 +877,7 @@ pub fn (mut r RenderingDevice) framebuffer_create_empty(size Vector2i, samples R
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) framebuffer_get_format(framebuffer RID) i64 {
+pub fn (r &RenderingDevice) framebuffer_get_format(framebuffer RID) i64 {
     mut object_out := i64(0)
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("framebuffer_get_format")
@@ -901,7 +901,7 @@ pub fn (r &RenderingDevice) framebuffer_is_valid(framebuffer RID) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) sampler_create(state RDSamplerState) RID {
+pub fn (r &RenderingDevice) sampler_create(state RDSamplerState) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("sampler_create")
@@ -928,7 +928,7 @@ pub fn (r &RenderingDevice) sampler_is_format_supported_for_filter(format Render
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) vertex_buffer_create(size_bytes u32, data PackedByteArray, use_as_storage bool) RID {
+pub fn (r &RenderingDevice) vertex_buffer_create(size_bytes u32, data PackedByteArray, use_as_storage bool) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("vertex_buffer_create")
@@ -942,7 +942,7 @@ pub fn (mut r RenderingDevice) vertex_buffer_create(size_bytes u32, data PackedB
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) vertex_format_create(vertex_descriptions Array) i64 {
+pub fn (r &RenderingDevice) vertex_format_create(vertex_descriptions Array) i64 {
     mut object_out := i64(0)
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("vertex_format_create")
@@ -954,7 +954,7 @@ pub fn (mut r RenderingDevice) vertex_format_create(vertex_descriptions Array) i
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) vertex_array_create(vertex_count u32, vertex_format i64, src_buffers Array, offsets PackedInt64Array) RID {
+pub fn (r &RenderingDevice) vertex_array_create(vertex_count u32, vertex_format i64, src_buffers Array, offsets PackedInt64Array) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("vertex_array_create")
@@ -969,7 +969,7 @@ pub fn (mut r RenderingDevice) vertex_array_create(vertex_count u32, vertex_form
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) index_buffer_create(size_indices u32, format RenderingDeviceIndexBufferFormat, data PackedByteArray, use_restart_indices bool) RID {
+pub fn (r &RenderingDevice) index_buffer_create(size_indices u32, format RenderingDeviceIndexBufferFormat, data PackedByteArray, use_restart_indices bool) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("index_buffer_create")
@@ -985,7 +985,7 @@ pub fn (mut r RenderingDevice) index_buffer_create(size_indices u32, format Rend
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) index_array_create(index_buffer RID, index_offset u32, index_count u32) RID {
+pub fn (r &RenderingDevice) index_array_create(index_buffer RID, index_offset u32, index_count u32) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("index_array_create")
@@ -999,7 +999,7 @@ pub fn (mut r RenderingDevice) index_array_create(index_buffer RID, index_offset
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) shader_compile_spirv_from_source(shader_source RDShaderSource, allow_cache bool) RDShaderSPIRV {
+pub fn (r &RenderingDevice) shader_compile_spirv_from_source(shader_source RDShaderSource, allow_cache bool) RDShaderSPIRV {
     mut object_out := RDShaderSPIRV{}
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("shader_compile_spirv_from_source")
@@ -1012,7 +1012,7 @@ pub fn (mut r RenderingDevice) shader_compile_spirv_from_source(shader_source RD
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) shader_compile_binary_from_spirv(spirv_data RDShaderSPIRV, name string) PackedByteArray {
+pub fn (r &RenderingDevice) shader_compile_binary_from_spirv(spirv_data RDShaderSPIRV, name string) PackedByteArray {
     mut object_out := PackedByteArray{}
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("shader_compile_binary_from_spirv")
@@ -1027,7 +1027,7 @@ pub fn (mut r RenderingDevice) shader_compile_binary_from_spirv(spirv_data RDSha
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) shader_create_from_spirv(spirv_data RDShaderSPIRV, name string) RID {
+pub fn (r &RenderingDevice) shader_create_from_spirv(spirv_data RDShaderSPIRV, name string) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("shader_create_from_spirv")
@@ -1042,7 +1042,7 @@ pub fn (mut r RenderingDevice) shader_create_from_spirv(spirv_data RDShaderSPIRV
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) shader_create_from_bytecode(binary_data PackedByteArray, placeholder_rid RID) RID {
+pub fn (r &RenderingDevice) shader_create_from_bytecode(binary_data PackedByteArray, placeholder_rid RID) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("shader_create_from_bytecode")
@@ -1055,7 +1055,7 @@ pub fn (mut r RenderingDevice) shader_create_from_bytecode(binary_data PackedByt
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) shader_create_placeholder() RID {
+pub fn (r &RenderingDevice) shader_create_placeholder() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("shader_create_placeholder")
@@ -1065,7 +1065,7 @@ pub fn (mut r RenderingDevice) shader_create_placeholder() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) shader_get_vertex_input_attribute_mask(shader RID) u64 {
+pub fn (r &RenderingDevice) shader_get_vertex_input_attribute_mask(shader RID) u64 {
     mut object_out := u64(0)
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("shader_get_vertex_input_attribute_mask")
@@ -1077,7 +1077,7 @@ pub fn (mut r RenderingDevice) shader_get_vertex_input_attribute_mask(shader RID
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) uniform_buffer_create(size_bytes u32, data PackedByteArray) RID {
+pub fn (r &RenderingDevice) uniform_buffer_create(size_bytes u32, data PackedByteArray) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("uniform_buffer_create")
@@ -1090,7 +1090,7 @@ pub fn (mut r RenderingDevice) uniform_buffer_create(size_bytes u32, data Packed
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) storage_buffer_create(size_bytes u32, data PackedByteArray, usage RenderingDeviceStorageBufferUsage) RID {
+pub fn (r &RenderingDevice) storage_buffer_create(size_bytes u32, data PackedByteArray, usage RenderingDeviceStorageBufferUsage) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("storage_buffer_create")
@@ -1105,7 +1105,7 @@ pub fn (mut r RenderingDevice) storage_buffer_create(size_bytes u32, data Packed
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) texture_buffer_create(size_bytes u32, format RenderingDeviceDataFormat, data PackedByteArray) RID {
+pub fn (r &RenderingDevice) texture_buffer_create(size_bytes u32, format RenderingDeviceDataFormat, data PackedByteArray) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("texture_buffer_create")
@@ -1120,7 +1120,7 @@ pub fn (mut r RenderingDevice) texture_buffer_create(size_bytes u32, format Rend
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) uniform_set_create(uniforms Array, shader RID, shader_set u32) RID {
+pub fn (r &RenderingDevice) uniform_set_create(uniforms Array, shader RID, shader_set u32) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("uniform_set_create")
@@ -1134,7 +1134,7 @@ pub fn (mut r RenderingDevice) uniform_set_create(uniforms Array, shader RID, sh
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) uniform_set_is_valid(uniform_set RID) bool {
+pub fn (r &RenderingDevice) uniform_set_is_valid(uniform_set RID) bool {
     mut object_out := false
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("uniform_set_is_valid")
@@ -1146,7 +1146,7 @@ pub fn (mut r RenderingDevice) uniform_set_is_valid(uniform_set RID) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) buffer_update(buffer RID, offset u32, size_bytes u32, data PackedByteArray, post_barrier RenderingDeviceBarrierMask) GDError {
+pub fn (r &RenderingDevice) buffer_update(buffer RID, offset u32, size_bytes u32, data PackedByteArray, post_barrier RenderingDeviceBarrierMask) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("buffer_update")
@@ -1163,7 +1163,7 @@ pub fn (mut r RenderingDevice) buffer_update(buffer RID, offset u32, size_bytes 
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r RenderingDevice) buffer_clear(buffer RID, offset u32, size_bytes u32, post_barrier RenderingDeviceBarrierMask) GDError {
+pub fn (r &RenderingDevice) buffer_clear(buffer RID, offset u32, size_bytes u32, post_barrier RenderingDeviceBarrierMask) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("buffer_clear")
@@ -1179,7 +1179,7 @@ pub fn (mut r RenderingDevice) buffer_clear(buffer RID, offset u32, size_bytes u
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r RenderingDevice) buffer_get_data(buffer RID, offset_bytes u32, size_bytes u32) PackedByteArray {
+pub fn (r &RenderingDevice) buffer_get_data(buffer RID, offset_bytes u32, size_bytes u32) PackedByteArray {
     mut object_out := PackedByteArray{}
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("buffer_get_data")
@@ -1193,7 +1193,7 @@ pub fn (mut r RenderingDevice) buffer_get_data(buffer RID, offset_bytes u32, siz
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) render_pipeline_create(shader RID, framebuffer_format i64, vertex_format i64, primitive RenderingDeviceRenderPrimitive, rasterization_state RDPipelineRasterizationState, multisample_state RDPipelineMultisampleState, stencil_state RDPipelineDepthStencilState, color_blend_state RDPipelineColorBlendState, dynamic_state_flags RenderingDevicePipelineDynamicStateFlags, for_render_pass u32, specialization_constants Array) RID {
+pub fn (r &RenderingDevice) render_pipeline_create(shader RID, framebuffer_format i64, vertex_format i64, primitive RenderingDeviceRenderPrimitive, rasterization_state RDPipelineRasterizationState, multisample_state RDPipelineMultisampleState, stencil_state RDPipelineDepthStencilState, color_blend_state RDPipelineColorBlendState, dynamic_state_flags RenderingDevicePipelineDynamicStateFlags, for_render_pass u32, specialization_constants Array) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("render_pipeline_create")
@@ -1217,7 +1217,7 @@ pub fn (mut r RenderingDevice) render_pipeline_create(shader RID, framebuffer_fo
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) render_pipeline_is_valid(render_pipeline RID) bool {
+pub fn (r &RenderingDevice) render_pipeline_is_valid(render_pipeline RID) bool {
     mut object_out := false
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("render_pipeline_is_valid")
@@ -1229,7 +1229,7 @@ pub fn (mut r RenderingDevice) render_pipeline_is_valid(render_pipeline RID) boo
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) compute_pipeline_create(shader RID, specialization_constants Array) RID {
+pub fn (r &RenderingDevice) compute_pipeline_create(shader RID, specialization_constants Array) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("compute_pipeline_create")
@@ -1242,7 +1242,7 @@ pub fn (mut r RenderingDevice) compute_pipeline_create(shader RID, specializatio
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) compute_pipeline_is_valid(compute_pipeline RID) bool {
+pub fn (r &RenderingDevice) compute_pipeline_is_valid(compute_pipeline RID) bool {
     mut object_out := false
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("compute_pipeline_is_valid")
@@ -1288,7 +1288,7 @@ pub fn (r &RenderingDevice) screen_get_framebuffer_format() i64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) draw_list_begin_for_screen(screen i32, clear_color Color) i64 {
+pub fn (r &RenderingDevice) draw_list_begin_for_screen(screen i32, clear_color Color) i64 {
     mut object_out := i64(0)
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("draw_list_begin_for_screen")
@@ -1301,7 +1301,7 @@ pub fn (mut r RenderingDevice) draw_list_begin_for_screen(screen i32, clear_colo
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) draw_list_begin(framebuffer RID, initial_color_action RenderingDeviceInitialAction, final_color_action RenderingDeviceFinalAction, initial_depth_action RenderingDeviceInitialAction, final_depth_action RenderingDeviceFinalAction, clear_color_values PackedColorArray, clear_depth f64, clear_stencil u32, region Rect2, storage_textures Array) i64 {
+pub fn (r &RenderingDevice) draw_list_begin(framebuffer RID, initial_color_action RenderingDeviceInitialAction, final_color_action RenderingDeviceFinalAction, initial_depth_action RenderingDeviceInitialAction, final_depth_action RenderingDeviceFinalAction, clear_color_values PackedColorArray, clear_depth f64, clear_stencil u32, region Rect2, storage_textures Array) i64 {
     mut object_out := i64(0)
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("draw_list_begin")
@@ -1326,7 +1326,7 @@ pub fn (mut r RenderingDevice) draw_list_begin(framebuffer RID, initial_color_ac
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) draw_list_begin_split(framebuffer RID, splits u32, initial_color_action RenderingDeviceInitialAction, final_color_action RenderingDeviceFinalAction, initial_depth_action RenderingDeviceInitialAction, final_depth_action RenderingDeviceFinalAction, clear_color_values PackedColorArray, clear_depth f64, clear_stencil u32, region Rect2, storage_textures Array) PackedInt64Array {
+pub fn (r &RenderingDevice) draw_list_begin_split(framebuffer RID, splits u32, initial_color_action RenderingDeviceInitialAction, final_color_action RenderingDeviceFinalAction, initial_depth_action RenderingDeviceInitialAction, final_depth_action RenderingDeviceFinalAction, clear_color_values PackedColorArray, clear_depth f64, clear_stencil u32, region Rect2, storage_textures Array) PackedInt64Array {
     mut object_out := PackedInt64Array{}
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("draw_list_begin_split")
@@ -1352,7 +1352,7 @@ pub fn (mut r RenderingDevice) draw_list_begin_split(framebuffer RID, splits u32
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) draw_list_set_blend_constants(draw_list i64, color Color) {
+pub fn (r &RenderingDevice) draw_list_set_blend_constants(draw_list i64, color Color) {
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("draw_list_set_blend_constants")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2878471219)
@@ -1363,7 +1363,7 @@ pub fn (mut r RenderingDevice) draw_list_set_blend_constants(draw_list i64, colo
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingDevice) draw_list_bind_render_pipeline(draw_list i64, render_pipeline RID) {
+pub fn (r &RenderingDevice) draw_list_bind_render_pipeline(draw_list i64, render_pipeline RID) {
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("draw_list_bind_render_pipeline")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4040184819)
@@ -1374,7 +1374,7 @@ pub fn (mut r RenderingDevice) draw_list_bind_render_pipeline(draw_list i64, ren
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingDevice) draw_list_bind_uniform_set(draw_list i64, uniform_set RID, set_index u32) {
+pub fn (r &RenderingDevice) draw_list_bind_uniform_set(draw_list i64, uniform_set RID, set_index u32) {
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("draw_list_bind_uniform_set")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 749655778)
@@ -1386,7 +1386,7 @@ pub fn (mut r RenderingDevice) draw_list_bind_uniform_set(draw_list i64, uniform
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingDevice) draw_list_bind_vertex_array(draw_list i64, vertex_array RID) {
+pub fn (r &RenderingDevice) draw_list_bind_vertex_array(draw_list i64, vertex_array RID) {
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("draw_list_bind_vertex_array")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4040184819)
@@ -1397,7 +1397,7 @@ pub fn (mut r RenderingDevice) draw_list_bind_vertex_array(draw_list i64, vertex
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingDevice) draw_list_bind_index_array(draw_list i64, index_array RID) {
+pub fn (r &RenderingDevice) draw_list_bind_index_array(draw_list i64, index_array RID) {
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("draw_list_bind_index_array")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4040184819)
@@ -1408,7 +1408,7 @@ pub fn (mut r RenderingDevice) draw_list_bind_index_array(draw_list i64, index_a
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingDevice) draw_list_set_push_constant(draw_list i64, buffer PackedByteArray, size_bytes u32) {
+pub fn (r &RenderingDevice) draw_list_set_push_constant(draw_list i64, buffer PackedByteArray, size_bytes u32) {
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("draw_list_set_push_constant")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2772371345)
@@ -1420,7 +1420,7 @@ pub fn (mut r RenderingDevice) draw_list_set_push_constant(draw_list i64, buffer
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingDevice) draw_list_draw(draw_list i64, use_indices bool, instances u32, procedural_vertex_count u32) {
+pub fn (r &RenderingDevice) draw_list_draw(draw_list i64, use_indices bool, instances u32, procedural_vertex_count u32) {
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("draw_list_draw")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4230067973)
@@ -1433,7 +1433,7 @@ pub fn (mut r RenderingDevice) draw_list_draw(draw_list i64, use_indices bool, i
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingDevice) draw_list_enable_scissor(draw_list i64, rect Rect2) {
+pub fn (r &RenderingDevice) draw_list_enable_scissor(draw_list i64, rect Rect2) {
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("draw_list_enable_scissor")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 244650101)
@@ -1444,7 +1444,7 @@ pub fn (mut r RenderingDevice) draw_list_enable_scissor(draw_list i64, rect Rect
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingDevice) draw_list_disable_scissor(draw_list i64) {
+pub fn (r &RenderingDevice) draw_list_disable_scissor(draw_list i64) {
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("draw_list_disable_scissor")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -1454,7 +1454,7 @@ pub fn (mut r RenderingDevice) draw_list_disable_scissor(draw_list i64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingDevice) draw_list_switch_to_next_pass() i64 {
+pub fn (r &RenderingDevice) draw_list_switch_to_next_pass() i64 {
     mut object_out := i64(0)
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("draw_list_switch_to_next_pass")
@@ -1464,7 +1464,7 @@ pub fn (mut r RenderingDevice) draw_list_switch_to_next_pass() i64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) draw_list_switch_to_next_pass_split(splits u32) PackedInt64Array {
+pub fn (r &RenderingDevice) draw_list_switch_to_next_pass_split(splits u32) PackedInt64Array {
     mut object_out := PackedInt64Array{}
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("draw_list_switch_to_next_pass_split")
@@ -1476,7 +1476,7 @@ pub fn (mut r RenderingDevice) draw_list_switch_to_next_pass_split(splits u32) P
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) draw_list_end(post_barrier RenderingDeviceBarrierMask) {
+pub fn (r &RenderingDevice) draw_list_end(post_barrier RenderingDeviceBarrierMask) {
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("draw_list_end")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3920951950)
@@ -1487,7 +1487,7 @@ pub fn (mut r RenderingDevice) draw_list_end(post_barrier RenderingDeviceBarrier
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingDevice) compute_list_begin(allow_draw_overlap bool) i64 {
+pub fn (r &RenderingDevice) compute_list_begin(allow_draw_overlap bool) i64 {
     mut object_out := i64(0)
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("compute_list_begin")
@@ -1499,7 +1499,7 @@ pub fn (mut r RenderingDevice) compute_list_begin(allow_draw_overlap bool) i64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) compute_list_bind_compute_pipeline(compute_list i64, compute_pipeline RID) {
+pub fn (r &RenderingDevice) compute_list_bind_compute_pipeline(compute_list i64, compute_pipeline RID) {
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("compute_list_bind_compute_pipeline")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4040184819)
@@ -1510,7 +1510,7 @@ pub fn (mut r RenderingDevice) compute_list_bind_compute_pipeline(compute_list i
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingDevice) compute_list_set_push_constant(compute_list i64, buffer PackedByteArray, size_bytes u32) {
+pub fn (r &RenderingDevice) compute_list_set_push_constant(compute_list i64, buffer PackedByteArray, size_bytes u32) {
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("compute_list_set_push_constant")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2772371345)
@@ -1522,7 +1522,7 @@ pub fn (mut r RenderingDevice) compute_list_set_push_constant(compute_list i64, 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingDevice) compute_list_bind_uniform_set(compute_list i64, uniform_set RID, set_index u32) {
+pub fn (r &RenderingDevice) compute_list_bind_uniform_set(compute_list i64, uniform_set RID, set_index u32) {
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("compute_list_bind_uniform_set")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 749655778)
@@ -1534,7 +1534,7 @@ pub fn (mut r RenderingDevice) compute_list_bind_uniform_set(compute_list i64, u
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingDevice) compute_list_dispatch(compute_list i64, x_groups u32, y_groups u32, z_groups u32) {
+pub fn (r &RenderingDevice) compute_list_dispatch(compute_list i64, x_groups u32, y_groups u32, z_groups u32) {
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("compute_list_dispatch")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4275841770)
@@ -1547,7 +1547,7 @@ pub fn (mut r RenderingDevice) compute_list_dispatch(compute_list i64, x_groups 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingDevice) compute_list_add_barrier(compute_list i64) {
+pub fn (r &RenderingDevice) compute_list_add_barrier(compute_list i64) {
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("compute_list_add_barrier")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -1557,7 +1557,7 @@ pub fn (mut r RenderingDevice) compute_list_add_barrier(compute_list i64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingDevice) compute_list_end(post_barrier RenderingDeviceBarrierMask) {
+pub fn (r &RenderingDevice) compute_list_end(post_barrier RenderingDeviceBarrierMask) {
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("compute_list_end")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3920951950)
@@ -1568,7 +1568,7 @@ pub fn (mut r RenderingDevice) compute_list_end(post_barrier RenderingDeviceBarr
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingDevice) free_rid(rid RID) {
+pub fn (r &RenderingDevice) free_rid(rid RID) {
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("free_rid")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)
@@ -1578,7 +1578,7 @@ pub fn (mut r RenderingDevice) free_rid(rid RID) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingDevice) capture_timestamp(name string) {
+pub fn (r &RenderingDevice) capture_timestamp(name string) {
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("capture_timestamp")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -1671,7 +1671,7 @@ pub fn (r &RenderingDevice) get_frame_delay() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) submit() {
+pub fn (r &RenderingDevice) submit() {
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("submit")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -1679,7 +1679,7 @@ pub fn (mut r RenderingDevice) submit() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingDevice) sync() {
+pub fn (r &RenderingDevice) sync() {
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("sync")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -1687,7 +1687,7 @@ pub fn (mut r RenderingDevice) sync() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingDevice) barrier(from RenderingDeviceBarrierMask, to RenderingDeviceBarrierMask) {
+pub fn (r &RenderingDevice) barrier(from RenderingDeviceBarrierMask, to RenderingDeviceBarrierMask) {
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("barrier")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3718155691)
@@ -1700,7 +1700,7 @@ pub fn (mut r RenderingDevice) barrier(from RenderingDeviceBarrierMask, to Rende
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingDevice) full_barrier() {
+pub fn (r &RenderingDevice) full_barrier() {
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("full_barrier")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -1708,7 +1708,7 @@ pub fn (mut r RenderingDevice) full_barrier() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingDevice) create_local_device() RenderingDevice {
+pub fn (r &RenderingDevice) create_local_device() RenderingDevice {
     mut object_out := RenderingDevice{}
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("create_local_device")
@@ -1718,7 +1718,7 @@ pub fn (mut r RenderingDevice) create_local_device() RenderingDevice {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) set_resource_name(id RID, name string) {
+pub fn (r &RenderingDevice) set_resource_name(id RID, name string) {
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("set_resource_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2726140452)
@@ -1731,7 +1731,7 @@ pub fn (mut r RenderingDevice) set_resource_name(id RID, name string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingDevice) draw_command_begin_label(name string, color Color) {
+pub fn (r &RenderingDevice) draw_command_begin_label(name string, color Color) {
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("draw_command_begin_label")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1636512886)
@@ -1744,7 +1744,7 @@ pub fn (mut r RenderingDevice) draw_command_begin_label(name string, color Color
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingDevice) draw_command_insert_label(name string, color Color) {
+pub fn (r &RenderingDevice) draw_command_insert_label(name string, color Color) {
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("draw_command_insert_label")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1636512886)
@@ -1757,7 +1757,7 @@ pub fn (mut r RenderingDevice) draw_command_insert_label(name string, color Colo
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingDevice) draw_command_end_label() {
+pub fn (r &RenderingDevice) draw_command_end_label() {
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("draw_command_end_label")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -1814,7 +1814,7 @@ pub fn (r &RenderingDevice) get_memory_usage(type_name RenderingDeviceMemoryType
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingDevice) get_driver_resource(resource RenderingDeviceDriverResource, rid RID, index u64) u64 {
+pub fn (r &RenderingDevice) get_driver_resource(resource RenderingDeviceDriverResource, rid RID, index u64) u64 {
     mut object_out := u64(0)
     classname := StringName.new("RenderingDevice")
     fnname := StringName.new("get_driver_resource")

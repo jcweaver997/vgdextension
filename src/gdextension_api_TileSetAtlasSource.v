@@ -11,7 +11,7 @@ pub struct TileSetAtlasSource {
     TileSetSource
 }
 
-pub fn (mut r TileSetAtlasSource) set_texture(texture Texture2D) {
+pub fn (r &TileSetAtlasSource) set_texture(texture Texture2D) {
     classname := StringName.new("TileSetAtlasSource")
     fnname := StringName.new("set_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
@@ -31,7 +31,7 @@ pub fn (r &TileSetAtlasSource) get_texture() Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSetAtlasSource) set_margins(margins Vector2i) {
+pub fn (r &TileSetAtlasSource) set_margins(margins Vector2i) {
     classname := StringName.new("TileSetAtlasSource")
     fnname := StringName.new("set_margins")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1130785943)
@@ -51,7 +51,7 @@ pub fn (r &TileSetAtlasSource) get_margins() Vector2i {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSetAtlasSource) set_separation(separation Vector2i) {
+pub fn (r &TileSetAtlasSource) set_separation(separation Vector2i) {
     classname := StringName.new("TileSetAtlasSource")
     fnname := StringName.new("set_separation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1130785943)
@@ -71,7 +71,7 @@ pub fn (r &TileSetAtlasSource) get_separation() Vector2i {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSetAtlasSource) set_texture_region_size(texture_region_size Vector2i) {
+pub fn (r &TileSetAtlasSource) set_texture_region_size(texture_region_size Vector2i) {
     classname := StringName.new("TileSetAtlasSource")
     fnname := StringName.new("set_texture_region_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1130785943)
@@ -91,7 +91,7 @@ pub fn (r &TileSetAtlasSource) get_texture_region_size() Vector2i {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSetAtlasSource) set_use_texture_padding(use_texture_padding bool) {
+pub fn (r &TileSetAtlasSource) set_use_texture_padding(use_texture_padding bool) {
     classname := StringName.new("TileSetAtlasSource")
     fnname := StringName.new("set_use_texture_padding")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -111,7 +111,7 @@ pub fn (r &TileSetAtlasSource) get_use_texture_padding() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSetAtlasSource) create_tile(atlas_coords Vector2i, size Vector2i) {
+pub fn (r &TileSetAtlasSource) create_tile(atlas_coords Vector2i, size Vector2i) {
     classname := StringName.new("TileSetAtlasSource")
     fnname := StringName.new("create_tile")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 190528769)
@@ -122,7 +122,7 @@ pub fn (mut r TileSetAtlasSource) create_tile(atlas_coords Vector2i, size Vector
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileSetAtlasSource) remove_tile(atlas_coords Vector2i) {
+pub fn (r &TileSetAtlasSource) remove_tile(atlas_coords Vector2i) {
     classname := StringName.new("TileSetAtlasSource")
     fnname := StringName.new("remove_tile")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1130785943)
@@ -132,7 +132,7 @@ pub fn (mut r TileSetAtlasSource) remove_tile(atlas_coords Vector2i) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileSetAtlasSource) move_tile_in_atlas(atlas_coords Vector2i, new_atlas_coords Vector2i, new_size Vector2i) {
+pub fn (r &TileSetAtlasSource) move_tile_in_atlas(atlas_coords Vector2i, new_atlas_coords Vector2i, new_size Vector2i) {
     classname := StringName.new("TileSetAtlasSource")
     fnname := StringName.new("move_tile_in_atlas")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3870111920)
@@ -173,7 +173,7 @@ pub fn (r &TileSetAtlasSource) has_room_for_tile(atlas_coords Vector2i, size Vec
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSetAtlasSource) get_tiles_to_be_removed_on_change(texture Texture2D, margins Vector2i, separation Vector2i, texture_region_size Vector2i) PackedVector2Array {
+pub fn (r &TileSetAtlasSource) get_tiles_to_be_removed_on_change(texture Texture2D, margins Vector2i, separation Vector2i, texture_region_size Vector2i) PackedVector2Array {
     mut object_out := PackedVector2Array{}
     classname := StringName.new("TileSetAtlasSource")
     fnname := StringName.new("get_tiles_to_be_removed_on_change")
@@ -210,7 +210,7 @@ pub fn (r &TileSetAtlasSource) has_tiles_outside_texture() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSetAtlasSource) clear_tiles_outside_texture() {
+pub fn (r &TileSetAtlasSource) clear_tiles_outside_texture() {
     classname := StringName.new("TileSetAtlasSource")
     fnname := StringName.new("clear_tiles_outside_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -218,7 +218,7 @@ pub fn (mut r TileSetAtlasSource) clear_tiles_outside_texture() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileSetAtlasSource) set_tile_animation_columns(atlas_coords Vector2i, frame_columns i32) {
+pub fn (r &TileSetAtlasSource) set_tile_animation_columns(atlas_coords Vector2i, frame_columns i32) {
     classname := StringName.new("TileSetAtlasSource")
     fnname := StringName.new("set_tile_animation_columns")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3200960707)
@@ -241,7 +241,7 @@ pub fn (r &TileSetAtlasSource) get_tile_animation_columns(atlas_coords Vector2i)
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSetAtlasSource) set_tile_animation_separation(atlas_coords Vector2i, separation Vector2i) {
+pub fn (r &TileSetAtlasSource) set_tile_animation_separation(atlas_coords Vector2i, separation Vector2i) {
     classname := StringName.new("TileSetAtlasSource")
     fnname := StringName.new("set_tile_animation_separation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1941061099)
@@ -264,7 +264,7 @@ pub fn (r &TileSetAtlasSource) get_tile_animation_separation(atlas_coords Vector
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSetAtlasSource) set_tile_animation_speed(atlas_coords Vector2i, speed f64) {
+pub fn (r &TileSetAtlasSource) set_tile_animation_speed(atlas_coords Vector2i, speed f64) {
     classname := StringName.new("TileSetAtlasSource")
     fnname := StringName.new("set_tile_animation_speed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2262553149)
@@ -287,7 +287,7 @@ pub fn (r &TileSetAtlasSource) get_tile_animation_speed(atlas_coords Vector2i) f
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSetAtlasSource) set_tile_animation_mode(atlas_coords Vector2i, mode TileSetAtlasSourceTileAnimationMode) {
+pub fn (r &TileSetAtlasSource) set_tile_animation_mode(atlas_coords Vector2i, mode TileSetAtlasSourceTileAnimationMode) {
     classname := StringName.new("TileSetAtlasSource")
     fnname := StringName.new("set_tile_animation_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3192753483)
@@ -311,7 +311,7 @@ pub fn (r &TileSetAtlasSource) get_tile_animation_mode(atlas_coords Vector2i) Ti
     fnname.deinit()
    return unsafe{TileSetAtlasSourceTileAnimationMode(object_out)}
 }
-pub fn (mut r TileSetAtlasSource) set_tile_animation_frames_count(atlas_coords Vector2i, frames_count i32) {
+pub fn (r &TileSetAtlasSource) set_tile_animation_frames_count(atlas_coords Vector2i, frames_count i32) {
     classname := StringName.new("TileSetAtlasSource")
     fnname := StringName.new("set_tile_animation_frames_count")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3200960707)
@@ -334,7 +334,7 @@ pub fn (r &TileSetAtlasSource) get_tile_animation_frames_count(atlas_coords Vect
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSetAtlasSource) set_tile_animation_frame_duration(atlas_coords Vector2i, frame_index i32, duration f64) {
+pub fn (r &TileSetAtlasSource) set_tile_animation_frame_duration(atlas_coords Vector2i, frame_index i32, duration f64) {
     classname := StringName.new("TileSetAtlasSource")
     fnname := StringName.new("set_tile_animation_frame_duration")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2843487787)
@@ -371,7 +371,7 @@ pub fn (r &TileSetAtlasSource) get_tile_animation_total_duration(atlas_coords Ve
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSetAtlasSource) create_alternative_tile(atlas_coords Vector2i, alternative_id_override i32) i32 {
+pub fn (r &TileSetAtlasSource) create_alternative_tile(atlas_coords Vector2i, alternative_id_override i32) i32 {
     mut object_out := i32(0)
     classname := StringName.new("TileSetAtlasSource")
     fnname := StringName.new("create_alternative_tile")
@@ -384,7 +384,7 @@ pub fn (mut r TileSetAtlasSource) create_alternative_tile(atlas_coords Vector2i,
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TileSetAtlasSource) remove_alternative_tile(atlas_coords Vector2i, alternative_tile i32) {
+pub fn (r &TileSetAtlasSource) remove_alternative_tile(atlas_coords Vector2i, alternative_tile i32) {
     classname := StringName.new("TileSetAtlasSource")
     fnname := StringName.new("remove_alternative_tile")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3200960707)
@@ -395,7 +395,7 @@ pub fn (mut r TileSetAtlasSource) remove_alternative_tile(atlas_coords Vector2i,
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TileSetAtlasSource) set_alternative_tile_id(atlas_coords Vector2i, alternative_tile i32, new_id i32) {
+pub fn (r &TileSetAtlasSource) set_alternative_tile_id(atlas_coords Vector2i, alternative_tile i32, new_id i32) {
     classname := StringName.new("TileSetAtlasSource")
     fnname := StringName.new("set_alternative_tile_id")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1499785778)

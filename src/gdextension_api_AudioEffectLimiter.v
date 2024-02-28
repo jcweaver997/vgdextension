@@ -5,7 +5,7 @@ pub struct AudioEffectLimiter {
     AudioEffect
 }
 
-pub fn (mut r AudioEffectLimiter) set_ceiling_db(ceiling f64) {
+pub fn (r &AudioEffectLimiter) set_ceiling_db(ceiling f64) {
     classname := StringName.new("AudioEffectLimiter")
     fnname := StringName.new("set_ceiling_db")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -25,7 +25,7 @@ pub fn (r &AudioEffectLimiter) get_ceiling_db() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectLimiter) set_threshold_db(threshold f64) {
+pub fn (r &AudioEffectLimiter) set_threshold_db(threshold f64) {
     classname := StringName.new("AudioEffectLimiter")
     fnname := StringName.new("set_threshold_db")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -45,7 +45,7 @@ pub fn (r &AudioEffectLimiter) get_threshold_db() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectLimiter) set_soft_clip_db(soft_clip f64) {
+pub fn (r &AudioEffectLimiter) set_soft_clip_db(soft_clip f64) {
     classname := StringName.new("AudioEffectLimiter")
     fnname := StringName.new("set_soft_clip_db")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -65,7 +65,7 @@ pub fn (r &AudioEffectLimiter) get_soft_clip_db() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectLimiter) set_soft_clip_ratio(soft_clip f64) {
+pub fn (r &AudioEffectLimiter) set_soft_clip_ratio(soft_clip f64) {
     classname := StringName.new("AudioEffectLimiter")
     fnname := StringName.new("set_soft_clip_ratio")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

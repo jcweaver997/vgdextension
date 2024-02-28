@@ -12,7 +12,7 @@ pub struct StreamPeerTCP {
     StreamPeer
 }
 
-pub fn (mut r StreamPeerTCP) bind(port i32, host string) GDError {
+pub fn (r &StreamPeerTCP) bind(port i32, host string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("StreamPeerTCP")
     fnname := StringName.new("bind")
@@ -27,7 +27,7 @@ pub fn (mut r StreamPeerTCP) bind(port i32, host string) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r StreamPeerTCP) connect_to_host(host string, port i32) GDError {
+pub fn (r &StreamPeerTCP) connect_to_host(host string, port i32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("StreamPeerTCP")
     fnname := StringName.new("connect_to_host")
@@ -42,7 +42,7 @@ pub fn (mut r StreamPeerTCP) connect_to_host(host string, port i32) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r StreamPeerTCP) poll() GDError {
+pub fn (r &StreamPeerTCP) poll() GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("StreamPeerTCP")
     fnname := StringName.new("poll")
@@ -94,7 +94,7 @@ pub fn (r &StreamPeerTCP) get_local_port() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r StreamPeerTCP) disconnect_from_host() {
+pub fn (r &StreamPeerTCP) disconnect_from_host() {
     classname := StringName.new("StreamPeerTCP")
     fnname := StringName.new("disconnect_from_host")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -102,7 +102,7 @@ pub fn (mut r StreamPeerTCP) disconnect_from_host() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r StreamPeerTCP) set_no_delay(enabled bool) {
+pub fn (r &StreamPeerTCP) set_no_delay(enabled bool) {
     classname := StringName.new("StreamPeerTCP")
     fnname := StringName.new("set_no_delay")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

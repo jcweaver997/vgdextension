@@ -5,7 +5,7 @@ pub struct WorldEnvironment {
     Node
 }
 
-pub fn (mut r WorldEnvironment) set_environment(env Environment) {
+pub fn (r &WorldEnvironment) set_environment(env Environment) {
     classname := StringName.new("WorldEnvironment")
     fnname := StringName.new("set_environment")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4143518816)
@@ -25,7 +25,7 @@ pub fn (r &WorldEnvironment) get_environment() Environment {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r WorldEnvironment) set_camera_attributes(camera_attributes CameraAttributes) {
+pub fn (r &WorldEnvironment) set_camera_attributes(camera_attributes CameraAttributes) {
     classname := StringName.new("WorldEnvironment")
     fnname := StringName.new("set_camera_attributes")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2817810567)

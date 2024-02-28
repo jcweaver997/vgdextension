@@ -5,7 +5,7 @@ pub struct Marker2D {
     Node2D
 }
 
-pub fn (mut r Marker2D) set_gizmo_extents(extents f64) {
+pub fn (r &Marker2D) set_gizmo_extents(extents f64) {
     classname := StringName.new("Marker2D")
     fnname := StringName.new("set_gizmo_extents")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

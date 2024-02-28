@@ -5,7 +5,7 @@ pub struct SpinBox {
     Range
 }
 
-pub fn (mut r SpinBox) set_horizontal_alignment(alignment HorizontalAlignment) {
+pub fn (r &SpinBox) set_horizontal_alignment(alignment HorizontalAlignment) {
     classname := StringName.new("SpinBox")
     fnname := StringName.new("set_horizontal_alignment")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2312603777)
@@ -26,7 +26,7 @@ pub fn (r &SpinBox) get_horizontal_alignment() HorizontalAlignment {
     fnname.deinit()
    return unsafe{HorizontalAlignment(object_out)}
 }
-pub fn (mut r SpinBox) set_suffix(suffix string) {
+pub fn (r &SpinBox) set_suffix(suffix string) {
     classname := StringName.new("SpinBox")
     fnname := StringName.new("set_suffix")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -50,7 +50,7 @@ pub fn (r &SpinBox) get_suffix() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r SpinBox) set_prefix(prefix string) {
+pub fn (r &SpinBox) set_prefix(prefix string) {
     classname := StringName.new("SpinBox")
     fnname := StringName.new("set_prefix")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -74,7 +74,7 @@ pub fn (r &SpinBox) get_prefix() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r SpinBox) set_editable(enabled bool) {
+pub fn (r &SpinBox) set_editable(enabled bool) {
     classname := StringName.new("SpinBox")
     fnname := StringName.new("set_editable")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -84,7 +84,7 @@ pub fn (mut r SpinBox) set_editable(enabled bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SpinBox) set_custom_arrow_step(arrow_step f64) {
+pub fn (r &SpinBox) set_custom_arrow_step(arrow_step f64) {
     classname := StringName.new("SpinBox")
     fnname := StringName.new("set_custom_arrow_step")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -114,7 +114,7 @@ pub fn (r &SpinBox) is_editable() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SpinBox) set_update_on_text_changed(enabled bool) {
+pub fn (r &SpinBox) set_update_on_text_changed(enabled bool) {
     classname := StringName.new("SpinBox")
     fnname := StringName.new("set_update_on_text_changed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -134,7 +134,7 @@ pub fn (r &SpinBox) get_update_on_text_changed() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SpinBox) set_select_all_on_focus(enabled bool) {
+pub fn (r &SpinBox) set_select_all_on_focus(enabled bool) {
     classname := StringName.new("SpinBox")
     fnname := StringName.new("set_select_all_on_focus")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -154,7 +154,7 @@ pub fn (r &SpinBox) is_select_all_on_focus() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SpinBox) apply() {
+pub fn (r &SpinBox) apply() {
     classname := StringName.new("SpinBox")
     fnname := StringName.new("apply")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -162,7 +162,7 @@ pub fn (mut r SpinBox) apply() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SpinBox) get_line_edit() LineEdit {
+pub fn (r &SpinBox) get_line_edit() LineEdit {
     mut object_out := LineEdit{}
     classname := StringName.new("SpinBox")
     fnname := StringName.new("get_line_edit")

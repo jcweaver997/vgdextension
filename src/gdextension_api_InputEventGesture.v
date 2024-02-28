@@ -5,7 +5,7 @@ pub struct InputEventGesture {
     InputEventWithModifiers
 }
 
-pub fn (mut r InputEventGesture) set_position(position Vector2) {
+pub fn (r &InputEventGesture) set_position(position Vector2) {
     classname := StringName.new("InputEventGesture")
     fnname := StringName.new("set_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)

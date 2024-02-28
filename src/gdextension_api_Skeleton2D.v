@@ -15,7 +15,7 @@ pub fn (r &Skeleton2D) get_bone_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Skeleton2D) get_bone(idx i32) Bone2D {
+pub fn (r &Skeleton2D) get_bone(idx i32) Bone2D {
     mut object_out := Bone2D{}
     classname := StringName.new("Skeleton2D")
     fnname := StringName.new("get_bone")
@@ -37,7 +37,7 @@ pub fn (r &Skeleton2D) get_skeleton() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Skeleton2D) set_modification_stack(modification_stack SkeletonModificationStack2D) {
+pub fn (r &Skeleton2D) set_modification_stack(modification_stack SkeletonModificationStack2D) {
     classname := StringName.new("Skeleton2D")
     fnname := StringName.new("set_modification_stack")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3907307132)
@@ -57,7 +57,7 @@ pub fn (r &Skeleton2D) get_modification_stack() SkeletonModificationStack2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Skeleton2D) execute_modifications(delta f64, execution_mode i32) {
+pub fn (r &Skeleton2D) execute_modifications(delta f64, execution_mode i32) {
     classname := StringName.new("Skeleton2D")
     fnname := StringName.new("execute_modifications")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1005356550)
@@ -68,7 +68,7 @@ pub fn (mut r Skeleton2D) execute_modifications(delta f64, execution_mode i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Skeleton2D) set_bone_local_pose_override(bone_idx i32, override_pose Transform2D, strength f64, persistent bool) {
+pub fn (r &Skeleton2D) set_bone_local_pose_override(bone_idx i32, override_pose Transform2D, strength f64, persistent bool) {
     classname := StringName.new("Skeleton2D")
     fnname := StringName.new("set_bone_local_pose_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 555457532)
@@ -81,7 +81,7 @@ pub fn (mut r Skeleton2D) set_bone_local_pose_override(bone_idx i32, override_po
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Skeleton2D) get_bone_local_pose_override(bone_idx i32) Transform2D {
+pub fn (r &Skeleton2D) get_bone_local_pose_override(bone_idx i32) Transform2D {
     mut object_out := Transform2D{}
     classname := StringName.new("Skeleton2D")
     fnname := StringName.new("get_bone_local_pose_override")

@@ -5,7 +5,7 @@ pub struct PrismMesh {
     PrimitiveMesh
 }
 
-pub fn (mut r PrismMesh) set_left_to_right(left_to_right f64) {
+pub fn (r &PrismMesh) set_left_to_right(left_to_right f64) {
     classname := StringName.new("PrismMesh")
     fnname := StringName.new("set_left_to_right")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -25,7 +25,7 @@ pub fn (r &PrismMesh) get_left_to_right() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PrismMesh) set_size(size Vector3) {
+pub fn (r &PrismMesh) set_size(size Vector3) {
     classname := StringName.new("PrismMesh")
     fnname := StringName.new("set_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -45,7 +45,7 @@ pub fn (r &PrismMesh) get_size() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PrismMesh) set_subdivide_width(segments i32) {
+pub fn (r &PrismMesh) set_subdivide_width(segments i32) {
     classname := StringName.new("PrismMesh")
     fnname := StringName.new("set_subdivide_width")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -65,7 +65,7 @@ pub fn (r &PrismMesh) get_subdivide_width() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PrismMesh) set_subdivide_height(segments i32) {
+pub fn (r &PrismMesh) set_subdivide_height(segments i32) {
     classname := StringName.new("PrismMesh")
     fnname := StringName.new("set_subdivide_height")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -85,7 +85,7 @@ pub fn (r &PrismMesh) get_subdivide_height() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PrismMesh) set_subdivide_depth(segments i32) {
+pub fn (r &PrismMesh) set_subdivide_depth(segments i32) {
     classname := StringName.new("PrismMesh")
     fnname := StringName.new("set_subdivide_depth")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

@@ -5,7 +5,7 @@ pub struct VisualShaderNodeVec3Constant {
     VisualShaderNodeConstant
 }
 
-pub fn (mut r VisualShaderNodeVec3Constant) set_constant(constant Vector3) {
+pub fn (r &VisualShaderNodeVec3Constant) set_constant(constant Vector3) {
     classname := StringName.new("VisualShaderNodeVec3Constant")
     fnname := StringName.new("set_constant")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)

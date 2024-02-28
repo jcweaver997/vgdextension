@@ -18,7 +18,7 @@ pub struct VisualShaderNodeCubemap {
     VisualShaderNode
 }
 
-pub fn (mut r VisualShaderNodeCubemap) set_source(value VisualShaderNodeCubemapSource) {
+pub fn (r &VisualShaderNodeCubemap) set_source(value VisualShaderNodeCubemapSource) {
     classname := StringName.new("VisualShaderNodeCubemap")
     fnname := StringName.new("set_source")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1625400621)
@@ -39,7 +39,7 @@ pub fn (r &VisualShaderNodeCubemap) get_source() VisualShaderNodeCubemapSource {
     fnname.deinit()
    return unsafe{VisualShaderNodeCubemapSource(object_out)}
 }
-pub fn (mut r VisualShaderNodeCubemap) set_cube_map(value Cubemap) {
+pub fn (r &VisualShaderNodeCubemap) set_cube_map(value Cubemap) {
     classname := StringName.new("VisualShaderNodeCubemap")
     fnname := StringName.new("set_cube_map")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2219800736)
@@ -59,7 +59,7 @@ pub fn (r &VisualShaderNodeCubemap) get_cube_map() Cubemap {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VisualShaderNodeCubemap) set_texture_type(value VisualShaderNodeCubemapTextureType) {
+pub fn (r &VisualShaderNodeCubemap) set_texture_type(value VisualShaderNodeCubemapTextureType) {
     classname := StringName.new("VisualShaderNodeCubemap")
     fnname := StringName.new("set_texture_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1899718876)

@@ -5,7 +5,7 @@ pub struct GLTFNode {
     Resource
 }
 
-pub fn (mut r GLTFNode) get_parent() i32 {
+pub fn (r &GLTFNode) get_parent() i32 {
     mut object_out := i32(0)
     classname := StringName.new("GLTFNode")
     fnname := StringName.new("get_parent")
@@ -15,7 +15,7 @@ pub fn (mut r GLTFNode) get_parent() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFNode) set_parent(parent i32) {
+pub fn (r &GLTFNode) set_parent(parent i32) {
     classname := StringName.new("GLTFNode")
     fnname := StringName.new("set_parent")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -25,7 +25,7 @@ pub fn (mut r GLTFNode) set_parent(parent i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFNode) get_height() i32 {
+pub fn (r &GLTFNode) get_height() i32 {
     mut object_out := i32(0)
     classname := StringName.new("GLTFNode")
     fnname := StringName.new("get_height")
@@ -35,7 +35,7 @@ pub fn (mut r GLTFNode) get_height() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFNode) set_height(height i32) {
+pub fn (r &GLTFNode) set_height(height i32) {
     classname := StringName.new("GLTFNode")
     fnname := StringName.new("set_height")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -45,7 +45,7 @@ pub fn (mut r GLTFNode) set_height(height i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFNode) get_xform() Transform3D {
+pub fn (r &GLTFNode) get_xform() Transform3D {
     mut object_out := Transform3D{}
     classname := StringName.new("GLTFNode")
     fnname := StringName.new("get_xform")
@@ -55,7 +55,7 @@ pub fn (mut r GLTFNode) get_xform() Transform3D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFNode) set_xform(xform Transform3D) {
+pub fn (r &GLTFNode) set_xform(xform Transform3D) {
     classname := StringName.new("GLTFNode")
     fnname := StringName.new("set_xform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2952846383)
@@ -65,7 +65,7 @@ pub fn (mut r GLTFNode) set_xform(xform Transform3D) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFNode) get_mesh() i32 {
+pub fn (r &GLTFNode) get_mesh() i32 {
     mut object_out := i32(0)
     classname := StringName.new("GLTFNode")
     fnname := StringName.new("get_mesh")
@@ -75,7 +75,7 @@ pub fn (mut r GLTFNode) get_mesh() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFNode) set_mesh(mesh i32) {
+pub fn (r &GLTFNode) set_mesh(mesh i32) {
     classname := StringName.new("GLTFNode")
     fnname := StringName.new("set_mesh")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -85,7 +85,7 @@ pub fn (mut r GLTFNode) set_mesh(mesh i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFNode) get_camera() i32 {
+pub fn (r &GLTFNode) get_camera() i32 {
     mut object_out := i32(0)
     classname := StringName.new("GLTFNode")
     fnname := StringName.new("get_camera")
@@ -95,7 +95,7 @@ pub fn (mut r GLTFNode) get_camera() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFNode) set_camera(camera i32) {
+pub fn (r &GLTFNode) set_camera(camera i32) {
     classname := StringName.new("GLTFNode")
     fnname := StringName.new("set_camera")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -105,7 +105,7 @@ pub fn (mut r GLTFNode) set_camera(camera i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFNode) get_skin() i32 {
+pub fn (r &GLTFNode) get_skin() i32 {
     mut object_out := i32(0)
     classname := StringName.new("GLTFNode")
     fnname := StringName.new("get_skin")
@@ -115,7 +115,7 @@ pub fn (mut r GLTFNode) get_skin() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFNode) set_skin(skin i32) {
+pub fn (r &GLTFNode) set_skin(skin i32) {
     classname := StringName.new("GLTFNode")
     fnname := StringName.new("set_skin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -125,7 +125,7 @@ pub fn (mut r GLTFNode) set_skin(skin i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFNode) get_skeleton() i32 {
+pub fn (r &GLTFNode) get_skeleton() i32 {
     mut object_out := i32(0)
     classname := StringName.new("GLTFNode")
     fnname := StringName.new("get_skeleton")
@@ -135,7 +135,7 @@ pub fn (mut r GLTFNode) get_skeleton() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFNode) set_skeleton(skeleton i32) {
+pub fn (r &GLTFNode) set_skeleton(skeleton i32) {
     classname := StringName.new("GLTFNode")
     fnname := StringName.new("set_skeleton")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -145,7 +145,7 @@ pub fn (mut r GLTFNode) set_skeleton(skeleton i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFNode) get_position() Vector3 {
+pub fn (r &GLTFNode) get_position() Vector3 {
     mut object_out := Vector3{}
     classname := StringName.new("GLTFNode")
     fnname := StringName.new("get_position")
@@ -155,7 +155,7 @@ pub fn (mut r GLTFNode) get_position() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFNode) set_position(position Vector3) {
+pub fn (r &GLTFNode) set_position(position Vector3) {
     classname := StringName.new("GLTFNode")
     fnname := StringName.new("set_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -165,7 +165,7 @@ pub fn (mut r GLTFNode) set_position(position Vector3) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFNode) get_rotation() Quaternion {
+pub fn (r &GLTFNode) get_rotation() Quaternion {
     mut object_out := Quaternion{}
     classname := StringName.new("GLTFNode")
     fnname := StringName.new("get_rotation")
@@ -175,7 +175,7 @@ pub fn (mut r GLTFNode) get_rotation() Quaternion {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFNode) set_rotation(rotation Quaternion) {
+pub fn (r &GLTFNode) set_rotation(rotation Quaternion) {
     classname := StringName.new("GLTFNode")
     fnname := StringName.new("set_rotation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1727505552)
@@ -185,7 +185,7 @@ pub fn (mut r GLTFNode) set_rotation(rotation Quaternion) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFNode) get_scale() Vector3 {
+pub fn (r &GLTFNode) get_scale() Vector3 {
     mut object_out := Vector3{}
     classname := StringName.new("GLTFNode")
     fnname := StringName.new("get_scale")
@@ -195,7 +195,7 @@ pub fn (mut r GLTFNode) get_scale() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFNode) set_scale(scale Vector3) {
+pub fn (r &GLTFNode) set_scale(scale Vector3) {
     classname := StringName.new("GLTFNode")
     fnname := StringName.new("set_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -205,7 +205,7 @@ pub fn (mut r GLTFNode) set_scale(scale Vector3) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFNode) get_children() PackedInt32Array {
+pub fn (r &GLTFNode) get_children() PackedInt32Array {
     mut object_out := PackedInt32Array{}
     classname := StringName.new("GLTFNode")
     fnname := StringName.new("get_children")
@@ -215,7 +215,7 @@ pub fn (mut r GLTFNode) get_children() PackedInt32Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFNode) set_children(children PackedInt32Array) {
+pub fn (r &GLTFNode) set_children(children PackedInt32Array) {
     classname := StringName.new("GLTFNode")
     fnname := StringName.new("set_children")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3614634198)
@@ -225,7 +225,7 @@ pub fn (mut r GLTFNode) set_children(children PackedInt32Array) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFNode) get_light() i32 {
+pub fn (r &GLTFNode) get_light() i32 {
     mut object_out := i32(0)
     classname := StringName.new("GLTFNode")
     fnname := StringName.new("get_light")
@@ -235,7 +235,7 @@ pub fn (mut r GLTFNode) get_light() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFNode) set_light(light i32) {
+pub fn (r &GLTFNode) set_light(light i32) {
     classname := StringName.new("GLTFNode")
     fnname := StringName.new("set_light")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -245,7 +245,7 @@ pub fn (mut r GLTFNode) set_light(light i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFNode) get_additional_data(extension_name string) Variant {
+pub fn (r &GLTFNode) get_additional_data(extension_name string) Variant {
     mut object_out := Variant{}
     classname := StringName.new("GLTFNode")
     fnname := StringName.new("get_additional_data")
@@ -259,7 +259,7 @@ pub fn (mut r GLTFNode) get_additional_data(extension_name string) Variant {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFNode) set_additional_data(extension_name string, additional_data Variant) {
+pub fn (r &GLTFNode) set_additional_data(extension_name string, additional_data Variant) {
     classname := StringName.new("GLTFNode")
     fnname := StringName.new("set_additional_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3776071444)

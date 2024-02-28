@@ -5,7 +5,7 @@ pub struct TextParagraph {
     RefCounted
 }
 
-pub fn (mut r TextParagraph) clear() {
+pub fn (r &TextParagraph) clear() {
     classname := StringName.new("TextParagraph")
     fnname := StringName.new("clear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -13,7 +13,7 @@ pub fn (mut r TextParagraph) clear() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextParagraph) set_direction(direction TextServerDirection) {
+pub fn (r &TextParagraph) set_direction(direction TextServerDirection) {
     classname := StringName.new("TextParagraph")
     fnname := StringName.new("set_direction")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1418190634)
@@ -34,7 +34,7 @@ pub fn (r &TextParagraph) get_direction() TextServerDirection {
     fnname.deinit()
    return unsafe{TextServerDirection(object_out)}
 }
-pub fn (mut r TextParagraph) set_custom_punctuation(custom_punctuation string) {
+pub fn (r &TextParagraph) set_custom_punctuation(custom_punctuation string) {
     classname := StringName.new("TextParagraph")
     fnname := StringName.new("set_custom_punctuation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -58,7 +58,7 @@ pub fn (r &TextParagraph) get_custom_punctuation() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r TextParagraph) set_orientation(orientation TextServerOrientation) {
+pub fn (r &TextParagraph) set_orientation(orientation TextServerOrientation) {
     classname := StringName.new("TextParagraph")
     fnname := StringName.new("set_orientation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 42823726)
@@ -79,7 +79,7 @@ pub fn (r &TextParagraph) get_orientation() TextServerOrientation {
     fnname.deinit()
    return unsafe{TextServerOrientation(object_out)}
 }
-pub fn (mut r TextParagraph) set_preserve_invalid(enabled bool) {
+pub fn (r &TextParagraph) set_preserve_invalid(enabled bool) {
     classname := StringName.new("TextParagraph")
     fnname := StringName.new("set_preserve_invalid")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -99,7 +99,7 @@ pub fn (r &TextParagraph) get_preserve_invalid() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextParagraph) set_preserve_control(enabled bool) {
+pub fn (r &TextParagraph) set_preserve_control(enabled bool) {
     classname := StringName.new("TextParagraph")
     fnname := StringName.new("set_preserve_control")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -119,7 +119,7 @@ pub fn (r &TextParagraph) get_preserve_control() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextParagraph) set_bidi_override(override Array) {
+pub fn (r &TextParagraph) set_bidi_override(override Array) {
     classname := StringName.new("TextParagraph")
     fnname := StringName.new("set_bidi_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)
@@ -129,7 +129,7 @@ pub fn (mut r TextParagraph) set_bidi_override(override Array) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextParagraph) set_dropcap(text string, font Font, font_size i32, dropcap_margins Rect2, language string) bool {
+pub fn (r &TextParagraph) set_dropcap(text string, font Font, font_size i32, dropcap_margins Rect2, language string) bool {
     mut object_out := false
     classname := StringName.new("TextParagraph")
     fnname := StringName.new("set_dropcap")
@@ -149,7 +149,7 @@ pub fn (mut r TextParagraph) set_dropcap(text string, font Font, font_size i32, 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextParagraph) clear_dropcap() {
+pub fn (r &TextParagraph) clear_dropcap() {
     classname := StringName.new("TextParagraph")
     fnname := StringName.new("clear_dropcap")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -157,7 +157,7 @@ pub fn (mut r TextParagraph) clear_dropcap() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextParagraph) add_string(text string, font Font, font_size i32, language string, meta Variant) bool {
+pub fn (r &TextParagraph) add_string(text string, font Font, font_size i32, language string, meta Variant) bool {
     mut object_out := false
     classname := StringName.new("TextParagraph")
     fnname := StringName.new("add_string")
@@ -177,7 +177,7 @@ pub fn (mut r TextParagraph) add_string(text string, font Font, font_size i32, l
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextParagraph) add_object(key Variant, size Vector2, inline_align InlineAlignment, length i32, baseline f64) bool {
+pub fn (r &TextParagraph) add_object(key Variant, size Vector2, inline_align InlineAlignment, length i32, baseline f64) bool {
     mut object_out := false
     classname := StringName.new("TextParagraph")
     fnname := StringName.new("add_object")
@@ -194,7 +194,7 @@ pub fn (mut r TextParagraph) add_object(key Variant, size Vector2, inline_align 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextParagraph) resize_object(key Variant, size Vector2, inline_align InlineAlignment, baseline f64) bool {
+pub fn (r &TextParagraph) resize_object(key Variant, size Vector2, inline_align InlineAlignment, baseline f64) bool {
     mut object_out := false
     classname := StringName.new("TextParagraph")
     fnname := StringName.new("resize_object")
@@ -210,7 +210,7 @@ pub fn (mut r TextParagraph) resize_object(key Variant, size Vector2, inline_ali
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextParagraph) set_alignment(alignment HorizontalAlignment) {
+pub fn (r &TextParagraph) set_alignment(alignment HorizontalAlignment) {
     classname := StringName.new("TextParagraph")
     fnname := StringName.new("set_alignment")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2312603777)
@@ -231,7 +231,7 @@ pub fn (r &TextParagraph) get_alignment() HorizontalAlignment {
     fnname.deinit()
    return unsafe{HorizontalAlignment(object_out)}
 }
-pub fn (mut r TextParagraph) tab_align(tab_stops PackedFloat32Array) {
+pub fn (r &TextParagraph) tab_align(tab_stops PackedFloat32Array) {
     classname := StringName.new("TextParagraph")
     fnname := StringName.new("tab_align")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2899603908)
@@ -241,7 +241,7 @@ pub fn (mut r TextParagraph) tab_align(tab_stops PackedFloat32Array) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r TextParagraph) set_break_flags(flags TextServerLineBreakFlag) {
+pub fn (r &TextParagraph) set_break_flags(flags TextServerLineBreakFlag) {
     classname := StringName.new("TextParagraph")
     fnname := StringName.new("set_break_flags")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2809697122)
@@ -262,7 +262,7 @@ pub fn (r &TextParagraph) get_break_flags() TextServerLineBreakFlag {
     fnname.deinit()
    return unsafe{TextServerLineBreakFlag(object_out)}
 }
-pub fn (mut r TextParagraph) set_justification_flags(flags TextServerJustificationFlag) {
+pub fn (r &TextParagraph) set_justification_flags(flags TextServerJustificationFlag) {
     classname := StringName.new("TextParagraph")
     fnname := StringName.new("set_justification_flags")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2877345813)
@@ -283,7 +283,7 @@ pub fn (r &TextParagraph) get_justification_flags() TextServerJustificationFlag 
     fnname.deinit()
    return unsafe{TextServerJustificationFlag(object_out)}
 }
-pub fn (mut r TextParagraph) set_text_overrun_behavior(overrun_behavior TextServerOverrunBehavior) {
+pub fn (r &TextParagraph) set_text_overrun_behavior(overrun_behavior TextServerOverrunBehavior) {
     classname := StringName.new("TextParagraph")
     fnname := StringName.new("set_text_overrun_behavior")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1008890932)
@@ -304,7 +304,7 @@ pub fn (r &TextParagraph) get_text_overrun_behavior() TextServerOverrunBehavior 
     fnname.deinit()
    return unsafe{TextServerOverrunBehavior(object_out)}
 }
-pub fn (mut r TextParagraph) set_width(width f64) {
+pub fn (r &TextParagraph) set_width(width f64) {
     classname := StringName.new("TextParagraph")
     fnname := StringName.new("set_width")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -386,7 +386,7 @@ pub fn (r &TextParagraph) get_line_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TextParagraph) set_max_lines_visible(max_lines_visible i32) {
+pub fn (r &TextParagraph) set_max_lines_visible(max_lines_visible i32) {
     classname := StringName.new("TextParagraph")
     fnname := StringName.new("set_max_lines_visible")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

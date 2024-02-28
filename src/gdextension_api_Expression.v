@@ -5,7 +5,7 @@ pub struct Expression {
     RefCounted
 }
 
-pub fn (mut r Expression) parse(expression string, input_names PackedStringArray) GDError {
+pub fn (r &Expression) parse(expression string, input_names PackedStringArray) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("Expression")
     fnname := StringName.new("parse")
@@ -20,7 +20,7 @@ pub fn (mut r Expression) parse(expression string, input_names PackedStringArray
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r Expression) execute(inputs Array, base_instance Object, show_error bool, const_calls_only bool) Variant {
+pub fn (r &Expression) execute(inputs Array, base_instance Object, show_error bool, const_calls_only bool) Variant {
     mut object_out := Variant{}
     classname := StringName.new("Expression")
     fnname := StringName.new("execute")

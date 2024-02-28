@@ -10,7 +10,7 @@ pub interface IEditorDebuggerPluginSetupSession {
     virt_setup_session(session_id i32)
 }
 
-pub fn (mut r EditorDebuggerPlugin) usetup_session(session_id i32) {
+pub fn (r &EditorDebuggerPlugin) usetup_session(session_id i32) {
     classname := StringName.new("EditorDebuggerPlugin")
     fnname := StringName.new("_setup_session")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -44,7 +44,7 @@ pub interface IEditorDebuggerPluginCapture {
     virt_capture(message String, data Array, session_id i32) bool
 }
 
-pub fn (mut r EditorDebuggerPlugin) ucapture(message string, data Array, session_id i32) bool {
+pub fn (r &EditorDebuggerPlugin) ucapture(message string, data Array, session_id i32) bool {
     mut object_out := false
     classname := StringName.new("EditorDebuggerPlugin")
     fnname := StringName.new("_capture")
@@ -60,7 +60,7 @@ pub fn (mut r EditorDebuggerPlugin) ucapture(message string, data Array, session
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorDebuggerPlugin) get_session(id i32) EditorDebuggerSession {
+pub fn (r &EditorDebuggerPlugin) get_session(id i32) EditorDebuggerSession {
     mut object_out := EditorDebuggerSession{}
     classname := StringName.new("EditorDebuggerPlugin")
     fnname := StringName.new("get_session")
@@ -72,7 +72,7 @@ pub fn (mut r EditorDebuggerPlugin) get_session(id i32) EditorDebuggerSession {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorDebuggerPlugin) get_sessions() Array {
+pub fn (r &EditorDebuggerPlugin) get_sessions() Array {
     mut object_out := Array{}
     classname := StringName.new("EditorDebuggerPlugin")
     fnname := StringName.new("get_sessions")

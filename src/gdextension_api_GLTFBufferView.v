@@ -5,7 +5,7 @@ pub struct GLTFBufferView {
     Resource
 }
 
-pub fn (mut r GLTFBufferView) get_buffer() i32 {
+pub fn (r &GLTFBufferView) get_buffer() i32 {
     mut object_out := i32(0)
     classname := StringName.new("GLTFBufferView")
     fnname := StringName.new("get_buffer")
@@ -15,7 +15,7 @@ pub fn (mut r GLTFBufferView) get_buffer() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFBufferView) set_buffer(buffer i32) {
+pub fn (r &GLTFBufferView) set_buffer(buffer i32) {
     classname := StringName.new("GLTFBufferView")
     fnname := StringName.new("set_buffer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -25,7 +25,7 @@ pub fn (mut r GLTFBufferView) set_buffer(buffer i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFBufferView) get_byte_offset() i32 {
+pub fn (r &GLTFBufferView) get_byte_offset() i32 {
     mut object_out := i32(0)
     classname := StringName.new("GLTFBufferView")
     fnname := StringName.new("get_byte_offset")
@@ -35,7 +35,7 @@ pub fn (mut r GLTFBufferView) get_byte_offset() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFBufferView) set_byte_offset(byte_offset i32) {
+pub fn (r &GLTFBufferView) set_byte_offset(byte_offset i32) {
     classname := StringName.new("GLTFBufferView")
     fnname := StringName.new("set_byte_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -45,7 +45,7 @@ pub fn (mut r GLTFBufferView) set_byte_offset(byte_offset i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFBufferView) get_byte_length() i32 {
+pub fn (r &GLTFBufferView) get_byte_length() i32 {
     mut object_out := i32(0)
     classname := StringName.new("GLTFBufferView")
     fnname := StringName.new("get_byte_length")
@@ -55,7 +55,7 @@ pub fn (mut r GLTFBufferView) get_byte_length() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFBufferView) set_byte_length(byte_length i32) {
+pub fn (r &GLTFBufferView) set_byte_length(byte_length i32) {
     classname := StringName.new("GLTFBufferView")
     fnname := StringName.new("set_byte_length")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -65,7 +65,7 @@ pub fn (mut r GLTFBufferView) set_byte_length(byte_length i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFBufferView) get_byte_stride() i32 {
+pub fn (r &GLTFBufferView) get_byte_stride() i32 {
     mut object_out := i32(0)
     classname := StringName.new("GLTFBufferView")
     fnname := StringName.new("get_byte_stride")
@@ -75,7 +75,7 @@ pub fn (mut r GLTFBufferView) get_byte_stride() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFBufferView) set_byte_stride(byte_stride i32) {
+pub fn (r &GLTFBufferView) set_byte_stride(byte_stride i32) {
     classname := StringName.new("GLTFBufferView")
     fnname := StringName.new("set_byte_stride")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -85,7 +85,7 @@ pub fn (mut r GLTFBufferView) set_byte_stride(byte_stride i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFBufferView) get_indices() bool {
+pub fn (r &GLTFBufferView) get_indices() bool {
     mut object_out := false
     classname := StringName.new("GLTFBufferView")
     fnname := StringName.new("get_indices")
@@ -95,7 +95,7 @@ pub fn (mut r GLTFBufferView) get_indices() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFBufferView) set_indices(indices bool) {
+pub fn (r &GLTFBufferView) set_indices(indices bool) {
     classname := StringName.new("GLTFBufferView")
     fnname := StringName.new("set_indices")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

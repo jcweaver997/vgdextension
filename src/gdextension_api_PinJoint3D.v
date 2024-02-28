@@ -11,7 +11,7 @@ pub struct PinJoint3D {
     Joint3D
 }
 
-pub fn (mut r PinJoint3D) set_param(param PinJoint3DParam, value f64) {
+pub fn (r &PinJoint3D) set_param(param PinJoint3DParam, value f64) {
     classname := StringName.new("PinJoint3D")
     fnname := StringName.new("set_param")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2059913726)

@@ -5,7 +5,7 @@ pub struct AudioStreamPlaybackPolyphonic {
     AudioStreamPlayback
 }
 
-pub fn (mut r AudioStreamPlaybackPolyphonic) play_stream(stream AudioStream, from_offset f64, volume_db f64, pitch_scale f64) i64 {
+pub fn (r &AudioStreamPlaybackPolyphonic) play_stream(stream AudioStream, from_offset f64, volume_db f64, pitch_scale f64) i64 {
     mut object_out := i64(0)
     classname := StringName.new("AudioStreamPlaybackPolyphonic")
     fnname := StringName.new("play_stream")
@@ -20,7 +20,7 @@ pub fn (mut r AudioStreamPlaybackPolyphonic) play_stream(stream AudioStream, fro
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlaybackPolyphonic) set_stream_volume(stream i64, volume_db f64) {
+pub fn (r &AudioStreamPlaybackPolyphonic) set_stream_volume(stream i64, volume_db f64) {
     classname := StringName.new("AudioStreamPlaybackPolyphonic")
     fnname := StringName.new("set_stream_volume")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1602489585)
@@ -31,7 +31,7 @@ pub fn (mut r AudioStreamPlaybackPolyphonic) set_stream_volume(stream i64, volum
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AudioStreamPlaybackPolyphonic) set_stream_pitch_scale(stream i64, pitch_scale f64) {
+pub fn (r &AudioStreamPlaybackPolyphonic) set_stream_pitch_scale(stream i64, pitch_scale f64) {
     classname := StringName.new("AudioStreamPlaybackPolyphonic")
     fnname := StringName.new("set_stream_pitch_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1602489585)
@@ -54,7 +54,7 @@ pub fn (r &AudioStreamPlaybackPolyphonic) is_stream_playing(stream i64) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlaybackPolyphonic) stop_stream(stream i64) {
+pub fn (r &AudioStreamPlaybackPolyphonic) stop_stream(stream i64) {
     classname := StringName.new("AudioStreamPlaybackPolyphonic")
     fnname := StringName.new("stop_stream")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

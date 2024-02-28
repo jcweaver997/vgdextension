@@ -5,7 +5,7 @@ pub struct GridContainer {
     Container
 }
 
-pub fn (mut r GridContainer) set_columns(columns i32) {
+pub fn (r &GridContainer) set_columns(columns i32) {
     classname := StringName.new("GridContainer")
     fnname := StringName.new("set_columns")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

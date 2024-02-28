@@ -40,7 +40,7 @@ pub struct LightmapGI {
     VisualInstance3D
 }
 
-pub fn (mut r LightmapGI) set_light_data(data LightmapGIData) {
+pub fn (r &LightmapGI) set_light_data(data LightmapGIData) {
     classname := StringName.new("LightmapGI")
     fnname := StringName.new("set_light_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1790597277)
@@ -60,7 +60,7 @@ pub fn (r &LightmapGI) get_light_data() LightmapGIData {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LightmapGI) set_bake_quality(bake_quality LightmapGIBakeQuality) {
+pub fn (r &LightmapGI) set_bake_quality(bake_quality LightmapGIBakeQuality) {
     classname := StringName.new("LightmapGI")
     fnname := StringName.new("set_bake_quality")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1192215803)
@@ -81,7 +81,7 @@ pub fn (r &LightmapGI) get_bake_quality() LightmapGIBakeQuality {
     fnname.deinit()
    return unsafe{LightmapGIBakeQuality(object_out)}
 }
-pub fn (mut r LightmapGI) set_bounces(bounces i32) {
+pub fn (r &LightmapGI) set_bounces(bounces i32) {
     classname := StringName.new("LightmapGI")
     fnname := StringName.new("set_bounces")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -101,7 +101,7 @@ pub fn (r &LightmapGI) get_bounces() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LightmapGI) set_bounce_indirect_energy(bounce_indirect_energy f64) {
+pub fn (r &LightmapGI) set_bounce_indirect_energy(bounce_indirect_energy f64) {
     classname := StringName.new("LightmapGI")
     fnname := StringName.new("set_bounce_indirect_energy")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -121,7 +121,7 @@ pub fn (r &LightmapGI) get_bounce_indirect_energy() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LightmapGI) set_generate_probes(subdivision LightmapGIGenerateProbes) {
+pub fn (r &LightmapGI) set_generate_probes(subdivision LightmapGIGenerateProbes) {
     classname := StringName.new("LightmapGI")
     fnname := StringName.new("set_generate_probes")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 549981046)
@@ -142,7 +142,7 @@ pub fn (r &LightmapGI) get_generate_probes() LightmapGIGenerateProbes {
     fnname.deinit()
    return unsafe{LightmapGIGenerateProbes(object_out)}
 }
-pub fn (mut r LightmapGI) set_bias(bias f64) {
+pub fn (r &LightmapGI) set_bias(bias f64) {
     classname := StringName.new("LightmapGI")
     fnname := StringName.new("set_bias")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -162,7 +162,7 @@ pub fn (r &LightmapGI) get_bias() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LightmapGI) set_environment_mode(mode LightmapGIEnvironmentMode) {
+pub fn (r &LightmapGI) set_environment_mode(mode LightmapGIEnvironmentMode) {
     classname := StringName.new("LightmapGI")
     fnname := StringName.new("set_environment_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2282650285)
@@ -183,7 +183,7 @@ pub fn (r &LightmapGI) get_environment_mode() LightmapGIEnvironmentMode {
     fnname.deinit()
    return unsafe{LightmapGIEnvironmentMode(object_out)}
 }
-pub fn (mut r LightmapGI) set_environment_custom_sky(sky Sky) {
+pub fn (r &LightmapGI) set_environment_custom_sky(sky Sky) {
     classname := StringName.new("LightmapGI")
     fnname := StringName.new("set_environment_custom_sky")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3336722921)
@@ -203,7 +203,7 @@ pub fn (r &LightmapGI) get_environment_custom_sky() Sky {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LightmapGI) set_environment_custom_color(color Color) {
+pub fn (r &LightmapGI) set_environment_custom_color(color Color) {
     classname := StringName.new("LightmapGI")
     fnname := StringName.new("set_environment_custom_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -223,7 +223,7 @@ pub fn (r &LightmapGI) get_environment_custom_color() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LightmapGI) set_environment_custom_energy(energy f64) {
+pub fn (r &LightmapGI) set_environment_custom_energy(energy f64) {
     classname := StringName.new("LightmapGI")
     fnname := StringName.new("set_environment_custom_energy")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -243,7 +243,7 @@ pub fn (r &LightmapGI) get_environment_custom_energy() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LightmapGI) set_max_texture_size(max_texture_size i32) {
+pub fn (r &LightmapGI) set_max_texture_size(max_texture_size i32) {
     classname := StringName.new("LightmapGI")
     fnname := StringName.new("set_max_texture_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -263,7 +263,7 @@ pub fn (r &LightmapGI) get_max_texture_size() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LightmapGI) set_use_denoiser(use_denoiser bool) {
+pub fn (r &LightmapGI) set_use_denoiser(use_denoiser bool) {
     classname := StringName.new("LightmapGI")
     fnname := StringName.new("set_use_denoiser")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -283,7 +283,7 @@ pub fn (r &LightmapGI) is_using_denoiser() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LightmapGI) set_denoiser_strength(denoiser_strength f64) {
+pub fn (r &LightmapGI) set_denoiser_strength(denoiser_strength f64) {
     classname := StringName.new("LightmapGI")
     fnname := StringName.new("set_denoiser_strength")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -303,7 +303,7 @@ pub fn (r &LightmapGI) get_denoiser_strength() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LightmapGI) set_interior(enable bool) {
+pub fn (r &LightmapGI) set_interior(enable bool) {
     classname := StringName.new("LightmapGI")
     fnname := StringName.new("set_interior")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -323,7 +323,7 @@ pub fn (r &LightmapGI) is_interior() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LightmapGI) set_directional(directional bool) {
+pub fn (r &LightmapGI) set_directional(directional bool) {
     classname := StringName.new("LightmapGI")
     fnname := StringName.new("set_directional")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -343,7 +343,7 @@ pub fn (r &LightmapGI) is_directional() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LightmapGI) set_use_texture_for_bounces(use_texture_for_bounces bool) {
+pub fn (r &LightmapGI) set_use_texture_for_bounces(use_texture_for_bounces bool) {
     classname := StringName.new("LightmapGI")
     fnname := StringName.new("set_use_texture_for_bounces")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -363,7 +363,7 @@ pub fn (r &LightmapGI) is_using_texture_for_bounces() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LightmapGI) set_camera_attributes(camera_attributes CameraAttributes) {
+pub fn (r &LightmapGI) set_camera_attributes(camera_attributes CameraAttributes) {
     classname := StringName.new("LightmapGI")
     fnname := StringName.new("set_camera_attributes")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2817810567)

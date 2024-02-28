@@ -10,7 +10,7 @@ pub interface IPhysicsServer3DRenderingServerHandlerSetVertex {
     virt_set_vertex(vertex_id i32, vertex Vector3)
 }
 
-pub fn (mut r PhysicsServer3DRenderingServerHandler) uset_vertex(vertex_id i32, vertex Vector3) {
+pub fn (r &PhysicsServer3DRenderingServerHandler) uset_vertex(vertex_id i32, vertex Vector3) {
     classname := StringName.new("PhysicsServer3DRenderingServerHandler")
     fnname := StringName.new("_set_vertex")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -26,7 +26,7 @@ pub interface IPhysicsServer3DRenderingServerHandlerSetNormal {
     virt_set_normal(vertex_id i32, normal Vector3)
 }
 
-pub fn (mut r PhysicsServer3DRenderingServerHandler) uset_normal(vertex_id i32, normal Vector3) {
+pub fn (r &PhysicsServer3DRenderingServerHandler) uset_normal(vertex_id i32, normal Vector3) {
     classname := StringName.new("PhysicsServer3DRenderingServerHandler")
     fnname := StringName.new("_set_normal")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -42,7 +42,7 @@ pub interface IPhysicsServer3DRenderingServerHandlerSetAabb {
     virt_set_aabb(aabb AABB)
 }
 
-pub fn (mut r PhysicsServer3DRenderingServerHandler) uset_aabb(aabb AABB) {
+pub fn (r &PhysicsServer3DRenderingServerHandler) uset_aabb(aabb AABB) {
     classname := StringName.new("PhysicsServer3DRenderingServerHandler")
     fnname := StringName.new("_set_aabb")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -52,7 +52,7 @@ pub fn (mut r PhysicsServer3DRenderingServerHandler) uset_aabb(aabb AABB) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PhysicsServer3DRenderingServerHandler) set_vertex(vertex_id i32, vertex Vector3) {
+pub fn (r &PhysicsServer3DRenderingServerHandler) set_vertex(vertex_id i32, vertex Vector3) {
     classname := StringName.new("PhysicsServer3DRenderingServerHandler")
     fnname := StringName.new("set_vertex")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1530502735)
@@ -63,7 +63,7 @@ pub fn (mut r PhysicsServer3DRenderingServerHandler) set_vertex(vertex_id i32, v
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PhysicsServer3DRenderingServerHandler) set_normal(vertex_id i32, normal Vector3) {
+pub fn (r &PhysicsServer3DRenderingServerHandler) set_normal(vertex_id i32, normal Vector3) {
     classname := StringName.new("PhysicsServer3DRenderingServerHandler")
     fnname := StringName.new("set_normal")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1530502735)
@@ -74,7 +74,7 @@ pub fn (mut r PhysicsServer3DRenderingServerHandler) set_normal(vertex_id i32, n
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PhysicsServer3DRenderingServerHandler) set_aabb(aabb AABB) {
+pub fn (r &PhysicsServer3DRenderingServerHandler) set_aabb(aabb AABB) {
     classname := StringName.new("PhysicsServer3DRenderingServerHandler")
     fnname := StringName.new("set_aabb")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 259215842)

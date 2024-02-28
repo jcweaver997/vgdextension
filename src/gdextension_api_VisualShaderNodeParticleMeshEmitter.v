@@ -5,7 +5,7 @@ pub struct VisualShaderNodeParticleMeshEmitter {
     VisualShaderNodeParticleEmitter
 }
 
-pub fn (mut r VisualShaderNodeParticleMeshEmitter) set_mesh(mesh Mesh) {
+pub fn (r &VisualShaderNodeParticleMeshEmitter) set_mesh(mesh Mesh) {
     classname := StringName.new("VisualShaderNodeParticleMeshEmitter")
     fnname := StringName.new("set_mesh")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 194775623)
@@ -25,7 +25,7 @@ pub fn (r &VisualShaderNodeParticleMeshEmitter) get_mesh() Mesh {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VisualShaderNodeParticleMeshEmitter) set_use_all_surfaces(enabled bool) {
+pub fn (r &VisualShaderNodeParticleMeshEmitter) set_use_all_surfaces(enabled bool) {
     classname := StringName.new("VisualShaderNodeParticleMeshEmitter")
     fnname := StringName.new("set_use_all_surfaces")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -45,7 +45,7 @@ pub fn (r &VisualShaderNodeParticleMeshEmitter) is_use_all_surfaces() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VisualShaderNodeParticleMeshEmitter) set_surface_index(surface_index i32) {
+pub fn (r &VisualShaderNodeParticleMeshEmitter) set_surface_index(surface_index i32) {
     classname := StringName.new("VisualShaderNodeParticleMeshEmitter")
     fnname := StringName.new("set_surface_index")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

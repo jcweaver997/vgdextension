@@ -10,7 +10,7 @@ pub interface IVideoStreamInstantiatePlayback {
     virt_instantiate_playback() VideoStreamPlayback
 }
 
-pub fn (mut r VideoStream) uinstantiate_playback() VideoStreamPlayback {
+pub fn (r &VideoStream) uinstantiate_playback() VideoStreamPlayback {
     mut object_out := VideoStreamPlayback{}
     classname := StringName.new("VideoStream")
     fnname := StringName.new("_instantiate_playback")
@@ -20,7 +20,7 @@ pub fn (mut r VideoStream) uinstantiate_playback() VideoStreamPlayback {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VideoStream) set_file(file string) {
+pub fn (r &VideoStream) set_file(file string) {
     classname := StringName.new("VideoStream")
     fnname := StringName.new("set_file")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -32,7 +32,7 @@ pub fn (mut r VideoStream) set_file(file string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r VideoStream) get_file() string {
+pub fn (r &VideoStream) get_file() string {
     mut object_out := String{}
     classname := StringName.new("VideoStream")
     fnname := StringName.new("get_file")

@@ -17,7 +17,7 @@ pub struct WebSocketPeer {
     PacketPeer
 }
 
-pub fn (mut r WebSocketPeer) connect_to_url(url string, tls_client_options TLSOptions) GDError {
+pub fn (r &WebSocketPeer) connect_to_url(url string, tls_client_options TLSOptions) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("WebSocketPeer")
     fnname := StringName.new("connect_to_url")
@@ -32,7 +32,7 @@ pub fn (mut r WebSocketPeer) connect_to_url(url string, tls_client_options TLSOp
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r WebSocketPeer) accept_stream(stream StreamPeer) GDError {
+pub fn (r &WebSocketPeer) accept_stream(stream StreamPeer) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("WebSocketPeer")
     fnname := StringName.new("accept_stream")
@@ -44,7 +44,7 @@ pub fn (mut r WebSocketPeer) accept_stream(stream StreamPeer) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r WebSocketPeer) send(message PackedByteArray, write_mode WebSocketPeerWriteMode) GDError {
+pub fn (r &WebSocketPeer) send(message PackedByteArray, write_mode WebSocketPeerWriteMode) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("WebSocketPeer")
     fnname := StringName.new("send")
@@ -58,7 +58,7 @@ pub fn (mut r WebSocketPeer) send(message PackedByteArray, write_mode WebSocketP
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r WebSocketPeer) send_text(message string) GDError {
+pub fn (r &WebSocketPeer) send_text(message string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("WebSocketPeer")
     fnname := StringName.new("send_text")
@@ -82,7 +82,7 @@ pub fn (r &WebSocketPeer) was_string_packet() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r WebSocketPeer) poll() {
+pub fn (r &WebSocketPeer) poll() {
     classname := StringName.new("WebSocketPeer")
     fnname := StringName.new("poll")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -90,7 +90,7 @@ pub fn (mut r WebSocketPeer) poll() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r WebSocketPeer) close(code i32, reason string) {
+pub fn (r &WebSocketPeer) close(code i32, reason string) {
     classname := StringName.new("WebSocketPeer")
     fnname := StringName.new("close")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1047156615)
@@ -149,7 +149,7 @@ pub fn (r &WebSocketPeer) get_requested_url() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r WebSocketPeer) set_no_delay(enabled bool) {
+pub fn (r &WebSocketPeer) set_no_delay(enabled bool) {
     classname := StringName.new("WebSocketPeer")
     fnname := StringName.new("set_no_delay")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -211,7 +211,7 @@ pub fn (r &WebSocketPeer) get_supported_protocols() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r WebSocketPeer) set_supported_protocols(protocols PackedStringArray) {
+pub fn (r &WebSocketPeer) set_supported_protocols(protocols PackedStringArray) {
     classname := StringName.new("WebSocketPeer")
     fnname := StringName.new("set_supported_protocols")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4015028928)
@@ -231,7 +231,7 @@ pub fn (r &WebSocketPeer) get_handshake_headers() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r WebSocketPeer) set_handshake_headers(protocols PackedStringArray) {
+pub fn (r &WebSocketPeer) set_handshake_headers(protocols PackedStringArray) {
     classname := StringName.new("WebSocketPeer")
     fnname := StringName.new("set_handshake_headers")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4015028928)
@@ -251,7 +251,7 @@ pub fn (r &WebSocketPeer) get_inbound_buffer_size() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r WebSocketPeer) set_inbound_buffer_size(buffer_size i32) {
+pub fn (r &WebSocketPeer) set_inbound_buffer_size(buffer_size i32) {
     classname := StringName.new("WebSocketPeer")
     fnname := StringName.new("set_inbound_buffer_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -271,7 +271,7 @@ pub fn (r &WebSocketPeer) get_outbound_buffer_size() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r WebSocketPeer) set_outbound_buffer_size(buffer_size i32) {
+pub fn (r &WebSocketPeer) set_outbound_buffer_size(buffer_size i32) {
     classname := StringName.new("WebSocketPeer")
     fnname := StringName.new("set_outbound_buffer_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -281,7 +281,7 @@ pub fn (mut r WebSocketPeer) set_outbound_buffer_size(buffer_size i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r WebSocketPeer) set_max_queued_packets(buffer_size i32) {
+pub fn (r &WebSocketPeer) set_max_queued_packets(buffer_size i32) {
     classname := StringName.new("WebSocketPeer")
     fnname := StringName.new("set_max_queued_packets")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

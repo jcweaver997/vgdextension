@@ -10,7 +10,7 @@ pub interface IEditorScriptRun {
     virt_run()
 }
 
-pub fn (mut r EditorScript) urun() {
+pub fn (r &EditorScript) urun() {
     classname := StringName.new("EditorScript")
     fnname := StringName.new("_run")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -18,7 +18,7 @@ pub fn (mut r EditorScript) urun() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorScript) add_root_node(node Node) {
+pub fn (r &EditorScript) add_root_node(node Node) {
     classname := StringName.new("EditorScript")
     fnname := StringName.new("add_root_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)

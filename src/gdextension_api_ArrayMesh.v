@@ -5,7 +5,7 @@ pub struct ArrayMesh {
     Mesh
 }
 
-pub fn (mut r ArrayMesh) add_blend_shape(name string) {
+pub fn (r &ArrayMesh) add_blend_shape(name string) {
     classname := StringName.new("ArrayMesh")
     fnname := StringName.new("add_blend_shape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -41,7 +41,7 @@ pub fn (r &ArrayMesh) get_blend_shape_name(index i32) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r ArrayMesh) set_blend_shape_name(index i32, name string) {
+pub fn (r &ArrayMesh) set_blend_shape_name(index i32, name string) {
     classname := StringName.new("ArrayMesh")
     fnname := StringName.new("set_blend_shape_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3780747571)
@@ -54,7 +54,7 @@ pub fn (mut r ArrayMesh) set_blend_shape_name(index i32, name string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ArrayMesh) clear_blend_shapes() {
+pub fn (r &ArrayMesh) clear_blend_shapes() {
     classname := StringName.new("ArrayMesh")
     fnname := StringName.new("clear_blend_shapes")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -62,7 +62,7 @@ pub fn (mut r ArrayMesh) clear_blend_shapes() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ArrayMesh) set_blend_shape_mode(mode MeshBlendShapeMode) {
+pub fn (r &ArrayMesh) set_blend_shape_mode(mode MeshBlendShapeMode) {
     classname := StringName.new("ArrayMesh")
     fnname := StringName.new("set_blend_shape_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 227983991)
@@ -83,7 +83,7 @@ pub fn (r &ArrayMesh) get_blend_shape_mode() MeshBlendShapeMode {
     fnname.deinit()
    return unsafe{MeshBlendShapeMode(object_out)}
 }
-pub fn (mut r ArrayMesh) add_surface_from_arrays(primitive MeshPrimitiveType, arrays Array, blend_shapes Array, lods Dictionary, flags MeshArrayFormat) {
+pub fn (r &ArrayMesh) add_surface_from_arrays(primitive MeshPrimitiveType, arrays Array, blend_shapes Array, lods Dictionary, flags MeshArrayFormat) {
     classname := StringName.new("ArrayMesh")
     fnname := StringName.new("add_surface_from_arrays")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1796411378)
@@ -99,7 +99,7 @@ pub fn (mut r ArrayMesh) add_surface_from_arrays(primitive MeshPrimitiveType, ar
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ArrayMesh) clear_surfaces() {
+pub fn (r &ArrayMesh) clear_surfaces() {
     classname := StringName.new("ArrayMesh")
     fnname := StringName.new("clear_surfaces")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -107,7 +107,7 @@ pub fn (mut r ArrayMesh) clear_surfaces() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ArrayMesh) surface_update_vertex_region(surf_idx i32, offset i32, data PackedByteArray) {
+pub fn (r &ArrayMesh) surface_update_vertex_region(surf_idx i32, offset i32, data PackedByteArray) {
     classname := StringName.new("ArrayMesh")
     fnname := StringName.new("surface_update_vertex_region")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3837166854)
@@ -119,7 +119,7 @@ pub fn (mut r ArrayMesh) surface_update_vertex_region(surf_idx i32, offset i32, 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ArrayMesh) surface_update_attribute_region(surf_idx i32, offset i32, data PackedByteArray) {
+pub fn (r &ArrayMesh) surface_update_attribute_region(surf_idx i32, offset i32, data PackedByteArray) {
     classname := StringName.new("ArrayMesh")
     fnname := StringName.new("surface_update_attribute_region")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3837166854)
@@ -131,7 +131,7 @@ pub fn (mut r ArrayMesh) surface_update_attribute_region(surf_idx i32, offset i3
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ArrayMesh) surface_update_skin_region(surf_idx i32, offset i32, data PackedByteArray) {
+pub fn (r &ArrayMesh) surface_update_skin_region(surf_idx i32, offset i32, data PackedByteArray) {
     classname := StringName.new("ArrayMesh")
     fnname := StringName.new("surface_update_skin_region")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3837166854)
@@ -205,7 +205,7 @@ pub fn (r &ArrayMesh) surface_find_by_name(name string) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ArrayMesh) surface_set_name(surf_idx i32, name string) {
+pub fn (r &ArrayMesh) surface_set_name(surf_idx i32, name string) {
     classname := StringName.new("ArrayMesh")
     fnname := StringName.new("surface_set_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
@@ -232,7 +232,7 @@ pub fn (r &ArrayMesh) surface_get_name(surf_idx i32) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r ArrayMesh) regen_normal_maps() {
+pub fn (r &ArrayMesh) regen_normal_maps() {
     classname := StringName.new("ArrayMesh")
     fnname := StringName.new("regen_normal_maps")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -240,7 +240,7 @@ pub fn (mut r ArrayMesh) regen_normal_maps() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ArrayMesh) lightmap_unwrap(transform Transform3D, texel_size f64) GDError {
+pub fn (r &ArrayMesh) lightmap_unwrap(transform Transform3D, texel_size f64) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ArrayMesh")
     fnname := StringName.new("lightmap_unwrap")
@@ -253,7 +253,7 @@ pub fn (mut r ArrayMesh) lightmap_unwrap(transform Transform3D, texel_size f64) 
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r ArrayMesh) set_custom_aabb(aabb AABB) {
+pub fn (r &ArrayMesh) set_custom_aabb(aabb AABB) {
     classname := StringName.new("ArrayMesh")
     fnname := StringName.new("set_custom_aabb")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 259215842)
@@ -273,7 +273,7 @@ pub fn (r &ArrayMesh) get_custom_aabb() AABB {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ArrayMesh) set_shadow_mesh(mesh ArrayMesh) {
+pub fn (r &ArrayMesh) set_shadow_mesh(mesh ArrayMesh) {
     classname := StringName.new("ArrayMesh")
     fnname := StringName.new("set_shadow_mesh")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3377897901)

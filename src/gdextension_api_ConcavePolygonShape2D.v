@@ -5,7 +5,7 @@ pub struct ConcavePolygonShape2D {
     Shape2D
 }
 
-pub fn (mut r ConcavePolygonShape2D) set_segments(segments PackedVector2Array) {
+pub fn (r &ConcavePolygonShape2D) set_segments(segments PackedVector2Array) {
     classname := StringName.new("ConcavePolygonShape2D")
     fnname := StringName.new("set_segments")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1509147220)

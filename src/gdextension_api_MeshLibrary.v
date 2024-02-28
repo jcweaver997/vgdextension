@@ -5,7 +5,7 @@ pub struct MeshLibrary {
     Resource
 }
 
-pub fn (mut r MeshLibrary) create_item(id i32) {
+pub fn (r &MeshLibrary) create_item(id i32) {
     classname := StringName.new("MeshLibrary")
     fnname := StringName.new("create_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -15,7 +15,7 @@ pub fn (mut r MeshLibrary) create_item(id i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r MeshLibrary) set_item_name(id i32, name string) {
+pub fn (r &MeshLibrary) set_item_name(id i32, name string) {
     classname := StringName.new("MeshLibrary")
     fnname := StringName.new("set_item_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
@@ -28,7 +28,7 @@ pub fn (mut r MeshLibrary) set_item_name(id i32, name string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r MeshLibrary) set_item_mesh(id i32, mesh Mesh) {
+pub fn (r &MeshLibrary) set_item_mesh(id i32, mesh Mesh) {
     classname := StringName.new("MeshLibrary")
     fnname := StringName.new("set_item_mesh")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 969122797)
@@ -39,7 +39,7 @@ pub fn (mut r MeshLibrary) set_item_mesh(id i32, mesh Mesh) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r MeshLibrary) set_item_mesh_transform(id i32, mesh_transform Transform3D) {
+pub fn (r &MeshLibrary) set_item_mesh_transform(id i32, mesh_transform Transform3D) {
     classname := StringName.new("MeshLibrary")
     fnname := StringName.new("set_item_mesh_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3616898986)
@@ -50,7 +50,7 @@ pub fn (mut r MeshLibrary) set_item_mesh_transform(id i32, mesh_transform Transf
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r MeshLibrary) set_item_navigation_mesh(id i32, navigation_mesh NavigationMesh) {
+pub fn (r &MeshLibrary) set_item_navigation_mesh(id i32, navigation_mesh NavigationMesh) {
     classname := StringName.new("MeshLibrary")
     fnname := StringName.new("set_item_navigation_mesh")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3483353960)
@@ -61,7 +61,7 @@ pub fn (mut r MeshLibrary) set_item_navigation_mesh(id i32, navigation_mesh Navi
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r MeshLibrary) set_item_navigation_mesh_transform(id i32, navigation_mesh Transform3D) {
+pub fn (r &MeshLibrary) set_item_navigation_mesh_transform(id i32, navigation_mesh Transform3D) {
     classname := StringName.new("MeshLibrary")
     fnname := StringName.new("set_item_navigation_mesh_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3616898986)
@@ -72,7 +72,7 @@ pub fn (mut r MeshLibrary) set_item_navigation_mesh_transform(id i32, navigation
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r MeshLibrary) set_item_navigation_layers(id i32, navigation_layers u32) {
+pub fn (r &MeshLibrary) set_item_navigation_layers(id i32, navigation_layers u32) {
     classname := StringName.new("MeshLibrary")
     fnname := StringName.new("set_item_navigation_layers")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -83,7 +83,7 @@ pub fn (mut r MeshLibrary) set_item_navigation_layers(id i32, navigation_layers 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r MeshLibrary) set_item_shapes(id i32, shapes Array) {
+pub fn (r &MeshLibrary) set_item_shapes(id i32, shapes Array) {
     classname := StringName.new("MeshLibrary")
     fnname := StringName.new("set_item_shapes")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 537221740)
@@ -94,7 +94,7 @@ pub fn (mut r MeshLibrary) set_item_shapes(id i32, shapes Array) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r MeshLibrary) set_item_preview(id i32, texture Texture2D) {
+pub fn (r &MeshLibrary) set_item_preview(id i32, texture Texture2D) {
     classname := StringName.new("MeshLibrary")
     fnname := StringName.new("set_item_preview")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 666127730)
@@ -203,7 +203,7 @@ pub fn (r &MeshLibrary) get_item_preview(id i32) Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MeshLibrary) remove_item(id i32) {
+pub fn (r &MeshLibrary) remove_item(id i32) {
     classname := StringName.new("MeshLibrary")
     fnname := StringName.new("remove_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -227,7 +227,7 @@ pub fn (r &MeshLibrary) find_item_by_name(name string) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MeshLibrary) clear() {
+pub fn (r &MeshLibrary) clear() {
     classname := StringName.new("MeshLibrary")
     fnname := StringName.new("clear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

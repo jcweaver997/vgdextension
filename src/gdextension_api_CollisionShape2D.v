@@ -5,7 +5,7 @@ pub struct CollisionShape2D {
     Node2D
 }
 
-pub fn (mut r CollisionShape2D) set_shape(shape Shape2D) {
+pub fn (r &CollisionShape2D) set_shape(shape Shape2D) {
     classname := StringName.new("CollisionShape2D")
     fnname := StringName.new("set_shape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 771364740)
@@ -25,7 +25,7 @@ pub fn (r &CollisionShape2D) get_shape() Shape2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CollisionShape2D) set_disabled(disabled bool) {
+pub fn (r &CollisionShape2D) set_disabled(disabled bool) {
     classname := StringName.new("CollisionShape2D")
     fnname := StringName.new("set_disabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -45,7 +45,7 @@ pub fn (r &CollisionShape2D) is_disabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CollisionShape2D) set_one_way_collision(enabled bool) {
+pub fn (r &CollisionShape2D) set_one_way_collision(enabled bool) {
     classname := StringName.new("CollisionShape2D")
     fnname := StringName.new("set_one_way_collision")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -65,7 +65,7 @@ pub fn (r &CollisionShape2D) is_one_way_collision_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CollisionShape2D) set_one_way_collision_margin(margin f64) {
+pub fn (r &CollisionShape2D) set_one_way_collision_margin(margin f64) {
     classname := StringName.new("CollisionShape2D")
     fnname := StringName.new("set_one_way_collision_margin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -85,7 +85,7 @@ pub fn (r &CollisionShape2D) get_one_way_collision_margin() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CollisionShape2D) set_debug_color(color Color) {
+pub fn (r &CollisionShape2D) set_debug_color(color Color) {
     classname := StringName.new("CollisionShape2D")
     fnname := StringName.new("set_debug_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)

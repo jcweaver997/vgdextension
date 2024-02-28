@@ -5,7 +5,7 @@ pub struct OpenXRInteractionProfileMetadata {
     Object
 }
 
-pub fn (mut r OpenXRInteractionProfileMetadata) register_profile_rename(old_name string, new_name string) {
+pub fn (r &OpenXRInteractionProfileMetadata) register_profile_rename(old_name string, new_name string) {
     classname := StringName.new("OpenXRInteractionProfileMetadata")
     fnname := StringName.new("register_profile_rename")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3186203200)
@@ -20,7 +20,7 @@ pub fn (mut r OpenXRInteractionProfileMetadata) register_profile_rename(old_name
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r OpenXRInteractionProfileMetadata) register_top_level_path(display_name string, openxr_path string, openxr_extension_name string) {
+pub fn (r &OpenXRInteractionProfileMetadata) register_top_level_path(display_name string, openxr_path string, openxr_extension_name string) {
     classname := StringName.new("OpenXRInteractionProfileMetadata")
     fnname := StringName.new("register_top_level_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 254767734)
@@ -38,7 +38,7 @@ pub fn (mut r OpenXRInteractionProfileMetadata) register_top_level_path(display_
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r OpenXRInteractionProfileMetadata) register_interaction_profile(display_name string, openxr_path string, openxr_extension_name string) {
+pub fn (r &OpenXRInteractionProfileMetadata) register_interaction_profile(display_name string, openxr_path string, openxr_extension_name string) {
     classname := StringName.new("OpenXRInteractionProfileMetadata")
     fnname := StringName.new("register_interaction_profile")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 254767734)
@@ -56,7 +56,7 @@ pub fn (mut r OpenXRInteractionProfileMetadata) register_interaction_profile(dis
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r OpenXRInteractionProfileMetadata) register_io_path(interaction_profile string, display_name string, toplevel_path string, openxr_path string, openxr_extension_name string, action_type OpenXRActionActionType) {
+pub fn (r &OpenXRInteractionProfileMetadata) register_io_path(interaction_profile string, display_name string, toplevel_path string, openxr_path string, openxr_extension_name string, action_type OpenXRActionActionType) {
     classname := StringName.new("OpenXRInteractionProfileMetadata")
     fnname := StringName.new("register_io_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3443511926)

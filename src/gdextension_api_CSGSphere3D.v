@@ -5,7 +5,7 @@ pub struct CSGSphere3D {
     CSGPrimitive3D
 }
 
-pub fn (mut r CSGSphere3D) set_radius(radius f64) {
+pub fn (r &CSGSphere3D) set_radius(radius f64) {
     classname := StringName.new("CSGSphere3D")
     fnname := StringName.new("set_radius")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -25,7 +25,7 @@ pub fn (r &CSGSphere3D) get_radius() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CSGSphere3D) set_radial_segments(radial_segments i32) {
+pub fn (r &CSGSphere3D) set_radial_segments(radial_segments i32) {
     classname := StringName.new("CSGSphere3D")
     fnname := StringName.new("set_radial_segments")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -45,7 +45,7 @@ pub fn (r &CSGSphere3D) get_radial_segments() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CSGSphere3D) set_rings(rings i32) {
+pub fn (r &CSGSphere3D) set_rings(rings i32) {
     classname := StringName.new("CSGSphere3D")
     fnname := StringName.new("set_rings")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -65,7 +65,7 @@ pub fn (r &CSGSphere3D) get_rings() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CSGSphere3D) set_smooth_faces(smooth_faces bool) {
+pub fn (r &CSGSphere3D) set_smooth_faces(smooth_faces bool) {
     classname := StringName.new("CSGSphere3D")
     fnname := StringName.new("set_smooth_faces")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -85,7 +85,7 @@ pub fn (r &CSGSphere3D) get_smooth_faces() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CSGSphere3D) set_material(material Material) {
+pub fn (r &CSGSphere3D) set_material(material Material) {
     classname := StringName.new("CSGSphere3D")
     fnname := StringName.new("set_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2757459619)

@@ -38,7 +38,7 @@ pub struct Tween {
     RefCounted
 }
 
-pub fn (mut r Tween) tween_property(object Object, property NodePath, final_val Variant, duration f64) PropertyTweener {
+pub fn (r &Tween) tween_property(object Object, property NodePath, final_val Variant, duration f64) PropertyTweener {
     mut object_out := PropertyTweener{}
     classname := StringName.new("Tween")
     fnname := StringName.new("tween_property")
@@ -53,7 +53,7 @@ pub fn (mut r Tween) tween_property(object Object, property NodePath, final_val 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Tween) tween_interval(time f64) IntervalTweener {
+pub fn (r &Tween) tween_interval(time f64) IntervalTweener {
     mut object_out := IntervalTweener{}
     classname := StringName.new("Tween")
     fnname := StringName.new("tween_interval")
@@ -65,7 +65,7 @@ pub fn (mut r Tween) tween_interval(time f64) IntervalTweener {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Tween) tween_callback(callback Callable) CallbackTweener {
+pub fn (r &Tween) tween_callback(callback Callable) CallbackTweener {
     mut object_out := CallbackTweener{}
     classname := StringName.new("Tween")
     fnname := StringName.new("tween_callback")
@@ -77,7 +77,7 @@ pub fn (mut r Tween) tween_callback(callback Callable) CallbackTweener {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Tween) tween_method(method Callable, from Variant, to Variant, duration f64) MethodTweener {
+pub fn (r &Tween) tween_method(method Callable, from Variant, to Variant, duration f64) MethodTweener {
     mut object_out := MethodTweener{}
     classname := StringName.new("Tween")
     fnname := StringName.new("tween_method")
@@ -92,7 +92,7 @@ pub fn (mut r Tween) tween_method(method Callable, from Variant, to Variant, dur
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Tween) custom_step(delta f64) bool {
+pub fn (r &Tween) custom_step(delta f64) bool {
     mut object_out := false
     classname := StringName.new("Tween")
     fnname := StringName.new("custom_step")
@@ -104,7 +104,7 @@ pub fn (mut r Tween) custom_step(delta f64) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Tween) stop() {
+pub fn (r &Tween) stop() {
     classname := StringName.new("Tween")
     fnname := StringName.new("stop")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -112,7 +112,7 @@ pub fn (mut r Tween) stop() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Tween) pause() {
+pub fn (r &Tween) pause() {
     classname := StringName.new("Tween")
     fnname := StringName.new("pause")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -120,7 +120,7 @@ pub fn (mut r Tween) pause() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Tween) play() {
+pub fn (r &Tween) play() {
     classname := StringName.new("Tween")
     fnname := StringName.new("play")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -128,7 +128,7 @@ pub fn (mut r Tween) play() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Tween) kill() {
+pub fn (r &Tween) kill() {
     classname := StringName.new("Tween")
     fnname := StringName.new("kill")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -146,7 +146,7 @@ pub fn (r &Tween) get_total_elapsed_time() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Tween) is_running() bool {
+pub fn (r &Tween) is_running() bool {
     mut object_out := false
     classname := StringName.new("Tween")
     fnname := StringName.new("is_running")
@@ -156,7 +156,7 @@ pub fn (mut r Tween) is_running() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Tween) is_valid() bool {
+pub fn (r &Tween) is_valid() bool {
     mut object_out := false
     classname := StringName.new("Tween")
     fnname := StringName.new("is_valid")
@@ -166,7 +166,7 @@ pub fn (mut r Tween) is_valid() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Tween) bind_node(node Node) Tween {
+pub fn (r &Tween) bind_node(node Node) Tween {
     mut object_out := Tween{}
     classname := StringName.new("Tween")
     fnname := StringName.new("bind_node")
@@ -178,7 +178,7 @@ pub fn (mut r Tween) bind_node(node Node) Tween {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Tween) set_process_mode(mode TweenTweenProcessMode) Tween {
+pub fn (r &Tween) set_process_mode(mode TweenTweenProcessMode) Tween {
     mut object_out := Tween{}
     classname := StringName.new("Tween")
     fnname := StringName.new("set_process_mode")
@@ -191,7 +191,7 @@ pub fn (mut r Tween) set_process_mode(mode TweenTweenProcessMode) Tween {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Tween) set_pause_mode(mode TweenTweenPauseMode) Tween {
+pub fn (r &Tween) set_pause_mode(mode TweenTweenPauseMode) Tween {
     mut object_out := Tween{}
     classname := StringName.new("Tween")
     fnname := StringName.new("set_pause_mode")
@@ -204,7 +204,7 @@ pub fn (mut r Tween) set_pause_mode(mode TweenTweenPauseMode) Tween {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Tween) set_parallel(parallel bool) Tween {
+pub fn (r &Tween) set_parallel(parallel bool) Tween {
     mut object_out := Tween{}
     classname := StringName.new("Tween")
     fnname := StringName.new("set_parallel")
@@ -216,7 +216,7 @@ pub fn (mut r Tween) set_parallel(parallel bool) Tween {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Tween) set_loops(loops i32) Tween {
+pub fn (r &Tween) set_loops(loops i32) Tween {
     mut object_out := Tween{}
     classname := StringName.new("Tween")
     fnname := StringName.new("set_loops")
@@ -238,7 +238,7 @@ pub fn (r &Tween) get_loops_left() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Tween) set_speed_scale(speed f64) Tween {
+pub fn (r &Tween) set_speed_scale(speed f64) Tween {
     mut object_out := Tween{}
     classname := StringName.new("Tween")
     fnname := StringName.new("set_speed_scale")
@@ -250,7 +250,7 @@ pub fn (mut r Tween) set_speed_scale(speed f64) Tween {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Tween) set_trans(trans TweenTransitionType) Tween {
+pub fn (r &Tween) set_trans(trans TweenTransitionType) Tween {
     mut object_out := Tween{}
     classname := StringName.new("Tween")
     fnname := StringName.new("set_trans")
@@ -263,7 +263,7 @@ pub fn (mut r Tween) set_trans(trans TweenTransitionType) Tween {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Tween) set_ease(ease TweenEaseType) Tween {
+pub fn (r &Tween) set_ease(ease TweenEaseType) Tween {
     mut object_out := Tween{}
     classname := StringName.new("Tween")
     fnname := StringName.new("set_ease")
@@ -276,7 +276,7 @@ pub fn (mut r Tween) set_ease(ease TweenEaseType) Tween {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Tween) parallel() Tween {
+pub fn (r &Tween) parallel() Tween {
     mut object_out := Tween{}
     classname := StringName.new("Tween")
     fnname := StringName.new("parallel")
@@ -286,7 +286,7 @@ pub fn (mut r Tween) parallel() Tween {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Tween) chain() Tween {
+pub fn (r &Tween) chain() Tween {
     mut object_out := Tween{}
     classname := StringName.new("Tween")
     fnname := StringName.new("chain")

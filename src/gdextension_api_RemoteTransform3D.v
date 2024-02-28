@@ -5,7 +5,7 @@ pub struct RemoteTransform3D {
     Node3D
 }
 
-pub fn (mut r RemoteTransform3D) set_remote_node(path NodePath) {
+pub fn (r &RemoteTransform3D) set_remote_node(path NodePath) {
     classname := StringName.new("RemoteTransform3D")
     fnname := StringName.new("set_remote_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1348162250)
@@ -25,7 +25,7 @@ pub fn (r &RemoteTransform3D) get_remote_node() NodePath {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RemoteTransform3D) force_update_cache() {
+pub fn (r &RemoteTransform3D) force_update_cache() {
     classname := StringName.new("RemoteTransform3D")
     fnname := StringName.new("force_update_cache")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -33,7 +33,7 @@ pub fn (mut r RemoteTransform3D) force_update_cache() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RemoteTransform3D) set_use_global_coordinates(use_global_coordinates bool) {
+pub fn (r &RemoteTransform3D) set_use_global_coordinates(use_global_coordinates bool) {
     classname := StringName.new("RemoteTransform3D")
     fnname := StringName.new("set_use_global_coordinates")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -53,7 +53,7 @@ pub fn (r &RemoteTransform3D) get_use_global_coordinates() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RemoteTransform3D) set_update_position(update_remote_position bool) {
+pub fn (r &RemoteTransform3D) set_update_position(update_remote_position bool) {
     classname := StringName.new("RemoteTransform3D")
     fnname := StringName.new("set_update_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -73,7 +73,7 @@ pub fn (r &RemoteTransform3D) get_update_position() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RemoteTransform3D) set_update_rotation(update_remote_rotation bool) {
+pub fn (r &RemoteTransform3D) set_update_rotation(update_remote_rotation bool) {
     classname := StringName.new("RemoteTransform3D")
     fnname := StringName.new("set_update_rotation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -93,7 +93,7 @@ pub fn (r &RemoteTransform3D) get_update_rotation() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RemoteTransform3D) set_update_scale(update_remote_scale bool) {
+pub fn (r &RemoteTransform3D) set_update_scale(update_remote_scale bool) {
     classname := StringName.new("RemoteTransform3D")
     fnname := StringName.new("set_update_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

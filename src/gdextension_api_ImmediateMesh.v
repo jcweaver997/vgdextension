@@ -5,7 +5,7 @@ pub struct ImmediateMesh {
     Mesh
 }
 
-pub fn (mut r ImmediateMesh) surface_begin(primitive MeshPrimitiveType, material Material) {
+pub fn (r &ImmediateMesh) surface_begin(primitive MeshPrimitiveType, material Material) {
     classname := StringName.new("ImmediateMesh")
     fnname := StringName.new("surface_begin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2794442543)
@@ -17,7 +17,7 @@ pub fn (mut r ImmediateMesh) surface_begin(primitive MeshPrimitiveType, material
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ImmediateMesh) surface_set_color(color Color) {
+pub fn (r &ImmediateMesh) surface_set_color(color Color) {
     classname := StringName.new("ImmediateMesh")
     fnname := StringName.new("surface_set_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -27,7 +27,7 @@ pub fn (mut r ImmediateMesh) surface_set_color(color Color) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ImmediateMesh) surface_set_normal(normal Vector3) {
+pub fn (r &ImmediateMesh) surface_set_normal(normal Vector3) {
     classname := StringName.new("ImmediateMesh")
     fnname := StringName.new("surface_set_normal")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -37,7 +37,7 @@ pub fn (mut r ImmediateMesh) surface_set_normal(normal Vector3) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ImmediateMesh) surface_set_tangent(tangent Plane) {
+pub fn (r &ImmediateMesh) surface_set_tangent(tangent Plane) {
     classname := StringName.new("ImmediateMesh")
     fnname := StringName.new("surface_set_tangent")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3505987427)
@@ -47,7 +47,7 @@ pub fn (mut r ImmediateMesh) surface_set_tangent(tangent Plane) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ImmediateMesh) surface_set_uv(uv Vector2) {
+pub fn (r &ImmediateMesh) surface_set_uv(uv Vector2) {
     classname := StringName.new("ImmediateMesh")
     fnname := StringName.new("surface_set_uv")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -57,7 +57,7 @@ pub fn (mut r ImmediateMesh) surface_set_uv(uv Vector2) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ImmediateMesh) surface_set_uv2(uv2 Vector2) {
+pub fn (r &ImmediateMesh) surface_set_uv2(uv2 Vector2) {
     classname := StringName.new("ImmediateMesh")
     fnname := StringName.new("surface_set_uv2")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -67,7 +67,7 @@ pub fn (mut r ImmediateMesh) surface_set_uv2(uv2 Vector2) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ImmediateMesh) surface_add_vertex(vertex Vector3) {
+pub fn (r &ImmediateMesh) surface_add_vertex(vertex Vector3) {
     classname := StringName.new("ImmediateMesh")
     fnname := StringName.new("surface_add_vertex")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -77,7 +77,7 @@ pub fn (mut r ImmediateMesh) surface_add_vertex(vertex Vector3) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ImmediateMesh) surface_add_vertex_2d(vertex Vector2) {
+pub fn (r &ImmediateMesh) surface_add_vertex_2d(vertex Vector2) {
     classname := StringName.new("ImmediateMesh")
     fnname := StringName.new("surface_add_vertex_2d")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -87,7 +87,7 @@ pub fn (mut r ImmediateMesh) surface_add_vertex_2d(vertex Vector2) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ImmediateMesh) surface_end() {
+pub fn (r &ImmediateMesh) surface_end() {
     classname := StringName.new("ImmediateMesh")
     fnname := StringName.new("surface_end")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -95,7 +95,7 @@ pub fn (mut r ImmediateMesh) surface_end() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ImmediateMesh) clear_surfaces() {
+pub fn (r &ImmediateMesh) clear_surfaces() {
     classname := StringName.new("ImmediateMesh")
     fnname := StringName.new("clear_surfaces")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

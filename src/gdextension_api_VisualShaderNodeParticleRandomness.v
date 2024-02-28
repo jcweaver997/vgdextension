@@ -13,7 +13,7 @@ pub struct VisualShaderNodeParticleRandomness {
     VisualShaderNode
 }
 
-pub fn (mut r VisualShaderNodeParticleRandomness) set_op_type(type_name VisualShaderNodeParticleRandomnessOpType) {
+pub fn (r &VisualShaderNodeParticleRandomness) set_op_type(type_name VisualShaderNodeParticleRandomnessOpType) {
     classname := StringName.new("VisualShaderNodeParticleRandomness")
     fnname := StringName.new("set_op_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2060089061)

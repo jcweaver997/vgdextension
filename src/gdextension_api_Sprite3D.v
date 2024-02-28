@@ -5,7 +5,7 @@ pub struct Sprite3D {
     SpriteBase3D
 }
 
-pub fn (mut r Sprite3D) set_texture(texture Texture2D) {
+pub fn (r &Sprite3D) set_texture(texture Texture2D) {
     classname := StringName.new("Sprite3D")
     fnname := StringName.new("set_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
@@ -25,7 +25,7 @@ pub fn (r &Sprite3D) get_texture() Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Sprite3D) set_region_enabled(enabled bool) {
+pub fn (r &Sprite3D) set_region_enabled(enabled bool) {
     classname := StringName.new("Sprite3D")
     fnname := StringName.new("set_region_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -45,7 +45,7 @@ pub fn (r &Sprite3D) is_region_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Sprite3D) set_region_rect(rect Rect2) {
+pub fn (r &Sprite3D) set_region_rect(rect Rect2) {
     classname := StringName.new("Sprite3D")
     fnname := StringName.new("set_region_rect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2046264180)
@@ -65,7 +65,7 @@ pub fn (r &Sprite3D) get_region_rect() Rect2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Sprite3D) set_frame(frame i32) {
+pub fn (r &Sprite3D) set_frame(frame i32) {
     classname := StringName.new("Sprite3D")
     fnname := StringName.new("set_frame")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -85,7 +85,7 @@ pub fn (r &Sprite3D) get_frame() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Sprite3D) set_frame_coords(coords Vector2i) {
+pub fn (r &Sprite3D) set_frame_coords(coords Vector2i) {
     classname := StringName.new("Sprite3D")
     fnname := StringName.new("set_frame_coords")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1130785943)
@@ -105,7 +105,7 @@ pub fn (r &Sprite3D) get_frame_coords() Vector2i {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Sprite3D) set_vframes(vframes i32) {
+pub fn (r &Sprite3D) set_vframes(vframes i32) {
     classname := StringName.new("Sprite3D")
     fnname := StringName.new("set_vframes")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -125,7 +125,7 @@ pub fn (r &Sprite3D) get_vframes() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Sprite3D) set_hframes(hframes i32) {
+pub fn (r &Sprite3D) set_hframes(hframes i32) {
     classname := StringName.new("Sprite3D")
     fnname := StringName.new("set_hframes")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

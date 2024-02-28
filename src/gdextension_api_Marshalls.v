@@ -14,7 +14,7 @@ pub fn Marshalls.get_singleton() Marshalls {
     return o
 }
 
-pub fn (mut r Marshalls) variant_to_base64(variant Variant, full_objects bool) string {
+pub fn (r &Marshalls) variant_to_base64(variant Variant, full_objects bool) string {
     mut object_out := String{}
     classname := StringName.new("Marshalls")
     fnname := StringName.new("variant_to_base64")
@@ -29,7 +29,7 @@ pub fn (mut r Marshalls) variant_to_base64(variant Variant, full_objects bool) s
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r Marshalls) base64_to_variant(base64_str string, allow_objects bool) Variant {
+pub fn (r &Marshalls) base64_to_variant(base64_str string, allow_objects bool) Variant {
     mut object_out := Variant{}
     classname := StringName.new("Marshalls")
     fnname := StringName.new("base64_to_variant")
@@ -44,7 +44,7 @@ pub fn (mut r Marshalls) base64_to_variant(base64_str string, allow_objects bool
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Marshalls) raw_to_base64(array PackedByteArray) string {
+pub fn (r &Marshalls) raw_to_base64(array PackedByteArray) string {
     mut object_out := String{}
     classname := StringName.new("Marshalls")
     fnname := StringName.new("raw_to_base64")
@@ -58,7 +58,7 @@ pub fn (mut r Marshalls) raw_to_base64(array PackedByteArray) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r Marshalls) base64_to_raw(base64_str string) PackedByteArray {
+pub fn (r &Marshalls) base64_to_raw(base64_str string) PackedByteArray {
     mut object_out := PackedByteArray{}
     classname := StringName.new("Marshalls")
     fnname := StringName.new("base64_to_raw")
@@ -72,7 +72,7 @@ pub fn (mut r Marshalls) base64_to_raw(base64_str string) PackedByteArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Marshalls) utf8_to_base64(utf8_str string) string {
+pub fn (r &Marshalls) utf8_to_base64(utf8_str string) string {
     mut object_out := String{}
     classname := StringName.new("Marshalls")
     fnname := StringName.new("utf8_to_base64")
@@ -88,7 +88,7 @@ pub fn (mut r Marshalls) utf8_to_base64(utf8_str string) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r Marshalls) base64_to_utf8(base64_str string) string {
+pub fn (r &Marshalls) base64_to_utf8(base64_str string) string {
     mut object_out := String{}
     classname := StringName.new("Marshalls")
     fnname := StringName.new("base64_to_utf8")

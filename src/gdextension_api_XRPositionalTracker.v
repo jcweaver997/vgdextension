@@ -21,7 +21,7 @@ pub fn (r &XRPositionalTracker) get_tracker_type() XRServerTrackerType {
     fnname.deinit()
    return unsafe{XRServerTrackerType(object_out)}
 }
-pub fn (mut r XRPositionalTracker) set_tracker_type(type_name XRServerTrackerType) {
+pub fn (r &XRPositionalTracker) set_tracker_type(type_name XRServerTrackerType) {
     classname := StringName.new("XRPositionalTracker")
     fnname := StringName.new("set_tracker_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3055763575)
@@ -44,7 +44,7 @@ pub fn (r &XRPositionalTracker) get_tracker_name() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r XRPositionalTracker) set_tracker_name(name string) {
+pub fn (r &XRPositionalTracker) set_tracker_name(name string) {
     classname := StringName.new("XRPositionalTracker")
     fnname := StringName.new("set_tracker_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -68,7 +68,7 @@ pub fn (r &XRPositionalTracker) get_tracker_desc() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r XRPositionalTracker) set_tracker_desc(description string) {
+pub fn (r &XRPositionalTracker) set_tracker_desc(description string) {
     classname := StringName.new("XRPositionalTracker")
     fnname := StringName.new("set_tracker_desc")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -92,7 +92,7 @@ pub fn (r &XRPositionalTracker) get_tracker_profile() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r XRPositionalTracker) set_tracker_profile(profile string) {
+pub fn (r &XRPositionalTracker) set_tracker_profile(profile string) {
     classname := StringName.new("XRPositionalTracker")
     fnname := StringName.new("set_tracker_profile")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -114,7 +114,7 @@ pub fn (r &XRPositionalTracker) get_tracker_hand() XRPositionalTrackerTrackerHan
     fnname.deinit()
    return unsafe{XRPositionalTrackerTrackerHand(object_out)}
 }
-pub fn (mut r XRPositionalTracker) set_tracker_hand(hand XRPositionalTrackerTrackerHand) {
+pub fn (r &XRPositionalTracker) set_tracker_hand(hand XRPositionalTrackerTrackerHand) {
     classname := StringName.new("XRPositionalTracker")
     fnname := StringName.new("set_tracker_hand")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3904108980)
@@ -153,7 +153,7 @@ pub fn (r &XRPositionalTracker) get_pose(name string) XRPose {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r XRPositionalTracker) invalidate_pose(name string) {
+pub fn (r &XRPositionalTracker) invalidate_pose(name string) {
     classname := StringName.new("XRPositionalTracker")
     fnname := StringName.new("invalidate_pose")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -165,7 +165,7 @@ pub fn (mut r XRPositionalTracker) invalidate_pose(name string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r XRPositionalTracker) set_pose(name string, transform Transform3D, linear_velocity Vector3, angular_velocity Vector3, tracking_confidence XRPoseTrackingConfidence) {
+pub fn (r &XRPositionalTracker) set_pose(name string, transform Transform3D, linear_velocity Vector3, angular_velocity Vector3, tracking_confidence XRPoseTrackingConfidence) {
     classname := StringName.new("XRPositionalTracker")
     fnname := StringName.new("set_pose")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3451230163)
@@ -196,7 +196,7 @@ pub fn (r &XRPositionalTracker) get_input(name string) Variant {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r XRPositionalTracker) set_input(name string, value Variant) {
+pub fn (r &XRPositionalTracker) set_input(name string, value Variant) {
     classname := StringName.new("XRPositionalTracker")
     fnname := StringName.new("set_input")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3776071444)

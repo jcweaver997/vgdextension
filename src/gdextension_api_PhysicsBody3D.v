@@ -5,7 +5,7 @@ pub struct PhysicsBody3D {
     CollisionObject3D
 }
 
-pub fn (mut r PhysicsBody3D) move_and_collide(motion Vector3, test_only bool, safe_margin f64, recovery_as_collision bool, max_collisions i32) KinematicCollision3D {
+pub fn (r &PhysicsBody3D) move_and_collide(motion Vector3, test_only bool, safe_margin f64, recovery_as_collision bool, max_collisions i32) KinematicCollision3D {
     mut object_out := KinematicCollision3D{}
     classname := StringName.new("PhysicsBody3D")
     fnname := StringName.new("move_and_collide")
@@ -21,7 +21,7 @@ pub fn (mut r PhysicsBody3D) move_and_collide(motion Vector3, test_only bool, sa
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsBody3D) test_move(from Transform3D, motion Vector3, collision KinematicCollision3D, safe_margin f64, recovery_as_collision bool, max_collisions i32) bool {
+pub fn (r &PhysicsBody3D) test_move(from Transform3D, motion Vector3, collision KinematicCollision3D, safe_margin f64, recovery_as_collision bool, max_collisions i32) bool {
     mut object_out := false
     classname := StringName.new("PhysicsBody3D")
     fnname := StringName.new("test_move")
@@ -38,7 +38,7 @@ pub fn (mut r PhysicsBody3D) test_move(from Transform3D, motion Vector3, collisi
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsBody3D) set_axis_lock(axis PhysicsServer3DBodyAxis, gdlock bool) {
+pub fn (r &PhysicsBody3D) set_axis_lock(axis PhysicsServer3DBodyAxis, gdlock bool) {
     classname := StringName.new("PhysicsBody3D")
     fnname := StringName.new("set_axis_lock")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1787895195)
@@ -63,7 +63,7 @@ pub fn (r &PhysicsBody3D) get_axis_lock(axis PhysicsServer3DBodyAxis) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsBody3D) get_collision_exceptions() Array {
+pub fn (r &PhysicsBody3D) get_collision_exceptions() Array {
     mut object_out := Array{}
     classname := StringName.new("PhysicsBody3D")
     fnname := StringName.new("get_collision_exceptions")
@@ -73,7 +73,7 @@ pub fn (mut r PhysicsBody3D) get_collision_exceptions() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsBody3D) add_collision_exception_with(body Node) {
+pub fn (r &PhysicsBody3D) add_collision_exception_with(body Node) {
     classname := StringName.new("PhysicsBody3D")
     fnname := StringName.new("add_collision_exception_with")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
@@ -83,7 +83,7 @@ pub fn (mut r PhysicsBody3D) add_collision_exception_with(body Node) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PhysicsBody3D) remove_collision_exception_with(body Node) {
+pub fn (r &PhysicsBody3D) remove_collision_exception_with(body Node) {
     classname := StringName.new("PhysicsBody3D")
     fnname := StringName.new("remove_collision_exception_with")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)

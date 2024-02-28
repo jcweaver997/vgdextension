@@ -5,7 +5,7 @@ pub struct VisualShaderNodeCurveXYZTexture {
     VisualShaderNodeResizableBase
 }
 
-pub fn (mut r VisualShaderNodeCurveXYZTexture) set_texture(texture CurveXYZTexture) {
+pub fn (r &VisualShaderNodeCurveXYZTexture) set_texture(texture CurveXYZTexture) {
     classname := StringName.new("VisualShaderNodeCurveXYZTexture")
     fnname := StringName.new("set_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 8031783)

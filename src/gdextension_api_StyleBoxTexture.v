@@ -11,7 +11,7 @@ pub struct StyleBoxTexture {
     StyleBox
 }
 
-pub fn (mut r StyleBoxTexture) set_texture(texture Texture2D) {
+pub fn (r &StyleBoxTexture) set_texture(texture Texture2D) {
     classname := StringName.new("StyleBoxTexture")
     fnname := StringName.new("set_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
@@ -31,7 +31,7 @@ pub fn (r &StyleBoxTexture) get_texture() Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r StyleBoxTexture) set_texture_margin(margin Side, size f64) {
+pub fn (r &StyleBoxTexture) set_texture_margin(margin Side, size f64) {
     classname := StringName.new("StyleBoxTexture")
     fnname := StringName.new("set_texture_margin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4290182280)
@@ -43,7 +43,7 @@ pub fn (mut r StyleBoxTexture) set_texture_margin(margin Side, size f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r StyleBoxTexture) set_texture_margin_all(size f64) {
+pub fn (r &StyleBoxTexture) set_texture_margin_all(size f64) {
     classname := StringName.new("StyleBoxTexture")
     fnname := StringName.new("set_texture_margin_all")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -66,7 +66,7 @@ pub fn (r &StyleBoxTexture) get_texture_margin(margin Side) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r StyleBoxTexture) set_expand_margin(margin Side, size f64) {
+pub fn (r &StyleBoxTexture) set_expand_margin(margin Side, size f64) {
     classname := StringName.new("StyleBoxTexture")
     fnname := StringName.new("set_expand_margin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4290182280)
@@ -78,7 +78,7 @@ pub fn (mut r StyleBoxTexture) set_expand_margin(margin Side, size f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r StyleBoxTexture) set_expand_margin_all(size f64) {
+pub fn (r &StyleBoxTexture) set_expand_margin_all(size f64) {
     classname := StringName.new("StyleBoxTexture")
     fnname := StringName.new("set_expand_margin_all")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -101,7 +101,7 @@ pub fn (r &StyleBoxTexture) get_expand_margin(margin Side) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r StyleBoxTexture) set_region_rect(region Rect2) {
+pub fn (r &StyleBoxTexture) set_region_rect(region Rect2) {
     classname := StringName.new("StyleBoxTexture")
     fnname := StringName.new("set_region_rect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2046264180)
@@ -121,7 +121,7 @@ pub fn (r &StyleBoxTexture) get_region_rect() Rect2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r StyleBoxTexture) set_draw_center(enable bool) {
+pub fn (r &StyleBoxTexture) set_draw_center(enable bool) {
     classname := StringName.new("StyleBoxTexture")
     fnname := StringName.new("set_draw_center")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -141,7 +141,7 @@ pub fn (r &StyleBoxTexture) is_draw_center_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r StyleBoxTexture) set_modulate(color Color) {
+pub fn (r &StyleBoxTexture) set_modulate(color Color) {
     classname := StringName.new("StyleBoxTexture")
     fnname := StringName.new("set_modulate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -161,7 +161,7 @@ pub fn (r &StyleBoxTexture) get_modulate() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r StyleBoxTexture) set_h_axis_stretch_mode(mode StyleBoxTextureAxisStretchMode) {
+pub fn (r &StyleBoxTexture) set_h_axis_stretch_mode(mode StyleBoxTextureAxisStretchMode) {
     classname := StringName.new("StyleBoxTexture")
     fnname := StringName.new("set_h_axis_stretch_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2965538783)
@@ -182,7 +182,7 @@ pub fn (r &StyleBoxTexture) get_h_axis_stretch_mode() StyleBoxTextureAxisStretch
     fnname.deinit()
    return unsafe{StyleBoxTextureAxisStretchMode(object_out)}
 }
-pub fn (mut r StyleBoxTexture) set_v_axis_stretch_mode(mode StyleBoxTextureAxisStretchMode) {
+pub fn (r &StyleBoxTexture) set_v_axis_stretch_mode(mode StyleBoxTextureAxisStretchMode) {
     classname := StringName.new("StyleBoxTexture")
     fnname := StringName.new("set_v_axis_stretch_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2965538783)

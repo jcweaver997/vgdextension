@@ -46,7 +46,7 @@ pub struct VisualShaderNodeTextureParameter {
     VisualShaderNodeParameter
 }
 
-pub fn (mut r VisualShaderNodeTextureParameter) set_texture_type(type_name VisualShaderNodeTextureParameterTextureType) {
+pub fn (r &VisualShaderNodeTextureParameter) set_texture_type(type_name VisualShaderNodeTextureParameterTextureType) {
     classname := StringName.new("VisualShaderNodeTextureParameter")
     fnname := StringName.new("set_texture_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2227296876)
@@ -67,7 +67,7 @@ pub fn (r &VisualShaderNodeTextureParameter) get_texture_type() VisualShaderNode
     fnname.deinit()
    return unsafe{VisualShaderNodeTextureParameterTextureType(object_out)}
 }
-pub fn (mut r VisualShaderNodeTextureParameter) set_color_default(color VisualShaderNodeTextureParameterColorDefault) {
+pub fn (r &VisualShaderNodeTextureParameter) set_color_default(color VisualShaderNodeTextureParameterColorDefault) {
     classname := StringName.new("VisualShaderNodeTextureParameter")
     fnname := StringName.new("set_color_default")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4217624432)
@@ -88,7 +88,7 @@ pub fn (r &VisualShaderNodeTextureParameter) get_color_default() VisualShaderNod
     fnname.deinit()
    return unsafe{VisualShaderNodeTextureParameterColorDefault(object_out)}
 }
-pub fn (mut r VisualShaderNodeTextureParameter) set_texture_filter(filter VisualShaderNodeTextureParameterTextureFilter) {
+pub fn (r &VisualShaderNodeTextureParameter) set_texture_filter(filter VisualShaderNodeTextureParameterTextureFilter) {
     classname := StringName.new("VisualShaderNodeTextureParameter")
     fnname := StringName.new("set_texture_filter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2147684752)
@@ -109,7 +109,7 @@ pub fn (r &VisualShaderNodeTextureParameter) get_texture_filter() VisualShaderNo
     fnname.deinit()
    return unsafe{VisualShaderNodeTextureParameterTextureFilter(object_out)}
 }
-pub fn (mut r VisualShaderNodeTextureParameter) set_texture_repeat(repeat VisualShaderNodeTextureParameterTextureRepeat) {
+pub fn (r &VisualShaderNodeTextureParameter) set_texture_repeat(repeat VisualShaderNodeTextureParameterTextureRepeat) {
     classname := StringName.new("VisualShaderNodeTextureParameter")
     fnname := StringName.new("set_texture_repeat")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2036143070)
@@ -130,7 +130,7 @@ pub fn (r &VisualShaderNodeTextureParameter) get_texture_repeat() VisualShaderNo
     fnname.deinit()
    return unsafe{VisualShaderNodeTextureParameterTextureRepeat(object_out)}
 }
-pub fn (mut r VisualShaderNodeTextureParameter) set_texture_source(source VisualShaderNodeTextureParameterTextureSource) {
+pub fn (r &VisualShaderNodeTextureParameter) set_texture_source(source VisualShaderNodeTextureParameterTextureSource) {
     classname := StringName.new("VisualShaderNodeTextureParameter")
     fnname := StringName.new("set_texture_source")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1212687372)

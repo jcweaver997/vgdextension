@@ -10,7 +10,7 @@ pub struct TouchScreenButton {
     Node2D
 }
 
-pub fn (mut r TouchScreenButton) set_texture_normal(texture Texture2D) {
+pub fn (r &TouchScreenButton) set_texture_normal(texture Texture2D) {
     classname := StringName.new("TouchScreenButton")
     fnname := StringName.new("set_texture_normal")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
@@ -30,7 +30,7 @@ pub fn (r &TouchScreenButton) get_texture_normal() Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TouchScreenButton) set_texture_pressed(texture Texture2D) {
+pub fn (r &TouchScreenButton) set_texture_pressed(texture Texture2D) {
     classname := StringName.new("TouchScreenButton")
     fnname := StringName.new("set_texture_pressed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
@@ -50,7 +50,7 @@ pub fn (r &TouchScreenButton) get_texture_pressed() Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TouchScreenButton) set_bitmask(bitmask BitMap) {
+pub fn (r &TouchScreenButton) set_bitmask(bitmask BitMap) {
     classname := StringName.new("TouchScreenButton")
     fnname := StringName.new("set_bitmask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 698588216)
@@ -70,7 +70,7 @@ pub fn (r &TouchScreenButton) get_bitmask() BitMap {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TouchScreenButton) set_shape(shape Shape2D) {
+pub fn (r &TouchScreenButton) set_shape(shape Shape2D) {
     classname := StringName.new("TouchScreenButton")
     fnname := StringName.new("set_shape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 771364740)
@@ -90,7 +90,7 @@ pub fn (r &TouchScreenButton) get_shape() Shape2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TouchScreenButton) set_shape_centered(gdbool bool) {
+pub fn (r &TouchScreenButton) set_shape_centered(gdbool bool) {
     classname := StringName.new("TouchScreenButton")
     fnname := StringName.new("set_shape_centered")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -110,7 +110,7 @@ pub fn (r &TouchScreenButton) is_shape_centered() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TouchScreenButton) set_shape_visible(gdbool bool) {
+pub fn (r &TouchScreenButton) set_shape_visible(gdbool bool) {
     classname := StringName.new("TouchScreenButton")
     fnname := StringName.new("set_shape_visible")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -130,7 +130,7 @@ pub fn (r &TouchScreenButton) is_shape_visible() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TouchScreenButton) set_action(action string) {
+pub fn (r &TouchScreenButton) set_action(action string) {
     classname := StringName.new("TouchScreenButton")
     fnname := StringName.new("set_action")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -154,7 +154,7 @@ pub fn (r &TouchScreenButton) get_action() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r TouchScreenButton) set_visibility_mode(mode TouchScreenButtonVisibilityMode) {
+pub fn (r &TouchScreenButton) set_visibility_mode(mode TouchScreenButtonVisibilityMode) {
     classname := StringName.new("TouchScreenButton")
     fnname := StringName.new("set_visibility_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3031128463)
@@ -175,7 +175,7 @@ pub fn (r &TouchScreenButton) get_visibility_mode() TouchScreenButtonVisibilityM
     fnname.deinit()
    return unsafe{TouchScreenButtonVisibilityMode(object_out)}
 }
-pub fn (mut r TouchScreenButton) set_passby_press(enabled bool) {
+pub fn (r &TouchScreenButton) set_passby_press(enabled bool) {
     classname := StringName.new("TouchScreenButton")
     fnname := StringName.new("set_passby_press")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

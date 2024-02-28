@@ -5,7 +5,7 @@ pub struct CSGPrimitive3D {
     CSGShape3D
 }
 
-pub fn (mut r CSGPrimitive3D) set_flip_faces(flip_faces bool) {
+pub fn (r &CSGPrimitive3D) set_flip_faces(flip_faces bool) {
     classname := StringName.new("CSGPrimitive3D")
     fnname := StringName.new("set_flip_faces")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -15,7 +15,7 @@ pub fn (mut r CSGPrimitive3D) set_flip_faces(flip_faces bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CSGPrimitive3D) get_flip_faces() bool {
+pub fn (r &CSGPrimitive3D) get_flip_faces() bool {
     mut object_out := false
     classname := StringName.new("CSGPrimitive3D")
     fnname := StringName.new("get_flip_faces")

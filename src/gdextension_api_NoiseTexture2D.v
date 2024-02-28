@@ -5,7 +5,7 @@ pub struct NoiseTexture2D {
     Texture2D
 }
 
-pub fn (mut r NoiseTexture2D) set_width(width i32) {
+pub fn (r &NoiseTexture2D) set_width(width i32) {
     classname := StringName.new("NoiseTexture2D")
     fnname := StringName.new("set_width")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -15,7 +15,7 @@ pub fn (mut r NoiseTexture2D) set_width(width i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NoiseTexture2D) set_height(height i32) {
+pub fn (r &NoiseTexture2D) set_height(height i32) {
     classname := StringName.new("NoiseTexture2D")
     fnname := StringName.new("set_height")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -25,7 +25,7 @@ pub fn (mut r NoiseTexture2D) set_height(height i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NoiseTexture2D) set_invert(invert bool) {
+pub fn (r &NoiseTexture2D) set_invert(invert bool) {
     classname := StringName.new("NoiseTexture2D")
     fnname := StringName.new("set_invert")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -45,7 +45,7 @@ pub fn (r &NoiseTexture2D) get_invert() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NoiseTexture2D) set_in_3d_space(enable bool) {
+pub fn (r &NoiseTexture2D) set_in_3d_space(enable bool) {
     classname := StringName.new("NoiseTexture2D")
     fnname := StringName.new("set_in_3d_space")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -65,7 +65,7 @@ pub fn (r &NoiseTexture2D) is_in_3d_space() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NoiseTexture2D) set_generate_mipmaps(invert bool) {
+pub fn (r &NoiseTexture2D) set_generate_mipmaps(invert bool) {
     classname := StringName.new("NoiseTexture2D")
     fnname := StringName.new("set_generate_mipmaps")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -85,7 +85,7 @@ pub fn (r &NoiseTexture2D) is_generating_mipmaps() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NoiseTexture2D) set_seamless(seamless bool) {
+pub fn (r &NoiseTexture2D) set_seamless(seamless bool) {
     classname := StringName.new("NoiseTexture2D")
     fnname := StringName.new("set_seamless")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -95,7 +95,7 @@ pub fn (mut r NoiseTexture2D) set_seamless(seamless bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NoiseTexture2D) get_seamless() bool {
+pub fn (r &NoiseTexture2D) get_seamless() bool {
     mut object_out := false
     classname := StringName.new("NoiseTexture2D")
     fnname := StringName.new("get_seamless")
@@ -105,7 +105,7 @@ pub fn (mut r NoiseTexture2D) get_seamless() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NoiseTexture2D) set_seamless_blend_skirt(seamless_blend_skirt f64) {
+pub fn (r &NoiseTexture2D) set_seamless_blend_skirt(seamless_blend_skirt f64) {
     classname := StringName.new("NoiseTexture2D")
     fnname := StringName.new("set_seamless_blend_skirt")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -115,7 +115,7 @@ pub fn (mut r NoiseTexture2D) set_seamless_blend_skirt(seamless_blend_skirt f64)
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NoiseTexture2D) get_seamless_blend_skirt() f64 {
+pub fn (r &NoiseTexture2D) get_seamless_blend_skirt() f64 {
     mut object_out := f64(0)
     classname := StringName.new("NoiseTexture2D")
     fnname := StringName.new("get_seamless_blend_skirt")
@@ -125,7 +125,7 @@ pub fn (mut r NoiseTexture2D) get_seamless_blend_skirt() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NoiseTexture2D) set_as_normal_map(as_normal_map bool) {
+pub fn (r &NoiseTexture2D) set_as_normal_map(as_normal_map bool) {
     classname := StringName.new("NoiseTexture2D")
     fnname := StringName.new("set_as_normal_map")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -135,7 +135,7 @@ pub fn (mut r NoiseTexture2D) set_as_normal_map(as_normal_map bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NoiseTexture2D) is_normal_map() bool {
+pub fn (r &NoiseTexture2D) is_normal_map() bool {
     mut object_out := false
     classname := StringName.new("NoiseTexture2D")
     fnname := StringName.new("is_normal_map")
@@ -145,7 +145,7 @@ pub fn (mut r NoiseTexture2D) is_normal_map() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NoiseTexture2D) set_bump_strength(bump_strength f64) {
+pub fn (r &NoiseTexture2D) set_bump_strength(bump_strength f64) {
     classname := StringName.new("NoiseTexture2D")
     fnname := StringName.new("set_bump_strength")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -155,7 +155,7 @@ pub fn (mut r NoiseTexture2D) set_bump_strength(bump_strength f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NoiseTexture2D) get_bump_strength() f64 {
+pub fn (r &NoiseTexture2D) get_bump_strength() f64 {
     mut object_out := f64(0)
     classname := StringName.new("NoiseTexture2D")
     fnname := StringName.new("get_bump_strength")
@@ -165,7 +165,7 @@ pub fn (mut r NoiseTexture2D) get_bump_strength() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NoiseTexture2D) set_normalize(normalize bool) {
+pub fn (r &NoiseTexture2D) set_normalize(normalize bool) {
     classname := StringName.new("NoiseTexture2D")
     fnname := StringName.new("set_normalize")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -185,7 +185,7 @@ pub fn (r &NoiseTexture2D) is_normalized() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NoiseTexture2D) set_color_ramp(gradient Gradient) {
+pub fn (r &NoiseTexture2D) set_color_ramp(gradient Gradient) {
     classname := StringName.new("NoiseTexture2D")
     fnname := StringName.new("set_color_ramp")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2756054477)
@@ -205,7 +205,7 @@ pub fn (r &NoiseTexture2D) get_color_ramp() Gradient {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NoiseTexture2D) set_noise(noise Noise) {
+pub fn (r &NoiseTexture2D) set_noise(noise Noise) {
     classname := StringName.new("NoiseTexture2D")
     fnname := StringName.new("set_noise")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4135492439)
@@ -215,7 +215,7 @@ pub fn (mut r NoiseTexture2D) set_noise(noise Noise) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r NoiseTexture2D) get_noise() Noise {
+pub fn (r &NoiseTexture2D) get_noise() Noise {
     mut object_out := Noise{}
     classname := StringName.new("NoiseTexture2D")
     fnname := StringName.new("get_noise")

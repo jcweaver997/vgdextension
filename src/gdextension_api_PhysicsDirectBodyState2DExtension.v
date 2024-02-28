@@ -115,7 +115,7 @@ pub interface IPhysicsDirectBodyState2DExtensionSetLinearVelocity {
     virt_set_linear_velocity(velocity Vector2)
 }
 
-pub fn (mut r PhysicsDirectBodyState2DExtension) uset_linear_velocity(velocity Vector2) {
+pub fn (r &PhysicsDirectBodyState2DExtension) uset_linear_velocity(velocity Vector2) {
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
     fnname := StringName.new("_set_linear_velocity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -145,7 +145,7 @@ pub interface IPhysicsDirectBodyState2DExtensionSetAngularVelocity {
     virt_set_angular_velocity(velocity f64)
 }
 
-pub fn (mut r PhysicsDirectBodyState2DExtension) uset_angular_velocity(velocity f64) {
+pub fn (r &PhysicsDirectBodyState2DExtension) uset_angular_velocity(velocity f64) {
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
     fnname := StringName.new("_set_angular_velocity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -175,7 +175,7 @@ pub interface IPhysicsDirectBodyState2DExtensionSetTransform {
     virt_set_transform(transform Transform2D)
 }
 
-pub fn (mut r PhysicsDirectBodyState2DExtension) uset_transform(transform Transform2D) {
+pub fn (r &PhysicsDirectBodyState2DExtension) uset_transform(transform Transform2D) {
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
     fnname := StringName.new("_set_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -222,7 +222,7 @@ pub interface IPhysicsDirectBodyState2DExtensionApplyCentralImpulse {
     virt_apply_central_impulse(impulse Vector2)
 }
 
-pub fn (mut r PhysicsDirectBodyState2DExtension) uapply_central_impulse(impulse Vector2) {
+pub fn (r &PhysicsDirectBodyState2DExtension) uapply_central_impulse(impulse Vector2) {
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
     fnname := StringName.new("_apply_central_impulse")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -237,7 +237,7 @@ pub interface IPhysicsDirectBodyState2DExtensionApplyImpulse {
     virt_apply_impulse(impulse Vector2, position Vector2)
 }
 
-pub fn (mut r PhysicsDirectBodyState2DExtension) uapply_impulse(impulse Vector2, position Vector2) {
+pub fn (r &PhysicsDirectBodyState2DExtension) uapply_impulse(impulse Vector2, position Vector2) {
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
     fnname := StringName.new("_apply_impulse")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -253,7 +253,7 @@ pub interface IPhysicsDirectBodyState2DExtensionApplyTorqueImpulse {
     virt_apply_torque_impulse(impulse f64)
 }
 
-pub fn (mut r PhysicsDirectBodyState2DExtension) uapply_torque_impulse(impulse f64) {
+pub fn (r &PhysicsDirectBodyState2DExtension) uapply_torque_impulse(impulse f64) {
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
     fnname := StringName.new("_apply_torque_impulse")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -268,7 +268,7 @@ pub interface IPhysicsDirectBodyState2DExtensionApplyCentralForce {
     virt_apply_central_force(force Vector2)
 }
 
-pub fn (mut r PhysicsDirectBodyState2DExtension) uapply_central_force(force Vector2) {
+pub fn (r &PhysicsDirectBodyState2DExtension) uapply_central_force(force Vector2) {
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
     fnname := StringName.new("_apply_central_force")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -283,7 +283,7 @@ pub interface IPhysicsDirectBodyState2DExtensionApplyForce {
     virt_apply_force(force Vector2, position Vector2)
 }
 
-pub fn (mut r PhysicsDirectBodyState2DExtension) uapply_force(force Vector2, position Vector2) {
+pub fn (r &PhysicsDirectBodyState2DExtension) uapply_force(force Vector2, position Vector2) {
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
     fnname := StringName.new("_apply_force")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -299,7 +299,7 @@ pub interface IPhysicsDirectBodyState2DExtensionApplyTorque {
     virt_apply_torque(torque f64)
 }
 
-pub fn (mut r PhysicsDirectBodyState2DExtension) uapply_torque(torque f64) {
+pub fn (r &PhysicsDirectBodyState2DExtension) uapply_torque(torque f64) {
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
     fnname := StringName.new("_apply_torque")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -314,7 +314,7 @@ pub interface IPhysicsDirectBodyState2DExtensionAddConstantCentralForce {
     virt_add_constant_central_force(force Vector2)
 }
 
-pub fn (mut r PhysicsDirectBodyState2DExtension) uadd_constant_central_force(force Vector2) {
+pub fn (r &PhysicsDirectBodyState2DExtension) uadd_constant_central_force(force Vector2) {
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
     fnname := StringName.new("_add_constant_central_force")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -329,7 +329,7 @@ pub interface IPhysicsDirectBodyState2DExtensionAddConstantForce {
     virt_add_constant_force(force Vector2, position Vector2)
 }
 
-pub fn (mut r PhysicsDirectBodyState2DExtension) uadd_constant_force(force Vector2, position Vector2) {
+pub fn (r &PhysicsDirectBodyState2DExtension) uadd_constant_force(force Vector2, position Vector2) {
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
     fnname := StringName.new("_add_constant_force")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -345,7 +345,7 @@ pub interface IPhysicsDirectBodyState2DExtensionAddConstantTorque {
     virt_add_constant_torque(torque f64)
 }
 
-pub fn (mut r PhysicsDirectBodyState2DExtension) uadd_constant_torque(torque f64) {
+pub fn (r &PhysicsDirectBodyState2DExtension) uadd_constant_torque(torque f64) {
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
     fnname := StringName.new("_add_constant_torque")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -360,7 +360,7 @@ pub interface IPhysicsDirectBodyState2DExtensionSetConstantForce {
     virt_set_constant_force(force Vector2)
 }
 
-pub fn (mut r PhysicsDirectBodyState2DExtension) uset_constant_force(force Vector2) {
+pub fn (r &PhysicsDirectBodyState2DExtension) uset_constant_force(force Vector2) {
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
     fnname := StringName.new("_set_constant_force")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -390,7 +390,7 @@ pub interface IPhysicsDirectBodyState2DExtensionSetConstantTorque {
     virt_set_constant_torque(torque f64)
 }
 
-pub fn (mut r PhysicsDirectBodyState2DExtension) uset_constant_torque(torque f64) {
+pub fn (r &PhysicsDirectBodyState2DExtension) uset_constant_torque(torque f64) {
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
     fnname := StringName.new("_set_constant_torque")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -420,7 +420,7 @@ pub interface IPhysicsDirectBodyState2DExtensionSetSleepState {
     virt_set_sleep_state(enabled bool)
 }
 
-pub fn (mut r PhysicsDirectBodyState2DExtension) uset_sleep_state(enabled bool) {
+pub fn (r &PhysicsDirectBodyState2DExtension) uset_sleep_state(enabled bool) {
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
     fnname := StringName.new("_set_sleep_state")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -667,7 +667,7 @@ pub interface IPhysicsDirectBodyState2DExtensionIntegrateForces {
     virt_integrate_forces()
 }
 
-pub fn (mut r PhysicsDirectBodyState2DExtension) uintegrate_forces() {
+pub fn (r &PhysicsDirectBodyState2DExtension) uintegrate_forces() {
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
     fnname := StringName.new("_integrate_forces")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -680,7 +680,7 @@ pub interface IPhysicsDirectBodyState2DExtensionGetSpaceState {
     virt_get_space_state() PhysicsDirectSpaceState2D
 }
 
-pub fn (mut r PhysicsDirectBodyState2DExtension) uget_space_state() PhysicsDirectSpaceState2D {
+pub fn (r &PhysicsDirectBodyState2DExtension) uget_space_state() PhysicsDirectSpaceState2D {
     mut object_out := PhysicsDirectSpaceState2D{}
     classname := StringName.new("PhysicsDirectBodyState2DExtension")
     fnname := StringName.new("_get_space_state")

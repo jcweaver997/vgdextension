@@ -51,13 +51,13 @@ pub fn (r &PackedColorArray) is_empty() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PackedColorArray) set(index i64, value Color) {
+pub fn (r &PackedColorArray) set(index i64, value Color) {
     fnname := StringName.new("set")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedcolorarray, voidptr(&fnname), 1444096570)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 2)
     fnname.deinit()
 }
-pub fn (mut r PackedColorArray) push_back(value Color) bool {
+pub fn (r &PackedColorArray) push_back(value Color) bool {
     mut object_out := false
     fnname := StringName.new("push_back")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedcolorarray, voidptr(&fnname), 1007858200)
@@ -67,7 +67,7 @@ pub fn (mut r PackedColorArray) push_back(value Color) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PackedColorArray) append(value Color) bool {
+pub fn (r &PackedColorArray) append(value Color) bool {
     mut object_out := false
     fnname := StringName.new("append")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedcolorarray, voidptr(&fnname), 1007858200)
@@ -77,19 +77,19 @@ pub fn (mut r PackedColorArray) append(value Color) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PackedColorArray) append_array(array PackedColorArray) {
+pub fn (r &PackedColorArray) append_array(array PackedColorArray) {
     fnname := StringName.new("append_array")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedcolorarray, voidptr(&fnname), 798822497)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 1)
     fnname.deinit()
 }
-pub fn (mut r PackedColorArray) remove_at(index i64) {
+pub fn (r &PackedColorArray) remove_at(index i64) {
     fnname := StringName.new("remove_at")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedcolorarray, voidptr(&fnname), 2823966027)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 1)
     fnname.deinit()
 }
-pub fn (mut r PackedColorArray) insert(at_index i64, value Color) i64 {
+pub fn (r &PackedColorArray) insert(at_index i64, value Color) i64 {
     mut object_out := i64(0)
     fnname := StringName.new("insert")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedcolorarray, voidptr(&fnname), 785289703)
@@ -100,13 +100,13 @@ pub fn (mut r PackedColorArray) insert(at_index i64, value Color) i64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PackedColorArray) fill(value Color) {
+pub fn (r &PackedColorArray) fill(value Color) {
     fnname := StringName.new("fill")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedcolorarray, voidptr(&fnname), 3730314301)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 1)
     fnname.deinit()
 }
-pub fn (mut r PackedColorArray) resize(new_size i64) i64 {
+pub fn (r &PackedColorArray) resize(new_size i64) i64 {
     mut object_out := i64(0)
     fnname := StringName.new("resize")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedcolorarray, voidptr(&fnname), 848867239)
@@ -116,7 +116,7 @@ pub fn (mut r PackedColorArray) resize(new_size i64) i64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PackedColorArray) clear() {
+pub fn (r &PackedColorArray) clear() {
     fnname := StringName.new("clear")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedcolorarray, voidptr(&fnname), 3218959716)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 0)
@@ -132,7 +132,7 @@ pub fn (r &PackedColorArray) has(value Color) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PackedColorArray) reverse() {
+pub fn (r &PackedColorArray) reverse() {
     fnname := StringName.new("reverse")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedcolorarray, voidptr(&fnname), 3218959716)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 0)
@@ -157,13 +157,13 @@ pub fn (r &PackedColorArray) to_byte_array() PackedByteArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PackedColorArray) sort() {
+pub fn (r &PackedColorArray) sort() {
     fnname := StringName.new("sort")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedcolorarray, voidptr(&fnname), 3218959716)
     f(voidptr(r), unsafe{nil}, unsafe{nil}, 0)
     fnname.deinit()
 }
-pub fn (mut r PackedColorArray) bsearch(value Color, before bool) i64 {
+pub fn (r &PackedColorArray) bsearch(value Color, before bool) i64 {
     mut object_out := i64(0)
     fnname := StringName.new("bsearch")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedcolorarray, voidptr(&fnname), 314143821)
@@ -174,7 +174,7 @@ pub fn (mut r PackedColorArray) bsearch(value Color, before bool) i64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PackedColorArray) duplicate() PackedColorArray {
+pub fn (r &PackedColorArray) duplicate() PackedColorArray {
     mut object_out := PackedColorArray{}
     fnname := StringName.new("duplicate")
     f := gdf.variant_get_ptr_builtin_method(GDExtensionVariantType.type_packedcolorarray, voidptr(&fnname), 1011903421)

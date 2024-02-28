@@ -5,7 +5,7 @@ pub struct RDShaderSource {
     RefCounted
 }
 
-pub fn (mut r RDShaderSource) set_stage_source(stage RenderingDeviceShaderStage, source string) {
+pub fn (r &RDShaderSource) set_stage_source(stage RenderingDeviceShaderStage, source string) {
     classname := StringName.new("RDShaderSource")
     fnname := StringName.new("set_stage_source")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 620821314)
@@ -34,7 +34,7 @@ pub fn (r &RDShaderSource) get_stage_source(stage RenderingDeviceShaderStage) st
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r RDShaderSource) set_language(language RenderingDeviceShaderLanguage) {
+pub fn (r &RDShaderSource) set_language(language RenderingDeviceShaderLanguage) {
     classname := StringName.new("RDShaderSource")
     fnname := StringName.new("set_language")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3422186742)

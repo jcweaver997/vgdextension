@@ -5,7 +5,7 @@ pub struct AudioListener3D {
     Node3D
 }
 
-pub fn (mut r AudioListener3D) make_current() {
+pub fn (r &AudioListener3D) make_current() {
     classname := StringName.new("AudioListener3D")
     fnname := StringName.new("make_current")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -13,7 +13,7 @@ pub fn (mut r AudioListener3D) make_current() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AudioListener3D) clear_current() {
+pub fn (r &AudioListener3D) clear_current() {
     classname := StringName.new("AudioListener3D")
     fnname := StringName.new("clear_current")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

@@ -5,7 +5,7 @@ pub struct ViewportTexture {
     Texture2D
 }
 
-pub fn (mut r ViewportTexture) set_viewport_path_in_scene(path NodePath) {
+pub fn (r &ViewportTexture) set_viewport_path_in_scene(path NodePath) {
     classname := StringName.new("ViewportTexture")
     fnname := StringName.new("set_viewport_path_in_scene")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1348162250)

@@ -5,7 +5,7 @@ pub struct GLTFSkin {
     Resource
 }
 
-pub fn (mut r GLTFSkin) get_skin_root() i32 {
+pub fn (r &GLTFSkin) get_skin_root() i32 {
     mut object_out := i32(0)
     classname := StringName.new("GLTFSkin")
     fnname := StringName.new("get_skin_root")
@@ -15,7 +15,7 @@ pub fn (mut r GLTFSkin) get_skin_root() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFSkin) set_skin_root(skin_root i32) {
+pub fn (r &GLTFSkin) set_skin_root(skin_root i32) {
     classname := StringName.new("GLTFSkin")
     fnname := StringName.new("set_skin_root")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -25,7 +25,7 @@ pub fn (mut r GLTFSkin) set_skin_root(skin_root i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFSkin) get_joints_original() PackedInt32Array {
+pub fn (r &GLTFSkin) get_joints_original() PackedInt32Array {
     mut object_out := PackedInt32Array{}
     classname := StringName.new("GLTFSkin")
     fnname := StringName.new("get_joints_original")
@@ -35,7 +35,7 @@ pub fn (mut r GLTFSkin) get_joints_original() PackedInt32Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFSkin) set_joints_original(joints_original PackedInt32Array) {
+pub fn (r &GLTFSkin) set_joints_original(joints_original PackedInt32Array) {
     classname := StringName.new("GLTFSkin")
     fnname := StringName.new("set_joints_original")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3614634198)
@@ -45,7 +45,7 @@ pub fn (mut r GLTFSkin) set_joints_original(joints_original PackedInt32Array) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFSkin) get_inverse_binds() Array {
+pub fn (r &GLTFSkin) get_inverse_binds() Array {
     mut object_out := Array{}
     classname := StringName.new("GLTFSkin")
     fnname := StringName.new("get_inverse_binds")
@@ -55,7 +55,7 @@ pub fn (mut r GLTFSkin) get_inverse_binds() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFSkin) set_inverse_binds(inverse_binds Array) {
+pub fn (r &GLTFSkin) set_inverse_binds(inverse_binds Array) {
     classname := StringName.new("GLTFSkin")
     fnname := StringName.new("set_inverse_binds")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)
@@ -65,7 +65,7 @@ pub fn (mut r GLTFSkin) set_inverse_binds(inverse_binds Array) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFSkin) get_joints() PackedInt32Array {
+pub fn (r &GLTFSkin) get_joints() PackedInt32Array {
     mut object_out := PackedInt32Array{}
     classname := StringName.new("GLTFSkin")
     fnname := StringName.new("get_joints")
@@ -75,7 +75,7 @@ pub fn (mut r GLTFSkin) get_joints() PackedInt32Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFSkin) set_joints(joints PackedInt32Array) {
+pub fn (r &GLTFSkin) set_joints(joints PackedInt32Array) {
     classname := StringName.new("GLTFSkin")
     fnname := StringName.new("set_joints")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3614634198)
@@ -85,7 +85,7 @@ pub fn (mut r GLTFSkin) set_joints(joints PackedInt32Array) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFSkin) get_non_joints() PackedInt32Array {
+pub fn (r &GLTFSkin) get_non_joints() PackedInt32Array {
     mut object_out := PackedInt32Array{}
     classname := StringName.new("GLTFSkin")
     fnname := StringName.new("get_non_joints")
@@ -95,7 +95,7 @@ pub fn (mut r GLTFSkin) get_non_joints() PackedInt32Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFSkin) set_non_joints(non_joints PackedInt32Array) {
+pub fn (r &GLTFSkin) set_non_joints(non_joints PackedInt32Array) {
     classname := StringName.new("GLTFSkin")
     fnname := StringName.new("set_non_joints")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3614634198)
@@ -105,7 +105,7 @@ pub fn (mut r GLTFSkin) set_non_joints(non_joints PackedInt32Array) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFSkin) get_roots() PackedInt32Array {
+pub fn (r &GLTFSkin) get_roots() PackedInt32Array {
     mut object_out := PackedInt32Array{}
     classname := StringName.new("GLTFSkin")
     fnname := StringName.new("get_roots")
@@ -115,7 +115,7 @@ pub fn (mut r GLTFSkin) get_roots() PackedInt32Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFSkin) set_roots(roots PackedInt32Array) {
+pub fn (r &GLTFSkin) set_roots(roots PackedInt32Array) {
     classname := StringName.new("GLTFSkin")
     fnname := StringName.new("set_roots")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3614634198)
@@ -125,7 +125,7 @@ pub fn (mut r GLTFSkin) set_roots(roots PackedInt32Array) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFSkin) get_skeleton() i32 {
+pub fn (r &GLTFSkin) get_skeleton() i32 {
     mut object_out := i32(0)
     classname := StringName.new("GLTFSkin")
     fnname := StringName.new("get_skeleton")
@@ -135,7 +135,7 @@ pub fn (mut r GLTFSkin) get_skeleton() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFSkin) set_skeleton(skeleton i32) {
+pub fn (r &GLTFSkin) set_skeleton(skeleton i32) {
     classname := StringName.new("GLTFSkin")
     fnname := StringName.new("set_skeleton")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -145,7 +145,7 @@ pub fn (mut r GLTFSkin) set_skeleton(skeleton i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFSkin) get_joint_i_to_bone_i() Dictionary {
+pub fn (r &GLTFSkin) get_joint_i_to_bone_i() Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("GLTFSkin")
     fnname := StringName.new("get_joint_i_to_bone_i")
@@ -155,7 +155,7 @@ pub fn (mut r GLTFSkin) get_joint_i_to_bone_i() Dictionary {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFSkin) set_joint_i_to_bone_i(joint_i_to_bone_i Dictionary) {
+pub fn (r &GLTFSkin) set_joint_i_to_bone_i(joint_i_to_bone_i Dictionary) {
     classname := StringName.new("GLTFSkin")
     fnname := StringName.new("set_joint_i_to_bone_i")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4155329257)
@@ -165,7 +165,7 @@ pub fn (mut r GLTFSkin) set_joint_i_to_bone_i(joint_i_to_bone_i Dictionary) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFSkin) get_joint_i_to_name() Dictionary {
+pub fn (r &GLTFSkin) get_joint_i_to_name() Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("GLTFSkin")
     fnname := StringName.new("get_joint_i_to_name")
@@ -175,7 +175,7 @@ pub fn (mut r GLTFSkin) get_joint_i_to_name() Dictionary {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFSkin) set_joint_i_to_name(joint_i_to_name Dictionary) {
+pub fn (r &GLTFSkin) set_joint_i_to_name(joint_i_to_name Dictionary) {
     classname := StringName.new("GLTFSkin")
     fnname := StringName.new("set_joint_i_to_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4155329257)
@@ -185,7 +185,7 @@ pub fn (mut r GLTFSkin) set_joint_i_to_name(joint_i_to_name Dictionary) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFSkin) get_godot_skin() Skin {
+pub fn (r &GLTFSkin) get_godot_skin() Skin {
     mut object_out := Skin{}
     classname := StringName.new("GLTFSkin")
     fnname := StringName.new("get_godot_skin")
@@ -195,7 +195,7 @@ pub fn (mut r GLTFSkin) get_godot_skin() Skin {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFSkin) set_godot_skin(godot_skin Skin) {
+pub fn (r &GLTFSkin) set_godot_skin(godot_skin Skin) {
     classname := StringName.new("GLTFSkin")
     fnname := StringName.new("set_godot_skin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3971435618)

@@ -21,7 +21,7 @@ pub struct VisualShaderNodeVectorOp {
     VisualShaderNodeVectorBase
 }
 
-pub fn (mut r VisualShaderNodeVectorOp) set_operator(op VisualShaderNodeVectorOpOperator) {
+pub fn (r &VisualShaderNodeVectorOp) set_operator(op VisualShaderNodeVectorOpOperator) {
     classname := StringName.new("VisualShaderNodeVectorOp")
     fnname := StringName.new("set_operator")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3371507302)

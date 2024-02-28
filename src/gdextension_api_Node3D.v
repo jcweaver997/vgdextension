@@ -11,7 +11,7 @@ pub struct Node3D {
     Node
 }
 
-pub fn (mut r Node3D) set_transform(local Transform3D) {
+pub fn (r &Node3D) set_transform(local Transform3D) {
     classname := StringName.new("Node3D")
     fnname := StringName.new("set_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2952846383)
@@ -31,7 +31,7 @@ pub fn (r &Node3D) get_transform() Transform3D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node3D) set_position(position Vector3) {
+pub fn (r &Node3D) set_position(position Vector3) {
     classname := StringName.new("Node3D")
     fnname := StringName.new("set_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -51,7 +51,7 @@ pub fn (r &Node3D) get_position() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node3D) set_rotation(euler_radians Vector3) {
+pub fn (r &Node3D) set_rotation(euler_radians Vector3) {
     classname := StringName.new("Node3D")
     fnname := StringName.new("set_rotation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -71,7 +71,7 @@ pub fn (r &Node3D) get_rotation() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node3D) set_rotation_degrees(euler_degrees Vector3) {
+pub fn (r &Node3D) set_rotation_degrees(euler_degrees Vector3) {
     classname := StringName.new("Node3D")
     fnname := StringName.new("set_rotation_degrees")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -91,7 +91,7 @@ pub fn (r &Node3D) get_rotation_degrees() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node3D) set_rotation_order(order EulerOrder) {
+pub fn (r &Node3D) set_rotation_order(order EulerOrder) {
     classname := StringName.new("Node3D")
     fnname := StringName.new("set_rotation_order")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1820889989)
@@ -112,7 +112,7 @@ pub fn (r &Node3D) get_rotation_order() EulerOrder {
     fnname.deinit()
    return unsafe{EulerOrder(object_out)}
 }
-pub fn (mut r Node3D) set_rotation_edit_mode(edit_mode Node3DRotationEditMode) {
+pub fn (r &Node3D) set_rotation_edit_mode(edit_mode Node3DRotationEditMode) {
     classname := StringName.new("Node3D")
     fnname := StringName.new("set_rotation_edit_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 141483330)
@@ -133,7 +133,7 @@ pub fn (r &Node3D) get_rotation_edit_mode() Node3DRotationEditMode {
     fnname.deinit()
    return unsafe{Node3DRotationEditMode(object_out)}
 }
-pub fn (mut r Node3D) set_scale(scale Vector3) {
+pub fn (r &Node3D) set_scale(scale Vector3) {
     classname := StringName.new("Node3D")
     fnname := StringName.new("set_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -153,7 +153,7 @@ pub fn (r &Node3D) get_scale() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node3D) set_quaternion(quaternion Quaternion) {
+pub fn (r &Node3D) set_quaternion(quaternion Quaternion) {
     classname := StringName.new("Node3D")
     fnname := StringName.new("set_quaternion")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1727505552)
@@ -173,7 +173,7 @@ pub fn (r &Node3D) get_quaternion() Quaternion {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node3D) set_basis(basis Basis) {
+pub fn (r &Node3D) set_basis(basis Basis) {
     classname := StringName.new("Node3D")
     fnname := StringName.new("set_basis")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1055510324)
@@ -193,7 +193,7 @@ pub fn (r &Node3D) get_basis() Basis {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node3D) set_global_transform(global Transform3D) {
+pub fn (r &Node3D) set_global_transform(global Transform3D) {
     classname := StringName.new("Node3D")
     fnname := StringName.new("set_global_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2952846383)
@@ -213,7 +213,7 @@ pub fn (r &Node3D) get_global_transform() Transform3D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node3D) set_global_position(position Vector3) {
+pub fn (r &Node3D) set_global_position(position Vector3) {
     classname := StringName.new("Node3D")
     fnname := StringName.new("set_global_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -233,7 +233,7 @@ pub fn (r &Node3D) get_global_position() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node3D) set_global_basis(basis Basis) {
+pub fn (r &Node3D) set_global_basis(basis Basis) {
     classname := StringName.new("Node3D")
     fnname := StringName.new("set_global_basis")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1055510324)
@@ -253,7 +253,7 @@ pub fn (r &Node3D) get_global_basis() Basis {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node3D) set_global_rotation(euler_radians Vector3) {
+pub fn (r &Node3D) set_global_rotation(euler_radians Vector3) {
     classname := StringName.new("Node3D")
     fnname := StringName.new("set_global_rotation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -273,7 +273,7 @@ pub fn (r &Node3D) get_global_rotation() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node3D) set_global_rotation_degrees(euler_degrees Vector3) {
+pub fn (r &Node3D) set_global_rotation_degrees(euler_degrees Vector3) {
     classname := StringName.new("Node3D")
     fnname := StringName.new("set_global_rotation_degrees")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -303,7 +303,7 @@ pub fn (r &Node3D) get_parent_node_3d() Node3D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node3D) set_ignore_transform_notification(enabled bool) {
+pub fn (r &Node3D) set_ignore_transform_notification(enabled bool) {
     classname := StringName.new("Node3D")
     fnname := StringName.new("set_ignore_transform_notification")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -313,7 +313,7 @@ pub fn (mut r Node3D) set_ignore_transform_notification(enabled bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node3D) set_as_top_level(enable bool) {
+pub fn (r &Node3D) set_as_top_level(enable bool) {
     classname := StringName.new("Node3D")
     fnname := StringName.new("set_as_top_level")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -333,7 +333,7 @@ pub fn (r &Node3D) is_set_as_top_level() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node3D) set_disable_scale(disable bool) {
+pub fn (r &Node3D) set_disable_scale(disable bool) {
     classname := StringName.new("Node3D")
     fnname := StringName.new("set_disable_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -363,7 +363,7 @@ pub fn (r &Node3D) get_world_3d() World3D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node3D) force_update_transform() {
+pub fn (r &Node3D) force_update_transform() {
     classname := StringName.new("Node3D")
     fnname := StringName.new("force_update_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -371,7 +371,7 @@ pub fn (mut r Node3D) force_update_transform() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node3D) set_visibility_parent(path NodePath) {
+pub fn (r &Node3D) set_visibility_parent(path NodePath) {
     classname := StringName.new("Node3D")
     fnname := StringName.new("set_visibility_parent")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1348162250)
@@ -391,7 +391,7 @@ pub fn (r &Node3D) get_visibility_parent() NodePath {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node3D) update_gizmos() {
+pub fn (r &Node3D) update_gizmos() {
     classname := StringName.new("Node3D")
     fnname := StringName.new("update_gizmos")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -399,7 +399,7 @@ pub fn (mut r Node3D) update_gizmos() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node3D) add_gizmo(gizmo Node3DGizmo) {
+pub fn (r &Node3D) add_gizmo(gizmo Node3DGizmo) {
     classname := StringName.new("Node3D")
     fnname := StringName.new("add_gizmo")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1544533845)
@@ -419,7 +419,7 @@ pub fn (r &Node3D) get_gizmos() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node3D) clear_gizmos() {
+pub fn (r &Node3D) clear_gizmos() {
     classname := StringName.new("Node3D")
     fnname := StringName.new("clear_gizmos")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -427,7 +427,7 @@ pub fn (mut r Node3D) clear_gizmos() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node3D) set_subgizmo_selection(gizmo Node3DGizmo, id i32, transform Transform3D) {
+pub fn (r &Node3D) set_subgizmo_selection(gizmo Node3DGizmo, id i32, transform Transform3D) {
     classname := StringName.new("Node3D")
     fnname := StringName.new("set_subgizmo_selection")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3317607635)
@@ -439,7 +439,7 @@ pub fn (mut r Node3D) set_subgizmo_selection(gizmo Node3DGizmo, id i32, transfor
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node3D) clear_subgizmo_selection() {
+pub fn (r &Node3D) clear_subgizmo_selection() {
     classname := StringName.new("Node3D")
     fnname := StringName.new("clear_subgizmo_selection")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -447,7 +447,7 @@ pub fn (mut r Node3D) clear_subgizmo_selection() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node3D) set_visible(visible bool) {
+pub fn (r &Node3D) set_visible(visible bool) {
     classname := StringName.new("Node3D")
     fnname := StringName.new("set_visible")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -477,7 +477,7 @@ pub fn (r &Node3D) is_visible_in_tree() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node3D) show() {
+pub fn (r &Node3D) show() {
     classname := StringName.new("Node3D")
     fnname := StringName.new("show")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -485,7 +485,7 @@ pub fn (mut r Node3D) show() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node3D) hide() {
+pub fn (r &Node3D) hide() {
     classname := StringName.new("Node3D")
     fnname := StringName.new("hide")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -493,7 +493,7 @@ pub fn (mut r Node3D) hide() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node3D) set_notify_local_transform(enable bool) {
+pub fn (r &Node3D) set_notify_local_transform(enable bool) {
     classname := StringName.new("Node3D")
     fnname := StringName.new("set_notify_local_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -513,7 +513,7 @@ pub fn (r &Node3D) is_local_transform_notification_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node3D) set_notify_transform(enable bool) {
+pub fn (r &Node3D) set_notify_transform(enable bool) {
     classname := StringName.new("Node3D")
     fnname := StringName.new("set_notify_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -533,7 +533,7 @@ pub fn (r &Node3D) is_transform_notification_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Node3D) rotate(axis Vector3, angle f64) {
+pub fn (r &Node3D) rotate(axis Vector3, angle f64) {
     classname := StringName.new("Node3D")
     fnname := StringName.new("rotate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3436291937)
@@ -544,7 +544,7 @@ pub fn (mut r Node3D) rotate(axis Vector3, angle f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node3D) global_rotate(axis Vector3, angle f64) {
+pub fn (r &Node3D) global_rotate(axis Vector3, angle f64) {
     classname := StringName.new("Node3D")
     fnname := StringName.new("global_rotate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3436291937)
@@ -555,7 +555,7 @@ pub fn (mut r Node3D) global_rotate(axis Vector3, angle f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node3D) global_scale(scale Vector3) {
+pub fn (r &Node3D) global_scale(scale Vector3) {
     classname := StringName.new("Node3D")
     fnname := StringName.new("global_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -565,7 +565,7 @@ pub fn (mut r Node3D) global_scale(scale Vector3) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node3D) global_translate(offset Vector3) {
+pub fn (r &Node3D) global_translate(offset Vector3) {
     classname := StringName.new("Node3D")
     fnname := StringName.new("global_translate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -575,7 +575,7 @@ pub fn (mut r Node3D) global_translate(offset Vector3) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node3D) rotate_object_local(axis Vector3, angle f64) {
+pub fn (r &Node3D) rotate_object_local(axis Vector3, angle f64) {
     classname := StringName.new("Node3D")
     fnname := StringName.new("rotate_object_local")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3436291937)
@@ -586,7 +586,7 @@ pub fn (mut r Node3D) rotate_object_local(axis Vector3, angle f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node3D) scale_object_local(scale Vector3) {
+pub fn (r &Node3D) scale_object_local(scale Vector3) {
     classname := StringName.new("Node3D")
     fnname := StringName.new("scale_object_local")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -596,7 +596,7 @@ pub fn (mut r Node3D) scale_object_local(scale Vector3) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node3D) translate_object_local(offset Vector3) {
+pub fn (r &Node3D) translate_object_local(offset Vector3) {
     classname := StringName.new("Node3D")
     fnname := StringName.new("translate_object_local")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -606,7 +606,7 @@ pub fn (mut r Node3D) translate_object_local(offset Vector3) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node3D) rotate_x(angle f64) {
+pub fn (r &Node3D) rotate_x(angle f64) {
     classname := StringName.new("Node3D")
     fnname := StringName.new("rotate_x")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -616,7 +616,7 @@ pub fn (mut r Node3D) rotate_x(angle f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node3D) rotate_y(angle f64) {
+pub fn (r &Node3D) rotate_y(angle f64) {
     classname := StringName.new("Node3D")
     fnname := StringName.new("rotate_y")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -626,7 +626,7 @@ pub fn (mut r Node3D) rotate_y(angle f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node3D) rotate_z(angle f64) {
+pub fn (r &Node3D) rotate_z(angle f64) {
     classname := StringName.new("Node3D")
     fnname := StringName.new("rotate_z")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -636,7 +636,7 @@ pub fn (mut r Node3D) rotate_z(angle f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node3D) translate(offset Vector3) {
+pub fn (r &Node3D) translate(offset Vector3) {
     classname := StringName.new("Node3D")
     fnname := StringName.new("translate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -646,7 +646,7 @@ pub fn (mut r Node3D) translate(offset Vector3) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node3D) orthonormalize() {
+pub fn (r &Node3D) orthonormalize() {
     classname := StringName.new("Node3D")
     fnname := StringName.new("orthonormalize")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -654,7 +654,7 @@ pub fn (mut r Node3D) orthonormalize() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node3D) set_identity() {
+pub fn (r &Node3D) set_identity() {
     classname := StringName.new("Node3D")
     fnname := StringName.new("set_identity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -662,7 +662,7 @@ pub fn (mut r Node3D) set_identity() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node3D) look_at(target Vector3, up Vector3, use_model_front bool) {
+pub fn (r &Node3D) look_at(target Vector3, up Vector3, use_model_front bool) {
     classname := StringName.new("Node3D")
     fnname := StringName.new("look_at")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2882425029)
@@ -674,7 +674,7 @@ pub fn (mut r Node3D) look_at(target Vector3, up Vector3, use_model_front bool) 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Node3D) look_at_from_position(position Vector3, target Vector3, up Vector3, use_model_front bool) {
+pub fn (r &Node3D) look_at_from_position(position Vector3, target Vector3, up Vector3, use_model_front bool) {
     classname := StringName.new("Node3D")
     fnname := StringName.new("look_at_from_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2086826090)

@@ -5,7 +5,7 @@ pub struct MeshTexture {
     Texture2D
 }
 
-pub fn (mut r MeshTexture) set_mesh(mesh Mesh) {
+pub fn (r &MeshTexture) set_mesh(mesh Mesh) {
     classname := StringName.new("MeshTexture")
     fnname := StringName.new("set_mesh")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 194775623)
@@ -25,7 +25,7 @@ pub fn (r &MeshTexture) get_mesh() Mesh {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MeshTexture) set_image_size(size Vector2) {
+pub fn (r &MeshTexture) set_image_size(size Vector2) {
     classname := StringName.new("MeshTexture")
     fnname := StringName.new("set_image_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -45,7 +45,7 @@ pub fn (r &MeshTexture) get_image_size() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MeshTexture) set_base_texture(texture Texture2D) {
+pub fn (r &MeshTexture) set_base_texture(texture Texture2D) {
     classname := StringName.new("MeshTexture")
     fnname := StringName.new("set_base_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)

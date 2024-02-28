@@ -22,7 +22,7 @@ pub fn (r &SubViewportContainer) upropagate_input_event(event InputEvent) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SubViewportContainer) set_stretch(enable bool) {
+pub fn (r &SubViewportContainer) set_stretch(enable bool) {
     classname := StringName.new("SubViewportContainer")
     fnname := StringName.new("set_stretch")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -42,7 +42,7 @@ pub fn (r &SubViewportContainer) is_stretch_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SubViewportContainer) set_stretch_shrink(amount i32) {
+pub fn (r &SubViewportContainer) set_stretch_shrink(amount i32) {
     classname := StringName.new("SubViewportContainer")
     fnname := StringName.new("set_stretch_shrink")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

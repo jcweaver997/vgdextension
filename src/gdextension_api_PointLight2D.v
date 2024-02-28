@@ -5,7 +5,7 @@ pub struct PointLight2D {
     Light2D
 }
 
-pub fn (mut r PointLight2D) set_texture(texture Texture2D) {
+pub fn (r &PointLight2D) set_texture(texture Texture2D) {
     classname := StringName.new("PointLight2D")
     fnname := StringName.new("set_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
@@ -25,7 +25,7 @@ pub fn (r &PointLight2D) get_texture() Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PointLight2D) set_texture_offset(texture_offset Vector2) {
+pub fn (r &PointLight2D) set_texture_offset(texture_offset Vector2) {
     classname := StringName.new("PointLight2D")
     fnname := StringName.new("set_texture_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -45,7 +45,7 @@ pub fn (r &PointLight2D) get_texture_offset() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PointLight2D) set_texture_scale(texture_scale f64) {
+pub fn (r &PointLight2D) set_texture_scale(texture_scale f64) {
     classname := StringName.new("PointLight2D")
     fnname := StringName.new("set_texture_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

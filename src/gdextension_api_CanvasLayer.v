@@ -5,7 +5,7 @@ pub struct CanvasLayer {
     Node
 }
 
-pub fn (mut r CanvasLayer) set_layer(layer i32) {
+pub fn (r &CanvasLayer) set_layer(layer i32) {
     classname := StringName.new("CanvasLayer")
     fnname := StringName.new("set_layer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -25,7 +25,7 @@ pub fn (r &CanvasLayer) get_layer() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CanvasLayer) set_visible(visible bool) {
+pub fn (r &CanvasLayer) set_visible(visible bool) {
     classname := StringName.new("CanvasLayer")
     fnname := StringName.new("set_visible")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -45,7 +45,7 @@ pub fn (r &CanvasLayer) is_visible() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CanvasLayer) show() {
+pub fn (r &CanvasLayer) show() {
     classname := StringName.new("CanvasLayer")
     fnname := StringName.new("show")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -53,7 +53,7 @@ pub fn (mut r CanvasLayer) show() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CanvasLayer) hide() {
+pub fn (r &CanvasLayer) hide() {
     classname := StringName.new("CanvasLayer")
     fnname := StringName.new("hide")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -61,7 +61,7 @@ pub fn (mut r CanvasLayer) hide() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CanvasLayer) set_transform(transform Transform2D) {
+pub fn (r &CanvasLayer) set_transform(transform Transform2D) {
     classname := StringName.new("CanvasLayer")
     fnname := StringName.new("set_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2761652528)
@@ -91,7 +91,7 @@ pub fn (r &CanvasLayer) get_final_transform() Transform2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CanvasLayer) set_offset(offset Vector2) {
+pub fn (r &CanvasLayer) set_offset(offset Vector2) {
     classname := StringName.new("CanvasLayer")
     fnname := StringName.new("set_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -111,7 +111,7 @@ pub fn (r &CanvasLayer) get_offset() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CanvasLayer) set_rotation(radians f64) {
+pub fn (r &CanvasLayer) set_rotation(radians f64) {
     classname := StringName.new("CanvasLayer")
     fnname := StringName.new("set_rotation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -131,7 +131,7 @@ pub fn (r &CanvasLayer) get_rotation() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CanvasLayer) set_scale(scale Vector2) {
+pub fn (r &CanvasLayer) set_scale(scale Vector2) {
     classname := StringName.new("CanvasLayer")
     fnname := StringName.new("set_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -151,7 +151,7 @@ pub fn (r &CanvasLayer) get_scale() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CanvasLayer) set_follow_viewport(enable bool) {
+pub fn (r &CanvasLayer) set_follow_viewport(enable bool) {
     classname := StringName.new("CanvasLayer")
     fnname := StringName.new("set_follow_viewport")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -171,7 +171,7 @@ pub fn (r &CanvasLayer) is_following_viewport() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CanvasLayer) set_follow_viewport_scale(scale f64) {
+pub fn (r &CanvasLayer) set_follow_viewport_scale(scale f64) {
     classname := StringName.new("CanvasLayer")
     fnname := StringName.new("set_follow_viewport_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -191,7 +191,7 @@ pub fn (r &CanvasLayer) get_follow_viewport_scale() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CanvasLayer) set_custom_viewport(viewport Node) {
+pub fn (r &CanvasLayer) set_custom_viewport(viewport Node) {
     classname := StringName.new("CanvasLayer")
     fnname := StringName.new("set_custom_viewport")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)

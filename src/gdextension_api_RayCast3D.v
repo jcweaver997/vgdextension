@@ -5,7 +5,7 @@ pub struct RayCast3D {
     Node3D
 }
 
-pub fn (mut r RayCast3D) set_enabled(enabled bool) {
+pub fn (r &RayCast3D) set_enabled(enabled bool) {
     classname := StringName.new("RayCast3D")
     fnname := StringName.new("set_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -25,7 +25,7 @@ pub fn (r &RayCast3D) is_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RayCast3D) set_target_position(local_point Vector3) {
+pub fn (r &RayCast3D) set_target_position(local_point Vector3) {
     classname := StringName.new("RayCast3D")
     fnname := StringName.new("set_target_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -55,7 +55,7 @@ pub fn (r &RayCast3D) is_colliding() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RayCast3D) force_raycast_update() {
+pub fn (r &RayCast3D) force_raycast_update() {
     classname := StringName.new("RayCast3D")
     fnname := StringName.new("force_raycast_update")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -123,7 +123,7 @@ pub fn (r &RayCast3D) get_collision_face_index() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RayCast3D) add_exception_rid(rid RID) {
+pub fn (r &RayCast3D) add_exception_rid(rid RID) {
     classname := StringName.new("RayCast3D")
     fnname := StringName.new("add_exception_rid")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)
@@ -133,7 +133,7 @@ pub fn (mut r RayCast3D) add_exception_rid(rid RID) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RayCast3D) add_exception(node CollisionObject3D) {
+pub fn (r &RayCast3D) add_exception(node CollisionObject3D) {
     classname := StringName.new("RayCast3D")
     fnname := StringName.new("add_exception")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1976431078)
@@ -143,7 +143,7 @@ pub fn (mut r RayCast3D) add_exception(node CollisionObject3D) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RayCast3D) remove_exception_rid(rid RID) {
+pub fn (r &RayCast3D) remove_exception_rid(rid RID) {
     classname := StringName.new("RayCast3D")
     fnname := StringName.new("remove_exception_rid")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)
@@ -153,7 +153,7 @@ pub fn (mut r RayCast3D) remove_exception_rid(rid RID) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RayCast3D) remove_exception(node CollisionObject3D) {
+pub fn (r &RayCast3D) remove_exception(node CollisionObject3D) {
     classname := StringName.new("RayCast3D")
     fnname := StringName.new("remove_exception")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1976431078)
@@ -163,7 +163,7 @@ pub fn (mut r RayCast3D) remove_exception(node CollisionObject3D) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RayCast3D) clear_exceptions() {
+pub fn (r &RayCast3D) clear_exceptions() {
     classname := StringName.new("RayCast3D")
     fnname := StringName.new("clear_exceptions")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -171,7 +171,7 @@ pub fn (mut r RayCast3D) clear_exceptions() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RayCast3D) set_collision_mask(mask u32) {
+pub fn (r &RayCast3D) set_collision_mask(mask u32) {
     classname := StringName.new("RayCast3D")
     fnname := StringName.new("set_collision_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -191,7 +191,7 @@ pub fn (r &RayCast3D) get_collision_mask() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RayCast3D) set_collision_mask_value(layer_number i32, value bool) {
+pub fn (r &RayCast3D) set_collision_mask_value(layer_number i32, value bool) {
     classname := StringName.new("RayCast3D")
     fnname := StringName.new("set_collision_mask_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -214,7 +214,7 @@ pub fn (r &RayCast3D) get_collision_mask_value(layer_number i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RayCast3D) set_exclude_parent_body(mask bool) {
+pub fn (r &RayCast3D) set_exclude_parent_body(mask bool) {
     classname := StringName.new("RayCast3D")
     fnname := StringName.new("set_exclude_parent_body")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -234,7 +234,7 @@ pub fn (r &RayCast3D) get_exclude_parent_body() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RayCast3D) set_collide_with_areas(enable bool) {
+pub fn (r &RayCast3D) set_collide_with_areas(enable bool) {
     classname := StringName.new("RayCast3D")
     fnname := StringName.new("set_collide_with_areas")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -254,7 +254,7 @@ pub fn (r &RayCast3D) is_collide_with_areas_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RayCast3D) set_collide_with_bodies(enable bool) {
+pub fn (r &RayCast3D) set_collide_with_bodies(enable bool) {
     classname := StringName.new("RayCast3D")
     fnname := StringName.new("set_collide_with_bodies")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -274,7 +274,7 @@ pub fn (r &RayCast3D) is_collide_with_bodies_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RayCast3D) set_hit_from_inside(enable bool) {
+pub fn (r &RayCast3D) set_hit_from_inside(enable bool) {
     classname := StringName.new("RayCast3D")
     fnname := StringName.new("set_hit_from_inside")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -294,7 +294,7 @@ pub fn (r &RayCast3D) is_hit_from_inside_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RayCast3D) set_hit_back_faces(enable bool) {
+pub fn (r &RayCast3D) set_hit_back_faces(enable bool) {
     classname := StringName.new("RayCast3D")
     fnname := StringName.new("set_hit_back_faces")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -314,7 +314,7 @@ pub fn (r &RayCast3D) is_hit_back_faces_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RayCast3D) set_debug_shape_custom_color(debug_shape_custom_color Color) {
+pub fn (r &RayCast3D) set_debug_shape_custom_color(debug_shape_custom_color Color) {
     classname := StringName.new("RayCast3D")
     fnname := StringName.new("set_debug_shape_custom_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -334,7 +334,7 @@ pub fn (r &RayCast3D) get_debug_shape_custom_color() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RayCast3D) set_debug_shape_thickness(debug_shape_thickness i32) {
+pub fn (r &RayCast3D) set_debug_shape_thickness(debug_shape_thickness i32) {
     classname := StringName.new("RayCast3D")
     fnname := StringName.new("set_debug_shape_thickness")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

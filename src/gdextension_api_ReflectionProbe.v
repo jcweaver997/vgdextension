@@ -16,7 +16,7 @@ pub struct ReflectionProbe {
     VisualInstance3D
 }
 
-pub fn (mut r ReflectionProbe) set_intensity(intensity f64) {
+pub fn (r &ReflectionProbe) set_intensity(intensity f64) {
     classname := StringName.new("ReflectionProbe")
     fnname := StringName.new("set_intensity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -36,7 +36,7 @@ pub fn (r &ReflectionProbe) get_intensity() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ReflectionProbe) set_ambient_mode(ambient ReflectionProbeAmbientMode) {
+pub fn (r &ReflectionProbe) set_ambient_mode(ambient ReflectionProbeAmbientMode) {
     classname := StringName.new("ReflectionProbe")
     fnname := StringName.new("set_ambient_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1748981278)
@@ -57,7 +57,7 @@ pub fn (r &ReflectionProbe) get_ambient_mode() ReflectionProbeAmbientMode {
     fnname.deinit()
    return unsafe{ReflectionProbeAmbientMode(object_out)}
 }
-pub fn (mut r ReflectionProbe) set_ambient_color(ambient Color) {
+pub fn (r &ReflectionProbe) set_ambient_color(ambient Color) {
     classname := StringName.new("ReflectionProbe")
     fnname := StringName.new("set_ambient_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -77,7 +77,7 @@ pub fn (r &ReflectionProbe) get_ambient_color() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ReflectionProbe) set_ambient_color_energy(ambient_energy f64) {
+pub fn (r &ReflectionProbe) set_ambient_color_energy(ambient_energy f64) {
     classname := StringName.new("ReflectionProbe")
     fnname := StringName.new("set_ambient_color_energy")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -97,7 +97,7 @@ pub fn (r &ReflectionProbe) get_ambient_color_energy() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ReflectionProbe) set_max_distance(max_distance f64) {
+pub fn (r &ReflectionProbe) set_max_distance(max_distance f64) {
     classname := StringName.new("ReflectionProbe")
     fnname := StringName.new("set_max_distance")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -117,7 +117,7 @@ pub fn (r &ReflectionProbe) get_max_distance() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ReflectionProbe) set_mesh_lod_threshold(ratio f64) {
+pub fn (r &ReflectionProbe) set_mesh_lod_threshold(ratio f64) {
     classname := StringName.new("ReflectionProbe")
     fnname := StringName.new("set_mesh_lod_threshold")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -137,7 +137,7 @@ pub fn (r &ReflectionProbe) get_mesh_lod_threshold() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ReflectionProbe) set_size(size Vector3) {
+pub fn (r &ReflectionProbe) set_size(size Vector3) {
     classname := StringName.new("ReflectionProbe")
     fnname := StringName.new("set_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -157,7 +157,7 @@ pub fn (r &ReflectionProbe) get_size() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ReflectionProbe) set_origin_offset(origin_offset Vector3) {
+pub fn (r &ReflectionProbe) set_origin_offset(origin_offset Vector3) {
     classname := StringName.new("ReflectionProbe")
     fnname := StringName.new("set_origin_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -177,7 +177,7 @@ pub fn (r &ReflectionProbe) get_origin_offset() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ReflectionProbe) set_as_interior(enable bool) {
+pub fn (r &ReflectionProbe) set_as_interior(enable bool) {
     classname := StringName.new("ReflectionProbe")
     fnname := StringName.new("set_as_interior")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -197,7 +197,7 @@ pub fn (r &ReflectionProbe) is_set_as_interior() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ReflectionProbe) set_enable_box_projection(enable bool) {
+pub fn (r &ReflectionProbe) set_enable_box_projection(enable bool) {
     classname := StringName.new("ReflectionProbe")
     fnname := StringName.new("set_enable_box_projection")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -217,7 +217,7 @@ pub fn (r &ReflectionProbe) is_box_projection_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ReflectionProbe) set_enable_shadows(enable bool) {
+pub fn (r &ReflectionProbe) set_enable_shadows(enable bool) {
     classname := StringName.new("ReflectionProbe")
     fnname := StringName.new("set_enable_shadows")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -237,7 +237,7 @@ pub fn (r &ReflectionProbe) are_shadows_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ReflectionProbe) set_cull_mask(layers u32) {
+pub fn (r &ReflectionProbe) set_cull_mask(layers u32) {
     classname := StringName.new("ReflectionProbe")
     fnname := StringName.new("set_cull_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -257,7 +257,7 @@ pub fn (r &ReflectionProbe) get_cull_mask() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ReflectionProbe) set_update_mode(mode ReflectionProbeUpdateMode) {
+pub fn (r &ReflectionProbe) set_update_mode(mode ReflectionProbeUpdateMode) {
     classname := StringName.new("ReflectionProbe")
     fnname := StringName.new("set_update_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4090221187)

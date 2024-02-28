@@ -5,7 +5,7 @@ pub struct SphereOccluder3D {
     Occluder3D
 }
 
-pub fn (mut r SphereOccluder3D) set_radius(radius f64) {
+pub fn (r &SphereOccluder3D) set_radius(radius f64) {
     classname := StringName.new("SphereOccluder3D")
     fnname := StringName.new("set_radius")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

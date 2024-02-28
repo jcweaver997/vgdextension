@@ -5,7 +5,7 @@ pub struct InputEventShortcut {
     InputEvent
 }
 
-pub fn (mut r InputEventShortcut) set_shortcut(shortcut Shortcut) {
+pub fn (r &InputEventShortcut) set_shortcut(shortcut Shortcut) {
     classname := StringName.new("InputEventShortcut")
     fnname := StringName.new("set_shortcut")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 857163497)
@@ -15,7 +15,7 @@ pub fn (mut r InputEventShortcut) set_shortcut(shortcut Shortcut) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r InputEventShortcut) get_shortcut() Shortcut {
+pub fn (r &InputEventShortcut) get_shortcut() Shortcut {
     mut object_out := Shortcut{}
     classname := StringName.new("InputEventShortcut")
     fnname := StringName.new("get_shortcut")

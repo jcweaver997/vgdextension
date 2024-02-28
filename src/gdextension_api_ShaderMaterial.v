@@ -5,7 +5,7 @@ pub struct ShaderMaterial {
     Material
 }
 
-pub fn (mut r ShaderMaterial) set_shader(shader Shader) {
+pub fn (r &ShaderMaterial) set_shader(shader Shader) {
     classname := StringName.new("ShaderMaterial")
     fnname := StringName.new("set_shader")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3341921675)
@@ -25,7 +25,7 @@ pub fn (r &ShaderMaterial) get_shader() Shader {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ShaderMaterial) set_shader_parameter(param string, value Variant) {
+pub fn (r &ShaderMaterial) set_shader_parameter(param string, value Variant) {
     classname := StringName.new("ShaderMaterial")
     fnname := StringName.new("set_shader_parameter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3776071444)

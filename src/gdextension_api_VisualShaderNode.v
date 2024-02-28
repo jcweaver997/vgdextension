@@ -31,7 +31,7 @@ pub fn (r &VisualShaderNode) get_default_input_port(type_name VisualShaderNodePo
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VisualShaderNode) set_output_port_for_preview(port i32) {
+pub fn (r &VisualShaderNode) set_output_port_for_preview(port i32) {
     classname := StringName.new("VisualShaderNode")
     fnname := StringName.new("set_output_port_for_preview")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -51,7 +51,7 @@ pub fn (r &VisualShaderNode) get_output_port_for_preview() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VisualShaderNode) set_input_port_default_value(port i32, value Variant, prev_value Variant) {
+pub fn (r &VisualShaderNode) set_input_port_default_value(port i32, value Variant, prev_value Variant) {
     classname := StringName.new("VisualShaderNode")
     fnname := StringName.new("set_input_port_default_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 150923387)
@@ -75,7 +75,7 @@ pub fn (r &VisualShaderNode) get_input_port_default_value(port i32) Variant {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VisualShaderNode) remove_input_port_default_value(port i32) {
+pub fn (r &VisualShaderNode) remove_input_port_default_value(port i32) {
     classname := StringName.new("VisualShaderNode")
     fnname := StringName.new("remove_input_port_default_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -85,7 +85,7 @@ pub fn (mut r VisualShaderNode) remove_input_port_default_value(port i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r VisualShaderNode) clear_default_input_values() {
+pub fn (r &VisualShaderNode) clear_default_input_values() {
     classname := StringName.new("VisualShaderNode")
     fnname := StringName.new("clear_default_input_values")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -93,7 +93,7 @@ pub fn (mut r VisualShaderNode) clear_default_input_values() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r VisualShaderNode) set_default_input_values(values Array) {
+pub fn (r &VisualShaderNode) set_default_input_values(values Array) {
     classname := StringName.new("VisualShaderNode")
     fnname := StringName.new("set_default_input_values")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)

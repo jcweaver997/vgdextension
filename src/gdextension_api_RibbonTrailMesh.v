@@ -10,7 +10,7 @@ pub struct RibbonTrailMesh {
     PrimitiveMesh
 }
 
-pub fn (mut r RibbonTrailMesh) set_size(size f64) {
+pub fn (r &RibbonTrailMesh) set_size(size f64) {
     classname := StringName.new("RibbonTrailMesh")
     fnname := StringName.new("set_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -30,7 +30,7 @@ pub fn (r &RibbonTrailMesh) get_size() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RibbonTrailMesh) set_sections(sections i32) {
+pub fn (r &RibbonTrailMesh) set_sections(sections i32) {
     classname := StringName.new("RibbonTrailMesh")
     fnname := StringName.new("set_sections")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -50,7 +50,7 @@ pub fn (r &RibbonTrailMesh) get_sections() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RibbonTrailMesh) set_section_length(section_length f64) {
+pub fn (r &RibbonTrailMesh) set_section_length(section_length f64) {
     classname := StringName.new("RibbonTrailMesh")
     fnname := StringName.new("set_section_length")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -70,7 +70,7 @@ pub fn (r &RibbonTrailMesh) get_section_length() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RibbonTrailMesh) set_section_segments(section_segments i32) {
+pub fn (r &RibbonTrailMesh) set_section_segments(section_segments i32) {
     classname := StringName.new("RibbonTrailMesh")
     fnname := StringName.new("set_section_segments")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -90,7 +90,7 @@ pub fn (r &RibbonTrailMesh) get_section_segments() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RibbonTrailMesh) set_curve(curve Curve) {
+pub fn (r &RibbonTrailMesh) set_curve(curve Curve) {
     classname := StringName.new("RibbonTrailMesh")
     fnname := StringName.new("set_curve")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 270443179)
@@ -110,7 +110,7 @@ pub fn (r &RibbonTrailMesh) get_curve() Curve {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RibbonTrailMesh) set_shape(shape RibbonTrailMeshShape) {
+pub fn (r &RibbonTrailMesh) set_shape(shape RibbonTrailMeshShape) {
     classname := StringName.new("RibbonTrailMesh")
     fnname := StringName.new("set_shape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1684440262)

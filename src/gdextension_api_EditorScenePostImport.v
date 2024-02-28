@@ -10,7 +10,7 @@ pub interface IEditorScenePostImportPostImport {
     virt_post_import(scene Node) Object
 }
 
-pub fn (mut r EditorScenePostImport) upost_import(scene Node) Object {
+pub fn (r &EditorScenePostImport) upost_import(scene Node) Object {
     mut object_out := Object{}
     classname := StringName.new("EditorScenePostImport")
     fnname := StringName.new("_post_import")

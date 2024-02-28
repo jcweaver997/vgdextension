@@ -662,7 +662,7 @@ pub fn RenderingServer.get_singleton() RenderingServer {
     return o
 }
 
-pub fn (mut r RenderingServer) texture_2d_create(image Image) RID {
+pub fn (r &RenderingServer) texture_2d_create(image Image) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("texture_2d_create")
@@ -674,7 +674,7 @@ pub fn (mut r RenderingServer) texture_2d_create(image Image) RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) texture_2d_layered_create(layers Array, layered_type RenderingServerTextureLayeredType) RID {
+pub fn (r &RenderingServer) texture_2d_layered_create(layers Array, layered_type RenderingServerTextureLayeredType) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("texture_2d_layered_create")
@@ -688,7 +688,7 @@ pub fn (mut r RenderingServer) texture_2d_layered_create(layers Array, layered_t
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) texture_3d_create(format ImageFormat, width i32, height i32, depth i32, mipmaps bool, data Array) RID {
+pub fn (r &RenderingServer) texture_3d_create(format ImageFormat, width i32, height i32, depth i32, mipmaps bool, data Array) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("texture_3d_create")
@@ -706,7 +706,7 @@ pub fn (mut r RenderingServer) texture_3d_create(format ImageFormat, width i32, 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) texture_proxy_create(base RID) RID {
+pub fn (r &RenderingServer) texture_proxy_create(base RID) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("texture_proxy_create")
@@ -718,7 +718,7 @@ pub fn (mut r RenderingServer) texture_proxy_create(base RID) RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) texture_2d_update(texture RID, image Image, layer i32) {
+pub fn (r &RenderingServer) texture_2d_update(texture RID, image Image, layer i32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("texture_2d_update")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 999539803)
@@ -730,7 +730,7 @@ pub fn (mut r RenderingServer) texture_2d_update(texture RID, image Image, layer
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) texture_3d_update(texture RID, data Array) {
+pub fn (r &RenderingServer) texture_3d_update(texture RID, data Array) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("texture_3d_update")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 684822712)
@@ -741,7 +741,7 @@ pub fn (mut r RenderingServer) texture_3d_update(texture RID, data Array) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) texture_proxy_update(texture RID, proxy_to RID) {
+pub fn (r &RenderingServer) texture_proxy_update(texture RID, proxy_to RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("texture_proxy_update")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -752,7 +752,7 @@ pub fn (mut r RenderingServer) texture_proxy_update(texture RID, proxy_to RID) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) texture_2d_placeholder_create() RID {
+pub fn (r &RenderingServer) texture_2d_placeholder_create() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("texture_2d_placeholder_create")
@@ -762,7 +762,7 @@ pub fn (mut r RenderingServer) texture_2d_placeholder_create() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) texture_2d_layered_placeholder_create(layered_type RenderingServerTextureLayeredType) RID {
+pub fn (r &RenderingServer) texture_2d_layered_placeholder_create(layered_type RenderingServerTextureLayeredType) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("texture_2d_layered_placeholder_create")
@@ -775,7 +775,7 @@ pub fn (mut r RenderingServer) texture_2d_layered_placeholder_create(layered_typ
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) texture_3d_placeholder_create() RID {
+pub fn (r &RenderingServer) texture_3d_placeholder_create() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("texture_3d_placeholder_create")
@@ -822,7 +822,7 @@ pub fn (r &RenderingServer) texture_3d_get(texture RID) Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) texture_replace(texture RID, by_texture RID) {
+pub fn (r &RenderingServer) texture_replace(texture RID, by_texture RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("texture_replace")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -833,7 +833,7 @@ pub fn (mut r RenderingServer) texture_replace(texture RID, by_texture RID) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) texture_set_size_override(texture RID, width i32, height i32) {
+pub fn (r &RenderingServer) texture_set_size_override(texture RID, width i32, height i32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("texture_set_size_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4288446313)
@@ -845,7 +845,7 @@ pub fn (mut r RenderingServer) texture_set_size_override(texture RID, width i32,
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) texture_set_path(texture RID, path string) {
+pub fn (r &RenderingServer) texture_set_path(texture RID, path string) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("texture_set_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2726140452)
@@ -884,7 +884,7 @@ pub fn (r &RenderingServer) texture_get_format(texture RID) ImageFormat {
     fnname.deinit()
    return unsafe{ImageFormat(object_out)}
 }
-pub fn (mut r RenderingServer) texture_set_force_redraw_if_visible(texture RID, enable bool) {
+pub fn (r &RenderingServer) texture_set_force_redraw_if_visible(texture RID, enable bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("texture_set_force_redraw_if_visible")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -895,7 +895,7 @@ pub fn (mut r RenderingServer) texture_set_force_redraw_if_visible(texture RID, 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) texture_rd_create(rd_texture RID, layer_type RenderingServerTextureLayeredType) RID {
+pub fn (r &RenderingServer) texture_rd_create(rd_texture RID, layer_type RenderingServerTextureLayeredType) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("texture_rd_create")
@@ -935,7 +935,7 @@ pub fn (r &RenderingServer) texture_get_native_handle(texture RID, srgb bool) u6
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) shader_create() RID {
+pub fn (r &RenderingServer) shader_create() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("shader_create")
@@ -945,7 +945,7 @@ pub fn (mut r RenderingServer) shader_create() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) shader_set_code(shader RID, code string) {
+pub fn (r &RenderingServer) shader_set_code(shader RID, code string) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("shader_set_code")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2726140452)
@@ -958,7 +958,7 @@ pub fn (mut r RenderingServer) shader_set_code(shader RID, code string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) shader_set_path_hint(shader RID, path string) {
+pub fn (r &RenderingServer) shader_set_path_hint(shader RID, path string) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("shader_set_path_hint")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2726140452)
@@ -1012,7 +1012,7 @@ pub fn (r &RenderingServer) shader_get_parameter_default(shader RID, name string
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) shader_set_default_texture_parameter(shader RID, name string, texture RID, index i32) {
+pub fn (r &RenderingServer) shader_set_default_texture_parameter(shader RID, name string, texture RID, index i32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("shader_set_default_texture_parameter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4094001817)
@@ -1043,7 +1043,7 @@ pub fn (r &RenderingServer) shader_get_default_texture_parameter(shader RID, nam
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) material_create() RID {
+pub fn (r &RenderingServer) material_create() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("material_create")
@@ -1053,7 +1053,7 @@ pub fn (mut r RenderingServer) material_create() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) material_set_shader(shader_material RID, shader RID) {
+pub fn (r &RenderingServer) material_set_shader(shader_material RID, shader RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("material_set_shader")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -1064,7 +1064,7 @@ pub fn (mut r RenderingServer) material_set_shader(shader_material RID, shader R
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) material_set_param(material RID, parameter string, value Variant) {
+pub fn (r &RenderingServer) material_set_param(material RID, parameter string, value Variant) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("material_set_param")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3477296213)
@@ -1093,7 +1093,7 @@ pub fn (r &RenderingServer) material_get_param(material RID, parameter string) V
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) material_set_render_priority(material RID, priority i32) {
+pub fn (r &RenderingServer) material_set_render_priority(material RID, priority i32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("material_set_render_priority")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -1104,7 +1104,7 @@ pub fn (mut r RenderingServer) material_set_render_priority(material RID, priori
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) material_set_next_pass(material RID, next_material RID) {
+pub fn (r &RenderingServer) material_set_next_pass(material RID, next_material RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("material_set_next_pass")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -1115,7 +1115,7 @@ pub fn (mut r RenderingServer) material_set_next_pass(material RID, next_materia
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) mesh_create_from_surfaces(surfaces Array, blend_shape_count i32) RID {
+pub fn (r &RenderingServer) mesh_create_from_surfaces(surfaces Array, blend_shape_count i32) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("mesh_create_from_surfaces")
@@ -1128,7 +1128,7 @@ pub fn (mut r RenderingServer) mesh_create_from_surfaces(surfaces Array, blend_s
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) mesh_create() RID {
+pub fn (r &RenderingServer) mesh_create() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("mesh_create")
@@ -1209,7 +1209,7 @@ pub fn (r &RenderingServer) mesh_surface_get_format_skin_stride(format Rendering
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) mesh_add_surface(mesh RID, surface Dictionary) {
+pub fn (r &RenderingServer) mesh_add_surface(mesh RID, surface Dictionary) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("mesh_add_surface")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1217542888)
@@ -1220,7 +1220,7 @@ pub fn (mut r RenderingServer) mesh_add_surface(mesh RID, surface Dictionary) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) mesh_add_surface_from_arrays(mesh RID, primitive RenderingServerPrimitiveType, arrays Array, blend_shapes Array, lods Dictionary, compress_format RenderingServerArrayFormat) {
+pub fn (r &RenderingServer) mesh_add_surface_from_arrays(mesh RID, primitive RenderingServerPrimitiveType, arrays Array, blend_shapes Array, lods Dictionary, compress_format RenderingServerArrayFormat) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("mesh_add_surface_from_arrays")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2342446560)
@@ -1249,7 +1249,7 @@ pub fn (r &RenderingServer) mesh_get_blend_shape_count(mesh RID) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) mesh_set_blend_shape_mode(mesh RID, mode RenderingServerBlendShapeMode) {
+pub fn (r &RenderingServer) mesh_set_blend_shape_mode(mesh RID, mode RenderingServerBlendShapeMode) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("mesh_set_blend_shape_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1294662092)
@@ -1273,7 +1273,7 @@ pub fn (r &RenderingServer) mesh_get_blend_shape_mode(mesh RID) RenderingServerB
     fnname.deinit()
    return unsafe{RenderingServerBlendShapeMode(object_out)}
 }
-pub fn (mut r RenderingServer) mesh_surface_set_material(mesh RID, surface i32, material RID) {
+pub fn (r &RenderingServer) mesh_surface_set_material(mesh RID, surface i32, material RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("mesh_surface_set_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2310537182)
@@ -1298,7 +1298,7 @@ pub fn (r &RenderingServer) mesh_surface_get_material(mesh RID, surface i32) RID
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) mesh_get_surface(mesh RID, surface i32) Dictionary {
+pub fn (r &RenderingServer) mesh_get_surface(mesh RID, surface i32) Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("mesh_get_surface")
@@ -1349,7 +1349,7 @@ pub fn (r &RenderingServer) mesh_get_surface_count(mesh RID) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) mesh_set_custom_aabb(mesh RID, aabb AABB) {
+pub fn (r &RenderingServer) mesh_set_custom_aabb(mesh RID, aabb AABB) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("mesh_set_custom_aabb")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3696536120)
@@ -1372,7 +1372,7 @@ pub fn (r &RenderingServer) mesh_get_custom_aabb(mesh RID) AABB {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) mesh_clear(mesh RID) {
+pub fn (r &RenderingServer) mesh_clear(mesh RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("mesh_clear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)
@@ -1382,7 +1382,7 @@ pub fn (mut r RenderingServer) mesh_clear(mesh RID) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) mesh_surface_update_vertex_region(mesh RID, surface i32, offset i32, data PackedByteArray) {
+pub fn (r &RenderingServer) mesh_surface_update_vertex_region(mesh RID, surface i32, offset i32, data PackedByteArray) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("mesh_surface_update_vertex_region")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2900195149)
@@ -1395,7 +1395,7 @@ pub fn (mut r RenderingServer) mesh_surface_update_vertex_region(mesh RID, surfa
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) mesh_surface_update_attribute_region(mesh RID, surface i32, offset i32, data PackedByteArray) {
+pub fn (r &RenderingServer) mesh_surface_update_attribute_region(mesh RID, surface i32, offset i32, data PackedByteArray) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("mesh_surface_update_attribute_region")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2900195149)
@@ -1408,7 +1408,7 @@ pub fn (mut r RenderingServer) mesh_surface_update_attribute_region(mesh RID, su
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) mesh_surface_update_skin_region(mesh RID, surface i32, offset i32, data PackedByteArray) {
+pub fn (r &RenderingServer) mesh_surface_update_skin_region(mesh RID, surface i32, offset i32, data PackedByteArray) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("mesh_surface_update_skin_region")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2900195149)
@@ -1421,7 +1421,7 @@ pub fn (mut r RenderingServer) mesh_surface_update_skin_region(mesh RID, surface
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) mesh_set_shadow_mesh(mesh RID, shadow_mesh RID) {
+pub fn (r &RenderingServer) mesh_set_shadow_mesh(mesh RID, shadow_mesh RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("mesh_set_shadow_mesh")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -1432,7 +1432,7 @@ pub fn (mut r RenderingServer) mesh_set_shadow_mesh(mesh RID, shadow_mesh RID) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) multimesh_create() RID {
+pub fn (r &RenderingServer) multimesh_create() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("multimesh_create")
@@ -1442,7 +1442,7 @@ pub fn (mut r RenderingServer) multimesh_create() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) multimesh_allocate_data(multimesh RID, instances i32, transform_format RenderingServerMultimeshTransformFormat, color_format bool, custom_data_format bool) {
+pub fn (r &RenderingServer) multimesh_allocate_data(multimesh RID, instances i32, transform_format RenderingServerMultimeshTransformFormat, color_format bool, custom_data_format bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("multimesh_allocate_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 283685892)
@@ -1469,7 +1469,7 @@ pub fn (r &RenderingServer) multimesh_get_instance_count(multimesh RID) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) multimesh_set_mesh(multimesh RID, mesh RID) {
+pub fn (r &RenderingServer) multimesh_set_mesh(multimesh RID, mesh RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("multimesh_set_mesh")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -1480,7 +1480,7 @@ pub fn (mut r RenderingServer) multimesh_set_mesh(multimesh RID, mesh RID) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) multimesh_instance_set_transform(multimesh RID, index i32, transform Transform3D) {
+pub fn (r &RenderingServer) multimesh_instance_set_transform(multimesh RID, index i32, transform Transform3D) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("multimesh_instance_set_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 675327471)
@@ -1492,7 +1492,7 @@ pub fn (mut r RenderingServer) multimesh_instance_set_transform(multimesh RID, i
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) multimesh_instance_set_transform_2d(multimesh RID, index i32, transform Transform2D) {
+pub fn (r &RenderingServer) multimesh_instance_set_transform_2d(multimesh RID, index i32, transform Transform2D) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("multimesh_instance_set_transform_2d")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 736082694)
@@ -1504,7 +1504,7 @@ pub fn (mut r RenderingServer) multimesh_instance_set_transform_2d(multimesh RID
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) multimesh_instance_set_color(multimesh RID, index i32, color Color) {
+pub fn (r &RenderingServer) multimesh_instance_set_color(multimesh RID, index i32, color Color) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("multimesh_instance_set_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 176975443)
@@ -1516,7 +1516,7 @@ pub fn (mut r RenderingServer) multimesh_instance_set_color(multimesh RID, index
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) multimesh_instance_set_custom_data(multimesh RID, index i32, custom_data Color) {
+pub fn (r &RenderingServer) multimesh_instance_set_custom_data(multimesh RID, index i32, custom_data Color) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("multimesh_instance_set_custom_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 176975443)
@@ -1604,7 +1604,7 @@ pub fn (r &RenderingServer) multimesh_instance_get_custom_data(multimesh RID, in
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) multimesh_set_visible_instances(multimesh RID, visible i32) {
+pub fn (r &RenderingServer) multimesh_set_visible_instances(multimesh RID, visible i32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("multimesh_set_visible_instances")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -1627,7 +1627,7 @@ pub fn (r &RenderingServer) multimesh_get_visible_instances(multimesh RID) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) multimesh_set_buffer(multimesh RID, buffer PackedFloat32Array) {
+pub fn (r &RenderingServer) multimesh_set_buffer(multimesh RID, buffer PackedFloat32Array) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("multimesh_set_buffer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2960552364)
@@ -1650,7 +1650,7 @@ pub fn (r &RenderingServer) multimesh_get_buffer(multimesh RID) PackedFloat32Arr
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) skeleton_create() RID {
+pub fn (r &RenderingServer) skeleton_create() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("skeleton_create")
@@ -1660,7 +1660,7 @@ pub fn (mut r RenderingServer) skeleton_create() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) skeleton_allocate_data(skeleton RID, bones i32, is_2d_skeleton bool) {
+pub fn (r &RenderingServer) skeleton_allocate_data(skeleton RID, bones i32, is_2d_skeleton bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("skeleton_allocate_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1904426712)
@@ -1684,7 +1684,7 @@ pub fn (r &RenderingServer) skeleton_get_bone_count(skeleton RID) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) skeleton_bone_set_transform(skeleton RID, bone i32, transform Transform3D) {
+pub fn (r &RenderingServer) skeleton_bone_set_transform(skeleton RID, bone i32, transform Transform3D) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("skeleton_bone_set_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 675327471)
@@ -1709,7 +1709,7 @@ pub fn (r &RenderingServer) skeleton_bone_get_transform(skeleton RID, bone i32) 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) skeleton_bone_set_transform_2d(skeleton RID, bone i32, transform Transform2D) {
+pub fn (r &RenderingServer) skeleton_bone_set_transform_2d(skeleton RID, bone i32, transform Transform2D) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("skeleton_bone_set_transform_2d")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 736082694)
@@ -1734,7 +1734,7 @@ pub fn (r &RenderingServer) skeleton_bone_get_transform_2d(skeleton RID, bone i3
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) skeleton_set_base_transform_2d(skeleton RID, base_transform Transform2D) {
+pub fn (r &RenderingServer) skeleton_set_base_transform_2d(skeleton RID, base_transform Transform2D) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("skeleton_set_base_transform_2d")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1246044741)
@@ -1745,7 +1745,7 @@ pub fn (mut r RenderingServer) skeleton_set_base_transform_2d(skeleton RID, base
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) directional_light_create() RID {
+pub fn (r &RenderingServer) directional_light_create() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("directional_light_create")
@@ -1755,7 +1755,7 @@ pub fn (mut r RenderingServer) directional_light_create() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) omni_light_create() RID {
+pub fn (r &RenderingServer) omni_light_create() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("omni_light_create")
@@ -1765,7 +1765,7 @@ pub fn (mut r RenderingServer) omni_light_create() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) spot_light_create() RID {
+pub fn (r &RenderingServer) spot_light_create() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("spot_light_create")
@@ -1775,7 +1775,7 @@ pub fn (mut r RenderingServer) spot_light_create() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) light_set_color(light RID, color Color) {
+pub fn (r &RenderingServer) light_set_color(light RID, color Color) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("light_set_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2948539648)
@@ -1786,7 +1786,7 @@ pub fn (mut r RenderingServer) light_set_color(light RID, color Color) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) light_set_param(light RID, param RenderingServerLightParam, value f64) {
+pub fn (r &RenderingServer) light_set_param(light RID, param RenderingServerLightParam, value f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("light_set_param")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501936875)
@@ -1799,7 +1799,7 @@ pub fn (mut r RenderingServer) light_set_param(light RID, param RenderingServerL
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) light_set_shadow(light RID, enabled bool) {
+pub fn (r &RenderingServer) light_set_shadow(light RID, enabled bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("light_set_shadow")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -1810,7 +1810,7 @@ pub fn (mut r RenderingServer) light_set_shadow(light RID, enabled bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) light_set_projector(light RID, texture RID) {
+pub fn (r &RenderingServer) light_set_projector(light RID, texture RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("light_set_projector")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -1821,7 +1821,7 @@ pub fn (mut r RenderingServer) light_set_projector(light RID, texture RID) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) light_set_negative(light RID, enable bool) {
+pub fn (r &RenderingServer) light_set_negative(light RID, enable bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("light_set_negative")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -1832,7 +1832,7 @@ pub fn (mut r RenderingServer) light_set_negative(light RID, enable bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) light_set_cull_mask(light RID, mask u32) {
+pub fn (r &RenderingServer) light_set_cull_mask(light RID, mask u32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("light_set_cull_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -1843,7 +1843,7 @@ pub fn (mut r RenderingServer) light_set_cull_mask(light RID, mask u32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) light_set_distance_fade(decal RID, enabled bool, begin f64, shadow f64, length f64) {
+pub fn (r &RenderingServer) light_set_distance_fade(decal RID, enabled bool, begin f64, shadow f64, length f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("light_set_distance_fade")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1622292572)
@@ -1857,7 +1857,7 @@ pub fn (mut r RenderingServer) light_set_distance_fade(decal RID, enabled bool, 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) light_set_reverse_cull_face_mode(light RID, enabled bool) {
+pub fn (r &RenderingServer) light_set_reverse_cull_face_mode(light RID, enabled bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("light_set_reverse_cull_face_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -1868,7 +1868,7 @@ pub fn (mut r RenderingServer) light_set_reverse_cull_face_mode(light RID, enabl
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) light_set_bake_mode(light RID, bake_mode RenderingServerLightBakeMode) {
+pub fn (r &RenderingServer) light_set_bake_mode(light RID, bake_mode RenderingServerLightBakeMode) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("light_set_bake_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1048525260)
@@ -1880,7 +1880,7 @@ pub fn (mut r RenderingServer) light_set_bake_mode(light RID, bake_mode Renderin
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) light_set_max_sdfgi_cascade(light RID, cascade u32) {
+pub fn (r &RenderingServer) light_set_max_sdfgi_cascade(light RID, cascade u32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("light_set_max_sdfgi_cascade")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -1891,7 +1891,7 @@ pub fn (mut r RenderingServer) light_set_max_sdfgi_cascade(light RID, cascade u3
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) light_omni_set_shadow_mode(light RID, mode RenderingServerLightOmniShadowMode) {
+pub fn (r &RenderingServer) light_omni_set_shadow_mode(light RID, mode RenderingServerLightOmniShadowMode) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("light_omni_set_shadow_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2552677200)
@@ -1903,7 +1903,7 @@ pub fn (mut r RenderingServer) light_omni_set_shadow_mode(light RID, mode Render
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) light_directional_set_shadow_mode(light RID, mode RenderingServerLightDirectionalShadowMode) {
+pub fn (r &RenderingServer) light_directional_set_shadow_mode(light RID, mode RenderingServerLightDirectionalShadowMode) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("light_directional_set_shadow_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 380462970)
@@ -1915,7 +1915,7 @@ pub fn (mut r RenderingServer) light_directional_set_shadow_mode(light RID, mode
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) light_directional_set_blend_splits(light RID, enable bool) {
+pub fn (r &RenderingServer) light_directional_set_blend_splits(light RID, enable bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("light_directional_set_blend_splits")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -1926,7 +1926,7 @@ pub fn (mut r RenderingServer) light_directional_set_blend_splits(light RID, ena
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) light_directional_set_sky_mode(light RID, mode RenderingServerLightDirectionalSkyMode) {
+pub fn (r &RenderingServer) light_directional_set_sky_mode(light RID, mode RenderingServerLightDirectionalSkyMode) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("light_directional_set_sky_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2559740754)
@@ -1938,7 +1938,7 @@ pub fn (mut r RenderingServer) light_directional_set_sky_mode(light RID, mode Re
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) light_projectors_set_filter(filter RenderingServerLightProjectorFilter) {
+pub fn (r &RenderingServer) light_projectors_set_filter(filter RenderingServerLightProjectorFilter) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("light_projectors_set_filter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 43944325)
@@ -1949,7 +1949,7 @@ pub fn (mut r RenderingServer) light_projectors_set_filter(filter RenderingServe
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) positional_soft_shadow_filter_set_quality(quality RenderingServerShadowQuality) {
+pub fn (r &RenderingServer) positional_soft_shadow_filter_set_quality(quality RenderingServerShadowQuality) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("positional_soft_shadow_filter_set_quality")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3613045266)
@@ -1960,7 +1960,7 @@ pub fn (mut r RenderingServer) positional_soft_shadow_filter_set_quality(quality
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) directional_soft_shadow_filter_set_quality(quality RenderingServerShadowQuality) {
+pub fn (r &RenderingServer) directional_soft_shadow_filter_set_quality(quality RenderingServerShadowQuality) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("directional_soft_shadow_filter_set_quality")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3613045266)
@@ -1971,7 +1971,7 @@ pub fn (mut r RenderingServer) directional_soft_shadow_filter_set_quality(qualit
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) directional_shadow_atlas_set_size(size i32, is_16bits bool) {
+pub fn (r &RenderingServer) directional_shadow_atlas_set_size(size i32, is_16bits bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("directional_shadow_atlas_set_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -1982,7 +1982,7 @@ pub fn (mut r RenderingServer) directional_shadow_atlas_set_size(size i32, is_16
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) reflection_probe_create() RID {
+pub fn (r &RenderingServer) reflection_probe_create() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("reflection_probe_create")
@@ -1992,7 +1992,7 @@ pub fn (mut r RenderingServer) reflection_probe_create() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) reflection_probe_set_update_mode(probe RID, mode RenderingServerReflectionProbeUpdateMode) {
+pub fn (r &RenderingServer) reflection_probe_set_update_mode(probe RID, mode RenderingServerReflectionProbeUpdateMode) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("reflection_probe_set_update_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3853670147)
@@ -2004,7 +2004,7 @@ pub fn (mut r RenderingServer) reflection_probe_set_update_mode(probe RID, mode 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) reflection_probe_set_intensity(probe RID, intensity f64) {
+pub fn (r &RenderingServer) reflection_probe_set_intensity(probe RID, intensity f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("reflection_probe_set_intensity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -2015,7 +2015,7 @@ pub fn (mut r RenderingServer) reflection_probe_set_intensity(probe RID, intensi
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) reflection_probe_set_ambient_mode(probe RID, mode RenderingServerReflectionProbeAmbientMode) {
+pub fn (r &RenderingServer) reflection_probe_set_ambient_mode(probe RID, mode RenderingServerReflectionProbeAmbientMode) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("reflection_probe_set_ambient_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 184163074)
@@ -2027,7 +2027,7 @@ pub fn (mut r RenderingServer) reflection_probe_set_ambient_mode(probe RID, mode
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) reflection_probe_set_ambient_color(probe RID, color Color) {
+pub fn (r &RenderingServer) reflection_probe_set_ambient_color(probe RID, color Color) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("reflection_probe_set_ambient_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2948539648)
@@ -2038,7 +2038,7 @@ pub fn (mut r RenderingServer) reflection_probe_set_ambient_color(probe RID, col
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) reflection_probe_set_ambient_energy(probe RID, energy f64) {
+pub fn (r &RenderingServer) reflection_probe_set_ambient_energy(probe RID, energy f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("reflection_probe_set_ambient_energy")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -2049,7 +2049,7 @@ pub fn (mut r RenderingServer) reflection_probe_set_ambient_energy(probe RID, en
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) reflection_probe_set_max_distance(probe RID, distance f64) {
+pub fn (r &RenderingServer) reflection_probe_set_max_distance(probe RID, distance f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("reflection_probe_set_max_distance")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -2060,7 +2060,7 @@ pub fn (mut r RenderingServer) reflection_probe_set_max_distance(probe RID, dist
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) reflection_probe_set_size(probe RID, size Vector3) {
+pub fn (r &RenderingServer) reflection_probe_set_size(probe RID, size Vector3) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("reflection_probe_set_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3227306858)
@@ -2071,7 +2071,7 @@ pub fn (mut r RenderingServer) reflection_probe_set_size(probe RID, size Vector3
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) reflection_probe_set_origin_offset(probe RID, offset Vector3) {
+pub fn (r &RenderingServer) reflection_probe_set_origin_offset(probe RID, offset Vector3) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("reflection_probe_set_origin_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3227306858)
@@ -2082,7 +2082,7 @@ pub fn (mut r RenderingServer) reflection_probe_set_origin_offset(probe RID, off
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) reflection_probe_set_as_interior(probe RID, enable bool) {
+pub fn (r &RenderingServer) reflection_probe_set_as_interior(probe RID, enable bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("reflection_probe_set_as_interior")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -2093,7 +2093,7 @@ pub fn (mut r RenderingServer) reflection_probe_set_as_interior(probe RID, enabl
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) reflection_probe_set_enable_box_projection(probe RID, enable bool) {
+pub fn (r &RenderingServer) reflection_probe_set_enable_box_projection(probe RID, enable bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("reflection_probe_set_enable_box_projection")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -2104,7 +2104,7 @@ pub fn (mut r RenderingServer) reflection_probe_set_enable_box_projection(probe 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) reflection_probe_set_enable_shadows(probe RID, enable bool) {
+pub fn (r &RenderingServer) reflection_probe_set_enable_shadows(probe RID, enable bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("reflection_probe_set_enable_shadows")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -2115,7 +2115,7 @@ pub fn (mut r RenderingServer) reflection_probe_set_enable_shadows(probe RID, en
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) reflection_probe_set_cull_mask(probe RID, layers u32) {
+pub fn (r &RenderingServer) reflection_probe_set_cull_mask(probe RID, layers u32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("reflection_probe_set_cull_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -2126,7 +2126,7 @@ pub fn (mut r RenderingServer) reflection_probe_set_cull_mask(probe RID, layers 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) reflection_probe_set_resolution(probe RID, resolution i32) {
+pub fn (r &RenderingServer) reflection_probe_set_resolution(probe RID, resolution i32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("reflection_probe_set_resolution")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -2137,7 +2137,7 @@ pub fn (mut r RenderingServer) reflection_probe_set_resolution(probe RID, resolu
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) reflection_probe_set_mesh_lod_threshold(probe RID, pixels f64) {
+pub fn (r &RenderingServer) reflection_probe_set_mesh_lod_threshold(probe RID, pixels f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("reflection_probe_set_mesh_lod_threshold")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -2148,7 +2148,7 @@ pub fn (mut r RenderingServer) reflection_probe_set_mesh_lod_threshold(probe RID
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) decal_create() RID {
+pub fn (r &RenderingServer) decal_create() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("decal_create")
@@ -2158,7 +2158,7 @@ pub fn (mut r RenderingServer) decal_create() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) decal_set_size(decal RID, size Vector3) {
+pub fn (r &RenderingServer) decal_set_size(decal RID, size Vector3) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("decal_set_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3227306858)
@@ -2169,7 +2169,7 @@ pub fn (mut r RenderingServer) decal_set_size(decal RID, size Vector3) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) decal_set_texture(decal RID, type_name RenderingServerDecalTexture, texture RID) {
+pub fn (r &RenderingServer) decal_set_texture(decal RID, type_name RenderingServerDecalTexture, texture RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("decal_set_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3953344054)
@@ -2182,7 +2182,7 @@ pub fn (mut r RenderingServer) decal_set_texture(decal RID, type_name RenderingS
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) decal_set_emission_energy(decal RID, energy f64) {
+pub fn (r &RenderingServer) decal_set_emission_energy(decal RID, energy f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("decal_set_emission_energy")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -2193,7 +2193,7 @@ pub fn (mut r RenderingServer) decal_set_emission_energy(decal RID, energy f64) 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) decal_set_albedo_mix(decal RID, albedo_mix f64) {
+pub fn (r &RenderingServer) decal_set_albedo_mix(decal RID, albedo_mix f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("decal_set_albedo_mix")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -2204,7 +2204,7 @@ pub fn (mut r RenderingServer) decal_set_albedo_mix(decal RID, albedo_mix f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) decal_set_modulate(decal RID, color Color) {
+pub fn (r &RenderingServer) decal_set_modulate(decal RID, color Color) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("decal_set_modulate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2948539648)
@@ -2215,7 +2215,7 @@ pub fn (mut r RenderingServer) decal_set_modulate(decal RID, color Color) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) decal_set_cull_mask(decal RID, mask u32) {
+pub fn (r &RenderingServer) decal_set_cull_mask(decal RID, mask u32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("decal_set_cull_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -2226,7 +2226,7 @@ pub fn (mut r RenderingServer) decal_set_cull_mask(decal RID, mask u32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) decal_set_distance_fade(decal RID, enabled bool, begin f64, length f64) {
+pub fn (r &RenderingServer) decal_set_distance_fade(decal RID, enabled bool, begin f64, length f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("decal_set_distance_fade")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2972769666)
@@ -2239,7 +2239,7 @@ pub fn (mut r RenderingServer) decal_set_distance_fade(decal RID, enabled bool, 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) decal_set_fade(decal RID, above f64, below f64) {
+pub fn (r &RenderingServer) decal_set_fade(decal RID, above f64, below f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("decal_set_fade")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2513314492)
@@ -2251,7 +2251,7 @@ pub fn (mut r RenderingServer) decal_set_fade(decal RID, above f64, below f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) decal_set_normal_fade(decal RID, fade f64) {
+pub fn (r &RenderingServer) decal_set_normal_fade(decal RID, fade f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("decal_set_normal_fade")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -2262,7 +2262,7 @@ pub fn (mut r RenderingServer) decal_set_normal_fade(decal RID, fade f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) decals_set_filter(filter RenderingServerDecalFilter) {
+pub fn (r &RenderingServer) decals_set_filter(filter RenderingServerDecalFilter) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("decals_set_filter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3519875702)
@@ -2273,7 +2273,7 @@ pub fn (mut r RenderingServer) decals_set_filter(filter RenderingServerDecalFilt
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) gi_set_use_half_resolution(half_resolution bool) {
+pub fn (r &RenderingServer) gi_set_use_half_resolution(half_resolution bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("gi_set_use_half_resolution")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -2283,7 +2283,7 @@ pub fn (mut r RenderingServer) gi_set_use_half_resolution(half_resolution bool) 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) voxel_gi_create() RID {
+pub fn (r &RenderingServer) voxel_gi_create() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("voxel_gi_create")
@@ -2293,7 +2293,7 @@ pub fn (mut r RenderingServer) voxel_gi_create() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) voxel_gi_allocate_data(voxel_gi RID, to_cell_xform Transform3D, aabb AABB, octree_size Vector3i, octree_cells PackedByteArray, data_cells PackedByteArray, distance_field PackedByteArray, level_counts PackedInt32Array) {
+pub fn (r &RenderingServer) voxel_gi_allocate_data(voxel_gi RID, to_cell_xform Transform3D, aabb AABB, octree_size Vector3i, octree_cells PackedByteArray, data_cells PackedByteArray, distance_field PackedByteArray, level_counts PackedInt32Array) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("voxel_gi_allocate_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4108223027)
@@ -2382,7 +2382,7 @@ pub fn (r &RenderingServer) voxel_gi_get_to_cell_xform(voxel_gi RID) Transform3D
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) voxel_gi_set_dynamic_range(voxel_gi RID, range f64) {
+pub fn (r &RenderingServer) voxel_gi_set_dynamic_range(voxel_gi RID, range f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("voxel_gi_set_dynamic_range")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -2393,7 +2393,7 @@ pub fn (mut r RenderingServer) voxel_gi_set_dynamic_range(voxel_gi RID, range f6
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) voxel_gi_set_propagation(voxel_gi RID, amount f64) {
+pub fn (r &RenderingServer) voxel_gi_set_propagation(voxel_gi RID, amount f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("voxel_gi_set_propagation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -2404,7 +2404,7 @@ pub fn (mut r RenderingServer) voxel_gi_set_propagation(voxel_gi RID, amount f64
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) voxel_gi_set_energy(voxel_gi RID, energy f64) {
+pub fn (r &RenderingServer) voxel_gi_set_energy(voxel_gi RID, energy f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("voxel_gi_set_energy")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -2415,7 +2415,7 @@ pub fn (mut r RenderingServer) voxel_gi_set_energy(voxel_gi RID, energy f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) voxel_gi_set_baked_exposure_normalization(voxel_gi RID, baked_exposure f64) {
+pub fn (r &RenderingServer) voxel_gi_set_baked_exposure_normalization(voxel_gi RID, baked_exposure f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("voxel_gi_set_baked_exposure_normalization")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -2426,7 +2426,7 @@ pub fn (mut r RenderingServer) voxel_gi_set_baked_exposure_normalization(voxel_g
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) voxel_gi_set_bias(voxel_gi RID, bias f64) {
+pub fn (r &RenderingServer) voxel_gi_set_bias(voxel_gi RID, bias f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("voxel_gi_set_bias")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -2437,7 +2437,7 @@ pub fn (mut r RenderingServer) voxel_gi_set_bias(voxel_gi RID, bias f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) voxel_gi_set_normal_bias(voxel_gi RID, bias f64) {
+pub fn (r &RenderingServer) voxel_gi_set_normal_bias(voxel_gi RID, bias f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("voxel_gi_set_normal_bias")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -2448,7 +2448,7 @@ pub fn (mut r RenderingServer) voxel_gi_set_normal_bias(voxel_gi RID, bias f64) 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) voxel_gi_set_interior(voxel_gi RID, enable bool) {
+pub fn (r &RenderingServer) voxel_gi_set_interior(voxel_gi RID, enable bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("voxel_gi_set_interior")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -2459,7 +2459,7 @@ pub fn (mut r RenderingServer) voxel_gi_set_interior(voxel_gi RID, enable bool) 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) voxel_gi_set_use_two_bounces(voxel_gi RID, enable bool) {
+pub fn (r &RenderingServer) voxel_gi_set_use_two_bounces(voxel_gi RID, enable bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("voxel_gi_set_use_two_bounces")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -2470,7 +2470,7 @@ pub fn (mut r RenderingServer) voxel_gi_set_use_two_bounces(voxel_gi RID, enable
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) voxel_gi_set_quality(quality RenderingServerVoxelGIQuality) {
+pub fn (r &RenderingServer) voxel_gi_set_quality(quality RenderingServerVoxelGIQuality) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("voxel_gi_set_quality")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1538689978)
@@ -2481,7 +2481,7 @@ pub fn (mut r RenderingServer) voxel_gi_set_quality(quality RenderingServerVoxel
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) lightmap_create() RID {
+pub fn (r &RenderingServer) lightmap_create() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("lightmap_create")
@@ -2491,7 +2491,7 @@ pub fn (mut r RenderingServer) lightmap_create() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) lightmap_set_textures(lightmap RID, light RID, uses_sh bool) {
+pub fn (r &RenderingServer) lightmap_set_textures(lightmap RID, light RID, uses_sh bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("lightmap_set_textures")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2646464759)
@@ -2503,7 +2503,7 @@ pub fn (mut r RenderingServer) lightmap_set_textures(lightmap RID, light RID, us
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) lightmap_set_probe_bounds(lightmap RID, bounds AABB) {
+pub fn (r &RenderingServer) lightmap_set_probe_bounds(lightmap RID, bounds AABB) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("lightmap_set_probe_bounds")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3696536120)
@@ -2514,7 +2514,7 @@ pub fn (mut r RenderingServer) lightmap_set_probe_bounds(lightmap RID, bounds AA
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) lightmap_set_probe_interior(lightmap RID, interior bool) {
+pub fn (r &RenderingServer) lightmap_set_probe_interior(lightmap RID, interior bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("lightmap_set_probe_interior")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -2525,7 +2525,7 @@ pub fn (mut r RenderingServer) lightmap_set_probe_interior(lightmap RID, interio
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) lightmap_set_probe_capture_data(lightmap RID, points PackedVector3Array, point_sh PackedColorArray, tetrahedra PackedInt32Array, bsp_tree PackedInt32Array) {
+pub fn (r &RenderingServer) lightmap_set_probe_capture_data(lightmap RID, points PackedVector3Array, point_sh PackedColorArray, tetrahedra PackedInt32Array, bsp_tree PackedInt32Array) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("lightmap_set_probe_capture_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3217845880)
@@ -2587,7 +2587,7 @@ pub fn (r &RenderingServer) lightmap_get_probe_capture_bsp_tree(lightmap RID) Pa
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) lightmap_set_baked_exposure_normalization(lightmap RID, baked_exposure f64) {
+pub fn (r &RenderingServer) lightmap_set_baked_exposure_normalization(lightmap RID, baked_exposure f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("lightmap_set_baked_exposure_normalization")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -2598,7 +2598,7 @@ pub fn (mut r RenderingServer) lightmap_set_baked_exposure_normalization(lightma
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) lightmap_set_probe_capture_update_speed(speed f64) {
+pub fn (r &RenderingServer) lightmap_set_probe_capture_update_speed(speed f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("lightmap_set_probe_capture_update_speed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -2608,7 +2608,7 @@ pub fn (mut r RenderingServer) lightmap_set_probe_capture_update_speed(speed f64
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_create() RID {
+pub fn (r &RenderingServer) particles_create() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_create")
@@ -2618,7 +2618,7 @@ pub fn (mut r RenderingServer) particles_create() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) particles_set_mode(particles RID, mode RenderingServerParticlesMode) {
+pub fn (r &RenderingServer) particles_set_mode(particles RID, mode RenderingServerParticlesMode) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_set_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3492270028)
@@ -2630,7 +2630,7 @@ pub fn (mut r RenderingServer) particles_set_mode(particles RID, mode RenderingS
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_set_emitting(particles RID, emitting bool) {
+pub fn (r &RenderingServer) particles_set_emitting(particles RID, emitting bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_set_emitting")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -2641,7 +2641,7 @@ pub fn (mut r RenderingServer) particles_set_emitting(particles RID, emitting bo
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_get_emitting(particles RID) bool {
+pub fn (r &RenderingServer) particles_get_emitting(particles RID) bool {
     mut object_out := false
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_get_emitting")
@@ -2653,7 +2653,7 @@ pub fn (mut r RenderingServer) particles_get_emitting(particles RID) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) particles_set_amount(particles RID, amount i32) {
+pub fn (r &RenderingServer) particles_set_amount(particles RID, amount i32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_set_amount")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -2664,7 +2664,7 @@ pub fn (mut r RenderingServer) particles_set_amount(particles RID, amount i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_set_amount_ratio(particles RID, ratio f64) {
+pub fn (r &RenderingServer) particles_set_amount_ratio(particles RID, ratio f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_set_amount_ratio")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -2675,7 +2675,7 @@ pub fn (mut r RenderingServer) particles_set_amount_ratio(particles RID, ratio f
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_set_lifetime(particles RID, lifetime f64) {
+pub fn (r &RenderingServer) particles_set_lifetime(particles RID, lifetime f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_set_lifetime")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -2686,7 +2686,7 @@ pub fn (mut r RenderingServer) particles_set_lifetime(particles RID, lifetime f6
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_set_one_shot(particles RID, one_shot bool) {
+pub fn (r &RenderingServer) particles_set_one_shot(particles RID, one_shot bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_set_one_shot")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -2697,7 +2697,7 @@ pub fn (mut r RenderingServer) particles_set_one_shot(particles RID, one_shot bo
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_set_pre_process_time(particles RID, time f64) {
+pub fn (r &RenderingServer) particles_set_pre_process_time(particles RID, time f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_set_pre_process_time")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -2708,7 +2708,7 @@ pub fn (mut r RenderingServer) particles_set_pre_process_time(particles RID, tim
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_set_explosiveness_ratio(particles RID, ratio f64) {
+pub fn (r &RenderingServer) particles_set_explosiveness_ratio(particles RID, ratio f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_set_explosiveness_ratio")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -2719,7 +2719,7 @@ pub fn (mut r RenderingServer) particles_set_explosiveness_ratio(particles RID, 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_set_randomness_ratio(particles RID, ratio f64) {
+pub fn (r &RenderingServer) particles_set_randomness_ratio(particles RID, ratio f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_set_randomness_ratio")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -2730,7 +2730,7 @@ pub fn (mut r RenderingServer) particles_set_randomness_ratio(particles RID, rat
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_set_interp_to_end(particles RID, factor f64) {
+pub fn (r &RenderingServer) particles_set_interp_to_end(particles RID, factor f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_set_interp_to_end")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -2741,7 +2741,7 @@ pub fn (mut r RenderingServer) particles_set_interp_to_end(particles RID, factor
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_set_emitter_velocity(particles RID, velocity Vector3) {
+pub fn (r &RenderingServer) particles_set_emitter_velocity(particles RID, velocity Vector3) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_set_emitter_velocity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3227306858)
@@ -2752,7 +2752,7 @@ pub fn (mut r RenderingServer) particles_set_emitter_velocity(particles RID, vel
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_set_custom_aabb(particles RID, aabb AABB) {
+pub fn (r &RenderingServer) particles_set_custom_aabb(particles RID, aabb AABB) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_set_custom_aabb")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3696536120)
@@ -2763,7 +2763,7 @@ pub fn (mut r RenderingServer) particles_set_custom_aabb(particles RID, aabb AAB
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_set_speed_scale(particles RID, scale f64) {
+pub fn (r &RenderingServer) particles_set_speed_scale(particles RID, scale f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_set_speed_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -2774,7 +2774,7 @@ pub fn (mut r RenderingServer) particles_set_speed_scale(particles RID, scale f6
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_set_use_local_coordinates(particles RID, enable bool) {
+pub fn (r &RenderingServer) particles_set_use_local_coordinates(particles RID, enable bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_set_use_local_coordinates")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -2785,7 +2785,7 @@ pub fn (mut r RenderingServer) particles_set_use_local_coordinates(particles RID
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_set_process_material(particles RID, material RID) {
+pub fn (r &RenderingServer) particles_set_process_material(particles RID, material RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_set_process_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -2796,7 +2796,7 @@ pub fn (mut r RenderingServer) particles_set_process_material(particles RID, mat
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_set_fixed_fps(particles RID, fps i32) {
+pub fn (r &RenderingServer) particles_set_fixed_fps(particles RID, fps i32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_set_fixed_fps")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -2807,7 +2807,7 @@ pub fn (mut r RenderingServer) particles_set_fixed_fps(particles RID, fps i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_set_interpolate(particles RID, enable bool) {
+pub fn (r &RenderingServer) particles_set_interpolate(particles RID, enable bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_set_interpolate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -2818,7 +2818,7 @@ pub fn (mut r RenderingServer) particles_set_interpolate(particles RID, enable b
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_set_fractional_delta(particles RID, enable bool) {
+pub fn (r &RenderingServer) particles_set_fractional_delta(particles RID, enable bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_set_fractional_delta")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -2829,7 +2829,7 @@ pub fn (mut r RenderingServer) particles_set_fractional_delta(particles RID, ena
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_set_collision_base_size(particles RID, size f64) {
+pub fn (r &RenderingServer) particles_set_collision_base_size(particles RID, size f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_set_collision_base_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -2840,7 +2840,7 @@ pub fn (mut r RenderingServer) particles_set_collision_base_size(particles RID, 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_set_transform_align(particles RID, align RenderingServerParticlesTransformAlign) {
+pub fn (r &RenderingServer) particles_set_transform_align(particles RID, align RenderingServerParticlesTransformAlign) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_set_transform_align")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3264971368)
@@ -2852,7 +2852,7 @@ pub fn (mut r RenderingServer) particles_set_transform_align(particles RID, alig
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_set_trails(particles RID, enable bool, length_sec f64) {
+pub fn (r &RenderingServer) particles_set_trails(particles RID, enable bool, length_sec f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_set_trails")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2010054925)
@@ -2864,7 +2864,7 @@ pub fn (mut r RenderingServer) particles_set_trails(particles RID, enable bool, 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_set_trail_bind_poses(particles RID, bind_poses Array) {
+pub fn (r &RenderingServer) particles_set_trail_bind_poses(particles RID, bind_poses Array) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_set_trail_bind_poses")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 684822712)
@@ -2875,7 +2875,7 @@ pub fn (mut r RenderingServer) particles_set_trail_bind_poses(particles RID, bin
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_is_inactive(particles RID) bool {
+pub fn (r &RenderingServer) particles_is_inactive(particles RID) bool {
     mut object_out := false
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_is_inactive")
@@ -2887,7 +2887,7 @@ pub fn (mut r RenderingServer) particles_is_inactive(particles RID) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) particles_request_process(particles RID) {
+pub fn (r &RenderingServer) particles_request_process(particles RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_request_process")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)
@@ -2897,7 +2897,7 @@ pub fn (mut r RenderingServer) particles_request_process(particles RID) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_restart(particles RID) {
+pub fn (r &RenderingServer) particles_restart(particles RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_restart")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)
@@ -2907,7 +2907,7 @@ pub fn (mut r RenderingServer) particles_restart(particles RID) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_set_subemitter(particles RID, subemitter_particles RID) {
+pub fn (r &RenderingServer) particles_set_subemitter(particles RID, subemitter_particles RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_set_subemitter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -2918,7 +2918,7 @@ pub fn (mut r RenderingServer) particles_set_subemitter(particles RID, subemitte
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_emit(particles RID, transform Transform3D, velocity Vector3, color Color, custom Color, emit_flags u32) {
+pub fn (r &RenderingServer) particles_emit(particles RID, transform Transform3D, velocity Vector3, color Color, custom Color, emit_flags u32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_emit")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4043136117)
@@ -2933,7 +2933,7 @@ pub fn (mut r RenderingServer) particles_emit(particles RID, transform Transform
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_set_draw_order(particles RID, order RenderingServerParticlesDrawOrder) {
+pub fn (r &RenderingServer) particles_set_draw_order(particles RID, order RenderingServerParticlesDrawOrder) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_set_draw_order")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 935028487)
@@ -2945,7 +2945,7 @@ pub fn (mut r RenderingServer) particles_set_draw_order(particles RID, order Ren
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_set_draw_passes(particles RID, count i32) {
+pub fn (r &RenderingServer) particles_set_draw_passes(particles RID, count i32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_set_draw_passes")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -2956,7 +2956,7 @@ pub fn (mut r RenderingServer) particles_set_draw_passes(particles RID, count i3
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_set_draw_pass_mesh(particles RID, pass i32, mesh RID) {
+pub fn (r &RenderingServer) particles_set_draw_pass_mesh(particles RID, pass i32, mesh RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_set_draw_pass_mesh")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2310537182)
@@ -2968,7 +2968,7 @@ pub fn (mut r RenderingServer) particles_set_draw_pass_mesh(particles RID, pass 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_get_current_aabb(particles RID) AABB {
+pub fn (r &RenderingServer) particles_get_current_aabb(particles RID) AABB {
     mut object_out := AABB{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_get_current_aabb")
@@ -2980,7 +2980,7 @@ pub fn (mut r RenderingServer) particles_get_current_aabb(particles RID) AABB {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) particles_set_emission_transform(particles RID, transform Transform3D) {
+pub fn (r &RenderingServer) particles_set_emission_transform(particles RID, transform Transform3D) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_set_emission_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3935195649)
@@ -2991,7 +2991,7 @@ pub fn (mut r RenderingServer) particles_set_emission_transform(particles RID, t
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_collision_create() RID {
+pub fn (r &RenderingServer) particles_collision_create() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_collision_create")
@@ -3001,7 +3001,7 @@ pub fn (mut r RenderingServer) particles_collision_create() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) particles_collision_set_collision_type(particles_collision RID, type_name RenderingServerParticlesCollisionType) {
+pub fn (r &RenderingServer) particles_collision_set_collision_type(particles_collision RID, type_name RenderingServerParticlesCollisionType) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_collision_set_collision_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1497044930)
@@ -3013,7 +3013,7 @@ pub fn (mut r RenderingServer) particles_collision_set_collision_type(particles_
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_collision_set_cull_mask(particles_collision RID, mask u32) {
+pub fn (r &RenderingServer) particles_collision_set_cull_mask(particles_collision RID, mask u32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_collision_set_cull_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -3024,7 +3024,7 @@ pub fn (mut r RenderingServer) particles_collision_set_cull_mask(particles_colli
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_collision_set_sphere_radius(particles_collision RID, radius f64) {
+pub fn (r &RenderingServer) particles_collision_set_sphere_radius(particles_collision RID, radius f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_collision_set_sphere_radius")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -3035,7 +3035,7 @@ pub fn (mut r RenderingServer) particles_collision_set_sphere_radius(particles_c
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_collision_set_box_extents(particles_collision RID, extents Vector3) {
+pub fn (r &RenderingServer) particles_collision_set_box_extents(particles_collision RID, extents Vector3) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_collision_set_box_extents")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3227306858)
@@ -3046,7 +3046,7 @@ pub fn (mut r RenderingServer) particles_collision_set_box_extents(particles_col
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_collision_set_attractor_strength(particles_collision RID, strength f64) {
+pub fn (r &RenderingServer) particles_collision_set_attractor_strength(particles_collision RID, strength f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_collision_set_attractor_strength")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -3057,7 +3057,7 @@ pub fn (mut r RenderingServer) particles_collision_set_attractor_strength(partic
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_collision_set_attractor_directionality(particles_collision RID, amount f64) {
+pub fn (r &RenderingServer) particles_collision_set_attractor_directionality(particles_collision RID, amount f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_collision_set_attractor_directionality")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -3068,7 +3068,7 @@ pub fn (mut r RenderingServer) particles_collision_set_attractor_directionality(
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_collision_set_attractor_attenuation(particles_collision RID, curve f64) {
+pub fn (r &RenderingServer) particles_collision_set_attractor_attenuation(particles_collision RID, curve f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_collision_set_attractor_attenuation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -3079,7 +3079,7 @@ pub fn (mut r RenderingServer) particles_collision_set_attractor_attenuation(par
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_collision_set_field_texture(particles_collision RID, texture RID) {
+pub fn (r &RenderingServer) particles_collision_set_field_texture(particles_collision RID, texture RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_collision_set_field_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -3090,7 +3090,7 @@ pub fn (mut r RenderingServer) particles_collision_set_field_texture(particles_c
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_collision_height_field_update(particles_collision RID) {
+pub fn (r &RenderingServer) particles_collision_height_field_update(particles_collision RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_collision_height_field_update")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)
@@ -3100,7 +3100,7 @@ pub fn (mut r RenderingServer) particles_collision_height_field_update(particles
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) particles_collision_set_height_field_resolution(particles_collision RID, resolution RenderingServerParticlesCollisionHeightfieldResolution) {
+pub fn (r &RenderingServer) particles_collision_set_height_field_resolution(particles_collision RID, resolution RenderingServerParticlesCollisionHeightfieldResolution) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("particles_collision_set_height_field_resolution")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 962977297)
@@ -3112,7 +3112,7 @@ pub fn (mut r RenderingServer) particles_collision_set_height_field_resolution(p
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) fog_volume_create() RID {
+pub fn (r &RenderingServer) fog_volume_create() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("fog_volume_create")
@@ -3122,7 +3122,7 @@ pub fn (mut r RenderingServer) fog_volume_create() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) fog_volume_set_shape(fog_volume RID, shape RenderingServerFogVolumeShape) {
+pub fn (r &RenderingServer) fog_volume_set_shape(fog_volume RID, shape RenderingServerFogVolumeShape) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("fog_volume_set_shape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3818703106)
@@ -3134,7 +3134,7 @@ pub fn (mut r RenderingServer) fog_volume_set_shape(fog_volume RID, shape Render
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) fog_volume_set_size(fog_volume RID, size Vector3) {
+pub fn (r &RenderingServer) fog_volume_set_size(fog_volume RID, size Vector3) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("fog_volume_set_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3227306858)
@@ -3145,7 +3145,7 @@ pub fn (mut r RenderingServer) fog_volume_set_size(fog_volume RID, size Vector3)
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) fog_volume_set_material(fog_volume RID, material RID) {
+pub fn (r &RenderingServer) fog_volume_set_material(fog_volume RID, material RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("fog_volume_set_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -3156,7 +3156,7 @@ pub fn (mut r RenderingServer) fog_volume_set_material(fog_volume RID, material 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) visibility_notifier_create() RID {
+pub fn (r &RenderingServer) visibility_notifier_create() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("visibility_notifier_create")
@@ -3166,7 +3166,7 @@ pub fn (mut r RenderingServer) visibility_notifier_create() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) visibility_notifier_set_aabb(notifier RID, aabb AABB) {
+pub fn (r &RenderingServer) visibility_notifier_set_aabb(notifier RID, aabb AABB) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("visibility_notifier_set_aabb")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3696536120)
@@ -3177,7 +3177,7 @@ pub fn (mut r RenderingServer) visibility_notifier_set_aabb(notifier RID, aabb A
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) visibility_notifier_set_callbacks(notifier RID, enter_callable Callable, exit_callable Callable) {
+pub fn (r &RenderingServer) visibility_notifier_set_callbacks(notifier RID, enter_callable Callable, exit_callable Callable) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("visibility_notifier_set_callbacks")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2689735388)
@@ -3189,7 +3189,7 @@ pub fn (mut r RenderingServer) visibility_notifier_set_callbacks(notifier RID, e
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) occluder_create() RID {
+pub fn (r &RenderingServer) occluder_create() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("occluder_create")
@@ -3199,7 +3199,7 @@ pub fn (mut r RenderingServer) occluder_create() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) occluder_set_mesh(occluder RID, vertices PackedVector3Array, indices PackedInt32Array) {
+pub fn (r &RenderingServer) occluder_set_mesh(occluder RID, vertices PackedVector3Array, indices PackedInt32Array) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("occluder_set_mesh")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3854404263)
@@ -3211,7 +3211,7 @@ pub fn (mut r RenderingServer) occluder_set_mesh(occluder RID, vertices PackedVe
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) camera_create() RID {
+pub fn (r &RenderingServer) camera_create() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("camera_create")
@@ -3221,7 +3221,7 @@ pub fn (mut r RenderingServer) camera_create() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) camera_set_perspective(camera RID, fovy_degrees f64, z_near f64, z_far f64) {
+pub fn (r &RenderingServer) camera_set_perspective(camera RID, fovy_degrees f64, z_near f64, z_far f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("camera_set_perspective")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 157498339)
@@ -3234,7 +3234,7 @@ pub fn (mut r RenderingServer) camera_set_perspective(camera RID, fovy_degrees f
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) camera_set_orthogonal(camera RID, size f64, z_near f64, z_far f64) {
+pub fn (r &RenderingServer) camera_set_orthogonal(camera RID, size f64, z_near f64, z_far f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("camera_set_orthogonal")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 157498339)
@@ -3247,7 +3247,7 @@ pub fn (mut r RenderingServer) camera_set_orthogonal(camera RID, size f64, z_nea
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) camera_set_frustum(camera RID, size f64, offset Vector2, z_near f64, z_far f64) {
+pub fn (r &RenderingServer) camera_set_frustum(camera RID, size f64, offset Vector2, z_near f64, z_far f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("camera_set_frustum")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1889878953)
@@ -3261,7 +3261,7 @@ pub fn (mut r RenderingServer) camera_set_frustum(camera RID, size f64, offset V
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) camera_set_transform(camera RID, transform Transform3D) {
+pub fn (r &RenderingServer) camera_set_transform(camera RID, transform Transform3D) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("camera_set_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3935195649)
@@ -3272,7 +3272,7 @@ pub fn (mut r RenderingServer) camera_set_transform(camera RID, transform Transf
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) camera_set_cull_mask(camera RID, layers u32) {
+pub fn (r &RenderingServer) camera_set_cull_mask(camera RID, layers u32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("camera_set_cull_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -3283,7 +3283,7 @@ pub fn (mut r RenderingServer) camera_set_cull_mask(camera RID, layers u32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) camera_set_environment(camera RID, env RID) {
+pub fn (r &RenderingServer) camera_set_environment(camera RID, env RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("camera_set_environment")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -3294,7 +3294,7 @@ pub fn (mut r RenderingServer) camera_set_environment(camera RID, env RID) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) camera_set_camera_attributes(camera RID, effects RID) {
+pub fn (r &RenderingServer) camera_set_camera_attributes(camera RID, effects RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("camera_set_camera_attributes")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -3305,7 +3305,7 @@ pub fn (mut r RenderingServer) camera_set_camera_attributes(camera RID, effects 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) camera_set_use_vertical_aspect(camera RID, enable bool) {
+pub fn (r &RenderingServer) camera_set_use_vertical_aspect(camera RID, enable bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("camera_set_use_vertical_aspect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -3316,7 +3316,7 @@ pub fn (mut r RenderingServer) camera_set_use_vertical_aspect(camera RID, enable
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_create() RID {
+pub fn (r &RenderingServer) viewport_create() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_create")
@@ -3326,7 +3326,7 @@ pub fn (mut r RenderingServer) viewport_create() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) viewport_set_use_xr(viewport RID, use_xr bool) {
+pub fn (r &RenderingServer) viewport_set_use_xr(viewport RID, use_xr bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_use_xr")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -3337,7 +3337,7 @@ pub fn (mut r RenderingServer) viewport_set_use_xr(viewport RID, use_xr bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_set_size(viewport RID, width i32, height i32) {
+pub fn (r &RenderingServer) viewport_set_size(viewport RID, width i32, height i32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4288446313)
@@ -3349,7 +3349,7 @@ pub fn (mut r RenderingServer) viewport_set_size(viewport RID, width i32, height
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_set_active(viewport RID, active bool) {
+pub fn (r &RenderingServer) viewport_set_active(viewport RID, active bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_active")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -3360,7 +3360,7 @@ pub fn (mut r RenderingServer) viewport_set_active(viewport RID, active bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_set_parent_viewport(viewport RID, parent_viewport RID) {
+pub fn (r &RenderingServer) viewport_set_parent_viewport(viewport RID, parent_viewport RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_parent_viewport")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -3371,7 +3371,7 @@ pub fn (mut r RenderingServer) viewport_set_parent_viewport(viewport RID, parent
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_attach_to_screen(viewport RID, rect Rect2, screen i32) {
+pub fn (r &RenderingServer) viewport_attach_to_screen(viewport RID, rect Rect2, screen i32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_attach_to_screen")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1062245816)
@@ -3383,7 +3383,7 @@ pub fn (mut r RenderingServer) viewport_attach_to_screen(viewport RID, rect Rect
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_set_render_direct_to_screen(viewport RID, enabled bool) {
+pub fn (r &RenderingServer) viewport_set_render_direct_to_screen(viewport RID, enabled bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_render_direct_to_screen")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -3394,7 +3394,7 @@ pub fn (mut r RenderingServer) viewport_set_render_direct_to_screen(viewport RID
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_set_canvas_cull_mask(viewport RID, canvas_cull_mask u32) {
+pub fn (r &RenderingServer) viewport_set_canvas_cull_mask(viewport RID, canvas_cull_mask u32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_canvas_cull_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -3405,7 +3405,7 @@ pub fn (mut r RenderingServer) viewport_set_canvas_cull_mask(viewport RID, canva
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_set_scaling_3d_mode(viewport RID, scaling_3d_mode RenderingServerViewportScaling3DMode) {
+pub fn (r &RenderingServer) viewport_set_scaling_3d_mode(viewport RID, scaling_3d_mode RenderingServerViewportScaling3DMode) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_scaling_3d_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2386524376)
@@ -3417,7 +3417,7 @@ pub fn (mut r RenderingServer) viewport_set_scaling_3d_mode(viewport RID, scalin
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_set_scaling_3d_scale(viewport RID, scale f64) {
+pub fn (r &RenderingServer) viewport_set_scaling_3d_scale(viewport RID, scale f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_scaling_3d_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -3428,7 +3428,7 @@ pub fn (mut r RenderingServer) viewport_set_scaling_3d_scale(viewport RID, scale
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_set_fsr_sharpness(viewport RID, sharpness f64) {
+pub fn (r &RenderingServer) viewport_set_fsr_sharpness(viewport RID, sharpness f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_fsr_sharpness")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -3439,7 +3439,7 @@ pub fn (mut r RenderingServer) viewport_set_fsr_sharpness(viewport RID, sharpnes
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_set_texture_mipmap_bias(viewport RID, mipmap_bias f64) {
+pub fn (r &RenderingServer) viewport_set_texture_mipmap_bias(viewport RID, mipmap_bias f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_texture_mipmap_bias")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -3450,7 +3450,7 @@ pub fn (mut r RenderingServer) viewport_set_texture_mipmap_bias(viewport RID, mi
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_set_update_mode(viewport RID, update_mode RenderingServerViewportUpdateMode) {
+pub fn (r &RenderingServer) viewport_set_update_mode(viewport RID, update_mode RenderingServerViewportUpdateMode) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_update_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3161116010)
@@ -3462,7 +3462,7 @@ pub fn (mut r RenderingServer) viewport_set_update_mode(viewport RID, update_mod
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_set_clear_mode(viewport RID, clear_mode RenderingServerViewportClearMode) {
+pub fn (r &RenderingServer) viewport_set_clear_mode(viewport RID, clear_mode RenderingServerViewportClearMode) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_clear_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3628367896)
@@ -3498,7 +3498,7 @@ pub fn (r &RenderingServer) viewport_get_texture(viewport RID) RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) viewport_set_disable_3d(viewport RID, disable bool) {
+pub fn (r &RenderingServer) viewport_set_disable_3d(viewport RID, disable bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_disable_3d")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -3509,7 +3509,7 @@ pub fn (mut r RenderingServer) viewport_set_disable_3d(viewport RID, disable boo
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_set_disable_2d(viewport RID, disable bool) {
+pub fn (r &RenderingServer) viewport_set_disable_2d(viewport RID, disable bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_disable_2d")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -3520,7 +3520,7 @@ pub fn (mut r RenderingServer) viewport_set_disable_2d(viewport RID, disable boo
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_set_environment_mode(viewport RID, mode RenderingServerViewportEnvironmentMode) {
+pub fn (r &RenderingServer) viewport_set_environment_mode(viewport RID, mode RenderingServerViewportEnvironmentMode) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_environment_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2196892182)
@@ -3532,7 +3532,7 @@ pub fn (mut r RenderingServer) viewport_set_environment_mode(viewport RID, mode 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_attach_camera(viewport RID, camera RID) {
+pub fn (r &RenderingServer) viewport_attach_camera(viewport RID, camera RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_attach_camera")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -3543,7 +3543,7 @@ pub fn (mut r RenderingServer) viewport_attach_camera(viewport RID, camera RID) 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_set_scenario(viewport RID, scenario RID) {
+pub fn (r &RenderingServer) viewport_set_scenario(viewport RID, scenario RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_scenario")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -3554,7 +3554,7 @@ pub fn (mut r RenderingServer) viewport_set_scenario(viewport RID, scenario RID)
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_attach_canvas(viewport RID, canvas RID) {
+pub fn (r &RenderingServer) viewport_attach_canvas(viewport RID, canvas RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_attach_canvas")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -3565,7 +3565,7 @@ pub fn (mut r RenderingServer) viewport_attach_canvas(viewport RID, canvas RID) 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_remove_canvas(viewport RID, canvas RID) {
+pub fn (r &RenderingServer) viewport_remove_canvas(viewport RID, canvas RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_remove_canvas")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -3576,7 +3576,7 @@ pub fn (mut r RenderingServer) viewport_remove_canvas(viewport RID, canvas RID) 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_set_snap_2d_transforms_to_pixel(viewport RID, enabled bool) {
+pub fn (r &RenderingServer) viewport_set_snap_2d_transforms_to_pixel(viewport RID, enabled bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_snap_2d_transforms_to_pixel")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -3587,7 +3587,7 @@ pub fn (mut r RenderingServer) viewport_set_snap_2d_transforms_to_pixel(viewport
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_set_snap_2d_vertices_to_pixel(viewport RID, enabled bool) {
+pub fn (r &RenderingServer) viewport_set_snap_2d_vertices_to_pixel(viewport RID, enabled bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_snap_2d_vertices_to_pixel")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -3598,7 +3598,7 @@ pub fn (mut r RenderingServer) viewport_set_snap_2d_vertices_to_pixel(viewport R
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_set_default_canvas_item_texture_filter(viewport RID, filter RenderingServerCanvasItemTextureFilter) {
+pub fn (r &RenderingServer) viewport_set_default_canvas_item_texture_filter(viewport RID, filter RenderingServerCanvasItemTextureFilter) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_default_canvas_item_texture_filter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1155129294)
@@ -3610,7 +3610,7 @@ pub fn (mut r RenderingServer) viewport_set_default_canvas_item_texture_filter(v
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_set_default_canvas_item_texture_repeat(viewport RID, repeat RenderingServerCanvasItemTextureRepeat) {
+pub fn (r &RenderingServer) viewport_set_default_canvas_item_texture_repeat(viewport RID, repeat RenderingServerCanvasItemTextureRepeat) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_default_canvas_item_texture_repeat")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1652956681)
@@ -3622,7 +3622,7 @@ pub fn (mut r RenderingServer) viewport_set_default_canvas_item_texture_repeat(v
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_set_canvas_transform(viewport RID, canvas RID, offset Transform2D) {
+pub fn (r &RenderingServer) viewport_set_canvas_transform(viewport RID, canvas RID, offset Transform2D) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_canvas_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3608606053)
@@ -3634,7 +3634,7 @@ pub fn (mut r RenderingServer) viewport_set_canvas_transform(viewport RID, canva
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_set_canvas_stacking(viewport RID, canvas RID, layer i32, sublayer i32) {
+pub fn (r &RenderingServer) viewport_set_canvas_stacking(viewport RID, canvas RID, layer i32, sublayer i32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_canvas_stacking")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3713930247)
@@ -3647,7 +3647,7 @@ pub fn (mut r RenderingServer) viewport_set_canvas_stacking(viewport RID, canvas
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_set_transparent_background(viewport RID, enabled bool) {
+pub fn (r &RenderingServer) viewport_set_transparent_background(viewport RID, enabled bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_transparent_background")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -3658,7 +3658,7 @@ pub fn (mut r RenderingServer) viewport_set_transparent_background(viewport RID,
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_set_global_canvas_transform(viewport RID, transform Transform2D) {
+pub fn (r &RenderingServer) viewport_set_global_canvas_transform(viewport RID, transform Transform2D) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_global_canvas_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1246044741)
@@ -3669,7 +3669,7 @@ pub fn (mut r RenderingServer) viewport_set_global_canvas_transform(viewport RID
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_set_sdf_oversize_and_scale(viewport RID, oversize RenderingServerViewportSDFOversize, scale RenderingServerViewportSDFScale) {
+pub fn (r &RenderingServer) viewport_set_sdf_oversize_and_scale(viewport RID, oversize RenderingServerViewportSDFOversize, scale RenderingServerViewportSDFScale) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_sdf_oversize_and_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1329198632)
@@ -3683,7 +3683,7 @@ pub fn (mut r RenderingServer) viewport_set_sdf_oversize_and_scale(viewport RID,
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_set_positional_shadow_atlas_size(viewport RID, size i32, use_16_bits bool) {
+pub fn (r &RenderingServer) viewport_set_positional_shadow_atlas_size(viewport RID, size i32, use_16_bits bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_positional_shadow_atlas_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1904426712)
@@ -3695,7 +3695,7 @@ pub fn (mut r RenderingServer) viewport_set_positional_shadow_atlas_size(viewpor
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_set_positional_shadow_atlas_quadrant_subdivision(viewport RID, quadrant i32, subdivision i32) {
+pub fn (r &RenderingServer) viewport_set_positional_shadow_atlas_quadrant_subdivision(viewport RID, quadrant i32, subdivision i32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_positional_shadow_atlas_quadrant_subdivision")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4288446313)
@@ -3707,7 +3707,7 @@ pub fn (mut r RenderingServer) viewport_set_positional_shadow_atlas_quadrant_sub
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_set_msaa_3d(viewport RID, msaa RenderingServerViewportMSAA) {
+pub fn (r &RenderingServer) viewport_set_msaa_3d(viewport RID, msaa RenderingServerViewportMSAA) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_msaa_3d")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3764433340)
@@ -3719,7 +3719,7 @@ pub fn (mut r RenderingServer) viewport_set_msaa_3d(viewport RID, msaa Rendering
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_set_msaa_2d(viewport RID, msaa RenderingServerViewportMSAA) {
+pub fn (r &RenderingServer) viewport_set_msaa_2d(viewport RID, msaa RenderingServerViewportMSAA) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_msaa_2d")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3764433340)
@@ -3731,7 +3731,7 @@ pub fn (mut r RenderingServer) viewport_set_msaa_2d(viewport RID, msaa Rendering
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_set_use_hdr_2d(viewport RID, enabled bool) {
+pub fn (r &RenderingServer) viewport_set_use_hdr_2d(viewport RID, enabled bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_use_hdr_2d")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -3742,7 +3742,7 @@ pub fn (mut r RenderingServer) viewport_set_use_hdr_2d(viewport RID, enabled boo
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_set_screen_space_aa(viewport RID, mode RenderingServerViewportScreenSpaceAA) {
+pub fn (r &RenderingServer) viewport_set_screen_space_aa(viewport RID, mode RenderingServerViewportScreenSpaceAA) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_screen_space_aa")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1447279591)
@@ -3754,7 +3754,7 @@ pub fn (mut r RenderingServer) viewport_set_screen_space_aa(viewport RID, mode R
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_set_use_taa(viewport RID, enable bool) {
+pub fn (r &RenderingServer) viewport_set_use_taa(viewport RID, enable bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_use_taa")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -3765,7 +3765,7 @@ pub fn (mut r RenderingServer) viewport_set_use_taa(viewport RID, enable bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_set_use_debanding(viewport RID, enable bool) {
+pub fn (r &RenderingServer) viewport_set_use_debanding(viewport RID, enable bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_use_debanding")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -3776,7 +3776,7 @@ pub fn (mut r RenderingServer) viewport_set_use_debanding(viewport RID, enable b
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_set_use_occlusion_culling(viewport RID, enable bool) {
+pub fn (r &RenderingServer) viewport_set_use_occlusion_culling(viewport RID, enable bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_use_occlusion_culling")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -3787,7 +3787,7 @@ pub fn (mut r RenderingServer) viewport_set_use_occlusion_culling(viewport RID, 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_set_occlusion_rays_per_thread(rays_per_thread i32) {
+pub fn (r &RenderingServer) viewport_set_occlusion_rays_per_thread(rays_per_thread i32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_occlusion_rays_per_thread")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -3797,7 +3797,7 @@ pub fn (mut r RenderingServer) viewport_set_occlusion_rays_per_thread(rays_per_t
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_set_occlusion_culling_build_quality(quality RenderingServerViewportOcclusionCullingBuildQuality) {
+pub fn (r &RenderingServer) viewport_set_occlusion_culling_build_quality(quality RenderingServerViewportOcclusionCullingBuildQuality) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_occlusion_culling_build_quality")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2069725696)
@@ -3808,7 +3808,7 @@ pub fn (mut r RenderingServer) viewport_set_occlusion_culling_build_quality(qual
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_get_render_info(viewport RID, type_name RenderingServerViewportRenderInfoType, info RenderingServerViewportRenderInfo) i32 {
+pub fn (r &RenderingServer) viewport_get_render_info(viewport RID, type_name RenderingServerViewportRenderInfoType, info RenderingServerViewportRenderInfo) i32 {
     mut object_out := i32(0)
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_get_render_info")
@@ -3824,7 +3824,7 @@ pub fn (mut r RenderingServer) viewport_get_render_info(viewport RID, type_name 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) viewport_set_debug_draw(viewport RID, draw RenderingServerViewportDebugDraw) {
+pub fn (r &RenderingServer) viewport_set_debug_draw(viewport RID, draw RenderingServerViewportDebugDraw) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_debug_draw")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2089420930)
@@ -3836,7 +3836,7 @@ pub fn (mut r RenderingServer) viewport_set_debug_draw(viewport RID, draw Render
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_set_measure_render_time(viewport RID, enable bool) {
+pub fn (r &RenderingServer) viewport_set_measure_render_time(viewport RID, enable bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_measure_render_time")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -3871,7 +3871,7 @@ pub fn (r &RenderingServer) viewport_get_measured_render_time_gpu(viewport RID) 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) viewport_set_vrs_mode(viewport RID, mode RenderingServerViewportVRSMode) {
+pub fn (r &RenderingServer) viewport_set_vrs_mode(viewport RID, mode RenderingServerViewportVRSMode) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_vrs_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 398809874)
@@ -3883,7 +3883,7 @@ pub fn (mut r RenderingServer) viewport_set_vrs_mode(viewport RID, mode Renderin
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) viewport_set_vrs_texture(viewport RID, texture RID) {
+pub fn (r &RenderingServer) viewport_set_vrs_texture(viewport RID, texture RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("viewport_set_vrs_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -3894,7 +3894,7 @@ pub fn (mut r RenderingServer) viewport_set_vrs_texture(viewport RID, texture RI
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) sky_create() RID {
+pub fn (r &RenderingServer) sky_create() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("sky_create")
@@ -3904,7 +3904,7 @@ pub fn (mut r RenderingServer) sky_create() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) sky_set_radiance_size(sky RID, radiance_size i32) {
+pub fn (r &RenderingServer) sky_set_radiance_size(sky RID, radiance_size i32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("sky_set_radiance_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -3915,7 +3915,7 @@ pub fn (mut r RenderingServer) sky_set_radiance_size(sky RID, radiance_size i32)
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) sky_set_mode(sky RID, mode RenderingServerSkyMode) {
+pub fn (r &RenderingServer) sky_set_mode(sky RID, mode RenderingServerSkyMode) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("sky_set_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3279019937)
@@ -3927,7 +3927,7 @@ pub fn (mut r RenderingServer) sky_set_mode(sky RID, mode RenderingServerSkyMode
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) sky_set_material(sky RID, material RID) {
+pub fn (r &RenderingServer) sky_set_material(sky RID, material RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("sky_set_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -3938,7 +3938,7 @@ pub fn (mut r RenderingServer) sky_set_material(sky RID, material RID) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) sky_bake_panorama(sky RID, energy f64, bake_irradiance bool, size Vector2i) Image {
+pub fn (r &RenderingServer) sky_bake_panorama(sky RID, energy f64, bake_irradiance bool, size Vector2i) Image {
     mut object_out := Image{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("sky_bake_panorama")
@@ -3953,7 +3953,7 @@ pub fn (mut r RenderingServer) sky_bake_panorama(sky RID, energy f64, bake_irrad
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) environment_create() RID {
+pub fn (r &RenderingServer) environment_create() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("environment_create")
@@ -3963,7 +3963,7 @@ pub fn (mut r RenderingServer) environment_create() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) environment_set_background(env RID, bg RenderingServerEnvironmentBG) {
+pub fn (r &RenderingServer) environment_set_background(env RID, bg RenderingServerEnvironmentBG) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("environment_set_background")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937328877)
@@ -3975,7 +3975,7 @@ pub fn (mut r RenderingServer) environment_set_background(env RID, bg RenderingS
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) environment_set_sky(env RID, sky RID) {
+pub fn (r &RenderingServer) environment_set_sky(env RID, sky RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("environment_set_sky")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -3986,7 +3986,7 @@ pub fn (mut r RenderingServer) environment_set_sky(env RID, sky RID) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) environment_set_sky_custom_fov(env RID, scale f64) {
+pub fn (r &RenderingServer) environment_set_sky_custom_fov(env RID, scale f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("environment_set_sky_custom_fov")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -3997,7 +3997,7 @@ pub fn (mut r RenderingServer) environment_set_sky_custom_fov(env RID, scale f64
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) environment_set_sky_orientation(env RID, orientation Basis) {
+pub fn (r &RenderingServer) environment_set_sky_orientation(env RID, orientation Basis) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("environment_set_sky_orientation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1735850857)
@@ -4008,7 +4008,7 @@ pub fn (mut r RenderingServer) environment_set_sky_orientation(env RID, orientat
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) environment_set_bg_color(env RID, color Color) {
+pub fn (r &RenderingServer) environment_set_bg_color(env RID, color Color) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("environment_set_bg_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2948539648)
@@ -4019,7 +4019,7 @@ pub fn (mut r RenderingServer) environment_set_bg_color(env RID, color Color) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) environment_set_bg_energy(env RID, multiplier f64, exposure_value f64) {
+pub fn (r &RenderingServer) environment_set_bg_energy(env RID, multiplier f64, exposure_value f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("environment_set_bg_energy")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2513314492)
@@ -4031,7 +4031,7 @@ pub fn (mut r RenderingServer) environment_set_bg_energy(env RID, multiplier f64
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) environment_set_canvas_max_layer(env RID, max_layer i32) {
+pub fn (r &RenderingServer) environment_set_canvas_max_layer(env RID, max_layer i32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("environment_set_canvas_max_layer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -4042,7 +4042,7 @@ pub fn (mut r RenderingServer) environment_set_canvas_max_layer(env RID, max_lay
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) environment_set_ambient_light(env RID, color Color, ambient RenderingServerEnvironmentAmbientSource, energy f64, sky_contibution f64, reflection_source RenderingServerEnvironmentReflectionSource) {
+pub fn (r &RenderingServer) environment_set_ambient_light(env RID, color Color, ambient RenderingServerEnvironmentAmbientSource, energy f64, sky_contibution f64, reflection_source RenderingServerEnvironmentReflectionSource) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("environment_set_ambient_light")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1214961493)
@@ -4059,7 +4059,7 @@ pub fn (mut r RenderingServer) environment_set_ambient_light(env RID, color Colo
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) environment_set_glow(env RID, enable bool, levels PackedFloat32Array, intensity f64, strength f64, mix f64, bloom_threshold f64, blend_mode RenderingServerEnvironmentGlowBlendMode, hdr_bleed_threshold f64, hdr_bleed_scale f64, hdr_luminance_cap f64, glow_map_strength f64, glow_map RID) {
+pub fn (r &RenderingServer) environment_set_glow(env RID, enable bool, levels PackedFloat32Array, intensity f64, strength f64, mix f64, bloom_threshold f64, blend_mode RenderingServerEnvironmentGlowBlendMode, hdr_bleed_threshold f64, hdr_bleed_scale f64, hdr_luminance_cap f64, glow_map_strength f64, glow_map RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("environment_set_glow")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2421724940)
@@ -4082,7 +4082,7 @@ pub fn (mut r RenderingServer) environment_set_glow(env RID, enable bool, levels
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) environment_set_tonemap(env RID, tone_mapper RenderingServerEnvironmentToneMapper, exposure f64, white f64) {
+pub fn (r &RenderingServer) environment_set_tonemap(env RID, tone_mapper RenderingServerEnvironmentToneMapper, exposure f64, white f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("environment_set_tonemap")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2914312638)
@@ -4096,7 +4096,7 @@ pub fn (mut r RenderingServer) environment_set_tonemap(env RID, tone_mapper Rend
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) environment_set_adjustment(env RID, enable bool, brightness f64, contrast f64, saturation f64, use_1d_color_correction bool, color_correction RID) {
+pub fn (r &RenderingServer) environment_set_adjustment(env RID, enable bool, brightness f64, contrast f64, saturation f64, use_1d_color_correction bool, color_correction RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("environment_set_adjustment")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 876799838)
@@ -4112,7 +4112,7 @@ pub fn (mut r RenderingServer) environment_set_adjustment(env RID, enable bool, 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) environment_set_ssr(env RID, enable bool, max_steps i32, fade_in f64, fade_out f64, depth_tolerance f64) {
+pub fn (r &RenderingServer) environment_set_ssr(env RID, enable bool, max_steps i32, fade_in f64, fade_out f64, depth_tolerance f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("environment_set_ssr")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3607294374)
@@ -4127,7 +4127,7 @@ pub fn (mut r RenderingServer) environment_set_ssr(env RID, enable bool, max_ste
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) environment_set_ssao(env RID, enable bool, radius f64, intensity f64, power f64, detail f64, horizon f64, sharpness f64, light_affect f64, ao_channel_affect f64) {
+pub fn (r &RenderingServer) environment_set_ssao(env RID, enable bool, radius f64, intensity f64, power f64, detail f64, horizon f64, sharpness f64, light_affect f64, ao_channel_affect f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("environment_set_ssao")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3994732740)
@@ -4146,7 +4146,7 @@ pub fn (mut r RenderingServer) environment_set_ssao(env RID, enable bool, radius
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) environment_set_fog(env RID, enable bool, light_color Color, light_energy f64, sun_scatter f64, density f64, height f64, height_density f64, aerial_perspective f64, sky_affect f64) {
+pub fn (r &RenderingServer) environment_set_fog(env RID, enable bool, light_color Color, light_energy f64, sun_scatter f64, density f64, height f64, height_density f64, aerial_perspective f64, sky_affect f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("environment_set_fog")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2793577733)
@@ -4165,7 +4165,7 @@ pub fn (mut r RenderingServer) environment_set_fog(env RID, enable bool, light_c
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) environment_set_sdfgi(env RID, enable bool, cascades i32, min_cell_size f64, y_scale RenderingServerEnvironmentSDFGIYScale, use_occlusion bool, bounce_feedback f64, read_sky bool, energy f64, normal_bias f64, probe_bias f64) {
+pub fn (r &RenderingServer) environment_set_sdfgi(env RID, enable bool, cascades i32, min_cell_size f64, y_scale RenderingServerEnvironmentSDFGIYScale, use_occlusion bool, bounce_feedback f64, read_sky bool, energy f64, normal_bias f64, probe_bias f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("environment_set_sdfgi")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3519144388)
@@ -4186,7 +4186,7 @@ pub fn (mut r RenderingServer) environment_set_sdfgi(env RID, enable bool, casca
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) environment_set_volumetric_fog(env RID, enable bool, density f64, albedo Color, emission Color, emission_energy f64, anisotropy f64, length f64, p_detail_spread f64, gi_inject f64, temporal_reprojection bool, temporal_reprojection_amount f64, ambient_inject f64, sky_affect f64) {
+pub fn (r &RenderingServer) environment_set_volumetric_fog(env RID, enable bool, density f64, albedo Color, emission Color, emission_energy f64, anisotropy f64, length f64, p_detail_spread f64, gi_inject f64, temporal_reprojection bool, temporal_reprojection_amount f64, ambient_inject f64, sky_affect f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("environment_set_volumetric_fog")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1553633833)
@@ -4209,7 +4209,7 @@ pub fn (mut r RenderingServer) environment_set_volumetric_fog(env RID, enable bo
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) environment_glow_set_use_bicubic_upscale(enable bool) {
+pub fn (r &RenderingServer) environment_glow_set_use_bicubic_upscale(enable bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("environment_glow_set_use_bicubic_upscale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -4219,7 +4219,7 @@ pub fn (mut r RenderingServer) environment_glow_set_use_bicubic_upscale(enable b
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) environment_set_ssr_roughness_quality(quality RenderingServerEnvironmentSSRRoughnessQuality) {
+pub fn (r &RenderingServer) environment_set_ssr_roughness_quality(quality RenderingServerEnvironmentSSRRoughnessQuality) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("environment_set_ssr_roughness_quality")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1190026788)
@@ -4230,7 +4230,7 @@ pub fn (mut r RenderingServer) environment_set_ssr_roughness_quality(quality Ren
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) environment_set_ssao_quality(quality RenderingServerEnvironmentSSAOQuality, half_size bool, adaptive_target f64, blur_passes i32, fadeout_from f64, fadeout_to f64) {
+pub fn (r &RenderingServer) environment_set_ssao_quality(quality RenderingServerEnvironmentSSAOQuality, half_size bool, adaptive_target f64, blur_passes i32, fadeout_from f64, fadeout_to f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("environment_set_ssao_quality")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 189753569)
@@ -4246,7 +4246,7 @@ pub fn (mut r RenderingServer) environment_set_ssao_quality(quality RenderingSer
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) environment_set_ssil_quality(quality RenderingServerEnvironmentSSILQuality, half_size bool, adaptive_target f64, blur_passes i32, fadeout_from f64, fadeout_to f64) {
+pub fn (r &RenderingServer) environment_set_ssil_quality(quality RenderingServerEnvironmentSSILQuality, half_size bool, adaptive_target f64, blur_passes i32, fadeout_from f64, fadeout_to f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("environment_set_ssil_quality")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1713836683)
@@ -4262,7 +4262,7 @@ pub fn (mut r RenderingServer) environment_set_ssil_quality(quality RenderingSer
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) environment_set_sdfgi_ray_count(ray_count RenderingServerEnvironmentSDFGIRayCount) {
+pub fn (r &RenderingServer) environment_set_sdfgi_ray_count(ray_count RenderingServerEnvironmentSDFGIRayCount) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("environment_set_sdfgi_ray_count")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 340137951)
@@ -4273,7 +4273,7 @@ pub fn (mut r RenderingServer) environment_set_sdfgi_ray_count(ray_count Renderi
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) environment_set_sdfgi_frames_to_converge(frames RenderingServerEnvironmentSDFGIFramesToConverge) {
+pub fn (r &RenderingServer) environment_set_sdfgi_frames_to_converge(frames RenderingServerEnvironmentSDFGIFramesToConverge) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("environment_set_sdfgi_frames_to_converge")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2182444374)
@@ -4284,7 +4284,7 @@ pub fn (mut r RenderingServer) environment_set_sdfgi_frames_to_converge(frames R
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) environment_set_sdfgi_frames_to_update_light(frames RenderingServerEnvironmentSDFGIFramesToUpdateLight) {
+pub fn (r &RenderingServer) environment_set_sdfgi_frames_to_update_light(frames RenderingServerEnvironmentSDFGIFramesToUpdateLight) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("environment_set_sdfgi_frames_to_update_light")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1251144068)
@@ -4295,7 +4295,7 @@ pub fn (mut r RenderingServer) environment_set_sdfgi_frames_to_update_light(fram
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) environment_set_volumetric_fog_volume_size(size i32, depth i32) {
+pub fn (r &RenderingServer) environment_set_volumetric_fog_volume_size(size i32, depth i32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("environment_set_volumetric_fog_volume_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -4306,7 +4306,7 @@ pub fn (mut r RenderingServer) environment_set_volumetric_fog_volume_size(size i
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) environment_set_volumetric_fog_filter_active(active bool) {
+pub fn (r &RenderingServer) environment_set_volumetric_fog_filter_active(active bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("environment_set_volumetric_fog_filter_active")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -4316,7 +4316,7 @@ pub fn (mut r RenderingServer) environment_set_volumetric_fog_filter_active(acti
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) environment_bake_panorama(environment RID, bake_irradiance bool, size Vector2i) Image {
+pub fn (r &RenderingServer) environment_bake_panorama(environment RID, bake_irradiance bool, size Vector2i) Image {
     mut object_out := Image{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("environment_bake_panorama")
@@ -4330,7 +4330,7 @@ pub fn (mut r RenderingServer) environment_bake_panorama(environment RID, bake_i
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) screen_space_roughness_limiter_set_active(enable bool, amount f64, limit f64) {
+pub fn (r &RenderingServer) screen_space_roughness_limiter_set_active(enable bool, amount f64, limit f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("screen_space_roughness_limiter_set_active")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 916716790)
@@ -4342,7 +4342,7 @@ pub fn (mut r RenderingServer) screen_space_roughness_limiter_set_active(enable 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) sub_surface_scattering_set_quality(quality RenderingServerSubSurfaceScatteringQuality) {
+pub fn (r &RenderingServer) sub_surface_scattering_set_quality(quality RenderingServerSubSurfaceScatteringQuality) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("sub_surface_scattering_set_quality")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 64571803)
@@ -4353,7 +4353,7 @@ pub fn (mut r RenderingServer) sub_surface_scattering_set_quality(quality Render
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) sub_surface_scattering_set_scale(scale f64, depth_scale f64) {
+pub fn (r &RenderingServer) sub_surface_scattering_set_scale(scale f64, depth_scale f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("sub_surface_scattering_set_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1017552074)
@@ -4364,7 +4364,7 @@ pub fn (mut r RenderingServer) sub_surface_scattering_set_scale(scale f64, depth
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) camera_attributes_create() RID {
+pub fn (r &RenderingServer) camera_attributes_create() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("camera_attributes_create")
@@ -4374,7 +4374,7 @@ pub fn (mut r RenderingServer) camera_attributes_create() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) camera_attributes_set_dof_blur_quality(quality RenderingServerDOFBlurQuality, use_jitter bool) {
+pub fn (r &RenderingServer) camera_attributes_set_dof_blur_quality(quality RenderingServerDOFBlurQuality, use_jitter bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("camera_attributes_set_dof_blur_quality")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2220136795)
@@ -4386,7 +4386,7 @@ pub fn (mut r RenderingServer) camera_attributes_set_dof_blur_quality(quality Re
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) camera_attributes_set_dof_blur_bokeh_shape(shape RenderingServerDOFBokehShape) {
+pub fn (r &RenderingServer) camera_attributes_set_dof_blur_bokeh_shape(shape RenderingServerDOFBokehShape) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("camera_attributes_set_dof_blur_bokeh_shape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1205058394)
@@ -4397,7 +4397,7 @@ pub fn (mut r RenderingServer) camera_attributes_set_dof_blur_bokeh_shape(shape 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) camera_attributes_set_dof_blur(camera_attributes RID, far_enable bool, far_distance f64, far_transition f64, near_enable bool, near_distance f64, near_transition f64, amount f64) {
+pub fn (r &RenderingServer) camera_attributes_set_dof_blur(camera_attributes RID, far_enable bool, far_distance f64, far_transition f64, near_enable bool, near_distance f64, near_transition f64, amount f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("camera_attributes_set_dof_blur")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 316272616)
@@ -4414,7 +4414,7 @@ pub fn (mut r RenderingServer) camera_attributes_set_dof_blur(camera_attributes 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) camera_attributes_set_exposure(camera_attributes RID, multiplier f64, normalization f64) {
+pub fn (r &RenderingServer) camera_attributes_set_exposure(camera_attributes RID, multiplier f64, normalization f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("camera_attributes_set_exposure")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2513314492)
@@ -4426,7 +4426,7 @@ pub fn (mut r RenderingServer) camera_attributes_set_exposure(camera_attributes 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) camera_attributes_set_auto_exposure(camera_attributes RID, enable bool, min_sensitivity f64, max_sensitivity f64, speed f64, scale f64) {
+pub fn (r &RenderingServer) camera_attributes_set_auto_exposure(camera_attributes RID, enable bool, min_sensitivity f64, max_sensitivity f64, speed f64, scale f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("camera_attributes_set_auto_exposure")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4266986332)
@@ -4441,7 +4441,7 @@ pub fn (mut r RenderingServer) camera_attributes_set_auto_exposure(camera_attrib
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) scenario_create() RID {
+pub fn (r &RenderingServer) scenario_create() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("scenario_create")
@@ -4451,7 +4451,7 @@ pub fn (mut r RenderingServer) scenario_create() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) scenario_set_environment(scenario RID, environment RID) {
+pub fn (r &RenderingServer) scenario_set_environment(scenario RID, environment RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("scenario_set_environment")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -4462,7 +4462,7 @@ pub fn (mut r RenderingServer) scenario_set_environment(scenario RID, environmen
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) scenario_set_fallback_environment(scenario RID, environment RID) {
+pub fn (r &RenderingServer) scenario_set_fallback_environment(scenario RID, environment RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("scenario_set_fallback_environment")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -4473,7 +4473,7 @@ pub fn (mut r RenderingServer) scenario_set_fallback_environment(scenario RID, e
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) scenario_set_camera_attributes(scenario RID, effects RID) {
+pub fn (r &RenderingServer) scenario_set_camera_attributes(scenario RID, effects RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("scenario_set_camera_attributes")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -4484,7 +4484,7 @@ pub fn (mut r RenderingServer) scenario_set_camera_attributes(scenario RID, effe
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) instance_create2(base RID, scenario RID) RID {
+pub fn (r &RenderingServer) instance_create2(base RID, scenario RID) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("instance_create2")
@@ -4497,7 +4497,7 @@ pub fn (mut r RenderingServer) instance_create2(base RID, scenario RID) RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) instance_create() RID {
+pub fn (r &RenderingServer) instance_create() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("instance_create")
@@ -4507,7 +4507,7 @@ pub fn (mut r RenderingServer) instance_create() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) instance_set_base(instance RID, base RID) {
+pub fn (r &RenderingServer) instance_set_base(instance RID, base RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("instance_set_base")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -4518,7 +4518,7 @@ pub fn (mut r RenderingServer) instance_set_base(instance RID, base RID) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) instance_set_scenario(instance RID, scenario RID) {
+pub fn (r &RenderingServer) instance_set_scenario(instance RID, scenario RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("instance_set_scenario")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -4529,7 +4529,7 @@ pub fn (mut r RenderingServer) instance_set_scenario(instance RID, scenario RID)
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) instance_set_layer_mask(instance RID, mask u32) {
+pub fn (r &RenderingServer) instance_set_layer_mask(instance RID, mask u32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("instance_set_layer_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -4540,7 +4540,7 @@ pub fn (mut r RenderingServer) instance_set_layer_mask(instance RID, mask u32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) instance_set_pivot_data(instance RID, sorting_offset f64, use_aabb_center bool) {
+pub fn (r &RenderingServer) instance_set_pivot_data(instance RID, sorting_offset f64, use_aabb_center bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("instance_set_pivot_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1280615259)
@@ -4552,7 +4552,7 @@ pub fn (mut r RenderingServer) instance_set_pivot_data(instance RID, sorting_off
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) instance_set_transform(instance RID, transform Transform3D) {
+pub fn (r &RenderingServer) instance_set_transform(instance RID, transform Transform3D) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("instance_set_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3935195649)
@@ -4563,7 +4563,7 @@ pub fn (mut r RenderingServer) instance_set_transform(instance RID, transform Tr
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) instance_attach_object_instance_id(instance RID, id u64) {
+pub fn (r &RenderingServer) instance_attach_object_instance_id(instance RID, id u64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("instance_attach_object_instance_id")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -4574,7 +4574,7 @@ pub fn (mut r RenderingServer) instance_attach_object_instance_id(instance RID, 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) instance_set_blend_shape_weight(instance RID, shape i32, weight f64) {
+pub fn (r &RenderingServer) instance_set_blend_shape_weight(instance RID, shape i32, weight f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("instance_set_blend_shape_weight")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1892459533)
@@ -4586,7 +4586,7 @@ pub fn (mut r RenderingServer) instance_set_blend_shape_weight(instance RID, sha
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) instance_set_surface_override_material(instance RID, surface i32, material RID) {
+pub fn (r &RenderingServer) instance_set_surface_override_material(instance RID, surface i32, material RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("instance_set_surface_override_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2310537182)
@@ -4598,7 +4598,7 @@ pub fn (mut r RenderingServer) instance_set_surface_override_material(instance R
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) instance_set_visible(instance RID, visible bool) {
+pub fn (r &RenderingServer) instance_set_visible(instance RID, visible bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("instance_set_visible")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -4609,7 +4609,7 @@ pub fn (mut r RenderingServer) instance_set_visible(instance RID, visible bool) 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) instance_geometry_set_transparency(instance RID, transparency f64) {
+pub fn (r &RenderingServer) instance_geometry_set_transparency(instance RID, transparency f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("instance_geometry_set_transparency")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -4620,7 +4620,7 @@ pub fn (mut r RenderingServer) instance_geometry_set_transparency(instance RID, 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) instance_set_custom_aabb(instance RID, aabb AABB) {
+pub fn (r &RenderingServer) instance_set_custom_aabb(instance RID, aabb AABB) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("instance_set_custom_aabb")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3696536120)
@@ -4631,7 +4631,7 @@ pub fn (mut r RenderingServer) instance_set_custom_aabb(instance RID, aabb AABB)
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) instance_attach_skeleton(instance RID, skeleton RID) {
+pub fn (r &RenderingServer) instance_attach_skeleton(instance RID, skeleton RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("instance_attach_skeleton")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -4642,7 +4642,7 @@ pub fn (mut r RenderingServer) instance_attach_skeleton(instance RID, skeleton R
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) instance_set_extra_visibility_margin(instance RID, margin f64) {
+pub fn (r &RenderingServer) instance_set_extra_visibility_margin(instance RID, margin f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("instance_set_extra_visibility_margin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -4653,7 +4653,7 @@ pub fn (mut r RenderingServer) instance_set_extra_visibility_margin(instance RID
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) instance_set_visibility_parent(instance RID, parent RID) {
+pub fn (r &RenderingServer) instance_set_visibility_parent(instance RID, parent RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("instance_set_visibility_parent")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -4664,7 +4664,7 @@ pub fn (mut r RenderingServer) instance_set_visibility_parent(instance RID, pare
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) instance_set_ignore_culling(instance RID, enabled bool) {
+pub fn (r &RenderingServer) instance_set_ignore_culling(instance RID, enabled bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("instance_set_ignore_culling")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -4675,7 +4675,7 @@ pub fn (mut r RenderingServer) instance_set_ignore_culling(instance RID, enabled
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) instance_geometry_set_flag(instance RID, flag RenderingServerInstanceFlags, enabled bool) {
+pub fn (r &RenderingServer) instance_geometry_set_flag(instance RID, flag RenderingServerInstanceFlags, enabled bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("instance_geometry_set_flag")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1014989537)
@@ -4688,7 +4688,7 @@ pub fn (mut r RenderingServer) instance_geometry_set_flag(instance RID, flag Ren
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) instance_geometry_set_cast_shadows_setting(instance RID, shadow_casting_setting RenderingServerShadowCastingSetting) {
+pub fn (r &RenderingServer) instance_geometry_set_cast_shadows_setting(instance RID, shadow_casting_setting RenderingServerShadowCastingSetting) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("instance_geometry_set_cast_shadows_setting")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3768836020)
@@ -4700,7 +4700,7 @@ pub fn (mut r RenderingServer) instance_geometry_set_cast_shadows_setting(instan
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) instance_geometry_set_material_override(instance RID, material RID) {
+pub fn (r &RenderingServer) instance_geometry_set_material_override(instance RID, material RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("instance_geometry_set_material_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -4711,7 +4711,7 @@ pub fn (mut r RenderingServer) instance_geometry_set_material_override(instance 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) instance_geometry_set_material_overlay(instance RID, material RID) {
+pub fn (r &RenderingServer) instance_geometry_set_material_overlay(instance RID, material RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("instance_geometry_set_material_overlay")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -4722,7 +4722,7 @@ pub fn (mut r RenderingServer) instance_geometry_set_material_overlay(instance R
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) instance_geometry_set_visibility_range(instance RID, min f64, max f64, min_margin f64, max_margin f64, fade_mode RenderingServerVisibilityRangeFadeMode) {
+pub fn (r &RenderingServer) instance_geometry_set_visibility_range(instance RID, min f64, max f64, min_margin f64, max_margin f64, fade_mode RenderingServerVisibilityRangeFadeMode) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("instance_geometry_set_visibility_range")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4263925858)
@@ -4738,7 +4738,7 @@ pub fn (mut r RenderingServer) instance_geometry_set_visibility_range(instance R
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) instance_geometry_set_lightmap(instance RID, lightmap RID, lightmap_uv_scale Rect2, lightmap_slice i32) {
+pub fn (r &RenderingServer) instance_geometry_set_lightmap(instance RID, lightmap RID, lightmap_uv_scale Rect2, lightmap_slice i32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("instance_geometry_set_lightmap")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 536974962)
@@ -4751,7 +4751,7 @@ pub fn (mut r RenderingServer) instance_geometry_set_lightmap(instance RID, ligh
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) instance_geometry_set_lod_bias(instance RID, lod_bias f64) {
+pub fn (r &RenderingServer) instance_geometry_set_lod_bias(instance RID, lod_bias f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("instance_geometry_set_lod_bias")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -4762,7 +4762,7 @@ pub fn (mut r RenderingServer) instance_geometry_set_lod_bias(instance RID, lod_
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) instance_geometry_set_shader_parameter(instance RID, parameter string, value Variant) {
+pub fn (r &RenderingServer) instance_geometry_set_shader_parameter(instance RID, parameter string, value Variant) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("instance_geometry_set_shader_parameter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3477296213)
@@ -4858,7 +4858,7 @@ pub fn (r &RenderingServer) instances_cull_convex(convex Array, scenario RID) Pa
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) bake_render_uv2(base RID, material_overrides Array, image_size Vector2i) Array {
+pub fn (r &RenderingServer) bake_render_uv2(base RID, material_overrides Array, image_size Vector2i) Array {
     mut object_out := Array{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("bake_render_uv2")
@@ -4872,7 +4872,7 @@ pub fn (mut r RenderingServer) bake_render_uv2(base RID, material_overrides Arra
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) canvas_create() RID {
+pub fn (r &RenderingServer) canvas_create() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_create")
@@ -4882,7 +4882,7 @@ pub fn (mut r RenderingServer) canvas_create() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) canvas_set_item_mirroring(canvas RID, item RID, mirroring Vector2) {
+pub fn (r &RenderingServer) canvas_set_item_mirroring(canvas RID, item RID, mirroring Vector2) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_set_item_mirroring")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2343975398)
@@ -4894,7 +4894,7 @@ pub fn (mut r RenderingServer) canvas_set_item_mirroring(canvas RID, item RID, m
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_set_modulate(canvas RID, color Color) {
+pub fn (r &RenderingServer) canvas_set_modulate(canvas RID, color Color) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_set_modulate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2948539648)
@@ -4905,7 +4905,7 @@ pub fn (mut r RenderingServer) canvas_set_modulate(canvas RID, color Color) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_set_disable_scale(disable bool) {
+pub fn (r &RenderingServer) canvas_set_disable_scale(disable bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_set_disable_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -4915,7 +4915,7 @@ pub fn (mut r RenderingServer) canvas_set_disable_scale(disable bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_texture_create() RID {
+pub fn (r &RenderingServer) canvas_texture_create() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_texture_create")
@@ -4925,7 +4925,7 @@ pub fn (mut r RenderingServer) canvas_texture_create() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) canvas_texture_set_channel(canvas_texture RID, channel RenderingServerCanvasTextureChannel, texture RID) {
+pub fn (r &RenderingServer) canvas_texture_set_channel(canvas_texture RID, channel RenderingServerCanvasTextureChannel, texture RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_texture_set_channel")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3822119138)
@@ -4938,7 +4938,7 @@ pub fn (mut r RenderingServer) canvas_texture_set_channel(canvas_texture RID, ch
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_texture_set_shading_parameters(canvas_texture RID, base_color Color, shininess f64) {
+pub fn (r &RenderingServer) canvas_texture_set_shading_parameters(canvas_texture RID, base_color Color, shininess f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_texture_set_shading_parameters")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2124967469)
@@ -4950,7 +4950,7 @@ pub fn (mut r RenderingServer) canvas_texture_set_shading_parameters(canvas_text
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_texture_set_texture_filter(canvas_texture RID, filter RenderingServerCanvasItemTextureFilter) {
+pub fn (r &RenderingServer) canvas_texture_set_texture_filter(canvas_texture RID, filter RenderingServerCanvasItemTextureFilter) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_texture_set_texture_filter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1155129294)
@@ -4962,7 +4962,7 @@ pub fn (mut r RenderingServer) canvas_texture_set_texture_filter(canvas_texture 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_texture_set_texture_repeat(canvas_texture RID, repeat RenderingServerCanvasItemTextureRepeat) {
+pub fn (r &RenderingServer) canvas_texture_set_texture_repeat(canvas_texture RID, repeat RenderingServerCanvasItemTextureRepeat) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_texture_set_texture_repeat")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1652956681)
@@ -4974,7 +4974,7 @@ pub fn (mut r RenderingServer) canvas_texture_set_texture_repeat(canvas_texture 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_create() RID {
+pub fn (r &RenderingServer) canvas_item_create() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_create")
@@ -4984,7 +4984,7 @@ pub fn (mut r RenderingServer) canvas_item_create() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) canvas_item_set_parent(item RID, parent RID) {
+pub fn (r &RenderingServer) canvas_item_set_parent(item RID, parent RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_set_parent")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -4995,7 +4995,7 @@ pub fn (mut r RenderingServer) canvas_item_set_parent(item RID, parent RID) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_set_default_texture_filter(item RID, filter RenderingServerCanvasItemTextureFilter) {
+pub fn (r &RenderingServer) canvas_item_set_default_texture_filter(item RID, filter RenderingServerCanvasItemTextureFilter) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_set_default_texture_filter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1155129294)
@@ -5007,7 +5007,7 @@ pub fn (mut r RenderingServer) canvas_item_set_default_texture_filter(item RID, 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_set_default_texture_repeat(item RID, repeat RenderingServerCanvasItemTextureRepeat) {
+pub fn (r &RenderingServer) canvas_item_set_default_texture_repeat(item RID, repeat RenderingServerCanvasItemTextureRepeat) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_set_default_texture_repeat")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1652956681)
@@ -5019,7 +5019,7 @@ pub fn (mut r RenderingServer) canvas_item_set_default_texture_repeat(item RID, 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_set_visible(item RID, visible bool) {
+pub fn (r &RenderingServer) canvas_item_set_visible(item RID, visible bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_set_visible")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -5030,7 +5030,7 @@ pub fn (mut r RenderingServer) canvas_item_set_visible(item RID, visible bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_set_light_mask(item RID, mask i32) {
+pub fn (r &RenderingServer) canvas_item_set_light_mask(item RID, mask i32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_set_light_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -5041,7 +5041,7 @@ pub fn (mut r RenderingServer) canvas_item_set_light_mask(item RID, mask i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_set_visibility_layer(item RID, visibility_layer u32) {
+pub fn (r &RenderingServer) canvas_item_set_visibility_layer(item RID, visibility_layer u32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_set_visibility_layer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -5052,7 +5052,7 @@ pub fn (mut r RenderingServer) canvas_item_set_visibility_layer(item RID, visibi
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_set_transform(item RID, transform Transform2D) {
+pub fn (r &RenderingServer) canvas_item_set_transform(item RID, transform Transform2D) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_set_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1246044741)
@@ -5063,7 +5063,7 @@ pub fn (mut r RenderingServer) canvas_item_set_transform(item RID, transform Tra
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_set_clip(item RID, clip bool) {
+pub fn (r &RenderingServer) canvas_item_set_clip(item RID, clip bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_set_clip")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -5074,7 +5074,7 @@ pub fn (mut r RenderingServer) canvas_item_set_clip(item RID, clip bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_set_distance_field_mode(item RID, enabled bool) {
+pub fn (r &RenderingServer) canvas_item_set_distance_field_mode(item RID, enabled bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_set_distance_field_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -5085,7 +5085,7 @@ pub fn (mut r RenderingServer) canvas_item_set_distance_field_mode(item RID, ena
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_set_custom_rect(item RID, use_custom_rect bool, rect Rect2) {
+pub fn (r &RenderingServer) canvas_item_set_custom_rect(item RID, use_custom_rect bool, rect Rect2) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_set_custom_rect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1333997032)
@@ -5097,7 +5097,7 @@ pub fn (mut r RenderingServer) canvas_item_set_custom_rect(item RID, use_custom_
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_set_modulate(item RID, color Color) {
+pub fn (r &RenderingServer) canvas_item_set_modulate(item RID, color Color) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_set_modulate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2948539648)
@@ -5108,7 +5108,7 @@ pub fn (mut r RenderingServer) canvas_item_set_modulate(item RID, color Color) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_set_self_modulate(item RID, color Color) {
+pub fn (r &RenderingServer) canvas_item_set_self_modulate(item RID, color Color) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_set_self_modulate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2948539648)
@@ -5119,7 +5119,7 @@ pub fn (mut r RenderingServer) canvas_item_set_self_modulate(item RID, color Col
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_set_draw_behind_parent(item RID, enabled bool) {
+pub fn (r &RenderingServer) canvas_item_set_draw_behind_parent(item RID, enabled bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_set_draw_behind_parent")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -5130,7 +5130,7 @@ pub fn (mut r RenderingServer) canvas_item_set_draw_behind_parent(item RID, enab
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_add_line(item RID, from Vector2, to Vector2, color Color, width f64, antialiased bool) {
+pub fn (r &RenderingServer) canvas_item_add_line(item RID, from Vector2, to Vector2, color Color, width f64, antialiased bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_add_line")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1819681853)
@@ -5145,7 +5145,7 @@ pub fn (mut r RenderingServer) canvas_item_add_line(item RID, from Vector2, to V
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_add_polyline(item RID, points PackedVector2Array, colors PackedColorArray, width f64, antialiased bool) {
+pub fn (r &RenderingServer) canvas_item_add_polyline(item RID, points PackedVector2Array, colors PackedColorArray, width f64, antialiased bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_add_polyline")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3098767073)
@@ -5159,7 +5159,7 @@ pub fn (mut r RenderingServer) canvas_item_add_polyline(item RID, points PackedV
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_add_multiline(item RID, points PackedVector2Array, colors PackedColorArray, width f64) {
+pub fn (r &RenderingServer) canvas_item_add_multiline(item RID, points PackedVector2Array, colors PackedColorArray, width f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_add_multiline")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2088642721)
@@ -5172,7 +5172,7 @@ pub fn (mut r RenderingServer) canvas_item_add_multiline(item RID, points Packed
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_add_rect(item RID, rect Rect2, color Color) {
+pub fn (r &RenderingServer) canvas_item_add_rect(item RID, rect Rect2, color Color) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_add_rect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 934531857)
@@ -5184,7 +5184,7 @@ pub fn (mut r RenderingServer) canvas_item_add_rect(item RID, rect Rect2, color 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_add_circle(item RID, pos Vector2, radius f64, color Color) {
+pub fn (r &RenderingServer) canvas_item_add_circle(item RID, pos Vector2, radius f64, color Color) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_add_circle")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2439351960)
@@ -5197,7 +5197,7 @@ pub fn (mut r RenderingServer) canvas_item_add_circle(item RID, pos Vector2, rad
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_add_texture_rect(item RID, rect Rect2, texture RID, tile bool, modulate Color, transpose bool) {
+pub fn (r &RenderingServer) canvas_item_add_texture_rect(item RID, rect Rect2, texture RID, tile bool, modulate Color, transpose bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_add_texture_rect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 324864032)
@@ -5212,7 +5212,7 @@ pub fn (mut r RenderingServer) canvas_item_add_texture_rect(item RID, rect Rect2
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_add_msdf_texture_rect_region(item RID, rect Rect2, texture RID, src_rect Rect2, modulate Color, outline_size i32, px_range f64, scale f64) {
+pub fn (r &RenderingServer) canvas_item_add_msdf_texture_rect_region(item RID, rect Rect2, texture RID, src_rect Rect2, modulate Color, outline_size i32, px_range f64, scale f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_add_msdf_texture_rect_region")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 97408773)
@@ -5229,7 +5229,7 @@ pub fn (mut r RenderingServer) canvas_item_add_msdf_texture_rect_region(item RID
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_add_lcd_texture_rect_region(item RID, rect Rect2, texture RID, src_rect Rect2, modulate Color) {
+pub fn (r &RenderingServer) canvas_item_add_lcd_texture_rect_region(item RID, rect Rect2, texture RID, src_rect Rect2, modulate Color) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_add_lcd_texture_rect_region")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 359793297)
@@ -5243,7 +5243,7 @@ pub fn (mut r RenderingServer) canvas_item_add_lcd_texture_rect_region(item RID,
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_add_texture_rect_region(item RID, rect Rect2, texture RID, src_rect Rect2, modulate Color, transpose bool, clip_uv bool) {
+pub fn (r &RenderingServer) canvas_item_add_texture_rect_region(item RID, rect Rect2, texture RID, src_rect Rect2, modulate Color, transpose bool, clip_uv bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_add_texture_rect_region")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 485157892)
@@ -5259,7 +5259,7 @@ pub fn (mut r RenderingServer) canvas_item_add_texture_rect_region(item RID, rec
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_add_nine_patch(item RID, rect Rect2, source Rect2, texture RID, topleft Vector2, bottomright Vector2, x_axis_mode RenderingServerNinePatchAxisMode, y_axis_mode RenderingServerNinePatchAxisMode, draw_center bool, modulate Color) {
+pub fn (r &RenderingServer) canvas_item_add_nine_patch(item RID, rect Rect2, source Rect2, texture RID, topleft Vector2, bottomright Vector2, x_axis_mode RenderingServerNinePatchAxisMode, y_axis_mode RenderingServerNinePatchAxisMode, draw_center bool, modulate Color) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_add_nine_patch")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 389957886)
@@ -5280,7 +5280,7 @@ pub fn (mut r RenderingServer) canvas_item_add_nine_patch(item RID, rect Rect2, 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_add_primitive(item RID, points PackedVector2Array, colors PackedColorArray, uvs PackedVector2Array, texture RID) {
+pub fn (r &RenderingServer) canvas_item_add_primitive(item RID, points PackedVector2Array, colors PackedColorArray, uvs PackedVector2Array, texture RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_add_primitive")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3731601077)
@@ -5294,7 +5294,7 @@ pub fn (mut r RenderingServer) canvas_item_add_primitive(item RID, points Packed
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_add_polygon(item RID, points PackedVector2Array, colors PackedColorArray, uvs PackedVector2Array, texture RID) {
+pub fn (r &RenderingServer) canvas_item_add_polygon(item RID, points PackedVector2Array, colors PackedColorArray, uvs PackedVector2Array, texture RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_add_polygon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3580000528)
@@ -5308,7 +5308,7 @@ pub fn (mut r RenderingServer) canvas_item_add_polygon(item RID, points PackedVe
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_add_triangle_array(item RID, indices PackedInt32Array, points PackedVector2Array, colors PackedColorArray, uvs PackedVector2Array, bones PackedInt32Array, weights PackedFloat32Array, texture RID, count i32) {
+pub fn (r &RenderingServer) canvas_item_add_triangle_array(item RID, indices PackedInt32Array, points PackedVector2Array, colors PackedColorArray, uvs PackedVector2Array, bones PackedInt32Array, weights PackedFloat32Array, texture RID, count i32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_add_triangle_array")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 660261329)
@@ -5326,7 +5326,7 @@ pub fn (mut r RenderingServer) canvas_item_add_triangle_array(item RID, indices 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_add_mesh(item RID, mesh RID, transform Transform2D, modulate Color, texture RID) {
+pub fn (r &RenderingServer) canvas_item_add_mesh(item RID, mesh RID, transform Transform2D, modulate Color, texture RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_add_mesh")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 316450961)
@@ -5340,7 +5340,7 @@ pub fn (mut r RenderingServer) canvas_item_add_mesh(item RID, mesh RID, transfor
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_add_multimesh(item RID, mesh RID, texture RID) {
+pub fn (r &RenderingServer) canvas_item_add_multimesh(item RID, mesh RID, texture RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_add_multimesh")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2131855138)
@@ -5352,7 +5352,7 @@ pub fn (mut r RenderingServer) canvas_item_add_multimesh(item RID, mesh RID, tex
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_add_particles(item RID, particles RID, texture RID) {
+pub fn (r &RenderingServer) canvas_item_add_particles(item RID, particles RID, texture RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_add_particles")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2575754278)
@@ -5364,7 +5364,7 @@ pub fn (mut r RenderingServer) canvas_item_add_particles(item RID, particles RID
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_add_set_transform(item RID, transform Transform2D) {
+pub fn (r &RenderingServer) canvas_item_add_set_transform(item RID, transform Transform2D) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_add_set_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1246044741)
@@ -5375,7 +5375,7 @@ pub fn (mut r RenderingServer) canvas_item_add_set_transform(item RID, transform
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_add_clip_ignore(item RID, ignore bool) {
+pub fn (r &RenderingServer) canvas_item_add_clip_ignore(item RID, ignore bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_add_clip_ignore")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -5386,7 +5386,7 @@ pub fn (mut r RenderingServer) canvas_item_add_clip_ignore(item RID, ignore bool
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_add_animation_slice(item RID, animation_length f64, slice_begin f64, slice_end f64, offset f64) {
+pub fn (r &RenderingServer) canvas_item_add_animation_slice(item RID, animation_length f64, slice_begin f64, slice_end f64, offset f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_add_animation_slice")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2646834499)
@@ -5400,7 +5400,7 @@ pub fn (mut r RenderingServer) canvas_item_add_animation_slice(item RID, animati
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_set_sort_children_by_y(item RID, enabled bool) {
+pub fn (r &RenderingServer) canvas_item_set_sort_children_by_y(item RID, enabled bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_set_sort_children_by_y")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -5411,7 +5411,7 @@ pub fn (mut r RenderingServer) canvas_item_set_sort_children_by_y(item RID, enab
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_set_z_index(item RID, z_index i32) {
+pub fn (r &RenderingServer) canvas_item_set_z_index(item RID, z_index i32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_set_z_index")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -5422,7 +5422,7 @@ pub fn (mut r RenderingServer) canvas_item_set_z_index(item RID, z_index i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_set_z_as_relative_to_parent(item RID, enabled bool) {
+pub fn (r &RenderingServer) canvas_item_set_z_as_relative_to_parent(item RID, enabled bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_set_z_as_relative_to_parent")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -5433,7 +5433,7 @@ pub fn (mut r RenderingServer) canvas_item_set_z_as_relative_to_parent(item RID,
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_set_copy_to_backbuffer(item RID, enabled bool, rect Rect2) {
+pub fn (r &RenderingServer) canvas_item_set_copy_to_backbuffer(item RID, enabled bool, rect Rect2) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_set_copy_to_backbuffer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2429202503)
@@ -5445,7 +5445,7 @@ pub fn (mut r RenderingServer) canvas_item_set_copy_to_backbuffer(item RID, enab
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_clear(item RID) {
+pub fn (r &RenderingServer) canvas_item_clear(item RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_clear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)
@@ -5455,7 +5455,7 @@ pub fn (mut r RenderingServer) canvas_item_clear(item RID) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_set_draw_index(item RID, index i32) {
+pub fn (r &RenderingServer) canvas_item_set_draw_index(item RID, index i32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_set_draw_index")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -5466,7 +5466,7 @@ pub fn (mut r RenderingServer) canvas_item_set_draw_index(item RID, index i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_set_material(item RID, material RID) {
+pub fn (r &RenderingServer) canvas_item_set_material(item RID, material RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_set_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -5477,7 +5477,7 @@ pub fn (mut r RenderingServer) canvas_item_set_material(item RID, material RID) 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_set_use_parent_material(item RID, enabled bool) {
+pub fn (r &RenderingServer) canvas_item_set_use_parent_material(item RID, enabled bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_set_use_parent_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -5488,7 +5488,7 @@ pub fn (mut r RenderingServer) canvas_item_set_use_parent_material(item RID, ena
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_set_visibility_notifier(item RID, enable bool, area Rect2, enter_callable Callable, exit_callable Callable) {
+pub fn (r &RenderingServer) canvas_item_set_visibility_notifier(item RID, enable bool, area Rect2, enter_callable Callable, exit_callable Callable) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_set_visibility_notifier")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3568945579)
@@ -5502,7 +5502,7 @@ pub fn (mut r RenderingServer) canvas_item_set_visibility_notifier(item RID, ena
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_item_set_canvas_group_mode(item RID, mode RenderingServerCanvasGroupMode, clear_margin f64, fit_empty bool, fit_margin f64, blur_mipmaps bool) {
+pub fn (r &RenderingServer) canvas_item_set_canvas_group_mode(item RID, mode RenderingServerCanvasGroupMode, clear_margin f64, fit_empty bool, fit_margin f64, blur_mipmaps bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_item_set_canvas_group_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3973586316)
@@ -5518,7 +5518,7 @@ pub fn (mut r RenderingServer) canvas_item_set_canvas_group_mode(item RID, mode 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_light_create() RID {
+pub fn (r &RenderingServer) canvas_light_create() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_light_create")
@@ -5528,7 +5528,7 @@ pub fn (mut r RenderingServer) canvas_light_create() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) canvas_light_attach_to_canvas(light RID, canvas RID) {
+pub fn (r &RenderingServer) canvas_light_attach_to_canvas(light RID, canvas RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_light_attach_to_canvas")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -5539,7 +5539,7 @@ pub fn (mut r RenderingServer) canvas_light_attach_to_canvas(light RID, canvas R
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_light_set_enabled(light RID, enabled bool) {
+pub fn (r &RenderingServer) canvas_light_set_enabled(light RID, enabled bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_light_set_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -5550,7 +5550,7 @@ pub fn (mut r RenderingServer) canvas_light_set_enabled(light RID, enabled bool)
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_light_set_texture_scale(light RID, scale f64) {
+pub fn (r &RenderingServer) canvas_light_set_texture_scale(light RID, scale f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_light_set_texture_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -5561,7 +5561,7 @@ pub fn (mut r RenderingServer) canvas_light_set_texture_scale(light RID, scale f
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_light_set_transform(light RID, transform Transform2D) {
+pub fn (r &RenderingServer) canvas_light_set_transform(light RID, transform Transform2D) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_light_set_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1246044741)
@@ -5572,7 +5572,7 @@ pub fn (mut r RenderingServer) canvas_light_set_transform(light RID, transform T
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_light_set_texture(light RID, texture RID) {
+pub fn (r &RenderingServer) canvas_light_set_texture(light RID, texture RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_light_set_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -5583,7 +5583,7 @@ pub fn (mut r RenderingServer) canvas_light_set_texture(light RID, texture RID) 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_light_set_texture_offset(light RID, offset Vector2) {
+pub fn (r &RenderingServer) canvas_light_set_texture_offset(light RID, offset Vector2) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_light_set_texture_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3201125042)
@@ -5594,7 +5594,7 @@ pub fn (mut r RenderingServer) canvas_light_set_texture_offset(light RID, offset
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_light_set_color(light RID, color Color) {
+pub fn (r &RenderingServer) canvas_light_set_color(light RID, color Color) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_light_set_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2948539648)
@@ -5605,7 +5605,7 @@ pub fn (mut r RenderingServer) canvas_light_set_color(light RID, color Color) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_light_set_height(light RID, height f64) {
+pub fn (r &RenderingServer) canvas_light_set_height(light RID, height f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_light_set_height")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -5616,7 +5616,7 @@ pub fn (mut r RenderingServer) canvas_light_set_height(light RID, height f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_light_set_energy(light RID, energy f64) {
+pub fn (r &RenderingServer) canvas_light_set_energy(light RID, energy f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_light_set_energy")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -5627,7 +5627,7 @@ pub fn (mut r RenderingServer) canvas_light_set_energy(light RID, energy f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_light_set_z_range(light RID, min_z i32, max_z i32) {
+pub fn (r &RenderingServer) canvas_light_set_z_range(light RID, min_z i32, max_z i32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_light_set_z_range")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4288446313)
@@ -5639,7 +5639,7 @@ pub fn (mut r RenderingServer) canvas_light_set_z_range(light RID, min_z i32, ma
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_light_set_layer_range(light RID, min_layer i32, max_layer i32) {
+pub fn (r &RenderingServer) canvas_light_set_layer_range(light RID, min_layer i32, max_layer i32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_light_set_layer_range")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4288446313)
@@ -5651,7 +5651,7 @@ pub fn (mut r RenderingServer) canvas_light_set_layer_range(light RID, min_layer
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_light_set_item_cull_mask(light RID, mask i32) {
+pub fn (r &RenderingServer) canvas_light_set_item_cull_mask(light RID, mask i32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_light_set_item_cull_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -5662,7 +5662,7 @@ pub fn (mut r RenderingServer) canvas_light_set_item_cull_mask(light RID, mask i
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_light_set_item_shadow_cull_mask(light RID, mask i32) {
+pub fn (r &RenderingServer) canvas_light_set_item_shadow_cull_mask(light RID, mask i32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_light_set_item_shadow_cull_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -5673,7 +5673,7 @@ pub fn (mut r RenderingServer) canvas_light_set_item_shadow_cull_mask(light RID,
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_light_set_mode(light RID, mode RenderingServerCanvasLightMode) {
+pub fn (r &RenderingServer) canvas_light_set_mode(light RID, mode RenderingServerCanvasLightMode) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_light_set_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2957564891)
@@ -5685,7 +5685,7 @@ pub fn (mut r RenderingServer) canvas_light_set_mode(light RID, mode RenderingSe
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_light_set_shadow_enabled(light RID, enabled bool) {
+pub fn (r &RenderingServer) canvas_light_set_shadow_enabled(light RID, enabled bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_light_set_shadow_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -5696,7 +5696,7 @@ pub fn (mut r RenderingServer) canvas_light_set_shadow_enabled(light RID, enable
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_light_set_shadow_filter(light RID, filter RenderingServerCanvasLightShadowFilter) {
+pub fn (r &RenderingServer) canvas_light_set_shadow_filter(light RID, filter RenderingServerCanvasLightShadowFilter) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_light_set_shadow_filter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 393119659)
@@ -5708,7 +5708,7 @@ pub fn (mut r RenderingServer) canvas_light_set_shadow_filter(light RID, filter 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_light_set_shadow_color(light RID, color Color) {
+pub fn (r &RenderingServer) canvas_light_set_shadow_color(light RID, color Color) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_light_set_shadow_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2948539648)
@@ -5719,7 +5719,7 @@ pub fn (mut r RenderingServer) canvas_light_set_shadow_color(light RID, color Co
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_light_set_shadow_smooth(light RID, smooth f64) {
+pub fn (r &RenderingServer) canvas_light_set_shadow_smooth(light RID, smooth f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_light_set_shadow_smooth")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1794382983)
@@ -5730,7 +5730,7 @@ pub fn (mut r RenderingServer) canvas_light_set_shadow_smooth(light RID, smooth 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_light_set_blend_mode(light RID, mode RenderingServerCanvasLightBlendMode) {
+pub fn (r &RenderingServer) canvas_light_set_blend_mode(light RID, mode RenderingServerCanvasLightBlendMode) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_light_set_blend_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 804895945)
@@ -5742,7 +5742,7 @@ pub fn (mut r RenderingServer) canvas_light_set_blend_mode(light RID, mode Rende
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_light_occluder_create() RID {
+pub fn (r &RenderingServer) canvas_light_occluder_create() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_light_occluder_create")
@@ -5752,7 +5752,7 @@ pub fn (mut r RenderingServer) canvas_light_occluder_create() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) canvas_light_occluder_attach_to_canvas(occluder RID, canvas RID) {
+pub fn (r &RenderingServer) canvas_light_occluder_attach_to_canvas(occluder RID, canvas RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_light_occluder_attach_to_canvas")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -5763,7 +5763,7 @@ pub fn (mut r RenderingServer) canvas_light_occluder_attach_to_canvas(occluder R
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_light_occluder_set_enabled(occluder RID, enabled bool) {
+pub fn (r &RenderingServer) canvas_light_occluder_set_enabled(occluder RID, enabled bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_light_occluder_set_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -5774,7 +5774,7 @@ pub fn (mut r RenderingServer) canvas_light_occluder_set_enabled(occluder RID, e
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_light_occluder_set_polygon(occluder RID, polygon RID) {
+pub fn (r &RenderingServer) canvas_light_occluder_set_polygon(occluder RID, polygon RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_light_occluder_set_polygon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 395945892)
@@ -5785,7 +5785,7 @@ pub fn (mut r RenderingServer) canvas_light_occluder_set_polygon(occluder RID, p
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_light_occluder_set_as_sdf_collision(occluder RID, enable bool) {
+pub fn (r &RenderingServer) canvas_light_occluder_set_as_sdf_collision(occluder RID, enable bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_light_occluder_set_as_sdf_collision")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1265174801)
@@ -5796,7 +5796,7 @@ pub fn (mut r RenderingServer) canvas_light_occluder_set_as_sdf_collision(occlud
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_light_occluder_set_transform(occluder RID, transform Transform2D) {
+pub fn (r &RenderingServer) canvas_light_occluder_set_transform(occluder RID, transform Transform2D) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_light_occluder_set_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1246044741)
@@ -5807,7 +5807,7 @@ pub fn (mut r RenderingServer) canvas_light_occluder_set_transform(occluder RID,
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_light_occluder_set_light_mask(occluder RID, mask i32) {
+pub fn (r &RenderingServer) canvas_light_occluder_set_light_mask(occluder RID, mask i32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_light_occluder_set_light_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3411492887)
@@ -5818,7 +5818,7 @@ pub fn (mut r RenderingServer) canvas_light_occluder_set_light_mask(occluder RID
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_occluder_polygon_create() RID {
+pub fn (r &RenderingServer) canvas_occluder_polygon_create() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_occluder_polygon_create")
@@ -5828,7 +5828,7 @@ pub fn (mut r RenderingServer) canvas_occluder_polygon_create() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) canvas_occluder_polygon_set_shape(occluder_polygon RID, shape PackedVector2Array, closed bool) {
+pub fn (r &RenderingServer) canvas_occluder_polygon_set_shape(occluder_polygon RID, shape PackedVector2Array, closed bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_occluder_polygon_set_shape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2103882027)
@@ -5840,7 +5840,7 @@ pub fn (mut r RenderingServer) canvas_occluder_polygon_set_shape(occluder_polygo
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_occluder_polygon_set_cull_mode(occluder_polygon RID, mode RenderingServerCanvasOccluderPolygonCullMode) {
+pub fn (r &RenderingServer) canvas_occluder_polygon_set_cull_mode(occluder_polygon RID, mode RenderingServerCanvasOccluderPolygonCullMode) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_occluder_polygon_set_cull_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1839404663)
@@ -5852,7 +5852,7 @@ pub fn (mut r RenderingServer) canvas_occluder_polygon_set_cull_mode(occluder_po
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) canvas_set_shadow_texture_size(size i32) {
+pub fn (r &RenderingServer) canvas_set_shadow_texture_size(size i32) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("canvas_set_shadow_texture_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -5862,7 +5862,7 @@ pub fn (mut r RenderingServer) canvas_set_shadow_texture_size(size i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) global_shader_parameter_add(name string, type_name RenderingServerGlobalShaderParameterType, default_value Variant) {
+pub fn (r &RenderingServer) global_shader_parameter_add(name string, type_name RenderingServerGlobalShaderParameterType, default_value Variant) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("global_shader_parameter_add")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 463390080)
@@ -5877,7 +5877,7 @@ pub fn (mut r RenderingServer) global_shader_parameter_add(name string, type_nam
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) global_shader_parameter_remove(name string) {
+pub fn (r &RenderingServer) global_shader_parameter_remove(name string) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("global_shader_parameter_remove")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -5899,7 +5899,7 @@ pub fn (r &RenderingServer) global_shader_parameter_get_list() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) global_shader_parameter_set(name string, value Variant) {
+pub fn (r &RenderingServer) global_shader_parameter_set(name string, value Variant) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("global_shader_parameter_set")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3776071444)
@@ -5912,7 +5912,7 @@ pub fn (mut r RenderingServer) global_shader_parameter_set(name string, value Va
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) global_shader_parameter_set_override(name string, value Variant) {
+pub fn (r &RenderingServer) global_shader_parameter_set_override(name string, value Variant) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("global_shader_parameter_set_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3776071444)
@@ -5953,7 +5953,7 @@ pub fn (r &RenderingServer) global_shader_parameter_get_type(name string) Render
     fnname.deinit()
    return unsafe{RenderingServerGlobalShaderParameterType(object_out)}
 }
-pub fn (mut r RenderingServer) free_rid(rid RID) {
+pub fn (r &RenderingServer) free_rid(rid RID) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("free_rid")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)
@@ -5963,7 +5963,7 @@ pub fn (mut r RenderingServer) free_rid(rid RID) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) request_frame_drawn_callback(callable Callable) {
+pub fn (r &RenderingServer) request_frame_drawn_callback(callable Callable) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("request_frame_drawn_callback")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1611583062)
@@ -5983,7 +5983,7 @@ pub fn (r &RenderingServer) has_changed() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) get_rendering_info(info RenderingServerRenderingInfo) u64 {
+pub fn (r &RenderingServer) get_rendering_info(info RenderingServerRenderingInfo) u64 {
     mut object_out := u64(0)
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("get_rendering_info")
@@ -6042,7 +6042,7 @@ pub fn (r &RenderingServer) get_video_adapter_api_version() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r RenderingServer) make_sphere_mesh(latitudes i32, longitudes i32, radius f64) RID {
+pub fn (r &RenderingServer) make_sphere_mesh(latitudes i32, longitudes i32, radius f64) RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("make_sphere_mesh")
@@ -6056,7 +6056,7 @@ pub fn (mut r RenderingServer) make_sphere_mesh(latitudes i32, longitudes i32, r
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) get_test_cube() RID {
+pub fn (r &RenderingServer) get_test_cube() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("get_test_cube")
@@ -6066,7 +6066,7 @@ pub fn (mut r RenderingServer) get_test_cube() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) get_test_texture() RID {
+pub fn (r &RenderingServer) get_test_texture() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("get_test_texture")
@@ -6076,7 +6076,7 @@ pub fn (mut r RenderingServer) get_test_texture() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) get_white_texture() RID {
+pub fn (r &RenderingServer) get_white_texture() RID {
     mut object_out := RID{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("get_white_texture")
@@ -6086,7 +6086,7 @@ pub fn (mut r RenderingServer) get_white_texture() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) set_boot_image(image Image, color Color, scale bool, use_filter bool) {
+pub fn (r &RenderingServer) set_boot_image(image Image, color Color, scale bool, use_filter bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("set_boot_image")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3759744527)
@@ -6099,7 +6099,7 @@ pub fn (mut r RenderingServer) set_boot_image(image Image, color Color, scale bo
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) get_default_clear_color() Color {
+pub fn (r &RenderingServer) get_default_clear_color() Color {
     mut object_out := Color{}
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("get_default_clear_color")
@@ -6109,7 +6109,7 @@ pub fn (mut r RenderingServer) get_default_clear_color() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) set_default_clear_color(color Color) {
+pub fn (r &RenderingServer) set_default_clear_color(color Color) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("set_default_clear_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -6146,7 +6146,7 @@ pub fn (r &RenderingServer) has_os_feature(feature string) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) set_debug_generate_wireframes(generate bool) {
+pub fn (r &RenderingServer) set_debug_generate_wireframes(generate bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("set_debug_generate_wireframes")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -6166,7 +6166,7 @@ pub fn (r &RenderingServer) is_render_loop_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) set_render_loop_enabled(enabled bool) {
+pub fn (r &RenderingServer) set_render_loop_enabled(enabled bool) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("set_render_loop_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -6186,7 +6186,7 @@ pub fn (r &RenderingServer) get_frame_setup_time_cpu() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) force_sync() {
+pub fn (r &RenderingServer) force_sync() {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("force_sync")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -6194,7 +6194,7 @@ pub fn (mut r RenderingServer) force_sync() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r RenderingServer) force_draw(swap_buffers bool, frame_step f64) {
+pub fn (r &RenderingServer) force_draw(swap_buffers bool, frame_step f64) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("force_draw")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1076185472)
@@ -6225,7 +6225,7 @@ pub fn (r &RenderingServer) create_local_rendering_device() RenderingDevice {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderingServer) call_on_render_thread(callable Callable) {
+pub fn (r &RenderingServer) call_on_render_thread(callable Callable) {
     classname := StringName.new("RenderingServer")
     fnname := StringName.new("call_on_render_thread")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1611583062)

@@ -35,7 +35,7 @@ pub fn (r &Container) uget_allowed_size_flags_vertical() PackedInt32Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Container) queue_sort() {
+pub fn (r &Container) queue_sort() {
     classname := StringName.new("Container")
     fnname := StringName.new("queue_sort")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -43,7 +43,7 @@ pub fn (mut r Container) queue_sort() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Container) fit_child_in_rect(child Control, rect Rect2) {
+pub fn (r &Container) fit_child_in_rect(child Control, rect Rect2) {
     classname := StringName.new("Container")
     fnname := StringName.new("fit_child_in_rect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1993438598)

@@ -15,7 +15,7 @@ pub fn (r &RenderSceneBuffersConfiguration) get_render_target() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderSceneBuffersConfiguration) set_render_target(render_target RID) {
+pub fn (r &RenderSceneBuffersConfiguration) set_render_target(render_target RID) {
     classname := StringName.new("RenderSceneBuffersConfiguration")
     fnname := StringName.new("set_render_target")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)
@@ -35,7 +35,7 @@ pub fn (r &RenderSceneBuffersConfiguration) get_internal_size() Vector2i {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderSceneBuffersConfiguration) set_internal_size(internal_size Vector2i) {
+pub fn (r &RenderSceneBuffersConfiguration) set_internal_size(internal_size Vector2i) {
     classname := StringName.new("RenderSceneBuffersConfiguration")
     fnname := StringName.new("set_internal_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1130785943)
@@ -55,7 +55,7 @@ pub fn (r &RenderSceneBuffersConfiguration) get_target_size() Vector2i {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderSceneBuffersConfiguration) set_target_size(target_size Vector2i) {
+pub fn (r &RenderSceneBuffersConfiguration) set_target_size(target_size Vector2i) {
     classname := StringName.new("RenderSceneBuffersConfiguration")
     fnname := StringName.new("set_target_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1130785943)
@@ -75,7 +75,7 @@ pub fn (r &RenderSceneBuffersConfiguration) get_view_count() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderSceneBuffersConfiguration) set_view_count(view_count u32) {
+pub fn (r &RenderSceneBuffersConfiguration) set_view_count(view_count u32) {
     classname := StringName.new("RenderSceneBuffersConfiguration")
     fnname := StringName.new("set_view_count")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -95,7 +95,7 @@ pub fn (r &RenderSceneBuffersConfiguration) get_scaling_3d_mode() RenderingServe
     fnname.deinit()
    return unsafe{RenderingServerViewportScaling3DMode(object_out)}
 }
-pub fn (mut r RenderSceneBuffersConfiguration) set_scaling_3d_mode(scaling_3d_mode RenderingServerViewportScaling3DMode) {
+pub fn (r &RenderSceneBuffersConfiguration) set_scaling_3d_mode(scaling_3d_mode RenderingServerViewportScaling3DMode) {
     classname := StringName.new("RenderSceneBuffersConfiguration")
     fnname := StringName.new("set_scaling_3d_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 447477857)
@@ -116,7 +116,7 @@ pub fn (r &RenderSceneBuffersConfiguration) get_msaa_3d() RenderingServerViewpor
     fnname.deinit()
    return unsafe{RenderingServerViewportMSAA(object_out)}
 }
-pub fn (mut r RenderSceneBuffersConfiguration) set_msaa_3d(msaa_3d RenderingServerViewportMSAA) {
+pub fn (r &RenderSceneBuffersConfiguration) set_msaa_3d(msaa_3d RenderingServerViewportMSAA) {
     classname := StringName.new("RenderSceneBuffersConfiguration")
     fnname := StringName.new("set_msaa_3d")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3952630748)
@@ -137,7 +137,7 @@ pub fn (r &RenderSceneBuffersConfiguration) get_screen_space_aa() RenderingServe
     fnname.deinit()
    return unsafe{RenderingServerViewportScreenSpaceAA(object_out)}
 }
-pub fn (mut r RenderSceneBuffersConfiguration) set_screen_space_aa(screen_space_aa RenderingServerViewportScreenSpaceAA) {
+pub fn (r &RenderSceneBuffersConfiguration) set_screen_space_aa(screen_space_aa RenderingServerViewportScreenSpaceAA) {
     classname := StringName.new("RenderSceneBuffersConfiguration")
     fnname := StringName.new("set_screen_space_aa")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 139543108)
@@ -158,7 +158,7 @@ pub fn (r &RenderSceneBuffersConfiguration) get_fsr_sharpness() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderSceneBuffersConfiguration) set_fsr_sharpness(fsr_sharpness f64) {
+pub fn (r &RenderSceneBuffersConfiguration) set_fsr_sharpness(fsr_sharpness f64) {
     classname := StringName.new("RenderSceneBuffersConfiguration")
     fnname := StringName.new("set_fsr_sharpness")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -178,7 +178,7 @@ pub fn (r &RenderSceneBuffersConfiguration) get_texture_mipmap_bias() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RenderSceneBuffersConfiguration) set_texture_mipmap_bias(texture_mipmap_bias f64) {
+pub fn (r &RenderSceneBuffersConfiguration) set_texture_mipmap_bias(texture_mipmap_bias f64) {
     classname := StringName.new("RenderSceneBuffersConfiguration")
     fnname := StringName.new("set_texture_mipmap_bias")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

@@ -5,7 +5,7 @@ pub struct PhysicsBody2D {
     CollisionObject2D
 }
 
-pub fn (mut r PhysicsBody2D) move_and_collide(motion Vector2, test_only bool, safe_margin f64, recovery_as_collision bool) KinematicCollision2D {
+pub fn (r &PhysicsBody2D) move_and_collide(motion Vector2, test_only bool, safe_margin f64, recovery_as_collision bool) KinematicCollision2D {
     mut object_out := KinematicCollision2D{}
     classname := StringName.new("PhysicsBody2D")
     fnname := StringName.new("move_and_collide")
@@ -20,7 +20,7 @@ pub fn (mut r PhysicsBody2D) move_and_collide(motion Vector2, test_only bool, sa
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsBody2D) test_move(from Transform2D, motion Vector2, collision KinematicCollision2D, safe_margin f64, recovery_as_collision bool) bool {
+pub fn (r &PhysicsBody2D) test_move(from Transform2D, motion Vector2, collision KinematicCollision2D, safe_margin f64, recovery_as_collision bool) bool {
     mut object_out := false
     classname := StringName.new("PhysicsBody2D")
     fnname := StringName.new("test_move")
@@ -36,7 +36,7 @@ pub fn (mut r PhysicsBody2D) test_move(from Transform2D, motion Vector2, collisi
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsBody2D) get_collision_exceptions() Array {
+pub fn (r &PhysicsBody2D) get_collision_exceptions() Array {
     mut object_out := Array{}
     classname := StringName.new("PhysicsBody2D")
     fnname := StringName.new("get_collision_exceptions")
@@ -46,7 +46,7 @@ pub fn (mut r PhysicsBody2D) get_collision_exceptions() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PhysicsBody2D) add_collision_exception_with(body Node) {
+pub fn (r &PhysicsBody2D) add_collision_exception_with(body Node) {
     classname := StringName.new("PhysicsBody2D")
     fnname := StringName.new("add_collision_exception_with")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
@@ -56,7 +56,7 @@ pub fn (mut r PhysicsBody2D) add_collision_exception_with(body Node) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r PhysicsBody2D) remove_collision_exception_with(body Node) {
+pub fn (r &PhysicsBody2D) remove_collision_exception_with(body Node) {
     classname := StringName.new("PhysicsBody2D")
     fnname := StringName.new("remove_collision_exception_with")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)

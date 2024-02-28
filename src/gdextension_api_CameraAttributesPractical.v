@@ -5,7 +5,7 @@ pub struct CameraAttributesPractical {
     CameraAttributes
 }
 
-pub fn (mut r CameraAttributesPractical) set_dof_blur_far_enabled(enabled bool) {
+pub fn (r &CameraAttributesPractical) set_dof_blur_far_enabled(enabled bool) {
     classname := StringName.new("CameraAttributesPractical")
     fnname := StringName.new("set_dof_blur_far_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -25,7 +25,7 @@ pub fn (r &CameraAttributesPractical) is_dof_blur_far_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CameraAttributesPractical) set_dof_blur_far_distance(distance f64) {
+pub fn (r &CameraAttributesPractical) set_dof_blur_far_distance(distance f64) {
     classname := StringName.new("CameraAttributesPractical")
     fnname := StringName.new("set_dof_blur_far_distance")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -45,7 +45,7 @@ pub fn (r &CameraAttributesPractical) get_dof_blur_far_distance() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CameraAttributesPractical) set_dof_blur_far_transition(distance f64) {
+pub fn (r &CameraAttributesPractical) set_dof_blur_far_transition(distance f64) {
     classname := StringName.new("CameraAttributesPractical")
     fnname := StringName.new("set_dof_blur_far_transition")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -65,7 +65,7 @@ pub fn (r &CameraAttributesPractical) get_dof_blur_far_transition() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CameraAttributesPractical) set_dof_blur_near_enabled(enabled bool) {
+pub fn (r &CameraAttributesPractical) set_dof_blur_near_enabled(enabled bool) {
     classname := StringName.new("CameraAttributesPractical")
     fnname := StringName.new("set_dof_blur_near_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -85,7 +85,7 @@ pub fn (r &CameraAttributesPractical) is_dof_blur_near_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CameraAttributesPractical) set_dof_blur_near_distance(distance f64) {
+pub fn (r &CameraAttributesPractical) set_dof_blur_near_distance(distance f64) {
     classname := StringName.new("CameraAttributesPractical")
     fnname := StringName.new("set_dof_blur_near_distance")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -105,7 +105,7 @@ pub fn (r &CameraAttributesPractical) get_dof_blur_near_distance() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CameraAttributesPractical) set_dof_blur_near_transition(distance f64) {
+pub fn (r &CameraAttributesPractical) set_dof_blur_near_transition(distance f64) {
     classname := StringName.new("CameraAttributesPractical")
     fnname := StringName.new("set_dof_blur_near_transition")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -125,7 +125,7 @@ pub fn (r &CameraAttributesPractical) get_dof_blur_near_transition() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CameraAttributesPractical) set_dof_blur_amount(amount f64) {
+pub fn (r &CameraAttributesPractical) set_dof_blur_amount(amount f64) {
     classname := StringName.new("CameraAttributesPractical")
     fnname := StringName.new("set_dof_blur_amount")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -145,7 +145,7 @@ pub fn (r &CameraAttributesPractical) get_dof_blur_amount() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CameraAttributesPractical) set_auto_exposure_max_sensitivity(max_sensitivity f64) {
+pub fn (r &CameraAttributesPractical) set_auto_exposure_max_sensitivity(max_sensitivity f64) {
     classname := StringName.new("CameraAttributesPractical")
     fnname := StringName.new("set_auto_exposure_max_sensitivity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -165,7 +165,7 @@ pub fn (r &CameraAttributesPractical) get_auto_exposure_max_sensitivity() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CameraAttributesPractical) set_auto_exposure_min_sensitivity(min_sensitivity f64) {
+pub fn (r &CameraAttributesPractical) set_auto_exposure_min_sensitivity(min_sensitivity f64) {
     classname := StringName.new("CameraAttributesPractical")
     fnname := StringName.new("set_auto_exposure_min_sensitivity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

@@ -5,7 +5,7 @@ pub struct Shape2D {
     Resource
 }
 
-pub fn (mut r Shape2D) set_custom_solver_bias(bias f64) {
+pub fn (r &Shape2D) set_custom_solver_bias(bias f64) {
     classname := StringName.new("Shape2D")
     fnname := StringName.new("set_custom_solver_bias")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -25,7 +25,7 @@ pub fn (r &Shape2D) get_custom_solver_bias() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Shape2D) collide(local_xform Transform2D, with_shape Shape2D, shape_xform Transform2D) bool {
+pub fn (r &Shape2D) collide(local_xform Transform2D, with_shape Shape2D, shape_xform Transform2D) bool {
     mut object_out := false
     classname := StringName.new("Shape2D")
     fnname := StringName.new("collide")
@@ -39,7 +39,7 @@ pub fn (mut r Shape2D) collide(local_xform Transform2D, with_shape Shape2D, shap
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Shape2D) collide_with_motion(local_xform Transform2D, local_motion Vector2, with_shape Shape2D, shape_xform Transform2D, shape_motion Vector2) bool {
+pub fn (r &Shape2D) collide_with_motion(local_xform Transform2D, local_motion Vector2, with_shape Shape2D, shape_xform Transform2D, shape_motion Vector2) bool {
     mut object_out := false
     classname := StringName.new("Shape2D")
     fnname := StringName.new("collide_with_motion")
@@ -55,7 +55,7 @@ pub fn (mut r Shape2D) collide_with_motion(local_xform Transform2D, local_motion
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Shape2D) collide_and_get_contacts(local_xform Transform2D, with_shape Shape2D, shape_xform Transform2D) PackedVector2Array {
+pub fn (r &Shape2D) collide_and_get_contacts(local_xform Transform2D, with_shape Shape2D, shape_xform Transform2D) PackedVector2Array {
     mut object_out := PackedVector2Array{}
     classname := StringName.new("Shape2D")
     fnname := StringName.new("collide_and_get_contacts")
@@ -69,7 +69,7 @@ pub fn (mut r Shape2D) collide_and_get_contacts(local_xform Transform2D, with_sh
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Shape2D) collide_with_motion_and_get_contacts(local_xform Transform2D, local_motion Vector2, with_shape Shape2D, shape_xform Transform2D, shape_motion Vector2) PackedVector2Array {
+pub fn (r &Shape2D) collide_with_motion_and_get_contacts(local_xform Transform2D, local_motion Vector2, with_shape Shape2D, shape_xform Transform2D, shape_motion Vector2) PackedVector2Array {
     mut object_out := PackedVector2Array{}
     classname := StringName.new("Shape2D")
     fnname := StringName.new("collide_with_motion_and_get_contacts")
@@ -85,7 +85,7 @@ pub fn (mut r Shape2D) collide_with_motion_and_get_contacts(local_xform Transfor
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Shape2D) draw(canvas_item RID, color Color) {
+pub fn (r &Shape2D) draw(canvas_item RID, color Color) {
     classname := StringName.new("Shape2D")
     fnname := StringName.new("draw")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2948539648)

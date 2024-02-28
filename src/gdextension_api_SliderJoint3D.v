@@ -31,7 +31,7 @@ pub struct SliderJoint3D {
     Joint3D
 }
 
-pub fn (mut r SliderJoint3D) set_param(param SliderJoint3DParam, value f64) {
+pub fn (r &SliderJoint3D) set_param(param SliderJoint3DParam, value f64) {
     classname := StringName.new("SliderJoint3D")
     fnname := StringName.new("set_param")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 918243683)

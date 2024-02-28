@@ -10,7 +10,7 @@ pub interface IPacketPeerExtensionGetPacket {
     virt_get_packet(r_buffer &&u8 , r_buffer_size &i32) GDError
 }
 
-pub fn (mut r PacketPeerExtension) uget_packet(r_buffer &&u8 , r_buffer_size &i32) GDError {
+pub fn (r &PacketPeerExtension) uget_packet(r_buffer &&u8 , r_buffer_size &i32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("PacketPeerExtension")
     fnname := StringName.new("_get_packet")
@@ -28,7 +28,7 @@ pub interface IPacketPeerExtensionPutPacket {
     virt_put_packet(p_buffer &u8, p_buffer_size i32) GDError
 }
 
-pub fn (mut r PacketPeerExtension) uput_packet(p_buffer &u8, p_buffer_size i32) GDError {
+pub fn (r &PacketPeerExtension) uput_packet(p_buffer &u8, p_buffer_size i32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("PacketPeerExtension")
     fnname := StringName.new("_put_packet")

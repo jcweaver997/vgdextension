@@ -46,7 +46,7 @@ pub fn (r &SceneTree) is_auto_accept_quit() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SceneTree) set_auto_accept_quit(enabled bool) {
+pub fn (r &SceneTree) set_auto_accept_quit(enabled bool) {
     classname := StringName.new("SceneTree")
     fnname := StringName.new("set_auto_accept_quit")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -66,7 +66,7 @@ pub fn (r &SceneTree) is_quit_on_go_back() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SceneTree) set_quit_on_go_back(enabled bool) {
+pub fn (r &SceneTree) set_quit_on_go_back(enabled bool) {
     classname := StringName.new("SceneTree")
     fnname := StringName.new("set_quit_on_go_back")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -76,7 +76,7 @@ pub fn (mut r SceneTree) set_quit_on_go_back(enabled bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SceneTree) set_debug_collisions_hint(enable bool) {
+pub fn (r &SceneTree) set_debug_collisions_hint(enable bool) {
     classname := StringName.new("SceneTree")
     fnname := StringName.new("set_debug_collisions_hint")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -96,7 +96,7 @@ pub fn (r &SceneTree) is_debugging_collisions_hint() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SceneTree) set_debug_paths_hint(enable bool) {
+pub fn (r &SceneTree) set_debug_paths_hint(enable bool) {
     classname := StringName.new("SceneTree")
     fnname := StringName.new("set_debug_paths_hint")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -116,7 +116,7 @@ pub fn (r &SceneTree) is_debugging_paths_hint() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SceneTree) set_debug_navigation_hint(enable bool) {
+pub fn (r &SceneTree) set_debug_navigation_hint(enable bool) {
     classname := StringName.new("SceneTree")
     fnname := StringName.new("set_debug_navigation_hint")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -136,7 +136,7 @@ pub fn (r &SceneTree) is_debugging_navigation_hint() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SceneTree) set_edited_scene_root(scene Node) {
+pub fn (r &SceneTree) set_edited_scene_root(scene Node) {
     classname := StringName.new("SceneTree")
     fnname := StringName.new("set_edited_scene_root")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
@@ -156,7 +156,7 @@ pub fn (r &SceneTree) get_edited_scene_root() Node {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SceneTree) set_pause(enable bool) {
+pub fn (r &SceneTree) set_pause(enable bool) {
     classname := StringName.new("SceneTree")
     fnname := StringName.new("set_pause")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -176,7 +176,7 @@ pub fn (r &SceneTree) is_paused() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SceneTree) create_timer(time_sec f64, process_always bool, process_in_physics bool, ignore_time_scale bool) SceneTreeTimer {
+pub fn (r &SceneTree) create_timer(time_sec f64, process_always bool, process_in_physics bool, ignore_time_scale bool) SceneTreeTimer {
     mut object_out := SceneTreeTimer{}
     classname := StringName.new("SceneTree")
     fnname := StringName.new("create_timer")
@@ -191,7 +191,7 @@ pub fn (mut r SceneTree) create_timer(time_sec f64, process_always bool, process
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SceneTree) create_tween() Tween {
+pub fn (r &SceneTree) create_tween() Tween {
     mut object_out := Tween{}
     classname := StringName.new("SceneTree")
     fnname := StringName.new("create_tween")
@@ -201,7 +201,7 @@ pub fn (mut r SceneTree) create_tween() Tween {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SceneTree) get_processed_tweens() Array {
+pub fn (r &SceneTree) get_processed_tweens() Array {
     mut object_out := Array{}
     classname := StringName.new("SceneTree")
     fnname := StringName.new("get_processed_tweens")
@@ -231,7 +231,7 @@ pub fn (r &SceneTree) get_frame() i64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SceneTree) quit(exit_code i32) {
+pub fn (r &SceneTree) quit(exit_code i32) {
     classname := StringName.new("SceneTree")
     fnname := StringName.new("quit")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1995695955)
@@ -241,7 +241,7 @@ pub fn (mut r SceneTree) quit(exit_code i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SceneTree) queue_delete(obj Object) {
+pub fn (r &SceneTree) queue_delete(obj Object) {
     classname := StringName.new("SceneTree")
     fnname := StringName.new("queue_delete")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3975164845)
@@ -251,7 +251,7 @@ pub fn (mut r SceneTree) queue_delete(obj Object) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SceneTree) notify_group_flags(call_flags u32, group string, notification i32) {
+pub fn (r &SceneTree) notify_group_flags(call_flags u32, group string, notification i32) {
     classname := StringName.new("SceneTree")
     fnname := StringName.new("notify_group_flags")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1245489420)
@@ -265,7 +265,7 @@ pub fn (mut r SceneTree) notify_group_flags(call_flags u32, group string, notifi
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SceneTree) set_group_flags(call_flags u32, group string, property string, value Variant) {
+pub fn (r &SceneTree) set_group_flags(call_flags u32, group string, property string, value Variant) {
     classname := StringName.new("SceneTree")
     fnname := StringName.new("set_group_flags")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3497599527)
@@ -282,7 +282,7 @@ pub fn (mut r SceneTree) set_group_flags(call_flags u32, group string, property 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SceneTree) notify_group(group string, notification i32) {
+pub fn (r &SceneTree) notify_group(group string, notification i32) {
     classname := StringName.new("SceneTree")
     fnname := StringName.new("notify_group")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2415702435)
@@ -295,7 +295,7 @@ pub fn (mut r SceneTree) notify_group(group string, notification i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SceneTree) set_group(group string, property string, value Variant) {
+pub fn (r &SceneTree) set_group(group string, property string, value Variant) {
     classname := StringName.new("SceneTree")
     fnname := StringName.new("set_group")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1279312029)
@@ -311,7 +311,7 @@ pub fn (mut r SceneTree) set_group(group string, property string, value Variant)
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SceneTree) get_nodes_in_group(group string) Array {
+pub fn (r &SceneTree) get_nodes_in_group(group string) Array {
     mut object_out := Array{}
     classname := StringName.new("SceneTree")
     fnname := StringName.new("get_nodes_in_group")
@@ -325,7 +325,7 @@ pub fn (mut r SceneTree) get_nodes_in_group(group string) Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SceneTree) get_first_node_in_group(group string) Node {
+pub fn (r &SceneTree) get_first_node_in_group(group string) Node {
     mut object_out := Node{}
     classname := StringName.new("SceneTree")
     fnname := StringName.new("get_first_node_in_group")
@@ -339,7 +339,7 @@ pub fn (mut r SceneTree) get_first_node_in_group(group string) Node {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SceneTree) set_current_scene(child_node Node) {
+pub fn (r &SceneTree) set_current_scene(child_node Node) {
     classname := StringName.new("SceneTree")
     fnname := StringName.new("set_current_scene")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
@@ -359,7 +359,7 @@ pub fn (r &SceneTree) get_current_scene() Node {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SceneTree) change_scene_to_file(path string) GDError {
+pub fn (r &SceneTree) change_scene_to_file(path string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("SceneTree")
     fnname := StringName.new("change_scene_to_file")
@@ -373,7 +373,7 @@ pub fn (mut r SceneTree) change_scene_to_file(path string) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r SceneTree) change_scene_to_packed(packed_scene PackedScene) GDError {
+pub fn (r &SceneTree) change_scene_to_packed(packed_scene PackedScene) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("SceneTree")
     fnname := StringName.new("change_scene_to_packed")
@@ -385,7 +385,7 @@ pub fn (mut r SceneTree) change_scene_to_packed(packed_scene PackedScene) GDErro
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r SceneTree) reload_current_scene() GDError {
+pub fn (r &SceneTree) reload_current_scene() GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("SceneTree")
     fnname := StringName.new("reload_current_scene")
@@ -395,7 +395,7 @@ pub fn (mut r SceneTree) reload_current_scene() GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r SceneTree) unload_current_scene() {
+pub fn (r &SceneTree) unload_current_scene() {
     classname := StringName.new("SceneTree")
     fnname := StringName.new("unload_current_scene")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -403,7 +403,7 @@ pub fn (mut r SceneTree) unload_current_scene() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SceneTree) set_multiplayer(multiplayer MultiplayerAPI, root_path NodePath) {
+pub fn (r &SceneTree) set_multiplayer(multiplayer MultiplayerAPI, root_path NodePath) {
     classname := StringName.new("SceneTree")
     fnname := StringName.new("set_multiplayer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2385607013)
@@ -426,7 +426,7 @@ pub fn (r &SceneTree) get_multiplayer(for_path NodePath) MultiplayerAPI {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SceneTree) set_multiplayer_poll_enabled(enabled bool) {
+pub fn (r &SceneTree) set_multiplayer_poll_enabled(enabled bool) {
     classname := StringName.new("SceneTree")
     fnname := StringName.new("set_multiplayer_poll_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

@@ -13,7 +13,7 @@ pub struct AESContext {
     RefCounted
 }
 
-pub fn (mut r AESContext) start(mode AESContextMode, key PackedByteArray, iv PackedByteArray) GDError {
+pub fn (r &AESContext) start(mode AESContextMode, key PackedByteArray, iv PackedByteArray) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("AESContext")
     fnname := StringName.new("start")
@@ -28,7 +28,7 @@ pub fn (mut r AESContext) start(mode AESContextMode, key PackedByteArray, iv Pac
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r AESContext) update(src PackedByteArray) PackedByteArray {
+pub fn (r &AESContext) update(src PackedByteArray) PackedByteArray {
     mut object_out := PackedByteArray{}
     classname := StringName.new("AESContext")
     fnname := StringName.new("update")
@@ -40,7 +40,7 @@ pub fn (mut r AESContext) update(src PackedByteArray) PackedByteArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AESContext) get_iv_state() PackedByteArray {
+pub fn (r &AESContext) get_iv_state() PackedByteArray {
     mut object_out := PackedByteArray{}
     classname := StringName.new("AESContext")
     fnname := StringName.new("get_iv_state")
@@ -50,7 +50,7 @@ pub fn (mut r AESContext) get_iv_state() PackedByteArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AESContext) finish() {
+pub fn (r &AESContext) finish() {
     classname := StringName.new("AESContext")
     fnname := StringName.new("finish")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

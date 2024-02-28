@@ -13,7 +13,7 @@ pub struct PathFollow3D {
     Node3D
 }
 
-pub fn (mut r PathFollow3D) set_progress(progress f64) {
+pub fn (r &PathFollow3D) set_progress(progress f64) {
     classname := StringName.new("PathFollow3D")
     fnname := StringName.new("set_progress")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -33,7 +33,7 @@ pub fn (r &PathFollow3D) get_progress() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PathFollow3D) set_h_offset(h_offset f64) {
+pub fn (r &PathFollow3D) set_h_offset(h_offset f64) {
     classname := StringName.new("PathFollow3D")
     fnname := StringName.new("set_h_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -53,7 +53,7 @@ pub fn (r &PathFollow3D) get_h_offset() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PathFollow3D) set_v_offset(v_offset f64) {
+pub fn (r &PathFollow3D) set_v_offset(v_offset f64) {
     classname := StringName.new("PathFollow3D")
     fnname := StringName.new("set_v_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -73,7 +73,7 @@ pub fn (r &PathFollow3D) get_v_offset() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PathFollow3D) set_progress_ratio(ratio f64) {
+pub fn (r &PathFollow3D) set_progress_ratio(ratio f64) {
     classname := StringName.new("PathFollow3D")
     fnname := StringName.new("set_progress_ratio")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -93,7 +93,7 @@ pub fn (r &PathFollow3D) get_progress_ratio() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PathFollow3D) set_rotation_mode(rotation_mode PathFollow3DRotationMode) {
+pub fn (r &PathFollow3D) set_rotation_mode(rotation_mode PathFollow3DRotationMode) {
     classname := StringName.new("PathFollow3D")
     fnname := StringName.new("set_rotation_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1640311967)
@@ -114,7 +114,7 @@ pub fn (r &PathFollow3D) get_rotation_mode() PathFollow3DRotationMode {
     fnname.deinit()
    return unsafe{PathFollow3DRotationMode(object_out)}
 }
-pub fn (mut r PathFollow3D) set_cubic_interpolation(enabled bool) {
+pub fn (r &PathFollow3D) set_cubic_interpolation(enabled bool) {
     classname := StringName.new("PathFollow3D")
     fnname := StringName.new("set_cubic_interpolation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -134,7 +134,7 @@ pub fn (r &PathFollow3D) get_cubic_interpolation() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PathFollow3D) set_use_model_front(enabled bool) {
+pub fn (r &PathFollow3D) set_use_model_front(enabled bool) {
     classname := StringName.new("PathFollow3D")
     fnname := StringName.new("set_use_model_front")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -154,7 +154,7 @@ pub fn (r &PathFollow3D) is_using_model_front() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PathFollow3D) set_loop(loop bool) {
+pub fn (r &PathFollow3D) set_loop(loop bool) {
     classname := StringName.new("PathFollow3D")
     fnname := StringName.new("set_loop")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -174,7 +174,7 @@ pub fn (r &PathFollow3D) has_loop() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PathFollow3D) set_tilt_enabled(enabled bool) {
+pub fn (r &PathFollow3D) set_tilt_enabled(enabled bool) {
     classname := StringName.new("PathFollow3D")
     fnname := StringName.new("set_tilt_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

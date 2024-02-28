@@ -5,7 +5,7 @@ pub struct StaticBody2D {
     PhysicsBody2D
 }
 
-pub fn (mut r StaticBody2D) set_constant_linear_velocity(vel Vector2) {
+pub fn (r &StaticBody2D) set_constant_linear_velocity(vel Vector2) {
     classname := StringName.new("StaticBody2D")
     fnname := StringName.new("set_constant_linear_velocity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -15,7 +15,7 @@ pub fn (mut r StaticBody2D) set_constant_linear_velocity(vel Vector2) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r StaticBody2D) set_constant_angular_velocity(vel f64) {
+pub fn (r &StaticBody2D) set_constant_angular_velocity(vel f64) {
     classname := StringName.new("StaticBody2D")
     fnname := StringName.new("set_constant_angular_velocity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -45,7 +45,7 @@ pub fn (r &StaticBody2D) get_constant_angular_velocity() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r StaticBody2D) set_physics_material_override(physics_material_override PhysicsMaterial) {
+pub fn (r &StaticBody2D) set_physics_material_override(physics_material_override PhysicsMaterial) {
     classname := StringName.new("StaticBody2D")
     fnname := StringName.new("set_physics_material_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1784508650)

@@ -14,7 +14,7 @@ pub fn JavaClassWrapper.get_singleton() JavaClassWrapper {
     return o
 }
 
-pub fn (mut r JavaClassWrapper) wrap(name string) JavaClass {
+pub fn (r &JavaClassWrapper) wrap(name string) JavaClass {
     mut object_out := JavaClass{}
     classname := StringName.new("JavaClassWrapper")
     fnname := StringName.new("wrap")

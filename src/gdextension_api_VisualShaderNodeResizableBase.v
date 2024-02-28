@@ -5,7 +5,7 @@ pub struct VisualShaderNodeResizableBase {
     VisualShaderNode
 }
 
-pub fn (mut r VisualShaderNodeResizableBase) set_size(size Vector2) {
+pub fn (r &VisualShaderNodeResizableBase) set_size(size Vector2) {
     classname := StringName.new("VisualShaderNodeResizableBase")
     fnname := StringName.new("set_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)

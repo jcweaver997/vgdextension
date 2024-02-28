@@ -5,7 +5,7 @@ pub struct CurveXYZTexture {
     Texture2D
 }
 
-pub fn (mut r CurveXYZTexture) set_width(width i32) {
+pub fn (r &CurveXYZTexture) set_width(width i32) {
     classname := StringName.new("CurveXYZTexture")
     fnname := StringName.new("set_width")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -15,7 +15,7 @@ pub fn (mut r CurveXYZTexture) set_width(width i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CurveXYZTexture) set_curve_x(curve Curve) {
+pub fn (r &CurveXYZTexture) set_curve_x(curve Curve) {
     classname := StringName.new("CurveXYZTexture")
     fnname := StringName.new("set_curve_x")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 270443179)
@@ -35,7 +35,7 @@ pub fn (r &CurveXYZTexture) get_curve_x() Curve {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CurveXYZTexture) set_curve_y(curve Curve) {
+pub fn (r &CurveXYZTexture) set_curve_y(curve Curve) {
     classname := StringName.new("CurveXYZTexture")
     fnname := StringName.new("set_curve_y")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 270443179)
@@ -55,7 +55,7 @@ pub fn (r &CurveXYZTexture) get_curve_y() Curve {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CurveXYZTexture) set_curve_z(curve Curve) {
+pub fn (r &CurveXYZTexture) set_curve_z(curve Curve) {
     classname := StringName.new("CurveXYZTexture")
     fnname := StringName.new("set_curve_z")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 270443179)

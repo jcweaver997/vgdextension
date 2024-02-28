@@ -5,7 +5,7 @@ pub struct AudioEffectChorus {
     AudioEffect
 }
 
-pub fn (mut r AudioEffectChorus) set_voice_count(voices i32) {
+pub fn (r &AudioEffectChorus) set_voice_count(voices i32) {
     classname := StringName.new("AudioEffectChorus")
     fnname := StringName.new("set_voice_count")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -25,7 +25,7 @@ pub fn (r &AudioEffectChorus) get_voice_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectChorus) set_voice_delay_ms(voice_idx i32, delay_ms f64) {
+pub fn (r &AudioEffectChorus) set_voice_delay_ms(voice_idx i32, delay_ms f64) {
     classname := StringName.new("AudioEffectChorus")
     fnname := StringName.new("set_voice_delay_ms")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1602489585)
@@ -48,7 +48,7 @@ pub fn (r &AudioEffectChorus) get_voice_delay_ms(voice_idx i32) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectChorus) set_voice_rate_hz(voice_idx i32, rate_hz f64) {
+pub fn (r &AudioEffectChorus) set_voice_rate_hz(voice_idx i32, rate_hz f64) {
     classname := StringName.new("AudioEffectChorus")
     fnname := StringName.new("set_voice_rate_hz")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1602489585)
@@ -71,7 +71,7 @@ pub fn (r &AudioEffectChorus) get_voice_rate_hz(voice_idx i32) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectChorus) set_voice_depth_ms(voice_idx i32, depth_ms f64) {
+pub fn (r &AudioEffectChorus) set_voice_depth_ms(voice_idx i32, depth_ms f64) {
     classname := StringName.new("AudioEffectChorus")
     fnname := StringName.new("set_voice_depth_ms")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1602489585)
@@ -94,7 +94,7 @@ pub fn (r &AudioEffectChorus) get_voice_depth_ms(voice_idx i32) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectChorus) set_voice_level_db(voice_idx i32, level_db f64) {
+pub fn (r &AudioEffectChorus) set_voice_level_db(voice_idx i32, level_db f64) {
     classname := StringName.new("AudioEffectChorus")
     fnname := StringName.new("set_voice_level_db")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1602489585)
@@ -117,7 +117,7 @@ pub fn (r &AudioEffectChorus) get_voice_level_db(voice_idx i32) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectChorus) set_voice_cutoff_hz(voice_idx i32, cutoff_hz f64) {
+pub fn (r &AudioEffectChorus) set_voice_cutoff_hz(voice_idx i32, cutoff_hz f64) {
     classname := StringName.new("AudioEffectChorus")
     fnname := StringName.new("set_voice_cutoff_hz")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1602489585)
@@ -140,7 +140,7 @@ pub fn (r &AudioEffectChorus) get_voice_cutoff_hz(voice_idx i32) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectChorus) set_voice_pan(voice_idx i32, pan f64) {
+pub fn (r &AudioEffectChorus) set_voice_pan(voice_idx i32, pan f64) {
     classname := StringName.new("AudioEffectChorus")
     fnname := StringName.new("set_voice_pan")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1602489585)
@@ -163,7 +163,7 @@ pub fn (r &AudioEffectChorus) get_voice_pan(voice_idx i32) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectChorus) set_wet(amount f64) {
+pub fn (r &AudioEffectChorus) set_wet(amount f64) {
     classname := StringName.new("AudioEffectChorus")
     fnname := StringName.new("set_wet")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -183,7 +183,7 @@ pub fn (r &AudioEffectChorus) get_wet() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectChorus) set_dry(amount f64) {
+pub fn (r &AudioEffectChorus) set_dry(amount f64) {
     classname := StringName.new("AudioEffectChorus")
     fnname := StringName.new("set_dry")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

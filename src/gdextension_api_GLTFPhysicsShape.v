@@ -17,7 +17,7 @@ pub fn GLTFPhysicsShape.from_node(shape_node CollisionShape3D) GLTFPhysicsShape 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFPhysicsShape) to_node(cache_shapes bool) CollisionShape3D {
+pub fn (r &GLTFPhysicsShape) to_node(cache_shapes bool) CollisionShape3D {
     mut object_out := CollisionShape3D{}
     classname := StringName.new("GLTFPhysicsShape")
     fnname := StringName.new("to_node")
@@ -63,7 +63,7 @@ pub fn (r &GLTFPhysicsShape) get_shape_type() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r GLTFPhysicsShape) set_shape_type(shape_type string) {
+pub fn (r &GLTFPhysicsShape) set_shape_type(shape_type string) {
     classname := StringName.new("GLTFPhysicsShape")
     fnname := StringName.new("set_shape_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -85,7 +85,7 @@ pub fn (r &GLTFPhysicsShape) get_size() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFPhysicsShape) set_size(size Vector3) {
+pub fn (r &GLTFPhysicsShape) set_size(size Vector3) {
     classname := StringName.new("GLTFPhysicsShape")
     fnname := StringName.new("set_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -105,7 +105,7 @@ pub fn (r &GLTFPhysicsShape) get_radius() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFPhysicsShape) set_radius(radius f64) {
+pub fn (r &GLTFPhysicsShape) set_radius(radius f64) {
     classname := StringName.new("GLTFPhysicsShape")
     fnname := StringName.new("set_radius")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -125,7 +125,7 @@ pub fn (r &GLTFPhysicsShape) get_height() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFPhysicsShape) set_height(height f64) {
+pub fn (r &GLTFPhysicsShape) set_height(height f64) {
     classname := StringName.new("GLTFPhysicsShape")
     fnname := StringName.new("set_height")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -145,7 +145,7 @@ pub fn (r &GLTFPhysicsShape) get_is_trigger() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFPhysicsShape) set_is_trigger(is_trigger bool) {
+pub fn (r &GLTFPhysicsShape) set_is_trigger(is_trigger bool) {
     classname := StringName.new("GLTFPhysicsShape")
     fnname := StringName.new("set_is_trigger")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -165,7 +165,7 @@ pub fn (r &GLTFPhysicsShape) get_mesh_index() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFPhysicsShape) set_mesh_index(mesh_index i32) {
+pub fn (r &GLTFPhysicsShape) set_mesh_index(mesh_index i32) {
     classname := StringName.new("GLTFPhysicsShape")
     fnname := StringName.new("set_mesh_index")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -185,7 +185,7 @@ pub fn (r &GLTFPhysicsShape) get_importer_mesh() ImporterMesh {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFPhysicsShape) set_importer_mesh(importer_mesh ImporterMesh) {
+pub fn (r &GLTFPhysicsShape) set_importer_mesh(importer_mesh ImporterMesh) {
     classname := StringName.new("GLTFPhysicsShape")
     fnname := StringName.new("set_importer_mesh")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2255166972)

@@ -65,7 +65,7 @@ pub fn (r &Material) ucan_use_render_priority() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Material) set_next_pass(next_pass Material) {
+pub fn (r &Material) set_next_pass(next_pass Material) {
     classname := StringName.new("Material")
     fnname := StringName.new("set_next_pass")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2757459619)
@@ -85,7 +85,7 @@ pub fn (r &Material) get_next_pass() Material {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Material) set_render_priority(priority i32) {
+pub fn (r &Material) set_render_priority(priority i32) {
     classname := StringName.new("Material")
     fnname := StringName.new("set_render_priority")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -105,7 +105,7 @@ pub fn (r &Material) get_render_priority() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Material) inspect_native_shader_code() {
+pub fn (r &Material) inspect_native_shader_code() {
     classname := StringName.new("Material")
     fnname := StringName.new("inspect_native_shader_code")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

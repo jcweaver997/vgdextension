@@ -12,7 +12,7 @@ pub struct ProgressBar {
     Range
 }
 
-pub fn (mut r ProgressBar) set_fill_mode(mode i32) {
+pub fn (r &ProgressBar) set_fill_mode(mode i32) {
     classname := StringName.new("ProgressBar")
     fnname := StringName.new("set_fill_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -22,7 +22,7 @@ pub fn (mut r ProgressBar) set_fill_mode(mode i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r ProgressBar) get_fill_mode() i32 {
+pub fn (r &ProgressBar) get_fill_mode() i32 {
     mut object_out := i32(0)
     classname := StringName.new("ProgressBar")
     fnname := StringName.new("get_fill_mode")
@@ -32,7 +32,7 @@ pub fn (mut r ProgressBar) get_fill_mode() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r ProgressBar) set_show_percentage(visible bool) {
+pub fn (r &ProgressBar) set_show_percentage(visible bool) {
     classname := StringName.new("ProgressBar")
     fnname := StringName.new("set_show_percentage")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

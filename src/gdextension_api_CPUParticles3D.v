@@ -45,7 +45,7 @@ pub struct CPUParticles3D {
     GeometryInstance3D
 }
 
-pub fn (mut r CPUParticles3D) set_emitting(emitting bool) {
+pub fn (r &CPUParticles3D) set_emitting(emitting bool) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_emitting")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -55,7 +55,7 @@ pub fn (mut r CPUParticles3D) set_emitting(emitting bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CPUParticles3D) set_amount(amount i32) {
+pub fn (r &CPUParticles3D) set_amount(amount i32) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_amount")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -65,7 +65,7 @@ pub fn (mut r CPUParticles3D) set_amount(amount i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CPUParticles3D) set_lifetime(secs f64) {
+pub fn (r &CPUParticles3D) set_lifetime(secs f64) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_lifetime")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -75,7 +75,7 @@ pub fn (mut r CPUParticles3D) set_lifetime(secs f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CPUParticles3D) set_one_shot(enable bool) {
+pub fn (r &CPUParticles3D) set_one_shot(enable bool) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_one_shot")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -85,7 +85,7 @@ pub fn (mut r CPUParticles3D) set_one_shot(enable bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CPUParticles3D) set_pre_process_time(secs f64) {
+pub fn (r &CPUParticles3D) set_pre_process_time(secs f64) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_pre_process_time")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -95,7 +95,7 @@ pub fn (mut r CPUParticles3D) set_pre_process_time(secs f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CPUParticles3D) set_explosiveness_ratio(ratio f64) {
+pub fn (r &CPUParticles3D) set_explosiveness_ratio(ratio f64) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_explosiveness_ratio")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -105,7 +105,7 @@ pub fn (mut r CPUParticles3D) set_explosiveness_ratio(ratio f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CPUParticles3D) set_randomness_ratio(ratio f64) {
+pub fn (r &CPUParticles3D) set_randomness_ratio(ratio f64) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_randomness_ratio")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -115,7 +115,7 @@ pub fn (mut r CPUParticles3D) set_randomness_ratio(ratio f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CPUParticles3D) set_lifetime_randomness(random f64) {
+pub fn (r &CPUParticles3D) set_lifetime_randomness(random f64) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_lifetime_randomness")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -125,7 +125,7 @@ pub fn (mut r CPUParticles3D) set_lifetime_randomness(random f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CPUParticles3D) set_use_local_coordinates(enable bool) {
+pub fn (r &CPUParticles3D) set_use_local_coordinates(enable bool) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_use_local_coordinates")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -135,7 +135,7 @@ pub fn (mut r CPUParticles3D) set_use_local_coordinates(enable bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CPUParticles3D) set_fixed_fps(fps i32) {
+pub fn (r &CPUParticles3D) set_fixed_fps(fps i32) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_fixed_fps")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -145,7 +145,7 @@ pub fn (mut r CPUParticles3D) set_fixed_fps(fps i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CPUParticles3D) set_fractional_delta(enable bool) {
+pub fn (r &CPUParticles3D) set_fractional_delta(enable bool) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_fractional_delta")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -155,7 +155,7 @@ pub fn (mut r CPUParticles3D) set_fractional_delta(enable bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CPUParticles3D) set_speed_scale(scale f64) {
+pub fn (r &CPUParticles3D) set_speed_scale(scale f64) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_speed_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -285,7 +285,7 @@ pub fn (r &CPUParticles3D) get_speed_scale() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CPUParticles3D) set_draw_order(order CPUParticles3DDrawOrder) {
+pub fn (r &CPUParticles3D) set_draw_order(order CPUParticles3DDrawOrder) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_draw_order")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1427401774)
@@ -306,7 +306,7 @@ pub fn (r &CPUParticles3D) get_draw_order() CPUParticles3DDrawOrder {
     fnname.deinit()
    return unsafe{CPUParticles3DDrawOrder(object_out)}
 }
-pub fn (mut r CPUParticles3D) set_mesh(mesh Mesh) {
+pub fn (r &CPUParticles3D) set_mesh(mesh Mesh) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_mesh")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 194775623)
@@ -326,7 +326,7 @@ pub fn (r &CPUParticles3D) get_mesh() Mesh {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CPUParticles3D) restart() {
+pub fn (r &CPUParticles3D) restart() {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("restart")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -334,7 +334,7 @@ pub fn (mut r CPUParticles3D) restart() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CPUParticles3D) set_direction(direction Vector3) {
+pub fn (r &CPUParticles3D) set_direction(direction Vector3) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_direction")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -354,7 +354,7 @@ pub fn (r &CPUParticles3D) get_direction() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CPUParticles3D) set_spread(degrees f64) {
+pub fn (r &CPUParticles3D) set_spread(degrees f64) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_spread")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -374,7 +374,7 @@ pub fn (r &CPUParticles3D) get_spread() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CPUParticles3D) set_flatness(amount f64) {
+pub fn (r &CPUParticles3D) set_flatness(amount f64) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_flatness")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -394,7 +394,7 @@ pub fn (r &CPUParticles3D) get_flatness() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CPUParticles3D) set_param_min(param CPUParticles3DParameter, value f64) {
+pub fn (r &CPUParticles3D) set_param_min(param CPUParticles3DParameter, value f64) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_param_min")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 557936109)
@@ -419,7 +419,7 @@ pub fn (r &CPUParticles3D) get_param_min(param CPUParticles3DParameter) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CPUParticles3D) set_param_max(param CPUParticles3DParameter, value f64) {
+pub fn (r &CPUParticles3D) set_param_max(param CPUParticles3DParameter, value f64) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_param_max")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 557936109)
@@ -444,7 +444,7 @@ pub fn (r &CPUParticles3D) get_param_max(param CPUParticles3DParameter) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CPUParticles3D) set_param_curve(param CPUParticles3DParameter, curve Curve) {
+pub fn (r &CPUParticles3D) set_param_curve(param CPUParticles3DParameter, curve Curve) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_param_curve")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4044142537)
@@ -469,7 +469,7 @@ pub fn (r &CPUParticles3D) get_param_curve(param CPUParticles3DParameter) Curve 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CPUParticles3D) set_color(color Color) {
+pub fn (r &CPUParticles3D) set_color(color Color) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -489,7 +489,7 @@ pub fn (r &CPUParticles3D) get_color() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CPUParticles3D) set_color_ramp(ramp Gradient) {
+pub fn (r &CPUParticles3D) set_color_ramp(ramp Gradient) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_color_ramp")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2756054477)
@@ -509,7 +509,7 @@ pub fn (r &CPUParticles3D) get_color_ramp() Gradient {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CPUParticles3D) set_color_initial_ramp(ramp Gradient) {
+pub fn (r &CPUParticles3D) set_color_initial_ramp(ramp Gradient) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_color_initial_ramp")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2756054477)
@@ -529,7 +529,7 @@ pub fn (r &CPUParticles3D) get_color_initial_ramp() Gradient {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CPUParticles3D) set_particle_flag(particle_flag CPUParticles3DParticleFlags, enable bool) {
+pub fn (r &CPUParticles3D) set_particle_flag(particle_flag CPUParticles3DParticleFlags, enable bool) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_particle_flag")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3515406498)
@@ -554,7 +554,7 @@ pub fn (r &CPUParticles3D) get_particle_flag(particle_flag CPUParticles3DParticl
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CPUParticles3D) set_emission_shape(shape CPUParticles3DEmissionShape) {
+pub fn (r &CPUParticles3D) set_emission_shape(shape CPUParticles3DEmissionShape) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_emission_shape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 491823814)
@@ -575,7 +575,7 @@ pub fn (r &CPUParticles3D) get_emission_shape() CPUParticles3DEmissionShape {
     fnname.deinit()
    return unsafe{CPUParticles3DEmissionShape(object_out)}
 }
-pub fn (mut r CPUParticles3D) set_emission_sphere_radius(radius f64) {
+pub fn (r &CPUParticles3D) set_emission_sphere_radius(radius f64) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_emission_sphere_radius")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -595,7 +595,7 @@ pub fn (r &CPUParticles3D) get_emission_sphere_radius() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CPUParticles3D) set_emission_box_extents(extents Vector3) {
+pub fn (r &CPUParticles3D) set_emission_box_extents(extents Vector3) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_emission_box_extents")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -615,7 +615,7 @@ pub fn (r &CPUParticles3D) get_emission_box_extents() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CPUParticles3D) set_emission_points(array PackedVector3Array) {
+pub fn (r &CPUParticles3D) set_emission_points(array PackedVector3Array) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_emission_points")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 334873810)
@@ -635,7 +635,7 @@ pub fn (r &CPUParticles3D) get_emission_points() PackedVector3Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CPUParticles3D) set_emission_normals(array PackedVector3Array) {
+pub fn (r &CPUParticles3D) set_emission_normals(array PackedVector3Array) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_emission_normals")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 334873810)
@@ -655,7 +655,7 @@ pub fn (r &CPUParticles3D) get_emission_normals() PackedVector3Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CPUParticles3D) set_emission_colors(array PackedColorArray) {
+pub fn (r &CPUParticles3D) set_emission_colors(array PackedColorArray) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_emission_colors")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3546319833)
@@ -675,7 +675,7 @@ pub fn (r &CPUParticles3D) get_emission_colors() PackedColorArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CPUParticles3D) set_emission_ring_axis(axis Vector3) {
+pub fn (r &CPUParticles3D) set_emission_ring_axis(axis Vector3) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_emission_ring_axis")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -695,7 +695,7 @@ pub fn (r &CPUParticles3D) get_emission_ring_axis() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CPUParticles3D) set_emission_ring_height(height f64) {
+pub fn (r &CPUParticles3D) set_emission_ring_height(height f64) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_emission_ring_height")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -715,7 +715,7 @@ pub fn (r &CPUParticles3D) get_emission_ring_height() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CPUParticles3D) set_emission_ring_radius(radius f64) {
+pub fn (r &CPUParticles3D) set_emission_ring_radius(radius f64) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_emission_ring_radius")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -735,7 +735,7 @@ pub fn (r &CPUParticles3D) get_emission_ring_radius() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CPUParticles3D) set_emission_ring_inner_radius(inner_radius f64) {
+pub fn (r &CPUParticles3D) set_emission_ring_inner_radius(inner_radius f64) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_emission_ring_inner_radius")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -765,7 +765,7 @@ pub fn (r &CPUParticles3D) get_gravity() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CPUParticles3D) set_gravity(accel_vec Vector3) {
+pub fn (r &CPUParticles3D) set_gravity(accel_vec Vector3) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_gravity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -775,7 +775,7 @@ pub fn (mut r CPUParticles3D) set_gravity(accel_vec Vector3) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CPUParticles3D) get_split_scale() bool {
+pub fn (r &CPUParticles3D) get_split_scale() bool {
     mut object_out := false
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("get_split_scale")
@@ -785,7 +785,7 @@ pub fn (mut r CPUParticles3D) get_split_scale() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CPUParticles3D) set_split_scale(split_scale bool) {
+pub fn (r &CPUParticles3D) set_split_scale(split_scale bool) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_split_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -805,7 +805,7 @@ pub fn (r &CPUParticles3D) get_scale_curve_x() Curve {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CPUParticles3D) set_scale_curve_x(scale_curve Curve) {
+pub fn (r &CPUParticles3D) set_scale_curve_x(scale_curve Curve) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_scale_curve_x")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 270443179)
@@ -825,7 +825,7 @@ pub fn (r &CPUParticles3D) get_scale_curve_y() Curve {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CPUParticles3D) set_scale_curve_y(scale_curve Curve) {
+pub fn (r &CPUParticles3D) set_scale_curve_y(scale_curve Curve) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_scale_curve_y")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 270443179)
@@ -845,7 +845,7 @@ pub fn (r &CPUParticles3D) get_scale_curve_z() Curve {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CPUParticles3D) set_scale_curve_z(scale_curve Curve) {
+pub fn (r &CPUParticles3D) set_scale_curve_z(scale_curve Curve) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("set_scale_curve_z")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 270443179)
@@ -855,7 +855,7 @@ pub fn (mut r CPUParticles3D) set_scale_curve_z(scale_curve Curve) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CPUParticles3D) convert_from_particles(particles Node) {
+pub fn (r &CPUParticles3D) convert_from_particles(particles Node) {
     classname := StringName.new("CPUParticles3D")
     fnname := StringName.new("convert_from_particles")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)

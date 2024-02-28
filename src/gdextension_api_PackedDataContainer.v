@@ -5,7 +5,7 @@ pub struct PackedDataContainer {
     Resource
 }
 
-pub fn (mut r PackedDataContainer) pack(value Variant) GDError {
+pub fn (r &PackedDataContainer) pack(value Variant) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("PackedDataContainer")
     fnname := StringName.new("pack")

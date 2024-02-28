@@ -13,7 +13,7 @@ pub struct AudioEffectDistortion {
     AudioEffect
 }
 
-pub fn (mut r AudioEffectDistortion) set_mode(mode AudioEffectDistortionMode) {
+pub fn (r &AudioEffectDistortion) set_mode(mode AudioEffectDistortionMode) {
     classname := StringName.new("AudioEffectDistortion")
     fnname := StringName.new("set_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1314744793)
@@ -34,7 +34,7 @@ pub fn (r &AudioEffectDistortion) get_mode() AudioEffectDistortionMode {
     fnname.deinit()
    return unsafe{AudioEffectDistortionMode(object_out)}
 }
-pub fn (mut r AudioEffectDistortion) set_pre_gain(pre_gain f64) {
+pub fn (r &AudioEffectDistortion) set_pre_gain(pre_gain f64) {
     classname := StringName.new("AudioEffectDistortion")
     fnname := StringName.new("set_pre_gain")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -54,7 +54,7 @@ pub fn (r &AudioEffectDistortion) get_pre_gain() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectDistortion) set_keep_hf_hz(keep_hf_hz f64) {
+pub fn (r &AudioEffectDistortion) set_keep_hf_hz(keep_hf_hz f64) {
     classname := StringName.new("AudioEffectDistortion")
     fnname := StringName.new("set_keep_hf_hz")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -74,7 +74,7 @@ pub fn (r &AudioEffectDistortion) get_keep_hf_hz() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectDistortion) set_drive(drive f64) {
+pub fn (r &AudioEffectDistortion) set_drive(drive f64) {
     classname := StringName.new("AudioEffectDistortion")
     fnname := StringName.new("set_drive")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -94,7 +94,7 @@ pub fn (r &AudioEffectDistortion) get_drive() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioEffectDistortion) set_post_gain(post_gain f64) {
+pub fn (r &AudioEffectDistortion) set_post_gain(post_gain f64) {
     classname := StringName.new("AudioEffectDistortion")
     fnname := StringName.new("set_post_gain")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

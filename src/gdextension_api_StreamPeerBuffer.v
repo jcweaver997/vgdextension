@@ -5,7 +5,7 @@ pub struct StreamPeerBuffer {
     StreamPeer
 }
 
-pub fn (mut r StreamPeerBuffer) seek(position i32) {
+pub fn (r &StreamPeerBuffer) seek(position i32) {
     classname := StringName.new("StreamPeerBuffer")
     fnname := StringName.new("seek")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -35,7 +35,7 @@ pub fn (r &StreamPeerBuffer) get_position() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r StreamPeerBuffer) resize(size i32) {
+pub fn (r &StreamPeerBuffer) resize(size i32) {
     classname := StringName.new("StreamPeerBuffer")
     fnname := StringName.new("resize")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -45,7 +45,7 @@ pub fn (mut r StreamPeerBuffer) resize(size i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r StreamPeerBuffer) set_data_array(data PackedByteArray) {
+pub fn (r &StreamPeerBuffer) set_data_array(data PackedByteArray) {
     classname := StringName.new("StreamPeerBuffer")
     fnname := StringName.new("set_data_array")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2971499966)
@@ -65,7 +65,7 @@ pub fn (r &StreamPeerBuffer) get_data_array() PackedByteArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r StreamPeerBuffer) clear() {
+pub fn (r &StreamPeerBuffer) clear() {
     classname := StringName.new("StreamPeerBuffer")
     fnname := StringName.new("clear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

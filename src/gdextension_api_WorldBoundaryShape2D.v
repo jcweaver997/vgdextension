@@ -5,7 +5,7 @@ pub struct WorldBoundaryShape2D {
     Shape2D
 }
 
-pub fn (mut r WorldBoundaryShape2D) set_normal(normal Vector2) {
+pub fn (r &WorldBoundaryShape2D) set_normal(normal Vector2) {
     classname := StringName.new("WorldBoundaryShape2D")
     fnname := StringName.new("set_normal")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -25,7 +25,7 @@ pub fn (r &WorldBoundaryShape2D) get_normal() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r WorldBoundaryShape2D) set_distance(distance f64) {
+pub fn (r &WorldBoundaryShape2D) set_distance(distance f64) {
     classname := StringName.new("WorldBoundaryShape2D")
     fnname := StringName.new("set_distance")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

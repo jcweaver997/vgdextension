@@ -49,7 +49,7 @@ pub fn (r &GLTFLight) to_dictionary() Dictionary {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFLight) get_color() Color {
+pub fn (r &GLTFLight) get_color() Color {
     mut object_out := Color{}
     classname := StringName.new("GLTFLight")
     fnname := StringName.new("get_color")
@@ -59,7 +59,7 @@ pub fn (mut r GLTFLight) get_color() Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFLight) set_color(color Color) {
+pub fn (r &GLTFLight) set_color(color Color) {
     classname := StringName.new("GLTFLight")
     fnname := StringName.new("set_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2920490490)
@@ -69,7 +69,7 @@ pub fn (mut r GLTFLight) set_color(color Color) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFLight) get_intensity() f64 {
+pub fn (r &GLTFLight) get_intensity() f64 {
     mut object_out := f64(0)
     classname := StringName.new("GLTFLight")
     fnname := StringName.new("get_intensity")
@@ -79,7 +79,7 @@ pub fn (mut r GLTFLight) get_intensity() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFLight) set_intensity(intensity f64) {
+pub fn (r &GLTFLight) set_intensity(intensity f64) {
     classname := StringName.new("GLTFLight")
     fnname := StringName.new("set_intensity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -89,7 +89,7 @@ pub fn (mut r GLTFLight) set_intensity(intensity f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFLight) get_light_type() string {
+pub fn (r &GLTFLight) get_light_type() string {
     mut object_out := String{}
     classname := StringName.new("GLTFLight")
     fnname := StringName.new("get_light_type")
@@ -101,7 +101,7 @@ pub fn (mut r GLTFLight) get_light_type() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r GLTFLight) set_light_type(light_type string) {
+pub fn (r &GLTFLight) set_light_type(light_type string) {
     classname := StringName.new("GLTFLight")
     fnname := StringName.new("set_light_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -113,7 +113,7 @@ pub fn (mut r GLTFLight) set_light_type(light_type string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFLight) get_range() f64 {
+pub fn (r &GLTFLight) get_range() f64 {
     mut object_out := f64(0)
     classname := StringName.new("GLTFLight")
     fnname := StringName.new("get_range")
@@ -123,7 +123,7 @@ pub fn (mut r GLTFLight) get_range() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFLight) set_range(range f64) {
+pub fn (r &GLTFLight) set_range(range f64) {
     classname := StringName.new("GLTFLight")
     fnname := StringName.new("set_range")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -133,7 +133,7 @@ pub fn (mut r GLTFLight) set_range(range f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFLight) get_inner_cone_angle() f64 {
+pub fn (r &GLTFLight) get_inner_cone_angle() f64 {
     mut object_out := f64(0)
     classname := StringName.new("GLTFLight")
     fnname := StringName.new("get_inner_cone_angle")
@@ -143,7 +143,7 @@ pub fn (mut r GLTFLight) get_inner_cone_angle() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFLight) set_inner_cone_angle(inner_cone_angle f64) {
+pub fn (r &GLTFLight) set_inner_cone_angle(inner_cone_angle f64) {
     classname := StringName.new("GLTFLight")
     fnname := StringName.new("set_inner_cone_angle")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -153,7 +153,7 @@ pub fn (mut r GLTFLight) set_inner_cone_angle(inner_cone_angle f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFLight) get_outer_cone_angle() f64 {
+pub fn (r &GLTFLight) get_outer_cone_angle() f64 {
     mut object_out := f64(0)
     classname := StringName.new("GLTFLight")
     fnname := StringName.new("get_outer_cone_angle")
@@ -163,7 +163,7 @@ pub fn (mut r GLTFLight) get_outer_cone_angle() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFLight) set_outer_cone_angle(outer_cone_angle f64) {
+pub fn (r &GLTFLight) set_outer_cone_angle(outer_cone_angle f64) {
     classname := StringName.new("GLTFLight")
     fnname := StringName.new("set_outer_cone_angle")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

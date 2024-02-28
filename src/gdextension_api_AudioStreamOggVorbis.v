@@ -31,7 +31,7 @@ pub fn AudioStreamOggVorbis.load_from_file(path string) AudioStreamOggVorbis {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamOggVorbis) set_packet_sequence(packet_sequence OggPacketSequence) {
+pub fn (r &AudioStreamOggVorbis) set_packet_sequence(packet_sequence OggPacketSequence) {
     classname := StringName.new("AudioStreamOggVorbis")
     fnname := StringName.new("set_packet_sequence")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 438882457)
@@ -51,7 +51,7 @@ pub fn (r &AudioStreamOggVorbis) get_packet_sequence() OggPacketSequence {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamOggVorbis) set_loop(enable bool) {
+pub fn (r &AudioStreamOggVorbis) set_loop(enable bool) {
     classname := StringName.new("AudioStreamOggVorbis")
     fnname := StringName.new("set_loop")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -71,7 +71,7 @@ pub fn (r &AudioStreamOggVorbis) has_loop() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamOggVorbis) set_loop_offset(seconds f64) {
+pub fn (r &AudioStreamOggVorbis) set_loop_offset(seconds f64) {
     classname := StringName.new("AudioStreamOggVorbis")
     fnname := StringName.new("set_loop_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -91,7 +91,7 @@ pub fn (r &AudioStreamOggVorbis) get_loop_offset() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamOggVorbis) set_bpm(bpm f64) {
+pub fn (r &AudioStreamOggVorbis) set_bpm(bpm f64) {
     classname := StringName.new("AudioStreamOggVorbis")
     fnname := StringName.new("set_bpm")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -111,7 +111,7 @@ pub fn (r &AudioStreamOggVorbis) get_bpm() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamOggVorbis) set_beat_count(count i32) {
+pub fn (r &AudioStreamOggVorbis) set_beat_count(count i32) {
     classname := StringName.new("AudioStreamOggVorbis")
     fnname := StringName.new("set_beat_count")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -131,7 +131,7 @@ pub fn (r &AudioStreamOggVorbis) get_beat_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamOggVorbis) set_bar_beats(count i32) {
+pub fn (r &AudioStreamOggVorbis) set_bar_beats(count i32) {
     classname := StringName.new("AudioStreamOggVorbis")
     fnname := StringName.new("set_bar_beats")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

@@ -17,7 +17,7 @@ pub struct MultiplayerPeer {
     PacketPeer
 }
 
-pub fn (mut r MultiplayerPeer) set_transfer_channel(channel i32) {
+pub fn (r &MultiplayerPeer) set_transfer_channel(channel i32) {
     classname := StringName.new("MultiplayerPeer")
     fnname := StringName.new("set_transfer_channel")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -37,7 +37,7 @@ pub fn (r &MultiplayerPeer) get_transfer_channel() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MultiplayerPeer) set_transfer_mode(mode MultiplayerPeerTransferMode) {
+pub fn (r &MultiplayerPeer) set_transfer_mode(mode MultiplayerPeerTransferMode) {
     classname := StringName.new("MultiplayerPeer")
     fnname := StringName.new("set_transfer_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 950411049)
@@ -58,7 +58,7 @@ pub fn (r &MultiplayerPeer) get_transfer_mode() MultiplayerPeerTransferMode {
     fnname.deinit()
    return unsafe{MultiplayerPeerTransferMode(object_out)}
 }
-pub fn (mut r MultiplayerPeer) set_target_peer(id i32) {
+pub fn (r &MultiplayerPeer) set_target_peer(id i32) {
     classname := StringName.new("MultiplayerPeer")
     fnname := StringName.new("set_target_peer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -98,7 +98,7 @@ pub fn (r &MultiplayerPeer) get_packet_mode() MultiplayerPeerTransferMode {
     fnname.deinit()
    return unsafe{MultiplayerPeerTransferMode(object_out)}
 }
-pub fn (mut r MultiplayerPeer) poll() {
+pub fn (r &MultiplayerPeer) poll() {
     classname := StringName.new("MultiplayerPeer")
     fnname := StringName.new("poll")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -106,7 +106,7 @@ pub fn (mut r MultiplayerPeer) poll() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r MultiplayerPeer) close() {
+pub fn (r &MultiplayerPeer) close() {
     classname := StringName.new("MultiplayerPeer")
     fnname := StringName.new("close")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -114,7 +114,7 @@ pub fn (mut r MultiplayerPeer) close() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r MultiplayerPeer) disconnect_peer(peer i32, force bool) {
+pub fn (r &MultiplayerPeer) disconnect_peer(peer i32, force bool) {
     classname := StringName.new("MultiplayerPeer")
     fnname := StringName.new("disconnect_peer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4023243586)
@@ -155,7 +155,7 @@ pub fn (r &MultiplayerPeer) generate_unique_id() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MultiplayerPeer) set_refuse_new_connections(enable bool) {
+pub fn (r &MultiplayerPeer) set_refuse_new_connections(enable bool) {
     classname := StringName.new("MultiplayerPeer")
     fnname := StringName.new("set_refuse_new_connections")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

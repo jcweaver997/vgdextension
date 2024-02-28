@@ -75,7 +75,7 @@ pub fn (r &UPNPDevice) delete_port_mapping(port i32, proto string) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r UPNPDevice) set_description_url(url string) {
+pub fn (r &UPNPDevice) set_description_url(url string) {
     classname := StringName.new("UPNPDevice")
     fnname := StringName.new("set_description_url")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -99,7 +99,7 @@ pub fn (r &UPNPDevice) get_description_url() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r UPNPDevice) set_service_type(type_name string) {
+pub fn (r &UPNPDevice) set_service_type(type_name string) {
     classname := StringName.new("UPNPDevice")
     fnname := StringName.new("set_service_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -123,7 +123,7 @@ pub fn (r &UPNPDevice) get_service_type() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r UPNPDevice) set_igd_control_url(url string) {
+pub fn (r &UPNPDevice) set_igd_control_url(url string) {
     classname := StringName.new("UPNPDevice")
     fnname := StringName.new("set_igd_control_url")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -147,7 +147,7 @@ pub fn (r &UPNPDevice) get_igd_control_url() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r UPNPDevice) set_igd_service_type(type_name string) {
+pub fn (r &UPNPDevice) set_igd_service_type(type_name string) {
     classname := StringName.new("UPNPDevice")
     fnname := StringName.new("set_igd_service_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -171,7 +171,7 @@ pub fn (r &UPNPDevice) get_igd_service_type() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r UPNPDevice) set_igd_our_addr(addr string) {
+pub fn (r &UPNPDevice) set_igd_our_addr(addr string) {
     classname := StringName.new("UPNPDevice")
     fnname := StringName.new("set_igd_our_addr")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -195,7 +195,7 @@ pub fn (r &UPNPDevice) get_igd_our_addr() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r UPNPDevice) set_igd_status(status UPNPDeviceIGDStatus) {
+pub fn (r &UPNPDevice) set_igd_status(status UPNPDeviceIGDStatus) {
     classname := StringName.new("UPNPDevice")
     fnname := StringName.new("set_igd_status")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 519504122)

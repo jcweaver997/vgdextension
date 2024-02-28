@@ -15,7 +15,7 @@ pub struct VisualShaderNodeClamp {
     VisualShaderNode
 }
 
-pub fn (mut r VisualShaderNodeClamp) set_op_type(op_type VisualShaderNodeClampOpType) {
+pub fn (r &VisualShaderNodeClamp) set_op_type(op_type VisualShaderNodeClampOpType) {
     classname := StringName.new("VisualShaderNodeClamp")
     fnname := StringName.new("set_op_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 405010749)

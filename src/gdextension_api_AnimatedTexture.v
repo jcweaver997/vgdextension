@@ -5,7 +5,7 @@ pub struct AnimatedTexture {
     Texture2D
 }
 
-pub fn (mut r AnimatedTexture) set_frames(frames i32) {
+pub fn (r &AnimatedTexture) set_frames(frames i32) {
     classname := StringName.new("AnimatedTexture")
     fnname := StringName.new("set_frames")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -25,7 +25,7 @@ pub fn (r &AnimatedTexture) get_frames() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimatedTexture) set_current_frame(frame i32) {
+pub fn (r &AnimatedTexture) set_current_frame(frame i32) {
     classname := StringName.new("AnimatedTexture")
     fnname := StringName.new("set_current_frame")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -45,7 +45,7 @@ pub fn (r &AnimatedTexture) get_current_frame() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimatedTexture) set_pause(pause bool) {
+pub fn (r &AnimatedTexture) set_pause(pause bool) {
     classname := StringName.new("AnimatedTexture")
     fnname := StringName.new("set_pause")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -65,7 +65,7 @@ pub fn (r &AnimatedTexture) get_pause() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimatedTexture) set_one_shot(one_shot bool) {
+pub fn (r &AnimatedTexture) set_one_shot(one_shot bool) {
     classname := StringName.new("AnimatedTexture")
     fnname := StringName.new("set_one_shot")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -85,7 +85,7 @@ pub fn (r &AnimatedTexture) get_one_shot() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimatedTexture) set_speed_scale(scale f64) {
+pub fn (r &AnimatedTexture) set_speed_scale(scale f64) {
     classname := StringName.new("AnimatedTexture")
     fnname := StringName.new("set_speed_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -105,7 +105,7 @@ pub fn (r &AnimatedTexture) get_speed_scale() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimatedTexture) set_frame_texture(frame i32, texture Texture2D) {
+pub fn (r &AnimatedTexture) set_frame_texture(frame i32, texture Texture2D) {
     classname := StringName.new("AnimatedTexture")
     fnname := StringName.new("set_frame_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 666127730)
@@ -128,7 +128,7 @@ pub fn (r &AnimatedTexture) get_frame_texture(frame i32) Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimatedTexture) set_frame_duration(frame i32, duration f64) {
+pub fn (r &AnimatedTexture) set_frame_duration(frame i32, duration f64) {
     classname := StringName.new("AnimatedTexture")
     fnname := StringName.new("set_frame_duration")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1602489585)

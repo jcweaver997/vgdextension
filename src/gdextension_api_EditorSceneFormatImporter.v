@@ -40,7 +40,7 @@ pub interface IEditorSceneFormatImporterImportScene {
     virt_import_scene(path String, flags u32, options Dictionary) Object
 }
 
-pub fn (mut r EditorSceneFormatImporter) uimport_scene(path string, flags u32, options Dictionary) Object {
+pub fn (r &EditorSceneFormatImporter) uimport_scene(path string, flags u32, options Dictionary) Object {
     mut object_out := Object{}
     classname := StringName.new("EditorSceneFormatImporter")
     fnname := StringName.new("_import_scene")
@@ -61,7 +61,7 @@ pub interface IEditorSceneFormatImporterGetImportOptions {
     virt_get_import_options(path String)
 }
 
-pub fn (mut r EditorSceneFormatImporter) uget_import_options(path string) {
+pub fn (r &EditorSceneFormatImporter) uget_import_options(path string) {
     classname := StringName.new("EditorSceneFormatImporter")
     fnname := StringName.new("_get_import_options")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)

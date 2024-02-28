@@ -5,7 +5,7 @@ pub struct VisualShaderNodeTransformParameter {
     VisualShaderNodeParameter
 }
 
-pub fn (mut r VisualShaderNodeTransformParameter) set_default_value_enabled(enabled bool) {
+pub fn (r &VisualShaderNodeTransformParameter) set_default_value_enabled(enabled bool) {
     classname := StringName.new("VisualShaderNodeTransformParameter")
     fnname := StringName.new("set_default_value_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -25,7 +25,7 @@ pub fn (r &VisualShaderNodeTransformParameter) is_default_value_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VisualShaderNodeTransformParameter) set_default_value(value Transform3D) {
+pub fn (r &VisualShaderNodeTransformParameter) set_default_value(value Transform3D) {
     classname := StringName.new("VisualShaderNodeTransformParameter")
     fnname := StringName.new("set_default_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2952846383)

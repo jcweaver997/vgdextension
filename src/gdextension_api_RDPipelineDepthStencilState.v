@@ -5,7 +5,7 @@ pub struct RDPipelineDepthStencilState {
     RefCounted
 }
 
-pub fn (mut r RDPipelineDepthStencilState) set_enable_depth_test(p_member bool) {
+pub fn (r &RDPipelineDepthStencilState) set_enable_depth_test(p_member bool) {
     classname := StringName.new("RDPipelineDepthStencilState")
     fnname := StringName.new("set_enable_depth_test")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -25,7 +25,7 @@ pub fn (r &RDPipelineDepthStencilState) get_enable_depth_test() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDPipelineDepthStencilState) set_enable_depth_write(p_member bool) {
+pub fn (r &RDPipelineDepthStencilState) set_enable_depth_write(p_member bool) {
     classname := StringName.new("RDPipelineDepthStencilState")
     fnname := StringName.new("set_enable_depth_write")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -45,7 +45,7 @@ pub fn (r &RDPipelineDepthStencilState) get_enable_depth_write() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDPipelineDepthStencilState) set_depth_compare_operator(p_member RenderingDeviceCompareOperator) {
+pub fn (r &RDPipelineDepthStencilState) set_depth_compare_operator(p_member RenderingDeviceCompareOperator) {
     classname := StringName.new("RDPipelineDepthStencilState")
     fnname := StringName.new("set_depth_compare_operator")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2573711505)
@@ -66,7 +66,7 @@ pub fn (r &RDPipelineDepthStencilState) get_depth_compare_operator() RenderingDe
     fnname.deinit()
    return unsafe{RenderingDeviceCompareOperator(object_out)}
 }
-pub fn (mut r RDPipelineDepthStencilState) set_enable_depth_range(p_member bool) {
+pub fn (r &RDPipelineDepthStencilState) set_enable_depth_range(p_member bool) {
     classname := StringName.new("RDPipelineDepthStencilState")
     fnname := StringName.new("set_enable_depth_range")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -86,7 +86,7 @@ pub fn (r &RDPipelineDepthStencilState) get_enable_depth_range() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDPipelineDepthStencilState) set_depth_range_min(p_member f64) {
+pub fn (r &RDPipelineDepthStencilState) set_depth_range_min(p_member f64) {
     classname := StringName.new("RDPipelineDepthStencilState")
     fnname := StringName.new("set_depth_range_min")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -106,7 +106,7 @@ pub fn (r &RDPipelineDepthStencilState) get_depth_range_min() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDPipelineDepthStencilState) set_depth_range_max(p_member f64) {
+pub fn (r &RDPipelineDepthStencilState) set_depth_range_max(p_member f64) {
     classname := StringName.new("RDPipelineDepthStencilState")
     fnname := StringName.new("set_depth_range_max")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -126,7 +126,7 @@ pub fn (r &RDPipelineDepthStencilState) get_depth_range_max() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDPipelineDepthStencilState) set_enable_stencil(p_member bool) {
+pub fn (r &RDPipelineDepthStencilState) set_enable_stencil(p_member bool) {
     classname := StringName.new("RDPipelineDepthStencilState")
     fnname := StringName.new("set_enable_stencil")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -146,7 +146,7 @@ pub fn (r &RDPipelineDepthStencilState) get_enable_stencil() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDPipelineDepthStencilState) set_front_op_fail(p_member RenderingDeviceStencilOperation) {
+pub fn (r &RDPipelineDepthStencilState) set_front_op_fail(p_member RenderingDeviceStencilOperation) {
     classname := StringName.new("RDPipelineDepthStencilState")
     fnname := StringName.new("set_front_op_fail")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2092799566)
@@ -167,7 +167,7 @@ pub fn (r &RDPipelineDepthStencilState) get_front_op_fail() RenderingDeviceStenc
     fnname.deinit()
    return unsafe{RenderingDeviceStencilOperation(object_out)}
 }
-pub fn (mut r RDPipelineDepthStencilState) set_front_op_pass(p_member RenderingDeviceStencilOperation) {
+pub fn (r &RDPipelineDepthStencilState) set_front_op_pass(p_member RenderingDeviceStencilOperation) {
     classname := StringName.new("RDPipelineDepthStencilState")
     fnname := StringName.new("set_front_op_pass")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2092799566)
@@ -188,7 +188,7 @@ pub fn (r &RDPipelineDepthStencilState) get_front_op_pass() RenderingDeviceStenc
     fnname.deinit()
    return unsafe{RenderingDeviceStencilOperation(object_out)}
 }
-pub fn (mut r RDPipelineDepthStencilState) set_front_op_depth_fail(p_member RenderingDeviceStencilOperation) {
+pub fn (r &RDPipelineDepthStencilState) set_front_op_depth_fail(p_member RenderingDeviceStencilOperation) {
     classname := StringName.new("RDPipelineDepthStencilState")
     fnname := StringName.new("set_front_op_depth_fail")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2092799566)
@@ -209,7 +209,7 @@ pub fn (r &RDPipelineDepthStencilState) get_front_op_depth_fail() RenderingDevic
     fnname.deinit()
    return unsafe{RenderingDeviceStencilOperation(object_out)}
 }
-pub fn (mut r RDPipelineDepthStencilState) set_front_op_compare(p_member RenderingDeviceCompareOperator) {
+pub fn (r &RDPipelineDepthStencilState) set_front_op_compare(p_member RenderingDeviceCompareOperator) {
     classname := StringName.new("RDPipelineDepthStencilState")
     fnname := StringName.new("set_front_op_compare")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2573711505)
@@ -230,7 +230,7 @@ pub fn (r &RDPipelineDepthStencilState) get_front_op_compare() RenderingDeviceCo
     fnname.deinit()
    return unsafe{RenderingDeviceCompareOperator(object_out)}
 }
-pub fn (mut r RDPipelineDepthStencilState) set_front_op_compare_mask(p_member u32) {
+pub fn (r &RDPipelineDepthStencilState) set_front_op_compare_mask(p_member u32) {
     classname := StringName.new("RDPipelineDepthStencilState")
     fnname := StringName.new("set_front_op_compare_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -250,7 +250,7 @@ pub fn (r &RDPipelineDepthStencilState) get_front_op_compare_mask() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDPipelineDepthStencilState) set_front_op_write_mask(p_member u32) {
+pub fn (r &RDPipelineDepthStencilState) set_front_op_write_mask(p_member u32) {
     classname := StringName.new("RDPipelineDepthStencilState")
     fnname := StringName.new("set_front_op_write_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -270,7 +270,7 @@ pub fn (r &RDPipelineDepthStencilState) get_front_op_write_mask() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDPipelineDepthStencilState) set_front_op_reference(p_member u32) {
+pub fn (r &RDPipelineDepthStencilState) set_front_op_reference(p_member u32) {
     classname := StringName.new("RDPipelineDepthStencilState")
     fnname := StringName.new("set_front_op_reference")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -290,7 +290,7 @@ pub fn (r &RDPipelineDepthStencilState) get_front_op_reference() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDPipelineDepthStencilState) set_back_op_fail(p_member RenderingDeviceStencilOperation) {
+pub fn (r &RDPipelineDepthStencilState) set_back_op_fail(p_member RenderingDeviceStencilOperation) {
     classname := StringName.new("RDPipelineDepthStencilState")
     fnname := StringName.new("set_back_op_fail")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2092799566)
@@ -311,7 +311,7 @@ pub fn (r &RDPipelineDepthStencilState) get_back_op_fail() RenderingDeviceStenci
     fnname.deinit()
    return unsafe{RenderingDeviceStencilOperation(object_out)}
 }
-pub fn (mut r RDPipelineDepthStencilState) set_back_op_pass(p_member RenderingDeviceStencilOperation) {
+pub fn (r &RDPipelineDepthStencilState) set_back_op_pass(p_member RenderingDeviceStencilOperation) {
     classname := StringName.new("RDPipelineDepthStencilState")
     fnname := StringName.new("set_back_op_pass")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2092799566)
@@ -332,7 +332,7 @@ pub fn (r &RDPipelineDepthStencilState) get_back_op_pass() RenderingDeviceStenci
     fnname.deinit()
    return unsafe{RenderingDeviceStencilOperation(object_out)}
 }
-pub fn (mut r RDPipelineDepthStencilState) set_back_op_depth_fail(p_member RenderingDeviceStencilOperation) {
+pub fn (r &RDPipelineDepthStencilState) set_back_op_depth_fail(p_member RenderingDeviceStencilOperation) {
     classname := StringName.new("RDPipelineDepthStencilState")
     fnname := StringName.new("set_back_op_depth_fail")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2092799566)
@@ -353,7 +353,7 @@ pub fn (r &RDPipelineDepthStencilState) get_back_op_depth_fail() RenderingDevice
     fnname.deinit()
    return unsafe{RenderingDeviceStencilOperation(object_out)}
 }
-pub fn (mut r RDPipelineDepthStencilState) set_back_op_compare(p_member RenderingDeviceCompareOperator) {
+pub fn (r &RDPipelineDepthStencilState) set_back_op_compare(p_member RenderingDeviceCompareOperator) {
     classname := StringName.new("RDPipelineDepthStencilState")
     fnname := StringName.new("set_back_op_compare")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2573711505)
@@ -374,7 +374,7 @@ pub fn (r &RDPipelineDepthStencilState) get_back_op_compare() RenderingDeviceCom
     fnname.deinit()
    return unsafe{RenderingDeviceCompareOperator(object_out)}
 }
-pub fn (mut r RDPipelineDepthStencilState) set_back_op_compare_mask(p_member u32) {
+pub fn (r &RDPipelineDepthStencilState) set_back_op_compare_mask(p_member u32) {
     classname := StringName.new("RDPipelineDepthStencilState")
     fnname := StringName.new("set_back_op_compare_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -394,7 +394,7 @@ pub fn (r &RDPipelineDepthStencilState) get_back_op_compare_mask() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDPipelineDepthStencilState) set_back_op_write_mask(p_member u32) {
+pub fn (r &RDPipelineDepthStencilState) set_back_op_write_mask(p_member u32) {
     classname := StringName.new("RDPipelineDepthStencilState")
     fnname := StringName.new("set_back_op_write_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -414,7 +414,7 @@ pub fn (r &RDPipelineDepthStencilState) get_back_op_write_mask() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r RDPipelineDepthStencilState) set_back_op_reference(p_member u32) {
+pub fn (r &RDPipelineDepthStencilState) set_back_op_reference(p_member u32) {
     classname := StringName.new("RDPipelineDepthStencilState")
     fnname := StringName.new("set_back_op_reference")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)

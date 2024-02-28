@@ -5,7 +5,7 @@ pub struct OptionButton {
     Button
 }
 
-pub fn (mut r OptionButton) add_item(label string, id i32) {
+pub fn (r &OptionButton) add_item(label string, id i32) {
     classname := StringName.new("OptionButton")
     fnname := StringName.new("add_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2697778442)
@@ -18,7 +18,7 @@ pub fn (mut r OptionButton) add_item(label string, id i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r OptionButton) add_icon_item(texture Texture2D, label string, id i32) {
+pub fn (r &OptionButton) add_icon_item(texture Texture2D, label string, id i32) {
     classname := StringName.new("OptionButton")
     fnname := StringName.new("add_icon_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3781678508)
@@ -32,7 +32,7 @@ pub fn (mut r OptionButton) add_icon_item(texture Texture2D, label string, id i3
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r OptionButton) set_item_text(idx i32, text string) {
+pub fn (r &OptionButton) set_item_text(idx i32, text string) {
     classname := StringName.new("OptionButton")
     fnname := StringName.new("set_item_text")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
@@ -45,7 +45,7 @@ pub fn (mut r OptionButton) set_item_text(idx i32, text string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r OptionButton) set_item_icon(idx i32, texture Texture2D) {
+pub fn (r &OptionButton) set_item_icon(idx i32, texture Texture2D) {
     classname := StringName.new("OptionButton")
     fnname := StringName.new("set_item_icon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 666127730)
@@ -56,7 +56,7 @@ pub fn (mut r OptionButton) set_item_icon(idx i32, texture Texture2D) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r OptionButton) set_item_disabled(idx i32, disabled bool) {
+pub fn (r &OptionButton) set_item_disabled(idx i32, disabled bool) {
     classname := StringName.new("OptionButton")
     fnname := StringName.new("set_item_disabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -67,7 +67,7 @@ pub fn (mut r OptionButton) set_item_disabled(idx i32, disabled bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r OptionButton) set_item_id(idx i32, id i32) {
+pub fn (r &OptionButton) set_item_id(idx i32, id i32) {
     classname := StringName.new("OptionButton")
     fnname := StringName.new("set_item_id")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -78,7 +78,7 @@ pub fn (mut r OptionButton) set_item_id(idx i32, id i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r OptionButton) set_item_metadata(idx i32, metadata Variant) {
+pub fn (r &OptionButton) set_item_metadata(idx i32, metadata Variant) {
     classname := StringName.new("OptionButton")
     fnname := StringName.new("set_item_metadata")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2152698145)
@@ -89,7 +89,7 @@ pub fn (mut r OptionButton) set_item_metadata(idx i32, metadata Variant) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r OptionButton) set_item_tooltip(idx i32, tooltip string) {
+pub fn (r &OptionButton) set_item_tooltip(idx i32, tooltip string) {
     classname := StringName.new("OptionButton")
     fnname := StringName.new("set_item_tooltip")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
@@ -202,7 +202,7 @@ pub fn (r &OptionButton) is_item_separator(idx i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OptionButton) add_separator(text string) {
+pub fn (r &OptionButton) add_separator(text string) {
     classname := StringName.new("OptionButton")
     fnname := StringName.new("add_separator")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3005725572)
@@ -214,7 +214,7 @@ pub fn (mut r OptionButton) add_separator(text string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r OptionButton) clear() {
+pub fn (r &OptionButton) clear() {
     classname := StringName.new("OptionButton")
     fnname := StringName.new("clear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -222,7 +222,7 @@ pub fn (mut r OptionButton) clear() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r OptionButton) gdselect(idx i32) {
+pub fn (r &OptionButton) gdselect(idx i32) {
     classname := StringName.new("OptionButton")
     fnname := StringName.new("select")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -262,7 +262,7 @@ pub fn (r &OptionButton) get_selected_metadata() Variant {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OptionButton) remove_item(idx i32) {
+pub fn (r &OptionButton) remove_item(idx i32) {
     classname := StringName.new("OptionButton")
     fnname := StringName.new("remove_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -282,7 +282,7 @@ pub fn (r &OptionButton) get_popup() PopupMenu {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OptionButton) show_popup() {
+pub fn (r &OptionButton) show_popup() {
     classname := StringName.new("OptionButton")
     fnname := StringName.new("show_popup")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -290,7 +290,7 @@ pub fn (mut r OptionButton) show_popup() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r OptionButton) set_item_count(count i32) {
+pub fn (r &OptionButton) set_item_count(count i32) {
     classname := StringName.new("OptionButton")
     fnname := StringName.new("set_item_count")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -332,7 +332,7 @@ pub fn (r &OptionButton) get_selectable_item(from_last bool) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OptionButton) set_fit_to_longest_item(fit bool) {
+pub fn (r &OptionButton) set_fit_to_longest_item(fit bool) {
     classname := StringName.new("OptionButton")
     fnname := StringName.new("set_fit_to_longest_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -352,7 +352,7 @@ pub fn (r &OptionButton) is_fit_to_longest_item() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OptionButton) set_allow_reselect(allow bool) {
+pub fn (r &OptionButton) set_allow_reselect(allow bool) {
     classname := StringName.new("OptionButton")
     fnname := StringName.new("set_allow_reselect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -372,7 +372,7 @@ pub fn (r &OptionButton) get_allow_reselect() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OptionButton) set_disable_shortcuts(disabled bool) {
+pub fn (r &OptionButton) set_disable_shortcuts(disabled bool) {
     classname := StringName.new("OptionButton")
     fnname := StringName.new("set_disable_shortcuts")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

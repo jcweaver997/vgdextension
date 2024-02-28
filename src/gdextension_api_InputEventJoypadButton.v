@@ -5,7 +5,7 @@ pub struct InputEventJoypadButton {
     InputEvent
 }
 
-pub fn (mut r InputEventJoypadButton) set_button_index(button_index JoyButton) {
+pub fn (r &InputEventJoypadButton) set_button_index(button_index JoyButton) {
     classname := StringName.new("InputEventJoypadButton")
     fnname := StringName.new("set_button_index")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1466368136)
@@ -26,7 +26,7 @@ pub fn (r &InputEventJoypadButton) get_button_index() JoyButton {
     fnname.deinit()
    return unsafe{JoyButton(object_out)}
 }
-pub fn (mut r InputEventJoypadButton) set_pressure(pressure f64) {
+pub fn (r &InputEventJoypadButton) set_pressure(pressure f64) {
     classname := StringName.new("InputEventJoypadButton")
     fnname := StringName.new("set_pressure")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -46,7 +46,7 @@ pub fn (r &InputEventJoypadButton) get_pressure() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r InputEventJoypadButton) set_pressed(pressed bool) {
+pub fn (r &InputEventJoypadButton) set_pressed(pressed bool) {
     classname := StringName.new("InputEventJoypadButton")
     fnname := StringName.new("set_pressed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

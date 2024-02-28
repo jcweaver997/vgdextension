@@ -12,7 +12,7 @@ pub struct VisualShaderNodeFloatParameter {
     VisualShaderNodeParameter
 }
 
-pub fn (mut r VisualShaderNodeFloatParameter) set_hint(hint VisualShaderNodeFloatParameterHint) {
+pub fn (r &VisualShaderNodeFloatParameter) set_hint(hint VisualShaderNodeFloatParameterHint) {
     classname := StringName.new("VisualShaderNodeFloatParameter")
     fnname := StringName.new("set_hint")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3712586466)
@@ -33,7 +33,7 @@ pub fn (r &VisualShaderNodeFloatParameter) get_hint() VisualShaderNodeFloatParam
     fnname.deinit()
    return unsafe{VisualShaderNodeFloatParameterHint(object_out)}
 }
-pub fn (mut r VisualShaderNodeFloatParameter) set_min(value f64) {
+pub fn (r &VisualShaderNodeFloatParameter) set_min(value f64) {
     classname := StringName.new("VisualShaderNodeFloatParameter")
     fnname := StringName.new("set_min")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -53,7 +53,7 @@ pub fn (r &VisualShaderNodeFloatParameter) get_min() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VisualShaderNodeFloatParameter) set_max(value f64) {
+pub fn (r &VisualShaderNodeFloatParameter) set_max(value f64) {
     classname := StringName.new("VisualShaderNodeFloatParameter")
     fnname := StringName.new("set_max")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -73,7 +73,7 @@ pub fn (r &VisualShaderNodeFloatParameter) get_max() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VisualShaderNodeFloatParameter) set_step(value f64) {
+pub fn (r &VisualShaderNodeFloatParameter) set_step(value f64) {
     classname := StringName.new("VisualShaderNodeFloatParameter")
     fnname := StringName.new("set_step")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -93,7 +93,7 @@ pub fn (r &VisualShaderNodeFloatParameter) get_step() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VisualShaderNodeFloatParameter) set_default_value_enabled(enabled bool) {
+pub fn (r &VisualShaderNodeFloatParameter) set_default_value_enabled(enabled bool) {
     classname := StringName.new("VisualShaderNodeFloatParameter")
     fnname := StringName.new("set_default_value_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -113,7 +113,7 @@ pub fn (r &VisualShaderNodeFloatParameter) is_default_value_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VisualShaderNodeFloatParameter) set_default_value(value f64) {
+pub fn (r &VisualShaderNodeFloatParameter) set_default_value(value f64) {
     classname := StringName.new("VisualShaderNodeFloatParameter")
     fnname := StringName.new("set_default_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

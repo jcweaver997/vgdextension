@@ -13,7 +13,7 @@ pub struct VoxelGI {
     VisualInstance3D
 }
 
-pub fn (mut r VoxelGI) set_probe_data(data VoxelGIData) {
+pub fn (r &VoxelGI) set_probe_data(data VoxelGIData) {
     classname := StringName.new("VoxelGI")
     fnname := StringName.new("set_probe_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1637849675)
@@ -33,7 +33,7 @@ pub fn (r &VoxelGI) get_probe_data() VoxelGIData {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VoxelGI) set_subdiv(subdiv VoxelGISubdiv) {
+pub fn (r &VoxelGI) set_subdiv(subdiv VoxelGISubdiv) {
     classname := StringName.new("VoxelGI")
     fnname := StringName.new("set_subdiv")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2240898472)
@@ -54,7 +54,7 @@ pub fn (r &VoxelGI) get_subdiv() VoxelGISubdiv {
     fnname.deinit()
    return unsafe{VoxelGISubdiv(object_out)}
 }
-pub fn (mut r VoxelGI) set_size(size Vector3) {
+pub fn (r &VoxelGI) set_size(size Vector3) {
     classname := StringName.new("VoxelGI")
     fnname := StringName.new("set_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -74,7 +74,7 @@ pub fn (r &VoxelGI) get_size() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VoxelGI) set_camera_attributes(camera_attributes CameraAttributes) {
+pub fn (r &VoxelGI) set_camera_attributes(camera_attributes CameraAttributes) {
     classname := StringName.new("VoxelGI")
     fnname := StringName.new("set_camera_attributes")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2817810567)
@@ -94,7 +94,7 @@ pub fn (r &VoxelGI) get_camera_attributes() CameraAttributes {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VoxelGI) bake(from_node Node, create_visual_debug bool) {
+pub fn (r &VoxelGI) bake(from_node Node, create_visual_debug bool) {
     classname := StringName.new("VoxelGI")
     fnname := StringName.new("bake")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2781551026)
@@ -105,7 +105,7 @@ pub fn (mut r VoxelGI) bake(from_node Node, create_visual_debug bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r VoxelGI) debug_bake() {
+pub fn (r &VoxelGI) debug_bake() {
     classname := StringName.new("VoxelGI")
     fnname := StringName.new("debug_bake")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

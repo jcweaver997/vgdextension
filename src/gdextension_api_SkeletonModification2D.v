@@ -10,7 +10,7 @@ pub interface ISkeletonModification2DExecute {
     virt_execute(delta f64)
 }
 
-pub fn (mut r SkeletonModification2D) uexecute(delta f64) {
+pub fn (r &SkeletonModification2D) uexecute(delta f64) {
     classname := StringName.new("SkeletonModification2D")
     fnname := StringName.new("_execute")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -25,7 +25,7 @@ pub interface ISkeletonModification2DSetupModification {
     virt_setup_modification(modification_stack SkeletonModificationStack2D)
 }
 
-pub fn (mut r SkeletonModification2D) usetup_modification(modification_stack SkeletonModificationStack2D) {
+pub fn (r &SkeletonModification2D) usetup_modification(modification_stack SkeletonModificationStack2D) {
     classname := StringName.new("SkeletonModification2D")
     fnname := StringName.new("_setup_modification")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -40,7 +40,7 @@ pub interface ISkeletonModification2DDrawEditorGizmo {
     virt_draw_editor_gizmo()
 }
 
-pub fn (mut r SkeletonModification2D) udraw_editor_gizmo() {
+pub fn (r &SkeletonModification2D) udraw_editor_gizmo() {
     classname := StringName.new("SkeletonModification2D")
     fnname := StringName.new("_draw_editor_gizmo")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -48,7 +48,7 @@ pub fn (mut r SkeletonModification2D) udraw_editor_gizmo() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SkeletonModification2D) set_enabled(enabled bool) {
+pub fn (r &SkeletonModification2D) set_enabled(enabled bool) {
     classname := StringName.new("SkeletonModification2D")
     fnname := StringName.new("set_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -58,7 +58,7 @@ pub fn (mut r SkeletonModification2D) set_enabled(enabled bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SkeletonModification2D) get_enabled() bool {
+pub fn (r &SkeletonModification2D) get_enabled() bool {
     mut object_out := false
     classname := StringName.new("SkeletonModification2D")
     fnname := StringName.new("get_enabled")
@@ -68,7 +68,7 @@ pub fn (mut r SkeletonModification2D) get_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonModification2D) get_modification_stack() SkeletonModificationStack2D {
+pub fn (r &SkeletonModification2D) get_modification_stack() SkeletonModificationStack2D {
     mut object_out := SkeletonModificationStack2D{}
     classname := StringName.new("SkeletonModification2D")
     fnname := StringName.new("get_modification_stack")
@@ -78,7 +78,7 @@ pub fn (mut r SkeletonModification2D) get_modification_stack() SkeletonModificat
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonModification2D) set_is_setup(is_setup bool) {
+pub fn (r &SkeletonModification2D) set_is_setup(is_setup bool) {
     classname := StringName.new("SkeletonModification2D")
     fnname := StringName.new("set_is_setup")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -98,7 +98,7 @@ pub fn (r &SkeletonModification2D) get_is_setup() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonModification2D) set_execution_mode(execution_mode i32) {
+pub fn (r &SkeletonModification2D) set_execution_mode(execution_mode i32) {
     classname := StringName.new("SkeletonModification2D")
     fnname := StringName.new("set_execution_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -118,7 +118,7 @@ pub fn (r &SkeletonModification2D) get_execution_mode() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonModification2D) clamp_angle(angle f64, min f64, max f64, invert bool) f64 {
+pub fn (r &SkeletonModification2D) clamp_angle(angle f64, min f64, max f64, invert bool) f64 {
     mut object_out := f64(0)
     classname := StringName.new("SkeletonModification2D")
     fnname := StringName.new("clamp_angle")
@@ -133,7 +133,7 @@ pub fn (mut r SkeletonModification2D) clamp_angle(angle f64, min f64, max f64, i
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonModification2D) set_editor_draw_gizmo(draw_gizmo bool) {
+pub fn (r &SkeletonModification2D) set_editor_draw_gizmo(draw_gizmo bool) {
     classname := StringName.new("SkeletonModification2D")
     fnname := StringName.new("set_editor_draw_gizmo")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

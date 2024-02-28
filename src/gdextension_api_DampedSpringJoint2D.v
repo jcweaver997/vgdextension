@@ -5,7 +5,7 @@ pub struct DampedSpringJoint2D {
     Joint2D
 }
 
-pub fn (mut r DampedSpringJoint2D) set_length(length f64) {
+pub fn (r &DampedSpringJoint2D) set_length(length f64) {
     classname := StringName.new("DampedSpringJoint2D")
     fnname := StringName.new("set_length")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -25,7 +25,7 @@ pub fn (r &DampedSpringJoint2D) get_length() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DampedSpringJoint2D) set_rest_length(rest_length f64) {
+pub fn (r &DampedSpringJoint2D) set_rest_length(rest_length f64) {
     classname := StringName.new("DampedSpringJoint2D")
     fnname := StringName.new("set_rest_length")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -45,7 +45,7 @@ pub fn (r &DampedSpringJoint2D) get_rest_length() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DampedSpringJoint2D) set_stiffness(stiffness f64) {
+pub fn (r &DampedSpringJoint2D) set_stiffness(stiffness f64) {
     classname := StringName.new("DampedSpringJoint2D")
     fnname := StringName.new("set_stiffness")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -65,7 +65,7 @@ pub fn (r &DampedSpringJoint2D) get_stiffness() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r DampedSpringJoint2D) set_damping(damping f64) {
+pub fn (r &DampedSpringJoint2D) set_damping(damping f64) {
     classname := StringName.new("DampedSpringJoint2D")
     fnname := StringName.new("set_damping")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

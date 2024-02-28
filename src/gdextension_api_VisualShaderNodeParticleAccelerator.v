@@ -12,7 +12,7 @@ pub struct VisualShaderNodeParticleAccelerator {
     VisualShaderNode
 }
 
-pub fn (mut r VisualShaderNodeParticleAccelerator) set_mode(mode VisualShaderNodeParticleAcceleratorMode) {
+pub fn (r &VisualShaderNodeParticleAccelerator) set_mode(mode VisualShaderNodeParticleAcceleratorMode) {
     classname := StringName.new("VisualShaderNodeParticleAccelerator")
     fnname := StringName.new("set_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3457585749)

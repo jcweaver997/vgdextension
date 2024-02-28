@@ -61,7 +61,7 @@ pub fn (r &GLTFPhysicsBody) get_body_type() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r GLTFPhysicsBody) set_body_type(body_type string) {
+pub fn (r &GLTFPhysicsBody) set_body_type(body_type string) {
     classname := StringName.new("GLTFPhysicsBody")
     fnname := StringName.new("set_body_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -83,7 +83,7 @@ pub fn (r &GLTFPhysicsBody) get_mass() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFPhysicsBody) set_mass(mass f64) {
+pub fn (r &GLTFPhysicsBody) set_mass(mass f64) {
     classname := StringName.new("GLTFPhysicsBody")
     fnname := StringName.new("set_mass")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -103,7 +103,7 @@ pub fn (r &GLTFPhysicsBody) get_linear_velocity() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFPhysicsBody) set_linear_velocity(linear_velocity Vector3) {
+pub fn (r &GLTFPhysicsBody) set_linear_velocity(linear_velocity Vector3) {
     classname := StringName.new("GLTFPhysicsBody")
     fnname := StringName.new("set_linear_velocity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -123,7 +123,7 @@ pub fn (r &GLTFPhysicsBody) get_angular_velocity() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFPhysicsBody) set_angular_velocity(angular_velocity Vector3) {
+pub fn (r &GLTFPhysicsBody) set_angular_velocity(angular_velocity Vector3) {
     classname := StringName.new("GLTFPhysicsBody")
     fnname := StringName.new("set_angular_velocity")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -143,7 +143,7 @@ pub fn (r &GLTFPhysicsBody) get_center_of_mass() Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFPhysicsBody) set_center_of_mass(center_of_mass Vector3) {
+pub fn (r &GLTFPhysicsBody) set_center_of_mass(center_of_mass Vector3) {
     classname := StringName.new("GLTFPhysicsBody")
     fnname := StringName.new("set_center_of_mass")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3460891852)
@@ -163,7 +163,7 @@ pub fn (r &GLTFPhysicsBody) get_inertia_tensor() Basis {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFPhysicsBody) set_inertia_tensor(inertia_tensor Basis) {
+pub fn (r &GLTFPhysicsBody) set_inertia_tensor(inertia_tensor Basis) {
     classname := StringName.new("GLTFPhysicsBody")
     fnname := StringName.new("set_inertia_tensor")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1055510324)

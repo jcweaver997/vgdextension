@@ -13,7 +13,7 @@ pub struct VisualShaderNodeBillboard {
     VisualShaderNode
 }
 
-pub fn (mut r VisualShaderNodeBillboard) set_billboard_type(billboard_type VisualShaderNodeBillboardBillboardType) {
+pub fn (r &VisualShaderNodeBillboard) set_billboard_type(billboard_type VisualShaderNodeBillboardBillboardType) {
     classname := StringName.new("VisualShaderNodeBillboard")
     fnname := StringName.new("set_billboard_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1227463289)
@@ -34,7 +34,7 @@ pub fn (r &VisualShaderNodeBillboard) get_billboard_type() VisualShaderNodeBillb
     fnname.deinit()
    return unsafe{VisualShaderNodeBillboardBillboardType(object_out)}
 }
-pub fn (mut r VisualShaderNodeBillboard) set_keep_scale_enabled(enabled bool) {
+pub fn (r &VisualShaderNodeBillboard) set_keep_scale_enabled(enabled bool) {
     classname := StringName.new("VisualShaderNodeBillboard")
     fnname := StringName.new("set_keep_scale_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

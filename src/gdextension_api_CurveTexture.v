@@ -10,7 +10,7 @@ pub struct CurveTexture {
     Texture2D
 }
 
-pub fn (mut r CurveTexture) set_width(width i32) {
+pub fn (r &CurveTexture) set_width(width i32) {
     classname := StringName.new("CurveTexture")
     fnname := StringName.new("set_width")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -20,7 +20,7 @@ pub fn (mut r CurveTexture) set_width(width i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r CurveTexture) set_curve(curve Curve) {
+pub fn (r &CurveTexture) set_curve(curve Curve) {
     classname := StringName.new("CurveTexture")
     fnname := StringName.new("set_curve")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 270443179)
@@ -40,7 +40,7 @@ pub fn (r &CurveTexture) get_curve() Curve {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CurveTexture) set_texture_mode(texture_mode CurveTextureTextureMode) {
+pub fn (r &CurveTexture) set_texture_mode(texture_mode CurveTextureTextureMode) {
     classname := StringName.new("CurveTexture")
     fnname := StringName.new("set_texture_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1321955367)

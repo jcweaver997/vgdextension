@@ -5,7 +5,7 @@ pub struct VisualShaderNodeFloatConstant {
     VisualShaderNodeConstant
 }
 
-pub fn (mut r VisualShaderNodeFloatConstant) set_constant(constant f64) {
+pub fn (r &VisualShaderNodeFloatConstant) set_constant(constant f64) {
     classname := StringName.new("VisualShaderNodeFloatConstant")
     fnname := StringName.new("set_constant")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

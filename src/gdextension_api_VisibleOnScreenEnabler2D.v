@@ -11,7 +11,7 @@ pub struct VisibleOnScreenEnabler2D {
     VisibleOnScreenNotifier2D
 }
 
-pub fn (mut r VisibleOnScreenEnabler2D) set_enable_mode(mode VisibleOnScreenEnabler2DEnableMode) {
+pub fn (r &VisibleOnScreenEnabler2D) set_enable_mode(mode VisibleOnScreenEnabler2DEnableMode) {
     classname := StringName.new("VisibleOnScreenEnabler2D")
     fnname := StringName.new("set_enable_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2961788752)
@@ -22,7 +22,7 @@ pub fn (mut r VisibleOnScreenEnabler2D) set_enable_mode(mode VisibleOnScreenEnab
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r VisibleOnScreenEnabler2D) get_enable_mode() VisibleOnScreenEnabler2DEnableMode {
+pub fn (r &VisibleOnScreenEnabler2D) get_enable_mode() VisibleOnScreenEnabler2DEnableMode {
     mut object_out := i64(VisibleOnScreenEnabler2DEnableMode.enable_mode_inherit)
     classname := StringName.new("VisibleOnScreenEnabler2D")
     fnname := StringName.new("get_enable_mode")
@@ -32,7 +32,7 @@ pub fn (mut r VisibleOnScreenEnabler2D) get_enable_mode() VisibleOnScreenEnabler
     fnname.deinit()
    return unsafe{VisibleOnScreenEnabler2DEnableMode(object_out)}
 }
-pub fn (mut r VisibleOnScreenEnabler2D) set_enable_node_path(path NodePath) {
+pub fn (r &VisibleOnScreenEnabler2D) set_enable_node_path(path NodePath) {
     classname := StringName.new("VisibleOnScreenEnabler2D")
     fnname := StringName.new("set_enable_node_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1348162250)
@@ -42,7 +42,7 @@ pub fn (mut r VisibleOnScreenEnabler2D) set_enable_node_path(path NodePath) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r VisibleOnScreenEnabler2D) get_enable_node_path() NodePath {
+pub fn (r &VisibleOnScreenEnabler2D) get_enable_node_path() NodePath {
     mut object_out := NodePath{}
     classname := StringName.new("VisibleOnScreenEnabler2D")
     fnname := StringName.new("get_enable_node_path")

@@ -10,7 +10,7 @@ pub interface IEditorNode3DGizmoRedraw {
     virt_redraw()
 }
 
-pub fn (mut r EditorNode3DGizmo) uredraw() {
+pub fn (r &EditorNode3DGizmo) uredraw() {
     classname := StringName.new("EditorNode3DGizmo")
     fnname := StringName.new("_redraw")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -79,7 +79,7 @@ pub interface IEditorNode3DGizmoSetHandle {
     virt_set_handle(id i32, secondary bool, camera Camera3D, point Vector2)
 }
 
-pub fn (mut r EditorNode3DGizmo) uset_handle(id i32, secondary bool, camera Camera3D, point Vector2) {
+pub fn (r &EditorNode3DGizmo) uset_handle(id i32, secondary bool, camera Camera3D, point Vector2) {
     classname := StringName.new("EditorNode3DGizmo")
     fnname := StringName.new("_set_handle")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -97,7 +97,7 @@ pub interface IEditorNode3DGizmoCommitHandle {
     virt_commit_handle(id i32, secondary bool, restore Variant, cancel bool)
 }
 
-pub fn (mut r EditorNode3DGizmo) ucommit_handle(id i32, secondary bool, restore Variant, cancel bool) {
+pub fn (r &EditorNode3DGizmo) ucommit_handle(id i32, secondary bool, restore Variant, cancel bool) {
     classname := StringName.new("EditorNode3DGizmo")
     fnname := StringName.new("_commit_handle")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -151,7 +151,7 @@ pub interface IEditorNode3DGizmoSetSubgizmoTransform {
     virt_set_subgizmo_transform(id i32, transform Transform3D)
 }
 
-pub fn (mut r EditorNode3DGizmo) uset_subgizmo_transform(id i32, transform Transform3D) {
+pub fn (r &EditorNode3DGizmo) uset_subgizmo_transform(id i32, transform Transform3D) {
     classname := StringName.new("EditorNode3DGizmo")
     fnname := StringName.new("_set_subgizmo_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -184,7 +184,7 @@ pub interface IEditorNode3DGizmoCommitSubgizmos {
     virt_commit_subgizmos(ids PackedInt32Array, restores Array, cancel bool)
 }
 
-pub fn (mut r EditorNode3DGizmo) ucommit_subgizmos(ids PackedInt32Array, restores Array, cancel bool) {
+pub fn (r &EditorNode3DGizmo) ucommit_subgizmos(ids PackedInt32Array, restores Array, cancel bool) {
     classname := StringName.new("EditorNode3DGizmo")
     fnname := StringName.new("_commit_subgizmos")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -196,7 +196,7 @@ pub fn (mut r EditorNode3DGizmo) ucommit_subgizmos(ids PackedInt32Array, restore
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorNode3DGizmo) add_lines(lines PackedVector3Array, material Material, billboard bool, modulate Color) {
+pub fn (r &EditorNode3DGizmo) add_lines(lines PackedVector3Array, material Material, billboard bool, modulate Color) {
     classname := StringName.new("EditorNode3DGizmo")
     fnname := StringName.new("add_lines")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2910971437)
@@ -209,7 +209,7 @@ pub fn (mut r EditorNode3DGizmo) add_lines(lines PackedVector3Array, material Ma
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorNode3DGizmo) add_mesh(mesh Mesh, material Material, transform Transform3D, skeleton SkinReference) {
+pub fn (r &EditorNode3DGizmo) add_mesh(mesh Mesh, material Material, transform Transform3D, skeleton SkinReference) {
     classname := StringName.new("EditorNode3DGizmo")
     fnname := StringName.new("add_mesh")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1579955111)
@@ -222,7 +222,7 @@ pub fn (mut r EditorNode3DGizmo) add_mesh(mesh Mesh, material Material, transfor
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorNode3DGizmo) add_collision_segments(segments PackedVector3Array) {
+pub fn (r &EditorNode3DGizmo) add_collision_segments(segments PackedVector3Array) {
     classname := StringName.new("EditorNode3DGizmo")
     fnname := StringName.new("add_collision_segments")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 334873810)
@@ -232,7 +232,7 @@ pub fn (mut r EditorNode3DGizmo) add_collision_segments(segments PackedVector3Ar
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorNode3DGizmo) add_collision_triangles(triangles TriangleMesh) {
+pub fn (r &EditorNode3DGizmo) add_collision_triangles(triangles TriangleMesh) {
     classname := StringName.new("EditorNode3DGizmo")
     fnname := StringName.new("add_collision_triangles")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 54901064)
@@ -242,7 +242,7 @@ pub fn (mut r EditorNode3DGizmo) add_collision_triangles(triangles TriangleMesh)
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorNode3DGizmo) add_unscaled_billboard(material Material, default_scale f64, modulate Color) {
+pub fn (r &EditorNode3DGizmo) add_unscaled_billboard(material Material, default_scale f64, modulate Color) {
     classname := StringName.new("EditorNode3DGizmo")
     fnname := StringName.new("add_unscaled_billboard")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 520007164)
@@ -254,7 +254,7 @@ pub fn (mut r EditorNode3DGizmo) add_unscaled_billboard(material Material, defau
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorNode3DGizmo) add_handles(handles PackedVector3Array, material Material, ids PackedInt32Array, billboard bool, secondary bool) {
+pub fn (r &EditorNode3DGizmo) add_handles(handles PackedVector3Array, material Material, ids PackedInt32Array, billboard bool, secondary bool) {
     classname := StringName.new("EditorNode3DGizmo")
     fnname := StringName.new("add_handles")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2254560097)
@@ -268,7 +268,7 @@ pub fn (mut r EditorNode3DGizmo) add_handles(handles PackedVector3Array, materia
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorNode3DGizmo) set_node_3d(node Node) {
+pub fn (r &EditorNode3DGizmo) set_node_3d(node Node) {
     classname := StringName.new("EditorNode3DGizmo")
     fnname := StringName.new("set_node_3d")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
@@ -298,7 +298,7 @@ pub fn (r &EditorNode3DGizmo) get_plugin() EditorNode3DGizmoPlugin {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r EditorNode3DGizmo) clear() {
+pub fn (r &EditorNode3DGizmo) clear() {
     classname := StringName.new("EditorNode3DGizmo")
     fnname := StringName.new("clear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -306,7 +306,7 @@ pub fn (mut r EditorNode3DGizmo) clear() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorNode3DGizmo) set_hidden(hidden bool) {
+pub fn (r &EditorNode3DGizmo) set_hidden(hidden bool) {
     classname := StringName.new("EditorNode3DGizmo")
     fnname := StringName.new("set_hidden")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

@@ -22,7 +22,7 @@ pub struct HTTPRequest {
     Node
 }
 
-pub fn (mut r HTTPRequest) request(url string, custom_headers PackedStringArray, method HTTPClientMethod, request_data string) GDError {
+pub fn (r &HTTPRequest) request(url string, custom_headers PackedStringArray, method HTTPClientMethod, request_data string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("HTTPRequest")
     fnname := StringName.new("request")
@@ -42,7 +42,7 @@ pub fn (mut r HTTPRequest) request(url string, custom_headers PackedStringArray,
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r HTTPRequest) request_raw(url string, custom_headers PackedStringArray, method HTTPClientMethod, request_data_raw PackedByteArray) GDError {
+pub fn (r &HTTPRequest) request_raw(url string, custom_headers PackedStringArray, method HTTPClientMethod, request_data_raw PackedByteArray) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("HTTPRequest")
     fnname := StringName.new("request_raw")
@@ -60,7 +60,7 @@ pub fn (mut r HTTPRequest) request_raw(url string, custom_headers PackedStringAr
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r HTTPRequest) cancel_request() {
+pub fn (r &HTTPRequest) cancel_request() {
     classname := StringName.new("HTTPRequest")
     fnname := StringName.new("cancel_request")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -68,7 +68,7 @@ pub fn (mut r HTTPRequest) cancel_request() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r HTTPRequest) set_tls_options(client_options TLSOptions) {
+pub fn (r &HTTPRequest) set_tls_options(client_options TLSOptions) {
     classname := StringName.new("HTTPRequest")
     fnname := StringName.new("set_tls_options")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2210231844)
@@ -88,7 +88,7 @@ pub fn (r &HTTPRequest) get_http_client_status() HTTPClientStatus {
     fnname.deinit()
    return unsafe{HTTPClientStatus(object_out)}
 }
-pub fn (mut r HTTPRequest) set_use_threads(enable bool) {
+pub fn (r &HTTPRequest) set_use_threads(enable bool) {
     classname := StringName.new("HTTPRequest")
     fnname := StringName.new("set_use_threads")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -108,7 +108,7 @@ pub fn (r &HTTPRequest) is_using_threads() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r HTTPRequest) set_accept_gzip(enable bool) {
+pub fn (r &HTTPRequest) set_accept_gzip(enable bool) {
     classname := StringName.new("HTTPRequest")
     fnname := StringName.new("set_accept_gzip")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -128,7 +128,7 @@ pub fn (r &HTTPRequest) is_accepting_gzip() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r HTTPRequest) set_body_size_limit(bytes i32) {
+pub fn (r &HTTPRequest) set_body_size_limit(bytes i32) {
     classname := StringName.new("HTTPRequest")
     fnname := StringName.new("set_body_size_limit")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -148,7 +148,7 @@ pub fn (r &HTTPRequest) get_body_size_limit() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r HTTPRequest) set_max_redirects(amount i32) {
+pub fn (r &HTTPRequest) set_max_redirects(amount i32) {
     classname := StringName.new("HTTPRequest")
     fnname := StringName.new("set_max_redirects")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -168,7 +168,7 @@ pub fn (r &HTTPRequest) get_max_redirects() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r HTTPRequest) set_download_file(path string) {
+pub fn (r &HTTPRequest) set_download_file(path string) {
     classname := StringName.new("HTTPRequest")
     fnname := StringName.new("set_download_file")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -212,7 +212,7 @@ pub fn (r &HTTPRequest) get_body_size() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r HTTPRequest) set_timeout(timeout f64) {
+pub fn (r &HTTPRequest) set_timeout(timeout f64) {
     classname := StringName.new("HTTPRequest")
     fnname := StringName.new("set_timeout")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -222,7 +222,7 @@ pub fn (mut r HTTPRequest) set_timeout(timeout f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r HTTPRequest) get_timeout() f64 {
+pub fn (r &HTTPRequest) get_timeout() f64 {
     mut object_out := f64(0)
     classname := StringName.new("HTTPRequest")
     fnname := StringName.new("get_timeout")
@@ -232,7 +232,7 @@ pub fn (mut r HTTPRequest) get_timeout() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r HTTPRequest) set_download_chunk_size(chunk_size i32) {
+pub fn (r &HTTPRequest) set_download_chunk_size(chunk_size i32) {
     classname := StringName.new("HTTPRequest")
     fnname := StringName.new("set_download_chunk_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -252,7 +252,7 @@ pub fn (r &HTTPRequest) get_download_chunk_size() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r HTTPRequest) set_http_proxy(host string, port i32) {
+pub fn (r &HTTPRequest) set_http_proxy(host string, port i32) {
     classname := StringName.new("HTTPRequest")
     fnname := StringName.new("set_http_proxy")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2956805083)
@@ -265,7 +265,7 @@ pub fn (mut r HTTPRequest) set_http_proxy(host string, port i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r HTTPRequest) set_https_proxy(host string, port i32) {
+pub fn (r &HTTPRequest) set_https_proxy(host string, port i32) {
     classname := StringName.new("HTTPRequest")
     fnname := StringName.new("set_https_proxy")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2956805083)

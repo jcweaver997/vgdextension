@@ -10,7 +10,7 @@ pub interface IWebRTCDataChannelExtensionGetPacket {
     virt_get_packet(r_buffer &&u8 , r_buffer_size &i32) GDError
 }
 
-pub fn (mut r WebRTCDataChannelExtension) uget_packet(r_buffer &&u8 , r_buffer_size &i32) GDError {
+pub fn (r &WebRTCDataChannelExtension) uget_packet(r_buffer &&u8 , r_buffer_size &i32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("WebRTCDataChannelExtension")
     fnname := StringName.new("_get_packet")
@@ -28,7 +28,7 @@ pub interface IWebRTCDataChannelExtensionPutPacket {
     virt_put_packet(p_buffer &u8, p_buffer_size i32) GDError
 }
 
-pub fn (mut r WebRTCDataChannelExtension) uput_packet(p_buffer &u8, p_buffer_size i32) GDError {
+pub fn (r &WebRTCDataChannelExtension) uput_packet(p_buffer &u8, p_buffer_size i32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("WebRTCDataChannelExtension")
     fnname := StringName.new("_put_packet")
@@ -76,7 +76,7 @@ pub interface IWebRTCDataChannelExtensionPoll {
     virt_poll() GDError
 }
 
-pub fn (mut r WebRTCDataChannelExtension) upoll() GDError {
+pub fn (r &WebRTCDataChannelExtension) upoll() GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("WebRTCDataChannelExtension")
     fnname := StringName.new("_poll")
@@ -91,7 +91,7 @@ pub interface IWebRTCDataChannelExtensionClose {
     virt_close()
 }
 
-pub fn (mut r WebRTCDataChannelExtension) uclose() {
+pub fn (r &WebRTCDataChannelExtension) uclose() {
     classname := StringName.new("WebRTCDataChannelExtension")
     fnname := StringName.new("_close")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -104,7 +104,7 @@ pub interface IWebRTCDataChannelExtensionSetWriteMode {
     virt_set_write_mode(p_write_mode WebRTCDataChannelWriteMode)
 }
 
-pub fn (mut r WebRTCDataChannelExtension) uset_write_mode(p_write_mode WebRTCDataChannelWriteMode) {
+pub fn (r &WebRTCDataChannelExtension) uset_write_mode(p_write_mode WebRTCDataChannelWriteMode) {
     classname := StringName.new("WebRTCDataChannelExtension")
     fnname := StringName.new("_set_write_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)

@@ -5,7 +5,7 @@ pub struct AnimatableBody3D {
     StaticBody3D
 }
 
-pub fn (mut r AnimatableBody3D) set_sync_to_physics(enable bool) {
+pub fn (r &AnimatableBody3D) set_sync_to_physics(enable bool) {
     classname := StringName.new("AnimatableBody3D")
     fnname := StringName.new("set_sync_to_physics")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

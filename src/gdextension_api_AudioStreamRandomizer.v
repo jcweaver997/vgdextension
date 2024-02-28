@@ -11,7 +11,7 @@ pub struct AudioStreamRandomizer {
     AudioStream
 }
 
-pub fn (mut r AudioStreamRandomizer) add_stream(index i32, stream AudioStream, weight f64) {
+pub fn (r &AudioStreamRandomizer) add_stream(index i32, stream AudioStream, weight f64) {
     classname := StringName.new("AudioStreamRandomizer")
     fnname := StringName.new("add_stream")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1892018854)
@@ -23,7 +23,7 @@ pub fn (mut r AudioStreamRandomizer) add_stream(index i32, stream AudioStream, w
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AudioStreamRandomizer) move_stream(index_from i32, index_to i32) {
+pub fn (r &AudioStreamRandomizer) move_stream(index_from i32, index_to i32) {
     classname := StringName.new("AudioStreamRandomizer")
     fnname := StringName.new("move_stream")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -34,7 +34,7 @@ pub fn (mut r AudioStreamRandomizer) move_stream(index_from i32, index_to i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AudioStreamRandomizer) remove_stream(index i32) {
+pub fn (r &AudioStreamRandomizer) remove_stream(index i32) {
     classname := StringName.new("AudioStreamRandomizer")
     fnname := StringName.new("remove_stream")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -44,7 +44,7 @@ pub fn (mut r AudioStreamRandomizer) remove_stream(index i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AudioStreamRandomizer) set_stream(index i32, stream AudioStream) {
+pub fn (r &AudioStreamRandomizer) set_stream(index i32, stream AudioStream) {
     classname := StringName.new("AudioStreamRandomizer")
     fnname := StringName.new("set_stream")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 111075094)
@@ -67,7 +67,7 @@ pub fn (r &AudioStreamRandomizer) get_stream(index i32) AudioStream {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamRandomizer) set_stream_probability_weight(index i32, weight f64) {
+pub fn (r &AudioStreamRandomizer) set_stream_probability_weight(index i32, weight f64) {
     classname := StringName.new("AudioStreamRandomizer")
     fnname := StringName.new("set_stream_probability_weight")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1602489585)
@@ -90,7 +90,7 @@ pub fn (r &AudioStreamRandomizer) get_stream_probability_weight(index i32) f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamRandomizer) set_streams_count(count i32) {
+pub fn (r &AudioStreamRandomizer) set_streams_count(count i32) {
     classname := StringName.new("AudioStreamRandomizer")
     fnname := StringName.new("set_streams_count")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -110,7 +110,7 @@ pub fn (r &AudioStreamRandomizer) get_streams_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamRandomizer) set_random_pitch(scale f64) {
+pub fn (r &AudioStreamRandomizer) set_random_pitch(scale f64) {
     classname := StringName.new("AudioStreamRandomizer")
     fnname := StringName.new("set_random_pitch")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -130,7 +130,7 @@ pub fn (r &AudioStreamRandomizer) get_random_pitch() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamRandomizer) set_random_volume_offset_db(db_offset f64) {
+pub fn (r &AudioStreamRandomizer) set_random_volume_offset_db(db_offset f64) {
     classname := StringName.new("AudioStreamRandomizer")
     fnname := StringName.new("set_random_volume_offset_db")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -150,7 +150,7 @@ pub fn (r &AudioStreamRandomizer) get_random_volume_offset_db() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamRandomizer) set_playback_mode(mode AudioStreamRandomizerPlaybackMode) {
+pub fn (r &AudioStreamRandomizer) set_playback_mode(mode AudioStreamRandomizerPlaybackMode) {
     classname := StringName.new("AudioStreamRandomizer")
     fnname := StringName.new("set_playback_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3950967023)

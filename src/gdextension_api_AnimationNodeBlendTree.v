@@ -5,7 +5,7 @@ pub struct AnimationNodeBlendTree {
     AnimationRootNode
 }
 
-pub fn (mut r AnimationNodeBlendTree) add_node(name string, node AnimationNode, position Vector2) {
+pub fn (r &AnimationNodeBlendTree) add_node(name string, node AnimationNode, position Vector2) {
     classname := StringName.new("AnimationNodeBlendTree")
     fnname := StringName.new("add_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1980270704)
@@ -33,7 +33,7 @@ pub fn (r &AnimationNodeBlendTree) get_node(name string) AnimationNode {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNodeBlendTree) remove_node(name string) {
+pub fn (r &AnimationNodeBlendTree) remove_node(name string) {
     classname := StringName.new("AnimationNodeBlendTree")
     fnname := StringName.new("remove_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -45,7 +45,7 @@ pub fn (mut r AnimationNodeBlendTree) remove_node(name string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AnimationNodeBlendTree) rename_node(name string, new_name string) {
+pub fn (r &AnimationNodeBlendTree) rename_node(name string, new_name string) {
     classname := StringName.new("AnimationNodeBlendTree")
     fnname := StringName.new("rename_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3740211285)
@@ -74,7 +74,7 @@ pub fn (r &AnimationNodeBlendTree) has_node(name string) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNodeBlendTree) connect_node(input_node string, input_index i32, output_node string) {
+pub fn (r &AnimationNodeBlendTree) connect_node(input_node string, input_index i32, output_node string) {
     classname := StringName.new("AnimationNodeBlendTree")
     fnname := StringName.new("connect_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2168001410)
@@ -90,7 +90,7 @@ pub fn (mut r AnimationNodeBlendTree) connect_node(input_node string, input_inde
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AnimationNodeBlendTree) disconnect_node(input_node string, input_index i32) {
+pub fn (r &AnimationNodeBlendTree) disconnect_node(input_node string, input_index i32) {
     classname := StringName.new("AnimationNodeBlendTree")
     fnname := StringName.new("disconnect_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2415702435)
@@ -103,7 +103,7 @@ pub fn (mut r AnimationNodeBlendTree) disconnect_node(input_node string, input_i
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AnimationNodeBlendTree) set_node_position(name string, position Vector2) {
+pub fn (r &AnimationNodeBlendTree) set_node_position(name string, position Vector2) {
     classname := StringName.new("AnimationNodeBlendTree")
     fnname := StringName.new("set_node_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1999414630)
@@ -130,7 +130,7 @@ pub fn (r &AnimationNodeBlendTree) get_node_position(name string) Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AnimationNodeBlendTree) set_graph_offset(offset Vector2) {
+pub fn (r &AnimationNodeBlendTree) set_graph_offset(offset Vector2) {
     classname := StringName.new("AnimationNodeBlendTree")
     fnname := StringName.new("set_graph_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)

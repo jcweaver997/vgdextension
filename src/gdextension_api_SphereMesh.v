@@ -5,7 +5,7 @@ pub struct SphereMesh {
     PrimitiveMesh
 }
 
-pub fn (mut r SphereMesh) set_radius(radius f64) {
+pub fn (r &SphereMesh) set_radius(radius f64) {
     classname := StringName.new("SphereMesh")
     fnname := StringName.new("set_radius")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -25,7 +25,7 @@ pub fn (r &SphereMesh) get_radius() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SphereMesh) set_height(height f64) {
+pub fn (r &SphereMesh) set_height(height f64) {
     classname := StringName.new("SphereMesh")
     fnname := StringName.new("set_height")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -45,7 +45,7 @@ pub fn (r &SphereMesh) get_height() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SphereMesh) set_radial_segments(radial_segments i32) {
+pub fn (r &SphereMesh) set_radial_segments(radial_segments i32) {
     classname := StringName.new("SphereMesh")
     fnname := StringName.new("set_radial_segments")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -65,7 +65,7 @@ pub fn (r &SphereMesh) get_radial_segments() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SphereMesh) set_rings(rings i32) {
+pub fn (r &SphereMesh) set_rings(rings i32) {
     classname := StringName.new("SphereMesh")
     fnname := StringName.new("set_rings")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -85,7 +85,7 @@ pub fn (r &SphereMesh) get_rings() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SphereMesh) set_is_hemisphere(is_hemisphere bool) {
+pub fn (r &SphereMesh) set_is_hemisphere(is_hemisphere bool) {
     classname := StringName.new("SphereMesh")
     fnname := StringName.new("set_is_hemisphere")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

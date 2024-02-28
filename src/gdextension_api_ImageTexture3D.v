@@ -5,7 +5,7 @@ pub struct ImageTexture3D {
     Texture3D
 }
 
-pub fn (mut r ImageTexture3D) create(format ImageFormat, width i32, height i32, depth i32, use_mipmaps bool, data Array) GDError {
+pub fn (r &ImageTexture3D) create(format ImageFormat, width i32, height i32, depth i32, use_mipmaps bool, data Array) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ImageTexture3D")
     fnname := StringName.new("create")
@@ -23,7 +23,7 @@ pub fn (mut r ImageTexture3D) create(format ImageFormat, width i32, height i32, 
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r ImageTexture3D) update(data Array) {
+pub fn (r &ImageTexture3D) update(data Array) {
     classname := StringName.new("ImageTexture3D")
     fnname := StringName.new("update")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)

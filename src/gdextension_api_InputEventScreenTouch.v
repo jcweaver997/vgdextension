@@ -5,7 +5,7 @@ pub struct InputEventScreenTouch {
     InputEventFromWindow
 }
 
-pub fn (mut r InputEventScreenTouch) set_index(index i32) {
+pub fn (r &InputEventScreenTouch) set_index(index i32) {
     classname := StringName.new("InputEventScreenTouch")
     fnname := StringName.new("set_index")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -25,7 +25,7 @@ pub fn (r &InputEventScreenTouch) get_index() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r InputEventScreenTouch) set_position(position Vector2) {
+pub fn (r &InputEventScreenTouch) set_position(position Vector2) {
     classname := StringName.new("InputEventScreenTouch")
     fnname := StringName.new("set_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -45,7 +45,7 @@ pub fn (r &InputEventScreenTouch) get_position() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r InputEventScreenTouch) set_pressed(pressed bool) {
+pub fn (r &InputEventScreenTouch) set_pressed(pressed bool) {
     classname := StringName.new("InputEventScreenTouch")
     fnname := StringName.new("set_pressed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -55,7 +55,7 @@ pub fn (mut r InputEventScreenTouch) set_pressed(pressed bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r InputEventScreenTouch) set_canceled(canceled bool) {
+pub fn (r &InputEventScreenTouch) set_canceled(canceled bool) {
     classname := StringName.new("InputEventScreenTouch")
     fnname := StringName.new("set_canceled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -65,7 +65,7 @@ pub fn (mut r InputEventScreenTouch) set_canceled(canceled bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r InputEventScreenTouch) set_double_tap(double_tap bool) {
+pub fn (r &InputEventScreenTouch) set_double_tap(double_tap bool) {
     classname := StringName.new("InputEventScreenTouch")
     fnname := StringName.new("set_double_tap")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

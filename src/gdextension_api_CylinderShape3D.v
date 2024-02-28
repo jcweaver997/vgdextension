@@ -5,7 +5,7 @@ pub struct CylinderShape3D {
     Shape3D
 }
 
-pub fn (mut r CylinderShape3D) set_radius(radius f64) {
+pub fn (r &CylinderShape3D) set_radius(radius f64) {
     classname := StringName.new("CylinderShape3D")
     fnname := StringName.new("set_radius")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -25,7 +25,7 @@ pub fn (r &CylinderShape3D) get_radius() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CylinderShape3D) set_height(height f64) {
+pub fn (r &CylinderShape3D) set_height(height f64) {
     classname := StringName.new("CylinderShape3D")
     fnname := StringName.new("set_height")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

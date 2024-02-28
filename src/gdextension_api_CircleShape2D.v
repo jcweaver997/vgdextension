@@ -5,7 +5,7 @@ pub struct CircleShape2D {
     Shape2D
 }
 
-pub fn (mut r CircleShape2D) set_radius(radius f64) {
+pub fn (r &CircleShape2D) set_radius(radius f64) {
     classname := StringName.new("CircleShape2D")
     fnname := StringName.new("set_radius")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

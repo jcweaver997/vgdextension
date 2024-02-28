@@ -10,7 +10,7 @@ pub interface IRenderSceneBuffersExtensionConfigure {
     virt_configure(config RenderSceneBuffersConfiguration)
 }
 
-pub fn (mut r RenderSceneBuffersExtension) uconfigure(config RenderSceneBuffersConfiguration) {
+pub fn (r &RenderSceneBuffersExtension) uconfigure(config RenderSceneBuffersConfiguration) {
     classname := StringName.new("RenderSceneBuffersExtension")
     fnname := StringName.new("_configure")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -25,7 +25,7 @@ pub interface IRenderSceneBuffersExtensionSetFsrSharpness {
     virt_set_fsr_sharpness(fsr_sharpness f64)
 }
 
-pub fn (mut r RenderSceneBuffersExtension) uset_fsr_sharpness(fsr_sharpness f64) {
+pub fn (r &RenderSceneBuffersExtension) uset_fsr_sharpness(fsr_sharpness f64) {
     classname := StringName.new("RenderSceneBuffersExtension")
     fnname := StringName.new("_set_fsr_sharpness")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -40,7 +40,7 @@ pub interface IRenderSceneBuffersExtensionSetTextureMipmapBias {
     virt_set_texture_mipmap_bias(texture_mipmap_bias f64)
 }
 
-pub fn (mut r RenderSceneBuffersExtension) uset_texture_mipmap_bias(texture_mipmap_bias f64) {
+pub fn (r &RenderSceneBuffersExtension) uset_texture_mipmap_bias(texture_mipmap_bias f64) {
     classname := StringName.new("RenderSceneBuffersExtension")
     fnname := StringName.new("_set_texture_mipmap_bias")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -55,7 +55,7 @@ pub interface IRenderSceneBuffersExtensionSetUseDebanding {
     virt_set_use_debanding(use_debanding bool)
 }
 
-pub fn (mut r RenderSceneBuffersExtension) uset_use_debanding(use_debanding bool) {
+pub fn (r &RenderSceneBuffersExtension) uset_use_debanding(use_debanding bool) {
     classname := StringName.new("RenderSceneBuffersExtension")
     fnname := StringName.new("_set_use_debanding")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)

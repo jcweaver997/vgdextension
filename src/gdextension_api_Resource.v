@@ -10,7 +10,7 @@ pub interface IResourceSetupLocalToScene {
     virt_setup_local_to_scene()
 }
 
-pub fn (mut r Resource) usetup_local_to_scene() {
+pub fn (r &Resource) usetup_local_to_scene() {
     classname := StringName.new("Resource")
     fnname := StringName.new("_setup_local_to_scene")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
@@ -18,7 +18,7 @@ pub fn (mut r Resource) usetup_local_to_scene() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Resource) set_path(path string) {
+pub fn (r &Resource) set_path(path string) {
     classname := StringName.new("Resource")
     fnname := StringName.new("set_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -30,7 +30,7 @@ pub fn (mut r Resource) set_path(path string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Resource) take_over_path(path string) {
+pub fn (r &Resource) take_over_path(path string) {
     classname := StringName.new("Resource")
     fnname := StringName.new("take_over_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -54,7 +54,7 @@ pub fn (r &Resource) get_path() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r Resource) set_name(name string) {
+pub fn (r &Resource) set_name(name string) {
     classname := StringName.new("Resource")
     fnname := StringName.new("set_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -88,7 +88,7 @@ pub fn (r &Resource) get_rid() RID {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Resource) set_local_to_scene(enable bool) {
+pub fn (r &Resource) set_local_to_scene(enable bool) {
     classname := StringName.new("Resource")
     fnname := StringName.new("set_local_to_scene")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -118,7 +118,7 @@ pub fn (r &Resource) get_local_scene() Node {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Resource) setup_local_to_scene() {
+pub fn (r &Resource) setup_local_to_scene() {
     classname := StringName.new("Resource")
     fnname := StringName.new("setup_local_to_scene")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -126,7 +126,7 @@ pub fn (mut r Resource) setup_local_to_scene() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Resource) emit_changed() {
+pub fn (r &Resource) emit_changed() {
     classname := StringName.new("Resource")
     fnname := StringName.new("emit_changed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

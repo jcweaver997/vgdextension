@@ -5,7 +5,7 @@ pub struct OpenXRAPIExtension {
     RefCounted
 }
 
-pub fn (mut r OpenXRAPIExtension) get_instance() u64 {
+pub fn (r &OpenXRAPIExtension) get_instance() u64 {
     mut object_out := u64(0)
     classname := StringName.new("OpenXRAPIExtension")
     fnname := StringName.new("get_instance")
@@ -15,7 +15,7 @@ pub fn (mut r OpenXRAPIExtension) get_instance() u64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OpenXRAPIExtension) get_system_id() u64 {
+pub fn (r &OpenXRAPIExtension) get_system_id() u64 {
     mut object_out := u64(0)
     classname := StringName.new("OpenXRAPIExtension")
     fnname := StringName.new("get_system_id")
@@ -25,7 +25,7 @@ pub fn (mut r OpenXRAPIExtension) get_system_id() u64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OpenXRAPIExtension) get_session() u64 {
+pub fn (r &OpenXRAPIExtension) get_session() u64 {
     mut object_out := u64(0)
     classname := StringName.new("OpenXRAPIExtension")
     fnname := StringName.new("get_session")
@@ -35,7 +35,7 @@ pub fn (mut r OpenXRAPIExtension) get_session() u64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OpenXRAPIExtension) transform_from_pose(pose voidptr) Transform3D {
+pub fn (r &OpenXRAPIExtension) transform_from_pose(pose voidptr) Transform3D {
     mut object_out := Transform3D{}
     classname := StringName.new("OpenXRAPIExtension")
     fnname := StringName.new("transform_from_pose")
@@ -47,7 +47,7 @@ pub fn (mut r OpenXRAPIExtension) transform_from_pose(pose voidptr) Transform3D 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OpenXRAPIExtension) xr_result(result u64, format string, gdargs Array) bool {
+pub fn (r &OpenXRAPIExtension) xr_result(result u64, format string, gdargs Array) bool {
     mut object_out := false
     classname := StringName.new("OpenXRAPIExtension")
     fnname := StringName.new("xr_result")
@@ -75,7 +75,7 @@ pub fn OpenXRAPIExtension.openxr_is_enabled(check_run_in_editor bool) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OpenXRAPIExtension) get_instance_proc_addr(name string) u64 {
+pub fn (r &OpenXRAPIExtension) get_instance_proc_addr(name string) u64 {
     mut object_out := u64(0)
     classname := StringName.new("OpenXRAPIExtension")
     fnname := StringName.new("get_instance_proc_addr")
@@ -89,7 +89,7 @@ pub fn (mut r OpenXRAPIExtension) get_instance_proc_addr(name string) u64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OpenXRAPIExtension) get_error_string(result u64) string {
+pub fn (r &OpenXRAPIExtension) get_error_string(result u64) string {
     mut object_out := String{}
     classname := StringName.new("OpenXRAPIExtension")
     fnname := StringName.new("get_error_string")
@@ -103,7 +103,7 @@ pub fn (mut r OpenXRAPIExtension) get_error_string(result u64) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r OpenXRAPIExtension) get_swapchain_format_name(swapchain_format i64) string {
+pub fn (r &OpenXRAPIExtension) get_swapchain_format_name(swapchain_format i64) string {
     mut object_out := String{}
     classname := StringName.new("OpenXRAPIExtension")
     fnname := StringName.new("get_swapchain_format_name")
@@ -117,7 +117,7 @@ pub fn (mut r OpenXRAPIExtension) get_swapchain_format_name(swapchain_format i64
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r OpenXRAPIExtension) is_initialized() bool {
+pub fn (r &OpenXRAPIExtension) is_initialized() bool {
     mut object_out := false
     classname := StringName.new("OpenXRAPIExtension")
     fnname := StringName.new("is_initialized")
@@ -127,7 +127,7 @@ pub fn (mut r OpenXRAPIExtension) is_initialized() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OpenXRAPIExtension) is_running() bool {
+pub fn (r &OpenXRAPIExtension) is_running() bool {
     mut object_out := false
     classname := StringName.new("OpenXRAPIExtension")
     fnname := StringName.new("is_running")
@@ -137,7 +137,7 @@ pub fn (mut r OpenXRAPIExtension) is_running() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OpenXRAPIExtension) get_play_space() u64 {
+pub fn (r &OpenXRAPIExtension) get_play_space() u64 {
     mut object_out := u64(0)
     classname := StringName.new("OpenXRAPIExtension")
     fnname := StringName.new("get_play_space")
@@ -147,7 +147,7 @@ pub fn (mut r OpenXRAPIExtension) get_play_space() u64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OpenXRAPIExtension) get_next_frame_time() i64 {
+pub fn (r &OpenXRAPIExtension) get_next_frame_time() i64 {
     mut object_out := i64(0)
     classname := StringName.new("OpenXRAPIExtension")
     fnname := StringName.new("get_next_frame_time")
@@ -157,7 +157,7 @@ pub fn (mut r OpenXRAPIExtension) get_next_frame_time() i64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r OpenXRAPIExtension) can_render() bool {
+pub fn (r &OpenXRAPIExtension) can_render() bool {
     mut object_out := false
     classname := StringName.new("OpenXRAPIExtension")
     fnname := StringName.new("can_render")

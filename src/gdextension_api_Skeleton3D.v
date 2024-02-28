@@ -5,7 +5,7 @@ pub struct Skeleton3D {
     Node3D
 }
 
-pub fn (mut r Skeleton3D) add_bone(name string) {
+pub fn (r &Skeleton3D) add_bone(name string) {
     classname := StringName.new("Skeleton3D")
     fnname := StringName.new("add_bone")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -45,7 +45,7 @@ pub fn (r &Skeleton3D) get_bone_name(bone_idx i32) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r Skeleton3D) set_bone_name(bone_idx i32, name string) {
+pub fn (r &Skeleton3D) set_bone_name(bone_idx i32, name string) {
     classname := StringName.new("Skeleton3D")
     fnname := StringName.new("set_bone_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
@@ -70,7 +70,7 @@ pub fn (r &Skeleton3D) get_bone_parent(bone_idx i32) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Skeleton3D) set_bone_parent(bone_idx i32, parent_idx i32) {
+pub fn (r &Skeleton3D) set_bone_parent(bone_idx i32, parent_idx i32) {
     classname := StringName.new("Skeleton3D")
     fnname := StringName.new("set_bone_parent")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3937882851)
@@ -101,7 +101,7 @@ pub fn (r &Skeleton3D) get_version() u64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Skeleton3D) unparent_bone_and_rest(bone_idx i32) {
+pub fn (r &Skeleton3D) unparent_bone_and_rest(bone_idx i32) {
     classname := StringName.new("Skeleton3D")
     fnname := StringName.new("unparent_bone_and_rest")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -145,7 +145,7 @@ pub fn (r &Skeleton3D) get_bone_rest(bone_idx i32) Transform3D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Skeleton3D) set_bone_rest(bone_idx i32, rest Transform3D) {
+pub fn (r &Skeleton3D) set_bone_rest(bone_idx i32, rest Transform3D) {
     classname := StringName.new("Skeleton3D")
     fnname := StringName.new("set_bone_rest")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3616898986)
@@ -168,7 +168,7 @@ pub fn (r &Skeleton3D) get_bone_global_rest(bone_idx i32) Transform3D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Skeleton3D) create_skin_from_rest_transforms() Skin {
+pub fn (r &Skeleton3D) create_skin_from_rest_transforms() Skin {
     mut object_out := Skin{}
     classname := StringName.new("Skeleton3D")
     fnname := StringName.new("create_skin_from_rest_transforms")
@@ -178,7 +178,7 @@ pub fn (mut r Skeleton3D) create_skin_from_rest_transforms() Skin {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Skeleton3D) register_skin(skin Skin) SkinReference {
+pub fn (r &Skeleton3D) register_skin(skin Skin) SkinReference {
     mut object_out := SkinReference{}
     classname := StringName.new("Skeleton3D")
     fnname := StringName.new("register_skin")
@@ -190,7 +190,7 @@ pub fn (mut r Skeleton3D) register_skin(skin Skin) SkinReference {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Skeleton3D) localize_rests() {
+pub fn (r &Skeleton3D) localize_rests() {
     classname := StringName.new("Skeleton3D")
     fnname := StringName.new("localize_rests")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -198,7 +198,7 @@ pub fn (mut r Skeleton3D) localize_rests() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Skeleton3D) clear_bones() {
+pub fn (r &Skeleton3D) clear_bones() {
     classname := StringName.new("Skeleton3D")
     fnname := StringName.new("clear_bones")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -218,7 +218,7 @@ pub fn (r &Skeleton3D) get_bone_pose(bone_idx i32) Transform3D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Skeleton3D) set_bone_pose_position(bone_idx i32, position Vector3) {
+pub fn (r &Skeleton3D) set_bone_pose_position(bone_idx i32, position Vector3) {
     classname := StringName.new("Skeleton3D")
     fnname := StringName.new("set_bone_pose_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1530502735)
@@ -229,7 +229,7 @@ pub fn (mut r Skeleton3D) set_bone_pose_position(bone_idx i32, position Vector3)
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Skeleton3D) set_bone_pose_rotation(bone_idx i32, rotation Quaternion) {
+pub fn (r &Skeleton3D) set_bone_pose_rotation(bone_idx i32, rotation Quaternion) {
     classname := StringName.new("Skeleton3D")
     fnname := StringName.new("set_bone_pose_rotation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2823819782)
@@ -240,7 +240,7 @@ pub fn (mut r Skeleton3D) set_bone_pose_rotation(bone_idx i32, rotation Quaterni
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Skeleton3D) set_bone_pose_scale(bone_idx i32, scale Vector3) {
+pub fn (r &Skeleton3D) set_bone_pose_scale(bone_idx i32, scale Vector3) {
     classname := StringName.new("Skeleton3D")
     fnname := StringName.new("set_bone_pose_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1530502735)
@@ -287,7 +287,7 @@ pub fn (r &Skeleton3D) get_bone_pose_scale(bone_idx i32) Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Skeleton3D) reset_bone_pose(bone_idx i32) {
+pub fn (r &Skeleton3D) reset_bone_pose(bone_idx i32) {
     classname := StringName.new("Skeleton3D")
     fnname := StringName.new("reset_bone_pose")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -297,7 +297,7 @@ pub fn (mut r Skeleton3D) reset_bone_pose(bone_idx i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Skeleton3D) reset_bone_poses() {
+pub fn (r &Skeleton3D) reset_bone_poses() {
     classname := StringName.new("Skeleton3D")
     fnname := StringName.new("reset_bone_poses")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -317,7 +317,7 @@ pub fn (r &Skeleton3D) is_bone_enabled(bone_idx i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Skeleton3D) set_bone_enabled(bone_idx i32, enabled bool) {
+pub fn (r &Skeleton3D) set_bone_enabled(bone_idx i32, enabled bool) {
     classname := StringName.new("Skeleton3D")
     fnname := StringName.new("set_bone_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 972357352)
@@ -328,7 +328,7 @@ pub fn (mut r Skeleton3D) set_bone_enabled(bone_idx i32, enabled bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Skeleton3D) clear_bones_global_pose_override() {
+pub fn (r &Skeleton3D) clear_bones_global_pose_override() {
     classname := StringName.new("Skeleton3D")
     fnname := StringName.new("clear_bones_global_pose_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -336,7 +336,7 @@ pub fn (mut r Skeleton3D) clear_bones_global_pose_override() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Skeleton3D) set_bone_global_pose_override(bone_idx i32, pose Transform3D, amount f64, persistent bool) {
+pub fn (r &Skeleton3D) set_bone_global_pose_override(bone_idx i32, pose Transform3D, amount f64, persistent bool) {
     classname := StringName.new("Skeleton3D")
     fnname := StringName.new("set_bone_global_pose_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3483398371)
@@ -385,7 +385,7 @@ pub fn (r &Skeleton3D) get_bone_global_pose_no_override(bone_idx i32) Transform3
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Skeleton3D) force_update_all_bone_transforms() {
+pub fn (r &Skeleton3D) force_update_all_bone_transforms() {
     classname := StringName.new("Skeleton3D")
     fnname := StringName.new("force_update_all_bone_transforms")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -393,7 +393,7 @@ pub fn (mut r Skeleton3D) force_update_all_bone_transforms() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Skeleton3D) force_update_bone_child_transform(bone_idx i32) {
+pub fn (r &Skeleton3D) force_update_bone_child_transform(bone_idx i32) {
     classname := StringName.new("Skeleton3D")
     fnname := StringName.new("force_update_bone_child_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -403,7 +403,7 @@ pub fn (mut r Skeleton3D) force_update_bone_child_transform(bone_idx i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Skeleton3D) set_motion_scale(motion_scale f64) {
+pub fn (r &Skeleton3D) set_motion_scale(motion_scale f64) {
     classname := StringName.new("Skeleton3D")
     fnname := StringName.new("set_motion_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -423,7 +423,7 @@ pub fn (r &Skeleton3D) get_motion_scale() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Skeleton3D) set_show_rest_only(enabled bool) {
+pub fn (r &Skeleton3D) set_show_rest_only(enabled bool) {
     classname := StringName.new("Skeleton3D")
     fnname := StringName.new("set_show_rest_only")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -443,7 +443,7 @@ pub fn (r &Skeleton3D) is_show_rest_only() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Skeleton3D) set_animate_physical_bones(enabled bool) {
+pub fn (r &Skeleton3D) set_animate_physical_bones(enabled bool) {
     classname := StringName.new("Skeleton3D")
     fnname := StringName.new("set_animate_physical_bones")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -463,7 +463,7 @@ pub fn (r &Skeleton3D) get_animate_physical_bones() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Skeleton3D) physical_bones_stop_simulation() {
+pub fn (r &Skeleton3D) physical_bones_stop_simulation() {
     classname := StringName.new("Skeleton3D")
     fnname := StringName.new("physical_bones_stop_simulation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -471,7 +471,7 @@ pub fn (mut r Skeleton3D) physical_bones_stop_simulation() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Skeleton3D) physical_bones_start_simulation(bones Array) {
+pub fn (r &Skeleton3D) physical_bones_start_simulation(bones Array) {
     classname := StringName.new("Skeleton3D")
     fnname := StringName.new("physical_bones_start_simulation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2787316981)
@@ -481,7 +481,7 @@ pub fn (mut r Skeleton3D) physical_bones_start_simulation(bones Array) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Skeleton3D) physical_bones_add_collision_exception(exception RID) {
+pub fn (r &Skeleton3D) physical_bones_add_collision_exception(exception RID) {
     classname := StringName.new("Skeleton3D")
     fnname := StringName.new("physical_bones_add_collision_exception")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)
@@ -491,7 +491,7 @@ pub fn (mut r Skeleton3D) physical_bones_add_collision_exception(exception RID) 
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r Skeleton3D) physical_bones_remove_collision_exception(exception RID) {
+pub fn (r &Skeleton3D) physical_bones_remove_collision_exception(exception RID) {
     classname := StringName.new("Skeleton3D")
     fnname := StringName.new("physical_bones_remove_collision_exception")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2722037293)

@@ -37,7 +37,7 @@ pub struct VisualShader {
     Shader
 }
 
-pub fn (mut r VisualShader) set_mode(mode ShaderMode) {
+pub fn (r &VisualShader) set_mode(mode ShaderMode) {
     classname := StringName.new("VisualShader")
     fnname := StringName.new("set_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3978014962)
@@ -48,7 +48,7 @@ pub fn (mut r VisualShader) set_mode(mode ShaderMode) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r VisualShader) add_node(type_name VisualShaderType, node VisualShaderNode, position Vector2, id i32) {
+pub fn (r &VisualShader) add_node(type_name VisualShaderType, node VisualShaderNode, position Vector2, id i32) {
     classname := StringName.new("VisualShader")
     fnname := StringName.new("add_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1560769431)
@@ -76,7 +76,7 @@ pub fn (r &VisualShader) get_node(type_name VisualShaderType, id i32) VisualShad
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VisualShader) set_node_position(type_name VisualShaderType, id i32, position Vector2) {
+pub fn (r &VisualShader) set_node_position(type_name VisualShaderType, id i32, position Vector2) {
     classname := StringName.new("VisualShader")
     fnname := StringName.new("set_node_position")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2726660721)
@@ -129,7 +129,7 @@ pub fn (r &VisualShader) get_valid_node_id(type_name VisualShaderType) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VisualShader) remove_node(type_name VisualShaderType, id i32) {
+pub fn (r &VisualShader) remove_node(type_name VisualShaderType, id i32) {
     classname := StringName.new("VisualShader")
     fnname := StringName.new("remove_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 844050912)
@@ -141,7 +141,7 @@ pub fn (mut r VisualShader) remove_node(type_name VisualShaderType, id i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r VisualShader) replace_node(type_name VisualShaderType, id i32, new_class string) {
+pub fn (r &VisualShader) replace_node(type_name VisualShaderType, id i32, new_class string) {
     classname := StringName.new("VisualShader")
     fnname := StringName.new("replace_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3144735253)
@@ -190,7 +190,7 @@ pub fn (r &VisualShader) can_connect_nodes(type_name VisualShaderType, from_node
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VisualShader) connect_nodes(type_name VisualShaderType, from_node i32, from_port i32, to_node i32, to_port i32) GDError {
+pub fn (r &VisualShader) connect_nodes(type_name VisualShaderType, from_node i32, from_port i32, to_node i32, to_port i32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("VisualShader")
     fnname := StringName.new("connect_nodes")
@@ -207,7 +207,7 @@ pub fn (mut r VisualShader) connect_nodes(type_name VisualShaderType, from_node 
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r VisualShader) disconnect_nodes(type_name VisualShaderType, from_node i32, from_port i32, to_node i32, to_port i32) {
+pub fn (r &VisualShader) disconnect_nodes(type_name VisualShaderType, from_node i32, from_port i32, to_node i32, to_port i32) {
     classname := StringName.new("VisualShader")
     fnname := StringName.new("disconnect_nodes")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2268060358)
@@ -222,7 +222,7 @@ pub fn (mut r VisualShader) disconnect_nodes(type_name VisualShaderType, from_no
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r VisualShader) connect_nodes_forced(type_name VisualShaderType, from_node i32, from_port i32, to_node i32, to_port i32) {
+pub fn (r &VisualShader) connect_nodes_forced(type_name VisualShaderType, from_node i32, from_port i32, to_node i32, to_port i32) {
     classname := StringName.new("VisualShader")
     fnname := StringName.new("connect_nodes_forced")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2268060358)
@@ -250,7 +250,7 @@ pub fn (r &VisualShader) get_node_connections(type_name VisualShaderType) Array 
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VisualShader) set_graph_offset(offset Vector2) {
+pub fn (r &VisualShader) set_graph_offset(offset Vector2) {
     classname := StringName.new("VisualShader")
     fnname := StringName.new("set_graph_offset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -270,7 +270,7 @@ pub fn (r &VisualShader) get_graph_offset() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r VisualShader) add_varying(name string, mode VisualShaderVaryingMode, type_name VisualShaderVaryingType) {
+pub fn (r &VisualShader) add_varying(name string, mode VisualShaderVaryingMode, type_name VisualShaderVaryingType) {
     classname := StringName.new("VisualShader")
     fnname := StringName.new("add_varying")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2084110726)
@@ -286,7 +286,7 @@ pub fn (mut r VisualShader) add_varying(name string, mode VisualShaderVaryingMod
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r VisualShader) remove_varying(name string) {
+pub fn (r &VisualShader) remove_varying(name string) {
     classname := StringName.new("VisualShader")
     fnname := StringName.new("remove_varying")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)

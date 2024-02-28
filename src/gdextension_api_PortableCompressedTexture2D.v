@@ -14,7 +14,7 @@ pub struct PortableCompressedTexture2D {
     Texture2D
 }
 
-pub fn (mut r PortableCompressedTexture2D) create_from_image(image Image, compression_mode PortableCompressedTexture2DCompressionMode, normal_map bool, lossy_quality f64) {
+pub fn (r &PortableCompressedTexture2D) create_from_image(image Image, compression_mode PortableCompressedTexture2DCompressionMode, normal_map bool, lossy_quality f64) {
     classname := StringName.new("PortableCompressedTexture2D")
     fnname := StringName.new("create_from_image")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3679243433)
@@ -48,7 +48,7 @@ pub fn (r &PortableCompressedTexture2D) get_compression_mode() PortableCompresse
     fnname.deinit()
    return unsafe{PortableCompressedTexture2DCompressionMode(object_out)}
 }
-pub fn (mut r PortableCompressedTexture2D) set_size_override(size Vector2) {
+pub fn (r &PortableCompressedTexture2D) set_size_override(size Vector2) {
     classname := StringName.new("PortableCompressedTexture2D")
     fnname := StringName.new("set_size_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 743155724)
@@ -68,7 +68,7 @@ pub fn (r &PortableCompressedTexture2D) get_size_override() Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r PortableCompressedTexture2D) set_keep_compressed_buffer(keep bool) {
+pub fn (r &PortableCompressedTexture2D) set_keep_compressed_buffer(keep bool) {
     classname := StringName.new("PortableCompressedTexture2D")
     fnname := StringName.new("set_keep_compressed_buffer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

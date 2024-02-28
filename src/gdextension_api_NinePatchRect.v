@@ -11,7 +11,7 @@ pub struct NinePatchRect {
     Control
 }
 
-pub fn (mut r NinePatchRect) set_texture(texture Texture2D) {
+pub fn (r &NinePatchRect) set_texture(texture Texture2D) {
     classname := StringName.new("NinePatchRect")
     fnname := StringName.new("set_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
@@ -31,7 +31,7 @@ pub fn (r &NinePatchRect) get_texture() Texture2D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NinePatchRect) set_patch_margin(margin Side, value i32) {
+pub fn (r &NinePatchRect) set_patch_margin(margin Side, value i32) {
     classname := StringName.new("NinePatchRect")
     fnname := StringName.new("set_patch_margin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 437707142)
@@ -56,7 +56,7 @@ pub fn (r &NinePatchRect) get_patch_margin(margin Side) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NinePatchRect) set_region_rect(rect Rect2) {
+pub fn (r &NinePatchRect) set_region_rect(rect Rect2) {
     classname := StringName.new("NinePatchRect")
     fnname := StringName.new("set_region_rect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2046264180)
@@ -76,7 +76,7 @@ pub fn (r &NinePatchRect) get_region_rect() Rect2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NinePatchRect) set_draw_center(draw_center bool) {
+pub fn (r &NinePatchRect) set_draw_center(draw_center bool) {
     classname := StringName.new("NinePatchRect")
     fnname := StringName.new("set_draw_center")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -96,7 +96,7 @@ pub fn (r &NinePatchRect) is_draw_center_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r NinePatchRect) set_h_axis_stretch_mode(mode NinePatchRectAxisStretchMode) {
+pub fn (r &NinePatchRect) set_h_axis_stretch_mode(mode NinePatchRectAxisStretchMode) {
     classname := StringName.new("NinePatchRect")
     fnname := StringName.new("set_h_axis_stretch_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3219608417)
@@ -117,7 +117,7 @@ pub fn (r &NinePatchRect) get_h_axis_stretch_mode() NinePatchRectAxisStretchMode
     fnname.deinit()
    return unsafe{NinePatchRectAxisStretchMode(object_out)}
 }
-pub fn (mut r NinePatchRect) set_v_axis_stretch_mode(mode NinePatchRectAxisStretchMode) {
+pub fn (r &NinePatchRect) set_v_axis_stretch_mode(mode NinePatchRectAxisStretchMode) {
     classname := StringName.new("NinePatchRect")
     fnname := StringName.new("set_v_axis_stretch_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3219608417)

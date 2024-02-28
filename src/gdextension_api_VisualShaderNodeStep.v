@@ -16,7 +16,7 @@ pub struct VisualShaderNodeStep {
     VisualShaderNode
 }
 
-pub fn (mut r VisualShaderNodeStep) set_op_type(op_type VisualShaderNodeStepOpType) {
+pub fn (r &VisualShaderNodeStep) set_op_type(op_type VisualShaderNodeStepOpType) {
     classname := StringName.new("VisualShaderNodeStep")
     fnname := StringName.new("set_op_type")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 715172489)

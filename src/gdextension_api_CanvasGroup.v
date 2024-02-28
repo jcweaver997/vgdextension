@@ -5,7 +5,7 @@ pub struct CanvasGroup {
     Node2D
 }
 
-pub fn (mut r CanvasGroup) set_fit_margin(fit_margin f64) {
+pub fn (r &CanvasGroup) set_fit_margin(fit_margin f64) {
     classname := StringName.new("CanvasGroup")
     fnname := StringName.new("set_fit_margin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -25,7 +25,7 @@ pub fn (r &CanvasGroup) get_fit_margin() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CanvasGroup) set_clear_margin(clear_margin f64) {
+pub fn (r &CanvasGroup) set_clear_margin(clear_margin f64) {
     classname := StringName.new("CanvasGroup")
     fnname := StringName.new("set_clear_margin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -45,7 +45,7 @@ pub fn (r &CanvasGroup) get_clear_margin() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r CanvasGroup) set_use_mipmaps(use_mipmaps bool) {
+pub fn (r &CanvasGroup) set_use_mipmaps(use_mipmaps bool) {
     classname := StringName.new("CanvasGroup")
     fnname := StringName.new("set_use_mipmaps")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

@@ -5,7 +5,7 @@ pub struct MenuBar {
     Control
 }
 
-pub fn (mut r MenuBar) set_switch_on_hover(enable bool) {
+pub fn (r &MenuBar) set_switch_on_hover(enable bool) {
     classname := StringName.new("MenuBar")
     fnname := StringName.new("set_switch_on_hover")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -15,7 +15,7 @@ pub fn (mut r MenuBar) set_switch_on_hover(enable bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r MenuBar) is_switch_on_hover() bool {
+pub fn (r &MenuBar) is_switch_on_hover() bool {
     mut object_out := false
     classname := StringName.new("MenuBar")
     fnname := StringName.new("is_switch_on_hover")
@@ -25,7 +25,7 @@ pub fn (mut r MenuBar) is_switch_on_hover() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MenuBar) set_disable_shortcuts(disabled bool) {
+pub fn (r &MenuBar) set_disable_shortcuts(disabled bool) {
     classname := StringName.new("MenuBar")
     fnname := StringName.new("set_disable_shortcuts")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -35,7 +35,7 @@ pub fn (mut r MenuBar) set_disable_shortcuts(disabled bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r MenuBar) set_prefer_global_menu(enabled bool) {
+pub fn (r &MenuBar) set_prefer_global_menu(enabled bool) {
     classname := StringName.new("MenuBar")
     fnname := StringName.new("set_prefer_global_menu")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -75,7 +75,7 @@ pub fn (r &MenuBar) get_menu_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MenuBar) set_text_direction(direction ControlTextDirection) {
+pub fn (r &MenuBar) set_text_direction(direction ControlTextDirection) {
     classname := StringName.new("MenuBar")
     fnname := StringName.new("set_text_direction")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 119160795)
@@ -96,7 +96,7 @@ pub fn (r &MenuBar) get_text_direction() ControlTextDirection {
     fnname.deinit()
    return unsafe{ControlTextDirection(object_out)}
 }
-pub fn (mut r MenuBar) set_language(language string) {
+pub fn (r &MenuBar) set_language(language string) {
     classname := StringName.new("MenuBar")
     fnname := StringName.new("set_language")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -120,7 +120,7 @@ pub fn (r &MenuBar) get_language() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r MenuBar) set_flat(enabled bool) {
+pub fn (r &MenuBar) set_flat(enabled bool) {
     classname := StringName.new("MenuBar")
     fnname := StringName.new("set_flat")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -140,7 +140,7 @@ pub fn (r &MenuBar) is_flat() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MenuBar) set_start_index(enabled i32) {
+pub fn (r &MenuBar) set_start_index(enabled i32) {
     classname := StringName.new("MenuBar")
     fnname := StringName.new("set_start_index")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -160,7 +160,7 @@ pub fn (r &MenuBar) get_start_index() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MenuBar) set_menu_title(menu i32, title string) {
+pub fn (r &MenuBar) set_menu_title(menu i32, title string) {
     classname := StringName.new("MenuBar")
     fnname := StringName.new("set_menu_title")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
@@ -187,7 +187,7 @@ pub fn (r &MenuBar) get_menu_title(menu i32) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r MenuBar) set_menu_tooltip(menu i32, tooltip string) {
+pub fn (r &MenuBar) set_menu_tooltip(menu i32, tooltip string) {
     classname := StringName.new("MenuBar")
     fnname := StringName.new("set_menu_tooltip")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 501894301)
@@ -214,7 +214,7 @@ pub fn (r &MenuBar) get_menu_tooltip(menu i32) string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r MenuBar) set_menu_disabled(menu i32, disabled bool) {
+pub fn (r &MenuBar) set_menu_disabled(menu i32, disabled bool) {
     classname := StringName.new("MenuBar")
     fnname := StringName.new("set_menu_disabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)
@@ -237,7 +237,7 @@ pub fn (r &MenuBar) is_menu_disabled(menu i32) bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MenuBar) set_menu_hidden(menu i32, hidden bool) {
+pub fn (r &MenuBar) set_menu_hidden(menu i32, hidden bool) {
     classname := StringName.new("MenuBar")
     fnname := StringName.new("set_menu_hidden")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 300928843)

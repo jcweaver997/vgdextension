@@ -5,7 +5,7 @@ pub struct GLTFSkeleton {
     Resource
 }
 
-pub fn (mut r GLTFSkeleton) get_joints() PackedInt32Array {
+pub fn (r &GLTFSkeleton) get_joints() PackedInt32Array {
     mut object_out := PackedInt32Array{}
     classname := StringName.new("GLTFSkeleton")
     fnname := StringName.new("get_joints")
@@ -15,7 +15,7 @@ pub fn (mut r GLTFSkeleton) get_joints() PackedInt32Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFSkeleton) set_joints(joints PackedInt32Array) {
+pub fn (r &GLTFSkeleton) set_joints(joints PackedInt32Array) {
     classname := StringName.new("GLTFSkeleton")
     fnname := StringName.new("set_joints")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3614634198)
@@ -25,7 +25,7 @@ pub fn (mut r GLTFSkeleton) set_joints(joints PackedInt32Array) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFSkeleton) get_roots() PackedInt32Array {
+pub fn (r &GLTFSkeleton) get_roots() PackedInt32Array {
     mut object_out := PackedInt32Array{}
     classname := StringName.new("GLTFSkeleton")
     fnname := StringName.new("get_roots")
@@ -35,7 +35,7 @@ pub fn (mut r GLTFSkeleton) get_roots() PackedInt32Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFSkeleton) set_roots(roots PackedInt32Array) {
+pub fn (r &GLTFSkeleton) set_roots(roots PackedInt32Array) {
     classname := StringName.new("GLTFSkeleton")
     fnname := StringName.new("set_roots")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3614634198)
@@ -45,7 +45,7 @@ pub fn (mut r GLTFSkeleton) set_roots(roots PackedInt32Array) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFSkeleton) get_godot_skeleton() Skeleton3D {
+pub fn (r &GLTFSkeleton) get_godot_skeleton() Skeleton3D {
     mut object_out := Skeleton3D{}
     classname := StringName.new("GLTFSkeleton")
     fnname := StringName.new("get_godot_skeleton")
@@ -55,7 +55,7 @@ pub fn (mut r GLTFSkeleton) get_godot_skeleton() Skeleton3D {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFSkeleton) get_unique_names() Array {
+pub fn (r &GLTFSkeleton) get_unique_names() Array {
     mut object_out := Array{}
     classname := StringName.new("GLTFSkeleton")
     fnname := StringName.new("get_unique_names")
@@ -65,7 +65,7 @@ pub fn (mut r GLTFSkeleton) get_unique_names() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFSkeleton) set_unique_names(unique_names Array) {
+pub fn (r &GLTFSkeleton) set_unique_names(unique_names Array) {
     classname := StringName.new("GLTFSkeleton")
     fnname := StringName.new("set_unique_names")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)
@@ -75,7 +75,7 @@ pub fn (mut r GLTFSkeleton) set_unique_names(unique_names Array) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFSkeleton) get_godot_bone_node() Dictionary {
+pub fn (r &GLTFSkeleton) get_godot_bone_node() Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("GLTFSkeleton")
     fnname := StringName.new("get_godot_bone_node")
@@ -85,7 +85,7 @@ pub fn (mut r GLTFSkeleton) get_godot_bone_node() Dictionary {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFSkeleton) set_godot_bone_node(godot_bone_node Dictionary) {
+pub fn (r &GLTFSkeleton) set_godot_bone_node(godot_bone_node Dictionary) {
     classname := StringName.new("GLTFSkeleton")
     fnname := StringName.new("set_godot_bone_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4155329257)
@@ -95,7 +95,7 @@ pub fn (mut r GLTFSkeleton) set_godot_bone_node(godot_bone_node Dictionary) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r GLTFSkeleton) get_bone_attachment_count() i32 {
+pub fn (r &GLTFSkeleton) get_bone_attachment_count() i32 {
     mut object_out := i32(0)
     classname := StringName.new("GLTFSkeleton")
     fnname := StringName.new("get_bone_attachment_count")
@@ -105,7 +105,7 @@ pub fn (mut r GLTFSkeleton) get_bone_attachment_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r GLTFSkeleton) get_bone_attachment(idx i32) BoneAttachment3D {
+pub fn (r &GLTFSkeleton) get_bone_attachment(idx i32) BoneAttachment3D {
     mut object_out := BoneAttachment3D{}
     classname := StringName.new("GLTFSkeleton")
     fnname := StringName.new("get_bone_attachment")

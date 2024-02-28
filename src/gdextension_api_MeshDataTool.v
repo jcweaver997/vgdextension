@@ -5,7 +5,7 @@ pub struct MeshDataTool {
     RefCounted
 }
 
-pub fn (mut r MeshDataTool) clear() {
+pub fn (r &MeshDataTool) clear() {
     classname := StringName.new("MeshDataTool")
     fnname := StringName.new("clear")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -13,7 +13,7 @@ pub fn (mut r MeshDataTool) clear() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r MeshDataTool) create_from_surface(mesh ArrayMesh, surface i32) GDError {
+pub fn (r &MeshDataTool) create_from_surface(mesh ArrayMesh, surface i32) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("MeshDataTool")
     fnname := StringName.new("create_from_surface")
@@ -26,7 +26,7 @@ pub fn (mut r MeshDataTool) create_from_surface(mesh ArrayMesh, surface i32) GDE
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r MeshDataTool) commit_to_surface(mesh ArrayMesh, compression_flags u64) GDError {
+pub fn (r &MeshDataTool) commit_to_surface(mesh ArrayMesh, compression_flags u64) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("MeshDataTool")
     fnname := StringName.new("commit_to_surface")
@@ -79,7 +79,7 @@ pub fn (r &MeshDataTool) get_face_count() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MeshDataTool) set_vertex(idx i32, vertex Vector3) {
+pub fn (r &MeshDataTool) set_vertex(idx i32, vertex Vector3) {
     classname := StringName.new("MeshDataTool")
     fnname := StringName.new("set_vertex")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1530502735)
@@ -102,7 +102,7 @@ pub fn (r &MeshDataTool) get_vertex(idx i32) Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MeshDataTool) set_vertex_normal(idx i32, normal Vector3) {
+pub fn (r &MeshDataTool) set_vertex_normal(idx i32, normal Vector3) {
     classname := StringName.new("MeshDataTool")
     fnname := StringName.new("set_vertex_normal")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1530502735)
@@ -125,7 +125,7 @@ pub fn (r &MeshDataTool) get_vertex_normal(idx i32) Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MeshDataTool) set_vertex_tangent(idx i32, tangent Plane) {
+pub fn (r &MeshDataTool) set_vertex_tangent(idx i32, tangent Plane) {
     classname := StringName.new("MeshDataTool")
     fnname := StringName.new("set_vertex_tangent")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1104099133)
@@ -148,7 +148,7 @@ pub fn (r &MeshDataTool) get_vertex_tangent(idx i32) Plane {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MeshDataTool) set_vertex_uv(idx i32, uv Vector2) {
+pub fn (r &MeshDataTool) set_vertex_uv(idx i32, uv Vector2) {
     classname := StringName.new("MeshDataTool")
     fnname := StringName.new("set_vertex_uv")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 163021252)
@@ -171,7 +171,7 @@ pub fn (r &MeshDataTool) get_vertex_uv(idx i32) Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MeshDataTool) set_vertex_uv2(idx i32, uv2 Vector2) {
+pub fn (r &MeshDataTool) set_vertex_uv2(idx i32, uv2 Vector2) {
     classname := StringName.new("MeshDataTool")
     fnname := StringName.new("set_vertex_uv2")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 163021252)
@@ -194,7 +194,7 @@ pub fn (r &MeshDataTool) get_vertex_uv2(idx i32) Vector2 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MeshDataTool) set_vertex_color(idx i32, color Color) {
+pub fn (r &MeshDataTool) set_vertex_color(idx i32, color Color) {
     classname := StringName.new("MeshDataTool")
     fnname := StringName.new("set_vertex_color")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2878471219)
@@ -217,7 +217,7 @@ pub fn (r &MeshDataTool) get_vertex_color(idx i32) Color {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MeshDataTool) set_vertex_bones(idx i32, bones PackedInt32Array) {
+pub fn (r &MeshDataTool) set_vertex_bones(idx i32, bones PackedInt32Array) {
     classname := StringName.new("MeshDataTool")
     fnname := StringName.new("set_vertex_bones")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3500328261)
@@ -240,7 +240,7 @@ pub fn (r &MeshDataTool) get_vertex_bones(idx i32) PackedInt32Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MeshDataTool) set_vertex_weights(idx i32, weights PackedFloat32Array) {
+pub fn (r &MeshDataTool) set_vertex_weights(idx i32, weights PackedFloat32Array) {
     classname := StringName.new("MeshDataTool")
     fnname := StringName.new("set_vertex_weights")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1345852415)
@@ -263,7 +263,7 @@ pub fn (r &MeshDataTool) get_vertex_weights(idx i32) PackedFloat32Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MeshDataTool) set_vertex_meta(idx i32, meta Variant) {
+pub fn (r &MeshDataTool) set_vertex_meta(idx i32, meta Variant) {
     classname := StringName.new("MeshDataTool")
     fnname := StringName.new("set_vertex_meta")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2152698145)
@@ -335,7 +335,7 @@ pub fn (r &MeshDataTool) get_edge_faces(idx i32) PackedInt32Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MeshDataTool) set_edge_meta(idx i32, meta Variant) {
+pub fn (r &MeshDataTool) set_edge_meta(idx i32, meta Variant) {
     classname := StringName.new("MeshDataTool")
     fnname := StringName.new("set_edge_meta")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2152698145)
@@ -384,7 +384,7 @@ pub fn (r &MeshDataTool) get_face_edge(idx i32, edge i32) i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MeshDataTool) set_face_meta(idx i32, meta Variant) {
+pub fn (r &MeshDataTool) set_face_meta(idx i32, meta Variant) {
     classname := StringName.new("MeshDataTool")
     fnname := StringName.new("set_face_meta")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2152698145)
@@ -419,7 +419,7 @@ pub fn (r &MeshDataTool) get_face_normal(idx i32) Vector3 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r MeshDataTool) set_material(material Material) {
+pub fn (r &MeshDataTool) set_material(material Material) {
     classname := StringName.new("MeshDataTool")
     fnname := StringName.new("set_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2757459619)

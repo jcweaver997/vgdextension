@@ -5,7 +5,7 @@ pub struct Path2D {
     Node2D
 }
 
-pub fn (mut r Path2D) set_curve(curve Curve2D) {
+pub fn (r &Path2D) set_curve(curve Curve2D) {
     classname := StringName.new("Path2D")
     fnname := StringName.new("set_curve")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 659985499)

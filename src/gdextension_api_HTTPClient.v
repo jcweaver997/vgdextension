@@ -95,7 +95,7 @@ pub struct HTTPClient {
     RefCounted
 }
 
-pub fn (mut r HTTPClient) connect_to_host(host string, port i32, tls_options TLSOptions) GDError {
+pub fn (r &HTTPClient) connect_to_host(host string, port i32, tls_options TLSOptions) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("HTTPClient")
     fnname := StringName.new("connect_to_host")
@@ -111,7 +111,7 @@ pub fn (mut r HTTPClient) connect_to_host(host string, port i32, tls_options TLS
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r HTTPClient) set_connection(connection StreamPeer) {
+pub fn (r &HTTPClient) set_connection(connection StreamPeer) {
     classname := StringName.new("HTTPClient")
     fnname := StringName.new("set_connection")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3281897016)
@@ -131,7 +131,7 @@ pub fn (r &HTTPClient) get_connection() StreamPeer {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r HTTPClient) request_raw(method HTTPClientMethod, url string, headers PackedStringArray, body PackedByteArray) GDError {
+pub fn (r &HTTPClient) request_raw(method HTTPClientMethod, url string, headers PackedStringArray, body PackedByteArray) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("HTTPClient")
     fnname := StringName.new("request_raw")
@@ -149,7 +149,7 @@ pub fn (mut r HTTPClient) request_raw(method HTTPClientMethod, url string, heade
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r HTTPClient) request(method HTTPClientMethod, url string, headers PackedStringArray, body string) GDError {
+pub fn (r &HTTPClient) request(method HTTPClientMethod, url string, headers PackedStringArray, body string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("HTTPClient")
     fnname := StringName.new("request")
@@ -169,7 +169,7 @@ pub fn (mut r HTTPClient) request(method HTTPClientMethod, url string, headers P
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r HTTPClient) close() {
+pub fn (r &HTTPClient) close() {
     classname := StringName.new("HTTPClient")
     fnname := StringName.new("close")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -207,7 +207,7 @@ pub fn (r &HTTPClient) get_response_code() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r HTTPClient) get_response_headers() PackedStringArray {
+pub fn (r &HTTPClient) get_response_headers() PackedStringArray {
     mut object_out := PackedStringArray{}
     classname := StringName.new("HTTPClient")
     fnname := StringName.new("get_response_headers")
@@ -217,7 +217,7 @@ pub fn (mut r HTTPClient) get_response_headers() PackedStringArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r HTTPClient) get_response_headers_as_dictionary() Dictionary {
+pub fn (r &HTTPClient) get_response_headers_as_dictionary() Dictionary {
     mut object_out := Dictionary{}
     classname := StringName.new("HTTPClient")
     fnname := StringName.new("get_response_headers_as_dictionary")
@@ -237,7 +237,7 @@ pub fn (r &HTTPClient) get_response_body_length() i64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r HTTPClient) read_response_body_chunk() PackedByteArray {
+pub fn (r &HTTPClient) read_response_body_chunk() PackedByteArray {
     mut object_out := PackedByteArray{}
     classname := StringName.new("HTTPClient")
     fnname := StringName.new("read_response_body_chunk")
@@ -247,7 +247,7 @@ pub fn (mut r HTTPClient) read_response_body_chunk() PackedByteArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r HTTPClient) set_read_chunk_size(bytes i32) {
+pub fn (r &HTTPClient) set_read_chunk_size(bytes i32) {
     classname := StringName.new("HTTPClient")
     fnname := StringName.new("set_read_chunk_size")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -267,7 +267,7 @@ pub fn (r &HTTPClient) get_read_chunk_size() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r HTTPClient) set_blocking_mode(enabled bool) {
+pub fn (r &HTTPClient) set_blocking_mode(enabled bool) {
     classname := StringName.new("HTTPClient")
     fnname := StringName.new("set_blocking_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -297,7 +297,7 @@ pub fn (r &HTTPClient) get_status() HTTPClientStatus {
     fnname.deinit()
    return unsafe{HTTPClientStatus(object_out)}
 }
-pub fn (mut r HTTPClient) poll() GDError {
+pub fn (r &HTTPClient) poll() GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("HTTPClient")
     fnname := StringName.new("poll")
@@ -307,7 +307,7 @@ pub fn (mut r HTTPClient) poll() GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r HTTPClient) set_http_proxy(host string, port i32) {
+pub fn (r &HTTPClient) set_http_proxy(host string, port i32) {
     classname := StringName.new("HTTPClient")
     fnname := StringName.new("set_http_proxy")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2956805083)
@@ -320,7 +320,7 @@ pub fn (mut r HTTPClient) set_http_proxy(host string, port i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r HTTPClient) set_https_proxy(host string, port i32) {
+pub fn (r &HTTPClient) set_https_proxy(host string, port i32) {
     classname := StringName.new("HTTPClient")
     fnname := StringName.new("set_https_proxy")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2956805083)
@@ -333,7 +333,7 @@ pub fn (mut r HTTPClient) set_https_proxy(host string, port i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r HTTPClient) query_string_from_dict(fields Dictionary) string {
+pub fn (r &HTTPClient) query_string_from_dict(fields Dictionary) string {
     mut object_out := String{}
     classname := StringName.new("HTTPClient")
     fnname := StringName.new("query_string_from_dict")

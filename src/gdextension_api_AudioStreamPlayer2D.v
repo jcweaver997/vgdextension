@@ -5,7 +5,7 @@ pub struct AudioStreamPlayer2D {
     Node2D
 }
 
-pub fn (mut r AudioStreamPlayer2D) set_stream(stream AudioStream) {
+pub fn (r &AudioStreamPlayer2D) set_stream(stream AudioStream) {
     classname := StringName.new("AudioStreamPlayer2D")
     fnname := StringName.new("set_stream")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2210767741)
@@ -25,7 +25,7 @@ pub fn (r &AudioStreamPlayer2D) get_stream() AudioStream {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer2D) set_volume_db(volume_db f64) {
+pub fn (r &AudioStreamPlayer2D) set_volume_db(volume_db f64) {
     classname := StringName.new("AudioStreamPlayer2D")
     fnname := StringName.new("set_volume_db")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -45,7 +45,7 @@ pub fn (r &AudioStreamPlayer2D) get_volume_db() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer2D) set_pitch_scale(pitch_scale f64) {
+pub fn (r &AudioStreamPlayer2D) set_pitch_scale(pitch_scale f64) {
     classname := StringName.new("AudioStreamPlayer2D")
     fnname := StringName.new("set_pitch_scale")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -65,7 +65,7 @@ pub fn (r &AudioStreamPlayer2D) get_pitch_scale() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer2D) play(from_position f64) {
+pub fn (r &AudioStreamPlayer2D) play(from_position f64) {
     classname := StringName.new("AudioStreamPlayer2D")
     fnname := StringName.new("play")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1958160172)
@@ -75,7 +75,7 @@ pub fn (mut r AudioStreamPlayer2D) play(from_position f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AudioStreamPlayer2D) seek(to_position f64) {
+pub fn (r &AudioStreamPlayer2D) seek(to_position f64) {
     classname := StringName.new("AudioStreamPlayer2D")
     fnname := StringName.new("seek")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -85,7 +85,7 @@ pub fn (mut r AudioStreamPlayer2D) seek(to_position f64) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AudioStreamPlayer2D) stop() {
+pub fn (r &AudioStreamPlayer2D) stop() {
     classname := StringName.new("AudioStreamPlayer2D")
     fnname := StringName.new("stop")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -103,7 +103,7 @@ pub fn (r &AudioStreamPlayer2D) is_playing() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer2D) get_playback_position() f64 {
+pub fn (r &AudioStreamPlayer2D) get_playback_position() f64 {
     mut object_out := f64(0)
     classname := StringName.new("AudioStreamPlayer2D")
     fnname := StringName.new("get_playback_position")
@@ -113,7 +113,7 @@ pub fn (mut r AudioStreamPlayer2D) get_playback_position() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer2D) set_bus(bus string) {
+pub fn (r &AudioStreamPlayer2D) set_bus(bus string) {
     classname := StringName.new("AudioStreamPlayer2D")
     fnname := StringName.new("set_bus")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3304788590)
@@ -137,7 +137,7 @@ pub fn (r &AudioStreamPlayer2D) get_bus() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r AudioStreamPlayer2D) set_autoplay(enable bool) {
+pub fn (r &AudioStreamPlayer2D) set_autoplay(enable bool) {
     classname := StringName.new("AudioStreamPlayer2D")
     fnname := StringName.new("set_autoplay")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -147,7 +147,7 @@ pub fn (mut r AudioStreamPlayer2D) set_autoplay(enable bool) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r AudioStreamPlayer2D) is_autoplay_enabled() bool {
+pub fn (r &AudioStreamPlayer2D) is_autoplay_enabled() bool {
     mut object_out := false
     classname := StringName.new("AudioStreamPlayer2D")
     fnname := StringName.new("is_autoplay_enabled")
@@ -157,7 +157,7 @@ pub fn (mut r AudioStreamPlayer2D) is_autoplay_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer2D) set_max_distance(pixels f64) {
+pub fn (r &AudioStreamPlayer2D) set_max_distance(pixels f64) {
     classname := StringName.new("AudioStreamPlayer2D")
     fnname := StringName.new("set_max_distance")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -177,7 +177,7 @@ pub fn (r &AudioStreamPlayer2D) get_max_distance() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer2D) set_attenuation(curve f64) {
+pub fn (r &AudioStreamPlayer2D) set_attenuation(curve f64) {
     classname := StringName.new("AudioStreamPlayer2D")
     fnname := StringName.new("set_attenuation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -197,7 +197,7 @@ pub fn (r &AudioStreamPlayer2D) get_attenuation() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer2D) set_area_mask(mask u32) {
+pub fn (r &AudioStreamPlayer2D) set_area_mask(mask u32) {
     classname := StringName.new("AudioStreamPlayer2D")
     fnname := StringName.new("set_area_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -217,7 +217,7 @@ pub fn (r &AudioStreamPlayer2D) get_area_mask() u32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer2D) set_stream_paused(pause bool) {
+pub fn (r &AudioStreamPlayer2D) set_stream_paused(pause bool) {
     classname := StringName.new("AudioStreamPlayer2D")
     fnname := StringName.new("set_stream_paused")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -237,7 +237,7 @@ pub fn (r &AudioStreamPlayer2D) get_stream_paused() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer2D) set_max_polyphony(max_polyphony i32) {
+pub fn (r &AudioStreamPlayer2D) set_max_polyphony(max_polyphony i32) {
     classname := StringName.new("AudioStreamPlayer2D")
     fnname := StringName.new("set_max_polyphony")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -257,7 +257,7 @@ pub fn (r &AudioStreamPlayer2D) get_max_polyphony() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer2D) set_panning_strength(panning_strength f64) {
+pub fn (r &AudioStreamPlayer2D) set_panning_strength(panning_strength f64) {
     classname := StringName.new("AudioStreamPlayer2D")
     fnname := StringName.new("set_panning_strength")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)
@@ -277,7 +277,7 @@ pub fn (r &AudioStreamPlayer2D) get_panning_strength() f64 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer2D) has_stream_playback() bool {
+pub fn (r &AudioStreamPlayer2D) has_stream_playback() bool {
     mut object_out := false
     classname := StringName.new("AudioStreamPlayer2D")
     fnname := StringName.new("has_stream_playback")
@@ -287,7 +287,7 @@ pub fn (mut r AudioStreamPlayer2D) has_stream_playback() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r AudioStreamPlayer2D) get_stream_playback() AudioStreamPlayback {
+pub fn (r &AudioStreamPlayer2D) get_stream_playback() AudioStreamPlayback {
     mut object_out := AudioStreamPlayback{}
     classname := StringName.new("AudioStreamPlayer2D")
     fnname := StringName.new("get_stream_playback")

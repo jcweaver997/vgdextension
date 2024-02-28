@@ -5,7 +5,7 @@ pub struct VisualShaderNodeParticleEmitter {
     VisualShaderNode
 }
 
-pub fn (mut r VisualShaderNodeParticleEmitter) set_mode_2d(enabled bool) {
+pub fn (r &VisualShaderNodeParticleEmitter) set_mode_2d(enabled bool) {
     classname := StringName.new("VisualShaderNodeParticleEmitter")
     fnname := StringName.new("set_mode_2d")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)

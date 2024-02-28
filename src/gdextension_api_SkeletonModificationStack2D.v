@@ -5,7 +5,7 @@ pub struct SkeletonModificationStack2D {
     Resource
 }
 
-pub fn (mut r SkeletonModificationStack2D) setup() {
+pub fn (r &SkeletonModificationStack2D) setup() {
     classname := StringName.new("SkeletonModificationStack2D")
     fnname := StringName.new("setup")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -13,7 +13,7 @@ pub fn (mut r SkeletonModificationStack2D) setup() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SkeletonModificationStack2D) execute(delta f64, execution_mode i32) {
+pub fn (r &SkeletonModificationStack2D) execute(delta f64, execution_mode i32) {
     classname := StringName.new("SkeletonModificationStack2D")
     fnname := StringName.new("execute")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1005356550)
@@ -24,7 +24,7 @@ pub fn (mut r SkeletonModificationStack2D) execute(delta f64, execution_mode i32
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SkeletonModificationStack2D) enable_all_modifications(enabled bool) {
+pub fn (r &SkeletonModificationStack2D) enable_all_modifications(enabled bool) {
     classname := StringName.new("SkeletonModificationStack2D")
     fnname := StringName.new("enable_all_modifications")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -46,7 +46,7 @@ pub fn (r &SkeletonModificationStack2D) get_modification(mod_idx i32) SkeletonMo
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonModificationStack2D) add_modification(modification SkeletonModification2D) {
+pub fn (r &SkeletonModificationStack2D) add_modification(modification SkeletonModification2D) {
     classname := StringName.new("SkeletonModificationStack2D")
     fnname := StringName.new("add_modification")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 354162120)
@@ -56,7 +56,7 @@ pub fn (mut r SkeletonModificationStack2D) add_modification(modification Skeleto
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SkeletonModificationStack2D) delete_modification(mod_idx i32) {
+pub fn (r &SkeletonModificationStack2D) delete_modification(mod_idx i32) {
     classname := StringName.new("SkeletonModificationStack2D")
     fnname := StringName.new("delete_modification")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -66,7 +66,7 @@ pub fn (mut r SkeletonModificationStack2D) delete_modification(mod_idx i32) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SkeletonModificationStack2D) set_modification(mod_idx i32, modification SkeletonModification2D) {
+pub fn (r &SkeletonModificationStack2D) set_modification(mod_idx i32, modification SkeletonModification2D) {
     classname := StringName.new("SkeletonModificationStack2D")
     fnname := StringName.new("set_modification")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1098262544)
@@ -77,7 +77,7 @@ pub fn (mut r SkeletonModificationStack2D) set_modification(mod_idx i32, modific
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r SkeletonModificationStack2D) set_modification_count(count i32) {
+pub fn (r &SkeletonModificationStack2D) set_modification_count(count i32) {
     classname := StringName.new("SkeletonModificationStack2D")
     fnname := StringName.new("set_modification_count")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1286410249)
@@ -107,7 +107,7 @@ pub fn (r &SkeletonModificationStack2D) get_is_setup() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonModificationStack2D) set_enabled(enabled bool) {
+pub fn (r &SkeletonModificationStack2D) set_enabled(enabled bool) {
     classname := StringName.new("SkeletonModificationStack2D")
     fnname := StringName.new("set_enabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -127,7 +127,7 @@ pub fn (r &SkeletonModificationStack2D) get_enabled() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r SkeletonModificationStack2D) set_strength(strength f64) {
+pub fn (r &SkeletonModificationStack2D) set_strength(strength f64) {
     classname := StringName.new("SkeletonModificationStack2D")
     fnname := StringName.new("set_strength")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 373806689)

@@ -19,7 +19,7 @@ pub struct FileDialog {
     ConfirmationDialog
 }
 
-pub fn (mut r FileDialog) clear_filters() {
+pub fn (r &FileDialog) clear_filters() {
     classname := StringName.new("FileDialog")
     fnname := StringName.new("clear_filters")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -27,7 +27,7 @@ pub fn (mut r FileDialog) clear_filters() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FileDialog) add_filter(filter string, description string) {
+pub fn (r &FileDialog) add_filter(filter string, description string) {
     classname := StringName.new("FileDialog")
     fnname := StringName.new("add_filter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3388804757)
@@ -42,7 +42,7 @@ pub fn (mut r FileDialog) add_filter(filter string, description string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FileDialog) set_filters(filters PackedStringArray) {
+pub fn (r &FileDialog) set_filters(filters PackedStringArray) {
     classname := StringName.new("FileDialog")
     fnname := StringName.new("set_filters")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4015028928)
@@ -98,7 +98,7 @@ pub fn (r &FileDialog) get_current_path() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r FileDialog) set_current_dir(dir string) {
+pub fn (r &FileDialog) set_current_dir(dir string) {
     classname := StringName.new("FileDialog")
     fnname := StringName.new("set_current_dir")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -110,7 +110,7 @@ pub fn (mut r FileDialog) set_current_dir(dir string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FileDialog) set_current_file(file string) {
+pub fn (r &FileDialog) set_current_file(file string) {
     classname := StringName.new("FileDialog")
     fnname := StringName.new("set_current_file")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -122,7 +122,7 @@ pub fn (mut r FileDialog) set_current_file(file string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FileDialog) set_current_path(path string) {
+pub fn (r &FileDialog) set_current_path(path string) {
     classname := StringName.new("FileDialog")
     fnname := StringName.new("set_current_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -134,7 +134,7 @@ pub fn (mut r FileDialog) set_current_path(path string) {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FileDialog) set_mode_overrides_title(override bool) {
+pub fn (r &FileDialog) set_mode_overrides_title(override bool) {
     classname := StringName.new("FileDialog")
     fnname := StringName.new("set_mode_overrides_title")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -154,7 +154,7 @@ pub fn (r &FileDialog) is_mode_overriding_title() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FileDialog) set_file_mode(mode FileDialogFileMode) {
+pub fn (r &FileDialog) set_file_mode(mode FileDialogFileMode) {
     classname := StringName.new("FileDialog")
     fnname := StringName.new("set_file_mode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3654936397)
@@ -175,7 +175,7 @@ pub fn (r &FileDialog) get_file_mode() FileDialogFileMode {
     fnname.deinit()
    return unsafe{FileDialogFileMode(object_out)}
 }
-pub fn (mut r FileDialog) get_vbox() VBoxContainer {
+pub fn (r &FileDialog) get_vbox() VBoxContainer {
     mut object_out := VBoxContainer{}
     classname := StringName.new("FileDialog")
     fnname := StringName.new("get_vbox")
@@ -185,7 +185,7 @@ pub fn (mut r FileDialog) get_vbox() VBoxContainer {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FileDialog) get_line_edit() LineEdit {
+pub fn (r &FileDialog) get_line_edit() LineEdit {
     mut object_out := LineEdit{}
     classname := StringName.new("FileDialog")
     fnname := StringName.new("get_line_edit")
@@ -195,7 +195,7 @@ pub fn (mut r FileDialog) get_line_edit() LineEdit {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FileDialog) set_access(access FileDialogAccess) {
+pub fn (r &FileDialog) set_access(access FileDialogAccess) {
     classname := StringName.new("FileDialog")
     fnname := StringName.new("set_access")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4104413466)
@@ -216,7 +216,7 @@ pub fn (r &FileDialog) get_access() FileDialogAccess {
     fnname.deinit()
    return unsafe{FileDialogAccess(object_out)}
 }
-pub fn (mut r FileDialog) set_root_subfolder(dir string) {
+pub fn (r &FileDialog) set_root_subfolder(dir string) {
     classname := StringName.new("FileDialog")
     fnname := StringName.new("set_root_subfolder")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)
@@ -240,7 +240,7 @@ pub fn (r &FileDialog) get_root_subfolder() string {
    object_out.deinit()
    return object_out_v
 }
-pub fn (mut r FileDialog) set_show_hidden_files(show bool) {
+pub fn (r &FileDialog) set_show_hidden_files(show bool) {
     classname := StringName.new("FileDialog")
     fnname := StringName.new("set_show_hidden_files")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -260,7 +260,7 @@ pub fn (r &FileDialog) is_showing_hidden_files() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FileDialog) set_use_native_dialog(native bool) {
+pub fn (r &FileDialog) set_use_native_dialog(native bool) {
     classname := StringName.new("FileDialog")
     fnname := StringName.new("set_use_native_dialog")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -280,7 +280,7 @@ pub fn (r &FileDialog) get_use_native_dialog() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r FileDialog) deselect_all() {
+pub fn (r &FileDialog) deselect_all() {
     classname := StringName.new("FileDialog")
     fnname := StringName.new("deselect_all")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -288,7 +288,7 @@ pub fn (mut r FileDialog) deselect_all() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r FileDialog) invalidate() {
+pub fn (r &FileDialog) invalidate() {
     classname := StringName.new("FileDialog")
     fnname := StringName.new("invalidate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

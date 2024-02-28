@@ -5,7 +5,7 @@ pub struct RDTextureView {
     RefCounted
 }
 
-pub fn (mut r RDTextureView) set_format_override(p_member RenderingDeviceDataFormat) {
+pub fn (r &RDTextureView) set_format_override(p_member RenderingDeviceDataFormat) {
     classname := StringName.new("RDTextureView")
     fnname := StringName.new("set_format_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 565531219)
@@ -26,7 +26,7 @@ pub fn (r &RDTextureView) get_format_override() RenderingDeviceDataFormat {
     fnname.deinit()
    return unsafe{RenderingDeviceDataFormat(object_out)}
 }
-pub fn (mut r RDTextureView) set_swizzle_r(p_member RenderingDeviceTextureSwizzle) {
+pub fn (r &RDTextureView) set_swizzle_r(p_member RenderingDeviceTextureSwizzle) {
     classname := StringName.new("RDTextureView")
     fnname := StringName.new("set_swizzle_r")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3833362581)
@@ -47,7 +47,7 @@ pub fn (r &RDTextureView) get_swizzle_r() RenderingDeviceTextureSwizzle {
     fnname.deinit()
    return unsafe{RenderingDeviceTextureSwizzle(object_out)}
 }
-pub fn (mut r RDTextureView) set_swizzle_g(p_member RenderingDeviceTextureSwizzle) {
+pub fn (r &RDTextureView) set_swizzle_g(p_member RenderingDeviceTextureSwizzle) {
     classname := StringName.new("RDTextureView")
     fnname := StringName.new("set_swizzle_g")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3833362581)
@@ -68,7 +68,7 @@ pub fn (r &RDTextureView) get_swizzle_g() RenderingDeviceTextureSwizzle {
     fnname.deinit()
    return unsafe{RenderingDeviceTextureSwizzle(object_out)}
 }
-pub fn (mut r RDTextureView) set_swizzle_b(p_member RenderingDeviceTextureSwizzle) {
+pub fn (r &RDTextureView) set_swizzle_b(p_member RenderingDeviceTextureSwizzle) {
     classname := StringName.new("RDTextureView")
     fnname := StringName.new("set_swizzle_b")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3833362581)
@@ -89,7 +89,7 @@ pub fn (r &RDTextureView) get_swizzle_b() RenderingDeviceTextureSwizzle {
     fnname.deinit()
    return unsafe{RenderingDeviceTextureSwizzle(object_out)}
 }
-pub fn (mut r RDTextureView) set_swizzle_a(p_member RenderingDeviceTextureSwizzle) {
+pub fn (r &RDTextureView) set_swizzle_a(p_member RenderingDeviceTextureSwizzle) {
     classname := StringName.new("RDTextureView")
     fnname := StringName.new("set_swizzle_a")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3833362581)

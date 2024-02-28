@@ -5,7 +5,7 @@ pub struct ImageTextureLayered {
     TextureLayered
 }
 
-pub fn (mut r ImageTextureLayered) create_from_images(images Array) GDError {
+pub fn (r &ImageTextureLayered) create_from_images(images Array) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("ImageTextureLayered")
     fnname := StringName.new("create_from_images")
@@ -17,7 +17,7 @@ pub fn (mut r ImageTextureLayered) create_from_images(images Array) GDError {
     fnname.deinit()
    return unsafe{GDError(object_out)}
 }
-pub fn (mut r ImageTextureLayered) update_layer(image Image, layer i32) {
+pub fn (r &ImageTextureLayered) update_layer(image Image, layer i32) {
     classname := StringName.new("ImageTextureLayered")
     fnname := StringName.new("update_layer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3331733361)

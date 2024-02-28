@@ -5,7 +5,7 @@ pub struct EditorResourcePreview {
     Node
 }
 
-pub fn (mut r EditorResourcePreview) queue_resource_preview(path string, receiver Object, receiver_func string, userdata Variant) {
+pub fn (r &EditorResourcePreview) queue_resource_preview(path string, receiver Object, receiver_func string, userdata Variant) {
     classname := StringName.new("EditorResourcePreview")
     fnname := StringName.new("queue_resource_preview")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 233177534)
@@ -22,7 +22,7 @@ pub fn (mut r EditorResourcePreview) queue_resource_preview(path string, receive
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorResourcePreview) queue_edited_resource_preview(resource Resource, receiver Object, receiver_func string, userdata Variant) {
+pub fn (r &EditorResourcePreview) queue_edited_resource_preview(resource Resource, receiver Object, receiver_func string, userdata Variant) {
     classname := StringName.new("EditorResourcePreview")
     fnname := StringName.new("queue_edited_resource_preview")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1608376650)
@@ -37,7 +37,7 @@ pub fn (mut r EditorResourcePreview) queue_edited_resource_preview(resource Reso
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorResourcePreview) add_preview_generator(generator EditorResourcePreviewGenerator) {
+pub fn (r &EditorResourcePreview) add_preview_generator(generator EditorResourcePreviewGenerator) {
     classname := StringName.new("EditorResourcePreview")
     fnname := StringName.new("add_preview_generator")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 332288124)
@@ -47,7 +47,7 @@ pub fn (mut r EditorResourcePreview) add_preview_generator(generator EditorResou
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorResourcePreview) remove_preview_generator(generator EditorResourcePreviewGenerator) {
+pub fn (r &EditorResourcePreview) remove_preview_generator(generator EditorResourcePreviewGenerator) {
     classname := StringName.new("EditorResourcePreview")
     fnname := StringName.new("remove_preview_generator")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 332288124)
@@ -57,7 +57,7 @@ pub fn (mut r EditorResourcePreview) remove_preview_generator(generator EditorRe
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r EditorResourcePreview) check_for_invalidation(path string) {
+pub fn (r &EditorResourcePreview) check_for_invalidation(path string) {
     classname := StringName.new("EditorResourcePreview")
     fnname := StringName.new("check_for_invalidation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 83702148)

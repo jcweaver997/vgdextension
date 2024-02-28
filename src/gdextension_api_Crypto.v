@@ -5,7 +5,7 @@ pub struct Crypto {
     RefCounted
 }
 
-pub fn (mut r Crypto) generate_random_bytes(size i32) PackedByteArray {
+pub fn (r &Crypto) generate_random_bytes(size i32) PackedByteArray {
     mut object_out := PackedByteArray{}
     classname := StringName.new("Crypto")
     fnname := StringName.new("generate_random_bytes")
@@ -17,7 +17,7 @@ pub fn (mut r Crypto) generate_random_bytes(size i32) PackedByteArray {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Crypto) generate_rsa(size i32) CryptoKey {
+pub fn (r &Crypto) generate_rsa(size i32) CryptoKey {
     mut object_out := CryptoKey{}
     classname := StringName.new("Crypto")
     fnname := StringName.new("generate_rsa")
@@ -29,7 +29,7 @@ pub fn (mut r Crypto) generate_rsa(size i32) CryptoKey {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Crypto) generate_self_signed_certificate(key CryptoKey, issuer_name string, not_before string, not_after string) X509Certificate {
+pub fn (r &Crypto) generate_self_signed_certificate(key CryptoKey, issuer_name string, not_before string, not_after string) X509Certificate {
     mut object_out := X509Certificate{}
     classname := StringName.new("Crypto")
     fnname := StringName.new("generate_self_signed_certificate")
@@ -50,7 +50,7 @@ pub fn (mut r Crypto) generate_self_signed_certificate(key CryptoKey, issuer_nam
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Crypto) sign(hash_type HashingContextHashType, hash PackedByteArray, key CryptoKey) PackedByteArray {
+pub fn (r &Crypto) sign(hash_type HashingContextHashType, hash PackedByteArray, key CryptoKey) PackedByteArray {
     mut object_out := PackedByteArray{}
     classname := StringName.new("Crypto")
     fnname := StringName.new("sign")
@@ -65,7 +65,7 @@ pub fn (mut r Crypto) sign(hash_type HashingContextHashType, hash PackedByteArra
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Crypto) verify(hash_type HashingContextHashType, hash PackedByteArray, signature PackedByteArray, key CryptoKey) bool {
+pub fn (r &Crypto) verify(hash_type HashingContextHashType, hash PackedByteArray, signature PackedByteArray, key CryptoKey) bool {
     mut object_out := false
     classname := StringName.new("Crypto")
     fnname := StringName.new("verify")
@@ -81,7 +81,7 @@ pub fn (mut r Crypto) verify(hash_type HashingContextHashType, hash PackedByteAr
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Crypto) encrypt(key CryptoKey, plaintext PackedByteArray) PackedByteArray {
+pub fn (r &Crypto) encrypt(key CryptoKey, plaintext PackedByteArray) PackedByteArray {
     mut object_out := PackedByteArray{}
     classname := StringName.new("Crypto")
     fnname := StringName.new("encrypt")
@@ -94,7 +94,7 @@ pub fn (mut r Crypto) encrypt(key CryptoKey, plaintext PackedByteArray) PackedBy
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Crypto) decrypt(key CryptoKey, ciphertext PackedByteArray) PackedByteArray {
+pub fn (r &Crypto) decrypt(key CryptoKey, ciphertext PackedByteArray) PackedByteArray {
     mut object_out := PackedByteArray{}
     classname := StringName.new("Crypto")
     fnname := StringName.new("decrypt")
@@ -107,7 +107,7 @@ pub fn (mut r Crypto) decrypt(key CryptoKey, ciphertext PackedByteArray) PackedB
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Crypto) hmac_digest(hash_type HashingContextHashType, key PackedByteArray, msg PackedByteArray) PackedByteArray {
+pub fn (r &Crypto) hmac_digest(hash_type HashingContextHashType, key PackedByteArray, msg PackedByteArray) PackedByteArray {
     mut object_out := PackedByteArray{}
     classname := StringName.new("Crypto")
     fnname := StringName.new("hmac_digest")
@@ -122,7 +122,7 @@ pub fn (mut r Crypto) hmac_digest(hash_type HashingContextHashType, key PackedBy
     fnname.deinit()
    return object_out
 }
-pub fn (mut r Crypto) constant_time_compare(trusted PackedByteArray, received PackedByteArray) bool {
+pub fn (r &Crypto) constant_time_compare(trusted PackedByteArray, received PackedByteArray) bool {
     mut object_out := false
     classname := StringName.new("Crypto")
     fnname := StringName.new("constant_time_compare")

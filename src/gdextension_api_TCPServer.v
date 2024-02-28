@@ -5,7 +5,7 @@ pub struct TCPServer {
     RefCounted
 }
 
-pub fn (mut r TCPServer) listen(port u16, bind_address string) GDError {
+pub fn (r &TCPServer) listen(port u16, bind_address string) GDError {
     mut object_out := i64(GDError.ok)
     classname := StringName.new("TCPServer")
     fnname := StringName.new("listen")
@@ -50,7 +50,7 @@ pub fn (r &TCPServer) get_local_port() i32 {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TCPServer) take_connection() StreamPeerTCP {
+pub fn (r &TCPServer) take_connection() StreamPeerTCP {
     mut object_out := StreamPeerTCP{}
     classname := StringName.new("TCPServer")
     fnname := StringName.new("take_connection")
@@ -60,7 +60,7 @@ pub fn (mut r TCPServer) take_connection() StreamPeerTCP {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r TCPServer) stop() {
+pub fn (r &TCPServer) stop() {
     classname := StringName.new("TCPServer")
     fnname := StringName.new("stop")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)

@@ -5,7 +5,7 @@ pub struct LightmapGIData {
     Resource
 }
 
-pub fn (mut r LightmapGIData) set_lightmap_textures(light_textures Array) {
+pub fn (r &LightmapGIData) set_lightmap_textures(light_textures Array) {
     classname := StringName.new("LightmapGIData")
     fnname := StringName.new("set_lightmap_textures")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 381264803)
@@ -25,7 +25,7 @@ pub fn (r &LightmapGIData) get_lightmap_textures() Array {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LightmapGIData) set_uses_spherical_harmonics(uses_spherical_harmonics bool) {
+pub fn (r &LightmapGIData) set_uses_spherical_harmonics(uses_spherical_harmonics bool) {
     classname := StringName.new("LightmapGIData")
     fnname := StringName.new("set_uses_spherical_harmonics")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2586408642)
@@ -45,7 +45,7 @@ pub fn (r &LightmapGIData) is_using_spherical_harmonics() bool {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LightmapGIData) add_user(path NodePath, uv_scale Rect2, slice_index i32, sub_instance i32) {
+pub fn (r &LightmapGIData) add_user(path NodePath, uv_scale Rect2, slice_index i32, sub_instance i32) {
     classname := StringName.new("LightmapGIData")
     fnname := StringName.new("add_user")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4272570515)
@@ -80,7 +80,7 @@ pub fn (r &LightmapGIData) get_user_path(user_idx i32) NodePath {
     fnname.deinit()
    return object_out
 }
-pub fn (mut r LightmapGIData) clear_users() {
+pub fn (r &LightmapGIData) clear_users() {
     classname := StringName.new("LightmapGIData")
     fnname := StringName.new("clear_users")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3218959716)
@@ -88,7 +88,7 @@ pub fn (mut r LightmapGIData) clear_users() {
     classname.deinit()
     fnname.deinit()
 }
-pub fn (mut r LightmapGIData) set_light_texture(light_texture TextureLayered) {
+pub fn (r &LightmapGIData) set_light_texture(light_texture TextureLayered) {
     classname := StringName.new("LightmapGIData")
     fnname := StringName.new("set_light_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1278366092)
