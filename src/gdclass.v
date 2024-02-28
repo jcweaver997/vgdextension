@@ -332,7 +332,7 @@ fn class_create_instance[T](user_data voidptr) &Object {
 	t := unsafe{&T(gdf.mem_alloc(sizeof[T]()))}
 	// copy default values:
 	t_v := T{}
-	C.memcpy(t, &t_v, sizeof[T]())
+	unsafe{C.memcpy(t, &t_v, sizeof[T]())}
 
 	mut w := &Object(t)
 	w.ptr = gdf.classdb_construct_object(ud.parent_name)
