@@ -150,7 +150,7 @@ pub fn (r &Line2D) set_curve(curve Curve) {
     fnname := StringName.new("set_curve")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 270443179)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = curve.ptr
+    args[0] = voidptr(&curve.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -190,7 +190,7 @@ pub fn (r &Line2D) set_gradient(color Gradient) {
     fnname := StringName.new("set_gradient")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2756054477)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = color.ptr
+    args[0] = voidptr(&color.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -210,7 +210,7 @@ pub fn (r &Line2D) set_texture(texture Texture2D) {
     fnname := StringName.new("set_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = texture.ptr
+    args[0] = voidptr(&texture.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

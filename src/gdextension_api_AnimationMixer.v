@@ -27,10 +27,10 @@ pub fn (r &AnimationMixer) upost_process_key_value(animation Animation, track i3
     fnname := StringName.new("_post_process_key_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [5]voidptr{} }
-    args[0] = animation.ptr
+    args[0] = voidptr(&animation.ptr)
     args[1] = unsafe{voidptr(&track)}
     args[2] = unsafe{voidptr(&value)}
-    args[3] = object.ptr
+    args[3] = voidptr(&object.ptr)
     args[4] = unsafe{voidptr(&object_idx)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -45,7 +45,7 @@ pub fn (r &AnimationMixer) add_animation_library(name string, library AnimationL
     mut args := unsafe { [2]voidptr{} }
     arg_sn0 := StringName.new(name)
     args[0] = unsafe{voidptr(&arg_sn0)}
-    args[1] = library.ptr
+    args[1] = voidptr(&library.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     arg_sn0.deinit()
     classname.deinit()
@@ -401,7 +401,7 @@ pub fn (r &AnimationMixer) find_animation(animation Animation) string {
     fnname := StringName.new("find_animation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1559484580)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = animation.ptr
+    args[0] = voidptr(&animation.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -415,7 +415,7 @@ pub fn (r &AnimationMixer) find_animation_library(animation Animation) string {
     fnname := StringName.new("find_animation_library")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1559484580)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = animation.ptr
+    args[0] = voidptr(&animation.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()

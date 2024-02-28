@@ -141,7 +141,7 @@ pub fn (r &SceneTree) set_edited_scene_root(scene Node) {
     fnname := StringName.new("set_edited_scene_root")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = scene.ptr
+    args[0] = voidptr(&scene.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -246,7 +246,7 @@ pub fn (r &SceneTree) queue_delete(obj Object) {
     fnname := StringName.new("queue_delete")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3975164845)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = obj.ptr
+    args[0] = voidptr(&obj.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -344,7 +344,7 @@ pub fn (r &SceneTree) set_current_scene(child_node Node) {
     fnname := StringName.new("set_current_scene")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = child_node.ptr
+    args[0] = voidptr(&child_node.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -379,7 +379,7 @@ pub fn (r &SceneTree) change_scene_to_packed(packed_scene PackedScene) GDError {
     fnname := StringName.new("change_scene_to_packed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 107349098)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = packed_scene.ptr
+    args[0] = voidptr(&packed_scene.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -408,7 +408,7 @@ pub fn (r &SceneTree) set_multiplayer(multiplayer MultiplayerAPI, root_path Node
     fnname := StringName.new("set_multiplayer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2385607013)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = multiplayer.ptr
+    args[0] = voidptr(&multiplayer.ptr)
     args[1] = unsafe{voidptr(&root_path)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()

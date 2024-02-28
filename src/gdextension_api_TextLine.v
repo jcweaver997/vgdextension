@@ -113,7 +113,7 @@ pub fn (r &TextLine) add_string(text string, font Font, font_size i32, language 
     mut args := unsafe { [5]voidptr{} }
     arg_sn0 := String.new(text)
     args[0] = unsafe{voidptr(&arg_sn0)}
-    args[1] = font.ptr
+    args[1] = voidptr(&font.ptr)
     args[2] = unsafe{voidptr(&font_size)}
     arg_sn3 := String.new(language)
     args[3] = unsafe{voidptr(&arg_sn3)}

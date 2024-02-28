@@ -49,7 +49,7 @@ pub fn (r &WebRTCMultiplayerPeer) add_peer(peer WebRTCPeerConnection, peer_id i3
     fnname := StringName.new("add_peer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4078953270)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = peer.ptr
+    args[0] = voidptr(&peer.ptr)
     args[1] = unsafe{voidptr(&peer_id)}
     args[2] = unsafe{voidptr(&unreliable_lifetime)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))

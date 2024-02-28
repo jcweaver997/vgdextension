@@ -173,7 +173,7 @@ pub fn (r &TabBar) set_tab_icon(tab_idx i32, icon Texture2D) {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 666127730)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&tab_idx)}
-    args[1] = icon.ptr
+    args[1] = voidptr(&icon.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -219,7 +219,7 @@ pub fn (r &TabBar) set_tab_button_icon(tab_idx i32, icon Texture2D) {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 666127730)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&tab_idx)}
-    args[1] = icon.ptr
+    args[1] = voidptr(&icon.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -322,7 +322,7 @@ pub fn (r &TabBar) add_tab(title string, icon Texture2D) {
     mut args := unsafe { [2]voidptr{} }
     arg_sn0 := String.new(title)
     args[0] = unsafe{voidptr(&arg_sn0)}
-    args[1] = icon.ptr
+    args[1] = voidptr(&icon.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     arg_sn0.deinit()
     classname.deinit()

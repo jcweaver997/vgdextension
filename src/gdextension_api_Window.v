@@ -688,7 +688,7 @@ pub fn (r &Window) set_theme(theme Theme) {
     fnname := StringName.new("set_theme")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2326690814)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = theme.ptr
+    args[0] = voidptr(&theme.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -750,7 +750,7 @@ pub fn (r &Window) add_theme_icon_override(name string, texture Texture2D) {
     mut args := unsafe { [2]voidptr{} }
     arg_sn0 := StringName.new(name)
     args[0] = unsafe{voidptr(&arg_sn0)}
-    args[1] = texture.ptr
+    args[1] = voidptr(&texture.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     arg_sn0.deinit()
     classname.deinit()
@@ -763,7 +763,7 @@ pub fn (r &Window) add_theme_stylebox_override(name string, stylebox StyleBox) {
     mut args := unsafe { [2]voidptr{} }
     arg_sn0 := StringName.new(name)
     args[0] = unsafe{voidptr(&arg_sn0)}
-    args[1] = stylebox.ptr
+    args[1] = voidptr(&stylebox.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     arg_sn0.deinit()
     classname.deinit()
@@ -776,7 +776,7 @@ pub fn (r &Window) add_theme_font_override(name string, font Font) {
     mut args := unsafe { [2]voidptr{} }
     arg_sn0 := StringName.new(name)
     args[0] = unsafe{voidptr(&arg_sn0)}
-    args[1] = font.ptr
+    args[1] = voidptr(&font.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     arg_sn0.deinit()
     classname.deinit()
@@ -1318,7 +1318,7 @@ pub fn (r &Window) popup_exclusive(from_node Node, rect Rect2i) {
     fnname := StringName.new("popup_exclusive")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2134721627)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = from_node.ptr
+    args[0] = voidptr(&from_node.ptr)
     args[1] = unsafe{voidptr(&rect)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
@@ -1329,7 +1329,7 @@ pub fn (r &Window) popup_exclusive_on_parent(from_node Node, parent_rect Rect2i)
     fnname := StringName.new("popup_exclusive_on_parent")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2344671043)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = from_node.ptr
+    args[0] = voidptr(&from_node.ptr)
     args[1] = unsafe{voidptr(&parent_rect)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
@@ -1340,7 +1340,7 @@ pub fn (r &Window) popup_exclusive_centered(from_node Node, minsize Vector2i) {
     fnname := StringName.new("popup_exclusive_centered")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3357594017)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = from_node.ptr
+    args[0] = voidptr(&from_node.ptr)
     args[1] = unsafe{voidptr(&minsize)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
@@ -1351,7 +1351,7 @@ pub fn (r &Window) popup_exclusive_centered_ratio(from_node Node, ratio f64) {
     fnname := StringName.new("popup_exclusive_centered_ratio")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2284776287)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = from_node.ptr
+    args[0] = voidptr(&from_node.ptr)
     args[1] = unsafe{voidptr(&ratio)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
@@ -1362,7 +1362,7 @@ pub fn (r &Window) popup_exclusive_centered_clamped(from_node Node, minsize Vect
     fnname := StringName.new("popup_exclusive_centered_clamped")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2612708785)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = from_node.ptr
+    args[0] = voidptr(&from_node.ptr)
     args[1] = unsafe{voidptr(&minsize)}
     args[2] = unsafe{voidptr(&fallback_ratio)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})

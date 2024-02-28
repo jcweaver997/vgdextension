@@ -15,7 +15,7 @@ pub fn (r &EditorResourcePicker) uset_create_options(menu_node Object) {
     fnname := StringName.new("_set_create_options")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = menu_node.ptr
+    args[0] = voidptr(&menu_node.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -76,7 +76,7 @@ pub fn (r &EditorResourcePicker) set_edited_resource(resource Resource) {
     fnname := StringName.new("set_edited_resource")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 968641751)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = resource.ptr
+    args[0] = voidptr(&resource.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

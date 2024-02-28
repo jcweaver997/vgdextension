@@ -11,7 +11,7 @@ pub fn (r &PopupMenu) activate_item_by_event(event InputEvent, for_global_only b
     fnname := StringName.new("activate_item_by_event")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3716412023)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = event.ptr
+    args[0] = voidptr(&event.ptr)
     args[1] = unsafe{voidptr(&for_global_only)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -38,7 +38,7 @@ pub fn (r &PopupMenu) add_icon_item(texture Texture2D, label string, id i32, acc
     fnname := StringName.new("add_icon_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1086190128)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = texture.ptr
+    args[0] = voidptr(&texture.ptr)
     arg_sn1 := String.new(label)
     args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&id)}
@@ -69,7 +69,7 @@ pub fn (r &PopupMenu) add_icon_check_item(texture Texture2D, label string, id i3
     fnname := StringName.new("add_icon_check_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1086190128)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = texture.ptr
+    args[0] = voidptr(&texture.ptr)
     arg_sn1 := String.new(label)
     args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&id)}
@@ -100,7 +100,7 @@ pub fn (r &PopupMenu) add_icon_radio_check_item(texture Texture2D, label string,
     fnname := StringName.new("add_icon_radio_check_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1086190128)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = texture.ptr
+    args[0] = voidptr(&texture.ptr)
     arg_sn1 := String.new(label)
     args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&id)}
@@ -133,7 +133,7 @@ pub fn (r &PopupMenu) add_shortcut(shortcut Shortcut, id i32, global bool, allow
     fnname := StringName.new("add_shortcut")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3451850107)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = shortcut.ptr
+    args[0] = voidptr(&shortcut.ptr)
     args[1] = unsafe{voidptr(&id)}
     args[2] = unsafe{voidptr(&global)}
     args[3] = unsafe{voidptr(&allow_echo)}
@@ -146,8 +146,8 @@ pub fn (r &PopupMenu) add_icon_shortcut(texture Texture2D, shortcut Shortcut, id
     fnname := StringName.new("add_icon_shortcut")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2997871092)
     mut args := unsafe { [5]voidptr{} }
-    args[0] = texture.ptr
-    args[1] = shortcut.ptr
+    args[0] = voidptr(&texture.ptr)
+    args[1] = voidptr(&shortcut.ptr)
     args[2] = unsafe{voidptr(&id)}
     args[3] = unsafe{voidptr(&global)}
     args[4] = unsafe{voidptr(&allow_echo)}
@@ -160,7 +160,7 @@ pub fn (r &PopupMenu) add_check_shortcut(shortcut Shortcut, id i32, global bool)
     fnname := StringName.new("add_check_shortcut")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1642193386)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = shortcut.ptr
+    args[0] = voidptr(&shortcut.ptr)
     args[1] = unsafe{voidptr(&id)}
     args[2] = unsafe{voidptr(&global)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
@@ -172,8 +172,8 @@ pub fn (r &PopupMenu) add_icon_check_shortcut(texture Texture2D, shortcut Shortc
     fnname := StringName.new("add_icon_check_shortcut")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3856247530)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = texture.ptr
-    args[1] = shortcut.ptr
+    args[0] = voidptr(&texture.ptr)
+    args[1] = voidptr(&shortcut.ptr)
     args[2] = unsafe{voidptr(&id)}
     args[3] = unsafe{voidptr(&global)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
@@ -185,7 +185,7 @@ pub fn (r &PopupMenu) add_radio_check_shortcut(shortcut Shortcut, id i32, global
     fnname := StringName.new("add_radio_check_shortcut")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1642193386)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = shortcut.ptr
+    args[0] = voidptr(&shortcut.ptr)
     args[1] = unsafe{voidptr(&id)}
     args[2] = unsafe{voidptr(&global)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
@@ -197,8 +197,8 @@ pub fn (r &PopupMenu) add_icon_radio_check_shortcut(texture Texture2D, shortcut 
     fnname := StringName.new("add_icon_radio_check_shortcut")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3856247530)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = texture.ptr
-    args[1] = shortcut.ptr
+    args[0] = voidptr(&texture.ptr)
+    args[1] = voidptr(&shortcut.ptr)
     args[2] = unsafe{voidptr(&id)}
     args[3] = unsafe{voidptr(&global)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
@@ -265,7 +265,7 @@ pub fn (r &PopupMenu) set_item_icon(index i32, icon Texture2D) {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 666127730)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&index)}
-    args[1] = icon.ptr
+    args[1] = voidptr(&icon.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -413,7 +413,7 @@ pub fn (r &PopupMenu) set_item_shortcut(index i32, shortcut Shortcut, global boo
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 825127832)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&index)}
-    args[1] = shortcut.ptr
+    args[1] = voidptr(&shortcut.ptr)
     args[2] = unsafe{voidptr(&global)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()

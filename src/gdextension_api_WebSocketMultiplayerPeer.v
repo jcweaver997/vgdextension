@@ -13,7 +13,7 @@ pub fn (r &WebSocketMultiplayerPeer) create_client(url string, tls_client_option
     mut args := unsafe { [2]voidptr{} }
     arg_sn0 := String.new(url)
     args[0] = unsafe{voidptr(&arg_sn0)}
-    args[1] = tls_client_options.ptr
+    args[1] = voidptr(&tls_client_options.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     arg_sn0.deinit()
     classname.deinit()
@@ -29,7 +29,7 @@ pub fn (r &WebSocketMultiplayerPeer) create_server(port i32, bind_address string
     args[0] = unsafe{voidptr(&port)}
     arg_sn1 := String.new(bind_address)
     args[1] = unsafe{voidptr(&arg_sn1)}
-    args[2] = tls_server_options.ptr
+    args[2] = voidptr(&tls_server_options.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     arg_sn1.deinit()
     classname.deinit()

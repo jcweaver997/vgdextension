@@ -1009,7 +1009,7 @@ fn gen_classes(ea &ExtensionApi) ! {
 							f.write_string('    arg_sn${i} := String.new(${name})\n')!
 							f.write_string('    args[${i}] = unsafe{voidptr(&arg_sn${i})}\n')!
 						} else if convert_type(a.type_name, a.meta) in object_names {
-							f.write_string('    args[${i}] = ${name}.ptr\n')!
+							f.write_string('    args[${i}] = voidptr(&${name}.ptr)\n')!
 						} else {
 							if a.type_name.starts_with('enum::')
 								|| a.type_name.starts_with('bitfield::') {
@@ -1060,7 +1060,7 @@ fn gen_classes(ea &ExtensionApi) ! {
 							f.write_string('    arg_sn${i} := String.new(${name})\n')!
 							f.write_string('    args[${i}] = unsafe{voidptr(&arg_sn${i})}\n')!
 						}else if convert_type(a.type_name, a.meta) in object_names {
-							f.write_string('    args[${i}] = ${name}.ptr\n')!
+							f.write_string('    args[${i}] = voidptr(&${name}.ptr)\n')!
 						} else {
 							if a.type_name.starts_with('enum::')
 								|| a.type_name.starts_with('bitfield::') {

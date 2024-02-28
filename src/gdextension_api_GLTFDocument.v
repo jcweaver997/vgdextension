@@ -19,7 +19,7 @@ pub fn (r &GLTFDocument) append_from_file(path string, state GLTFState, flags u3
     mut args := unsafe { [4]voidptr{} }
     arg_sn0 := String.new(path)
     args[0] = unsafe{voidptr(&arg_sn0)}
-    args[1] = state.ptr
+    args[1] = voidptr(&state.ptr)
     args[2] = unsafe{voidptr(&flags)}
     arg_sn3 := String.new(base_path)
     args[3] = unsafe{voidptr(&arg_sn3)}
@@ -39,7 +39,7 @@ pub fn (r &GLTFDocument) append_from_buffer(bytes PackedByteArray, base_path str
     args[0] = unsafe{voidptr(&bytes)}
     arg_sn1 := String.new(base_path)
     args[1] = unsafe{voidptr(&arg_sn1)}
-    args[2] = state.ptr
+    args[2] = voidptr(&state.ptr)
     args[3] = unsafe{voidptr(&flags)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     arg_sn1.deinit()
@@ -53,8 +53,8 @@ pub fn (r &GLTFDocument) append_from_scene(node Node, state GLTFState, flags u32
     fnname := StringName.new("append_from_scene")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1622574258)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = node.ptr
-    args[1] = state.ptr
+    args[0] = voidptr(&node.ptr)
+    args[1] = voidptr(&state.ptr)
     args[2] = unsafe{voidptr(&flags)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -67,7 +67,7 @@ pub fn (r &GLTFDocument) generate_scene(state GLTFState, bake_fps f64, trimming 
     fnname := StringName.new("generate_scene")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 596118388)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = state.ptr
+    args[0] = voidptr(&state.ptr)
     args[1] = unsafe{voidptr(&bake_fps)}
     args[2] = unsafe{voidptr(&trimming)}
     args[3] = unsafe{voidptr(&remove_immutable_tracks)}
@@ -82,7 +82,7 @@ pub fn (r &GLTFDocument) generate_buffer(state GLTFState) PackedByteArray {
     fnname := StringName.new("generate_buffer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 741783455)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = state.ptr
+    args[0] = voidptr(&state.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -94,7 +94,7 @@ pub fn (r &GLTFDocument) write_to_filesystem(state GLTFState, path string) GDErr
     fnname := StringName.new("write_to_filesystem")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1784551478)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = state.ptr
+    args[0] = voidptr(&state.ptr)
     arg_sn1 := String.new(path)
     args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
@@ -173,7 +173,7 @@ pub fn GLTFDocument.register_gltf_document_extension(extension GLTFDocumentExten
     fnname := StringName.new("register_gltf_document_extension")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3752678331)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = extension.ptr
+    args[0] = voidptr(&extension.ptr)
     args[1] = unsafe{voidptr(&first_priority)}
     gdf.object_method_bind_ptrcall(mb, unsafe{nil}, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
@@ -184,7 +184,7 @@ pub fn GLTFDocument.unregister_gltf_document_extension(extension GLTFDocumentExt
     fnname := StringName.new("unregister_gltf_document_extension")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2684415758)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = extension.ptr
+    args[0] = voidptr(&extension.ptr)
     gdf.object_method_bind_ptrcall(mb, unsafe{nil}, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

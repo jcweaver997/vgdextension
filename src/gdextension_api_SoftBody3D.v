@@ -162,7 +162,7 @@ pub fn (r &SoftBody3D) add_collision_exception_with(body Node) {
     fnname := StringName.new("add_collision_exception_with")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = body.ptr
+    args[0] = voidptr(&body.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -172,7 +172,7 @@ pub fn (r &SoftBody3D) remove_collision_exception_with(body Node) {
     fnname := StringName.new("remove_collision_exception_with")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = body.ptr
+    args[0] = voidptr(&body.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

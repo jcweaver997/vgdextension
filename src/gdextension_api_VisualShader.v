@@ -55,7 +55,7 @@ pub fn (r &VisualShader) add_node(type_name VisualShaderType, node VisualShaderN
     mut args := unsafe { [4]voidptr{} }
     i64_type_name := i64(type_name)
     args[0] = unsafe{voidptr(&i64_type_name)}
-    args[1] = node.ptr
+    args[1] = voidptr(&node.ptr)
     args[2] = unsafe{voidptr(&position)}
     args[3] = unsafe{voidptr(&id)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})

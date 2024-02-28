@@ -64,7 +64,7 @@ pub fn (r &UPNP) add_device(device UPNPDevice) {
     fnname := StringName.new("add_device")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 986715920)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = device.ptr
+    args[0] = voidptr(&device.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -75,7 +75,7 @@ pub fn (r &UPNP) set_device(index i32, device UPNPDevice) {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3015133723)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&index)}
-    args[1] = device.ptr
+    args[1] = voidptr(&device.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

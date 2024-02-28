@@ -10,7 +10,7 @@ pub fn (r &EditorScriptPicker) set_script_owner(owner_node Node) {
     fnname := StringName.new("set_script_owner")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = owner_node.ptr
+    args[0] = voidptr(&owner_node.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

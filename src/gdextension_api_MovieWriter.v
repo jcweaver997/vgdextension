@@ -86,7 +86,7 @@ pub fn (r &MovieWriter) uwrite_frame(frame_image Image, audio_frame_block voidpt
     fnname := StringName.new("_write_frame")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = frame_image.ptr
+    args[0] = voidptr(&frame_image.ptr)
     args[1] = unsafe{voidptr(&audio_frame_block)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -111,7 +111,7 @@ pub fn MovieWriter.add_writer(writer MovieWriter) {
     fnname := StringName.new("add_writer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4023702871)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = writer.ptr
+    args[0] = voidptr(&writer.ptr)
     gdf.object_method_bind_ptrcall(mb, unsafe{nil}, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

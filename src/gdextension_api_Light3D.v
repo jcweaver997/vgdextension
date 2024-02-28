@@ -287,7 +287,7 @@ pub fn (r &Light3D) set_projector(projector Texture2D) {
     fnname := StringName.new("set_projector")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = projector.ptr
+    args[0] = voidptr(&projector.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

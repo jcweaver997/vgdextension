@@ -29,7 +29,7 @@ pub fn (r &PhysicsBody3D) test_move(from Transform3D, motion Vector3, collision 
     mut args := unsafe { [6]voidptr{} }
     args[0] = unsafe{voidptr(&from)}
     args[1] = unsafe{voidptr(&motion)}
-    args[2] = collision.ptr
+    args[2] = voidptr(&collision.ptr)
     args[3] = unsafe{voidptr(&safe_margin)}
     args[4] = unsafe{voidptr(&recovery_as_collision)}
     args[5] = unsafe{voidptr(&max_collisions)}
@@ -78,7 +78,7 @@ pub fn (r &PhysicsBody3D) add_collision_exception_with(body Node) {
     fnname := StringName.new("add_collision_exception_with")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = body.ptr
+    args[0] = voidptr(&body.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -88,7 +88,7 @@ pub fn (r &PhysicsBody3D) remove_collision_exception_with(body Node) {
     fnname := StringName.new("remove_collision_exception_with")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = body.ptr
+    args[0] = voidptr(&body.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

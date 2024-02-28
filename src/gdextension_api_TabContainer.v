@@ -211,7 +211,7 @@ pub fn (r &TabContainer) set_tab_icon(tab_idx i32, icon Texture2D) {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 666127730)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&tab_idx)}
-    args[1] = icon.ptr
+    args[1] = voidptr(&icon.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -303,7 +303,7 @@ pub fn (r &TabContainer) set_tab_button_icon(tab_idx i32, icon Texture2D) {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 666127730)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&tab_idx)}
-    args[1] = icon.ptr
+    args[1] = voidptr(&icon.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -338,7 +338,7 @@ pub fn (r &TabContainer) get_tab_idx_from_control(control Control) i32 {
     fnname := StringName.new("get_tab_idx_from_control")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2787397975)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = control.ptr
+    args[0] = voidptr(&control.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -349,7 +349,7 @@ pub fn (r &TabContainer) set_popup(popup Node) {
     fnname := StringName.new("set_popup")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = popup.ptr
+    args[0] = voidptr(&popup.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

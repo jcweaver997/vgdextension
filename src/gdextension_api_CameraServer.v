@@ -56,7 +56,7 @@ pub fn (r &CameraServer) add_feed(feed CameraFeed) {
     fnname := StringName.new("add_feed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3204782488)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = feed.ptr
+    args[0] = voidptr(&feed.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -66,7 +66,7 @@ pub fn (r &CameraServer) remove_feed(feed CameraFeed) {
     fnname := StringName.new("remove_feed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3204782488)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = feed.ptr
+    args[0] = voidptr(&feed.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

@@ -12,7 +12,7 @@ pub fn (r &ResourcePreloader) add_resource(name string, resource Resource) {
     mut args := unsafe { [2]voidptr{} }
     arg_sn0 := StringName.new(name)
     args[0] = unsafe{voidptr(&arg_sn0)}
-    args[1] = resource.ptr
+    args[1] = voidptr(&resource.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     arg_sn0.deinit()
     classname.deinit()

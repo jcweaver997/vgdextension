@@ -51,7 +51,7 @@ pub fn (r &FogVolume) set_material(material Material) {
     fnname := StringName.new("set_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2757459619)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = material.ptr
+    args[0] = voidptr(&material.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

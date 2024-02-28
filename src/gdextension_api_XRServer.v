@@ -107,7 +107,7 @@ pub fn (r &XRServer) add_interface(gdinterface XRInterface) {
     fnname := StringName.new("add_interface")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1898711491)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = gdinterface.ptr
+    args[0] = voidptr(&gdinterface.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -127,7 +127,7 @@ pub fn (r &XRServer) remove_interface(gdinterface XRInterface) {
     fnname := StringName.new("remove_interface")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1898711491)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = gdinterface.ptr
+    args[0] = voidptr(&gdinterface.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -173,7 +173,7 @@ pub fn (r &XRServer) add_tracker(tracker XRPositionalTracker) {
     fnname := StringName.new("add_tracker")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2692800323)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = tracker.ptr
+    args[0] = voidptr(&tracker.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -183,7 +183,7 @@ pub fn (r &XRServer) remove_tracker(tracker XRPositionalTracker) {
     fnname := StringName.new("remove_tracker")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2692800323)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = tracker.ptr
+    args[0] = voidptr(&tracker.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -229,7 +229,7 @@ pub fn (r &XRServer) set_primary_interface(gdinterface XRInterface) {
     fnname := StringName.new("set_primary_interface")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1898711491)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = gdinterface.ptr
+    args[0] = voidptr(&gdinterface.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

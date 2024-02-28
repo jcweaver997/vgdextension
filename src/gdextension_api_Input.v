@@ -587,7 +587,7 @@ pub fn (r &Input) set_custom_mouse_cursor(image Resource, shape InputCursorShape
     fnname := StringName.new("set_custom_mouse_cursor")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 703945977)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = image.ptr
+    args[0] = voidptr(&image.ptr)
     i64_shape := i64(shape)
     args[1] = unsafe{voidptr(&i64_shape)}
     args[2] = unsafe{voidptr(&hotspot)}
@@ -600,7 +600,7 @@ pub fn (r &Input) parse_input_event(event InputEvent) {
     fnname := StringName.new("parse_input_event")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3754044979)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = event.ptr
+    args[0] = voidptr(&event.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

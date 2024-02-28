@@ -144,7 +144,7 @@ pub fn (r &GPUParticles2D) set_process_material(material Material) {
     fnname := StringName.new("set_process_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2757459619)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = material.ptr
+    args[0] = voidptr(&material.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -365,7 +365,7 @@ pub fn (r &GPUParticles2D) set_texture(texture Texture2D) {
     fnname := StringName.new("set_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = texture.ptr
+    args[0] = voidptr(&texture.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -517,7 +517,7 @@ pub fn (r &GPUParticles2D) convert_from_particles(particles Node) {
     fnname := StringName.new("convert_from_particles")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = particles.ptr
+    args[0] = voidptr(&particles.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

@@ -12,7 +12,7 @@ pub fn (r &ImmediateMesh) surface_begin(primitive MeshPrimitiveType, material Ma
     mut args := unsafe { [2]voidptr{} }
     i64_primitive := i64(primitive)
     args[0] = unsafe{voidptr(&i64_primitive)}
-    args[1] = material.ptr
+    args[1] = voidptr(&material.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

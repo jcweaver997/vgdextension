@@ -2176,7 +2176,7 @@ pub fn (r &TextEdit) set_line_gutter_icon(line i32, gutter i32, icon Texture2D) 
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&line)}
     args[1] = unsafe{voidptr(&gutter)}
-    args[2] = icon.ptr
+    args[2] = voidptr(&icon.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -2272,7 +2272,7 @@ pub fn (r &TextEdit) set_syntax_highlighter(syntax_highlighter SyntaxHighlighter
     fnname := StringName.new("set_syntax_highlighter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2765644541)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = syntax_highlighter.ptr
+    args[0] = voidptr(&syntax_highlighter.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

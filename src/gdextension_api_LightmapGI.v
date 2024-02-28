@@ -45,7 +45,7 @@ pub fn (r &LightmapGI) set_light_data(data LightmapGIData) {
     fnname := StringName.new("set_light_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1790597277)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = data.ptr
+    args[0] = voidptr(&data.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -188,7 +188,7 @@ pub fn (r &LightmapGI) set_environment_custom_sky(sky Sky) {
     fnname := StringName.new("set_environment_custom_sky")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3336722921)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = sky.ptr
+    args[0] = voidptr(&sky.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -368,7 +368,7 @@ pub fn (r &LightmapGI) set_camera_attributes(camera_attributes CameraAttributes)
     fnname := StringName.new("set_camera_attributes")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2817810567)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = camera_attributes.ptr
+    args[0] = voidptr(&camera_attributes.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

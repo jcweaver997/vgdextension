@@ -404,7 +404,7 @@ pub fn (r &Node3D) add_gizmo(gizmo Node3DGizmo) {
     fnname := StringName.new("add_gizmo")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1544533845)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = gizmo.ptr
+    args[0] = voidptr(&gizmo.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -432,7 +432,7 @@ pub fn (r &Node3D) set_subgizmo_selection(gizmo Node3DGizmo, id i32, transform T
     fnname := StringName.new("set_subgizmo_selection")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3317607635)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = gizmo.ptr
+    args[0] = voidptr(&gizmo.ptr)
     args[1] = unsafe{voidptr(&id)}
     args[2] = unsafe{voidptr(&transform)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})

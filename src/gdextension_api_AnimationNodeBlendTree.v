@@ -12,7 +12,7 @@ pub fn (r &AnimationNodeBlendTree) add_node(name string, node AnimationNode, pos
     mut args := unsafe { [3]voidptr{} }
     arg_sn0 := StringName.new(name)
     args[0] = unsafe{voidptr(&arg_sn0)}
-    args[1] = node.ptr
+    args[1] = voidptr(&node.ptr)
     args[2] = unsafe{voidptr(&position)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     arg_sn0.deinit()

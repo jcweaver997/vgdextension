@@ -1103,7 +1103,7 @@ pub fn (r &TextServer) font_set_texture_image(font_rid RID, size Vector2i, textu
     args[0] = unsafe{voidptr(&font_rid)}
     args[1] = unsafe{voidptr(&size)}
     args[2] = unsafe{voidptr(&texture_index)}
-    args[3] = image.ptr
+    args[3] = voidptr(&image.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

@@ -67,7 +67,7 @@ pub fn (r &TileSet) add_source(source TileSetSource, atlas_source_id_override i3
     fnname := StringName.new("add_source")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1059186179)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = source.ptr
+    args[0] = voidptr(&source.ptr)
     args[1] = unsafe{voidptr(&atlas_source_id_override)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -424,7 +424,7 @@ pub fn (r &TileSet) set_physics_layer_physics_material(layer_index i32, physics_
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1018687357)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&layer_index)}
-    args[1] = physics_material.ptr
+    args[1] = voidptr(&physics_material.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -987,7 +987,7 @@ pub fn (r &TileSet) add_pattern(pattern TileMapPattern, index i32) i32 {
     fnname := StringName.new("add_pattern")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 763712015)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = pattern.ptr
+    args[0] = voidptr(&pattern.ptr)
     args[1] = unsafe{voidptr(&index)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()

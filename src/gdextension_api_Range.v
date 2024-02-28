@@ -235,7 +235,7 @@ pub fn (r &Range) share(with Node) {
     fnname := StringName.new("share")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = with.ptr
+    args[0] = voidptr(&with.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

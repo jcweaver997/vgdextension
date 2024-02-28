@@ -120,7 +120,7 @@ pub fn (r &NoiseTexture3D) set_color_ramp(gradient Gradient) {
     fnname := StringName.new("set_color_ramp")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2756054477)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = gradient.ptr
+    args[0] = voidptr(&gradient.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -140,7 +140,7 @@ pub fn (r &NoiseTexture3D) set_noise(noise Noise) {
     fnname := StringName.new("set_noise")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4135492439)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = noise.ptr
+    args[0] = voidptr(&noise.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

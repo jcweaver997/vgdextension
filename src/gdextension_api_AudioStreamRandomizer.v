@@ -17,7 +17,7 @@ pub fn (r &AudioStreamRandomizer) add_stream(index i32, stream AudioStream, weig
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1892018854)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&index)}
-    args[1] = stream.ptr
+    args[1] = voidptr(&stream.ptr)
     args[2] = unsafe{voidptr(&weight)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
@@ -50,7 +50,7 @@ pub fn (r &AudioStreamRandomizer) set_stream(index i32, stream AudioStream) {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 111075094)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&index)}
-    args[1] = stream.ptr
+    args[1] = voidptr(&stream.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

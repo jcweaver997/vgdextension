@@ -22,7 +22,7 @@ pub fn (r &TextureProgressBar) set_under_texture(tex Texture2D) {
     fnname := StringName.new("set_under_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = tex.ptr
+    args[0] = voidptr(&tex.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -42,7 +42,7 @@ pub fn (r &TextureProgressBar) set_progress_texture(tex Texture2D) {
     fnname := StringName.new("set_progress_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = tex.ptr
+    args[0] = voidptr(&tex.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -62,7 +62,7 @@ pub fn (r &TextureProgressBar) set_over_texture(tex Texture2D) {
     fnname := StringName.new("set_over_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = tex.ptr
+    args[0] = voidptr(&tex.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

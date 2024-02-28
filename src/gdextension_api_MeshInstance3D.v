@@ -10,7 +10,7 @@ pub fn (r &MeshInstance3D) set_mesh(mesh Mesh) {
     fnname := StringName.new("set_mesh")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 194775623)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = mesh.ptr
+    args[0] = voidptr(&mesh.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -50,7 +50,7 @@ pub fn (r &MeshInstance3D) set_skin(skin Skin) {
     fnname := StringName.new("set_skin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3971435618)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = skin.ptr
+    args[0] = voidptr(&skin.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -81,7 +81,7 @@ pub fn (r &MeshInstance3D) set_surface_override_material(surface i32, material M
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3671737478)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&surface)}
-    args[1] = material.ptr
+    args[1] = voidptr(&material.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -134,7 +134,7 @@ pub fn (r &MeshInstance3D) create_multiple_convex_collisions(settings MeshConvex
     fnname := StringName.new("create_multiple_convex_collisions")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 628789669)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = settings.ptr
+    args[0] = voidptr(&settings.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

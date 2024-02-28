@@ -20,7 +20,7 @@ pub fn (r &NavigationRegion3D) set_navigation_mesh(navigation_mesh NavigationMes
     fnname := StringName.new("set_navigation_mesh")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2923361153)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = navigation_mesh.ptr
+    args[0] = voidptr(&navigation_mesh.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

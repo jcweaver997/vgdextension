@@ -10,7 +10,7 @@ pub fn (r &InputEventShortcut) set_shortcut(shortcut Shortcut) {
     fnname := StringName.new("set_shortcut")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 857163497)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = shortcut.ptr
+    args[0] = voidptr(&shortcut.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

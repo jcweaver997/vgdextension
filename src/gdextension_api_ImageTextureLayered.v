@@ -22,7 +22,7 @@ pub fn (r &ImageTextureLayered) update_layer(image Image, layer i32) {
     fnname := StringName.new("update_layer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3331733361)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = image.ptr
+    args[0] = voidptr(&image.ptr)
     args[1] = unsafe{voidptr(&layer)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()

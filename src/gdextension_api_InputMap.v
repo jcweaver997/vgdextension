@@ -97,7 +97,7 @@ pub fn (r &InputMap) action_add_event(action string, event InputEvent) {
     mut args := unsafe { [2]voidptr{} }
     arg_sn0 := StringName.new(action)
     args[0] = unsafe{voidptr(&arg_sn0)}
-    args[1] = event.ptr
+    args[1] = voidptr(&event.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     arg_sn0.deinit()
     classname.deinit()
@@ -111,7 +111,7 @@ pub fn (r &InputMap) action_has_event(action string, event InputEvent) bool {
     mut args := unsafe { [2]voidptr{} }
     arg_sn0 := StringName.new(action)
     args[0] = unsafe{voidptr(&arg_sn0)}
-    args[1] = event.ptr
+    args[1] = voidptr(&event.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     arg_sn0.deinit()
     classname.deinit()
@@ -125,7 +125,7 @@ pub fn (r &InputMap) action_erase_event(action string, event InputEvent) {
     mut args := unsafe { [2]voidptr{} }
     arg_sn0 := StringName.new(action)
     args[0] = unsafe{voidptr(&arg_sn0)}
-    args[1] = event.ptr
+    args[1] = voidptr(&event.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     arg_sn0.deinit()
     classname.deinit()
@@ -163,7 +163,7 @@ pub fn (r &InputMap) event_is_action(event InputEvent, action string, exact_matc
     fnname := StringName.new("event_is_action")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3193353650)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = event.ptr
+    args[0] = voidptr(&event.ptr)
     arg_sn1 := StringName.new(action)
     args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&exact_match)}

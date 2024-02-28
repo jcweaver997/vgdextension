@@ -16,7 +16,7 @@ pub fn (r &EditorScenePostImport) upost_import(scene Node) Object {
     fnname := StringName.new("_post_import")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = scene.ptr
+    args[0] = voidptr(&scene.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()

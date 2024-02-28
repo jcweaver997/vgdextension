@@ -668,7 +668,7 @@ pub fn (r &RenderingServer) texture_2d_create(image Image) RID {
     fnname := StringName.new("texture_2d_create")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2010018390)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = image.ptr
+    args[0] = voidptr(&image.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -724,7 +724,7 @@ pub fn (r &RenderingServer) texture_2d_update(texture RID, image Image, layer i3
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 999539803)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&texture)}
-    args[1] = image.ptr
+    args[1] = voidptr(&image.ptr)
     args[2] = unsafe{voidptr(&layer)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
@@ -6091,7 +6091,7 @@ pub fn (r &RenderingServer) set_boot_image(image Image, color Color, scale bool,
     fnname := StringName.new("set_boot_image")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3759744527)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = image.ptr
+    args[0] = voidptr(&image.ptr)
     args[1] = unsafe{voidptr(&color)}
     args[2] = unsafe{voidptr(&scale)}
     args[3] = unsafe{voidptr(&use_filter)}

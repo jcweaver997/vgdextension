@@ -11,7 +11,7 @@ pub fn (r &DTLSServer) setup(server_options TLSOptions) GDError {
     fnname := StringName.new("setup")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1262296096)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = server_options.ptr
+    args[0] = voidptr(&server_options.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -23,7 +23,7 @@ pub fn (r &DTLSServer) take_connection(udp_peer PacketPeerUDP) PacketPeerDTLS {
     fnname := StringName.new("take_connection")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3946580474)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = udp_peer.ptr
+    args[0] = voidptr(&udp_peer.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()

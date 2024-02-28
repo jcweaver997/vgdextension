@@ -233,7 +233,7 @@ pub fn (r &EditorInterface) popup_dialog(dialog Window, rect Rect2i) {
     fnname := StringName.new("popup_dialog")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2015770942)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = dialog.ptr
+    args[0] = voidptr(&dialog.ptr)
     args[1] = unsafe{voidptr(&rect)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
@@ -244,7 +244,7 @@ pub fn (r &EditorInterface) popup_dialog_centered(dialog Window, minsize Vector2
     fnname := StringName.new("popup_dialog_centered")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 346557367)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = dialog.ptr
+    args[0] = voidptr(&dialog.ptr)
     args[1] = unsafe{voidptr(&minsize)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
@@ -255,7 +255,7 @@ pub fn (r &EditorInterface) popup_dialog_centered_ratio(dialog Window, ratio f64
     fnname := StringName.new("popup_dialog_centered_ratio")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2093669136)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = dialog.ptr
+    args[0] = voidptr(&dialog.ptr)
     args[1] = unsafe{voidptr(&ratio)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
@@ -266,7 +266,7 @@ pub fn (r &EditorInterface) popup_dialog_centered_clamped(dialog Window, minsize
     fnname := StringName.new("popup_dialog_centered_clamped")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3763385571)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = dialog.ptr
+    args[0] = voidptr(&dialog.ptr)
     args[1] = unsafe{voidptr(&minsize)}
     args[2] = unsafe{voidptr(&fallback_ratio)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
@@ -368,7 +368,7 @@ pub fn (r &EditorInterface) inspect_object(object Object, for_property string, i
     fnname := StringName.new("inspect_object")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 127962172)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = object.ptr
+    args[0] = voidptr(&object.ptr)
     arg_sn1 := String.new(for_property)
     args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&inspector_only)}
@@ -382,7 +382,7 @@ pub fn (r &EditorInterface) edit_resource(resource Resource) {
     fnname := StringName.new("edit_resource")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 968641751)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = resource.ptr
+    args[0] = voidptr(&resource.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -392,7 +392,7 @@ pub fn (r &EditorInterface) edit_node(node Node) {
     fnname := StringName.new("edit_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = node.ptr
+    args[0] = voidptr(&node.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -402,7 +402,7 @@ pub fn (r &EditorInterface) edit_script(script Script, line i32, column i32, gra
     fnname := StringName.new("edit_script")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 219829402)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = script.ptr
+    args[0] = voidptr(&script.ptr)
     args[1] = unsafe{voidptr(&line)}
     args[2] = unsafe{voidptr(&column)}
     args[3] = unsafe{voidptr(&grab_focus)}

@@ -66,7 +66,7 @@ pub fn (r &OpenXRActionMap) add_action_set(action_set OpenXRActionSet) {
     fnname := StringName.new("add_action_set")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2093310581)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = action_set.ptr
+    args[0] = voidptr(&action_set.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -76,7 +76,7 @@ pub fn (r &OpenXRActionMap) remove_action_set(action_set OpenXRActionSet) {
     fnname := StringName.new("remove_action_set")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2093310581)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = action_set.ptr
+    args[0] = voidptr(&action_set.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -142,7 +142,7 @@ pub fn (r &OpenXRActionMap) add_interaction_profile(interaction_profile OpenXRIn
     fnname := StringName.new("add_interaction_profile")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2697953512)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = interaction_profile.ptr
+    args[0] = voidptr(&interaction_profile.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -152,7 +152,7 @@ pub fn (r &OpenXRActionMap) remove_interaction_profile(interaction_profile OpenX
     fnname := StringName.new("remove_interaction_profile")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2697953512)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = interaction_profile.ptr
+    args[0] = voidptr(&interaction_profile.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

@@ -124,7 +124,7 @@ pub fn (r &SkeletonProfile) set_texture(group_idx i32, texture Texture2D) {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 666127730)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&group_idx)}
-    args[1] = texture.ptr
+    args[1] = voidptr(&texture.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

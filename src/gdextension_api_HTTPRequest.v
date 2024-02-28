@@ -73,7 +73,7 @@ pub fn (r &HTTPRequest) set_tls_options(client_options TLSOptions) {
     fnname := StringName.new("set_tls_options")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2210231844)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = client_options.ptr
+    args[0] = voidptr(&client_options.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

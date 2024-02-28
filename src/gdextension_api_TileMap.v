@@ -41,7 +41,7 @@ pub fn (r &TileMap) utile_data_runtime_update(layer i32, coords Vector2i, tile_d
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&layer)}
     args[1] = unsafe{voidptr(&coords)}
-    args[2] = tile_data.ptr
+    args[2] = voidptr(&tile_data.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -84,7 +84,7 @@ pub fn (r &TileMap) set_tileset(tileset TileSet) {
     fnname := StringName.new("set_tileset")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 774531446)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = tileset.ptr
+    args[0] = voidptr(&tileset.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -536,7 +536,7 @@ pub fn (r &TileMap) map_pattern(position_in_tilemap Vector2i, coords_in_pattern 
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&position_in_tilemap)}
     args[1] = unsafe{voidptr(&coords_in_pattern)}
-    args[2] = pattern.ptr
+    args[2] = voidptr(&pattern.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -549,7 +549,7 @@ pub fn (r &TileMap) set_pattern(layer i32, position Vector2i, pattern TileMapPat
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&layer)}
     args[1] = unsafe{voidptr(&position)}
-    args[2] = pattern.ptr
+    args[2] = voidptr(&pattern.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

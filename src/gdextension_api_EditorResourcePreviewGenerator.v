@@ -35,7 +35,7 @@ pub fn (r &EditorResourcePreviewGenerator) ugenerate(resource Resource, size Vec
     fnname := StringName.new("_generate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = resource.ptr
+    args[0] = voidptr(&resource.ptr)
     args[1] = unsafe{voidptr(&size)}
     args[2] = unsafe{voidptr(&metadata)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))

@@ -872,7 +872,7 @@ pub fn (r &BaseMaterial3D) set_texture(param BaseMaterial3DTextureParam, texture
     mut args := unsafe { [2]voidptr{} }
     i64_param := i64(param)
     args[0] = unsafe{voidptr(&i64_param)}
-    args[1] = texture.ptr
+    args[1] = voidptr(&texture.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

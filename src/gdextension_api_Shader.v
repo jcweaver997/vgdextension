@@ -54,7 +54,7 @@ pub fn (r &Shader) set_default_texture_parameter(name string, texture Texture2D,
     mut args := unsafe { [3]voidptr{} }
     arg_sn0 := StringName.new(name)
     args[0] = unsafe{voidptr(&arg_sn0)}
-    args[1] = texture.ptr
+    args[1] = voidptr(&texture.ptr)
     args[2] = unsafe{voidptr(&index)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     arg_sn0.deinit()

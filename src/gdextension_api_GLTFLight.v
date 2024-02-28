@@ -11,7 +11,7 @@ pub fn GLTFLight.from_node(light_node Light3D) GLTFLight {
     fnname := StringName.new("from_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3907677874)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = light_node.ptr
+    args[0] = voidptr(&light_node.ptr)
     gdf.object_method_bind_ptrcall(mb, unsafe{nil}, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()

@@ -93,7 +93,7 @@ pub fn (r &ScriptExtension) uinherits_script(script Script) bool {
     fnname := StringName.new("_inherits_script")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = script.ptr
+    args[0] = voidptr(&script.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -127,7 +127,7 @@ pub fn (r &ScriptExtension) uinstance_create(for_object Object) voidptr {
     fnname := StringName.new("_instance_create")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = for_object.ptr
+    args[0] = voidptr(&for_object.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -144,7 +144,7 @@ pub fn (r &ScriptExtension) uplaceholder_instance_create(for_object Object) void
     fnname := StringName.new("_placeholder_instance_create")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = for_object.ptr
+    args[0] = voidptr(&for_object.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -161,7 +161,7 @@ pub fn (r &ScriptExtension) uinstance_has(object Object) bool {
     fnname := StringName.new("_instance_has")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = object.ptr
+    args[0] = voidptr(&object.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()

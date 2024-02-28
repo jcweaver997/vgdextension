@@ -20,7 +20,7 @@ pub fn (r &JSONRPC) set_scope(scope string, target Object) {
     mut args := unsafe { [2]voidptr{} }
     arg_sn0 := String.new(scope)
     args[0] = unsafe{voidptr(&arg_sn0)}
-    args[1] = target.ptr
+    args[1] = voidptr(&target.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     arg_sn0.deinit()
     classname.deinit()

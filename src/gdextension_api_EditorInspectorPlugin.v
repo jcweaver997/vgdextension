@@ -16,7 +16,7 @@ pub fn (r &EditorInspectorPlugin) ucan_handle(object Object) bool {
     fnname := StringName.new("_can_handle")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = object.ptr
+    args[0] = voidptr(&object.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -32,7 +32,7 @@ pub fn (r &EditorInspectorPlugin) uparse_begin(object Object) {
     fnname := StringName.new("_parse_begin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = object.ptr
+    args[0] = voidptr(&object.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -47,7 +47,7 @@ pub fn (r &EditorInspectorPlugin) uparse_category(object Object, category string
     fnname := StringName.new("_parse_category")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = object.ptr
+    args[0] = voidptr(&object.ptr)
     arg_sn1 := String.new(category)
     args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
@@ -65,7 +65,7 @@ pub fn (r &EditorInspectorPlugin) uparse_group(object Object, group string) {
     fnname := StringName.new("_parse_group")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = object.ptr
+    args[0] = voidptr(&object.ptr)
     arg_sn1 := String.new(group)
     args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
@@ -84,7 +84,7 @@ pub fn (r &EditorInspectorPlugin) uparse_property(object Object, type_name Varia
     fnname := StringName.new("_parse_property")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [7]voidptr{} }
-    args[0] = object.ptr
+    args[0] = voidptr(&object.ptr)
     i64_type_name := i64(type_name)
     args[1] = unsafe{voidptr(&i64_type_name)}
     arg_sn2 := String.new(name)
@@ -113,7 +113,7 @@ pub fn (r &EditorInspectorPlugin) uparse_end(object Object) {
     fnname := StringName.new("_parse_end")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = object.ptr
+    args[0] = voidptr(&object.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -123,7 +123,7 @@ pub fn (r &EditorInspectorPlugin) add_custom_control(control Control) {
     fnname := StringName.new("add_custom_control")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1496901182)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = control.ptr
+    args[0] = voidptr(&control.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -135,7 +135,7 @@ pub fn (r &EditorInspectorPlugin) add_property_editor(property string, editor Co
     mut args := unsafe { [3]voidptr{} }
     arg_sn0 := String.new(property)
     args[0] = unsafe{voidptr(&arg_sn0)}
-    args[1] = editor.ptr
+    args[1] = voidptr(&editor.ptr)
     args[2] = unsafe{voidptr(&add_to_end)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     arg_sn0.deinit()
@@ -150,7 +150,7 @@ pub fn (r &EditorInspectorPlugin) add_property_editor_for_multiple_properties(la
     arg_sn0 := String.new(label)
     args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&properties)}
-    args[2] = editor.ptr
+    args[2] = voidptr(&editor.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     arg_sn0.deinit()
     classname.deinit()

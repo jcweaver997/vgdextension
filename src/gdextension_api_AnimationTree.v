@@ -16,7 +16,7 @@ pub fn (r &AnimationTree) set_tree_root(animation_node AnimationRootNode) {
     fnname := StringName.new("set_tree_root")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2581683800)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = animation_node.ptr
+    args[0] = voidptr(&animation_node.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

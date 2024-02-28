@@ -27,7 +27,7 @@ pub fn (r &Expression) execute(inputs Array, base_instance Object, show_error bo
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3712471238)
     mut args := unsafe { [4]voidptr{} }
     args[0] = unsafe{voidptr(&inputs)}
-    args[1] = base_instance.ptr
+    args[1] = voidptr(&base_instance.ptr)
     args[2] = unsafe{voidptr(&show_error)}
     args[3] = unsafe{voidptr(&const_calls_only)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))

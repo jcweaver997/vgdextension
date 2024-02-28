@@ -24,7 +24,7 @@ pub fn (r &InstancePlaceholder) create_instance(replace bool, custom_scene Packe
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3794612210)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&replace)}
-    args[1] = custom_scene.ptr
+    args[1] = voidptr(&custom_scene.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()

@@ -31,8 +31,8 @@ pub fn (r &ImageFormatLoaderExtension) uload_image(image Image, fileaccess FileA
     fnname := StringName.new("_load_image")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = image.ptr
-    args[1] = fileaccess.ptr
+    args[0] = voidptr(&image.ptr)
+    args[1] = voidptr(&fileaccess.ptr)
     i64_flags := i64(flags)
     args[2] = unsafe{voidptr(&i64_flags)}
     args[3] = unsafe{voidptr(&scale)}

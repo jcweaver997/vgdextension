@@ -16,7 +16,7 @@ pub fn (r &AnimationNodeBlendSpace2D) add_blend_point(node AnimationRootNode, po
     fnname := StringName.new("add_blend_point")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 402261981)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = node.ptr
+    args[0] = voidptr(&node.ptr)
     args[1] = unsafe{voidptr(&pos)}
     args[2] = unsafe{voidptr(&at_index)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
@@ -52,7 +52,7 @@ pub fn (r &AnimationNodeBlendSpace2D) set_blend_point_node(point i32, node Anima
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4240341528)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&point)}
-    args[1] = node.ptr
+    args[1] = voidptr(&node.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

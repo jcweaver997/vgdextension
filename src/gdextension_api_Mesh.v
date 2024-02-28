@@ -219,7 +219,7 @@ pub fn (r &Mesh) usurface_set_material(index i32, material Material) {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&index)}
-    args[1] = material.ptr
+    args[1] = voidptr(&material.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -388,7 +388,7 @@ pub fn (r &Mesh) surface_set_material(surf_idx i32, material Material) {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3671737478)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&surf_idx)}
-    args[1] = material.ptr
+    args[1] = voidptr(&material.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

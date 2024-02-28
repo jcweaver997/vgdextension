@@ -116,7 +116,7 @@ pub fn (r &GridMap) set_physics_material(material PhysicsMaterial) {
     fnname := StringName.new("set_physics_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1784508650)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = material.ptr
+    args[0] = voidptr(&material.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -176,7 +176,7 @@ pub fn (r &GridMap) set_mesh_library(mesh_library MeshLibrary) {
     fnname := StringName.new("set_mesh_library")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1488083439)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = mesh_library.ptr
+    args[0] = voidptr(&mesh_library.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -352,7 +352,7 @@ pub fn (r &GridMap) resource_changed(resource Resource) {
     fnname := StringName.new("resource_changed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 968641751)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = resource.ptr
+    args[0] = voidptr(&resource.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

@@ -20,7 +20,7 @@ pub fn (r &NavigationRegion2D) set_navigation_polygon(navigation_polygon Navigat
     fnname := StringName.new("set_navigation_polygon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1515040758)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = navigation_polygon.ptr
+    args[0] = voidptr(&navigation_polygon.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

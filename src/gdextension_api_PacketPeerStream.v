@@ -10,7 +10,7 @@ pub fn (r &PacketPeerStream) set_stream_peer(peer StreamPeer) {
     fnname := StringName.new("set_stream_peer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3281897016)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = peer.ptr
+    args[0] = voidptr(&peer.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

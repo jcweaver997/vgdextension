@@ -157,7 +157,7 @@ pub fn (r &ENetConnection) dtls_server_setup(server_options TLSOptions) GDError 
     fnname := StringName.new("dtls_server_setup")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1262296096)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = server_options.ptr
+    args[0] = voidptr(&server_options.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -171,7 +171,7 @@ pub fn (r &ENetConnection) dtls_client_setup(hostname string, client_options TLS
     mut args := unsafe { [2]voidptr{} }
     arg_sn0 := String.new(hostname)
     args[0] = unsafe{voidptr(&arg_sn0)}
-    args[1] = client_options.ptr
+    args[1] = voidptr(&client_options.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     arg_sn0.deinit()
     classname.deinit()

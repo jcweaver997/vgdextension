@@ -10,7 +10,7 @@ pub fn (r &AtlasTexture) set_atlas(atlas Texture2D) {
     fnname := StringName.new("set_atlas")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = atlas.ptr
+    args[0] = voidptr(&atlas.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

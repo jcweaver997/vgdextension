@@ -19,7 +19,7 @@ pub fn (r &MeshDataTool) create_from_surface(mesh ArrayMesh, surface i32) GDErro
     fnname := StringName.new("create_from_surface")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2727020678)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = mesh.ptr
+    args[0] = voidptr(&mesh.ptr)
     args[1] = unsafe{voidptr(&surface)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -32,7 +32,7 @@ pub fn (r &MeshDataTool) commit_to_surface(mesh ArrayMesh, compression_flags u64
     fnname := StringName.new("commit_to_surface")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2021686445)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = mesh.ptr
+    args[0] = voidptr(&mesh.ptr)
     args[1] = unsafe{voidptr(&compression_flags)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -424,7 +424,7 @@ pub fn (r &MeshDataTool) set_material(material Material) {
     fnname := StringName.new("set_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2757459619)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = material.ptr
+    args[0] = voidptr(&material.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

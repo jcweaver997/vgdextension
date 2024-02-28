@@ -70,7 +70,7 @@ pub fn (r &Material) set_next_pass(next_pass Material) {
     fnname := StringName.new("set_next_pass")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2757459619)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = next_pass.ptr
+    args[0] = voidptr(&next_pass.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

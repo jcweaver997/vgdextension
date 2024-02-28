@@ -27,10 +27,10 @@ pub fn (r &PacketPeerDTLS) connect_to_peer(packet_peer PacketPeerUDP, hostname s
     fnname := StringName.new("connect_to_peer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2880188099)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = packet_peer.ptr
+    args[0] = voidptr(&packet_peer.ptr)
     arg_sn1 := String.new(hostname)
     args[1] = unsafe{voidptr(&arg_sn1)}
-    args[2] = client_options.ptr
+    args[2] = voidptr(&client_options.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     arg_sn1.deinit()
     classname.deinit()

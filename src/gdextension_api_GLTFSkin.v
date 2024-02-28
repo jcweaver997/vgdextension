@@ -200,7 +200,7 @@ pub fn (r &GLTFSkin) set_godot_skin(godot_skin Skin) {
     fnname := StringName.new("set_godot_skin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3971435618)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = godot_skin.ptr
+    args[0] = voidptr(&godot_skin.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

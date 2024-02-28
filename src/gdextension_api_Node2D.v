@@ -339,7 +339,7 @@ pub fn (r &Node2D) get_relative_transform_to_parent(parent Node) Transform2D {
     fnname := StringName.new("get_relative_transform_to_parent")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 904556875)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = parent.ptr
+    args[0] = voidptr(&parent.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()

@@ -20,7 +20,7 @@ pub fn (r &BoneMap) set_profile(profile SkeletonProfile) {
     fnname := StringName.new("set_profile")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3870374136)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = profile.ptr
+    args[0] = voidptr(&profile.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

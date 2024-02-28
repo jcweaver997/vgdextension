@@ -30,7 +30,7 @@ pub fn (r &ShapeCast2D) set_shape(shape Shape2D) {
     fnname := StringName.new("set_shape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 771364740)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = shape.ptr
+    args[0] = voidptr(&shape.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -228,7 +228,7 @@ pub fn (r &ShapeCast2D) add_exception(node CollisionObject2D) {
     fnname := StringName.new("add_exception")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3090941106)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = node.ptr
+    args[0] = voidptr(&node.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -248,7 +248,7 @@ pub fn (r &ShapeCast2D) remove_exception(node CollisionObject2D) {
     fnname := StringName.new("remove_exception")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3090941106)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = node.ptr
+    args[0] = voidptr(&node.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

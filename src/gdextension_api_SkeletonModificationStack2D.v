@@ -51,7 +51,7 @@ pub fn (r &SkeletonModificationStack2D) add_modification(modification SkeletonMo
     fnname := StringName.new("add_modification")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 354162120)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = modification.ptr
+    args[0] = voidptr(&modification.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -72,7 +72,7 @@ pub fn (r &SkeletonModificationStack2D) set_modification(mod_idx i32, modificati
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1098262544)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&mod_idx)}
-    args[1] = modification.ptr
+    args[1] = voidptr(&modification.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

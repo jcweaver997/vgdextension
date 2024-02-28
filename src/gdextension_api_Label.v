@@ -76,7 +76,7 @@ pub fn (r &Label) set_label_settings(settings LabelSettings) {
     fnname := StringName.new("set_label_settings")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1030653839)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = settings.ptr
+    args[0] = voidptr(&settings.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

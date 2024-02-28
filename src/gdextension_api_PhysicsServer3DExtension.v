@@ -1909,7 +1909,7 @@ pub fn (r &PhysicsServer3DExtension) usoft_body_update_rendering_server(body RID
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
-    args[1] = rendering_server_handler.ptr
+    args[1] = voidptr(&rendering_server_handler.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

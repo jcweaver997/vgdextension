@@ -23,7 +23,7 @@ pub fn (r &ItemList) add_item(text string, icon Texture2D, selectable bool) i32 
     mut args := unsafe { [3]voidptr{} }
     arg_sn0 := String.new(text)
     args[0] = unsafe{voidptr(&arg_sn0)}
-    args[1] = icon.ptr
+    args[1] = voidptr(&icon.ptr)
     args[2] = unsafe{voidptr(&selectable)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     arg_sn0.deinit()
@@ -37,7 +37,7 @@ pub fn (r &ItemList) add_icon_item(icon Texture2D, selectable bool) i32 {
     fnname := StringName.new("add_icon_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4256579627)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = icon.ptr
+    args[0] = voidptr(&icon.ptr)
     args[1] = unsafe{voidptr(&selectable)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -77,7 +77,7 @@ pub fn (r &ItemList) set_item_icon(idx i32, icon Texture2D) {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 666127730)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    args[1] = icon.ptr
+    args[1] = voidptr(&icon.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

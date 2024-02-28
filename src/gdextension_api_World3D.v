@@ -40,7 +40,7 @@ pub fn (r &World3D) set_environment(env Environment) {
     fnname := StringName.new("set_environment")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4143518816)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = env.ptr
+    args[0] = voidptr(&env.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -60,7 +60,7 @@ pub fn (r &World3D) set_fallback_environment(env Environment) {
     fnname := StringName.new("set_fallback_environment")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4143518816)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = env.ptr
+    args[0] = voidptr(&env.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -80,7 +80,7 @@ pub fn (r &World3D) set_camera_attributes(attributes CameraAttributes) {
     fnname := StringName.new("set_camera_attributes")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2817810567)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = attributes.ptr
+    args[0] = voidptr(&attributes.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

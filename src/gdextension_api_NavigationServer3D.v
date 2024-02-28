@@ -340,8 +340,8 @@ pub fn (r &NavigationServer3D) query_path(parameters NavigationPathQueryParamete
     fnname := StringName.new("query_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3415008901)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = parameters.ptr
-    args[1] = result.ptr
+    args[0] = voidptr(&parameters.ptr)
+    args[1] = voidptr(&result.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -547,7 +547,7 @@ pub fn (r &NavigationServer3D) region_set_navigation_mesh(region RID, navigation
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2764952978)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&region)}
-    args[1] = navigation_mesh.ptr
+    args[1] = voidptr(&navigation_mesh.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -557,8 +557,8 @@ pub fn (r &NavigationServer3D) region_bake_navigation_mesh(navigation_mesh Navig
     fnname := StringName.new("region_bake_navigation_mesh")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1401173477)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = navigation_mesh.ptr
-    args[1] = root_node.ptr
+    args[0] = voidptr(&navigation_mesh.ptr)
+    args[1] = voidptr(&root_node.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -1259,9 +1259,9 @@ pub fn (r &NavigationServer3D) parse_source_geometry_data(navigation_mesh Naviga
     fnname := StringName.new("parse_source_geometry_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 685862123)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = navigation_mesh.ptr
-    args[1] = source_geometry_data.ptr
-    args[2] = root_node.ptr
+    args[0] = voidptr(&navigation_mesh.ptr)
+    args[1] = voidptr(&source_geometry_data.ptr)
+    args[2] = voidptr(&root_node.ptr)
     args[3] = unsafe{voidptr(&callback)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
@@ -1272,8 +1272,8 @@ pub fn (r &NavigationServer3D) bake_from_source_geometry_data(navigation_mesh Na
     fnname := StringName.new("bake_from_source_geometry_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2469318639)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = navigation_mesh.ptr
-    args[1] = source_geometry_data.ptr
+    args[0] = voidptr(&navigation_mesh.ptr)
+    args[1] = voidptr(&source_geometry_data.ptr)
     args[2] = unsafe{voidptr(&callback)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
@@ -1284,8 +1284,8 @@ pub fn (r &NavigationServer3D) bake_from_source_geometry_data_async(navigation_m
     fnname := StringName.new("bake_from_source_geometry_data_async")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2469318639)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = navigation_mesh.ptr
-    args[1] = source_geometry_data.ptr
+    args[0] = voidptr(&navigation_mesh.ptr)
+    args[1] = voidptr(&source_geometry_data.ptr)
     args[2] = unsafe{voidptr(&callback)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()

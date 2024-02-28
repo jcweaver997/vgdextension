@@ -21,7 +21,7 @@ pub fn (r &Script) instance_has(base_object Object) bool {
     fnname := StringName.new("instance_has")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 397768994)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = base_object.ptr
+    args[0] = voidptr(&base_object.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()

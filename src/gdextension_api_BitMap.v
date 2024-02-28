@@ -20,7 +20,7 @@ pub fn (r &BitMap) create_from_image_alpha(image Image, threshold f64) {
     fnname := StringName.new("create_from_image_alpha")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 106271684)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = image.ptr
+    args[0] = voidptr(&image.ptr)
     args[1] = unsafe{voidptr(&threshold)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()

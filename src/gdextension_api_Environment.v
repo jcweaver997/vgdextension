@@ -75,7 +75,7 @@ pub fn (r &Environment) set_sky(sky Sky) {
     fnname := StringName.new("set_sky")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3336722921)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = sky.ptr
+    args[0] = voidptr(&sky.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -1263,7 +1263,7 @@ pub fn (r &Environment) set_glow_map(mode Texture) {
     fnname := StringName.new("set_glow_map")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1790811099)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = mode.ptr
+    args[0] = voidptr(&mode.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -1803,7 +1803,7 @@ pub fn (r &Environment) set_adjustment_color_correction(color_correction Texture
     fnname := StringName.new("set_adjustment_color_correction")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1790811099)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = color_correction.ptr
+    args[0] = voidptr(&color_correction.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

@@ -31,7 +31,7 @@ pub fn (r &Tree) create_item(parent TreeItem, index i32) TreeItem {
     fnname := StringName.new("create_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 528467046)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = parent.ptr
+    args[0] = voidptr(&parent.ptr)
     args[1] = unsafe{voidptr(&index)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -166,7 +166,7 @@ pub fn (r &Tree) get_next_selected(from TreeItem) TreeItem {
     fnname := StringName.new("get_next_selected")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 873446299)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = from.ptr
+    args[0] = voidptr(&from.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -187,7 +187,7 @@ pub fn (r &Tree) set_selected(item TreeItem, column i32) {
     fnname := StringName.new("set_selected")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2662547442)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = item.ptr
+    args[0] = voidptr(&item.ptr)
     args[1] = unsafe{voidptr(&column)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
@@ -310,7 +310,7 @@ pub fn (r &Tree) get_item_area_rect(item TreeItem, column i32, button_index i32)
     fnname := StringName.new("get_item_area_rect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 47968679)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = item.ptr
+    args[0] = voidptr(&item.ptr)
     args[1] = unsafe{voidptr(&column)}
     args[2] = unsafe{voidptr(&button_index)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
@@ -511,7 +511,7 @@ pub fn (r &Tree) scroll_to_item(item TreeItem, center_on_item bool) {
     fnname := StringName.new("scroll_to_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1314737213)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = item.ptr
+    args[0] = voidptr(&item.ptr)
     args[1] = unsafe{voidptr(&center_on_item)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()

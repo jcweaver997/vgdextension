@@ -84,7 +84,7 @@ pub fn (r &OpenXRActionSet) add_action(action OpenXRAction) {
     fnname := StringName.new("add_action")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 349361333)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = action.ptr
+    args[0] = voidptr(&action.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -94,7 +94,7 @@ pub fn (r &OpenXRActionSet) remove_action(action OpenXRAction) {
     fnname := StringName.new("remove_action")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 349361333)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = action.ptr
+    args[0] = voidptr(&action.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

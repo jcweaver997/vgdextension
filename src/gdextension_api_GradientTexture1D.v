@@ -10,7 +10,7 @@ pub fn (r &GradientTexture1D) set_gradient(gradient Gradient) {
     fnname := StringName.new("set_gradient")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2756054477)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = gradient.ptr
+    args[0] = voidptr(&gradient.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

@@ -132,7 +132,7 @@ pub fn (r &Node) uinput(event InputEvent) {
     fnname := StringName.new("_input")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = event.ptr
+    args[0] = voidptr(&event.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -147,7 +147,7 @@ pub fn (r &Node) ushortcut_input(event InputEvent) {
     fnname := StringName.new("_shortcut_input")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = event.ptr
+    args[0] = voidptr(&event.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -162,7 +162,7 @@ pub fn (r &Node) uunhandled_input(event InputEvent) {
     fnname := StringName.new("_unhandled_input")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = event.ptr
+    args[0] = voidptr(&event.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -177,7 +177,7 @@ pub fn (r &Node) uunhandled_key_input(event InputEvent) {
     fnname := StringName.new("_unhandled_key_input")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = event.ptr
+    args[0] = voidptr(&event.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -195,7 +195,7 @@ pub fn (r &Node) add_sibling(sibling Node, force_readable_name bool) {
     fnname := StringName.new("add_sibling")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2570952461)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = sibling.ptr
+    args[0] = voidptr(&sibling.ptr)
     args[1] = unsafe{voidptr(&force_readable_name)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
@@ -230,7 +230,7 @@ pub fn (r &Node) add_child(node Node, force_readable_name bool, internal NodeInt
     fnname := StringName.new("add_child")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3863233950)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = node.ptr
+    args[0] = voidptr(&node.ptr)
     args[1] = unsafe{voidptr(&force_readable_name)}
     i64_internal := i64(internal)
     args[2] = unsafe{voidptr(&i64_internal)}
@@ -243,7 +243,7 @@ pub fn (r &Node) remove_child(node Node) {
     fnname := StringName.new("remove_child")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = node.ptr
+    args[0] = voidptr(&node.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -253,7 +253,7 @@ pub fn (r &Node) reparent(new_parent Node, keep_global_transform bool) {
     fnname := StringName.new("reparent")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3685795103)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = new_parent.ptr
+    args[0] = voidptr(&new_parent.ptr)
     args[1] = unsafe{voidptr(&keep_global_transform)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
@@ -431,7 +431,7 @@ pub fn (r &Node) is_ancestor_of(node Node) bool {
     fnname := StringName.new("is_ancestor_of")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3093956946)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = node.ptr
+    args[0] = voidptr(&node.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -443,7 +443,7 @@ pub fn (r &Node) is_greater_than(node Node) bool {
     fnname := StringName.new("is_greater_than")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3093956946)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = node.ptr
+    args[0] = voidptr(&node.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -465,7 +465,7 @@ pub fn (r &Node) get_path_to(node Node, use_unique_path bool) NodePath {
     fnname := StringName.new("get_path_to")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 498846349)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = node.ptr
+    args[0] = voidptr(&node.ptr)
     args[1] = unsafe{voidptr(&use_unique_path)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -516,7 +516,7 @@ pub fn (r &Node) move_child(child_node Node, to_index i32) {
     fnname := StringName.new("move_child")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3315886247)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = child_node.ptr
+    args[0] = voidptr(&child_node.ptr)
     args[1] = unsafe{voidptr(&to_index)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
@@ -537,7 +537,7 @@ pub fn (r &Node) set_owner(owner Node) {
     fnname := StringName.new("set_owner")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = owner.ptr
+    args[0] = voidptr(&owner.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -1042,7 +1042,7 @@ pub fn (r &Node) replace_by(node Node, keep_groups bool) {
     fnname := StringName.new("replace_by")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2570952461)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = node.ptr
+    args[0] = voidptr(&node.ptr)
     args[1] = unsafe{voidptr(&keep_groups)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
@@ -1073,7 +1073,7 @@ pub fn (r &Node) set_editable_instance(node Node, is_editable bool) {
     fnname := StringName.new("set_editable_instance")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2731852923)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = node.ptr
+    args[0] = voidptr(&node.ptr)
     args[1] = unsafe{voidptr(&is_editable)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
@@ -1085,7 +1085,7 @@ pub fn (r &Node) is_editable_instance(node Node) bool {
     fnname := StringName.new("is_editable_instance")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3093956946)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = node.ptr
+    args[0] = voidptr(&node.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()

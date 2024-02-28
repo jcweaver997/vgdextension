@@ -434,7 +434,7 @@ pub fn (r &ScriptLanguageExtension) uopen_in_external_editor(script Script, line
     fnname := StringName.new("_open_in_external_editor")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = script.ptr
+    args[0] = voidptr(&script.ptr)
     args[1] = unsafe{voidptr(&line)}
     args[2] = unsafe{voidptr(&column)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
@@ -472,7 +472,7 @@ pub fn (r &ScriptLanguageExtension) ucomplete_code(code string, path string, own
     args[0] = unsafe{voidptr(&arg_sn0)}
     arg_sn1 := String.new(path)
     args[1] = unsafe{voidptr(&arg_sn1)}
-    args[2] = owner.ptr
+    args[2] = voidptr(&owner.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     arg_sn0.deinit()
     arg_sn1.deinit()
@@ -497,7 +497,7 @@ pub fn (r &ScriptLanguageExtension) ulookup_code(code string, symbol string, pat
     args[1] = unsafe{voidptr(&arg_sn1)}
     arg_sn2 := String.new(path)
     args[2] = unsafe{voidptr(&arg_sn2)}
-    args[3] = owner.ptr
+    args[3] = voidptr(&owner.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     arg_sn0.deinit()
     arg_sn1.deinit()
@@ -811,7 +811,7 @@ pub fn (r &ScriptLanguageExtension) ureload_tool_script(script Script, soft_relo
     fnname := StringName.new("_reload_tool_script")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = script.ptr
+    args[0] = voidptr(&script.ptr)
     args[1] = unsafe{voidptr(&soft_reload)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()

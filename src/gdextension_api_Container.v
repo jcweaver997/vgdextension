@@ -48,7 +48,7 @@ pub fn (r &Container) fit_child_in_rect(child Control, rect Rect2) {
     fnname := StringName.new("fit_child_in_rect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1993438598)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = child.ptr
+    args[0] = voidptr(&child.ptr)
     args[1] = unsafe{voidptr(&rect)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()

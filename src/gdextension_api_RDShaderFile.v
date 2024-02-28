@@ -10,7 +10,7 @@ pub fn (r &RDShaderFile) set_bytecode(bytecode RDShaderSPIRV, version string) {
     fnname := StringName.new("set_bytecode")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1558064255)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = bytecode.ptr
+    args[0] = voidptr(&bytecode.ptr)
     arg_sn1 := StringName.new(version)
     args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})

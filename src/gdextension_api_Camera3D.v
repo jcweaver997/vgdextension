@@ -376,7 +376,7 @@ pub fn (r &Camera3D) set_environment(env Environment) {
     fnname := StringName.new("set_environment")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4143518816)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = env.ptr
+    args[0] = voidptr(&env.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -396,7 +396,7 @@ pub fn (r &Camera3D) set_attributes(env CameraAttributes) {
     fnname := StringName.new("set_attributes")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2817810567)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = env.ptr
+    args[0] = voidptr(&env.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

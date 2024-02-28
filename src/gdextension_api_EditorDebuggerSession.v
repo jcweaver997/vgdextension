@@ -67,7 +67,7 @@ pub fn (r &EditorDebuggerSession) add_session_tab(control Control) {
     fnname := StringName.new("add_session_tab")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1496901182)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = control.ptr
+    args[0] = voidptr(&control.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -77,7 +77,7 @@ pub fn (r &EditorDebuggerSession) remove_session_tab(control Control) {
     fnname := StringName.new("remove_session_tab")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1496901182)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = control.ptr
+    args[0] = voidptr(&control.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

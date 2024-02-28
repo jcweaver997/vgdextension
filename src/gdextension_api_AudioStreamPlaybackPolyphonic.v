@@ -11,7 +11,7 @@ pub fn (r &AudioStreamPlaybackPolyphonic) play_stream(stream AudioStream, from_o
     fnname := StringName.new("play_stream")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 604492179)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = stream.ptr
+    args[0] = voidptr(&stream.ptr)
     args[1] = unsafe{voidptr(&from_offset)}
     args[2] = unsafe{voidptr(&volume_db)}
     args[3] = unsafe{voidptr(&pitch_scale)}

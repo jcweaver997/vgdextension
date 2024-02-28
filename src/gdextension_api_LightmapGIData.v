@@ -93,7 +93,7 @@ pub fn (r &LightmapGIData) set_light_texture(light_texture TextureLayered) {
     fnname := StringName.new("set_light_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1278366092)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = light_texture.ptr
+    args[0] = voidptr(&light_texture.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

@@ -20,7 +20,7 @@ pub fn (r &GLTFSpecGloss) set_diffuse_img(diffuse_img Image) {
     fnname := StringName.new("set_diffuse_img")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 532598488)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = diffuse_img.ptr
+    args[0] = voidptr(&diffuse_img.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -100,7 +100,7 @@ pub fn (r &GLTFSpecGloss) set_spec_gloss_img(spec_gloss_img Image) {
     fnname := StringName.new("set_spec_gloss_img")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 532598488)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = spec_gloss_img.ptr
+    args[0] = voidptr(&spec_gloss_img.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

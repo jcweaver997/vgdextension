@@ -152,7 +152,7 @@ pub fn (r &GPUParticles3D) set_process_material(material Material) {
     fnname := StringName.new("set_process_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2757459619)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = material.ptr
+    args[0] = voidptr(&material.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -384,7 +384,7 @@ pub fn (r &GPUParticles3D) set_draw_pass_mesh(pass i32, mesh Mesh) {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 969122797)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&pass)}
-    args[1] = mesh.ptr
+    args[1] = voidptr(&mesh.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -416,7 +416,7 @@ pub fn (r &GPUParticles3D) set_skin(skin Skin) {
     fnname := StringName.new("set_skin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3971435618)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = skin.ptr
+    args[0] = voidptr(&skin.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -549,7 +549,7 @@ pub fn (r &GPUParticles3D) convert_from_particles(particles Node) {
     fnname := StringName.new("convert_from_particles")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = particles.ptr
+    args[0] = voidptr(&particles.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

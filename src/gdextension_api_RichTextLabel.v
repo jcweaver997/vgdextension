@@ -70,7 +70,7 @@ pub fn (r &RichTextLabel) add_image(image Texture2D, width i32, height i32, colo
     fnname := StringName.new("add_image")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3017663154)
     mut args := unsafe { [10]voidptr{} }
-    args[0] = image.ptr
+    args[0] = voidptr(&image.ptr)
     args[1] = unsafe{voidptr(&width)}
     args[2] = unsafe{voidptr(&height)}
     args[3] = unsafe{voidptr(&color)}
@@ -95,7 +95,7 @@ pub fn (r &RichTextLabel) update_image(key Variant, mask RichTextLabelImageUpdat
     args[0] = unsafe{voidptr(&key)}
     i64_mask := i64(mask)
     args[1] = unsafe{voidptr(&i64_mask)}
-    args[2] = image.ptr
+    args[2] = voidptr(&image.ptr)
     args[3] = unsafe{voidptr(&width)}
     args[4] = unsafe{voidptr(&height)}
     args[5] = unsafe{voidptr(&color)}
@@ -136,7 +136,7 @@ pub fn (r &RichTextLabel) push_font(font Font, font_size i32) {
     fnname := StringName.new("push_font")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2347424842)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = font.ptr
+    args[0] = voidptr(&font.ptr)
     args[1] = unsafe{voidptr(&font_size)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
@@ -339,7 +339,7 @@ pub fn (r &RichTextLabel) push_dropcap(gdstring string, font Font, size i32, dro
     mut args := unsafe { [7]voidptr{} }
     arg_sn0 := String.new(gdstring)
     args[0] = unsafe{voidptr(&arg_sn0)}
-    args[1] = font.ptr
+    args[1] = voidptr(&font.ptr)
     args[2] = unsafe{voidptr(&size)}
     args[3] = unsafe{voidptr(&dropcap_margins)}
     args[4] = unsafe{voidptr(&color)}
@@ -437,7 +437,7 @@ pub fn (r &RichTextLabel) push_customfx(effect RichTextEffect, env Dictionary) {
     fnname := StringName.new("push_customfx")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2337942958)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = effect.ptr
+    args[0] = voidptr(&effect.ptr)
     args[1] = unsafe{voidptr(&env)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()

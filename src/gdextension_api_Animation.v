@@ -705,7 +705,7 @@ pub fn (r &Animation) audio_track_insert_key(track_idx i32, time f64, stream Res
     mut args := unsafe { [5]voidptr{} }
     args[0] = unsafe{voidptr(&track_idx)}
     args[1] = unsafe{voidptr(&time)}
-    args[2] = stream.ptr
+    args[2] = voidptr(&stream.ptr)
     args[3] = unsafe{voidptr(&start_offset)}
     args[4] = unsafe{voidptr(&end_offset)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
@@ -720,7 +720,7 @@ pub fn (r &Animation) audio_track_set_key_stream(track_idx i32, key_idx i32, str
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&track_idx)}
     args[1] = unsafe{voidptr(&key_idx)}
-    args[2] = stream.ptr
+    args[2] = voidptr(&stream.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -931,7 +931,7 @@ pub fn (r &Animation) copy_track(track_idx i32, to_animation Animation) {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 148001024)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&track_idx)}
-    args[1] = to_animation.ptr
+    args[1] = voidptr(&to_animation.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

@@ -41,7 +41,7 @@ pub fn (r &Shortcut) matches_event(event InputEvent) bool {
     fnname := StringName.new("matches_event")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3738334489)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = event.ptr
+    args[0] = voidptr(&event.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()

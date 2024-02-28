@@ -183,7 +183,7 @@ pub fn (r &ClassDB) class_get_property(object Object, property string) Variant {
     fnname := StringName.new("class_get_property")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2498641674)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = object.ptr
+    args[0] = voidptr(&object.ptr)
     arg_sn1 := StringName.new(property)
     args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
@@ -198,7 +198,7 @@ pub fn (r &ClassDB) class_set_property(object Object, property string, value Var
     fnname := StringName.new("class_set_property")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1690314931)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = object.ptr
+    args[0] = voidptr(&object.ptr)
     arg_sn1 := StringName.new(property)
     args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&value)}

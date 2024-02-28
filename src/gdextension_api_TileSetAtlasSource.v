@@ -16,7 +16,7 @@ pub fn (r &TileSetAtlasSource) set_texture(texture Texture2D) {
     fnname := StringName.new("set_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = texture.ptr
+    args[0] = voidptr(&texture.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -179,7 +179,7 @@ pub fn (r &TileSetAtlasSource) get_tiles_to_be_removed_on_change(texture Texture
     fnname := StringName.new("get_tiles_to_be_removed_on_change")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1240378054)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = texture.ptr
+    args[0] = voidptr(&texture.ptr)
     args[1] = unsafe{voidptr(&margins)}
     args[2] = unsafe{voidptr(&separation)}
     args[3] = unsafe{voidptr(&texture_region_size)}

@@ -267,7 +267,7 @@ pub fn (r &EditorFileDialog) add_side_menu(menu Control, title string) {
     fnname := StringName.new("add_side_menu")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 402368861)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = menu.ptr
+    args[0] = voidptr(&menu.ptr)
     arg_sn1 := String.new(title)
     args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})

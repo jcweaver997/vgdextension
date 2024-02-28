@@ -20,7 +20,7 @@ pub fn (r &TextureButton) set_texture_normal(texture Texture2D) {
     fnname := StringName.new("set_texture_normal")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = texture.ptr
+    args[0] = voidptr(&texture.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -30,7 +30,7 @@ pub fn (r &TextureButton) set_texture_pressed(texture Texture2D) {
     fnname := StringName.new("set_texture_pressed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = texture.ptr
+    args[0] = voidptr(&texture.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -40,7 +40,7 @@ pub fn (r &TextureButton) set_texture_hover(texture Texture2D) {
     fnname := StringName.new("set_texture_hover")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = texture.ptr
+    args[0] = voidptr(&texture.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -50,7 +50,7 @@ pub fn (r &TextureButton) set_texture_disabled(texture Texture2D) {
     fnname := StringName.new("set_texture_disabled")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = texture.ptr
+    args[0] = voidptr(&texture.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -60,7 +60,7 @@ pub fn (r &TextureButton) set_texture_focused(texture Texture2D) {
     fnname := StringName.new("set_texture_focused")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = texture.ptr
+    args[0] = voidptr(&texture.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -70,7 +70,7 @@ pub fn (r &TextureButton) set_click_mask(mask BitMap) {
     fnname := StringName.new("set_click_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 698588216)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = mask.ptr
+    args[0] = voidptr(&mask.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

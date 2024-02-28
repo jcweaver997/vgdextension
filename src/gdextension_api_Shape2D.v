@@ -32,7 +32,7 @@ pub fn (r &Shape2D) collide(local_xform Transform2D, with_shape Shape2D, shape_x
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3709843132)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&local_xform)}
-    args[1] = with_shape.ptr
+    args[1] = voidptr(&with_shape.ptr)
     args[2] = unsafe{voidptr(&shape_xform)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -47,7 +47,7 @@ pub fn (r &Shape2D) collide_with_motion(local_xform Transform2D, local_motion Ve
     mut args := unsafe { [5]voidptr{} }
     args[0] = unsafe{voidptr(&local_xform)}
     args[1] = unsafe{voidptr(&local_motion)}
-    args[2] = with_shape.ptr
+    args[2] = voidptr(&with_shape.ptr)
     args[3] = unsafe{voidptr(&shape_xform)}
     args[4] = unsafe{voidptr(&shape_motion)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
@@ -62,7 +62,7 @@ pub fn (r &Shape2D) collide_and_get_contacts(local_xform Transform2D, with_shape
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3056932662)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&local_xform)}
-    args[1] = with_shape.ptr
+    args[1] = voidptr(&with_shape.ptr)
     args[2] = unsafe{voidptr(&shape_xform)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -77,7 +77,7 @@ pub fn (r &Shape2D) collide_with_motion_and_get_contacts(local_xform Transform2D
     mut args := unsafe { [5]voidptr{} }
     args[0] = unsafe{voidptr(&local_xform)}
     args[1] = unsafe{voidptr(&local_motion)}
-    args[2] = with_shape.ptr
+    args[2] = voidptr(&with_shape.ptr)
     args[3] = unsafe{voidptr(&shape_xform)}
     args[4] = unsafe{voidptr(&shape_motion)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))

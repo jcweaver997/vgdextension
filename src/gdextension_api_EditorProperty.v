@@ -212,7 +212,7 @@ pub fn (r &EditorProperty) add_focusable(control Control) {
     fnname := StringName.new("add_focusable")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1496901182)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = control.ptr
+    args[0] = voidptr(&control.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -222,7 +222,7 @@ pub fn (r &EditorProperty) set_bottom_editor(editor Control) {
     fnname := StringName.new("set_bottom_editor")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1496901182)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = editor.ptr
+    args[0] = voidptr(&editor.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

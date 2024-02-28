@@ -402,7 +402,7 @@ pub fn (r &CanvasItem) draw_texture(texture Texture2D, position Vector2, modulat
     fnname := StringName.new("draw_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 520200117)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = texture.ptr
+    args[0] = voidptr(&texture.ptr)
     args[1] = unsafe{voidptr(&position)}
     args[2] = unsafe{voidptr(&modulate)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
@@ -414,7 +414,7 @@ pub fn (r &CanvasItem) draw_texture_rect(texture Texture2D, rect Rect2, tile boo
     fnname := StringName.new("draw_texture_rect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3832805018)
     mut args := unsafe { [5]voidptr{} }
-    args[0] = texture.ptr
+    args[0] = voidptr(&texture.ptr)
     args[1] = unsafe{voidptr(&rect)}
     args[2] = unsafe{voidptr(&tile)}
     args[3] = unsafe{voidptr(&modulate)}
@@ -428,7 +428,7 @@ pub fn (r &CanvasItem) draw_texture_rect_region(texture Texture2D, rect Rect2, s
     fnname := StringName.new("draw_texture_rect_region")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3883821411)
     mut args := unsafe { [6]voidptr{} }
-    args[0] = texture.ptr
+    args[0] = voidptr(&texture.ptr)
     args[1] = unsafe{voidptr(&rect)}
     args[2] = unsafe{voidptr(&src_rect)}
     args[3] = unsafe{voidptr(&modulate)}
@@ -443,7 +443,7 @@ pub fn (r &CanvasItem) draw_msdf_texture_rect_region(texture Texture2D, rect Rec
     fnname := StringName.new("draw_msdf_texture_rect_region")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4219163252)
     mut args := unsafe { [7]voidptr{} }
-    args[0] = texture.ptr
+    args[0] = voidptr(&texture.ptr)
     args[1] = unsafe{voidptr(&rect)}
     args[2] = unsafe{voidptr(&src_rect)}
     args[3] = unsafe{voidptr(&modulate)}
@@ -459,7 +459,7 @@ pub fn (r &CanvasItem) draw_lcd_texture_rect_region(texture Texture2D, rect Rect
     fnname := StringName.new("draw_lcd_texture_rect_region")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3212350954)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = texture.ptr
+    args[0] = voidptr(&texture.ptr)
     args[1] = unsafe{voidptr(&rect)}
     args[2] = unsafe{voidptr(&src_rect)}
     args[3] = unsafe{voidptr(&modulate)}
@@ -472,7 +472,7 @@ pub fn (r &CanvasItem) draw_style_box(style_box StyleBox, rect Rect2) {
     fnname := StringName.new("draw_style_box")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 388176283)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = style_box.ptr
+    args[0] = voidptr(&style_box.ptr)
     args[1] = unsafe{voidptr(&rect)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
@@ -486,7 +486,7 @@ pub fn (r &CanvasItem) draw_primitive(points PackedVector2Array, colors PackedCo
     args[0] = unsafe{voidptr(&points)}
     args[1] = unsafe{voidptr(&colors)}
     args[2] = unsafe{voidptr(&uvs)}
-    args[3] = texture.ptr
+    args[3] = voidptr(&texture.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -499,7 +499,7 @@ pub fn (r &CanvasItem) draw_polygon(points PackedVector2Array, colors PackedColo
     args[0] = unsafe{voidptr(&points)}
     args[1] = unsafe{voidptr(&colors)}
     args[2] = unsafe{voidptr(&uvs)}
-    args[3] = texture.ptr
+    args[3] = voidptr(&texture.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -512,7 +512,7 @@ pub fn (r &CanvasItem) draw_colored_polygon(points PackedVector2Array, color Col
     args[0] = unsafe{voidptr(&points)}
     args[1] = unsafe{voidptr(&color)}
     args[2] = unsafe{voidptr(&uvs)}
-    args[3] = texture.ptr
+    args[3] = voidptr(&texture.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -522,7 +522,7 @@ pub fn (r &CanvasItem) draw_string(font Font, pos Vector2, text string, alignmen
     fnname := StringName.new("draw_string")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 728290553)
     mut args := unsafe { [10]voidptr{} }
-    args[0] = font.ptr
+    args[0] = voidptr(&font.ptr)
     args[1] = unsafe{voidptr(&pos)}
     arg_sn2 := String.new(text)
     args[2] = unsafe{voidptr(&arg_sn2)}
@@ -547,7 +547,7 @@ pub fn (r &CanvasItem) draw_multiline_string(font Font, pos Vector2, text string
     fnname := StringName.new("draw_multiline_string")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1927038192)
     mut args := unsafe { [12]voidptr{} }
-    args[0] = font.ptr
+    args[0] = voidptr(&font.ptr)
     args[1] = unsafe{voidptr(&pos)}
     arg_sn2 := String.new(text)
     args[2] = unsafe{voidptr(&arg_sn2)}
@@ -575,7 +575,7 @@ pub fn (r &CanvasItem) draw_string_outline(font Font, pos Vector2, text string, 
     fnname := StringName.new("draw_string_outline")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 340562381)
     mut args := unsafe { [11]voidptr{} }
-    args[0] = font.ptr
+    args[0] = voidptr(&font.ptr)
     args[1] = unsafe{voidptr(&pos)}
     arg_sn2 := String.new(text)
     args[2] = unsafe{voidptr(&arg_sn2)}
@@ -601,7 +601,7 @@ pub fn (r &CanvasItem) draw_multiline_string_outline(font Font, pos Vector2, tex
     fnname := StringName.new("draw_multiline_string_outline")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1912318525)
     mut args := unsafe { [13]voidptr{} }
-    args[0] = font.ptr
+    args[0] = voidptr(&font.ptr)
     args[1] = unsafe{voidptr(&pos)}
     arg_sn2 := String.new(text)
     args[2] = unsafe{voidptr(&arg_sn2)}
@@ -630,7 +630,7 @@ pub fn (r &CanvasItem) draw_char(font Font, pos Vector2, gdchar string, font_siz
     fnname := StringName.new("draw_char")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3339793283)
     mut args := unsafe { [5]voidptr{} }
-    args[0] = font.ptr
+    args[0] = voidptr(&font.ptr)
     args[1] = unsafe{voidptr(&pos)}
     arg_sn2 := String.new(gdchar)
     args[2] = unsafe{voidptr(&arg_sn2)}
@@ -646,7 +646,7 @@ pub fn (r &CanvasItem) draw_char_outline(font Font, pos Vector2, gdchar string, 
     fnname := StringName.new("draw_char_outline")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3302344391)
     mut args := unsafe { [6]voidptr{} }
-    args[0] = font.ptr
+    args[0] = voidptr(&font.ptr)
     args[1] = unsafe{voidptr(&pos)}
     arg_sn2 := String.new(gdchar)
     args[2] = unsafe{voidptr(&arg_sn2)}
@@ -663,8 +663,8 @@ pub fn (r &CanvasItem) draw_mesh(mesh Mesh, texture Texture2D, transform Transfo
     fnname := StringName.new("draw_mesh")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 153818295)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = mesh.ptr
-    args[1] = texture.ptr
+    args[0] = voidptr(&mesh.ptr)
+    args[1] = voidptr(&texture.ptr)
     args[2] = unsafe{voidptr(&transform)}
     args[3] = unsafe{voidptr(&modulate)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
@@ -676,8 +676,8 @@ pub fn (r &CanvasItem) draw_multimesh(multimesh MultiMesh, texture Texture2D) {
     fnname := StringName.new("draw_multimesh")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 937992368)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = multimesh.ptr
-    args[1] = texture.ptr
+    args[0] = voidptr(&multimesh.ptr)
+    args[1] = voidptr(&texture.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -840,7 +840,7 @@ pub fn (r &CanvasItem) set_material(material Material) {
     fnname := StringName.new("set_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2757459619)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = material.ptr
+    args[0] = voidptr(&material.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -941,7 +941,7 @@ pub fn (r &CanvasItem) make_input_local(event InputEvent) InputEvent {
     fnname := StringName.new("make_input_local")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 811130057)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = event.ptr
+    args[0] = voidptr(&event.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()

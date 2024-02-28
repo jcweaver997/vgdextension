@@ -73,7 +73,7 @@ pub fn (r &OccluderInstance3D) set_occluder(occluder Occluder3D) {
     fnname := StringName.new("set_occluder")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1664878165)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = occluder.ptr
+    args[0] = voidptr(&occluder.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

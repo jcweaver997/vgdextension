@@ -184,7 +184,7 @@ pub fn (r &Skeleton3D) register_skin(skin Skin) SkinReference {
     fnname := StringName.new("register_skin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3405789568)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = skin.ptr
+    args[0] = voidptr(&skin.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()

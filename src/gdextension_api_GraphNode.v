@@ -69,8 +69,8 @@ pub fn (r &GraphNode) set_slot(slot_index i32, enable_left_port bool, type_left 
     args[4] = unsafe{voidptr(&enable_right_port)}
     args[5] = unsafe{voidptr(&type_right)}
     args[6] = unsafe{voidptr(&color_right)}
-    args[7] = custom_icon_left.ptr
-    args[8] = custom_icon_right.ptr
+    args[7] = voidptr(&custom_icon_left.ptr)
+    args[8] = voidptr(&custom_icon_right.ptr)
     args[9] = unsafe{voidptr(&draw_stylebox)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()

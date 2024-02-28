@@ -35,7 +35,7 @@ pub fn (r &Crypto) generate_self_signed_certificate(key CryptoKey, issuer_name s
     fnname := StringName.new("generate_self_signed_certificate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 492266173)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = key.ptr
+    args[0] = voidptr(&key.ptr)
     arg_sn1 := String.new(issuer_name)
     args[1] = unsafe{voidptr(&arg_sn1)}
     arg_sn2 := String.new(not_before)
@@ -59,7 +59,7 @@ pub fn (r &Crypto) sign(hash_type HashingContextHashType, hash PackedByteArray, 
     i64_hash_type := i64(hash_type)
     args[0] = unsafe{voidptr(&i64_hash_type)}
     args[1] = unsafe{voidptr(&hash)}
-    args[2] = key.ptr
+    args[2] = voidptr(&key.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -75,7 +75,7 @@ pub fn (r &Crypto) verify(hash_type HashingContextHashType, hash PackedByteArray
     args[0] = unsafe{voidptr(&i64_hash_type)}
     args[1] = unsafe{voidptr(&hash)}
     args[2] = unsafe{voidptr(&signature)}
-    args[3] = key.ptr
+    args[3] = voidptr(&key.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -87,7 +87,7 @@ pub fn (r &Crypto) encrypt(key CryptoKey, plaintext PackedByteArray) PackedByteA
     fnname := StringName.new("encrypt")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2361793670)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = key.ptr
+    args[0] = voidptr(&key.ptr)
     args[1] = unsafe{voidptr(&plaintext)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -100,7 +100,7 @@ pub fn (r &Crypto) decrypt(key CryptoKey, ciphertext PackedByteArray) PackedByte
     fnname := StringName.new("decrypt")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2361793670)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = key.ptr
+    args[0] = voidptr(&key.ptr)
     args[1] = unsafe{voidptr(&ciphertext)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()

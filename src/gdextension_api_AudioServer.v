@@ -250,7 +250,7 @@ pub fn (r &AudioServer) add_bus_effect(bus_idx i32, effect AudioEffect, at_posit
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4068819785)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&bus_idx)}
-    args[1] = effect.ptr
+    args[1] = voidptr(&effect.ptr)
     args[2] = unsafe{voidptr(&at_position)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
@@ -528,7 +528,7 @@ pub fn (r &AudioServer) set_bus_layout(bus_layout AudioBusLayout) {
     fnname := StringName.new("set_bus_layout")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3319058824)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = bus_layout.ptr
+    args[0] = voidptr(&bus_layout.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

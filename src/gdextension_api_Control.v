@@ -248,7 +248,7 @@ pub fn (r &Control) ugui_input(event InputEvent) {
     fnname := StringName.new("_gui_input")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = event.ptr
+    args[0] = voidptr(&event.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -785,7 +785,7 @@ pub fn (r &Control) set_theme(theme Theme) {
     fnname := StringName.new("set_theme")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2326690814)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = theme.ptr
+    args[0] = voidptr(&theme.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -847,7 +847,7 @@ pub fn (r &Control) add_theme_icon_override(name string, texture Texture2D) {
     mut args := unsafe { [2]voidptr{} }
     arg_sn0 := StringName.new(name)
     args[0] = unsafe{voidptr(&arg_sn0)}
-    args[1] = texture.ptr
+    args[1] = voidptr(&texture.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     arg_sn0.deinit()
     classname.deinit()
@@ -860,7 +860,7 @@ pub fn (r &Control) add_theme_stylebox_override(name string, stylebox StyleBox) 
     mut args := unsafe { [2]voidptr{} }
     arg_sn0 := StringName.new(name)
     args[0] = unsafe{voidptr(&arg_sn0)}
-    args[1] = stylebox.ptr
+    args[1] = voidptr(&stylebox.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     arg_sn0.deinit()
     classname.deinit()
@@ -873,7 +873,7 @@ pub fn (r &Control) add_theme_font_override(name string, font Font) {
     mut args := unsafe { [2]voidptr{} }
     arg_sn0 := StringName.new(name)
     args[0] = unsafe{voidptr(&arg_sn0)}
-    args[1] = font.ptr
+    args[1] = voidptr(&font.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     arg_sn0.deinit()
     classname.deinit()
@@ -1502,7 +1502,7 @@ pub fn (r &Control) force_drag(data Variant, preview Control) {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3191844692)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&data)}
-    args[1] = preview.ptr
+    args[1] = voidptr(&preview.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -1593,7 +1593,7 @@ pub fn (r &Control) set_drag_preview(control Control) {
     fnname := StringName.new("set_drag_preview")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1496901182)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = control.ptr
+    args[0] = voidptr(&control.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -1623,7 +1623,7 @@ pub fn (r &Control) set_shortcut_context(node Node) {
     fnname := StringName.new("set_shortcut_context")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = node.ptr
+    args[0] = voidptr(&node.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

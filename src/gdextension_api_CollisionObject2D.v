@@ -21,8 +21,8 @@ pub fn (r &CollisionObject2D) uinput_event(viewport Viewport, event InputEvent, 
     fnname := StringName.new("_input_event")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = viewport.ptr
-    args[1] = event.ptr
+    args[0] = voidptr(&viewport.ptr)
+    args[1] = voidptr(&event.ptr)
     args[2] = unsafe{voidptr(&shape_idx)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
@@ -247,7 +247,7 @@ pub fn (r &CollisionObject2D) create_shape_owner(owner Object) u32 {
     fnname := StringName.new("create_shape_owner")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3429307534)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = owner.ptr
+    args[0] = voidptr(&owner.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -383,7 +383,7 @@ pub fn (r &CollisionObject2D) shape_owner_add_shape(owner_id u32, shape Shape2D)
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2077425081)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&owner_id)}
-    args[1] = shape.ptr
+    args[1] = voidptr(&shape.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

@@ -45,7 +45,7 @@ pub fn (r &TileSetScenesCollectionSource) create_scene_tile(packed_scene PackedS
     fnname := StringName.new("create_scene_tile")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1117465415)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = packed_scene.ptr
+    args[0] = voidptr(&packed_scene.ptr)
     args[1] = unsafe{voidptr(&id_override)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -69,7 +69,7 @@ pub fn (r &TileSetScenesCollectionSource) set_scene_tile_scene(id i32, packed_sc
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3435852839)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&id)}
-    args[1] = packed_scene.ptr
+    args[1] = voidptr(&packed_scene.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

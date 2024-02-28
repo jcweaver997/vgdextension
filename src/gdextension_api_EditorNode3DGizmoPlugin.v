@@ -16,7 +16,7 @@ pub fn (r &EditorNode3DGizmoPlugin) uhas_gizmo(for_node_3d Node3D) bool {
     fnname := StringName.new("_has_gizmo")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = for_node_3d.ptr
+    args[0] = voidptr(&for_node_3d.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -33,7 +33,7 @@ pub fn (r &EditorNode3DGizmoPlugin) ucreate_gizmo(for_node_3d Node3D) EditorNode
     fnname := StringName.new("_create_gizmo")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = for_node_3d.ptr
+    args[0] = voidptr(&for_node_3d.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -111,7 +111,7 @@ pub fn (r &EditorNode3DGizmoPlugin) uredraw(gizmo EditorNode3DGizmo) {
     fnname := StringName.new("_redraw")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = gizmo.ptr
+    args[0] = voidptr(&gizmo.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -127,7 +127,7 @@ pub fn (r &EditorNode3DGizmoPlugin) uget_handle_name(gizmo EditorNode3DGizmo, ha
     fnname := StringName.new("_get_handle_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = gizmo.ptr
+    args[0] = voidptr(&gizmo.ptr)
     args[1] = unsafe{voidptr(&handle_id)}
     args[2] = unsafe{voidptr(&secondary)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
@@ -148,7 +148,7 @@ pub fn (r &EditorNode3DGizmoPlugin) uis_handle_highlighted(gizmo EditorNode3DGiz
     fnname := StringName.new("_is_handle_highlighted")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = gizmo.ptr
+    args[0] = voidptr(&gizmo.ptr)
     args[1] = unsafe{voidptr(&handle_id)}
     args[2] = unsafe{voidptr(&secondary)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
@@ -167,7 +167,7 @@ pub fn (r &EditorNode3DGizmoPlugin) uget_handle_value(gizmo EditorNode3DGizmo, h
     fnname := StringName.new("_get_handle_value")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = gizmo.ptr
+    args[0] = voidptr(&gizmo.ptr)
     args[1] = unsafe{voidptr(&handle_id)}
     args[2] = unsafe{voidptr(&secondary)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
@@ -185,10 +185,10 @@ pub fn (r &EditorNode3DGizmoPlugin) uset_handle(gizmo EditorNode3DGizmo, handle_
     fnname := StringName.new("_set_handle")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [5]voidptr{} }
-    args[0] = gizmo.ptr
+    args[0] = voidptr(&gizmo.ptr)
     args[1] = unsafe{voidptr(&handle_id)}
     args[2] = unsafe{voidptr(&secondary)}
-    args[3] = camera.ptr
+    args[3] = voidptr(&camera.ptr)
     args[4] = unsafe{voidptr(&screen_pos)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
@@ -204,7 +204,7 @@ pub fn (r &EditorNode3DGizmoPlugin) ucommit_handle(gizmo EditorNode3DGizmo, hand
     fnname := StringName.new("_commit_handle")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [5]voidptr{} }
-    args[0] = gizmo.ptr
+    args[0] = voidptr(&gizmo.ptr)
     args[1] = unsafe{voidptr(&handle_id)}
     args[2] = unsafe{voidptr(&secondary)}
     args[3] = unsafe{voidptr(&restore)}
@@ -224,8 +224,8 @@ pub fn (r &EditorNode3DGizmoPlugin) usubgizmos_intersect_ray(gizmo EditorNode3DG
     fnname := StringName.new("_subgizmos_intersect_ray")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = gizmo.ptr
-    args[1] = camera.ptr
+    args[0] = voidptr(&gizmo.ptr)
+    args[1] = voidptr(&camera.ptr)
     args[2] = unsafe{voidptr(&screen_pos)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -243,8 +243,8 @@ pub fn (r &EditorNode3DGizmoPlugin) usubgizmos_intersect_frustum(gizmo EditorNod
     fnname := StringName.new("_subgizmos_intersect_frustum")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = gizmo.ptr
-    args[1] = camera.ptr
+    args[0] = voidptr(&gizmo.ptr)
+    args[1] = voidptr(&camera.ptr)
     args[2] = unsafe{voidptr(&frustum_planes)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -262,7 +262,7 @@ pub fn (r &EditorNode3DGizmoPlugin) uget_subgizmo_transform(gizmo EditorNode3DGi
     fnname := StringName.new("_get_subgizmo_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = gizmo.ptr
+    args[0] = voidptr(&gizmo.ptr)
     args[1] = unsafe{voidptr(&subgizmo_id)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -279,7 +279,7 @@ pub fn (r &EditorNode3DGizmoPlugin) uset_subgizmo_transform(gizmo EditorNode3DGi
     fnname := StringName.new("_set_subgizmo_transform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = gizmo.ptr
+    args[0] = voidptr(&gizmo.ptr)
     args[1] = unsafe{voidptr(&subgizmo_id)}
     args[2] = unsafe{voidptr(&transform)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
@@ -296,7 +296,7 @@ pub fn (r &EditorNode3DGizmoPlugin) ucommit_subgizmos(gizmo EditorNode3DGizmo, i
     fnname := StringName.new("_commit_subgizmos")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = gizmo.ptr
+    args[0] = voidptr(&gizmo.ptr)
     args[1] = unsafe{voidptr(&ids)}
     args[2] = unsafe{voidptr(&restores)}
     args[3] = unsafe{voidptr(&cancel)}
@@ -327,7 +327,7 @@ pub fn (r &EditorNode3DGizmoPlugin) create_icon_material(name string, texture Te
     mut args := unsafe { [4]voidptr{} }
     arg_sn0 := String.new(name)
     args[0] = unsafe{voidptr(&arg_sn0)}
-    args[1] = texture.ptr
+    args[1] = voidptr(&texture.ptr)
     args[2] = unsafe{voidptr(&on_top)}
     args[3] = unsafe{voidptr(&color)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
@@ -343,7 +343,7 @@ pub fn (r &EditorNode3DGizmoPlugin) create_handle_material(name string, billboar
     arg_sn0 := String.new(name)
     args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&billboard)}
-    args[2] = texture.ptr
+    args[2] = voidptr(&texture.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     arg_sn0.deinit()
     classname.deinit()
@@ -356,7 +356,7 @@ pub fn (r &EditorNode3DGizmoPlugin) add_material(name string, material StandardM
     mut args := unsafe { [2]voidptr{} }
     arg_sn0 := String.new(name)
     args[0] = unsafe{voidptr(&arg_sn0)}
-    args[1] = material.ptr
+    args[1] = voidptr(&material.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     arg_sn0.deinit()
     classname.deinit()
@@ -370,7 +370,7 @@ pub fn (r &EditorNode3DGizmoPlugin) get_material(name string, gizmo EditorNode3D
     mut args := unsafe { [2]voidptr{} }
     arg_sn0 := String.new(name)
     args[0] = unsafe{voidptr(&arg_sn0)}
-    args[1] = gizmo.ptr
+    args[1] = voidptr(&gizmo.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     arg_sn0.deinit()
     classname.deinit()

@@ -298,7 +298,7 @@ pub fn (r &AnimationNode) blend_node(name string, node AnimationNode, time f64, 
     mut args := unsafe { [9]voidptr{} }
     arg_sn0 := StringName.new(name)
     args[0] = unsafe{voidptr(&arg_sn0)}
-    args[1] = node.ptr
+    args[1] = voidptr(&node.ptr)
     args[2] = unsafe{voidptr(&time)}
     args[3] = unsafe{voidptr(&seek)}
     args[4] = unsafe{voidptr(&is_external_seeking)}

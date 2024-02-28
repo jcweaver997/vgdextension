@@ -86,7 +86,7 @@ pub fn (r &EditorNode3DGizmo) uset_handle(id i32, secondary bool, camera Camera3
     mut args := unsafe { [4]voidptr{} }
     args[0] = unsafe{voidptr(&id)}
     args[1] = unsafe{voidptr(&secondary)}
-    args[2] = camera.ptr
+    args[2] = voidptr(&camera.ptr)
     args[3] = unsafe{voidptr(&point)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
@@ -121,7 +121,7 @@ pub fn (r &EditorNode3DGizmo) usubgizmos_intersect_ray(camera Camera3D, point Ve
     fnname := StringName.new("_subgizmos_intersect_ray")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = camera.ptr
+    args[0] = voidptr(&camera.ptr)
     args[1] = unsafe{voidptr(&point)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -139,7 +139,7 @@ pub fn (r &EditorNode3DGizmo) usubgizmos_intersect_frustum(camera Camera3D, frus
     fnname := StringName.new("_subgizmos_intersect_frustum")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = camera.ptr
+    args[0] = voidptr(&camera.ptr)
     args[1] = unsafe{voidptr(&frustum)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -202,7 +202,7 @@ pub fn (r &EditorNode3DGizmo) add_lines(lines PackedVector3Array, material Mater
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2910971437)
     mut args := unsafe { [4]voidptr{} }
     args[0] = unsafe{voidptr(&lines)}
-    args[1] = material.ptr
+    args[1] = voidptr(&material.ptr)
     args[2] = unsafe{voidptr(&billboard)}
     args[3] = unsafe{voidptr(&modulate)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
@@ -214,10 +214,10 @@ pub fn (r &EditorNode3DGizmo) add_mesh(mesh Mesh, material Material, transform T
     fnname := StringName.new("add_mesh")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1579955111)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = mesh.ptr
-    args[1] = material.ptr
+    args[0] = voidptr(&mesh.ptr)
+    args[1] = voidptr(&material.ptr)
     args[2] = unsafe{voidptr(&transform)}
-    args[3] = skeleton.ptr
+    args[3] = voidptr(&skeleton.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -237,7 +237,7 @@ pub fn (r &EditorNode3DGizmo) add_collision_triangles(triangles TriangleMesh) {
     fnname := StringName.new("add_collision_triangles")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 54901064)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = triangles.ptr
+    args[0] = voidptr(&triangles.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -247,7 +247,7 @@ pub fn (r &EditorNode3DGizmo) add_unscaled_billboard(material Material, default_
     fnname := StringName.new("add_unscaled_billboard")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 520007164)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = material.ptr
+    args[0] = voidptr(&material.ptr)
     args[1] = unsafe{voidptr(&default_scale)}
     args[2] = unsafe{voidptr(&modulate)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
@@ -260,7 +260,7 @@ pub fn (r &EditorNode3DGizmo) add_handles(handles PackedVector3Array, material M
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2254560097)
     mut args := unsafe { [5]voidptr{} }
     args[0] = unsafe{voidptr(&handles)}
-    args[1] = material.ptr
+    args[1] = voidptr(&material.ptr)
     args[2] = unsafe{voidptr(&ids)}
     args[3] = unsafe{voidptr(&billboard)}
     args[4] = unsafe{voidptr(&secondary)}
@@ -273,7 +273,7 @@ pub fn (r &EditorNode3DGizmo) set_node_3d(node Node) {
     fnname := StringName.new("set_node_3d")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = node.ptr
+    args[0] = voidptr(&node.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

@@ -40,7 +40,7 @@ pub fn (r &Decal) set_texture(type_name DecalDecalTexture, texture Texture2D) {
     mut args := unsafe { [2]voidptr{} }
     i64_type_name := i64(type_name)
     args[0] = unsafe{voidptr(&i64_type_name)}
-    args[1] = texture.ptr
+    args[1] = voidptr(&texture.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

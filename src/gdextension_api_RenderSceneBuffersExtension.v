@@ -15,7 +15,7 @@ pub fn (r &RenderSceneBuffersExtension) uconfigure(config RenderSceneBuffersConf
     fnname := StringName.new("_configure")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = config.ptr
+    args[0] = voidptr(&config.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

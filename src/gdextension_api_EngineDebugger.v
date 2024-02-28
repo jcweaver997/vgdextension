@@ -31,7 +31,7 @@ pub fn (r &EngineDebugger) register_profiler(name string, profiler EngineProfile
     mut args := unsafe { [2]voidptr{} }
     arg_sn0 := StringName.new(name)
     args[0] = unsafe{voidptr(&arg_sn0)}
-    args[1] = profiler.ptr
+    args[1] = voidptr(&profiler.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     arg_sn0.deinit()
     classname.deinit()

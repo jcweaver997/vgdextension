@@ -322,7 +322,7 @@ pub fn (r &Area2D) overlaps_body(body Node) bool {
     fnname := StringName.new("overlaps_body")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3093956946)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = body.ptr
+    args[0] = voidptr(&body.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -334,7 +334,7 @@ pub fn (r &Area2D) overlaps_area(area Node) bool {
     fnname := StringName.new("overlaps_area")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3093956946)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = area.ptr
+    args[0] = voidptr(&area.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()

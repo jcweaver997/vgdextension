@@ -114,7 +114,7 @@ pub fn (r &ResourceLoader) add_resource_format_loader(format_loader ResourceForm
     fnname := StringName.new("add_resource_format_loader")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2896595483)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = format_loader.ptr
+    args[0] = voidptr(&format_loader.ptr)
     args[1] = unsafe{voidptr(&at_front)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
@@ -125,7 +125,7 @@ pub fn (r &ResourceLoader) remove_resource_format_loader(format_loader ResourceF
     fnname := StringName.new("remove_resource_format_loader")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 405397102)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = format_loader.ptr
+    args[0] = voidptr(&format_loader.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

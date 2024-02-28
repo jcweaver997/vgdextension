@@ -10,7 +10,7 @@ pub fn (r &ImporterMeshInstance3D) set_mesh(mesh ImporterMesh) {
     fnname := StringName.new("set_mesh")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2255166972)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = mesh.ptr
+    args[0] = voidptr(&mesh.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -30,7 +30,7 @@ pub fn (r &ImporterMeshInstance3D) set_skin(skin Skin) {
     fnname := StringName.new("set_skin")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3971435618)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = skin.ptr
+    args[0] = voidptr(&skin.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

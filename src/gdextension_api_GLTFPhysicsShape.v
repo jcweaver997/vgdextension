@@ -11,7 +11,7 @@ pub fn GLTFPhysicsShape.from_node(shape_node CollisionShape3D) GLTFPhysicsShape 
     fnname := StringName.new("from_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3613751275)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = shape_node.ptr
+    args[0] = voidptr(&shape_node.ptr)
     gdf.object_method_bind_ptrcall(mb, unsafe{nil}, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -190,7 +190,7 @@ pub fn (r &GLTFPhysicsShape) set_importer_mesh(importer_mesh ImporterMesh) {
     fnname := StringName.new("set_importer_mesh")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2255166972)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = importer_mesh.ptr
+    args[0] = voidptr(&importer_mesh.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

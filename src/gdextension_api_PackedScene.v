@@ -18,7 +18,7 @@ pub fn (r &PackedScene) pack(path Node) GDError {
     fnname := StringName.new("pack")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2584678054)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = path.ptr
+    args[0] = voidptr(&path.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()

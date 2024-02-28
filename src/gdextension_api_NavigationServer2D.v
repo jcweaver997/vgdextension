@@ -254,8 +254,8 @@ pub fn (r &NavigationServer2D) query_path(parameters NavigationPathQueryParamete
     fnname := StringName.new("query_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3394638789)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = parameters.ptr
-    args[1] = result.ptr
+    args[0] = voidptr(&parameters.ptr)
+    args[1] = voidptr(&result.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -461,7 +461,7 @@ pub fn (r &NavigationServer2D) region_set_navigation_polygon(region RID, navigat
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3633623451)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&region)}
-    args[1] = navigation_polygon.ptr
+    args[1] = voidptr(&navigation_polygon.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -1094,9 +1094,9 @@ pub fn (r &NavigationServer2D) parse_source_geometry_data(navigation_polygon Nav
     fnname := StringName.new("parse_source_geometry_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1176164995)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = navigation_polygon.ptr
-    args[1] = source_geometry_data.ptr
-    args[2] = root_node.ptr
+    args[0] = voidptr(&navigation_polygon.ptr)
+    args[1] = voidptr(&source_geometry_data.ptr)
+    args[2] = voidptr(&root_node.ptr)
     args[3] = unsafe{voidptr(&callback)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
@@ -1107,8 +1107,8 @@ pub fn (r &NavigationServer2D) bake_from_source_geometry_data(navigation_polygon
     fnname := StringName.new("bake_from_source_geometry_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2909414286)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = navigation_polygon.ptr
-    args[1] = source_geometry_data.ptr
+    args[0] = voidptr(&navigation_polygon.ptr)
+    args[1] = voidptr(&source_geometry_data.ptr)
     args[2] = unsafe{voidptr(&callback)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
@@ -1119,8 +1119,8 @@ pub fn (r &NavigationServer2D) bake_from_source_geometry_data_async(navigation_p
     fnname := StringName.new("bake_from_source_geometry_data_async")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2909414286)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = navigation_polygon.ptr
-    args[1] = source_geometry_data.ptr
+    args[0] = voidptr(&navigation_polygon.ptr)
+    args[1] = voidptr(&source_geometry_data.ptr)
     args[2] = unsafe{voidptr(&callback)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()

@@ -616,7 +616,7 @@ pub fn (r &GLTFState) get_node_index(scene_node Node) i32 {
     fnname := StringName.new("get_node_index")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1205807060)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = scene_node.ptr
+    args[0] = voidptr(&scene_node.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()

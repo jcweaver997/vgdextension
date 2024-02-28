@@ -11,7 +11,7 @@ pub fn ImageTexture.create_from_image(image Image) ImageTexture {
     fnname := StringName.new("create_from_image")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2775144163)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = image.ptr
+    args[0] = voidptr(&image.ptr)
     gdf.object_method_bind_ptrcall(mb, unsafe{nil}, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -32,7 +32,7 @@ pub fn (r &ImageTexture) set_image(image Image) {
     fnname := StringName.new("set_image")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 532598488)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = image.ptr
+    args[0] = voidptr(&image.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -42,7 +42,7 @@ pub fn (r &ImageTexture) update(image Image) {
     fnname := StringName.new("update")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 532598488)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = image.ptr
+    args[0] = voidptr(&image.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

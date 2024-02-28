@@ -10,7 +10,7 @@ pub fn (r &PhysicsShapeQueryParameters2D) set_shape(shape Resource) {
     fnname := StringName.new("set_shape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 968641751)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = shape.ptr
+    args[0] = voidptr(&shape.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

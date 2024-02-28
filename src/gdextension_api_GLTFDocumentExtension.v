@@ -16,7 +16,7 @@ pub fn (r &GLTFDocumentExtension) uimport_preflight(state GLTFState, extensions 
     fnname := StringName.new("_import_preflight")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = state.ptr
+    args[0] = voidptr(&state.ptr)
     args[1] = unsafe{voidptr(&extensions)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -49,8 +49,8 @@ pub fn (r &GLTFDocumentExtension) uparse_node_extensions(state GLTFState, gltf_n
     fnname := StringName.new("_parse_node_extensions")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = state.ptr
-    args[1] = gltf_node.ptr
+    args[0] = voidptr(&state.ptr)
+    args[1] = voidptr(&gltf_node.ptr)
     args[2] = unsafe{voidptr(&extensions)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -68,11 +68,11 @@ pub fn (r &GLTFDocumentExtension) uparse_image_data(state GLTFState, image_data 
     fnname := StringName.new("_parse_image_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = state.ptr
+    args[0] = voidptr(&state.ptr)
     args[1] = unsafe{voidptr(&image_data)}
     arg_sn2 := String.new(mime_type)
     args[2] = unsafe{voidptr(&arg_sn2)}
-    args[3] = ret_image.ptr
+    args[3] = voidptr(&ret_image.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     arg_sn2.deinit()
     classname.deinit()
@@ -107,9 +107,9 @@ pub fn (r &GLTFDocumentExtension) uparse_texture_json(state GLTFState, texture_j
     fnname := StringName.new("_parse_texture_json")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = state.ptr
+    args[0] = voidptr(&state.ptr)
     args[1] = unsafe{voidptr(&texture_json)}
-    args[2] = ret_gltf_texture.ptr
+    args[2] = voidptr(&ret_gltf_texture.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -126,9 +126,9 @@ pub fn (r &GLTFDocumentExtension) ugenerate_scene_node(state GLTFState, gltf_nod
     fnname := StringName.new("_generate_scene_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = state.ptr
-    args[1] = gltf_node.ptr
-    args[2] = scene_parent.ptr
+    args[0] = voidptr(&state.ptr)
+    args[1] = voidptr(&gltf_node.ptr)
+    args[2] = voidptr(&scene_parent.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -145,7 +145,7 @@ pub fn (r &GLTFDocumentExtension) uimport_post_parse(state GLTFState) GDError {
     fnname := StringName.new("_import_post_parse")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = state.ptr
+    args[0] = voidptr(&state.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -162,10 +162,10 @@ pub fn (r &GLTFDocumentExtension) uimport_node(state GLTFState, gltf_node GLTFNo
     fnname := StringName.new("_import_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = state.ptr
-    args[1] = gltf_node.ptr
+    args[0] = voidptr(&state.ptr)
+    args[1] = voidptr(&gltf_node.ptr)
     args[2] = unsafe{voidptr(&json)}
-    args[3] = node.ptr
+    args[3] = voidptr(&node.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -182,8 +182,8 @@ pub fn (r &GLTFDocumentExtension) uimport_post(state GLTFState, root Node) GDErr
     fnname := StringName.new("_import_post")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = state.ptr
-    args[1] = root.ptr
+    args[0] = voidptr(&state.ptr)
+    args[1] = voidptr(&root.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -200,8 +200,8 @@ pub fn (r &GLTFDocumentExtension) uexport_preflight(state GLTFState, root Node) 
     fnname := StringName.new("_export_preflight")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = state.ptr
-    args[1] = root.ptr
+    args[0] = voidptr(&state.ptr)
+    args[1] = voidptr(&root.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -217,9 +217,9 @@ pub fn (r &GLTFDocumentExtension) uconvert_scene_node(state GLTFState, gltf_node
     fnname := StringName.new("_convert_scene_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = state.ptr
-    args[1] = gltf_node.ptr
-    args[2] = scene_node.ptr
+    args[0] = voidptr(&state.ptr)
+    args[1] = voidptr(&gltf_node.ptr)
+    args[2] = voidptr(&scene_node.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -235,7 +235,7 @@ pub fn (r &GLTFDocumentExtension) uexport_preserialize(state GLTFState) GDError 
     fnname := StringName.new("_export_preserialize")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = state.ptr
+    args[0] = voidptr(&state.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -267,8 +267,8 @@ pub fn (r &GLTFDocumentExtension) userialize_image_to_bytes(state GLTFState, ima
     fnname := StringName.new("_serialize_image_to_bytes")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [5]voidptr{} }
-    args[0] = state.ptr
-    args[1] = image.ptr
+    args[0] = voidptr(&state.ptr)
+    args[1] = voidptr(&image.ptr)
     args[2] = unsafe{voidptr(&image_dict)}
     arg_sn3 := String.new(image_format)
     args[3] = unsafe{voidptr(&arg_sn3)}
@@ -290,8 +290,8 @@ pub fn (r &GLTFDocumentExtension) usave_image_at_path(state GLTFState, image Ima
     fnname := StringName.new("_save_image_at_path")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [5]voidptr{} }
-    args[0] = state.ptr
-    args[1] = image.ptr
+    args[0] = voidptr(&state.ptr)
+    args[1] = voidptr(&image.ptr)
     arg_sn2 := String.new(file_path)
     args[2] = unsafe{voidptr(&arg_sn2)}
     arg_sn3 := String.new(image_format)
@@ -315,9 +315,9 @@ pub fn (r &GLTFDocumentExtension) userialize_texture_json(state GLTFState, textu
     fnname := StringName.new("_serialize_texture_json")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = state.ptr
+    args[0] = voidptr(&state.ptr)
     args[1] = unsafe{voidptr(&texture_json)}
-    args[2] = gltf_texture.ptr
+    args[2] = voidptr(&gltf_texture.ptr)
     arg_sn3 := String.new(image_format)
     args[3] = unsafe{voidptr(&arg_sn3)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
@@ -337,10 +337,10 @@ pub fn (r &GLTFDocumentExtension) uexport_node(state GLTFState, gltf_node GLTFNo
     fnname := StringName.new("_export_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = state.ptr
-    args[1] = gltf_node.ptr
+    args[0] = voidptr(&state.ptr)
+    args[1] = voidptr(&gltf_node.ptr)
     args[2] = unsafe{voidptr(&json)}
-    args[3] = node.ptr
+    args[3] = voidptr(&node.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -357,7 +357,7 @@ pub fn (r &GLTFDocumentExtension) uexport_post(state GLTFState) GDError {
     fnname := StringName.new("_export_post")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = state.ptr
+    args[0] = voidptr(&state.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()

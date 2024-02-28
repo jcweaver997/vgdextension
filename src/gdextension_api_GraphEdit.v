@@ -21,7 +21,7 @@ pub fn (r &GraphEdit) uis_in_input_hotzone(in_node Object, in_port i32, mouse_po
     fnname := StringName.new("_is_in_input_hotzone")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = in_node.ptr
+    args[0] = voidptr(&in_node.ptr)
     args[1] = unsafe{voidptr(&in_port)}
     args[2] = unsafe{voidptr(&mouse_position)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
@@ -40,7 +40,7 @@ pub fn (r &GraphEdit) uis_in_output_hotzone(in_node Object, in_port i32, mouse_p
     fnname := StringName.new("_is_in_output_hotzone")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = in_node.ptr
+    args[0] = voidptr(&in_node.ptr)
     args[1] = unsafe{voidptr(&in_port)}
     args[2] = unsafe{voidptr(&mouse_position)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
@@ -741,7 +741,7 @@ pub fn (r &GraphEdit) set_selected(node Node) {
     fnname := StringName.new("set_selected")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = node.ptr
+    args[0] = voidptr(&node.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

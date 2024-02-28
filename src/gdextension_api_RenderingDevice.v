@@ -569,8 +569,8 @@ pub fn (r &RenderingDevice) texture_create(format RDTextureFormat, view RDTextur
     fnname := StringName.new("texture_create")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3709173589)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = format.ptr
-    args[1] = view.ptr
+    args[0] = voidptr(&format.ptr)
+    args[1] = voidptr(&view.ptr)
     args[2] = unsafe{voidptr(&data)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -583,7 +583,7 @@ pub fn (r &RenderingDevice) texture_create_shared(view RDTextureView, with_textu
     fnname := StringName.new("texture_create_shared")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3178156134)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = view.ptr
+    args[0] = voidptr(&view.ptr)
     args[1] = unsafe{voidptr(&with_texture)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -596,7 +596,7 @@ pub fn (r &RenderingDevice) texture_create_shared_from_slice(view RDTextureView,
     fnname := StringName.new("texture_create_shared_from_slice")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1808971279)
     mut args := unsafe { [6]voidptr{} }
-    args[0] = view.ptr
+    args[0] = voidptr(&view.ptr)
     args[1] = unsafe{voidptr(&with_texture)}
     args[2] = unsafe{voidptr(&layer)}
     args[3] = unsafe{voidptr(&mipmap)}
@@ -907,7 +907,7 @@ pub fn (r &RenderingDevice) sampler_create(state RDSamplerState) RID {
     fnname := StringName.new("sampler_create")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2327892535)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = state.ptr
+    args[0] = voidptr(&state.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -1005,7 +1005,7 @@ pub fn (r &RenderingDevice) shader_compile_spirv_from_source(shader_source RDSha
     fnname := StringName.new("shader_compile_spirv_from_source")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1178973306)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = shader_source.ptr
+    args[0] = voidptr(&shader_source.ptr)
     args[1] = unsafe{voidptr(&allow_cache)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -1018,7 +1018,7 @@ pub fn (r &RenderingDevice) shader_compile_binary_from_spirv(spirv_data RDShader
     fnname := StringName.new("shader_compile_binary_from_spirv")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 134910450)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = spirv_data.ptr
+    args[0] = voidptr(&spirv_data.ptr)
     arg_sn1 := String.new(name)
     args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
@@ -1033,7 +1033,7 @@ pub fn (r &RenderingDevice) shader_create_from_spirv(spirv_data RDShaderSPIRV, n
     fnname := StringName.new("shader_create_from_spirv")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 342949005)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = spirv_data.ptr
+    args[0] = voidptr(&spirv_data.ptr)
     arg_sn1 := String.new(name)
     args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
@@ -1204,10 +1204,10 @@ pub fn (r &RenderingDevice) render_pipeline_create(shader RID, framebuffer_forma
     args[2] = unsafe{voidptr(&vertex_format)}
     i64_primitive := i64(primitive)
     args[3] = unsafe{voidptr(&i64_primitive)}
-    args[4] = rasterization_state.ptr
-    args[5] = multisample_state.ptr
-    args[6] = stencil_state.ptr
-    args[7] = color_blend_state.ptr
+    args[4] = voidptr(&rasterization_state.ptr)
+    args[5] = voidptr(&multisample_state.ptr)
+    args[6] = voidptr(&stencil_state.ptr)
+    args[7] = voidptr(&color_blend_state.ptr)
     i64_dynamic_state_flags := i64(dynamic_state_flags)
     args[8] = unsafe{voidptr(&i64_dynamic_state_flags)}
     args[9] = unsafe{voidptr(&for_render_pass)}

@@ -293,7 +293,7 @@ pub fn (r &Engine) register_singleton(name string, instance Object) {
     mut args := unsafe { [2]voidptr{} }
     arg_sn0 := StringName.new(name)
     args[0] = unsafe{voidptr(&arg_sn0)}
-    args[1] = instance.ptr
+    args[1] = voidptr(&instance.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     arg_sn0.deinit()
     classname.deinit()
@@ -327,7 +327,7 @@ pub fn (r &Engine) register_script_language(language ScriptLanguage) GDError {
     fnname := StringName.new("register_script_language")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1850254898)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = language.ptr
+    args[0] = voidptr(&language.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -339,7 +339,7 @@ pub fn (r &Engine) unregister_script_language(language ScriptLanguage) GDError {
     fnname := StringName.new("unregister_script_language")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1850254898)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = language.ptr
+    args[0] = voidptr(&language.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()

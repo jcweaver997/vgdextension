@@ -122,7 +122,7 @@ pub fn (r &Viewport) set_world_2d(world_2d World2D) {
     fnname := StringName.new("set_world_2d")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2736080068)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = world_2d.ptr
+    args[0] = voidptr(&world_2d.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -493,7 +493,7 @@ pub fn (r &Viewport) push_input(event InputEvent, in_local_coords bool) {
     fnname := StringName.new("push_input")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3644664830)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = event.ptr
+    args[0] = voidptr(&event.ptr)
     args[1] = unsafe{voidptr(&in_local_coords)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
@@ -504,7 +504,7 @@ pub fn (r &Viewport) push_unhandled_input(event InputEvent, in_local_coords bool
     fnname := StringName.new("push_unhandled_input")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3644664830)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = event.ptr
+    args[0] = voidptr(&event.ptr)
     args[1] = unsafe{voidptr(&in_local_coords)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
@@ -980,7 +980,7 @@ pub fn (r &Viewport) set_world_3d(world_3d World3D) {
     fnname := StringName.new("set_world_3d")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1400875337)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = world_3d.ptr
+    args[0] = voidptr(&world_3d.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -1202,7 +1202,7 @@ pub fn (r &Viewport) set_vrs_texture(texture Texture2D) {
     fnname := StringName.new("set_vrs_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = texture.ptr
+    args[0] = voidptr(&texture.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

@@ -102,7 +102,7 @@ pub fn (r &AcceptDialog) remove_button(button Control) {
     fnname := StringName.new("remove_button")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1496901182)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = button.ptr
+    args[0] = voidptr(&button.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -112,7 +112,7 @@ pub fn (r &AcceptDialog) register_text_enter(line_edit Control) {
     fnname := StringName.new("register_text_enter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1496901182)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = line_edit.ptr
+    args[0] = voidptr(&line_edit.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

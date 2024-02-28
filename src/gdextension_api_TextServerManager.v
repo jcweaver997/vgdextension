@@ -19,7 +19,7 @@ pub fn (r &TextServerManager) add_interface(gdinterface TextServer) {
     fnname := StringName.new("add_interface")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1799689403)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = gdinterface.ptr
+    args[0] = voidptr(&gdinterface.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -39,7 +39,7 @@ pub fn (r &TextServerManager) remove_interface(gdinterface TextServer) {
     fnname := StringName.new("remove_interface")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1799689403)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = gdinterface.ptr
+    args[0] = voidptr(&gdinterface.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -85,7 +85,7 @@ pub fn (r &TextServerManager) set_primary_interface(index TextServer) {
     fnname := StringName.new("set_primary_interface")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1799689403)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = index.ptr
+    args[0] = voidptr(&index.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

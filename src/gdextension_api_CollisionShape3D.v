@@ -10,7 +10,7 @@ pub fn (r &CollisionShape3D) resource_changed(resource Resource) {
     fnname := StringName.new("resource_changed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 968641751)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = resource.ptr
+    args[0] = voidptr(&resource.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -20,7 +20,7 @@ pub fn (r &CollisionShape3D) set_shape(shape Shape3D) {
     fnname := StringName.new("set_shape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1549710052)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = shape.ptr
+    args[0] = voidptr(&shape.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

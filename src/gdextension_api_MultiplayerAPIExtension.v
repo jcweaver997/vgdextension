@@ -30,7 +30,7 @@ pub fn (r &MultiplayerAPIExtension) uset_multiplayer_peer(multiplayer_peer Multi
     fnname := StringName.new("_set_multiplayer_peer")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = multiplayer_peer.ptr
+    args[0] = voidptr(&multiplayer_peer.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -92,7 +92,7 @@ pub fn (r &MultiplayerAPIExtension) urpc(peer i32, object Object, method string,
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [4]voidptr{} }
     args[0] = unsafe{voidptr(&peer)}
-    args[1] = object.ptr
+    args[1] = voidptr(&object.ptr)
     arg_sn2 := StringName.new(method)
     args[2] = unsafe{voidptr(&arg_sn2)}
     args[3] = unsafe{voidptr(&gdargs)}
@@ -128,7 +128,7 @@ pub fn (r &MultiplayerAPIExtension) uobject_configuration_add(object Object, con
     fnname := StringName.new("_object_configuration_add")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = object.ptr
+    args[0] = voidptr(&object.ptr)
     args[1] = unsafe{voidptr(&configuration)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -146,7 +146,7 @@ pub fn (r &MultiplayerAPIExtension) uobject_configuration_remove(object Object, 
     fnname := StringName.new("_object_configuration_remove")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = object.ptr
+    args[0] = voidptr(&object.ptr)
     args[1] = unsafe{voidptr(&configuration)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()

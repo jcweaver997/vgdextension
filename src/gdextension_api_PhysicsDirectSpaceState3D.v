@@ -11,7 +11,7 @@ pub fn (r &PhysicsDirectSpaceState3D) intersect_point(parameters PhysicsPointQue
     fnname := StringName.new("intersect_point")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 975173756)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = parameters.ptr
+    args[0] = voidptr(&parameters.ptr)
     args[1] = unsafe{voidptr(&max_results)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -24,7 +24,7 @@ pub fn (r &PhysicsDirectSpaceState3D) intersect_ray(parameters PhysicsRayQueryPa
     fnname := StringName.new("intersect_ray")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3957970750)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = parameters.ptr
+    args[0] = voidptr(&parameters.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -36,7 +36,7 @@ pub fn (r &PhysicsDirectSpaceState3D) intersect_shape(parameters PhysicsShapeQue
     fnname := StringName.new("intersect_shape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3762137681)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = parameters.ptr
+    args[0] = voidptr(&parameters.ptr)
     args[1] = unsafe{voidptr(&max_results)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -49,7 +49,7 @@ pub fn (r &PhysicsDirectSpaceState3D) cast_motion(parameters PhysicsShapeQueryPa
     fnname := StringName.new("cast_motion")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1778757334)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = parameters.ptr
+    args[0] = voidptr(&parameters.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -61,7 +61,7 @@ pub fn (r &PhysicsDirectSpaceState3D) collide_shape(parameters PhysicsShapeQuery
     fnname := StringName.new("collide_shape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3762137681)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = parameters.ptr
+    args[0] = voidptr(&parameters.ptr)
     args[1] = unsafe{voidptr(&max_results)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -74,7 +74,7 @@ pub fn (r &PhysicsDirectSpaceState3D) get_rest_info(parameters PhysicsShapeQuery
     fnname := StringName.new("get_rest_info")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1376751592)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = parameters.ptr
+    args[0] = voidptr(&parameters.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()

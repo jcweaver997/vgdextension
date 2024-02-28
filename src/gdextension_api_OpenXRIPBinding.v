@@ -10,7 +10,7 @@ pub fn (r &OpenXRIPBinding) set_action(action OpenXRAction) {
     fnname := StringName.new("set_action")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 349361333)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = action.ptr
+    args[0] = voidptr(&action.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

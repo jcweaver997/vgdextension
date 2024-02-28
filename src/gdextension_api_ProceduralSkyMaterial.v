@@ -90,7 +90,7 @@ pub fn (r &ProceduralSkyMaterial) set_sky_cover(sky_cover Texture2D) {
     fnname := StringName.new("set_sky_cover")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = sky_cover.ptr
+    args[0] = voidptr(&sky_cover.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

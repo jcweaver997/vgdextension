@@ -1271,8 +1271,8 @@ pub fn (r &PhysicsServer2D) body_test_motion(body RID, parameters PhysicsTestMot
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1699844009)
     mut args := unsafe { [3]voidptr{} }
     args[0] = unsafe{voidptr(&body)}
-    args[1] = parameters.ptr
-    args[2] = result.ptr
+    args[1] = voidptr(&parameters.ptr)
+    args[2] = voidptr(&result.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()

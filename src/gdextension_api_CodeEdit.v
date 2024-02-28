@@ -996,7 +996,7 @@ pub fn (r &CodeEdit) add_code_completion_option(type_name CodeEditCodeCompletion
     arg_sn2 := String.new(insert_text)
     args[2] = unsafe{voidptr(&arg_sn2)}
     args[3] = unsafe{voidptr(&text_color)}
-    args[4] = icon.ptr
+    args[4] = voidptr(&icon.ptr)
     args[5] = unsafe{voidptr(&value)}
     args[6] = unsafe{voidptr(&location)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})

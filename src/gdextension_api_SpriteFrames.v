@@ -129,7 +129,7 @@ pub fn (r &SpriteFrames) add_frame(anim string, texture Texture2D, duration f64,
     mut args := unsafe { [4]voidptr{} }
     arg_sn0 := StringName.new(anim)
     args[0] = unsafe{voidptr(&arg_sn0)}
-    args[1] = texture.ptr
+    args[1] = voidptr(&texture.ptr)
     args[2] = unsafe{voidptr(&duration)}
     args[3] = unsafe{voidptr(&at_position)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
@@ -145,7 +145,7 @@ pub fn (r &SpriteFrames) set_frame(anim string, idx i32, texture Texture2D, dura
     arg_sn0 := StringName.new(anim)
     args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&idx)}
-    args[2] = texture.ptr
+    args[2] = voidptr(&texture.ptr)
     args[3] = unsafe{voidptr(&duration)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     arg_sn0.deinit()

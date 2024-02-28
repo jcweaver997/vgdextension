@@ -330,7 +330,7 @@ pub fn (r &Camera2D) set_custom_viewport(viewport Node) {
     fnname := StringName.new("set_custom_viewport")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = viewport.ptr
+    args[0] = voidptr(&viewport.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

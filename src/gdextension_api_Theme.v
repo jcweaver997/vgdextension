@@ -24,7 +24,7 @@ pub fn (r &Theme) set_icon(name string, theme_type string, texture Texture2D) {
     args[0] = unsafe{voidptr(&arg_sn0)}
     arg_sn1 := StringName.new(theme_type)
     args[1] = unsafe{voidptr(&arg_sn1)}
-    args[2] = texture.ptr
+    args[2] = voidptr(&texture.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     arg_sn0.deinit()
     arg_sn1.deinit()
@@ -131,7 +131,7 @@ pub fn (r &Theme) set_stylebox(name string, theme_type string, texture StyleBox)
     args[0] = unsafe{voidptr(&arg_sn0)}
     arg_sn1 := StringName.new(theme_type)
     args[1] = unsafe{voidptr(&arg_sn1)}
-    args[2] = texture.ptr
+    args[2] = voidptr(&texture.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     arg_sn0.deinit()
     arg_sn1.deinit()
@@ -238,7 +238,7 @@ pub fn (r &Theme) set_font(name string, theme_type string, font Font) {
     args[0] = unsafe{voidptr(&arg_sn0)}
     arg_sn1 := StringName.new(theme_type)
     args[1] = unsafe{voidptr(&arg_sn1)}
-    args[2] = font.ptr
+    args[2] = voidptr(&font.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     arg_sn0.deinit()
     arg_sn1.deinit()
@@ -692,7 +692,7 @@ pub fn (r &Theme) set_default_font(font Font) {
     fnname := StringName.new("set_default_font")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1262170328)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = font.ptr
+    args[0] = voidptr(&font.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -982,7 +982,7 @@ pub fn (r &Theme) merge_with(other Theme) {
     fnname := StringName.new("merge_with")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2326690814)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = other.ptr
+    args[0] = voidptr(&other.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

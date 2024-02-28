@@ -83,9 +83,9 @@ pub fn (r &EditorScenePostImportPlugin) uinternal_process(category i32, base_nod
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [4]voidptr{} }
     args[0] = unsafe{voidptr(&category)}
-    args[1] = base_node.ptr
-    args[2] = node.ptr
-    args[3] = resource.ptr
+    args[1] = voidptr(&base_node.ptr)
+    args[2] = voidptr(&node.ptr)
+    args[3] = voidptr(&resource.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -140,7 +140,7 @@ pub fn (r &EditorScenePostImportPlugin) upre_process(scene Node) {
     fnname := StringName.new("_pre_process")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = scene.ptr
+    args[0] = voidptr(&scene.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -155,7 +155,7 @@ pub fn (r &EditorScenePostImportPlugin) upost_process(scene Node) {
     fnname := StringName.new("_post_process")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = scene.ptr
+    args[0] = voidptr(&scene.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

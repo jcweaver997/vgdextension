@@ -18,7 +18,7 @@ pub fn (r &VoxelGI) set_probe_data(data VoxelGIData) {
     fnname := StringName.new("set_probe_data")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1637849675)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = data.ptr
+    args[0] = voidptr(&data.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -79,7 +79,7 @@ pub fn (r &VoxelGI) set_camera_attributes(camera_attributes CameraAttributes) {
     fnname := StringName.new("set_camera_attributes")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2817810567)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = camera_attributes.ptr
+    args[0] = voidptr(&camera_attributes.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -99,7 +99,7 @@ pub fn (r &VoxelGI) bake(from_node Node, create_visual_debug bool) {
     fnname := StringName.new("bake")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2781551026)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = from_node.ptr
+    args[0] = voidptr(&from_node.ptr)
     args[1] = unsafe{voidptr(&create_visual_debug)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()

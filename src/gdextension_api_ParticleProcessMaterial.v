@@ -198,7 +198,7 @@ pub fn (r &ParticleProcessMaterial) set_param_texture(param ParticleProcessMater
     mut args := unsafe { [2]voidptr{} }
     i64_param := i64(param)
     args[0] = unsafe{voidptr(&i64_param)}
-    args[1] = texture.ptr
+    args[1] = voidptr(&texture.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -241,7 +241,7 @@ pub fn (r &ParticleProcessMaterial) set_color_ramp(ramp Texture2D) {
     fnname := StringName.new("set_color_ramp")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = ramp.ptr
+    args[0] = voidptr(&ramp.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -261,7 +261,7 @@ pub fn (r &ParticleProcessMaterial) set_alpha_curve(curve Texture2D) {
     fnname := StringName.new("set_alpha_curve")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = curve.ptr
+    args[0] = voidptr(&curve.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -281,7 +281,7 @@ pub fn (r &ParticleProcessMaterial) set_emission_curve(curve Texture2D) {
     fnname := StringName.new("set_emission_curve")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = curve.ptr
+    args[0] = voidptr(&curve.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -301,7 +301,7 @@ pub fn (r &ParticleProcessMaterial) set_color_initial_ramp(ramp Texture2D) {
     fnname := StringName.new("set_color_initial_ramp")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = ramp.ptr
+    args[0] = voidptr(&ramp.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -321,7 +321,7 @@ pub fn (r &ParticleProcessMaterial) set_velocity_limit_curve(curve Texture2D) {
     fnname := StringName.new("set_velocity_limit_curve")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = curve.ptr
+    args[0] = voidptr(&curve.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -447,7 +447,7 @@ pub fn (r &ParticleProcessMaterial) set_emission_point_texture(texture Texture2D
     fnname := StringName.new("set_emission_point_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = texture.ptr
+    args[0] = voidptr(&texture.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -467,7 +467,7 @@ pub fn (r &ParticleProcessMaterial) set_emission_normal_texture(texture Texture2
     fnname := StringName.new("set_emission_normal_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = texture.ptr
+    args[0] = voidptr(&texture.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -487,7 +487,7 @@ pub fn (r &ParticleProcessMaterial) set_emission_color_texture(texture Texture2D
     fnname := StringName.new("set_emission_color_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = texture.ptr
+    args[0] = voidptr(&texture.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

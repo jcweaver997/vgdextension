@@ -10,7 +10,7 @@ pub fn (r &Path3D) set_curve(curve Curve3D) {
     fnname := StringName.new("set_curve")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 408955118)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = curve.ptr
+    args[0] = voidptr(&curve.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

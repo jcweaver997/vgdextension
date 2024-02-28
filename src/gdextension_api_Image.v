@@ -621,7 +621,7 @@ pub fn (r &Image) compute_image_metrics(compared_image Image, use_luma bool) Dic
     fnname := StringName.new("compute_image_metrics")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3080961247)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = compared_image.ptr
+    args[0] = voidptr(&compared_image.ptr)
     args[1] = unsafe{voidptr(&use_luma)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -633,7 +633,7 @@ pub fn (r &Image) blit_rect(src Image, src_rect Rect2i, dst Vector2i) {
     fnname := StringName.new("blit_rect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2903928755)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = src.ptr
+    args[0] = voidptr(&src.ptr)
     args[1] = unsafe{voidptr(&src_rect)}
     args[2] = unsafe{voidptr(&dst)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
@@ -645,8 +645,8 @@ pub fn (r &Image) blit_rect_mask(src Image, mask Image, src_rect Rect2i, dst Vec
     fnname := StringName.new("blit_rect_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3383581145)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = src.ptr
-    args[1] = mask.ptr
+    args[0] = voidptr(&src.ptr)
+    args[1] = voidptr(&mask.ptr)
     args[2] = unsafe{voidptr(&src_rect)}
     args[3] = unsafe{voidptr(&dst)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
@@ -658,7 +658,7 @@ pub fn (r &Image) blend_rect(src Image, src_rect Rect2i, dst Vector2i) {
     fnname := StringName.new("blend_rect")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2903928755)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = src.ptr
+    args[0] = voidptr(&src.ptr)
     args[1] = unsafe{voidptr(&src_rect)}
     args[2] = unsafe{voidptr(&dst)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
@@ -670,8 +670,8 @@ pub fn (r &Image) blend_rect_mask(src Image, mask Image, src_rect Rect2i, dst Ve
     fnname := StringName.new("blend_rect_mask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3383581145)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = src.ptr
-    args[1] = mask.ptr
+    args[0] = voidptr(&src.ptr)
+    args[1] = voidptr(&mask.ptr)
     args[2] = unsafe{voidptr(&src_rect)}
     args[3] = unsafe{voidptr(&dst)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
@@ -726,7 +726,7 @@ pub fn (r &Image) copy_from(src Image) {
     fnname := StringName.new("copy_from")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 532598488)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = src.ptr
+    args[0] = voidptr(&src.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

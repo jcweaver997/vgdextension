@@ -23,7 +23,7 @@ pub fn (r &OptionButton) add_icon_item(texture Texture2D, label string, id i32) 
     fnname := StringName.new("add_icon_item")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3781678508)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = texture.ptr
+    args[0] = voidptr(&texture.ptr)
     arg_sn1 := String.new(label)
     args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&id)}
@@ -51,7 +51,7 @@ pub fn (r &OptionButton) set_item_icon(idx i32, texture Texture2D) {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 666127730)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&idx)}
-    args[1] = texture.ptr
+    args[1] = voidptr(&texture.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

@@ -224,7 +224,7 @@ pub fn (r &TranslationServer) add_translation(translation Translation) {
     fnname := StringName.new("add_translation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1466479800)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = translation.ptr
+    args[0] = voidptr(&translation.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -234,7 +234,7 @@ pub fn (r &TranslationServer) remove_translation(translation Translation) {
     fnname := StringName.new("remove_translation")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1466479800)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = translation.ptr
+    args[0] = voidptr(&translation.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

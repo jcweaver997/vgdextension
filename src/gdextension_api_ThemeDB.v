@@ -59,7 +59,7 @@ pub fn (r &ThemeDB) set_fallback_font(font Font) {
     fnname := StringName.new("set_fallback_font")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1262170328)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = font.ptr
+    args[0] = voidptr(&font.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -99,7 +99,7 @@ pub fn (r &ThemeDB) set_fallback_icon(icon Texture2D) {
     fnname := StringName.new("set_fallback_icon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = icon.ptr
+    args[0] = voidptr(&icon.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -119,7 +119,7 @@ pub fn (r &ThemeDB) set_fallback_stylebox(stylebox StyleBox) {
     fnname := StringName.new("set_fallback_stylebox")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2797200388)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = stylebox.ptr
+    args[0] = voidptr(&stylebox.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

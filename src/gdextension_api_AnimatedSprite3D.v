@@ -10,7 +10,7 @@ pub fn (r &AnimatedSprite3D) set_sprite_frames(sprite_frames SpriteFrames) {
     fnname := StringName.new("set_sprite_frames")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 905781144)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = sprite_frames.ptr
+    args[0] = voidptr(&sprite_frames.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

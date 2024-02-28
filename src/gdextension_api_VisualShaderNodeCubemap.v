@@ -44,7 +44,7 @@ pub fn (r &VisualShaderNodeCubemap) set_cube_map(value Cubemap) {
     fnname := StringName.new("set_cube_map")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2219800736)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = value.ptr
+    args[0] = voidptr(&value.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

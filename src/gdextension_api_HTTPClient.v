@@ -104,7 +104,7 @@ pub fn (r &HTTPClient) connect_to_host(host string, port i32, tls_options TLSOpt
     arg_sn0 := String.new(host)
     args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&port)}
-    args[2] = tls_options.ptr
+    args[2] = voidptr(&tls_options.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     arg_sn0.deinit()
     classname.deinit()
@@ -116,7 +116,7 @@ pub fn (r &HTTPClient) set_connection(connection StreamPeer) {
     fnname := StringName.new("set_connection")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3281897016)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = connection.ptr
+    args[0] = voidptr(&connection.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

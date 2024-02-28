@@ -278,7 +278,7 @@ pub fn (r &ArrayMesh) set_shadow_mesh(mesh ArrayMesh) {
     fnname := StringName.new("set_shadow_mesh")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3377897901)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = mesh.ptr
+    args[0] = voidptr(&mesh.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

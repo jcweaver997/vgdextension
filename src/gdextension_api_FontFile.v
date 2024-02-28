@@ -701,7 +701,7 @@ pub fn (r &FontFile) set_texture_image(cache_index i32, size Vector2i, texture_i
     args[0] = unsafe{voidptr(&cache_index)}
     args[1] = unsafe{voidptr(&size)}
     args[2] = unsafe{voidptr(&texture_index)}
-    args[3] = image.ptr
+    args[3] = voidptr(&image.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

@@ -15,7 +15,7 @@ pub fn (r &TouchScreenButton) set_texture_normal(texture Texture2D) {
     fnname := StringName.new("set_texture_normal")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = texture.ptr
+    args[0] = voidptr(&texture.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -35,7 +35,7 @@ pub fn (r &TouchScreenButton) set_texture_pressed(texture Texture2D) {
     fnname := StringName.new("set_texture_pressed")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = texture.ptr
+    args[0] = voidptr(&texture.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -55,7 +55,7 @@ pub fn (r &TouchScreenButton) set_bitmask(bitmask BitMap) {
     fnname := StringName.new("set_bitmask")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 698588216)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = bitmask.ptr
+    args[0] = voidptr(&bitmask.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -75,7 +75,7 @@ pub fn (r &TouchScreenButton) set_shape(shape Shape2D) {
     fnname := StringName.new("set_shape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 771364740)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = shape.ptr
+    args[0] = voidptr(&shape.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

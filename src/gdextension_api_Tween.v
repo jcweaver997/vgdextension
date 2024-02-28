@@ -44,7 +44,7 @@ pub fn (r &Tween) tween_property(object Object, property NodePath, final_val Var
     fnname := StringName.new("tween_property")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4049770449)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = object.ptr
+    args[0] = voidptr(&object.ptr)
     args[1] = unsafe{voidptr(&property)}
     args[2] = unsafe{voidptr(&final_val)}
     args[3] = unsafe{voidptr(&duration)}
@@ -172,7 +172,7 @@ pub fn (r &Tween) bind_node(node Node) Tween {
     fnname := StringName.new("bind_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2946786331)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = node.ptr
+    args[0] = voidptr(&node.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()

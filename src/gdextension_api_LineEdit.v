@@ -763,7 +763,7 @@ pub fn (r &LineEdit) set_right_icon(icon Texture2D) {
     fnname := StringName.new("set_right_icon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = icon.ptr
+    args[0] = voidptr(&icon.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

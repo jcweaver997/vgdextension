@@ -42,7 +42,7 @@ pub fn (r &Skeleton2D) set_modification_stack(modification_stack SkeletonModific
     fnname := StringName.new("set_modification_stack")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3907307132)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = modification_stack.ptr
+    args[0] = voidptr(&modification_stack.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

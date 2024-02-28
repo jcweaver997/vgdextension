@@ -144,7 +144,7 @@ pub fn (r &InputEvent) is_match(event InputEvent, exact_match bool) bool {
     fnname := StringName.new("is_match")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1754951977)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = event.ptr
+    args[0] = voidptr(&event.ptr)
     args[1] = unsafe{voidptr(&exact_match)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -167,7 +167,7 @@ pub fn (r &InputEvent) accumulate(with_event InputEvent) bool {
     fnname := StringName.new("accumulate")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1062211774)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = with_event.ptr
+    args[0] = voidptr(&with_event.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()

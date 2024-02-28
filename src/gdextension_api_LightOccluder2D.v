@@ -10,7 +10,7 @@ pub fn (r &LightOccluder2D) set_occluder_polygon(polygon OccluderPolygon2D) {
     fnname := StringName.new("set_occluder_polygon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3258315893)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = polygon.ptr
+    args[0] = voidptr(&polygon.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

@@ -11,7 +11,7 @@ pub fn GLTFCamera.from_node(camera_node Camera3D) GLTFCamera {
     fnname := StringName.new("from_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 237784)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = camera_node.ptr
+    args[0] = voidptr(&camera_node.ptr)
     gdf.object_method_bind_ptrcall(mb, unsafe{nil}, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()

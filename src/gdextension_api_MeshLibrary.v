@@ -34,7 +34,7 @@ pub fn (r &MeshLibrary) set_item_mesh(id i32, mesh Mesh) {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 969122797)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&id)}
-    args[1] = mesh.ptr
+    args[1] = voidptr(&mesh.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -56,7 +56,7 @@ pub fn (r &MeshLibrary) set_item_navigation_mesh(id i32, navigation_mesh Navigat
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3483353960)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&id)}
-    args[1] = navigation_mesh.ptr
+    args[1] = voidptr(&navigation_mesh.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -100,7 +100,7 @@ pub fn (r &MeshLibrary) set_item_preview(id i32, texture Texture2D) {
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 666127730)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&id)}
-    args[1] = texture.ptr
+    args[1] = voidptr(&texture.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

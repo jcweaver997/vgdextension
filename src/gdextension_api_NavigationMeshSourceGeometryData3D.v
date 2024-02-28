@@ -68,7 +68,7 @@ pub fn (r &NavigationMeshSourceGeometryData3D) add_mesh(mesh Mesh, xform Transfo
     fnname := StringName.new("add_mesh")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 975462459)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = mesh.ptr
+    args[0] = voidptr(&mesh.ptr)
     args[1] = unsafe{voidptr(&xform)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()

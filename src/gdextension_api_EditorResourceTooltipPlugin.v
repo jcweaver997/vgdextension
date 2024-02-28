@@ -38,7 +38,7 @@ pub fn (r &EditorResourceTooltipPlugin) umake_tooltip_for_path(path string, meta
     arg_sn0 := String.new(path)
     args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&metadata)}
-    args[2] = base.ptr
+    args[2] = voidptr(&base.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     arg_sn0.deinit()
     classname.deinit()
@@ -52,7 +52,7 @@ pub fn (r &EditorResourceTooltipPlugin) request_thumbnail(path string, control T
     mut args := unsafe { [2]voidptr{} }
     arg_sn0 := String.new(path)
     args[0] = unsafe{voidptr(&arg_sn0)}
-    args[1] = control.ptr
+    args[1] = voidptr(&control.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     arg_sn0.deinit()
     classname.deinit()

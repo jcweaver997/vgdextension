@@ -71,7 +71,7 @@ pub fn (r &UndoRedo) add_do_property(object Object, property string, value Varia
     fnname := StringName.new("add_do_property")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1017172818)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = object.ptr
+    args[0] = voidptr(&object.ptr)
     arg_sn1 := StringName.new(property)
     args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&value)}
@@ -85,7 +85,7 @@ pub fn (r &UndoRedo) add_undo_property(object Object, property string, value Var
     fnname := StringName.new("add_undo_property")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1017172818)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = object.ptr
+    args[0] = voidptr(&object.ptr)
     arg_sn1 := StringName.new(property)
     args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&value)}
@@ -99,7 +99,7 @@ pub fn (r &UndoRedo) add_do_reference(object Object) {
     fnname := StringName.new("add_do_reference")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3975164845)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = object.ptr
+    args[0] = voidptr(&object.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -109,7 +109,7 @@ pub fn (r &UndoRedo) add_undo_reference(object Object) {
     fnname := StringName.new("add_undo_reference")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3975164845)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = object.ptr
+    args[0] = voidptr(&object.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

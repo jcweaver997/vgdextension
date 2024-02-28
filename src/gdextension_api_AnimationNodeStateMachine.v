@@ -18,7 +18,7 @@ pub fn (r &AnimationNodeStateMachine) add_node(name string, node AnimationNode, 
     mut args := unsafe { [3]voidptr{} }
     arg_sn0 := StringName.new(name)
     args[0] = unsafe{voidptr(&arg_sn0)}
-    args[1] = node.ptr
+    args[1] = voidptr(&node.ptr)
     args[2] = unsafe{voidptr(&position)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     arg_sn0.deinit()
@@ -32,7 +32,7 @@ pub fn (r &AnimationNodeStateMachine) replace_node(name string, node AnimationNo
     mut args := unsafe { [2]voidptr{} }
     arg_sn0 := StringName.new(name)
     args[0] = unsafe{voidptr(&arg_sn0)}
-    args[1] = node.ptr
+    args[1] = voidptr(&node.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     arg_sn0.deinit()
     classname.deinit()
@@ -99,7 +99,7 @@ pub fn (r &AnimationNodeStateMachine) get_node_name(node AnimationNode) string {
     fnname := StringName.new("get_node_name")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 739213945)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = node.ptr
+    args[0] = voidptr(&node.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -160,7 +160,7 @@ pub fn (r &AnimationNodeStateMachine) add_transition(from string, to string, tra
     args[0] = unsafe{voidptr(&arg_sn0)}
     arg_sn1 := StringName.new(to)
     args[1] = unsafe{voidptr(&arg_sn1)}
-    args[2] = transition.ptr
+    args[2] = voidptr(&transition.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     arg_sn0.deinit()
     arg_sn1.deinit()

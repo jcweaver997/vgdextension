@@ -20,7 +20,7 @@ pub fn (r &CurveXYZTexture) set_curve_x(curve Curve) {
     fnname := StringName.new("set_curve_x")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 270443179)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = curve.ptr
+    args[0] = voidptr(&curve.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -40,7 +40,7 @@ pub fn (r &CurveXYZTexture) set_curve_y(curve Curve) {
     fnname := StringName.new("set_curve_y")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 270443179)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = curve.ptr
+    args[0] = voidptr(&curve.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -60,7 +60,7 @@ pub fn (r &CurveXYZTexture) set_curve_z(curve Curve) {
     fnname := StringName.new("set_curve_z")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 270443179)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = curve.ptr
+    args[0] = voidptr(&curve.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

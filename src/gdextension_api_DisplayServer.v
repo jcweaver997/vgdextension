@@ -262,7 +262,7 @@ pub fn (r &DisplayServer) global_menu_add_icon_item(menu_root string, icon Textu
     mut args := unsafe { [8]voidptr{} }
     arg_sn0 := String.new(menu_root)
     args[0] = unsafe{voidptr(&arg_sn0)}
-    args[1] = icon.ptr
+    args[1] = voidptr(&icon.ptr)
     arg_sn2 := String.new(label)
     args[2] = unsafe{voidptr(&arg_sn2)}
     args[3] = unsafe{voidptr(&callback)}
@@ -286,7 +286,7 @@ pub fn (r &DisplayServer) global_menu_add_icon_check_item(menu_root string, icon
     mut args := unsafe { [8]voidptr{} }
     arg_sn0 := String.new(menu_root)
     args[0] = unsafe{voidptr(&arg_sn0)}
-    args[1] = icon.ptr
+    args[1] = voidptr(&icon.ptr)
     arg_sn2 := String.new(label)
     args[2] = unsafe{voidptr(&arg_sn2)}
     args[3] = unsafe{voidptr(&callback)}
@@ -333,7 +333,7 @@ pub fn (r &DisplayServer) global_menu_add_icon_radio_check_item(menu_root string
     mut args := unsafe { [8]voidptr{} }
     arg_sn0 := String.new(menu_root)
     args[0] = unsafe{voidptr(&arg_sn0)}
-    args[1] = icon.ptr
+    args[1] = voidptr(&icon.ptr)
     arg_sn2 := String.new(label)
     args[2] = unsafe{voidptr(&arg_sn2)}
     args[3] = unsafe{voidptr(&callback)}
@@ -892,7 +892,7 @@ pub fn (r &DisplayServer) global_menu_set_item_icon(menu_root string, idx i32, i
     arg_sn0 := String.new(menu_root)
     args[0] = unsafe{voidptr(&arg_sn0)}
     args[1] = unsafe{voidptr(&idx)}
-    args[2] = icon.ptr
+    args[2] = voidptr(&icon.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     arg_sn0.deinit()
     classname.deinit()
@@ -2048,7 +2048,7 @@ pub fn (r &DisplayServer) cursor_set_custom_image(cursor Resource, shape Display
     fnname := StringName.new("cursor_set_custom_image")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1816663697)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = cursor.ptr
+    args[0] = voidptr(&cursor.ptr)
     i64_shape := i64(shape)
     args[1] = unsafe{voidptr(&i64_shape)}
     args[2] = unsafe{voidptr(&hotspot)}
@@ -2258,7 +2258,7 @@ pub fn (r &DisplayServer) set_icon(image Image) {
     fnname := StringName.new("set_icon")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 532598488)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = image.ptr
+    args[0] = voidptr(&image.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

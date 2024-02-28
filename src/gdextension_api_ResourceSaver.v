@@ -31,7 +31,7 @@ pub fn (r &ResourceSaver) save(resource Resource, path string, flags ResourceSav
     fnname := StringName.new("save")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2983274697)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = resource.ptr
+    args[0] = voidptr(&resource.ptr)
     arg_sn1 := String.new(path)
     args[1] = unsafe{voidptr(&arg_sn1)}
     i64_flags := i64(flags)
@@ -48,7 +48,7 @@ pub fn (r &ResourceSaver) get_recognized_extensions(type_name Resource) PackedSt
     fnname := StringName.new("get_recognized_extensions")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4223597960)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = type_name.ptr
+    args[0] = voidptr(&type_name.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -59,7 +59,7 @@ pub fn (r &ResourceSaver) add_resource_format_saver(format_saver ResourceFormatS
     fnname := StringName.new("add_resource_format_saver")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 362894272)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = format_saver.ptr
+    args[0] = voidptr(&format_saver.ptr)
     args[1] = unsafe{voidptr(&at_front)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
@@ -70,7 +70,7 @@ pub fn (r &ResourceSaver) remove_resource_format_saver(format_saver ResourceForm
     fnname := StringName.new("remove_resource_format_saver")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3373026878)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = format_saver.ptr
+    args[0] = voidptr(&format_saver.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

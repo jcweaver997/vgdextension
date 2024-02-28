@@ -36,7 +36,7 @@ pub fn (r &RigidBody2D) uintegrate_forces(state PhysicsDirectBodyState2D) {
     fnname := StringName.new("_integrate_forces")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = state.ptr
+    args[0] = voidptr(&state.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -127,7 +127,7 @@ pub fn (r &RigidBody2D) set_physics_material_override(physics_material_override 
     fnname := StringName.new("set_physics_material_override")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1784508650)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = physics_material_override.ptr
+    args[0] = voidptr(&physics_material_override.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

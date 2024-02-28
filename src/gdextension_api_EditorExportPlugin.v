@@ -70,7 +70,7 @@ pub fn (r &EditorExportPlugin) ubegin_customize_resources(platform EditorExportP
     fnname := StringName.new("_begin_customize_resources")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = platform.ptr
+    args[0] = voidptr(&platform.ptr)
     args[1] = unsafe{voidptr(&features)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -88,7 +88,7 @@ pub fn (r &EditorExportPlugin) ucustomize_resource(resource Resource, path strin
     fnname := StringName.new("_customize_resource")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = resource.ptr
+    args[0] = voidptr(&resource.ptr)
     arg_sn1 := String.new(path)
     args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
@@ -108,7 +108,7 @@ pub fn (r &EditorExportPlugin) ubegin_customize_scenes(platform EditorExportPlat
     fnname := StringName.new("_begin_customize_scenes")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = platform.ptr
+    args[0] = voidptr(&platform.ptr)
     args[1] = unsafe{voidptr(&features)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -126,7 +126,7 @@ pub fn (r &EditorExportPlugin) ucustomize_scene(scene Node, path string) Node {
     fnname := StringName.new("_customize_scene")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = scene.ptr
+    args[0] = voidptr(&scene.ptr)
     arg_sn1 := String.new(path)
     args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
@@ -187,7 +187,7 @@ pub fn (r &EditorExportPlugin) uget_export_options(platform EditorExportPlatform
     fnname := StringName.new("_get_export_options")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = platform.ptr
+    args[0] = voidptr(&platform.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -204,7 +204,7 @@ pub fn (r &EditorExportPlugin) ushould_update_export_options(platform EditorExpo
     fnname := StringName.new("_should_update_export_options")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = platform.ptr
+    args[0] = voidptr(&platform.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -221,7 +221,7 @@ pub fn (r &EditorExportPlugin) uget_export_option_warning(platform EditorExportP
     fnname := StringName.new("_get_export_option_warning")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = platform.ptr
+    args[0] = voidptr(&platform.ptr)
     arg_sn1 := String.new(option)
     args[1] = unsafe{voidptr(&arg_sn1)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
@@ -243,7 +243,7 @@ pub fn (r &EditorExportPlugin) uget_export_features(platform EditorExportPlatfor
     fnname := StringName.new("_get_export_features")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = platform.ptr
+    args[0] = voidptr(&platform.ptr)
     args[1] = unsafe{voidptr(&debug)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -278,7 +278,7 @@ pub fn (r &EditorExportPlugin) usupports_platform(platform EditorExportPlatform)
     fnname := StringName.new("_supports_platform")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = platform.ptr
+    args[0] = voidptr(&platform.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
@@ -295,7 +295,7 @@ pub fn (r &EditorExportPlugin) uget_android_dependencies(platform EditorExportPl
     fnname := StringName.new("_get_android_dependencies")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = platform.ptr
+    args[0] = voidptr(&platform.ptr)
     args[1] = unsafe{voidptr(&debug)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -313,7 +313,7 @@ pub fn (r &EditorExportPlugin) uget_android_dependencies_maven_repos(platform Ed
     fnname := StringName.new("_get_android_dependencies_maven_repos")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = platform.ptr
+    args[0] = voidptr(&platform.ptr)
     args[1] = unsafe{voidptr(&debug)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -331,7 +331,7 @@ pub fn (r &EditorExportPlugin) uget_android_libraries(platform EditorExportPlatf
     fnname := StringName.new("_get_android_libraries")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = platform.ptr
+    args[0] = voidptr(&platform.ptr)
     args[1] = unsafe{voidptr(&debug)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -349,7 +349,7 @@ pub fn (r &EditorExportPlugin) uget_android_manifest_activity_element_contents(p
     fnname := StringName.new("_get_android_manifest_activity_element_contents")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = platform.ptr
+    args[0] = voidptr(&platform.ptr)
     args[1] = unsafe{voidptr(&debug)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -369,7 +369,7 @@ pub fn (r &EditorExportPlugin) uget_android_manifest_application_element_content
     fnname := StringName.new("_get_android_manifest_application_element_contents")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = platform.ptr
+    args[0] = voidptr(&platform.ptr)
     args[1] = unsafe{voidptr(&debug)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
@@ -389,7 +389,7 @@ pub fn (r &EditorExportPlugin) uget_android_manifest_element_contents(platform E
     fnname := StringName.new("_get_android_manifest_element_contents")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 0)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = platform.ptr
+    args[0] = voidptr(&platform.ptr)
     args[1] = unsafe{voidptr(&debug)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()

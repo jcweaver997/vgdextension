@@ -58,8 +58,8 @@ pub fn (r &RenderSceneBuffersRD) create_texture_from_format(context string, name
     args[0] = unsafe{voidptr(&arg_sn0)}
     arg_sn1 := StringName.new(name)
     args[1] = unsafe{voidptr(&arg_sn1)}
-    args[2] = format.ptr
-    args[3] = view.ptr
+    args[2] = voidptr(&format.ptr)
+    args[3] = voidptr(&view.ptr)
     args[4] = unsafe{voidptr(&unique)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     arg_sn0.deinit()
@@ -80,7 +80,7 @@ pub fn (r &RenderSceneBuffersRD) create_texture_view(context string, name string
     args[1] = unsafe{voidptr(&arg_sn1)}
     arg_sn2 := StringName.new(view_name)
     args[2] = unsafe{voidptr(&arg_sn2)}
-    args[3] = view.ptr
+    args[3] = voidptr(&view.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     arg_sn0.deinit()
     arg_sn1.deinit()
@@ -158,7 +158,7 @@ pub fn (r &RenderSceneBuffersRD) get_texture_slice_view(context string, name str
     args[3] = unsafe{voidptr(&mipmap)}
     args[4] = unsafe{voidptr(&layers)}
     args[5] = unsafe{voidptr(&mipmaps)}
-    args[6] = view.ptr
+    args[6] = voidptr(&view.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     arg_sn0.deinit()
     arg_sn1.deinit()

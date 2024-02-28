@@ -274,7 +274,7 @@ pub fn (r &SurfaceTool) set_material(material Material) {
     fnname := StringName.new("set_material")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2757459619)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = material.ptr
+    args[0] = voidptr(&material.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -302,7 +302,7 @@ pub fn (r &SurfaceTool) create_from(existing Mesh, surface i32) {
     fnname := StringName.new("create_from")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1767024570)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = existing.ptr
+    args[0] = voidptr(&existing.ptr)
     args[1] = unsafe{voidptr(&surface)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
@@ -313,7 +313,7 @@ pub fn (r &SurfaceTool) create_from_blend_shape(existing Mesh, surface i32, blen
     fnname := StringName.new("create_from_blend_shape")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1306185582)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = existing.ptr
+    args[0] = voidptr(&existing.ptr)
     args[1] = unsafe{voidptr(&surface)}
     arg_sn2 := String.new(blend_shape)
     args[2] = unsafe{voidptr(&arg_sn2)}
@@ -327,7 +327,7 @@ pub fn (r &SurfaceTool) append_from(existing Mesh, surface i32, transform Transf
     fnname := StringName.new("append_from")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2217967155)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = existing.ptr
+    args[0] = voidptr(&existing.ptr)
     args[1] = unsafe{voidptr(&surface)}
     args[2] = unsafe{voidptr(&transform)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
@@ -340,7 +340,7 @@ pub fn (r &SurfaceTool) commit(existing ArrayMesh, flags u64) ArrayMesh {
     fnname := StringName.new("commit")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4107864055)
     mut args := unsafe { [2]voidptr{} }
-    args[0] = existing.ptr
+    args[0] = voidptr(&existing.ptr)
     args[1] = unsafe{voidptr(&flags)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()

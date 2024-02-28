@@ -210,7 +210,7 @@ pub fn (r &PhysicalSkyMaterial) set_night_sky(night_sky Texture2D) {
     fnname := StringName.new("set_night_sky")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = night_sky.ptr
+    args[0] = voidptr(&night_sky.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

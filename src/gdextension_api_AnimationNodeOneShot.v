@@ -42,7 +42,7 @@ pub fn (r &AnimationNodeOneShot) set_fadein_curve(curve Curve) {
     fnname := StringName.new("set_fadein_curve")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 270443179)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = curve.ptr
+    args[0] = voidptr(&curve.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -82,7 +82,7 @@ pub fn (r &AnimationNodeOneShot) set_fadeout_curve(curve Curve) {
     fnname := StringName.new("set_fadeout_curve")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 270443179)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = curve.ptr
+    args[0] = voidptr(&curve.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

@@ -10,7 +10,7 @@ pub fn (r &AudioStreamPlayer2D) set_stream(stream AudioStream) {
     fnname := StringName.new("set_stream")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2210767741)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = stream.ptr
+    args[0] = voidptr(&stream.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

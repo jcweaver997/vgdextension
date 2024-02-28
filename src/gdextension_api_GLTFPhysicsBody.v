@@ -11,7 +11,7 @@ pub fn GLTFPhysicsBody.from_node(body_node CollisionObject3D) GLTFPhysicsBody {
     fnname := StringName.new("from_node")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 420544174)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = body_node.ptr
+    args[0] = voidptr(&body_node.ptr)
     gdf.object_method_bind_ptrcall(mb, unsafe{nil}, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()

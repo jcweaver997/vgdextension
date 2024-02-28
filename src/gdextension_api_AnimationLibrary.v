@@ -13,7 +13,7 @@ pub fn (r &AnimationLibrary) add_animation(name string, animation Animation) GDE
     mut args := unsafe { [2]voidptr{} }
     arg_sn0 := StringName.new(name)
     args[0] = unsafe{voidptr(&arg_sn0)}
-    args[1] = animation.ptr
+    args[1] = voidptr(&animation.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     arg_sn0.deinit()
     classname.deinit()

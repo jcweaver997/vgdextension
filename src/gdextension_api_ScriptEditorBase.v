@@ -20,7 +20,7 @@ pub fn (r &ScriptEditorBase) add_syntax_highlighter(highlighter EditorSyntaxHigh
     fnname := StringName.new("add_syntax_highlighter")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1092774468)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = highlighter.ptr
+    args[0] = voidptr(&highlighter.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

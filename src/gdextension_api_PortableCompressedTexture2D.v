@@ -19,7 +19,7 @@ pub fn (r &PortableCompressedTexture2D) create_from_image(image Image, compressi
     fnname := StringName.new("create_from_image")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3679243433)
     mut args := unsafe { [4]voidptr{} }
-    args[0] = image.ptr
+    args[0] = voidptr(&image.ptr)
     i64_compression_mode := i64(compression_mode)
     args[1] = unsafe{voidptr(&i64_compression_mode)}
     args[2] = unsafe{voidptr(&normal_map)}

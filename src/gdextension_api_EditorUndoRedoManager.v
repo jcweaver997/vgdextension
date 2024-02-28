@@ -20,7 +20,7 @@ pub fn (r &EditorUndoRedoManager) create_action(name string, merge_mode UndoRedo
     args[0] = unsafe{voidptr(&arg_sn0)}
     i64_merge_mode := i64(merge_mode)
     args[1] = unsafe{voidptr(&i64_merge_mode)}
-    args[2] = custom_context.ptr
+    args[2] = voidptr(&custom_context.ptr)
     args[3] = unsafe{voidptr(&backward_undo_ops)}
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     arg_sn0.deinit()
@@ -52,7 +52,7 @@ pub fn (r &EditorUndoRedoManager) add_do_property(object Object, property string
     fnname := StringName.new("add_do_property")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1017172818)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = object.ptr
+    args[0] = voidptr(&object.ptr)
     arg_sn1 := StringName.new(property)
     args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&value)}
@@ -66,7 +66,7 @@ pub fn (r &EditorUndoRedoManager) add_undo_property(object Object, property stri
     fnname := StringName.new("add_undo_property")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1017172818)
     mut args := unsafe { [3]voidptr{} }
-    args[0] = object.ptr
+    args[0] = voidptr(&object.ptr)
     arg_sn1 := StringName.new(property)
     args[1] = unsafe{voidptr(&arg_sn1)}
     args[2] = unsafe{voidptr(&value)}
@@ -80,7 +80,7 @@ pub fn (r &EditorUndoRedoManager) add_do_reference(object Object) {
     fnname := StringName.new("add_do_reference")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3975164845)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = object.ptr
+    args[0] = voidptr(&object.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -90,7 +90,7 @@ pub fn (r &EditorUndoRedoManager) add_undo_reference(object Object) {
     fnname := StringName.new("add_undo_reference")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 3975164845)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = object.ptr
+    args[0] = voidptr(&object.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -101,7 +101,7 @@ pub fn (r &EditorUndoRedoManager) get_object_history_id(object Object) i32 {
     fnname := StringName.new("get_object_history_id")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1107568780)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = object.ptr
+    args[0] = voidptr(&object.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()

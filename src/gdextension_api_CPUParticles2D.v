@@ -309,7 +309,7 @@ pub fn (r &CPUParticles2D) set_texture(texture Texture2D) {
     fnname := StringName.new("set_texture")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 4051416890)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = texture.ptr
+    args[0] = voidptr(&texture.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -429,7 +429,7 @@ pub fn (r &CPUParticles2D) set_param_curve(param CPUParticles2DParameter, curve 
     mut args := unsafe { [2]voidptr{} }
     i64_param := i64(param)
     args[0] = unsafe{voidptr(&i64_param)}
-    args[1] = curve.ptr
+    args[1] = voidptr(&curve.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -472,7 +472,7 @@ pub fn (r &CPUParticles2D) set_color_ramp(ramp Gradient) {
     fnname := StringName.new("set_color_ramp")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2756054477)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = ramp.ptr
+    args[0] = voidptr(&ramp.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -492,7 +492,7 @@ pub fn (r &CPUParticles2D) set_color_initial_ramp(ramp Gradient) {
     fnname := StringName.new("set_color_initial_ramp")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 2756054477)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = ramp.ptr
+    args[0] = voidptr(&ramp.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -708,7 +708,7 @@ pub fn (r &CPUParticles2D) set_scale_curve_x(scale_curve Curve) {
     fnname := StringName.new("set_scale_curve_x")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 270443179)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = scale_curve.ptr
+    args[0] = voidptr(&scale_curve.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -728,7 +728,7 @@ pub fn (r &CPUParticles2D) set_scale_curve_y(scale_curve Curve) {
     fnname := StringName.new("set_scale_curve_y")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 270443179)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = scale_curve.ptr
+    args[0] = voidptr(&scale_curve.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()
@@ -738,7 +738,7 @@ pub fn (r &CPUParticles2D) convert_from_particles(particles Node) {
     fnname := StringName.new("convert_from_particles")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1078189570)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = particles.ptr
+    args[0] = voidptr(&particles.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), unsafe{nil})
     classname.deinit()
     fnname.deinit()

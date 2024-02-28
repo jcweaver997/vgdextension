@@ -25,7 +25,7 @@ pub fn (r &WebSocketPeer) connect_to_url(url string, tls_client_options TLSOptio
     mut args := unsafe { [2]voidptr{} }
     arg_sn0 := String.new(url)
     args[0] = unsafe{voidptr(&arg_sn0)}
-    args[1] = tls_client_options.ptr
+    args[1] = voidptr(&tls_client_options.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     arg_sn0.deinit()
     classname.deinit()
@@ -38,7 +38,7 @@ pub fn (r &WebSocketPeer) accept_stream(stream StreamPeer) GDError {
     fnname := StringName.new("accept_stream")
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 255125695)
     mut args := unsafe { [1]voidptr{} }
-    args[0] = stream.ptr
+    args[0] = voidptr(&stream.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()

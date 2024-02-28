@@ -59,7 +59,7 @@ pub fn (r &ENetMultiplayerPeer) add_mesh_peer(peer_id i32, host ENetConnection) 
     mb := gdf.classdb_get_method_bind(&classname, &fnname, 1293458335)
     mut args := unsafe { [2]voidptr{} }
     args[0] = unsafe{voidptr(&peer_id)}
-    args[1] = host.ptr
+    args[1] = voidptr(&host.ptr)
     gdf.object_method_bind_ptrcall(mb, r.ptr, voidptr(&args[0]), voidptr(&object_out))
     classname.deinit()
     fnname.deinit()
