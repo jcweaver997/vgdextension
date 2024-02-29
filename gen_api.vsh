@@ -427,6 +427,30 @@ fn gen_method_export(ea &ExtensionApi) ! {
 		}
 	}
 
+	// gen call
+	for class in ea.classes {
+		for signal in class.signals {
+			i_name := signal_name(class.name, signal.name)
+			f.write_string('fn ${i_name.to_lower()}_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {\n')!
+			f.write_string('    mut raw_args := []GDExtensionConstTypePtr{}\n')!
+			f.write_string('    for i in 0 .. int(arg_count) {\n')!
+			f.write_string('    	o := gdf.mem_alloc(sizeof[voidptr]())\n')!
+			f.write_string('    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))\n')!
+			f.write_string('    	f(o, unsafe { args[i] })\n')!
+			f.write_string('    	raw_args << GDExtensionConstTypePtr(o)\n')!
+			f.write_string('    }\n')!
+			f.write_string('    if int(arg_count) > 0 {\n')!
+			f.write_string('        ${i_name.to_lower()}_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })\n')!
+			f.write_string('    }else{\n')!
+			f.write_string('        ${i_name.to_lower()}_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })\n')!
+			f.write_string('    }\n')!
+			f.write_string('    for i in 0 .. int(arg_count) {\n')!
+			f.write_string('        gdf.mem_free(raw_args[i])\n')!
+			f.write_string('    }\n')!
+			f.write_string('}\n')!
+		}
+	}
+
 	f.write_string('pub fn register_signal_methods[T](mut ci ClassInfo) {\n')!
 	for class in ea.classes {
 		for signal in class.signals {
@@ -469,7 +493,7 @@ fn gen_method_export(ea &ExtensionApi) ! {
 			f.write_string('        method_info := GDExtensionClassMethodInfo {\n')!
 			f.write_string('            name: &method_name\n')!
 			f.write_string('            method_userdata: unsafe{nil}\n')!
-			f.write_string('            call_func: ptrcall_to_call(${i_name.to_lower()}_ptrcall[T])\n')!
+			f.write_string('            call_func: ${i_name.to_lower()}_call[T]\n')!
 			f.write_string('            ptrcall_func: ${i_name.to_lower()}_ptrcall[T]\n')!
 			f.write_string('            method_flags: 1\n')!
 			f.write_string('            has_return_value: GDExtensionBool(false)\n')!

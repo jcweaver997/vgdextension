@@ -5082,13 +5082,7272 @@ fn isignalxrservertrackerremoved_ptrcall[T](method_userdata voidptr, inst GDExte
     arg_1 := *arg_1_ptr
     i.signal_tracker_removed(arg_0, arg_1)
 }
+fn isignalacceptdialogconfirmed_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalacceptdialogconfirmed_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalacceptdialogconfirmed_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalacceptdialogcanceled_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalacceptdialogcanceled_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalacceptdialogcanceled_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalacceptdialogcustomaction_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalacceptdialogcustomaction_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalacceptdialogcustomaction_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalanimatedsprite2dspriteframeschanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalanimatedsprite2dspriteframeschanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalanimatedsprite2dspriteframeschanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalanimatedsprite2danimationchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalanimatedsprite2danimationchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalanimatedsprite2danimationchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalanimatedsprite2dframechanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalanimatedsprite2dframechanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalanimatedsprite2dframechanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalanimatedsprite2danimationlooped_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalanimatedsprite2danimationlooped_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalanimatedsprite2danimationlooped_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalanimatedsprite2danimationfinished_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalanimatedsprite2danimationfinished_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalanimatedsprite2danimationfinished_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalanimatedsprite3dspriteframeschanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalanimatedsprite3dspriteframeschanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalanimatedsprite3dspriteframeschanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalanimatedsprite3danimationchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalanimatedsprite3danimationchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalanimatedsprite3danimationchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalanimatedsprite3dframechanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalanimatedsprite3dframechanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalanimatedsprite3dframechanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalanimatedsprite3danimationlooped_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalanimatedsprite3danimationlooped_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalanimatedsprite3danimationlooped_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalanimatedsprite3danimationfinished_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalanimatedsprite3danimationfinished_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalanimatedsprite3danimationfinished_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalanimationlibraryanimationadded_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalanimationlibraryanimationadded_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalanimationlibraryanimationadded_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalanimationlibraryanimationremoved_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalanimationlibraryanimationremoved_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalanimationlibraryanimationremoved_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalanimationlibraryanimationrenamed_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalanimationlibraryanimationrenamed_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalanimationlibraryanimationrenamed_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalanimationlibraryanimationchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalanimationlibraryanimationchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalanimationlibraryanimationchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalanimationmixermixerupdated_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalanimationmixermixerupdated_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalanimationmixermixerupdated_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalanimationmixeranimationlistchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalanimationmixeranimationlistchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalanimationmixeranimationlistchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalanimationmixeranimationlibrariesupdated_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalanimationmixeranimationlibrariesupdated_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalanimationmixeranimationlibrariesupdated_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalanimationmixeranimationfinished_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalanimationmixeranimationfinished_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalanimationmixeranimationfinished_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalanimationmixeranimationstarted_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalanimationmixeranimationstarted_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalanimationmixeranimationstarted_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalanimationmixercachescleared_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalanimationmixercachescleared_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalanimationmixercachescleared_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalanimationnodetreechanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalanimationnodetreechanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalanimationnodetreechanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalanimationnodeanimationnoderenamed_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalanimationnodeanimationnoderenamed_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalanimationnodeanimationnoderenamed_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalanimationnodeanimationnoderemoved_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalanimationnodeanimationnoderemoved_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalanimationnodeanimationnoderemoved_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalanimationnodeblendspace2dtrianglesupdated_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalanimationnodeblendspace2dtrianglesupdated_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalanimationnodeblendspace2dtrianglesupdated_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalanimationnodeblendtreenodechanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalanimationnodeblendtreenodechanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalanimationnodeblendtreenodechanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalanimationnodestatemachinetransitionadvanceconditionchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalanimationnodestatemachinetransitionadvanceconditionchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalanimationnodestatemachinetransitionadvanceconditionchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalanimationplayercurrentanimationchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalanimationplayercurrentanimationchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalanimationplayercurrentanimationchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalanimationplayeranimationchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalanimationplayeranimationchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalanimationplayeranimationchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalanimationtreeanimationplayerchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalanimationtreeanimationplayerchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalanimationtreeanimationplayerchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalarea2dbodyshapeentered_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalarea2dbodyshapeentered_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalarea2dbodyshapeentered_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalarea2dbodyshapeexited_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalarea2dbodyshapeexited_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalarea2dbodyshapeexited_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalarea2dbodyentered_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalarea2dbodyentered_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalarea2dbodyentered_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalarea2dbodyexited_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalarea2dbodyexited_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalarea2dbodyexited_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalarea2dareashapeentered_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalarea2dareashapeentered_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalarea2dareashapeentered_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalarea2dareashapeexited_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalarea2dareashapeexited_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalarea2dareashapeexited_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalarea2dareaentered_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalarea2dareaentered_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalarea2dareaentered_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalarea2dareaexited_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalarea2dareaexited_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalarea2dareaexited_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalarea3dbodyshapeentered_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalarea3dbodyshapeentered_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalarea3dbodyshapeentered_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalarea3dbodyshapeexited_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalarea3dbodyshapeexited_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalarea3dbodyshapeexited_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalarea3dbodyentered_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalarea3dbodyentered_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalarea3dbodyentered_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalarea3dbodyexited_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalarea3dbodyexited_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalarea3dbodyexited_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalarea3dareashapeentered_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalarea3dareashapeentered_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalarea3dareashapeentered_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalarea3dareashapeexited_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalarea3dareashapeexited_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalarea3dareashapeexited_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalarea3dareaentered_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalarea3dareaentered_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalarea3dareaentered_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalarea3dareaexited_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalarea3dareaexited_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalarea3dareaexited_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalaudioserverbuslayoutchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalaudioserverbuslayoutchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalaudioserverbuslayoutchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalaudioserverbusrenamed_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalaudioserverbusrenamed_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalaudioserverbusrenamed_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalaudiostreamplayerfinished_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalaudiostreamplayerfinished_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalaudiostreamplayerfinished_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalaudiostreamplayer2dfinished_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalaudiostreamplayer2dfinished_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalaudiostreamplayer2dfinished_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalaudiostreamplayer3dfinished_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalaudiostreamplayer3dfinished_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalaudiostreamplayer3dfinished_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalbasebuttonpressed_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalbasebuttonpressed_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalbasebuttonpressed_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalbasebuttonbuttonup_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalbasebuttonbuttonup_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalbasebuttonbuttonup_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalbasebuttonbuttondown_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalbasebuttonbuttondown_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalbasebuttonbuttondown_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalbasebuttontoggled_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalbasebuttontoggled_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalbasebuttontoggled_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalbonemapbonemapupdated_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalbonemapbonemapupdated_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalbonemapbonemapupdated_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalbonemapprofileupdated_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalbonemapprofileupdated_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalbonemapprofileupdated_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalbuttongrouppressed_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalbuttongrouppressed_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalbuttongrouppressed_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcpuparticles2dfinished_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcpuparticles2dfinished_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcpuparticles2dfinished_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcpuparticles3dfinished_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcpuparticles3dfinished_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcpuparticles3dfinished_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcameraservercamerafeedadded_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcameraservercamerafeedadded_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcameraservercamerafeedadded_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcameraservercamerafeedremoved_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcameraservercamerafeedremoved_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcameraservercamerafeedremoved_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcanvasitemdraw_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcanvasitemdraw_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcanvasitemdraw_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcanvasitemvisibilitychanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcanvasitemvisibilitychanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcanvasitemvisibilitychanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcanvasitemhidden_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcanvasitemhidden_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcanvasitemhidden_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcanvasitemitemrectchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcanvasitemitemrectchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcanvasitemitemrectchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcanvaslayervisibilitychanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcanvaslayervisibilitychanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcanvaslayervisibilitychanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcodeeditbreakpointtoggled_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcodeeditbreakpointtoggled_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcodeeditbreakpointtoggled_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcodeeditcodecompletionrequested_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcodeeditcodecompletionrequested_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcodeeditcodecompletionrequested_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcodeeditsymbollookup_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcodeeditsymbollookup_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcodeeditsymbollookup_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcodeeditsymbolvalidate_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcodeeditsymbolvalidate_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcodeeditsymbolvalidate_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcollisionobject2dinputevent_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcollisionobject2dinputevent_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcollisionobject2dinputevent_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcollisionobject2dmouseentered_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcollisionobject2dmouseentered_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcollisionobject2dmouseentered_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcollisionobject2dmouseexited_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcollisionobject2dmouseexited_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcollisionobject2dmouseexited_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcollisionobject2dmouseshapeentered_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcollisionobject2dmouseshapeentered_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcollisionobject2dmouseshapeentered_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcollisionobject2dmouseshapeexited_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcollisionobject2dmouseshapeexited_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcollisionobject2dmouseshapeexited_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcollisionobject3dinputevent_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcollisionobject3dinputevent_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcollisionobject3dinputevent_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcollisionobject3dmouseentered_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcollisionobject3dmouseentered_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcollisionobject3dmouseentered_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcollisionobject3dmouseexited_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcollisionobject3dmouseexited_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcollisionobject3dmouseexited_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcolorpickercolorchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcolorpickercolorchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcolorpickercolorchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcolorpickerpresetadded_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcolorpickerpresetadded_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcolorpickerpresetadded_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcolorpickerpresetremoved_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcolorpickerpresetremoved_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcolorpickerpresetremoved_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcolorpickerbuttoncolorchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcolorpickerbuttoncolorchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcolorpickerbuttoncolorchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcolorpickerbuttonpopupclosed_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcolorpickerbuttonpopupclosed_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcolorpickerbuttonpopupclosed_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcolorpickerbuttonpickercreated_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcolorpickerbuttonpickercreated_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcolorpickerbuttonpickercreated_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcontainerpresortchildren_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcontainerpresortchildren_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcontainerpresortchildren_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcontainersortchildren_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcontainersortchildren_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcontainersortchildren_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcontrolresized_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcontrolresized_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcontrolresized_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcontrolguiinput_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcontrolguiinput_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcontrolguiinput_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcontrolmouseentered_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcontrolmouseentered_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcontrolmouseentered_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcontrolmouseexited_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcontrolmouseexited_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcontrolmouseexited_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcontrolfocusentered_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcontrolfocusentered_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcontrolfocusentered_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcontrolfocusexited_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcontrolfocusexited_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcontrolfocusexited_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcontrolsizeflagschanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcontrolsizeflagschanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcontrolsizeflagschanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcontrolminimumsizechanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcontrolminimumsizechanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcontrolminimumsizechanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcontrolthemechanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcontrolthemechanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcontrolthemechanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalcurverangechanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalcurverangechanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalcurverangechanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditordebuggersessionstarted_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditordebuggersessionstarted_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditordebuggersessionstarted_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditordebuggersessionstopped_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditordebuggersessionstopped_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditordebuggersessionstopped_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditordebuggersessionbreaked_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditordebuggersessionbreaked_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditordebuggersessionbreaked_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditordebuggersessioncontinued_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditordebuggersessioncontinued_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditordebuggersessioncontinued_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorfiledialogfileselected_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorfiledialogfileselected_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorfiledialogfileselected_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorfiledialogfilesselected_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorfiledialogfilesselected_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorfiledialogfilesselected_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorfiledialogdirselected_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorfiledialogdirselected_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorfiledialogdirselected_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorfilesystemfilesystemchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorfilesystemfilesystemchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorfilesystemfilesystemchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorfilesystemscriptclassesupdated_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorfilesystemscriptclassesupdated_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorfilesystemscriptclassesupdated_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorfilesystemsourceschanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorfilesystemsourceschanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorfilesystemsourceschanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorfilesystemresourcesreimported_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorfilesystemresourcesreimported_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorfilesystemresourcesreimported_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorfilesystemresourcesreload_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorfilesystemresourcesreload_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorfilesystemresourcesreload_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorinspectorpropertyselected_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorinspectorpropertyselected_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorinspectorpropertyselected_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorinspectorpropertykeyed_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorinspectorpropertykeyed_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorinspectorpropertykeyed_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorinspectorpropertydeleted_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorinspectorpropertydeleted_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorinspectorpropertydeleted_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorinspectorresourceselected_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorinspectorresourceselected_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorinspectorresourceselected_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorinspectorobjectidselected_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorinspectorobjectidselected_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorinspectorobjectidselected_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorinspectorpropertyedited_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorinspectorpropertyedited_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorinspectorpropertyedited_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorinspectorpropertytoggled_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorinspectorpropertytoggled_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorinspectorpropertytoggled_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorinspectoreditedobjectchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorinspectoreditedobjectchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorinspectoreditedobjectchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorinspectorrestartrequested_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorinspectorrestartrequested_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorinspectorrestartrequested_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorpluginscenechanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorpluginscenechanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorpluginscenechanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorpluginsceneclosed_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorpluginsceneclosed_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorpluginsceneclosed_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorpluginmainscreenchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorpluginmainscreenchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorpluginmainscreenchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorpluginresourcesaved_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorpluginresourcesaved_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorpluginresourcesaved_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorpluginprojectsettingschanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorpluginprojectsettingschanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorpluginprojectsettingschanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorpropertypropertychanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorpropertypropertychanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorpropertypropertychanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorpropertymultiplepropertieschanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorpropertymultiplepropertieschanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorpropertymultiplepropertieschanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorpropertypropertykeyed_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorpropertypropertykeyed_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorpropertypropertykeyed_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorpropertypropertydeleted_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorpropertypropertydeleted_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorpropertypropertydeleted_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorpropertypropertykeyedwithvalue_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorpropertypropertykeyedwithvalue_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorpropertypropertykeyedwithvalue_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorpropertypropertychecked_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorpropertypropertychecked_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorpropertypropertychecked_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorpropertypropertypinned_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorpropertypropertypinned_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorpropertypropertypinned_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorpropertypropertycanrevertchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorpropertypropertycanrevertchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorpropertypropertycanrevertchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorpropertyresourceselected_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorpropertyresourceselected_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorpropertyresourceselected_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorpropertyobjectidselected_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorpropertyobjectidselected_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorpropertyobjectidselected_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorpropertyselected_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorpropertyselected_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorpropertyselected_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorresourcepickerresourceselected_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorresourcepickerresourceselected_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorresourcepickerresourceselected_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorresourcepickerresourcechanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorresourcepickerresourcechanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorresourcepickerresourcechanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorresourcepreviewpreviewinvalidated_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorresourcepreviewpreviewinvalidated_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorresourcepreviewpreviewinvalidated_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorselectionselectionchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorselectionselectionchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorselectionselectionchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorsettingssettingschanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorsettingssettingschanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorsettingssettingschanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorspinslidergrabbed_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorspinslidergrabbed_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorspinslidergrabbed_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorspinsliderungrabbed_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorspinsliderungrabbed_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorspinsliderungrabbed_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorspinslidervaluefocusentered_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorspinslidervaluefocusentered_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorspinslidervaluefocusentered_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorspinslidervaluefocusexited_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorspinslidervaluefocusexited_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorspinslidervaluefocusexited_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorundoredomanagerhistorychanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorundoredomanagerhistorychanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorundoredomanagerhistorychanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaleditorundoredomanagerversionchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaleditorundoredomanagerversionchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaleditorundoredomanagerversionchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalfiledialogfileselected_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalfiledialogfileselected_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalfiledialogfileselected_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalfiledialogfilesselected_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalfiledialogfilesselected_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalfiledialogfilesselected_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalfiledialogdirselected_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalfiledialogdirselected_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalfiledialogdirselected_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalfilesystemdockinherit_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalfilesystemdockinherit_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalfilesystemdockinherit_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalfilesystemdockinstantiate_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalfilesystemdockinstantiate_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalfilesystemdockinstantiate_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalfilesystemdockresourceremoved_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalfilesystemdockresourceremoved_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalfilesystemdockresourceremoved_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalfilesystemdockfileremoved_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalfilesystemdockfileremoved_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalfilesystemdockfileremoved_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalfilesystemdockfolderremoved_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalfilesystemdockfolderremoved_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalfilesystemdockfolderremoved_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalfilesystemdockfilesmoved_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalfilesystemdockfilesmoved_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalfilesystemdockfilesmoved_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalfilesystemdockfoldermoved_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalfilesystemdockfoldermoved_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalfilesystemdockfoldermoved_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalfilesystemdockdisplaymodechanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalfilesystemdockdisplaymodechanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalfilesystemdockdisplaymodechanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalgdextensionmanagerextensionsreloaded_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalgdextensionmanagerextensionsreloaded_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalgdextensionmanagerextensionsreloaded_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalgpuparticles2dfinished_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalgpuparticles2dfinished_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalgpuparticles2dfinished_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalgpuparticles3dfinished_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalgpuparticles3dfinished_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalgpuparticles3dfinished_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalgrapheditconnectionrequest_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalgrapheditconnectionrequest_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalgrapheditconnectionrequest_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalgrapheditdisconnectionrequest_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalgrapheditdisconnectionrequest_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalgrapheditdisconnectionrequest_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalgrapheditconnectiontoempty_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalgrapheditconnectiontoempty_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalgrapheditconnectiontoempty_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalgrapheditconnectionfromempty_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalgrapheditconnectionfromempty_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalgrapheditconnectionfromempty_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalgrapheditconnectiondragstarted_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalgrapheditconnectiondragstarted_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalgrapheditconnectiondragstarted_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalgrapheditconnectiondragended_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalgrapheditconnectiondragended_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalgrapheditconnectiondragended_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalgrapheditcopynodesrequest_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalgrapheditcopynodesrequest_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalgrapheditcopynodesrequest_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalgrapheditpastenodesrequest_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalgrapheditpastenodesrequest_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalgrapheditpastenodesrequest_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalgrapheditduplicatenodesrequest_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalgrapheditduplicatenodesrequest_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalgrapheditduplicatenodesrequest_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalgrapheditdeletenodesrequest_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalgrapheditdeletenodesrequest_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalgrapheditdeletenodesrequest_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalgrapheditnodeselected_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalgrapheditnodeselected_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalgrapheditnodeselected_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalgrapheditnodedeselected_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalgrapheditnodedeselected_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalgrapheditnodedeselected_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalgrapheditpopuprequest_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalgrapheditpopuprequest_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalgrapheditpopuprequest_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalgrapheditbeginnodemove_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalgrapheditbeginnodemove_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalgrapheditbeginnodemove_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalgrapheditendnodemove_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalgrapheditendnodemove_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalgrapheditendnodemove_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalgrapheditscrolloffsetchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalgrapheditscrolloffsetchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalgrapheditscrolloffsetchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalgraphelementnodeselected_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalgraphelementnodeselected_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalgraphelementnodeselected_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalgraphelementnodedeselected_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalgraphelementnodedeselected_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalgraphelementnodedeselected_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalgraphelementraiserequest_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalgraphelementraiserequest_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalgraphelementraiserequest_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalgraphelementdeleterequest_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalgraphelementdeleterequest_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalgraphelementdeleterequest_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalgraphelementresizerequest_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalgraphelementresizerequest_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalgraphelementresizerequest_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalgraphelementdragged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalgraphelementdragged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalgraphelementdragged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalgraphelementpositionoffsetchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalgraphelementpositionoffsetchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalgraphelementpositionoffsetchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalgraphnodeslotupdated_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalgraphnodeslotupdated_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalgraphnodeslotupdated_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalgridmapcellsizechanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalgridmapcellsizechanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalgridmapcellsizechanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalgridmapchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalgridmapchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalgridmapchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalhttprequestrequestcompleted_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalhttprequestrequestcompleted_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalhttprequestrequestcompleted_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalinputjoyconnectionchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalinputjoyconnectionchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalinputjoyconnectionchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalitemlistitemselected_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalitemlistitemselected_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalitemlistitemselected_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalitemlistemptyclicked_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalitemlistemptyclicked_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalitemlistemptyclicked_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalitemlistitemclicked_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalitemlistitemclicked_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalitemlistitemclicked_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalitemlistmultiselected_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalitemlistmultiselected_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalitemlistmultiselected_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalitemlistitemactivated_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalitemlistitemactivated_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalitemlistitemactivated_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaljavascriptbridgepwaupdateavailable_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaljavascriptbridgepwaupdateavailable_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaljavascriptbridgepwaupdateavailable_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignallineedittextchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignallineedittextchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignallineedittextchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignallineedittextchangerejected_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignallineedittextchangerejected_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignallineedittextchangerejected_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignallineedittextsubmitted_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignallineedittextsubmitted_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignallineedittextsubmitted_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalmainlooponrequestpermissionsresult_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalmainlooponrequestpermissionsresult_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalmainlooponrequestpermissionsresult_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalmenubuttonabouttopopup_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalmenubuttonabouttopopup_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalmenubuttonabouttopopup_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalmeshinstance2dtexturechanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalmeshinstance2dtexturechanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalmeshinstance2dtexturechanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalmultimeshinstance2dtexturechanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalmultimeshinstance2dtexturechanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalmultimeshinstance2dtexturechanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalmultiplayerapipeerconnected_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalmultiplayerapipeerconnected_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalmultiplayerapipeerconnected_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalmultiplayerapipeerdisconnected_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalmultiplayerapipeerdisconnected_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalmultiplayerapipeerdisconnected_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalmultiplayerapiconnectedtoserver_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalmultiplayerapiconnectedtoserver_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalmultiplayerapiconnectedtoserver_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalmultiplayerapiconnectionfailed_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalmultiplayerapiconnectionfailed_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalmultiplayerapiconnectionfailed_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalmultiplayerapiserverdisconnected_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalmultiplayerapiserverdisconnected_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalmultiplayerapiserverdisconnected_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalmultiplayerpeerpeerconnected_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalmultiplayerpeerpeerconnected_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalmultiplayerpeerpeerconnected_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalmultiplayerpeerpeerdisconnected_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalmultiplayerpeerpeerdisconnected_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalmultiplayerpeerpeerdisconnected_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalmultiplayerspawnerdespawned_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalmultiplayerspawnerdespawned_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalmultiplayerspawnerdespawned_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalmultiplayerspawnerspawned_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalmultiplayerspawnerspawned_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalmultiplayerspawnerspawned_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalmultiplayersynchronizersynchronized_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalmultiplayersynchronizersynchronized_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalmultiplayersynchronizersynchronized_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalmultiplayersynchronizerdeltasynchronized_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalmultiplayersynchronizerdeltasynchronized_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalmultiplayersynchronizerdeltasynchronized_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalmultiplayersynchronizervisibilitychanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalmultiplayersynchronizervisibilitychanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalmultiplayersynchronizervisibilitychanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalnavigationagent2dpathchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalnavigationagent2dpathchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalnavigationagent2dpathchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalnavigationagent2dtargetreached_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalnavigationagent2dtargetreached_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalnavigationagent2dtargetreached_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalnavigationagent2dwaypointreached_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalnavigationagent2dwaypointreached_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalnavigationagent2dwaypointreached_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalnavigationagent2dlinkreached_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalnavigationagent2dlinkreached_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalnavigationagent2dlinkreached_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalnavigationagent2dnavigationfinished_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalnavigationagent2dnavigationfinished_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalnavigationagent2dnavigationfinished_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalnavigationagent2dvelocitycomputed_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalnavigationagent2dvelocitycomputed_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalnavigationagent2dvelocitycomputed_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalnavigationagent3dpathchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalnavigationagent3dpathchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalnavigationagent3dpathchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalnavigationagent3dtargetreached_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalnavigationagent3dtargetreached_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalnavigationagent3dtargetreached_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalnavigationagent3dwaypointreached_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalnavigationagent3dwaypointreached_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalnavigationagent3dwaypointreached_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalnavigationagent3dlinkreached_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalnavigationagent3dlinkreached_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalnavigationagent3dlinkreached_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalnavigationagent3dnavigationfinished_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalnavigationagent3dnavigationfinished_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalnavigationagent3dnavigationfinished_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalnavigationagent3dvelocitycomputed_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalnavigationagent3dvelocitycomputed_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalnavigationagent3dvelocitycomputed_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalnavigationregion2dnavigationpolygonchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalnavigationregion2dnavigationpolygonchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalnavigationregion2dnavigationpolygonchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalnavigationregion2dbakefinished_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalnavigationregion2dbakefinished_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalnavigationregion2dbakefinished_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalnavigationregion3dnavigationmeshchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalnavigationregion3dnavigationmeshchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalnavigationregion3dnavigationmeshchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalnavigationregion3dbakefinished_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalnavigationregion3dbakefinished_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalnavigationregion3dbakefinished_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalnavigationserver2dmapchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalnavigationserver2dmapchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalnavigationserver2dmapchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalnavigationserver2dnavigationdebugchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalnavigationserver2dnavigationdebugchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalnavigationserver2dnavigationdebugchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalnavigationserver3dmapchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalnavigationserver3dmapchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalnavigationserver3dmapchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalnavigationserver3dnavigationdebugchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalnavigationserver3dnavigationdebugchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalnavigationserver3dnavigationdebugchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalnavigationserver3davoidancedebugchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalnavigationserver3davoidancedebugchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalnavigationserver3davoidancedebugchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalninepatchrecttexturechanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalninepatchrecttexturechanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalninepatchrecttexturechanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalnodeready_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalnodeready_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalnodeready_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalnoderenamed_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalnoderenamed_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalnoderenamed_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalnodetreeentered_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalnodetreeentered_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalnodetreeentered_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalnodetreeexiting_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalnodetreeexiting_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalnodetreeexiting_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalnodetreeexited_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalnodetreeexited_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalnodetreeexited_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalnodechildenteredtree_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalnodechildenteredtree_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalnodechildenteredtree_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalnodechildexitingtree_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalnodechildexitingtree_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalnodechildexitingtree_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalnodechildorderchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalnodechildorderchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalnodechildorderchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalnodereplacingby_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalnodereplacingby_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalnodereplacingby_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalnode3dvisibilitychanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalnode3dvisibilitychanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalnode3dvisibilitychanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalobjectscriptchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalobjectscriptchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalobjectscriptchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalobjectpropertylistchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalobjectpropertylistchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalobjectpropertylistchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalopenxrinterfacesessionbegun_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalopenxrinterfacesessionbegun_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalopenxrinterfacesessionbegun_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalopenxrinterfacesessionstopping_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalopenxrinterfacesessionstopping_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalopenxrinterfacesessionstopping_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalopenxrinterfacesessionfocussed_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalopenxrinterfacesessionfocussed_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalopenxrinterfacesessionfocussed_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalopenxrinterfacesessionvisible_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalopenxrinterfacesessionvisible_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalopenxrinterfacesessionvisible_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalopenxrinterfaceposerecentered_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalopenxrinterfaceposerecentered_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalopenxrinterfaceposerecentered_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaloptionbuttonitemselected_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaloptionbuttonitemselected_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaloptionbuttonitemselected_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaloptionbuttonitemfocused_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaloptionbuttonitemfocused_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaloptionbuttonitemfocused_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalpath3dcurvechanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalpath3dcurvechanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalpath3dcurvechanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalpopuppopuphide_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalpopuppopuphide_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalpopuppopuphide_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalpopupmenuidpressed_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalpopupmenuidpressed_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalpopupmenuidpressed_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalpopupmenuidfocused_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalpopupmenuidfocused_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalpopupmenuidfocused_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalpopupmenuindexpressed_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalpopupmenuindexpressed_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalpopupmenuindexpressed_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalpopupmenumenuchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalpopupmenumenuchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalpopupmenumenuchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalprojectsettingssettingschanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalprojectsettingssettingschanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalprojectsettingssettingschanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalrangevaluechanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalrangevaluechanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalrangevaluechanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalrangechanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalrangechanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalrangechanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalrenderingserverframepredraw_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalrenderingserverframepredraw_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalrenderingserverframepredraw_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalrenderingserverframepostdraw_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalrenderingserverframepostdraw_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalrenderingserverframepostdraw_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalresourcechanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalresourcechanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalresourcechanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalresourcesetuplocaltoscenerequested_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalresourcesetuplocaltoscenerequested_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalresourcesetuplocaltoscenerequested_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalrichtextlabelmetaclicked_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalrichtextlabelmetaclicked_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalrichtextlabelmetaclicked_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalrichtextlabelmetahoverstarted_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalrichtextlabelmetahoverstarted_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalrichtextlabelmetahoverstarted_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalrichtextlabelmetahoverended_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalrichtextlabelmetahoverended_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalrichtextlabelmetahoverended_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalrichtextlabelfinished_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalrichtextlabelfinished_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalrichtextlabelfinished_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalrigidbody2dbodyshapeentered_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalrigidbody2dbodyshapeentered_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalrigidbody2dbodyshapeentered_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalrigidbody2dbodyshapeexited_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalrigidbody2dbodyshapeexited_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalrigidbody2dbodyshapeexited_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalrigidbody2dbodyentered_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalrigidbody2dbodyentered_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalrigidbody2dbodyentered_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalrigidbody2dbodyexited_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalrigidbody2dbodyexited_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalrigidbody2dbodyexited_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalrigidbody2dsleepingstatechanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalrigidbody2dsleepingstatechanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalrigidbody2dsleepingstatechanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalrigidbody3dbodyshapeentered_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalrigidbody3dbodyshapeentered_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalrigidbody3dbodyshapeentered_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalrigidbody3dbodyshapeexited_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalrigidbody3dbodyshapeexited_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalrigidbody3dbodyshapeexited_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalrigidbody3dbodyentered_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalrigidbody3dbodyentered_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalrigidbody3dbodyentered_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalrigidbody3dbodyexited_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalrigidbody3dbodyexited_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalrigidbody3dbodyexited_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalrigidbody3dsleepingstatechanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalrigidbody3dsleepingstatechanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalrigidbody3dsleepingstatechanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalscenemultiplayerpeerauthenticating_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalscenemultiplayerpeerauthenticating_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalscenemultiplayerpeerauthenticating_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalscenemultiplayerpeerauthenticationfailed_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalscenemultiplayerpeerauthenticationfailed_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalscenemultiplayerpeerauthenticationfailed_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalscenemultiplayerpeerpacket_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalscenemultiplayerpeerpacket_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalscenemultiplayerpeerpacket_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalscenetreetreechanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalscenetreetreechanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalscenetreetreechanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalscenetreetreeprocessmodechanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalscenetreetreeprocessmodechanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalscenetreetreeprocessmodechanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalscenetreenodeadded_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalscenetreenodeadded_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalscenetreenodeadded_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalscenetreenoderemoved_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalscenetreenoderemoved_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalscenetreenoderemoved_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalscenetreenoderenamed_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalscenetreenoderenamed_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalscenetreenoderenamed_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalscenetreenodeconfigurationwarningchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalscenetreenodeconfigurationwarningchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalscenetreenodeconfigurationwarningchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalscenetreeprocessframe_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalscenetreeprocessframe_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalscenetreeprocessframe_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalscenetreephysicsframe_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalscenetreephysicsframe_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalscenetreephysicsframe_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalscenetreetimertimeout_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalscenetreetimertimeout_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalscenetreetimertimeout_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalscriptcreatedialogscriptcreated_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalscriptcreatedialogscriptcreated_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalscriptcreatedialogscriptcreated_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalscripteditoreditorscriptchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalscripteditoreditorscriptchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalscripteditoreditorscriptchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalscripteditorscriptclose_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalscripteditorscriptclose_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalscripteditorscriptclose_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalscripteditorbasenamechanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalscripteditorbasenamechanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalscripteditorbasenamechanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalscripteditorbaseeditedscriptchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalscripteditorbaseeditedscriptchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalscripteditorbaseeditedscriptchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalscripteditorbaserequesthelp_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalscripteditorbaserequesthelp_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalscripteditorbaserequesthelp_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalscripteditorbaserequestopenscriptatline_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalscripteditorbaserequestopenscriptatline_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalscripteditorbaserequestopenscriptatline_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalscripteditorbaserequestsavehistory_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalscripteditorbaserequestsavehistory_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalscripteditorbaserequestsavehistory_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalscripteditorbasegotohelp_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalscripteditorbasegotohelp_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalscripteditorbasegotohelp_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalscripteditorbasesearchinfilesrequested_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalscripteditorbasesearchinfilesrequested_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalscripteditorbasesearchinfilesrequested_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalscripteditorbasereplaceinfilesrequested_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalscripteditorbasereplaceinfilesrequested_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalscripteditorbasereplaceinfilesrequested_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalscripteditorbasegotomethod_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalscripteditorbasegotomethod_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalscripteditorbasegotomethod_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalscrollbarscrolling_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalscrollbarscrolling_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalscrollbarscrolling_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalscrollcontainerscrollstarted_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalscrollcontainerscrollstarted_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalscrollcontainerscrollstarted_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalscrollcontainerscrollended_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalscrollcontainerscrollended_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalscrollcontainerscrollended_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalskeleton2dbonesetupchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalskeleton2dbonesetupchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalskeleton2dbonesetupchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalskeleton3dposeupdated_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalskeleton3dposeupdated_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalskeleton3dposeupdated_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalskeleton3dboneposechanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalskeleton3dboneposechanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalskeleton3dboneposechanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalskeleton3dboneenabledchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalskeleton3dboneenabledchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalskeleton3dboneenabledchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalskeleton3dshowrestonlychanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalskeleton3dshowrestonlychanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalskeleton3dshowrestonlychanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalskeletonprofileprofileupdated_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalskeletonprofileprofileupdated_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalskeletonprofileprofileupdated_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalsliderdragstarted_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalsliderdragstarted_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalsliderdragstarted_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalsliderdragended_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalsliderdragended_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalsliderdragended_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalsplitcontainerdragged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalsplitcontainerdragged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalsplitcontainerdragged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalsprite2dframechanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalsprite2dframechanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalsprite2dframechanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalsprite2dtexturechanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalsprite2dtexturechanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalsprite2dtexturechanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalsprite3dframechanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalsprite3dframechanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalsprite3dframechanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalsprite3dtexturechanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalsprite3dtexturechanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalsprite3dtexturechanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltabbartabselected_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltabbartabselected_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltabbartabselected_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltabbartabchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltabbartabchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltabbartabchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltabbartabclicked_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltabbartabclicked_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltabbartabclicked_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltabbartabrmbclicked_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltabbartabrmbclicked_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltabbartabrmbclicked_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltabbartabclosepressed_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltabbartabclosepressed_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltabbartabclosepressed_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltabbartabbuttonpressed_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltabbartabbuttonpressed_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltabbartabbuttonpressed_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltabbartabhovered_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltabbartabhovered_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltabbartabhovered_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltabbaractivetabrearranged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltabbaractivetabrearranged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltabbaractivetabrearranged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltabcontaineractivetabrearranged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltabcontaineractivetabrearranged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltabcontaineractivetabrearranged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltabcontainertabchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltabcontainertabchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltabcontainertabchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltabcontainertabclicked_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltabcontainertabclicked_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltabcontainertabclicked_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltabcontainertabhovered_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltabcontainertabhovered_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltabcontainertabhovered_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltabcontainertabselected_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltabcontainertabselected_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltabcontainertabselected_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltabcontainertabbuttonpressed_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltabcontainertabbuttonpressed_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltabcontainertabbuttonpressed_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltabcontainerprepopuppressed_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltabcontainerprepopuppressed_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltabcontainerprepopuppressed_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltextedittextset_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltextedittextset_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltextedittextset_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltextedittextchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltextedittextchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltextedittextchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltexteditlineseditedfrom_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltexteditlineseditedfrom_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltexteditlineseditedfrom_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltexteditcaretchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltexteditcaretchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltexteditcaretchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltexteditgutterclicked_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltexteditgutterclicked_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltexteditgutterclicked_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltexteditgutteradded_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltexteditgutteradded_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltexteditgutteradded_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltexteditgutterremoved_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltexteditgutterremoved_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltexteditgutterremoved_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltextservermanagerinterfaceadded_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltextservermanagerinterfaceadded_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltextservermanagerinterfaceadded_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltextservermanagerinterfaceremoved_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltextservermanagerinterfaceremoved_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltextservermanagerinterfaceremoved_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalthemedbfallbackchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalthemedbfallbackchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalthemedbfallbackchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltiledatachanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltiledatachanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltiledatachanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltilemapchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltilemapchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltilemapchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltimertimeout_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltimertimeout_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltimertimeout_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltouchscreenbuttonpressed_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltouchscreenbuttonpressed_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltouchscreenbuttonpressed_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltouchscreenbuttonreleased_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltouchscreenbuttonreleased_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltouchscreenbuttonreleased_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltreeitemselected_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltreeitemselected_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltreeitemselected_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltreecellselected_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltreecellselected_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltreecellselected_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltreemultiselected_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltreemultiselected_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltreemultiselected_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltreeitemmouseselected_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltreeitemmouseselected_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltreeitemmouseselected_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltreeemptyclicked_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltreeemptyclicked_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltreeemptyclicked_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltreeitemedited_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltreeitemedited_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltreeitemedited_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltreecustomitemclicked_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltreecustomitemclicked_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltreecustomitemclicked_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltreeitemicondoubleclicked_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltreeitemicondoubleclicked_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltreeitemicondoubleclicked_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltreeitemcollapsed_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltreeitemcollapsed_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltreeitemcollapsed_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltreecheckpropagatedtoitem_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltreecheckpropagatedtoitem_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltreecheckpropagatedtoitem_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltreebuttonclicked_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltreebuttonclicked_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltreebuttonclicked_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltreecustompopupedited_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltreecustompopupedited_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltreecustompopupedited_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltreeitemactivated_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltreeitemactivated_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltreeitemactivated_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltreecolumntitleclicked_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltreecolumntitleclicked_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltreecolumntitleclicked_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltreenothingselected_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltreenothingselected_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltreenothingselected_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltweenstepfinished_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltweenstepfinished_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltweenstepfinished_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltweenloopfinished_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltweenloopfinished_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltweenloopfinished_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltweenfinished_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltweenfinished_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltweenfinished_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignaltweenerfinished_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignaltweenerfinished_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignaltweenerfinished_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalundoredoversionchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalundoredoversionchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalundoredoversionchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalvideostreamplayerfinished_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalvideostreamplayerfinished_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalvideostreamplayerfinished_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalviewportsizechanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalviewportsizechanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalviewportsizechanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalviewportguifocuschanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalviewportguifocuschanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalviewportguifocuschanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalvisibleonscreennotifier2dscreenentered_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalvisibleonscreennotifier2dscreenentered_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalvisibleonscreennotifier2dscreenentered_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalvisibleonscreennotifier2dscreenexited_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalvisibleonscreennotifier2dscreenexited_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalvisibleonscreennotifier2dscreenexited_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalvisibleonscreennotifier3dscreenentered_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalvisibleonscreennotifier3dscreenentered_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalvisibleonscreennotifier3dscreenentered_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalvisibleonscreennotifier3dscreenexited_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalvisibleonscreennotifier3dscreenexited_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalvisibleonscreennotifier3dscreenexited_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalvisualshadernodeinputinputtypechanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalvisualshadernodeinputinputtypechanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalvisualshadernodeinputinputtypechanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalwebrtcpeerconnectionsessiondescriptioncreated_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalwebrtcpeerconnectionsessiondescriptioncreated_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalwebrtcpeerconnectionsessiondescriptioncreated_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalwebrtcpeerconnectionicecandidatecreated_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalwebrtcpeerconnectionicecandidatecreated_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalwebrtcpeerconnectionicecandidatecreated_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalwebrtcpeerconnectiondatachannelreceived_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalwebrtcpeerconnectiondatachannelreceived_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalwebrtcpeerconnectiondatachannelreceived_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalwebxrinterfacesessionsupported_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalwebxrinterfacesessionsupported_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalwebxrinterfacesessionsupported_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalwebxrinterfacesessionstarted_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalwebxrinterfacesessionstarted_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalwebxrinterfacesessionstarted_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalwebxrinterfacesessionended_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalwebxrinterfacesessionended_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalwebxrinterfacesessionended_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalwebxrinterfacesessionfailed_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalwebxrinterfacesessionfailed_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalwebxrinterfacesessionfailed_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalwebxrinterfaceselectstart_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalwebxrinterfaceselectstart_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalwebxrinterfaceselectstart_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalwebxrinterfaceselect_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalwebxrinterfaceselect_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalwebxrinterfaceselect_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalwebxrinterfaceselectend_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalwebxrinterfaceselectend_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalwebxrinterfaceselectend_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalwebxrinterfacesqueezestart_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalwebxrinterfacesqueezestart_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalwebxrinterfacesqueezestart_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalwebxrinterfacesqueeze_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalwebxrinterfacesqueeze_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalwebxrinterfacesqueeze_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalwebxrinterfacesqueezeend_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalwebxrinterfacesqueezeend_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalwebxrinterfacesqueezeend_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalwebxrinterfacevisibilitystatechanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalwebxrinterfacevisibilitystatechanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalwebxrinterfacevisibilitystatechanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalwebxrinterfacereferencespacereset_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalwebxrinterfacereferencespacereset_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalwebxrinterfacereferencespacereset_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalwebxrinterfacedisplayrefreshratechanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalwebxrinterfacedisplayrefreshratechanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalwebxrinterfacedisplayrefreshratechanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalwindowwindowinput_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalwindowwindowinput_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalwindowwindowinput_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalwindowfilesdropped_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalwindowfilesdropped_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalwindowfilesdropped_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalwindowmouseentered_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalwindowmouseentered_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalwindowmouseentered_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalwindowmouseexited_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalwindowmouseexited_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalwindowmouseexited_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalwindowfocusentered_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalwindowfocusentered_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalwindowfocusentered_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalwindowfocusexited_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalwindowfocusexited_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalwindowfocusexited_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalwindowcloserequested_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalwindowcloserequested_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalwindowcloserequested_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalwindowgobackrequested_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalwindowgobackrequested_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalwindowgobackrequested_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalwindowvisibilitychanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalwindowvisibilitychanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalwindowvisibilitychanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalwindowabouttopopup_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalwindowabouttopopup_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalwindowabouttopopup_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalwindowthemechanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalwindowthemechanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalwindowthemechanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalwindowdpichanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalwindowdpichanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalwindowdpichanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalwindowtitlebarchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalwindowtitlebarchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalwindowtitlebarchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalxrcontroller3dbuttonpressed_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalxrcontroller3dbuttonpressed_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalxrcontroller3dbuttonpressed_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalxrcontroller3dbuttonreleased_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalxrcontroller3dbuttonreleased_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalxrcontroller3dbuttonreleased_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalxrcontroller3dinputfloatchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalxrcontroller3dinputfloatchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalxrcontroller3dinputfloatchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalxrcontroller3dinputvector2changed_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalxrcontroller3dinputvector2changed_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalxrcontroller3dinputvector2changed_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalxrinterfaceplayareachanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalxrinterfaceplayareachanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalxrinterfaceplayareachanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalxrnode3dtrackingchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalxrnode3dtrackingchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalxrnode3dtrackingchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalxrpositionaltrackerposechanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalxrpositionaltrackerposechanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalxrpositionaltrackerposechanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalxrpositionaltrackerposelosttracking_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalxrpositionaltrackerposelosttracking_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalxrpositionaltrackerposelosttracking_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalxrpositionaltrackerbuttonpressed_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalxrpositionaltrackerbuttonpressed_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalxrpositionaltrackerbuttonpressed_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalxrpositionaltrackerbuttonreleased_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalxrpositionaltrackerbuttonreleased_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalxrpositionaltrackerbuttonreleased_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalxrpositionaltrackerinputfloatchanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalxrpositionaltrackerinputfloatchanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalxrpositionaltrackerinputfloatchanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalxrpositionaltrackerinputvector2changed_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalxrpositionaltrackerinputvector2changed_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalxrpositionaltrackerinputvector2changed_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalxrpositionaltrackerprofilechanged_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalxrpositionaltrackerprofilechanged_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalxrpositionaltrackerprofilechanged_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalxrserverinterfaceadded_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalxrserverinterfaceadded_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalxrserverinterfaceadded_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalxrserverinterfaceremoved_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalxrserverinterfaceremoved_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalxrserverinterfaceremoved_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalxrservertrackeradded_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalxrservertrackeradded_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalxrservertrackeradded_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalxrservertrackerupdated_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalxrservertrackerupdated_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalxrservertrackerupdated_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
+fn isignalxrservertrackerremoved_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {
+    mut raw_args := []GDExtensionConstTypePtr{}
+    for i in 0 .. int(arg_count) {
+    	o := gdf.mem_alloc(sizeof[voidptr]())
+    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))
+    	f(o, unsafe { args[i] })
+    	raw_args << GDExtensionConstTypePtr(o)
+    }
+    if int(arg_count) > 0 {
+        isignalxrservertrackerremoved_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })
+    }else{
+        isignalxrservertrackerremoved_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })
+    }
+    for i in 0 .. int(arg_count) {
+        gdf.mem_free(raw_args[i])
+    }
+}
 pub fn register_signal_methods[T](mut ci ClassInfo) {
     $if T is ISignalAcceptDialogConfirmed {{
         method_name := StringName.new("signal_confirmed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalacceptdialogconfirmed_ptrcall[T])
+            call_func: isignalacceptdialogconfirmed_call[T]
             ptrcall_func: isignalacceptdialogconfirmed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5107,7 +12366,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalacceptdialogcanceled_ptrcall[T])
+            call_func: isignalacceptdialogcanceled_call[T]
             ptrcall_func: isignalacceptdialogcanceled_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5139,7 +12398,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalacceptdialogcustomaction_ptrcall[T])
+            call_func: isignalacceptdialogcustomaction_call[T]
             ptrcall_func: isignalacceptdialogcustomaction_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5158,7 +12417,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalanimatedsprite2dspriteframeschanged_ptrcall[T])
+            call_func: isignalanimatedsprite2dspriteframeschanged_call[T]
             ptrcall_func: isignalanimatedsprite2dspriteframeschanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5177,7 +12436,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalanimatedsprite2danimationchanged_ptrcall[T])
+            call_func: isignalanimatedsprite2danimationchanged_call[T]
             ptrcall_func: isignalanimatedsprite2danimationchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5196,7 +12455,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalanimatedsprite2dframechanged_ptrcall[T])
+            call_func: isignalanimatedsprite2dframechanged_call[T]
             ptrcall_func: isignalanimatedsprite2dframechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5215,7 +12474,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalanimatedsprite2danimationlooped_ptrcall[T])
+            call_func: isignalanimatedsprite2danimationlooped_call[T]
             ptrcall_func: isignalanimatedsprite2danimationlooped_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5234,7 +12493,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalanimatedsprite2danimationfinished_ptrcall[T])
+            call_func: isignalanimatedsprite2danimationfinished_call[T]
             ptrcall_func: isignalanimatedsprite2danimationfinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5253,7 +12512,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalanimatedsprite3dspriteframeschanged_ptrcall[T])
+            call_func: isignalanimatedsprite3dspriteframeschanged_call[T]
             ptrcall_func: isignalanimatedsprite3dspriteframeschanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5272,7 +12531,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalanimatedsprite3danimationchanged_ptrcall[T])
+            call_func: isignalanimatedsprite3danimationchanged_call[T]
             ptrcall_func: isignalanimatedsprite3danimationchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5291,7 +12550,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalanimatedsprite3dframechanged_ptrcall[T])
+            call_func: isignalanimatedsprite3dframechanged_call[T]
             ptrcall_func: isignalanimatedsprite3dframechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5310,7 +12569,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalanimatedsprite3danimationlooped_ptrcall[T])
+            call_func: isignalanimatedsprite3danimationlooped_call[T]
             ptrcall_func: isignalanimatedsprite3danimationlooped_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5329,7 +12588,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalanimatedsprite3danimationfinished_ptrcall[T])
+            call_func: isignalanimatedsprite3danimationfinished_call[T]
             ptrcall_func: isignalanimatedsprite3danimationfinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5361,7 +12620,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalanimationlibraryanimationadded_ptrcall[T])
+            call_func: isignalanimationlibraryanimationadded_call[T]
             ptrcall_func: isignalanimationlibraryanimationadded_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5393,7 +12652,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalanimationlibraryanimationremoved_ptrcall[T])
+            call_func: isignalanimationlibraryanimationremoved_call[T]
             ptrcall_func: isignalanimationlibraryanimationremoved_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5436,7 +12695,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalanimationlibraryanimationrenamed_ptrcall[T])
+            call_func: isignalanimationlibraryanimationrenamed_call[T]
             ptrcall_func: isignalanimationlibraryanimationrenamed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5468,7 +12727,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalanimationlibraryanimationchanged_ptrcall[T])
+            call_func: isignalanimationlibraryanimationchanged_call[T]
             ptrcall_func: isignalanimationlibraryanimationchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5487,7 +12746,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalanimationmixermixerupdated_ptrcall[T])
+            call_func: isignalanimationmixermixerupdated_call[T]
             ptrcall_func: isignalanimationmixermixerupdated_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5506,7 +12765,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalanimationmixeranimationlistchanged_ptrcall[T])
+            call_func: isignalanimationmixeranimationlistchanged_call[T]
             ptrcall_func: isignalanimationmixeranimationlistchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5525,7 +12784,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalanimationmixeranimationlibrariesupdated_ptrcall[T])
+            call_func: isignalanimationmixeranimationlibrariesupdated_call[T]
             ptrcall_func: isignalanimationmixeranimationlibrariesupdated_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5557,7 +12816,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalanimationmixeranimationfinished_ptrcall[T])
+            call_func: isignalanimationmixeranimationfinished_call[T]
             ptrcall_func: isignalanimationmixeranimationfinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5589,7 +12848,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalanimationmixeranimationstarted_ptrcall[T])
+            call_func: isignalanimationmixeranimationstarted_call[T]
             ptrcall_func: isignalanimationmixeranimationstarted_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5608,7 +12867,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalanimationmixercachescleared_ptrcall[T])
+            call_func: isignalanimationmixercachescleared_call[T]
             ptrcall_func: isignalanimationmixercachescleared_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5627,7 +12886,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalanimationnodetreechanged_ptrcall[T])
+            call_func: isignalanimationnodetreechanged_call[T]
             ptrcall_func: isignalanimationnodetreechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5681,7 +12940,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalanimationnodeanimationnoderenamed_ptrcall[T])
+            call_func: isignalanimationnodeanimationnoderenamed_call[T]
             ptrcall_func: isignalanimationnodeanimationnoderenamed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5724,7 +12983,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalanimationnodeanimationnoderemoved_ptrcall[T])
+            call_func: isignalanimationnodeanimationnoderemoved_call[T]
             ptrcall_func: isignalanimationnodeanimationnoderemoved_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5743,7 +13002,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalanimationnodeblendspace2dtrianglesupdated_ptrcall[T])
+            call_func: isignalanimationnodeblendspace2dtrianglesupdated_call[T]
             ptrcall_func: isignalanimationnodeblendspace2dtrianglesupdated_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5775,7 +13034,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalanimationnodeblendtreenodechanged_ptrcall[T])
+            call_func: isignalanimationnodeblendtreenodechanged_call[T]
             ptrcall_func: isignalanimationnodeblendtreenodechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5794,7 +13053,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalanimationnodestatemachinetransitionadvanceconditionchanged_ptrcall[T])
+            call_func: isignalanimationnodestatemachinetransitionadvanceconditionchanged_call[T]
             ptrcall_func: isignalanimationnodestatemachinetransitionadvanceconditionchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5826,7 +13085,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalanimationplayercurrentanimationchanged_ptrcall[T])
+            call_func: isignalanimationplayercurrentanimationchanged_call[T]
             ptrcall_func: isignalanimationplayercurrentanimationchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5869,7 +13128,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalanimationplayeranimationchanged_ptrcall[T])
+            call_func: isignalanimationplayeranimationchanged_call[T]
             ptrcall_func: isignalanimationplayeranimationchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5888,7 +13147,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalanimationtreeanimationplayerchanged_ptrcall[T])
+            call_func: isignalanimationtreeanimationplayerchanged_call[T]
             ptrcall_func: isignalanimationtreeanimationplayerchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5953,7 +13212,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalarea2dbodyshapeentered_ptrcall[T])
+            call_func: isignalarea2dbodyshapeentered_call[T]
             ptrcall_func: isignalarea2dbodyshapeentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6018,7 +13277,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalarea2dbodyshapeexited_ptrcall[T])
+            call_func: isignalarea2dbodyshapeexited_call[T]
             ptrcall_func: isignalarea2dbodyshapeexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6050,7 +13309,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalarea2dbodyentered_ptrcall[T])
+            call_func: isignalarea2dbodyentered_call[T]
             ptrcall_func: isignalarea2dbodyentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6082,7 +13341,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalarea2dbodyexited_ptrcall[T])
+            call_func: isignalarea2dbodyexited_call[T]
             ptrcall_func: isignalarea2dbodyexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6147,7 +13406,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalarea2dareashapeentered_ptrcall[T])
+            call_func: isignalarea2dareashapeentered_call[T]
             ptrcall_func: isignalarea2dareashapeentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6212,7 +13471,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalarea2dareashapeexited_ptrcall[T])
+            call_func: isignalarea2dareashapeexited_call[T]
             ptrcall_func: isignalarea2dareashapeexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6244,7 +13503,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalarea2dareaentered_ptrcall[T])
+            call_func: isignalarea2dareaentered_call[T]
             ptrcall_func: isignalarea2dareaentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6276,7 +13535,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalarea2dareaexited_ptrcall[T])
+            call_func: isignalarea2dareaexited_call[T]
             ptrcall_func: isignalarea2dareaexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6341,7 +13600,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalarea3dbodyshapeentered_ptrcall[T])
+            call_func: isignalarea3dbodyshapeentered_call[T]
             ptrcall_func: isignalarea3dbodyshapeentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6406,7 +13665,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalarea3dbodyshapeexited_ptrcall[T])
+            call_func: isignalarea3dbodyshapeexited_call[T]
             ptrcall_func: isignalarea3dbodyshapeexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6438,7 +13697,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalarea3dbodyentered_ptrcall[T])
+            call_func: isignalarea3dbodyentered_call[T]
             ptrcall_func: isignalarea3dbodyentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6470,7 +13729,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalarea3dbodyexited_ptrcall[T])
+            call_func: isignalarea3dbodyexited_call[T]
             ptrcall_func: isignalarea3dbodyexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6535,7 +13794,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalarea3dareashapeentered_ptrcall[T])
+            call_func: isignalarea3dareashapeentered_call[T]
             ptrcall_func: isignalarea3dareashapeentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6600,7 +13859,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalarea3dareashapeexited_ptrcall[T])
+            call_func: isignalarea3dareashapeexited_call[T]
             ptrcall_func: isignalarea3dareashapeexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6632,7 +13891,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalarea3dareaentered_ptrcall[T])
+            call_func: isignalarea3dareaentered_call[T]
             ptrcall_func: isignalarea3dareaentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6664,7 +13923,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalarea3dareaexited_ptrcall[T])
+            call_func: isignalarea3dareaexited_call[T]
             ptrcall_func: isignalarea3dareaexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6683,7 +13942,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalaudioserverbuslayoutchanged_ptrcall[T])
+            call_func: isignalaudioserverbuslayoutchanged_call[T]
             ptrcall_func: isignalaudioserverbuslayoutchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6737,7 +13996,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalaudioserverbusrenamed_ptrcall[T])
+            call_func: isignalaudioserverbusrenamed_call[T]
             ptrcall_func: isignalaudioserverbusrenamed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6756,7 +14015,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalaudiostreamplayerfinished_ptrcall[T])
+            call_func: isignalaudiostreamplayerfinished_call[T]
             ptrcall_func: isignalaudiostreamplayerfinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6775,7 +14034,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalaudiostreamplayer2dfinished_ptrcall[T])
+            call_func: isignalaudiostreamplayer2dfinished_call[T]
             ptrcall_func: isignalaudiostreamplayer2dfinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6794,7 +14053,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalaudiostreamplayer3dfinished_ptrcall[T])
+            call_func: isignalaudiostreamplayer3dfinished_call[T]
             ptrcall_func: isignalaudiostreamplayer3dfinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6813,7 +14072,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalbasebuttonpressed_ptrcall[T])
+            call_func: isignalbasebuttonpressed_call[T]
             ptrcall_func: isignalbasebuttonpressed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6832,7 +14091,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalbasebuttonbuttonup_ptrcall[T])
+            call_func: isignalbasebuttonbuttonup_call[T]
             ptrcall_func: isignalbasebuttonbuttonup_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6851,7 +14110,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalbasebuttonbuttondown_ptrcall[T])
+            call_func: isignalbasebuttonbuttondown_call[T]
             ptrcall_func: isignalbasebuttonbuttondown_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6883,7 +14142,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalbasebuttontoggled_ptrcall[T])
+            call_func: isignalbasebuttontoggled_call[T]
             ptrcall_func: isignalbasebuttontoggled_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6902,7 +14161,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalbonemapbonemapupdated_ptrcall[T])
+            call_func: isignalbonemapbonemapupdated_call[T]
             ptrcall_func: isignalbonemapbonemapupdated_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6921,7 +14180,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalbonemapprofileupdated_ptrcall[T])
+            call_func: isignalbonemapprofileupdated_call[T]
             ptrcall_func: isignalbonemapprofileupdated_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6953,7 +14212,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalbuttongrouppressed_ptrcall[T])
+            call_func: isignalbuttongrouppressed_call[T]
             ptrcall_func: isignalbuttongrouppressed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6972,7 +14231,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcpuparticles2dfinished_ptrcall[T])
+            call_func: isignalcpuparticles2dfinished_call[T]
             ptrcall_func: isignalcpuparticles2dfinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6991,7 +14250,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcpuparticles3dfinished_ptrcall[T])
+            call_func: isignalcpuparticles3dfinished_call[T]
             ptrcall_func: isignalcpuparticles3dfinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7023,7 +14282,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcameraservercamerafeedadded_ptrcall[T])
+            call_func: isignalcameraservercamerafeedadded_call[T]
             ptrcall_func: isignalcameraservercamerafeedadded_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7055,7 +14314,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcameraservercamerafeedremoved_ptrcall[T])
+            call_func: isignalcameraservercamerafeedremoved_call[T]
             ptrcall_func: isignalcameraservercamerafeedremoved_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7074,7 +14333,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcanvasitemdraw_ptrcall[T])
+            call_func: isignalcanvasitemdraw_call[T]
             ptrcall_func: isignalcanvasitemdraw_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7093,7 +14352,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcanvasitemvisibilitychanged_ptrcall[T])
+            call_func: isignalcanvasitemvisibilitychanged_call[T]
             ptrcall_func: isignalcanvasitemvisibilitychanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7112,7 +14371,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcanvasitemhidden_ptrcall[T])
+            call_func: isignalcanvasitemhidden_call[T]
             ptrcall_func: isignalcanvasitemhidden_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7131,7 +14390,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcanvasitemitemrectchanged_ptrcall[T])
+            call_func: isignalcanvasitemitemrectchanged_call[T]
             ptrcall_func: isignalcanvasitemitemrectchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7150,7 +14409,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcanvaslayervisibilitychanged_ptrcall[T])
+            call_func: isignalcanvaslayervisibilitychanged_call[T]
             ptrcall_func: isignalcanvaslayervisibilitychanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7182,7 +14441,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcodeeditbreakpointtoggled_ptrcall[T])
+            call_func: isignalcodeeditbreakpointtoggled_call[T]
             ptrcall_func: isignalcodeeditbreakpointtoggled_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7201,7 +14460,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcodeeditcodecompletionrequested_ptrcall[T])
+            call_func: isignalcodeeditcodecompletionrequested_call[T]
             ptrcall_func: isignalcodeeditcodecompletionrequested_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7255,7 +14514,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcodeeditsymbollookup_ptrcall[T])
+            call_func: isignalcodeeditsymbollookup_call[T]
             ptrcall_func: isignalcodeeditsymbollookup_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7287,7 +14546,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcodeeditsymbolvalidate_ptrcall[T])
+            call_func: isignalcodeeditsymbolvalidate_call[T]
             ptrcall_func: isignalcodeeditsymbolvalidate_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7341,7 +14600,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcollisionobject2dinputevent_ptrcall[T])
+            call_func: isignalcollisionobject2dinputevent_call[T]
             ptrcall_func: isignalcollisionobject2dinputevent_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7360,7 +14619,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcollisionobject2dmouseentered_ptrcall[T])
+            call_func: isignalcollisionobject2dmouseentered_call[T]
             ptrcall_func: isignalcollisionobject2dmouseentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7379,7 +14638,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcollisionobject2dmouseexited_ptrcall[T])
+            call_func: isignalcollisionobject2dmouseexited_call[T]
             ptrcall_func: isignalcollisionobject2dmouseexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7411,7 +14670,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcollisionobject2dmouseshapeentered_ptrcall[T])
+            call_func: isignalcollisionobject2dmouseshapeentered_call[T]
             ptrcall_func: isignalcollisionobject2dmouseshapeentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7443,7 +14702,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcollisionobject2dmouseshapeexited_ptrcall[T])
+            call_func: isignalcollisionobject2dmouseshapeexited_call[T]
             ptrcall_func: isignalcollisionobject2dmouseshapeexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7519,7 +14778,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcollisionobject3dinputevent_ptrcall[T])
+            call_func: isignalcollisionobject3dinputevent_call[T]
             ptrcall_func: isignalcollisionobject3dinputevent_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7538,7 +14797,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcollisionobject3dmouseentered_ptrcall[T])
+            call_func: isignalcollisionobject3dmouseentered_call[T]
             ptrcall_func: isignalcollisionobject3dmouseentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7557,7 +14816,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcollisionobject3dmouseexited_ptrcall[T])
+            call_func: isignalcollisionobject3dmouseexited_call[T]
             ptrcall_func: isignalcollisionobject3dmouseexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7589,7 +14848,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcolorpickercolorchanged_ptrcall[T])
+            call_func: isignalcolorpickercolorchanged_call[T]
             ptrcall_func: isignalcolorpickercolorchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7621,7 +14880,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcolorpickerpresetadded_ptrcall[T])
+            call_func: isignalcolorpickerpresetadded_call[T]
             ptrcall_func: isignalcolorpickerpresetadded_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7653,7 +14912,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcolorpickerpresetremoved_ptrcall[T])
+            call_func: isignalcolorpickerpresetremoved_call[T]
             ptrcall_func: isignalcolorpickerpresetremoved_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7685,7 +14944,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcolorpickerbuttoncolorchanged_ptrcall[T])
+            call_func: isignalcolorpickerbuttoncolorchanged_call[T]
             ptrcall_func: isignalcolorpickerbuttoncolorchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7704,7 +14963,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcolorpickerbuttonpopupclosed_ptrcall[T])
+            call_func: isignalcolorpickerbuttonpopupclosed_call[T]
             ptrcall_func: isignalcolorpickerbuttonpopupclosed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7723,7 +14982,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcolorpickerbuttonpickercreated_ptrcall[T])
+            call_func: isignalcolorpickerbuttonpickercreated_call[T]
             ptrcall_func: isignalcolorpickerbuttonpickercreated_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7742,7 +15001,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcontainerpresortchildren_ptrcall[T])
+            call_func: isignalcontainerpresortchildren_call[T]
             ptrcall_func: isignalcontainerpresortchildren_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7761,7 +15020,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcontainersortchildren_ptrcall[T])
+            call_func: isignalcontainersortchildren_call[T]
             ptrcall_func: isignalcontainersortchildren_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7780,7 +15039,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcontrolresized_ptrcall[T])
+            call_func: isignalcontrolresized_call[T]
             ptrcall_func: isignalcontrolresized_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7812,7 +15071,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcontrolguiinput_ptrcall[T])
+            call_func: isignalcontrolguiinput_call[T]
             ptrcall_func: isignalcontrolguiinput_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7831,7 +15090,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcontrolmouseentered_ptrcall[T])
+            call_func: isignalcontrolmouseentered_call[T]
             ptrcall_func: isignalcontrolmouseentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7850,7 +15109,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcontrolmouseexited_ptrcall[T])
+            call_func: isignalcontrolmouseexited_call[T]
             ptrcall_func: isignalcontrolmouseexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7869,7 +15128,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcontrolfocusentered_ptrcall[T])
+            call_func: isignalcontrolfocusentered_call[T]
             ptrcall_func: isignalcontrolfocusentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7888,7 +15147,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcontrolfocusexited_ptrcall[T])
+            call_func: isignalcontrolfocusexited_call[T]
             ptrcall_func: isignalcontrolfocusexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7907,7 +15166,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcontrolsizeflagschanged_ptrcall[T])
+            call_func: isignalcontrolsizeflagschanged_call[T]
             ptrcall_func: isignalcontrolsizeflagschanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7926,7 +15185,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcontrolminimumsizechanged_ptrcall[T])
+            call_func: isignalcontrolminimumsizechanged_call[T]
             ptrcall_func: isignalcontrolminimumsizechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7945,7 +15204,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcontrolthemechanged_ptrcall[T])
+            call_func: isignalcontrolthemechanged_call[T]
             ptrcall_func: isignalcontrolthemechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7964,7 +15223,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalcurverangechanged_ptrcall[T])
+            call_func: isignalcurverangechanged_call[T]
             ptrcall_func: isignalcurverangechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7983,7 +15242,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditordebuggersessionstarted_ptrcall[T])
+            call_func: isignaleditordebuggersessionstarted_call[T]
             ptrcall_func: isignaleditordebuggersessionstarted_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8002,7 +15261,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditordebuggersessionstopped_ptrcall[T])
+            call_func: isignaleditordebuggersessionstopped_call[T]
             ptrcall_func: isignaleditordebuggersessionstopped_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8034,7 +15293,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditordebuggersessionbreaked_ptrcall[T])
+            call_func: isignaleditordebuggersessionbreaked_call[T]
             ptrcall_func: isignaleditordebuggersessionbreaked_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8053,7 +15312,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditordebuggersessioncontinued_ptrcall[T])
+            call_func: isignaleditordebuggersessioncontinued_call[T]
             ptrcall_func: isignaleditordebuggersessioncontinued_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8085,7 +15344,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorfiledialogfileselected_ptrcall[T])
+            call_func: isignaleditorfiledialogfileselected_call[T]
             ptrcall_func: isignaleditorfiledialogfileselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8117,7 +15376,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorfiledialogfilesselected_ptrcall[T])
+            call_func: isignaleditorfiledialogfilesselected_call[T]
             ptrcall_func: isignaleditorfiledialogfilesselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8149,7 +15408,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorfiledialogdirselected_ptrcall[T])
+            call_func: isignaleditorfiledialogdirselected_call[T]
             ptrcall_func: isignaleditorfiledialogdirselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8168,7 +15427,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorfilesystemfilesystemchanged_ptrcall[T])
+            call_func: isignaleditorfilesystemfilesystemchanged_call[T]
             ptrcall_func: isignaleditorfilesystemfilesystemchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8187,7 +15446,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorfilesystemscriptclassesupdated_ptrcall[T])
+            call_func: isignaleditorfilesystemscriptclassesupdated_call[T]
             ptrcall_func: isignaleditorfilesystemscriptclassesupdated_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8219,7 +15478,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorfilesystemsourceschanged_ptrcall[T])
+            call_func: isignaleditorfilesystemsourceschanged_call[T]
             ptrcall_func: isignaleditorfilesystemsourceschanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8251,7 +15510,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorfilesystemresourcesreimported_ptrcall[T])
+            call_func: isignaleditorfilesystemresourcesreimported_call[T]
             ptrcall_func: isignaleditorfilesystemresourcesreimported_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8283,7 +15542,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorfilesystemresourcesreload_ptrcall[T])
+            call_func: isignaleditorfilesystemresourcesreload_call[T]
             ptrcall_func: isignaleditorfilesystemresourcesreload_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8315,7 +15574,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorinspectorpropertyselected_ptrcall[T])
+            call_func: isignaleditorinspectorpropertyselected_call[T]
             ptrcall_func: isignaleditorinspectorpropertyselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8369,7 +15628,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorinspectorpropertykeyed_ptrcall[T])
+            call_func: isignaleditorinspectorpropertykeyed_call[T]
             ptrcall_func: isignaleditorinspectorpropertykeyed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8401,7 +15660,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorinspectorpropertydeleted_ptrcall[T])
+            call_func: isignaleditorinspectorpropertydeleted_call[T]
             ptrcall_func: isignaleditorinspectorpropertydeleted_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8444,7 +15703,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorinspectorresourceselected_ptrcall[T])
+            call_func: isignaleditorinspectorresourceselected_call[T]
             ptrcall_func: isignaleditorinspectorresourceselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8476,7 +15735,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorinspectorobjectidselected_ptrcall[T])
+            call_func: isignaleditorinspectorobjectidselected_call[T]
             ptrcall_func: isignaleditorinspectorobjectidselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8508,7 +15767,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorinspectorpropertyedited_ptrcall[T])
+            call_func: isignaleditorinspectorpropertyedited_call[T]
             ptrcall_func: isignaleditorinspectorpropertyedited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8551,7 +15810,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorinspectorpropertytoggled_ptrcall[T])
+            call_func: isignaleditorinspectorpropertytoggled_call[T]
             ptrcall_func: isignaleditorinspectorpropertytoggled_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8570,7 +15829,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorinspectoreditedobjectchanged_ptrcall[T])
+            call_func: isignaleditorinspectoreditedobjectchanged_call[T]
             ptrcall_func: isignaleditorinspectoreditedobjectchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8589,7 +15848,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorinspectorrestartrequested_ptrcall[T])
+            call_func: isignaleditorinspectorrestartrequested_call[T]
             ptrcall_func: isignaleditorinspectorrestartrequested_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8621,7 +15880,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorpluginscenechanged_ptrcall[T])
+            call_func: isignaleditorpluginscenechanged_call[T]
             ptrcall_func: isignaleditorpluginscenechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8653,7 +15912,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorpluginsceneclosed_ptrcall[T])
+            call_func: isignaleditorpluginsceneclosed_call[T]
             ptrcall_func: isignaleditorpluginsceneclosed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8685,7 +15944,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorpluginmainscreenchanged_ptrcall[T])
+            call_func: isignaleditorpluginmainscreenchanged_call[T]
             ptrcall_func: isignaleditorpluginmainscreenchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8717,7 +15976,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorpluginresourcesaved_ptrcall[T])
+            call_func: isignaleditorpluginresourcesaved_call[T]
             ptrcall_func: isignaleditorpluginresourcesaved_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8736,7 +15995,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorpluginprojectsettingschanged_ptrcall[T])
+            call_func: isignaleditorpluginprojectsettingschanged_call[T]
             ptrcall_func: isignaleditorpluginprojectsettingschanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8801,7 +16060,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorpropertypropertychanged_ptrcall[T])
+            call_func: isignaleditorpropertypropertychanged_call[T]
             ptrcall_func: isignaleditorpropertypropertychanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8844,7 +16103,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorpropertymultiplepropertieschanged_ptrcall[T])
+            call_func: isignaleditorpropertymultiplepropertieschanged_call[T]
             ptrcall_func: isignaleditorpropertymultiplepropertieschanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8876,7 +16135,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorpropertypropertykeyed_ptrcall[T])
+            call_func: isignaleditorpropertypropertykeyed_call[T]
             ptrcall_func: isignaleditorpropertypropertykeyed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8908,7 +16167,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorpropertypropertydeleted_ptrcall[T])
+            call_func: isignaleditorpropertypropertydeleted_call[T]
             ptrcall_func: isignaleditorpropertypropertydeleted_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8951,7 +16210,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorpropertypropertykeyedwithvalue_ptrcall[T])
+            call_func: isignaleditorpropertypropertykeyedwithvalue_call[T]
             ptrcall_func: isignaleditorpropertypropertykeyedwithvalue_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8994,7 +16253,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorpropertypropertychecked_ptrcall[T])
+            call_func: isignaleditorpropertypropertychecked_call[T]
             ptrcall_func: isignaleditorpropertypropertychecked_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9037,7 +16296,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorpropertypropertypinned_ptrcall[T])
+            call_func: isignaleditorpropertypropertypinned_call[T]
             ptrcall_func: isignaleditorpropertypropertypinned_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9080,7 +16339,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorpropertypropertycanrevertchanged_ptrcall[T])
+            call_func: isignaleditorpropertypropertycanrevertchanged_call[T]
             ptrcall_func: isignaleditorpropertypropertycanrevertchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9123,7 +16382,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorpropertyresourceselected_ptrcall[T])
+            call_func: isignaleditorpropertyresourceselected_call[T]
             ptrcall_func: isignaleditorpropertyresourceselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9166,7 +16425,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorpropertyobjectidselected_ptrcall[T])
+            call_func: isignaleditorpropertyobjectidselected_call[T]
             ptrcall_func: isignaleditorpropertyobjectidselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9209,7 +16468,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorpropertyselected_ptrcall[T])
+            call_func: isignaleditorpropertyselected_call[T]
             ptrcall_func: isignaleditorpropertyselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9252,7 +16511,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorresourcepickerresourceselected_ptrcall[T])
+            call_func: isignaleditorresourcepickerresourceselected_call[T]
             ptrcall_func: isignaleditorresourcepickerresourceselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9284,7 +16543,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorresourcepickerresourcechanged_ptrcall[T])
+            call_func: isignaleditorresourcepickerresourcechanged_call[T]
             ptrcall_func: isignaleditorresourcepickerresourcechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9316,7 +16575,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorresourcepreviewpreviewinvalidated_ptrcall[T])
+            call_func: isignaleditorresourcepreviewpreviewinvalidated_call[T]
             ptrcall_func: isignaleditorresourcepreviewpreviewinvalidated_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9335,7 +16594,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorselectionselectionchanged_ptrcall[T])
+            call_func: isignaleditorselectionselectionchanged_call[T]
             ptrcall_func: isignaleditorselectionselectionchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9354,7 +16613,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorsettingssettingschanged_ptrcall[T])
+            call_func: isignaleditorsettingssettingschanged_call[T]
             ptrcall_func: isignaleditorsettingssettingschanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9373,7 +16632,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorspinslidergrabbed_ptrcall[T])
+            call_func: isignaleditorspinslidergrabbed_call[T]
             ptrcall_func: isignaleditorspinslidergrabbed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9392,7 +16651,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorspinsliderungrabbed_ptrcall[T])
+            call_func: isignaleditorspinsliderungrabbed_call[T]
             ptrcall_func: isignaleditorspinsliderungrabbed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9411,7 +16670,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorspinslidervaluefocusentered_ptrcall[T])
+            call_func: isignaleditorspinslidervaluefocusentered_call[T]
             ptrcall_func: isignaleditorspinslidervaluefocusentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9430,7 +16689,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorspinslidervaluefocusexited_ptrcall[T])
+            call_func: isignaleditorspinslidervaluefocusexited_call[T]
             ptrcall_func: isignaleditorspinslidervaluefocusexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9449,7 +16708,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorundoredomanagerhistorychanged_ptrcall[T])
+            call_func: isignaleditorundoredomanagerhistorychanged_call[T]
             ptrcall_func: isignaleditorundoredomanagerhistorychanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9468,7 +16727,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaleditorundoredomanagerversionchanged_ptrcall[T])
+            call_func: isignaleditorundoredomanagerversionchanged_call[T]
             ptrcall_func: isignaleditorundoredomanagerversionchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9500,7 +16759,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalfiledialogfileselected_ptrcall[T])
+            call_func: isignalfiledialogfileselected_call[T]
             ptrcall_func: isignalfiledialogfileselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9532,7 +16791,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalfiledialogfilesselected_ptrcall[T])
+            call_func: isignalfiledialogfilesselected_call[T]
             ptrcall_func: isignalfiledialogfilesselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9564,7 +16823,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalfiledialogdirselected_ptrcall[T])
+            call_func: isignalfiledialogdirselected_call[T]
             ptrcall_func: isignalfiledialogdirselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9596,7 +16855,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalfilesystemdockinherit_ptrcall[T])
+            call_func: isignalfilesystemdockinherit_call[T]
             ptrcall_func: isignalfilesystemdockinherit_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9628,7 +16887,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalfilesystemdockinstantiate_ptrcall[T])
+            call_func: isignalfilesystemdockinstantiate_call[T]
             ptrcall_func: isignalfilesystemdockinstantiate_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9660,7 +16919,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalfilesystemdockresourceremoved_ptrcall[T])
+            call_func: isignalfilesystemdockresourceremoved_call[T]
             ptrcall_func: isignalfilesystemdockresourceremoved_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9692,7 +16951,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalfilesystemdockfileremoved_ptrcall[T])
+            call_func: isignalfilesystemdockfileremoved_call[T]
             ptrcall_func: isignalfilesystemdockfileremoved_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9724,7 +16983,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalfilesystemdockfolderremoved_ptrcall[T])
+            call_func: isignalfilesystemdockfolderremoved_call[T]
             ptrcall_func: isignalfilesystemdockfolderremoved_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9767,7 +17026,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalfilesystemdockfilesmoved_ptrcall[T])
+            call_func: isignalfilesystemdockfilesmoved_call[T]
             ptrcall_func: isignalfilesystemdockfilesmoved_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9810,7 +17069,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalfilesystemdockfoldermoved_ptrcall[T])
+            call_func: isignalfilesystemdockfoldermoved_call[T]
             ptrcall_func: isignalfilesystemdockfoldermoved_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9829,7 +17088,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalfilesystemdockdisplaymodechanged_ptrcall[T])
+            call_func: isignalfilesystemdockdisplaymodechanged_call[T]
             ptrcall_func: isignalfilesystemdockdisplaymodechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9848,7 +17107,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalgdextensionmanagerextensionsreloaded_ptrcall[T])
+            call_func: isignalgdextensionmanagerextensionsreloaded_call[T]
             ptrcall_func: isignalgdextensionmanagerextensionsreloaded_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9867,7 +17126,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalgpuparticles2dfinished_ptrcall[T])
+            call_func: isignalgpuparticles2dfinished_call[T]
             ptrcall_func: isignalgpuparticles2dfinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9886,7 +17145,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalgpuparticles3dfinished_ptrcall[T])
+            call_func: isignalgpuparticles3dfinished_call[T]
             ptrcall_func: isignalgpuparticles3dfinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9951,7 +17210,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalgrapheditconnectionrequest_ptrcall[T])
+            call_func: isignalgrapheditconnectionrequest_call[T]
             ptrcall_func: isignalgrapheditconnectionrequest_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10016,7 +17275,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalgrapheditdisconnectionrequest_ptrcall[T])
+            call_func: isignalgrapheditdisconnectionrequest_call[T]
             ptrcall_func: isignalgrapheditdisconnectionrequest_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10070,7 +17329,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalgrapheditconnectiontoempty_ptrcall[T])
+            call_func: isignalgrapheditconnectiontoempty_call[T]
             ptrcall_func: isignalgrapheditconnectiontoempty_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10124,7 +17383,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalgrapheditconnectionfromempty_ptrcall[T])
+            call_func: isignalgrapheditconnectionfromempty_call[T]
             ptrcall_func: isignalgrapheditconnectionfromempty_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10178,7 +17437,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalgrapheditconnectiondragstarted_ptrcall[T])
+            call_func: isignalgrapheditconnectiondragstarted_call[T]
             ptrcall_func: isignalgrapheditconnectiondragstarted_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10197,7 +17456,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalgrapheditconnectiondragended_ptrcall[T])
+            call_func: isignalgrapheditconnectiondragended_call[T]
             ptrcall_func: isignalgrapheditconnectiondragended_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10216,7 +17475,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalgrapheditcopynodesrequest_ptrcall[T])
+            call_func: isignalgrapheditcopynodesrequest_call[T]
             ptrcall_func: isignalgrapheditcopynodesrequest_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10235,7 +17494,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalgrapheditpastenodesrequest_ptrcall[T])
+            call_func: isignalgrapheditpastenodesrequest_call[T]
             ptrcall_func: isignalgrapheditpastenodesrequest_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10254,7 +17513,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalgrapheditduplicatenodesrequest_ptrcall[T])
+            call_func: isignalgrapheditduplicatenodesrequest_call[T]
             ptrcall_func: isignalgrapheditduplicatenodesrequest_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10286,7 +17545,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalgrapheditdeletenodesrequest_ptrcall[T])
+            call_func: isignalgrapheditdeletenodesrequest_call[T]
             ptrcall_func: isignalgrapheditdeletenodesrequest_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10318,7 +17577,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalgrapheditnodeselected_ptrcall[T])
+            call_func: isignalgrapheditnodeselected_call[T]
             ptrcall_func: isignalgrapheditnodeselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10350,7 +17609,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalgrapheditnodedeselected_ptrcall[T])
+            call_func: isignalgrapheditnodedeselected_call[T]
             ptrcall_func: isignalgrapheditnodedeselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10382,7 +17641,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalgrapheditpopuprequest_ptrcall[T])
+            call_func: isignalgrapheditpopuprequest_call[T]
             ptrcall_func: isignalgrapheditpopuprequest_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10401,7 +17660,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalgrapheditbeginnodemove_ptrcall[T])
+            call_func: isignalgrapheditbeginnodemove_call[T]
             ptrcall_func: isignalgrapheditbeginnodemove_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10420,7 +17679,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalgrapheditendnodemove_ptrcall[T])
+            call_func: isignalgrapheditendnodemove_call[T]
             ptrcall_func: isignalgrapheditendnodemove_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10452,7 +17711,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalgrapheditscrolloffsetchanged_ptrcall[T])
+            call_func: isignalgrapheditscrolloffsetchanged_call[T]
             ptrcall_func: isignalgrapheditscrolloffsetchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10471,7 +17730,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalgraphelementnodeselected_ptrcall[T])
+            call_func: isignalgraphelementnodeselected_call[T]
             ptrcall_func: isignalgraphelementnodeselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10490,7 +17749,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalgraphelementnodedeselected_ptrcall[T])
+            call_func: isignalgraphelementnodedeselected_call[T]
             ptrcall_func: isignalgraphelementnodedeselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10509,7 +17768,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalgraphelementraiserequest_ptrcall[T])
+            call_func: isignalgraphelementraiserequest_call[T]
             ptrcall_func: isignalgraphelementraiserequest_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10528,7 +17787,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalgraphelementdeleterequest_ptrcall[T])
+            call_func: isignalgraphelementdeleterequest_call[T]
             ptrcall_func: isignalgraphelementdeleterequest_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10560,7 +17819,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalgraphelementresizerequest_ptrcall[T])
+            call_func: isignalgraphelementresizerequest_call[T]
             ptrcall_func: isignalgraphelementresizerequest_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10603,7 +17862,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalgraphelementdragged_ptrcall[T])
+            call_func: isignalgraphelementdragged_call[T]
             ptrcall_func: isignalgraphelementdragged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10622,7 +17881,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalgraphelementpositionoffsetchanged_ptrcall[T])
+            call_func: isignalgraphelementpositionoffsetchanged_call[T]
             ptrcall_func: isignalgraphelementpositionoffsetchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10654,7 +17913,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalgraphnodeslotupdated_ptrcall[T])
+            call_func: isignalgraphnodeslotupdated_call[T]
             ptrcall_func: isignalgraphnodeslotupdated_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10686,7 +17945,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalgridmapcellsizechanged_ptrcall[T])
+            call_func: isignalgridmapcellsizechanged_call[T]
             ptrcall_func: isignalgridmapcellsizechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10705,7 +17964,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalgridmapchanged_ptrcall[T])
+            call_func: isignalgridmapchanged_call[T]
             ptrcall_func: isignalgridmapchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10770,7 +18029,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalhttprequestrequestcompleted_ptrcall[T])
+            call_func: isignalhttprequestrequestcompleted_call[T]
             ptrcall_func: isignalhttprequestrequestcompleted_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10813,7 +18072,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalinputjoyconnectionchanged_ptrcall[T])
+            call_func: isignalinputjoyconnectionchanged_call[T]
             ptrcall_func: isignalinputjoyconnectionchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10845,7 +18104,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalitemlistitemselected_ptrcall[T])
+            call_func: isignalitemlistitemselected_call[T]
             ptrcall_func: isignalitemlistitemselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10888,7 +18147,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalitemlistemptyclicked_ptrcall[T])
+            call_func: isignalitemlistemptyclicked_call[T]
             ptrcall_func: isignalitemlistemptyclicked_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10942,7 +18201,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalitemlistitemclicked_ptrcall[T])
+            call_func: isignalitemlistitemclicked_call[T]
             ptrcall_func: isignalitemlistitemclicked_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10985,7 +18244,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalitemlistmultiselected_ptrcall[T])
+            call_func: isignalitemlistmultiselected_call[T]
             ptrcall_func: isignalitemlistmultiselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11017,7 +18276,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalitemlistitemactivated_ptrcall[T])
+            call_func: isignalitemlistitemactivated_call[T]
             ptrcall_func: isignalitemlistitemactivated_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11036,7 +18295,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaljavascriptbridgepwaupdateavailable_ptrcall[T])
+            call_func: isignaljavascriptbridgepwaupdateavailable_call[T]
             ptrcall_func: isignaljavascriptbridgepwaupdateavailable_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11068,7 +18327,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignallineedittextchanged_ptrcall[T])
+            call_func: isignallineedittextchanged_call[T]
             ptrcall_func: isignallineedittextchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11100,7 +18359,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignallineedittextchangerejected_ptrcall[T])
+            call_func: isignallineedittextchangerejected_call[T]
             ptrcall_func: isignallineedittextchangerejected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11132,7 +18391,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignallineedittextsubmitted_ptrcall[T])
+            call_func: isignallineedittextsubmitted_call[T]
             ptrcall_func: isignallineedittextsubmitted_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11175,7 +18434,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalmainlooponrequestpermissionsresult_ptrcall[T])
+            call_func: isignalmainlooponrequestpermissionsresult_call[T]
             ptrcall_func: isignalmainlooponrequestpermissionsresult_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11194,7 +18453,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalmenubuttonabouttopopup_ptrcall[T])
+            call_func: isignalmenubuttonabouttopopup_call[T]
             ptrcall_func: isignalmenubuttonabouttopopup_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11213,7 +18472,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalmeshinstance2dtexturechanged_ptrcall[T])
+            call_func: isignalmeshinstance2dtexturechanged_call[T]
             ptrcall_func: isignalmeshinstance2dtexturechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11232,7 +18491,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalmultimeshinstance2dtexturechanged_ptrcall[T])
+            call_func: isignalmultimeshinstance2dtexturechanged_call[T]
             ptrcall_func: isignalmultimeshinstance2dtexturechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11264,7 +18523,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalmultiplayerapipeerconnected_ptrcall[T])
+            call_func: isignalmultiplayerapipeerconnected_call[T]
             ptrcall_func: isignalmultiplayerapipeerconnected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11296,7 +18555,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalmultiplayerapipeerdisconnected_ptrcall[T])
+            call_func: isignalmultiplayerapipeerdisconnected_call[T]
             ptrcall_func: isignalmultiplayerapipeerdisconnected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11315,7 +18574,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalmultiplayerapiconnectedtoserver_ptrcall[T])
+            call_func: isignalmultiplayerapiconnectedtoserver_call[T]
             ptrcall_func: isignalmultiplayerapiconnectedtoserver_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11334,7 +18593,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalmultiplayerapiconnectionfailed_ptrcall[T])
+            call_func: isignalmultiplayerapiconnectionfailed_call[T]
             ptrcall_func: isignalmultiplayerapiconnectionfailed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11353,7 +18612,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalmultiplayerapiserverdisconnected_ptrcall[T])
+            call_func: isignalmultiplayerapiserverdisconnected_call[T]
             ptrcall_func: isignalmultiplayerapiserverdisconnected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11385,7 +18644,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalmultiplayerpeerpeerconnected_ptrcall[T])
+            call_func: isignalmultiplayerpeerpeerconnected_call[T]
             ptrcall_func: isignalmultiplayerpeerpeerconnected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11417,7 +18676,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalmultiplayerpeerpeerdisconnected_ptrcall[T])
+            call_func: isignalmultiplayerpeerpeerdisconnected_call[T]
             ptrcall_func: isignalmultiplayerpeerpeerdisconnected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11449,7 +18708,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalmultiplayerspawnerdespawned_ptrcall[T])
+            call_func: isignalmultiplayerspawnerdespawned_call[T]
             ptrcall_func: isignalmultiplayerspawnerdespawned_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11481,7 +18740,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalmultiplayerspawnerspawned_ptrcall[T])
+            call_func: isignalmultiplayerspawnerspawned_call[T]
             ptrcall_func: isignalmultiplayerspawnerspawned_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11500,7 +18759,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalmultiplayersynchronizersynchronized_ptrcall[T])
+            call_func: isignalmultiplayersynchronizersynchronized_call[T]
             ptrcall_func: isignalmultiplayersynchronizersynchronized_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11519,7 +18778,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalmultiplayersynchronizerdeltasynchronized_ptrcall[T])
+            call_func: isignalmultiplayersynchronizerdeltasynchronized_call[T]
             ptrcall_func: isignalmultiplayersynchronizerdeltasynchronized_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11551,7 +18810,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalmultiplayersynchronizervisibilitychanged_ptrcall[T])
+            call_func: isignalmultiplayersynchronizervisibilitychanged_call[T]
             ptrcall_func: isignalmultiplayersynchronizervisibilitychanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11570,7 +18829,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalnavigationagent2dpathchanged_ptrcall[T])
+            call_func: isignalnavigationagent2dpathchanged_call[T]
             ptrcall_func: isignalnavigationagent2dpathchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11589,7 +18848,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalnavigationagent2dtargetreached_ptrcall[T])
+            call_func: isignalnavigationagent2dtargetreached_call[T]
             ptrcall_func: isignalnavigationagent2dtargetreached_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11621,7 +18880,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalnavigationagent2dwaypointreached_ptrcall[T])
+            call_func: isignalnavigationagent2dwaypointreached_call[T]
             ptrcall_func: isignalnavigationagent2dwaypointreached_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11653,7 +18912,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalnavigationagent2dlinkreached_ptrcall[T])
+            call_func: isignalnavigationagent2dlinkreached_call[T]
             ptrcall_func: isignalnavigationagent2dlinkreached_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11672,7 +18931,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalnavigationagent2dnavigationfinished_ptrcall[T])
+            call_func: isignalnavigationagent2dnavigationfinished_call[T]
             ptrcall_func: isignalnavigationagent2dnavigationfinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11704,7 +18963,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalnavigationagent2dvelocitycomputed_ptrcall[T])
+            call_func: isignalnavigationagent2dvelocitycomputed_call[T]
             ptrcall_func: isignalnavigationagent2dvelocitycomputed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11723,7 +18982,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalnavigationagent3dpathchanged_ptrcall[T])
+            call_func: isignalnavigationagent3dpathchanged_call[T]
             ptrcall_func: isignalnavigationagent3dpathchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11742,7 +19001,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalnavigationagent3dtargetreached_ptrcall[T])
+            call_func: isignalnavigationagent3dtargetreached_call[T]
             ptrcall_func: isignalnavigationagent3dtargetreached_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11774,7 +19033,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalnavigationagent3dwaypointreached_ptrcall[T])
+            call_func: isignalnavigationagent3dwaypointreached_call[T]
             ptrcall_func: isignalnavigationagent3dwaypointreached_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11806,7 +19065,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalnavigationagent3dlinkreached_ptrcall[T])
+            call_func: isignalnavigationagent3dlinkreached_call[T]
             ptrcall_func: isignalnavigationagent3dlinkreached_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11825,7 +19084,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalnavigationagent3dnavigationfinished_ptrcall[T])
+            call_func: isignalnavigationagent3dnavigationfinished_call[T]
             ptrcall_func: isignalnavigationagent3dnavigationfinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11857,7 +19116,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalnavigationagent3dvelocitycomputed_ptrcall[T])
+            call_func: isignalnavigationagent3dvelocitycomputed_call[T]
             ptrcall_func: isignalnavigationagent3dvelocitycomputed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11876,7 +19135,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalnavigationregion2dnavigationpolygonchanged_ptrcall[T])
+            call_func: isignalnavigationregion2dnavigationpolygonchanged_call[T]
             ptrcall_func: isignalnavigationregion2dnavigationpolygonchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11895,7 +19154,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalnavigationregion2dbakefinished_ptrcall[T])
+            call_func: isignalnavigationregion2dbakefinished_call[T]
             ptrcall_func: isignalnavigationregion2dbakefinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11914,7 +19173,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalnavigationregion3dnavigationmeshchanged_ptrcall[T])
+            call_func: isignalnavigationregion3dnavigationmeshchanged_call[T]
             ptrcall_func: isignalnavigationregion3dnavigationmeshchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11933,7 +19192,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalnavigationregion3dbakefinished_ptrcall[T])
+            call_func: isignalnavigationregion3dbakefinished_call[T]
             ptrcall_func: isignalnavigationregion3dbakefinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11965,7 +19224,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalnavigationserver2dmapchanged_ptrcall[T])
+            call_func: isignalnavigationserver2dmapchanged_call[T]
             ptrcall_func: isignalnavigationserver2dmapchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11984,7 +19243,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalnavigationserver2dnavigationdebugchanged_ptrcall[T])
+            call_func: isignalnavigationserver2dnavigationdebugchanged_call[T]
             ptrcall_func: isignalnavigationserver2dnavigationdebugchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12016,7 +19275,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalnavigationserver3dmapchanged_ptrcall[T])
+            call_func: isignalnavigationserver3dmapchanged_call[T]
             ptrcall_func: isignalnavigationserver3dmapchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12035,7 +19294,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalnavigationserver3dnavigationdebugchanged_ptrcall[T])
+            call_func: isignalnavigationserver3dnavigationdebugchanged_call[T]
             ptrcall_func: isignalnavigationserver3dnavigationdebugchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12054,7 +19313,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalnavigationserver3davoidancedebugchanged_ptrcall[T])
+            call_func: isignalnavigationserver3davoidancedebugchanged_call[T]
             ptrcall_func: isignalnavigationserver3davoidancedebugchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12073,7 +19332,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalninepatchrecttexturechanged_ptrcall[T])
+            call_func: isignalninepatchrecttexturechanged_call[T]
             ptrcall_func: isignalninepatchrecttexturechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12092,7 +19351,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalnodeready_ptrcall[T])
+            call_func: isignalnodeready_call[T]
             ptrcall_func: isignalnodeready_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12111,7 +19370,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalnoderenamed_ptrcall[T])
+            call_func: isignalnoderenamed_call[T]
             ptrcall_func: isignalnoderenamed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12130,7 +19389,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalnodetreeentered_ptrcall[T])
+            call_func: isignalnodetreeentered_call[T]
             ptrcall_func: isignalnodetreeentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12149,7 +19408,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalnodetreeexiting_ptrcall[T])
+            call_func: isignalnodetreeexiting_call[T]
             ptrcall_func: isignalnodetreeexiting_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12168,7 +19427,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalnodetreeexited_ptrcall[T])
+            call_func: isignalnodetreeexited_call[T]
             ptrcall_func: isignalnodetreeexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12200,7 +19459,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalnodechildenteredtree_ptrcall[T])
+            call_func: isignalnodechildenteredtree_call[T]
             ptrcall_func: isignalnodechildenteredtree_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12232,7 +19491,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalnodechildexitingtree_ptrcall[T])
+            call_func: isignalnodechildexitingtree_call[T]
             ptrcall_func: isignalnodechildexitingtree_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12251,7 +19510,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalnodechildorderchanged_ptrcall[T])
+            call_func: isignalnodechildorderchanged_call[T]
             ptrcall_func: isignalnodechildorderchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12283,7 +19542,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalnodereplacingby_ptrcall[T])
+            call_func: isignalnodereplacingby_call[T]
             ptrcall_func: isignalnodereplacingby_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12302,7 +19561,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalnode3dvisibilitychanged_ptrcall[T])
+            call_func: isignalnode3dvisibilitychanged_call[T]
             ptrcall_func: isignalnode3dvisibilitychanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12321,7 +19580,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalobjectscriptchanged_ptrcall[T])
+            call_func: isignalobjectscriptchanged_call[T]
             ptrcall_func: isignalobjectscriptchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12340,7 +19599,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalobjectpropertylistchanged_ptrcall[T])
+            call_func: isignalobjectpropertylistchanged_call[T]
             ptrcall_func: isignalobjectpropertylistchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12359,7 +19618,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalopenxrinterfacesessionbegun_ptrcall[T])
+            call_func: isignalopenxrinterfacesessionbegun_call[T]
             ptrcall_func: isignalopenxrinterfacesessionbegun_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12378,7 +19637,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalopenxrinterfacesessionstopping_ptrcall[T])
+            call_func: isignalopenxrinterfacesessionstopping_call[T]
             ptrcall_func: isignalopenxrinterfacesessionstopping_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12397,7 +19656,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalopenxrinterfacesessionfocussed_ptrcall[T])
+            call_func: isignalopenxrinterfacesessionfocussed_call[T]
             ptrcall_func: isignalopenxrinterfacesessionfocussed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12416,7 +19675,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalopenxrinterfacesessionvisible_ptrcall[T])
+            call_func: isignalopenxrinterfacesessionvisible_call[T]
             ptrcall_func: isignalopenxrinterfacesessionvisible_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12435,7 +19694,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalopenxrinterfaceposerecentered_ptrcall[T])
+            call_func: isignalopenxrinterfaceposerecentered_call[T]
             ptrcall_func: isignalopenxrinterfaceposerecentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12467,7 +19726,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaloptionbuttonitemselected_ptrcall[T])
+            call_func: isignaloptionbuttonitemselected_call[T]
             ptrcall_func: isignaloptionbuttonitemselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12499,7 +19758,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaloptionbuttonitemfocused_ptrcall[T])
+            call_func: isignaloptionbuttonitemfocused_call[T]
             ptrcall_func: isignaloptionbuttonitemfocused_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12518,7 +19777,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalpath3dcurvechanged_ptrcall[T])
+            call_func: isignalpath3dcurvechanged_call[T]
             ptrcall_func: isignalpath3dcurvechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12537,7 +19796,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalpopuppopuphide_ptrcall[T])
+            call_func: isignalpopuppopuphide_call[T]
             ptrcall_func: isignalpopuppopuphide_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12569,7 +19828,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalpopupmenuidpressed_ptrcall[T])
+            call_func: isignalpopupmenuidpressed_call[T]
             ptrcall_func: isignalpopupmenuidpressed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12601,7 +19860,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalpopupmenuidfocused_ptrcall[T])
+            call_func: isignalpopupmenuidfocused_call[T]
             ptrcall_func: isignalpopupmenuidfocused_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12633,7 +19892,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalpopupmenuindexpressed_ptrcall[T])
+            call_func: isignalpopupmenuindexpressed_call[T]
             ptrcall_func: isignalpopupmenuindexpressed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12652,7 +19911,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalpopupmenumenuchanged_ptrcall[T])
+            call_func: isignalpopupmenumenuchanged_call[T]
             ptrcall_func: isignalpopupmenumenuchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12671,7 +19930,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalprojectsettingssettingschanged_ptrcall[T])
+            call_func: isignalprojectsettingssettingschanged_call[T]
             ptrcall_func: isignalprojectsettingssettingschanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12703,7 +19962,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalrangevaluechanged_ptrcall[T])
+            call_func: isignalrangevaluechanged_call[T]
             ptrcall_func: isignalrangevaluechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12722,7 +19981,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalrangechanged_ptrcall[T])
+            call_func: isignalrangechanged_call[T]
             ptrcall_func: isignalrangechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12741,7 +20000,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalrenderingserverframepredraw_ptrcall[T])
+            call_func: isignalrenderingserverframepredraw_call[T]
             ptrcall_func: isignalrenderingserverframepredraw_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12760,7 +20019,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalrenderingserverframepostdraw_ptrcall[T])
+            call_func: isignalrenderingserverframepostdraw_call[T]
             ptrcall_func: isignalrenderingserverframepostdraw_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12779,7 +20038,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalresourcechanged_ptrcall[T])
+            call_func: isignalresourcechanged_call[T]
             ptrcall_func: isignalresourcechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12798,7 +20057,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalresourcesetuplocaltoscenerequested_ptrcall[T])
+            call_func: isignalresourcesetuplocaltoscenerequested_call[T]
             ptrcall_func: isignalresourcesetuplocaltoscenerequested_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12830,7 +20089,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalrichtextlabelmetaclicked_ptrcall[T])
+            call_func: isignalrichtextlabelmetaclicked_call[T]
             ptrcall_func: isignalrichtextlabelmetaclicked_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12862,7 +20121,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalrichtextlabelmetahoverstarted_ptrcall[T])
+            call_func: isignalrichtextlabelmetahoverstarted_call[T]
             ptrcall_func: isignalrichtextlabelmetahoverstarted_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12894,7 +20153,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalrichtextlabelmetahoverended_ptrcall[T])
+            call_func: isignalrichtextlabelmetahoverended_call[T]
             ptrcall_func: isignalrichtextlabelmetahoverended_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12913,7 +20172,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalrichtextlabelfinished_ptrcall[T])
+            call_func: isignalrichtextlabelfinished_call[T]
             ptrcall_func: isignalrichtextlabelfinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12978,7 +20237,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalrigidbody2dbodyshapeentered_ptrcall[T])
+            call_func: isignalrigidbody2dbodyshapeentered_call[T]
             ptrcall_func: isignalrigidbody2dbodyshapeentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13043,7 +20302,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalrigidbody2dbodyshapeexited_ptrcall[T])
+            call_func: isignalrigidbody2dbodyshapeexited_call[T]
             ptrcall_func: isignalrigidbody2dbodyshapeexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13075,7 +20334,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalrigidbody2dbodyentered_ptrcall[T])
+            call_func: isignalrigidbody2dbodyentered_call[T]
             ptrcall_func: isignalrigidbody2dbodyentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13107,7 +20366,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalrigidbody2dbodyexited_ptrcall[T])
+            call_func: isignalrigidbody2dbodyexited_call[T]
             ptrcall_func: isignalrigidbody2dbodyexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13126,7 +20385,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalrigidbody2dsleepingstatechanged_ptrcall[T])
+            call_func: isignalrigidbody2dsleepingstatechanged_call[T]
             ptrcall_func: isignalrigidbody2dsleepingstatechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13191,7 +20450,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalrigidbody3dbodyshapeentered_ptrcall[T])
+            call_func: isignalrigidbody3dbodyshapeentered_call[T]
             ptrcall_func: isignalrigidbody3dbodyshapeentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13256,7 +20515,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalrigidbody3dbodyshapeexited_ptrcall[T])
+            call_func: isignalrigidbody3dbodyshapeexited_call[T]
             ptrcall_func: isignalrigidbody3dbodyshapeexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13288,7 +20547,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalrigidbody3dbodyentered_ptrcall[T])
+            call_func: isignalrigidbody3dbodyentered_call[T]
             ptrcall_func: isignalrigidbody3dbodyentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13320,7 +20579,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalrigidbody3dbodyexited_ptrcall[T])
+            call_func: isignalrigidbody3dbodyexited_call[T]
             ptrcall_func: isignalrigidbody3dbodyexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13339,7 +20598,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalrigidbody3dsleepingstatechanged_ptrcall[T])
+            call_func: isignalrigidbody3dsleepingstatechanged_call[T]
             ptrcall_func: isignalrigidbody3dsleepingstatechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13371,7 +20630,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalscenemultiplayerpeerauthenticating_ptrcall[T])
+            call_func: isignalscenemultiplayerpeerauthenticating_call[T]
             ptrcall_func: isignalscenemultiplayerpeerauthenticating_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13403,7 +20662,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalscenemultiplayerpeerauthenticationfailed_ptrcall[T])
+            call_func: isignalscenemultiplayerpeerauthenticationfailed_call[T]
             ptrcall_func: isignalscenemultiplayerpeerauthenticationfailed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13446,7 +20705,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalscenemultiplayerpeerpacket_ptrcall[T])
+            call_func: isignalscenemultiplayerpeerpacket_call[T]
             ptrcall_func: isignalscenemultiplayerpeerpacket_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13465,7 +20724,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalscenetreetreechanged_ptrcall[T])
+            call_func: isignalscenetreetreechanged_call[T]
             ptrcall_func: isignalscenetreetreechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13484,7 +20743,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalscenetreetreeprocessmodechanged_ptrcall[T])
+            call_func: isignalscenetreetreeprocessmodechanged_call[T]
             ptrcall_func: isignalscenetreetreeprocessmodechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13516,7 +20775,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalscenetreenodeadded_ptrcall[T])
+            call_func: isignalscenetreenodeadded_call[T]
             ptrcall_func: isignalscenetreenodeadded_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13548,7 +20807,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalscenetreenoderemoved_ptrcall[T])
+            call_func: isignalscenetreenoderemoved_call[T]
             ptrcall_func: isignalscenetreenoderemoved_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13580,7 +20839,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalscenetreenoderenamed_ptrcall[T])
+            call_func: isignalscenetreenoderenamed_call[T]
             ptrcall_func: isignalscenetreenoderenamed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13612,7 +20871,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalscenetreenodeconfigurationwarningchanged_ptrcall[T])
+            call_func: isignalscenetreenodeconfigurationwarningchanged_call[T]
             ptrcall_func: isignalscenetreenodeconfigurationwarningchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13631,7 +20890,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalscenetreeprocessframe_ptrcall[T])
+            call_func: isignalscenetreeprocessframe_call[T]
             ptrcall_func: isignalscenetreeprocessframe_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13650,7 +20909,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalscenetreephysicsframe_ptrcall[T])
+            call_func: isignalscenetreephysicsframe_call[T]
             ptrcall_func: isignalscenetreephysicsframe_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13669,7 +20928,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalscenetreetimertimeout_ptrcall[T])
+            call_func: isignalscenetreetimertimeout_call[T]
             ptrcall_func: isignalscenetreetimertimeout_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13701,7 +20960,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalscriptcreatedialogscriptcreated_ptrcall[T])
+            call_func: isignalscriptcreatedialogscriptcreated_call[T]
             ptrcall_func: isignalscriptcreatedialogscriptcreated_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13733,7 +20992,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalscripteditoreditorscriptchanged_ptrcall[T])
+            call_func: isignalscripteditoreditorscriptchanged_call[T]
             ptrcall_func: isignalscripteditoreditorscriptchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13765,7 +21024,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalscripteditorscriptclose_ptrcall[T])
+            call_func: isignalscripteditorscriptclose_call[T]
             ptrcall_func: isignalscripteditorscriptclose_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13784,7 +21043,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalscripteditorbasenamechanged_ptrcall[T])
+            call_func: isignalscripteditorbasenamechanged_call[T]
             ptrcall_func: isignalscripteditorbasenamechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13803,7 +21062,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalscripteditorbaseeditedscriptchanged_ptrcall[T])
+            call_func: isignalscripteditorbaseeditedscriptchanged_call[T]
             ptrcall_func: isignalscripteditorbaseeditedscriptchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13835,7 +21094,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalscripteditorbaserequesthelp_ptrcall[T])
+            call_func: isignalscripteditorbaserequesthelp_call[T]
             ptrcall_func: isignalscripteditorbaserequesthelp_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13878,7 +21137,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalscripteditorbaserequestopenscriptatline_ptrcall[T])
+            call_func: isignalscripteditorbaserequestopenscriptatline_call[T]
             ptrcall_func: isignalscripteditorbaserequestopenscriptatline_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13897,7 +21156,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalscripteditorbaserequestsavehistory_ptrcall[T])
+            call_func: isignalscripteditorbaserequestsavehistory_call[T]
             ptrcall_func: isignalscripteditorbaserequestsavehistory_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13929,7 +21188,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalscripteditorbasegotohelp_ptrcall[T])
+            call_func: isignalscripteditorbasegotohelp_call[T]
             ptrcall_func: isignalscripteditorbasegotohelp_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13961,7 +21220,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalscripteditorbasesearchinfilesrequested_ptrcall[T])
+            call_func: isignalscripteditorbasesearchinfilesrequested_call[T]
             ptrcall_func: isignalscripteditorbasesearchinfilesrequested_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13993,7 +21252,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalscripteditorbasereplaceinfilesrequested_ptrcall[T])
+            call_func: isignalscripteditorbasereplaceinfilesrequested_call[T]
             ptrcall_func: isignalscripteditorbasereplaceinfilesrequested_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14036,7 +21295,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalscripteditorbasegotomethod_ptrcall[T])
+            call_func: isignalscripteditorbasegotomethod_call[T]
             ptrcall_func: isignalscripteditorbasegotomethod_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14055,7 +21314,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalscrollbarscrolling_ptrcall[T])
+            call_func: isignalscrollbarscrolling_call[T]
             ptrcall_func: isignalscrollbarscrolling_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14074,7 +21333,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalscrollcontainerscrollstarted_ptrcall[T])
+            call_func: isignalscrollcontainerscrollstarted_call[T]
             ptrcall_func: isignalscrollcontainerscrollstarted_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14093,7 +21352,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalscrollcontainerscrollended_ptrcall[T])
+            call_func: isignalscrollcontainerscrollended_call[T]
             ptrcall_func: isignalscrollcontainerscrollended_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14112,7 +21371,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalskeleton2dbonesetupchanged_ptrcall[T])
+            call_func: isignalskeleton2dbonesetupchanged_call[T]
             ptrcall_func: isignalskeleton2dbonesetupchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14131,7 +21390,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalskeleton3dposeupdated_ptrcall[T])
+            call_func: isignalskeleton3dposeupdated_call[T]
             ptrcall_func: isignalskeleton3dposeupdated_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14163,7 +21422,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalskeleton3dboneposechanged_ptrcall[T])
+            call_func: isignalskeleton3dboneposechanged_call[T]
             ptrcall_func: isignalskeleton3dboneposechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14195,7 +21454,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalskeleton3dboneenabledchanged_ptrcall[T])
+            call_func: isignalskeleton3dboneenabledchanged_call[T]
             ptrcall_func: isignalskeleton3dboneenabledchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14214,7 +21473,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalskeleton3dshowrestonlychanged_ptrcall[T])
+            call_func: isignalskeleton3dshowrestonlychanged_call[T]
             ptrcall_func: isignalskeleton3dshowrestonlychanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14233,7 +21492,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalskeletonprofileprofileupdated_ptrcall[T])
+            call_func: isignalskeletonprofileprofileupdated_call[T]
             ptrcall_func: isignalskeletonprofileprofileupdated_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14252,7 +21511,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalsliderdragstarted_ptrcall[T])
+            call_func: isignalsliderdragstarted_call[T]
             ptrcall_func: isignalsliderdragstarted_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14284,7 +21543,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalsliderdragended_ptrcall[T])
+            call_func: isignalsliderdragended_call[T]
             ptrcall_func: isignalsliderdragended_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14316,7 +21575,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalsplitcontainerdragged_ptrcall[T])
+            call_func: isignalsplitcontainerdragged_call[T]
             ptrcall_func: isignalsplitcontainerdragged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14335,7 +21594,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalsprite2dframechanged_ptrcall[T])
+            call_func: isignalsprite2dframechanged_call[T]
             ptrcall_func: isignalsprite2dframechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14354,7 +21613,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalsprite2dtexturechanged_ptrcall[T])
+            call_func: isignalsprite2dtexturechanged_call[T]
             ptrcall_func: isignalsprite2dtexturechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14373,7 +21632,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalsprite3dframechanged_ptrcall[T])
+            call_func: isignalsprite3dframechanged_call[T]
             ptrcall_func: isignalsprite3dframechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14392,7 +21651,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalsprite3dtexturechanged_ptrcall[T])
+            call_func: isignalsprite3dtexturechanged_call[T]
             ptrcall_func: isignalsprite3dtexturechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14424,7 +21683,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltabbartabselected_ptrcall[T])
+            call_func: isignaltabbartabselected_call[T]
             ptrcall_func: isignaltabbartabselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14456,7 +21715,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltabbartabchanged_ptrcall[T])
+            call_func: isignaltabbartabchanged_call[T]
             ptrcall_func: isignaltabbartabchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14488,7 +21747,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltabbartabclicked_ptrcall[T])
+            call_func: isignaltabbartabclicked_call[T]
             ptrcall_func: isignaltabbartabclicked_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14520,7 +21779,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltabbartabrmbclicked_ptrcall[T])
+            call_func: isignaltabbartabrmbclicked_call[T]
             ptrcall_func: isignaltabbartabrmbclicked_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14552,7 +21811,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltabbartabclosepressed_ptrcall[T])
+            call_func: isignaltabbartabclosepressed_call[T]
             ptrcall_func: isignaltabbartabclosepressed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14584,7 +21843,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltabbartabbuttonpressed_ptrcall[T])
+            call_func: isignaltabbartabbuttonpressed_call[T]
             ptrcall_func: isignaltabbartabbuttonpressed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14616,7 +21875,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltabbartabhovered_ptrcall[T])
+            call_func: isignaltabbartabhovered_call[T]
             ptrcall_func: isignaltabbartabhovered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14648,7 +21907,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltabbaractivetabrearranged_ptrcall[T])
+            call_func: isignaltabbaractivetabrearranged_call[T]
             ptrcall_func: isignaltabbaractivetabrearranged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14680,7 +21939,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltabcontaineractivetabrearranged_ptrcall[T])
+            call_func: isignaltabcontaineractivetabrearranged_call[T]
             ptrcall_func: isignaltabcontaineractivetabrearranged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14712,7 +21971,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltabcontainertabchanged_ptrcall[T])
+            call_func: isignaltabcontainertabchanged_call[T]
             ptrcall_func: isignaltabcontainertabchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14744,7 +22003,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltabcontainertabclicked_ptrcall[T])
+            call_func: isignaltabcontainertabclicked_call[T]
             ptrcall_func: isignaltabcontainertabclicked_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14776,7 +22035,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltabcontainertabhovered_ptrcall[T])
+            call_func: isignaltabcontainertabhovered_call[T]
             ptrcall_func: isignaltabcontainertabhovered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14808,7 +22067,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltabcontainertabselected_ptrcall[T])
+            call_func: isignaltabcontainertabselected_call[T]
             ptrcall_func: isignaltabcontainertabselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14840,7 +22099,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltabcontainertabbuttonpressed_ptrcall[T])
+            call_func: isignaltabcontainertabbuttonpressed_call[T]
             ptrcall_func: isignaltabcontainertabbuttonpressed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14859,7 +22118,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltabcontainerprepopuppressed_ptrcall[T])
+            call_func: isignaltabcontainerprepopuppressed_call[T]
             ptrcall_func: isignaltabcontainerprepopuppressed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14878,7 +22137,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltextedittextset_ptrcall[T])
+            call_func: isignaltextedittextset_call[T]
             ptrcall_func: isignaltextedittextset_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14897,7 +22156,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltextedittextchanged_ptrcall[T])
+            call_func: isignaltextedittextchanged_call[T]
             ptrcall_func: isignaltextedittextchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14940,7 +22199,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltexteditlineseditedfrom_ptrcall[T])
+            call_func: isignaltexteditlineseditedfrom_call[T]
             ptrcall_func: isignaltexteditlineseditedfrom_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14959,7 +22218,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltexteditcaretchanged_ptrcall[T])
+            call_func: isignaltexteditcaretchanged_call[T]
             ptrcall_func: isignaltexteditcaretchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15002,7 +22261,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltexteditgutterclicked_ptrcall[T])
+            call_func: isignaltexteditgutterclicked_call[T]
             ptrcall_func: isignaltexteditgutterclicked_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15021,7 +22280,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltexteditgutteradded_ptrcall[T])
+            call_func: isignaltexteditgutteradded_call[T]
             ptrcall_func: isignaltexteditgutteradded_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15040,7 +22299,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltexteditgutterremoved_ptrcall[T])
+            call_func: isignaltexteditgutterremoved_call[T]
             ptrcall_func: isignaltexteditgutterremoved_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15072,7 +22331,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltextservermanagerinterfaceadded_ptrcall[T])
+            call_func: isignaltextservermanagerinterfaceadded_call[T]
             ptrcall_func: isignaltextservermanagerinterfaceadded_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15104,7 +22363,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltextservermanagerinterfaceremoved_ptrcall[T])
+            call_func: isignaltextservermanagerinterfaceremoved_call[T]
             ptrcall_func: isignaltextservermanagerinterfaceremoved_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15123,7 +22382,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalthemedbfallbackchanged_ptrcall[T])
+            call_func: isignalthemedbfallbackchanged_call[T]
             ptrcall_func: isignalthemedbfallbackchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15142,7 +22401,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltiledatachanged_ptrcall[T])
+            call_func: isignaltiledatachanged_call[T]
             ptrcall_func: isignaltiledatachanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15161,7 +22420,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltilemapchanged_ptrcall[T])
+            call_func: isignaltilemapchanged_call[T]
             ptrcall_func: isignaltilemapchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15180,7 +22439,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltimertimeout_ptrcall[T])
+            call_func: isignaltimertimeout_call[T]
             ptrcall_func: isignaltimertimeout_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15199,7 +22458,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltouchscreenbuttonpressed_ptrcall[T])
+            call_func: isignaltouchscreenbuttonpressed_call[T]
             ptrcall_func: isignaltouchscreenbuttonpressed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15218,7 +22477,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltouchscreenbuttonreleased_ptrcall[T])
+            call_func: isignaltouchscreenbuttonreleased_call[T]
             ptrcall_func: isignaltouchscreenbuttonreleased_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15237,7 +22496,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltreeitemselected_ptrcall[T])
+            call_func: isignaltreeitemselected_call[T]
             ptrcall_func: isignaltreeitemselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15256,7 +22515,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltreecellselected_ptrcall[T])
+            call_func: isignaltreecellselected_call[T]
             ptrcall_func: isignaltreecellselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15310,7 +22569,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltreemultiselected_ptrcall[T])
+            call_func: isignaltreemultiselected_call[T]
             ptrcall_func: isignaltreemultiselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15353,7 +22612,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltreeitemmouseselected_ptrcall[T])
+            call_func: isignaltreeitemmouseselected_call[T]
             ptrcall_func: isignaltreeitemmouseselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15396,7 +22655,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltreeemptyclicked_ptrcall[T])
+            call_func: isignaltreeemptyclicked_call[T]
             ptrcall_func: isignaltreeemptyclicked_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15415,7 +22674,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltreeitemedited_ptrcall[T])
+            call_func: isignaltreeitemedited_call[T]
             ptrcall_func: isignaltreeitemedited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15447,7 +22706,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltreecustomitemclicked_ptrcall[T])
+            call_func: isignaltreecustomitemclicked_call[T]
             ptrcall_func: isignaltreecustomitemclicked_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15466,7 +22725,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltreeitemicondoubleclicked_ptrcall[T])
+            call_func: isignaltreeitemicondoubleclicked_call[T]
             ptrcall_func: isignaltreeitemicondoubleclicked_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15498,7 +22757,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltreeitemcollapsed_ptrcall[T])
+            call_func: isignaltreeitemcollapsed_call[T]
             ptrcall_func: isignaltreeitemcollapsed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15541,7 +22800,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltreecheckpropagatedtoitem_ptrcall[T])
+            call_func: isignaltreecheckpropagatedtoitem_call[T]
             ptrcall_func: isignaltreecheckpropagatedtoitem_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15606,7 +22865,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltreebuttonclicked_ptrcall[T])
+            call_func: isignaltreebuttonclicked_call[T]
             ptrcall_func: isignaltreebuttonclicked_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15638,7 +22897,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltreecustompopupedited_ptrcall[T])
+            call_func: isignaltreecustompopupedited_call[T]
             ptrcall_func: isignaltreecustompopupedited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15657,7 +22916,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltreeitemactivated_ptrcall[T])
+            call_func: isignaltreeitemactivated_call[T]
             ptrcall_func: isignaltreeitemactivated_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15700,7 +22959,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltreecolumntitleclicked_ptrcall[T])
+            call_func: isignaltreecolumntitleclicked_call[T]
             ptrcall_func: isignaltreecolumntitleclicked_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15719,7 +22978,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltreenothingselected_ptrcall[T])
+            call_func: isignaltreenothingselected_call[T]
             ptrcall_func: isignaltreenothingselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15751,7 +23010,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltweenstepfinished_ptrcall[T])
+            call_func: isignaltweenstepfinished_call[T]
             ptrcall_func: isignaltweenstepfinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15783,7 +23042,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltweenloopfinished_ptrcall[T])
+            call_func: isignaltweenloopfinished_call[T]
             ptrcall_func: isignaltweenloopfinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15802,7 +23061,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltweenfinished_ptrcall[T])
+            call_func: isignaltweenfinished_call[T]
             ptrcall_func: isignaltweenfinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15821,7 +23080,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignaltweenerfinished_ptrcall[T])
+            call_func: isignaltweenerfinished_call[T]
             ptrcall_func: isignaltweenerfinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15840,7 +23099,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalundoredoversionchanged_ptrcall[T])
+            call_func: isignalundoredoversionchanged_call[T]
             ptrcall_func: isignalundoredoversionchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15859,7 +23118,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalvideostreamplayerfinished_ptrcall[T])
+            call_func: isignalvideostreamplayerfinished_call[T]
             ptrcall_func: isignalvideostreamplayerfinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15878,7 +23137,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalviewportsizechanged_ptrcall[T])
+            call_func: isignalviewportsizechanged_call[T]
             ptrcall_func: isignalviewportsizechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15910,7 +23169,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalviewportguifocuschanged_ptrcall[T])
+            call_func: isignalviewportguifocuschanged_call[T]
             ptrcall_func: isignalviewportguifocuschanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15929,7 +23188,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalvisibleonscreennotifier2dscreenentered_ptrcall[T])
+            call_func: isignalvisibleonscreennotifier2dscreenentered_call[T]
             ptrcall_func: isignalvisibleonscreennotifier2dscreenentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15948,7 +23207,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalvisibleonscreennotifier2dscreenexited_ptrcall[T])
+            call_func: isignalvisibleonscreennotifier2dscreenexited_call[T]
             ptrcall_func: isignalvisibleonscreennotifier2dscreenexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15967,7 +23226,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalvisibleonscreennotifier3dscreenentered_ptrcall[T])
+            call_func: isignalvisibleonscreennotifier3dscreenentered_call[T]
             ptrcall_func: isignalvisibleonscreennotifier3dscreenentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15986,7 +23245,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalvisibleonscreennotifier3dscreenexited_ptrcall[T])
+            call_func: isignalvisibleonscreennotifier3dscreenexited_call[T]
             ptrcall_func: isignalvisibleonscreennotifier3dscreenexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16005,7 +23264,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalvisualshadernodeinputinputtypechanged_ptrcall[T])
+            call_func: isignalvisualshadernodeinputinputtypechanged_call[T]
             ptrcall_func: isignalvisualshadernodeinputinputtypechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16048,7 +23307,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalwebrtcpeerconnectionsessiondescriptioncreated_ptrcall[T])
+            call_func: isignalwebrtcpeerconnectionsessiondescriptioncreated_call[T]
             ptrcall_func: isignalwebrtcpeerconnectionsessiondescriptioncreated_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16102,7 +23361,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalwebrtcpeerconnectionicecandidatecreated_ptrcall[T])
+            call_func: isignalwebrtcpeerconnectionicecandidatecreated_call[T]
             ptrcall_func: isignalwebrtcpeerconnectionicecandidatecreated_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16134,7 +23393,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalwebrtcpeerconnectiondatachannelreceived_ptrcall[T])
+            call_func: isignalwebrtcpeerconnectiondatachannelreceived_call[T]
             ptrcall_func: isignalwebrtcpeerconnectiondatachannelreceived_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16177,7 +23436,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalwebxrinterfacesessionsupported_ptrcall[T])
+            call_func: isignalwebxrinterfacesessionsupported_call[T]
             ptrcall_func: isignalwebxrinterfacesessionsupported_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16196,7 +23455,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalwebxrinterfacesessionstarted_ptrcall[T])
+            call_func: isignalwebxrinterfacesessionstarted_call[T]
             ptrcall_func: isignalwebxrinterfacesessionstarted_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16215,7 +23474,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalwebxrinterfacesessionended_ptrcall[T])
+            call_func: isignalwebxrinterfacesessionended_call[T]
             ptrcall_func: isignalwebxrinterfacesessionended_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16247,7 +23506,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalwebxrinterfacesessionfailed_ptrcall[T])
+            call_func: isignalwebxrinterfacesessionfailed_call[T]
             ptrcall_func: isignalwebxrinterfacesessionfailed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16279,7 +23538,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalwebxrinterfaceselectstart_ptrcall[T])
+            call_func: isignalwebxrinterfaceselectstart_call[T]
             ptrcall_func: isignalwebxrinterfaceselectstart_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16311,7 +23570,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalwebxrinterfaceselect_ptrcall[T])
+            call_func: isignalwebxrinterfaceselect_call[T]
             ptrcall_func: isignalwebxrinterfaceselect_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16343,7 +23602,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalwebxrinterfaceselectend_ptrcall[T])
+            call_func: isignalwebxrinterfaceselectend_call[T]
             ptrcall_func: isignalwebxrinterfaceselectend_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16375,7 +23634,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalwebxrinterfacesqueezestart_ptrcall[T])
+            call_func: isignalwebxrinterfacesqueezestart_call[T]
             ptrcall_func: isignalwebxrinterfacesqueezestart_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16407,7 +23666,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalwebxrinterfacesqueeze_ptrcall[T])
+            call_func: isignalwebxrinterfacesqueeze_call[T]
             ptrcall_func: isignalwebxrinterfacesqueeze_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16439,7 +23698,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalwebxrinterfacesqueezeend_ptrcall[T])
+            call_func: isignalwebxrinterfacesqueezeend_call[T]
             ptrcall_func: isignalwebxrinterfacesqueezeend_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16458,7 +23717,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalwebxrinterfacevisibilitystatechanged_ptrcall[T])
+            call_func: isignalwebxrinterfacevisibilitystatechanged_call[T]
             ptrcall_func: isignalwebxrinterfacevisibilitystatechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16477,7 +23736,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalwebxrinterfacereferencespacereset_ptrcall[T])
+            call_func: isignalwebxrinterfacereferencespacereset_call[T]
             ptrcall_func: isignalwebxrinterfacereferencespacereset_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16496,7 +23755,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalwebxrinterfacedisplayrefreshratechanged_ptrcall[T])
+            call_func: isignalwebxrinterfacedisplayrefreshratechanged_call[T]
             ptrcall_func: isignalwebxrinterfacedisplayrefreshratechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16528,7 +23787,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalwindowwindowinput_ptrcall[T])
+            call_func: isignalwindowwindowinput_call[T]
             ptrcall_func: isignalwindowwindowinput_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16560,7 +23819,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalwindowfilesdropped_ptrcall[T])
+            call_func: isignalwindowfilesdropped_call[T]
             ptrcall_func: isignalwindowfilesdropped_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16579,7 +23838,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalwindowmouseentered_ptrcall[T])
+            call_func: isignalwindowmouseentered_call[T]
             ptrcall_func: isignalwindowmouseentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16598,7 +23857,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalwindowmouseexited_ptrcall[T])
+            call_func: isignalwindowmouseexited_call[T]
             ptrcall_func: isignalwindowmouseexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16617,7 +23876,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalwindowfocusentered_ptrcall[T])
+            call_func: isignalwindowfocusentered_call[T]
             ptrcall_func: isignalwindowfocusentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16636,7 +23895,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalwindowfocusexited_ptrcall[T])
+            call_func: isignalwindowfocusexited_call[T]
             ptrcall_func: isignalwindowfocusexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16655,7 +23914,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalwindowcloserequested_ptrcall[T])
+            call_func: isignalwindowcloserequested_call[T]
             ptrcall_func: isignalwindowcloserequested_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16674,7 +23933,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalwindowgobackrequested_ptrcall[T])
+            call_func: isignalwindowgobackrequested_call[T]
             ptrcall_func: isignalwindowgobackrequested_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16693,7 +23952,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalwindowvisibilitychanged_ptrcall[T])
+            call_func: isignalwindowvisibilitychanged_call[T]
             ptrcall_func: isignalwindowvisibilitychanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16712,7 +23971,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalwindowabouttopopup_ptrcall[T])
+            call_func: isignalwindowabouttopopup_call[T]
             ptrcall_func: isignalwindowabouttopopup_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16731,7 +23990,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalwindowthemechanged_ptrcall[T])
+            call_func: isignalwindowthemechanged_call[T]
             ptrcall_func: isignalwindowthemechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16750,7 +24009,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalwindowdpichanged_ptrcall[T])
+            call_func: isignalwindowdpichanged_call[T]
             ptrcall_func: isignalwindowdpichanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16769,7 +24028,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalwindowtitlebarchanged_ptrcall[T])
+            call_func: isignalwindowtitlebarchanged_call[T]
             ptrcall_func: isignalwindowtitlebarchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16801,7 +24060,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalxrcontroller3dbuttonpressed_ptrcall[T])
+            call_func: isignalxrcontroller3dbuttonpressed_call[T]
             ptrcall_func: isignalxrcontroller3dbuttonpressed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16833,7 +24092,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalxrcontroller3dbuttonreleased_ptrcall[T])
+            call_func: isignalxrcontroller3dbuttonreleased_call[T]
             ptrcall_func: isignalxrcontroller3dbuttonreleased_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16876,7 +24135,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalxrcontroller3dinputfloatchanged_ptrcall[T])
+            call_func: isignalxrcontroller3dinputfloatchanged_call[T]
             ptrcall_func: isignalxrcontroller3dinputfloatchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16919,7 +24178,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalxrcontroller3dinputvector2changed_ptrcall[T])
+            call_func: isignalxrcontroller3dinputvector2changed_call[T]
             ptrcall_func: isignalxrcontroller3dinputvector2changed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16951,7 +24210,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalxrinterfaceplayareachanged_ptrcall[T])
+            call_func: isignalxrinterfaceplayareachanged_call[T]
             ptrcall_func: isignalxrinterfaceplayareachanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16983,7 +24242,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalxrnode3dtrackingchanged_ptrcall[T])
+            call_func: isignalxrnode3dtrackingchanged_call[T]
             ptrcall_func: isignalxrnode3dtrackingchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17015,7 +24274,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalxrpositionaltrackerposechanged_ptrcall[T])
+            call_func: isignalxrpositionaltrackerposechanged_call[T]
             ptrcall_func: isignalxrpositionaltrackerposechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17047,7 +24306,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalxrpositionaltrackerposelosttracking_ptrcall[T])
+            call_func: isignalxrpositionaltrackerposelosttracking_call[T]
             ptrcall_func: isignalxrpositionaltrackerposelosttracking_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17079,7 +24338,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalxrpositionaltrackerbuttonpressed_ptrcall[T])
+            call_func: isignalxrpositionaltrackerbuttonpressed_call[T]
             ptrcall_func: isignalxrpositionaltrackerbuttonpressed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17111,7 +24370,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalxrpositionaltrackerbuttonreleased_ptrcall[T])
+            call_func: isignalxrpositionaltrackerbuttonreleased_call[T]
             ptrcall_func: isignalxrpositionaltrackerbuttonreleased_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17154,7 +24413,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalxrpositionaltrackerinputfloatchanged_ptrcall[T])
+            call_func: isignalxrpositionaltrackerinputfloatchanged_call[T]
             ptrcall_func: isignalxrpositionaltrackerinputfloatchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17197,7 +24456,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalxrpositionaltrackerinputvector2changed_ptrcall[T])
+            call_func: isignalxrpositionaltrackerinputvector2changed_call[T]
             ptrcall_func: isignalxrpositionaltrackerinputvector2changed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17229,7 +24488,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalxrpositionaltrackerprofilechanged_ptrcall[T])
+            call_func: isignalxrpositionaltrackerprofilechanged_call[T]
             ptrcall_func: isignalxrpositionaltrackerprofilechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17261,7 +24520,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalxrserverinterfaceadded_ptrcall[T])
+            call_func: isignalxrserverinterfaceadded_call[T]
             ptrcall_func: isignalxrserverinterfaceadded_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17293,7 +24552,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalxrserverinterfaceremoved_ptrcall[T])
+            call_func: isignalxrserverinterfaceremoved_call[T]
             ptrcall_func: isignalxrserverinterfaceremoved_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17336,7 +24595,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalxrservertrackeradded_ptrcall[T])
+            call_func: isignalxrservertrackeradded_call[T]
             ptrcall_func: isignalxrservertrackeradded_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17379,7 +24638,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalxrservertrackerupdated_ptrcall[T])
+            call_func: isignalxrservertrackerupdated_call[T]
             ptrcall_func: isignalxrservertrackerupdated_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17422,7 +24681,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: ptrcall_to_call(isignalxrservertrackerremoved_ptrcall[T])
+            call_func: isignalxrservertrackerremoved_call[T]
             ptrcall_func: isignalxrservertrackerremoved_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
