@@ -64,6 +64,7 @@ pub fn register_class_with_name[T](parent_class string, class_name string) {
 
 	register_virtual_methods[T](mut ci)
 	gdf.classdb_register_extension_class(gdf.clp, &sn, &pn, &info)
+	register_signal_methods[T](mut ci)
 }
 
 pub fn register_class[T](parent_class string) {
@@ -78,11 +79,10 @@ fn class_set_func[T](instance GDExtensionClassInstancePtr, name &StringName, var
 	$for field in T.fields {
 		if field.name == vname {
 			$if field.typ is FromVariant {
-				
-					t := unsafe{&T(instance)}
-					mut var := &FromVariant(&t.$(field.name))
-					var.set_from_var(variant)
-					handled = true
+				t := unsafe{&T(instance)}
+				mut var := &FromVariant(&t.$(field.name))
+				var.set_from_var(variant)
+				handled = true
 			}$else $if field.typ is f64 {
 				mut t := unsafe{&T(instance)}
 				t.$(field.name) = f64_from_var(variant)

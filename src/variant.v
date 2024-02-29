@@ -86,3 +86,10 @@ pub fn (r &Node) get_node_v(path string) Node {
     np.deinit()
     return node
 }
+
+pub fn Callable.new(object &Object, method string) Callable {
+    sn := StringName.new(method)
+    c := Callable.new2(object, sn)
+    sn.deinit()
+    return c
+}

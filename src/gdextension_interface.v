@@ -152,10 +152,10 @@ pub type GDExtensionClassGetRID = fn (GDExtensionClassInstancePtr) u64
 
 pub struct GDExtensionPropertyInfo {
 	type_       GDExtensionVariantType
-	name        &StringName
-	class_name  &StringName
+	name        &StringName = unsafe{nil}
+	class_name  &StringName = unsafe{nil}
 	hint        u32
-	hint_string &String
+	hint_string &String = unsafe{nil}
 	usage       u32
 }
 
