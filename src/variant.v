@@ -100,8 +100,8 @@ fn ptrcall_to_call(ptr_call GDExtensionClassMethodPtrCall) GDExtensionClassMetho
         mut raw_args := []GDExtensionConstTypePtr{}
         for i in 0..int(arg_count) {
             o := gdf.mem_alloc(sizeof[voidptr]())
-            f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(args[i]))
-            f(o,args[i])
+            f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe{args[i]}))
+            f(o,unsafe{args[i]})
             raw_args << GDExtensionConstTypePtr(o)
         }
         ptr_call(method_userdata, inst, unsafe{&raw_args[0]}, unsafe{nil})

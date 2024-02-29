@@ -2334,7 +2334,7 @@ fn isignalarea2dbodyshapeentered_ptrcall[T](method_userdata voidptr, inst GDExte
     mut i := ISignalArea2DBodyShapeEntered(*t)
     arg_0_ptr := unsafe{&RID(voidptr(args[0]))}
     arg_0 := *arg_0_ptr
-    arg_1_ptr := &voidptr(args[1])
+    arg_1_ptr := unsafe{&voidptr(args[1])}
     arg_1 := Node2D{
         ptr: *arg_1_ptr
     }
@@ -2349,7 +2349,7 @@ fn isignalarea2dbodyshapeexited_ptrcall[T](method_userdata voidptr, inst GDExten
     mut i := ISignalArea2DBodyShapeExited(*t)
     arg_0_ptr := unsafe{&RID(voidptr(args[0]))}
     arg_0 := *arg_0_ptr
-    arg_1_ptr := &voidptr(args[1])
+    arg_1_ptr := unsafe{&voidptr(args[1])}
     arg_1 := Node2D{
         ptr: *arg_1_ptr
     }
@@ -2362,7 +2362,7 @@ fn isignalarea2dbodyshapeexited_ptrcall[T](method_userdata voidptr, inst GDExten
 fn isignalarea2dbodyentered_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalArea2DBodyEntered(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := Node2D{
         ptr: *arg_0_ptr
     }
@@ -2371,7 +2371,7 @@ fn isignalarea2dbodyentered_ptrcall[T](method_userdata voidptr, inst GDExtension
 fn isignalarea2dbodyexited_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalArea2DBodyExited(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := Node2D{
         ptr: *arg_0_ptr
     }
@@ -2382,7 +2382,7 @@ fn isignalarea2dareashapeentered_ptrcall[T](method_userdata voidptr, inst GDExte
     mut i := ISignalArea2DAreaShapeEntered(*t)
     arg_0_ptr := unsafe{&RID(voidptr(args[0]))}
     arg_0 := *arg_0_ptr
-    arg_1_ptr := &voidptr(args[1])
+    arg_1_ptr := unsafe{&voidptr(args[1])}
     arg_1 := Area2D{
         ptr: *arg_1_ptr
     }
@@ -2397,7 +2397,7 @@ fn isignalarea2dareashapeexited_ptrcall[T](method_userdata voidptr, inst GDExten
     mut i := ISignalArea2DAreaShapeExited(*t)
     arg_0_ptr := unsafe{&RID(voidptr(args[0]))}
     arg_0 := *arg_0_ptr
-    arg_1_ptr := &voidptr(args[1])
+    arg_1_ptr := unsafe{&voidptr(args[1])}
     arg_1 := Area2D{
         ptr: *arg_1_ptr
     }
@@ -2410,7 +2410,7 @@ fn isignalarea2dareashapeexited_ptrcall[T](method_userdata voidptr, inst GDExten
 fn isignalarea2dareaentered_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalArea2DAreaEntered(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := Area2D{
         ptr: *arg_0_ptr
     }
@@ -2419,7 +2419,7 @@ fn isignalarea2dareaentered_ptrcall[T](method_userdata voidptr, inst GDExtension
 fn isignalarea2dareaexited_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalArea2DAreaExited(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := Area2D{
         ptr: *arg_0_ptr
     }
@@ -2430,7 +2430,7 @@ fn isignalarea3dbodyshapeentered_ptrcall[T](method_userdata voidptr, inst GDExte
     mut i := ISignalArea3DBodyShapeEntered(*t)
     arg_0_ptr := unsafe{&RID(voidptr(args[0]))}
     arg_0 := *arg_0_ptr
-    arg_1_ptr := &voidptr(args[1])
+    arg_1_ptr := unsafe{&voidptr(args[1])}
     arg_1 := Node3D{
         ptr: *arg_1_ptr
     }
@@ -2445,7 +2445,7 @@ fn isignalarea3dbodyshapeexited_ptrcall[T](method_userdata voidptr, inst GDExten
     mut i := ISignalArea3DBodyShapeExited(*t)
     arg_0_ptr := unsafe{&RID(voidptr(args[0]))}
     arg_0 := *arg_0_ptr
-    arg_1_ptr := &voidptr(args[1])
+    arg_1_ptr := unsafe{&voidptr(args[1])}
     arg_1 := Node3D{
         ptr: *arg_1_ptr
     }
@@ -2458,7 +2458,7 @@ fn isignalarea3dbodyshapeexited_ptrcall[T](method_userdata voidptr, inst GDExten
 fn isignalarea3dbodyentered_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalArea3DBodyEntered(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := Node3D{
         ptr: *arg_0_ptr
     }
@@ -2467,7 +2467,7 @@ fn isignalarea3dbodyentered_ptrcall[T](method_userdata voidptr, inst GDExtension
 fn isignalarea3dbodyexited_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalArea3DBodyExited(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := Node3D{
         ptr: *arg_0_ptr
     }
@@ -2478,7 +2478,7 @@ fn isignalarea3dareashapeentered_ptrcall[T](method_userdata voidptr, inst GDExte
     mut i := ISignalArea3DAreaShapeEntered(*t)
     arg_0_ptr := unsafe{&RID(voidptr(args[0]))}
     arg_0 := *arg_0_ptr
-    arg_1_ptr := &voidptr(args[1])
+    arg_1_ptr := unsafe{&voidptr(args[1])}
     arg_1 := Area3D{
         ptr: *arg_1_ptr
     }
@@ -2493,7 +2493,7 @@ fn isignalarea3dareashapeexited_ptrcall[T](method_userdata voidptr, inst GDExten
     mut i := ISignalArea3DAreaShapeExited(*t)
     arg_0_ptr := unsafe{&RID(voidptr(args[0]))}
     arg_0 := *arg_0_ptr
-    arg_1_ptr := &voidptr(args[1])
+    arg_1_ptr := unsafe{&voidptr(args[1])}
     arg_1 := Area3D{
         ptr: *arg_1_ptr
     }
@@ -2506,7 +2506,7 @@ fn isignalarea3dareashapeexited_ptrcall[T](method_userdata voidptr, inst GDExten
 fn isignalarea3dareaentered_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalArea3DAreaEntered(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := Area3D{
         ptr: *arg_0_ptr
     }
@@ -2515,7 +2515,7 @@ fn isignalarea3dareaentered_ptrcall[T](method_userdata voidptr, inst GDExtension
 fn isignalarea3dareaexited_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalArea3DAreaExited(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := Area3D{
         ptr: *arg_0_ptr
     }
@@ -2587,7 +2587,7 @@ fn isignalbonemapprofileupdated_ptrcall[T](method_userdata voidptr, inst GDExten
 fn isignalbuttongrouppressed_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalButtonGroupPressed(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := BaseButton{
         ptr: *arg_0_ptr
     }
@@ -2675,11 +2675,11 @@ fn isignalcodeeditsymbolvalidate_ptrcall[T](method_userdata voidptr, inst GDExte
 fn isignalcollisionobject2dinputevent_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalCollisionObject2DInputEvent(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := Node{
         ptr: *arg_0_ptr
     }
-    arg_1_ptr := &voidptr(args[1])
+    arg_1_ptr := unsafe{&voidptr(args[1])}
     arg_1 := InputEvent{
         ptr: *arg_1_ptr
     }
@@ -2714,11 +2714,11 @@ fn isignalcollisionobject2dmouseshapeexited_ptrcall[T](method_userdata voidptr, 
 fn isignalcollisionobject3dinputevent_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalCollisionObject3DInputEvent(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := Node{
         ptr: *arg_0_ptr
     }
-    arg_1_ptr := &voidptr(args[1])
+    arg_1_ptr := unsafe{&voidptr(args[1])}
     arg_1 := InputEvent{
         ptr: *arg_1_ptr
     }
@@ -2796,7 +2796,7 @@ fn isignalcontrolresized_ptrcall[T](method_userdata voidptr, inst GDExtensionCla
 fn isignalcontrolguiinput_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalControlGuiInput(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := InputEvent{
         ptr: *arg_0_ptr
     }
@@ -2944,7 +2944,7 @@ fn isignaleditorinspectorpropertydeleted_ptrcall[T](method_userdata voidptr, ins
 fn isignaleditorinspectorresourceselected_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalEditorInspectorResourceSelected(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := Resource{
         ptr: *arg_0_ptr
     }
@@ -2988,7 +2988,7 @@ fn isignaleditorinspectorrestartrequested_ptrcall[T](method_userdata voidptr, in
 fn isignaleditorpluginscenechanged_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalEditorPluginSceneChanged(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := Node{
         ptr: *arg_0_ptr
     }
@@ -3011,7 +3011,7 @@ fn isignaleditorpluginmainscreenchanged_ptrcall[T](method_userdata voidptr, inst
 fn isignaleditorpluginresourcesaved_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalEditorPluginResourceSaved(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := Resource{
         ptr: *arg_0_ptr
     }
@@ -3099,7 +3099,7 @@ fn isignaleditorpropertyresourceselected_ptrcall[T](method_userdata voidptr, ins
     mut i := ISignalEditorPropertyResourceSelected(*t)
     arg_0_ptr := unsafe{&String(voidptr(args[0]))}
     arg_0 := *arg_0_ptr
-    arg_1_ptr := &voidptr(args[1])
+    arg_1_ptr := unsafe{&voidptr(args[1])}
     arg_1 := Resource{
         ptr: *arg_1_ptr
     }
@@ -3126,7 +3126,7 @@ fn isignaleditorpropertyselected_ptrcall[T](method_userdata voidptr, inst GDExte
 fn isignaleditorresourcepickerresourceselected_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalEditorResourcePickerResourceSelected(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := Resource{
         ptr: *arg_0_ptr
     }
@@ -3137,7 +3137,7 @@ fn isignaleditorresourcepickerresourceselected_ptrcall[T](method_userdata voidpt
 fn isignaleditorresourcepickerresourcechanged_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalEditorResourcePickerResourceChanged(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := Resource{
         ptr: *arg_0_ptr
     }
@@ -3228,7 +3228,7 @@ fn isignalfilesystemdockinstantiate_ptrcall[T](method_userdata voidptr, inst GDE
 fn isignalfilesystemdockresourceremoved_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalFileSystemDockResourceRemoved(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := Resource{
         ptr: *arg_0_ptr
     }
@@ -3375,7 +3375,7 @@ fn isignalgrapheditdeletenodesrequest_ptrcall[T](method_userdata voidptr, inst G
 fn isignalgrapheditnodeselected_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalGraphEditNodeSelected(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := Node{
         ptr: *arg_0_ptr
     }
@@ -3384,7 +3384,7 @@ fn isignalgrapheditnodeselected_ptrcall[T](method_userdata voidptr, inst GDExten
 fn isignalgrapheditnodedeselected_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalGraphEditNodeDeselected(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := Node{
         ptr: *arg_0_ptr
     }
@@ -3635,7 +3635,7 @@ fn isignalmultiplayerpeerpeerdisconnected_ptrcall[T](method_userdata voidptr, in
 fn isignalmultiplayerspawnerdespawned_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalMultiplayerSpawnerDespawned(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := Node{
         ptr: *arg_0_ptr
     }
@@ -3644,7 +3644,7 @@ fn isignalmultiplayerspawnerdespawned_ptrcall[T](method_userdata voidptr, inst G
 fn isignalmultiplayerspawnerspawned_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalMultiplayerSpawnerSpawned(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := Node{
         ptr: *arg_0_ptr
     }
@@ -3821,7 +3821,7 @@ fn isignalnodetreeexited_ptrcall[T](method_userdata voidptr, inst GDExtensionCla
 fn isignalnodechildenteredtree_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalNodeChildEnteredTree(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := Node{
         ptr: *arg_0_ptr
     }
@@ -3830,7 +3830,7 @@ fn isignalnodechildenteredtree_ptrcall[T](method_userdata voidptr, inst GDExtens
 fn isignalnodechildexitingtree_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalNodeChildExitingTree(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := Node{
         ptr: *arg_0_ptr
     }
@@ -3844,7 +3844,7 @@ fn isignalnodechildorderchanged_ptrcall[T](method_userdata voidptr, inst GDExten
 fn isignalnodereplacingby_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalNodeReplacingBy(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := Node{
         ptr: *arg_0_ptr
     }
@@ -4008,7 +4008,7 @@ fn isignalrigidbody2dbodyshapeentered_ptrcall[T](method_userdata voidptr, inst G
     mut i := ISignalRigidBody2DBodyShapeEntered(*t)
     arg_0_ptr := unsafe{&RID(voidptr(args[0]))}
     arg_0 := *arg_0_ptr
-    arg_1_ptr := &voidptr(args[1])
+    arg_1_ptr := unsafe{&voidptr(args[1])}
     arg_1 := Node{
         ptr: *arg_1_ptr
     }
@@ -4023,7 +4023,7 @@ fn isignalrigidbody2dbodyshapeexited_ptrcall[T](method_userdata voidptr, inst GD
     mut i := ISignalRigidBody2DBodyShapeExited(*t)
     arg_0_ptr := unsafe{&RID(voidptr(args[0]))}
     arg_0 := *arg_0_ptr
-    arg_1_ptr := &voidptr(args[1])
+    arg_1_ptr := unsafe{&voidptr(args[1])}
     arg_1 := Node{
         ptr: *arg_1_ptr
     }
@@ -4036,7 +4036,7 @@ fn isignalrigidbody2dbodyshapeexited_ptrcall[T](method_userdata voidptr, inst GD
 fn isignalrigidbody2dbodyentered_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalRigidBody2DBodyEntered(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := Node{
         ptr: *arg_0_ptr
     }
@@ -4045,7 +4045,7 @@ fn isignalrigidbody2dbodyentered_ptrcall[T](method_userdata voidptr, inst GDExte
 fn isignalrigidbody2dbodyexited_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalRigidBody2DBodyExited(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := Node{
         ptr: *arg_0_ptr
     }
@@ -4061,7 +4061,7 @@ fn isignalrigidbody3dbodyshapeentered_ptrcall[T](method_userdata voidptr, inst G
     mut i := ISignalRigidBody3DBodyShapeEntered(*t)
     arg_0_ptr := unsafe{&RID(voidptr(args[0]))}
     arg_0 := *arg_0_ptr
-    arg_1_ptr := &voidptr(args[1])
+    arg_1_ptr := unsafe{&voidptr(args[1])}
     arg_1 := Node{
         ptr: *arg_1_ptr
     }
@@ -4076,7 +4076,7 @@ fn isignalrigidbody3dbodyshapeexited_ptrcall[T](method_userdata voidptr, inst GD
     mut i := ISignalRigidBody3DBodyShapeExited(*t)
     arg_0_ptr := unsafe{&RID(voidptr(args[0]))}
     arg_0 := *arg_0_ptr
-    arg_1_ptr := &voidptr(args[1])
+    arg_1_ptr := unsafe{&voidptr(args[1])}
     arg_1 := Node{
         ptr: *arg_1_ptr
     }
@@ -4089,7 +4089,7 @@ fn isignalrigidbody3dbodyshapeexited_ptrcall[T](method_userdata voidptr, inst GD
 fn isignalrigidbody3dbodyentered_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalRigidBody3DBodyEntered(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := Node{
         ptr: *arg_0_ptr
     }
@@ -4098,7 +4098,7 @@ fn isignalrigidbody3dbodyentered_ptrcall[T](method_userdata voidptr, inst GDExte
 fn isignalrigidbody3dbodyexited_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalRigidBody3DBodyExited(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := Node{
         ptr: *arg_0_ptr
     }
@@ -4145,7 +4145,7 @@ fn isignalscenetreetreeprocessmodechanged_ptrcall[T](method_userdata voidptr, in
 fn isignalscenetreenodeadded_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalSceneTreeNodeAdded(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := Node{
         ptr: *arg_0_ptr
     }
@@ -4154,7 +4154,7 @@ fn isignalscenetreenodeadded_ptrcall[T](method_userdata voidptr, inst GDExtensio
 fn isignalscenetreenoderemoved_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalSceneTreeNodeRemoved(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := Node{
         ptr: *arg_0_ptr
     }
@@ -4163,7 +4163,7 @@ fn isignalscenetreenoderemoved_ptrcall[T](method_userdata voidptr, inst GDExtens
 fn isignalscenetreenoderenamed_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalSceneTreeNodeRenamed(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := Node{
         ptr: *arg_0_ptr
     }
@@ -4172,7 +4172,7 @@ fn isignalscenetreenoderenamed_ptrcall[T](method_userdata voidptr, inst GDExtens
 fn isignalscenetreenodeconfigurationwarningchanged_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalSceneTreeNodeConfigurationWarningChanged(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := Node{
         ptr: *arg_0_ptr
     }
@@ -4196,7 +4196,7 @@ fn isignalscenetreetimertimeout_ptrcall[T](method_userdata voidptr, inst GDExten
 fn isignalscriptcreatedialogscriptcreated_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalScriptCreateDialogScriptCreated(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := Script{
         ptr: *arg_0_ptr
     }
@@ -4205,7 +4205,7 @@ fn isignalscriptcreatedialogscriptcreated_ptrcall[T](method_userdata voidptr, in
 fn isignalscripteditoreditorscriptchanged_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalScriptEditorEditorScriptChanged(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := Script{
         ptr: *arg_0_ptr
     }
@@ -4214,7 +4214,7 @@ fn isignalscripteditoreditorscriptchanged_ptrcall[T](method_userdata voidptr, in
 fn isignalscripteditorscriptclose_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalScriptEditorScriptClose(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := Script{
         ptr: *arg_0_ptr
     }
@@ -4240,7 +4240,7 @@ fn isignalscripteditorbaserequesthelp_ptrcall[T](method_userdata voidptr, inst G
 fn isignalscripteditorbaserequestopenscriptatline_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalScriptEditorBaseRequestOpenScriptAtLine(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := Object{
         ptr: *arg_0_ptr
     }
@@ -4277,7 +4277,7 @@ fn isignalscripteditorbasereplaceinfilesrequested_ptrcall[T](method_userdata voi
 fn isignalscripteditorbasegotomethod_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalScriptEditorBaseGoToMethod(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := Object{
         ptr: *arg_0_ptr
     }
@@ -4576,7 +4576,7 @@ fn isignaltreecellselected_ptrcall[T](method_userdata voidptr, inst GDExtensionC
 fn isignaltreemultiselected_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalTreeMultiSelected(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := TreeItem{
         ptr: *arg_0_ptr
     }
@@ -4624,7 +4624,7 @@ fn isignaltreeitemicondoubleclicked_ptrcall[T](method_userdata voidptr, inst GDE
 fn isignaltreeitemcollapsed_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalTreeItemCollapsed(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := TreeItem{
         ptr: *arg_0_ptr
     }
@@ -4633,7 +4633,7 @@ fn isignaltreeitemcollapsed_ptrcall[T](method_userdata voidptr, inst GDExtension
 fn isignaltreecheckpropagatedtoitem_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalTreeCheckPropagatedToItem(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := TreeItem{
         ptr: *arg_0_ptr
     }
@@ -4644,7 +4644,7 @@ fn isignaltreecheckpropagatedtoitem_ptrcall[T](method_userdata voidptr, inst GDE
 fn isignaltreebuttonclicked_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalTreeButtonClicked(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := TreeItem{
         ptr: *arg_0_ptr
     }
@@ -4724,7 +4724,7 @@ fn isignalviewportsizechanged_ptrcall[T](method_userdata voidptr, inst GDExtensi
 fn isignalviewportguifocuschanged_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalViewportGuiFocusChanged(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := Control{
         ptr: *arg_0_ptr
     }
@@ -4778,7 +4778,7 @@ fn isignalwebrtcpeerconnectionicecandidatecreated_ptrcall[T](method_userdata voi
 fn isignalwebrtcpeerconnectiondatachannelreceived_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalWebRTCPeerConnectionDataChannelReceived(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := WebRTCDataChannel{
         ptr: *arg_0_ptr
     }
@@ -4870,7 +4870,7 @@ fn isignalwebxrinterfacedisplayrefreshratechanged_ptrcall[T](method_userdata voi
 fn isignalwindowwindowinput_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalWindowWindowInput(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := InputEvent{
         ptr: *arg_0_ptr
     }
@@ -4987,7 +4987,7 @@ fn isignalxrnode3dtrackingchanged_ptrcall[T](method_userdata voidptr, inst GDExt
 fn isignalxrpositionaltrackerposechanged_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalXRPositionalTrackerPoseChanged(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := XRPose{
         ptr: *arg_0_ptr
     }
@@ -4996,7 +4996,7 @@ fn isignalxrpositionaltrackerposechanged_ptrcall[T](method_userdata voidptr, ins
 fn isignalxrpositionaltrackerposelosttracking_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalXRPositionalTrackerPoseLostTracking(*t)
-    arg_0_ptr := &voidptr(args[0])
+    arg_0_ptr := unsafe{&voidptr(args[0])}
     arg_0 := XRPose{
         ptr: *arg_0_ptr
     }

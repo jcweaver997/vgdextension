@@ -404,7 +404,7 @@ fn gen_method_export(ea &ExtensionApi) ! {
 			for i,a in signal.arguments {
 				arg_type := convert_type(a.type_name, "")
 				if arg_type in objects {
-					f.write_string('    arg_${i}_ptr := &voidptr(args[${i}])\n')!
+					f.write_string('    arg_${i}_ptr := unsafe{&voidptr(args[${i}])}\n')!
 					f.write_string('    arg_${i} := ${arg_type}{\n')!
 					f.write_string('        ptr: *arg_${i}_ptr\n')!
 					f.write_string('    }\n')!
