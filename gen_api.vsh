@@ -138,6 +138,12 @@ pub mut:
 	arguments    []ExtensionApiArguments
 }
 
+struct ExtensionApiSignal {
+	pub mut:
+	name string
+	arguments []ExtensionApiMember
+}
+
 struct ExtensionApiClass {
 pub mut:
 	name            string
@@ -147,6 +153,7 @@ pub mut:
 	api_type        string
 	enums           []ExtensionApiEnum
 	methods         []ExtensionApiClassMethod
+	signals         []ExtensionApiSignal
 }
 
 struct ExtensionApiSingleton {
@@ -251,6 +258,7 @@ fn gen_file(ea &ExtensionApi) ! {
 	gen_classes(ea)!
 	gen_native_structures(ea)!
 	gen_virtual_bind(ea)!
+	gen_method_export(ea)!
 }
 
 fn json_replacements(original string) string {
@@ -331,6 +339,186 @@ fn gen_virtual_bind(ea &ExtensionApi) ! {
 	}
 
 	f.write_string('}\n')!
+}
+
+fn signal_name(class_name string, method_name string) string {
+	mut mname := method_name.capitalize()
+	for mname.contains('_') {
+		i := mname.index('_') or { panic(err) }
+		mname = '${mname[0..i]}${mname[i + 1..].capitalize()}'
+	}
+	return 'ISignal${class_name}${mname}'
+}
+
+fn class_to_variant_type(ea &ExtensionApi, class_name string) string {
+	class_names := ea.classes.map(convert_type(it.name, ''))
+	builtin_names := ea.builtin_classes.map(convert_type(it.name, ''))
+	name := convert_type(class_name, "")
+	if name in builtin_names {
+		return ".type_${name.to_lower()}"
+	}
+	if name in class_names {
+		return ".type_object"
+	}
+	return ".type_nil"
+}
+
+// temporary
+fn gen_method_export(ea &ExtensionApi) ! {
+	mut f := os.create('src/gdextension_api_method_export.v')!
+	defer {
+		f.close()
+	}
+	f.write_string('module vgdextension\n\n')!
+	objects := ea.classes.map(convert_type(it.name, ''))
+
+	for class in ea.classes {
+		for signal in class.signals {
+			// create interface
+			i_name := signal_name(class.name, signal.name)
+			f.write_string('pub interface ${i_name} {\n')!
+			f.write_string('    mut:\n')!
+			f.write_string('    signal_${convert_name(signal.name)}(')!
+			for i, a in signal.arguments {
+				if i != 0 {
+					f.write_string(', ')!
+				}
+				type_name := convert_type(a.type_name, "")
+				a_name := convert_name(a.name)
+				f.write_string('${a_name} ${type_name}')!
+			}
+			f.write_string(')\n')!
+			f.write_string('}\n\n')!
+		}
+	}
+
+
+	// gen ptr call
+	for class in ea.classes {
+		for signal in class.signals {
+			i_name := signal_name(class.name, signal.name)
+			f.write_string('fn ${i_name.to_lower()}_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {\n')!
+			f.write_string('    t := unsafe{&T(voidptr(inst))}\n')!
+			f.write_string('    mut i := ${i_name}(*t)\n')!
+
+			for i,a in signal.arguments {
+				arg_type := convert_type(a.type_name, "")
+				if arg_type in objects {
+					f.write_string('    arg_${i}_ptr := unsafe{&voidptr(args[${i}])}\n')!
+					f.write_string('    arg_${i} := ${arg_type}{\n')!
+					f.write_string('        ptr: *arg_${i}_ptr\n')!
+					f.write_string('    }\n')!
+				}else{
+					f.write_string('    arg_${i}_ptr := unsafe{&${arg_type}(voidptr(args[${i}]))}\n')!
+					f.write_string('    arg_${i} := *arg_${i}_ptr\n')!
+				}
+
+			}
+			f.write_string('    i.signal_${convert_name(signal.name)}(')!
+			for i,_ in signal.arguments {
+				if i != 0 {
+					f.write_string(', ')!
+				}
+				f.write_string('arg_${i}')!
+			}
+			f.write_string(')\n')!
+			f.write_string('}\n')!
+
+		}
+	}
+
+	// gen call
+	for class in ea.classes {
+		for signal in class.signals {
+			i_name := signal_name(class.name, signal.name)
+			f.write_string('fn ${i_name.to_lower()}_call[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError) {\n')!
+			f.write_string('    mut raw_args := []GDExtensionConstTypePtr{}\n')!
+			f.write_string('    for i in 0 .. int(arg_count) {\n')!
+			f.write_string('    	o := gdf.mem_alloc(sizeof[voidptr]())\n')!
+			f.write_string('    	f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(unsafe { args[i] }))\n')!
+			f.write_string('    	f(o, unsafe { args[i] })\n')!
+			f.write_string('    	raw_args << GDExtensionConstTypePtr(o)\n')!
+			f.write_string('    }\n')!
+			f.write_string('    if int(arg_count) > 0 {\n')!
+			f.write_string('        ${i_name.to_lower()}_ptrcall[T](method_userdata, inst, unsafe { &raw_args[0] }, unsafe { nil })\n')!
+			f.write_string('    }else{\n')!
+			f.write_string('        ${i_name.to_lower()}_ptrcall[T](method_userdata, inst, unsafe { nil }, unsafe { nil })\n')!
+			f.write_string('    }\n')!
+			f.write_string('    for i in 0 .. int(arg_count) {\n')!
+			f.write_string('        gdf.mem_free(raw_args[i])\n')!
+			f.write_string('    }\n')!
+			f.write_string('}\n')!
+		}
+	}
+
+	f.write_string('pub fn register_signal_methods[T](mut ci ClassInfo) {\n')!
+	for class in ea.classes {
+		for signal in class.signals {
+			f.write_string('    \$if ')!
+			i_name := signal_name(class.name, signal.name)
+			f.write_string('T is ${i_name} {{\n')!
+
+			if signal.arguments.len > 0 {
+				f.write_string('        mut argument_props := [${signal.arguments.len}]GDExtensionPropertyInfo{}\n')!
+				f.write_string('        mut argument_metadata := [${signal.arguments.len}]GDExtensionClassMethodArgumentMetadata{}\n')!
+				for i,a in signal.arguments {
+					vartype := class_to_variant_type(ea, a.type_name)
+					f.write_string('        mut arg_name_${i} := StringName.new("${a.name}")\n')!
+					f.write_string('        mut arg_hint_${i} := String.new("")\n')!
+					f.write_string('        argument_props[${i}] = GDExtensionPropertyInfo {\n')!
+					f.write_string('            type_: ${vartype}\n')!
+					f.write_string('            name: &arg_name_${i}\n')!
+					f.write_string('            class_name: &ci.class_name\n')!
+					f.write_string('            hint: u32(PropertyHint.property_hint_none)\n')!
+					f.write_string('            hint_string: &arg_hint_${i}\n')!
+					f.write_string('            usage: u32(PropertyUsageFlags.property_usage_default)\n')!
+					f.write_string('        }\n')!
+
+					match vartype {
+						".type_f64" {
+							f.write_string('        argument_metadata[${i}] = .gdextension_method_argument_metadata_real_is_double\n')!
+						}
+						".type_i64" {
+							f.write_string('        argument_metadata[${i}] = .gdextension_method_argument_metadata_int_is_int64\n')!
+						}
+						else {
+							f.write_string('        argument_metadata[${i}] = .gdextension_method_argument_metadata_none\n')!
+						}
+					}
+				}
+				
+			}
+			
+			f.write_string('        method_name := StringName.new("signal_${convert_name(signal.name)}")\n')!
+			f.write_string('        method_info := GDExtensionClassMethodInfo {\n')!
+			f.write_string('            name: &method_name\n')!
+			f.write_string('            method_userdata: unsafe{nil}\n')!
+			f.write_string('            call_func: ${i_name.to_lower()}_call[T]\n')!
+			f.write_string('            ptrcall_func: ${i_name.to_lower()}_ptrcall[T]\n')!
+			f.write_string('            method_flags: 1\n')!
+			f.write_string('            has_return_value: GDExtensionBool(false)\n')!
+			f.write_string('            return_value_info: unsafe{nil}\n')!
+			f.write_string('            return_value_metadata: GDExtensionClassMethodArgumentMetadata{}\n')!
+
+			f.write_string('            argument_count: ${signal.arguments.len}\n')!
+			if signal.arguments.len > 0 {
+				f.write_string('            arguments_info: unsafe{&argument_props[0]}\n')!
+				f.write_string('            arguments_metadata: unsafe{&argument_metadata[0]}\n')!
+			}else{
+				f.write_string('            arguments_info: unsafe{nil}\n')!
+				f.write_string('            arguments_metadata: unsafe{nil}\n')!
+			}
+			f.write_string('            default_argument_count: 0\n')!
+			f.write_string('            default_arguments: unsafe{nil}\n')!
+			f.write_string('        }\n')!
+			f.write_string('        gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)\n')!
+			f.write_string('    }}\n')!
+		}
+	}
+
+
+	f.write_string('}\n\n')!
+
 }
 
 fn gen_global_enums(ea &ExtensionApi) ! {
