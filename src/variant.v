@@ -93,3 +93,21 @@ pub fn Callable.new(object &Object, method string) Callable {
     sn.deinit()
     return c
 }
+
+// used for signals, no return handled, very unsafe
+fn ptrcall_to_call(ptr_call GDExtensionClassMethodPtrCall) GDExtensionClassMethodCall {
+    return fn [ptr_call](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &&Variant, arg_count GDExtensionInt, ret &Variant, err &GDExtensionCallError){
+        mut raw_args := []GDExtensionConstTypePtr{}
+        for i in 0..int(arg_count) {
+            o := gdf.mem_alloc(sizeof[voidptr]())
+            f := gdf.get_variant_to_type_constructor(gdf.variant_get_type(args[i]))
+            f(o,args[i])
+            raw_args << GDExtensionConstTypePtr(o)
+        }
+        ptr_call(method_userdata, inst, unsafe{&raw_args[0]}, unsafe{nil})
+        for i in 0..int(arg_count) {
+            gdf.mem_free(raw_args[i])
+        }
+        
+    }
+}

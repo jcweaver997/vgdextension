@@ -370,6 +370,7 @@ fn gen_method_export(ea &ExtensionApi) ! {
 		f.close()
 	}
 	f.write_string('module vgdextension\n\n')!
+	objects := ea.classes.map(convert_type(it.name, ''))
 
 	for class in ea.classes {
 		for signal in class.signals {
@@ -401,8 +402,17 @@ fn gen_method_export(ea &ExtensionApi) ! {
 			f.write_string('    mut i := ${i_name}(*t)\n')!
 
 			for i,a in signal.arguments {
-			f.write_string('    arg_${i}_ptr := unsafe{&${convert_type(a.type_name, "")}(voidptr(args[${i}]))}\n')!
-			f.write_string('    arg_${i} := *arg_${i}_ptr\n')!
+				arg_type := convert_type(a.type_name, "")
+				if arg_type in objects {
+					f.write_string('    arg_${i}_ptr := &voidptr(args[${i}])\n')!
+					f.write_string('    arg_${i} := ${arg_type}{\n')!
+					f.write_string('        ptr: *arg_${i}_ptr\n')!
+					f.write_string('    }\n')!
+				}else{
+					f.write_string('    arg_${i}_ptr := unsafe{&${arg_type}(voidptr(args[${i}]))}\n')!
+					f.write_string('    arg_${i} := *arg_${i}_ptr\n')!
+				}
+
 			}
 			f.write_string('    i.signal_${convert_name(signal.name)}(')!
 			for i,_ in signal.arguments {
@@ -430,12 +440,13 @@ fn gen_method_export(ea &ExtensionApi) ! {
 				for i,a in signal.arguments {
 					vartype := class_to_variant_type(ea, a.type_name)
 					f.write_string('        mut arg_name_${i} := StringName.new("${a.name}")\n')!
+					f.write_string('        mut arg_hint_${i} := String.new("")\n')!
 					f.write_string('        argument_props[${i}] = GDExtensionPropertyInfo {\n')!
 					f.write_string('            type_: ${vartype}\n')!
 					f.write_string('            name: &arg_name_${i}\n')!
 					f.write_string('            class_name: &ci.class_name\n')!
 					f.write_string('            hint: u32(PropertyHint.property_hint_none)\n')!
-					f.write_string('            hint_string: unsafe{nil}\n')!
+					f.write_string('            hint_string: &arg_hint_${i}\n')!
 					f.write_string('            usage: u32(PropertyUsageFlags.property_usage_default)\n')!
 					f.write_string('        }\n')!
 
@@ -458,7 +469,7 @@ fn gen_method_export(ea &ExtensionApi) ! {
 			f.write_string('        method_info := GDExtensionClassMethodInfo {\n')!
 			f.write_string('            name: &method_name\n')!
 			f.write_string('            method_userdata: unsafe{nil}\n')!
-			f.write_string('            call_func: unsafe{nil}\n')!
+			f.write_string('            call_func: ptrcall_to_call(${i_name.to_lower()}_ptrcall[T])\n')!
 			f.write_string('            ptrcall_func: ${i_name.to_lower()}_ptrcall[T]\n')!
 			f.write_string('            method_flags: 1\n')!
 			f.write_string('            has_return_value: GDExtensionBool(false)\n')!
@@ -476,9 +487,7 @@ fn gen_method_export(ea &ExtensionApi) ! {
 			f.write_string('            default_argument_count: 0\n')!
 			f.write_string('            default_arguments: unsafe{nil}\n')!
 			f.write_string('        }\n')!
-			f.write_string('        println("registering ${i_name} for \${T.name}")\n')!
 			f.write_string('        gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)\n')!
-			f.write_string('        println("registered")\n')!
 			f.write_string('    }}\n')!
 		}
 	}

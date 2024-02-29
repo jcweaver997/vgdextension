@@ -2334,8 +2334,10 @@ fn isignalarea2dbodyshapeentered_ptrcall[T](method_userdata voidptr, inst GDExte
     mut i := ISignalArea2DBodyShapeEntered(*t)
     arg_0_ptr := unsafe{&RID(voidptr(args[0]))}
     arg_0 := *arg_0_ptr
-    arg_1_ptr := unsafe{&Node2D(voidptr(args[1]))}
-    arg_1 := *arg_1_ptr
+    arg_1_ptr := &voidptr(args[1])
+    arg_1 := Node2D{
+        ptr: *arg_1_ptr
+    }
     arg_2_ptr := unsafe{&i64(voidptr(args[2]))}
     arg_2 := *arg_2_ptr
     arg_3_ptr := unsafe{&i64(voidptr(args[3]))}
@@ -2347,8 +2349,10 @@ fn isignalarea2dbodyshapeexited_ptrcall[T](method_userdata voidptr, inst GDExten
     mut i := ISignalArea2DBodyShapeExited(*t)
     arg_0_ptr := unsafe{&RID(voidptr(args[0]))}
     arg_0 := *arg_0_ptr
-    arg_1_ptr := unsafe{&Node2D(voidptr(args[1]))}
-    arg_1 := *arg_1_ptr
+    arg_1_ptr := &voidptr(args[1])
+    arg_1 := Node2D{
+        ptr: *arg_1_ptr
+    }
     arg_2_ptr := unsafe{&i64(voidptr(args[2]))}
     arg_2 := *arg_2_ptr
     arg_3_ptr := unsafe{&i64(voidptr(args[3]))}
@@ -2358,15 +2362,19 @@ fn isignalarea2dbodyshapeexited_ptrcall[T](method_userdata voidptr, inst GDExten
 fn isignalarea2dbodyentered_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalArea2DBodyEntered(*t)
-    arg_0_ptr := unsafe{&Node2D(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := Node2D{
+        ptr: *arg_0_ptr
+    }
     i.signal_body_entered(arg_0)
 }
 fn isignalarea2dbodyexited_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalArea2DBodyExited(*t)
-    arg_0_ptr := unsafe{&Node2D(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := Node2D{
+        ptr: *arg_0_ptr
+    }
     i.signal_body_exited(arg_0)
 }
 fn isignalarea2dareashapeentered_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
@@ -2374,8 +2382,10 @@ fn isignalarea2dareashapeentered_ptrcall[T](method_userdata voidptr, inst GDExte
     mut i := ISignalArea2DAreaShapeEntered(*t)
     arg_0_ptr := unsafe{&RID(voidptr(args[0]))}
     arg_0 := *arg_0_ptr
-    arg_1_ptr := unsafe{&Area2D(voidptr(args[1]))}
-    arg_1 := *arg_1_ptr
+    arg_1_ptr := &voidptr(args[1])
+    arg_1 := Area2D{
+        ptr: *arg_1_ptr
+    }
     arg_2_ptr := unsafe{&i64(voidptr(args[2]))}
     arg_2 := *arg_2_ptr
     arg_3_ptr := unsafe{&i64(voidptr(args[3]))}
@@ -2387,8 +2397,10 @@ fn isignalarea2dareashapeexited_ptrcall[T](method_userdata voidptr, inst GDExten
     mut i := ISignalArea2DAreaShapeExited(*t)
     arg_0_ptr := unsafe{&RID(voidptr(args[0]))}
     arg_0 := *arg_0_ptr
-    arg_1_ptr := unsafe{&Area2D(voidptr(args[1]))}
-    arg_1 := *arg_1_ptr
+    arg_1_ptr := &voidptr(args[1])
+    arg_1 := Area2D{
+        ptr: *arg_1_ptr
+    }
     arg_2_ptr := unsafe{&i64(voidptr(args[2]))}
     arg_2 := *arg_2_ptr
     arg_3_ptr := unsafe{&i64(voidptr(args[3]))}
@@ -2398,15 +2410,19 @@ fn isignalarea2dareashapeexited_ptrcall[T](method_userdata voidptr, inst GDExten
 fn isignalarea2dareaentered_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalArea2DAreaEntered(*t)
-    arg_0_ptr := unsafe{&Area2D(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := Area2D{
+        ptr: *arg_0_ptr
+    }
     i.signal_area_entered(arg_0)
 }
 fn isignalarea2dareaexited_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalArea2DAreaExited(*t)
-    arg_0_ptr := unsafe{&Area2D(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := Area2D{
+        ptr: *arg_0_ptr
+    }
     i.signal_area_exited(arg_0)
 }
 fn isignalarea3dbodyshapeentered_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
@@ -2414,8 +2430,10 @@ fn isignalarea3dbodyshapeentered_ptrcall[T](method_userdata voidptr, inst GDExte
     mut i := ISignalArea3DBodyShapeEntered(*t)
     arg_0_ptr := unsafe{&RID(voidptr(args[0]))}
     arg_0 := *arg_0_ptr
-    arg_1_ptr := unsafe{&Node3D(voidptr(args[1]))}
-    arg_1 := *arg_1_ptr
+    arg_1_ptr := &voidptr(args[1])
+    arg_1 := Node3D{
+        ptr: *arg_1_ptr
+    }
     arg_2_ptr := unsafe{&i64(voidptr(args[2]))}
     arg_2 := *arg_2_ptr
     arg_3_ptr := unsafe{&i64(voidptr(args[3]))}
@@ -2427,8 +2445,10 @@ fn isignalarea3dbodyshapeexited_ptrcall[T](method_userdata voidptr, inst GDExten
     mut i := ISignalArea3DBodyShapeExited(*t)
     arg_0_ptr := unsafe{&RID(voidptr(args[0]))}
     arg_0 := *arg_0_ptr
-    arg_1_ptr := unsafe{&Node3D(voidptr(args[1]))}
-    arg_1 := *arg_1_ptr
+    arg_1_ptr := &voidptr(args[1])
+    arg_1 := Node3D{
+        ptr: *arg_1_ptr
+    }
     arg_2_ptr := unsafe{&i64(voidptr(args[2]))}
     arg_2 := *arg_2_ptr
     arg_3_ptr := unsafe{&i64(voidptr(args[3]))}
@@ -2438,15 +2458,19 @@ fn isignalarea3dbodyshapeexited_ptrcall[T](method_userdata voidptr, inst GDExten
 fn isignalarea3dbodyentered_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalArea3DBodyEntered(*t)
-    arg_0_ptr := unsafe{&Node3D(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := Node3D{
+        ptr: *arg_0_ptr
+    }
     i.signal_body_entered(arg_0)
 }
 fn isignalarea3dbodyexited_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalArea3DBodyExited(*t)
-    arg_0_ptr := unsafe{&Node3D(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := Node3D{
+        ptr: *arg_0_ptr
+    }
     i.signal_body_exited(arg_0)
 }
 fn isignalarea3dareashapeentered_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
@@ -2454,8 +2478,10 @@ fn isignalarea3dareashapeentered_ptrcall[T](method_userdata voidptr, inst GDExte
     mut i := ISignalArea3DAreaShapeEntered(*t)
     arg_0_ptr := unsafe{&RID(voidptr(args[0]))}
     arg_0 := *arg_0_ptr
-    arg_1_ptr := unsafe{&Area3D(voidptr(args[1]))}
-    arg_1 := *arg_1_ptr
+    arg_1_ptr := &voidptr(args[1])
+    arg_1 := Area3D{
+        ptr: *arg_1_ptr
+    }
     arg_2_ptr := unsafe{&i64(voidptr(args[2]))}
     arg_2 := *arg_2_ptr
     arg_3_ptr := unsafe{&i64(voidptr(args[3]))}
@@ -2467,8 +2493,10 @@ fn isignalarea3dareashapeexited_ptrcall[T](method_userdata voidptr, inst GDExten
     mut i := ISignalArea3DAreaShapeExited(*t)
     arg_0_ptr := unsafe{&RID(voidptr(args[0]))}
     arg_0 := *arg_0_ptr
-    arg_1_ptr := unsafe{&Area3D(voidptr(args[1]))}
-    arg_1 := *arg_1_ptr
+    arg_1_ptr := &voidptr(args[1])
+    arg_1 := Area3D{
+        ptr: *arg_1_ptr
+    }
     arg_2_ptr := unsafe{&i64(voidptr(args[2]))}
     arg_2 := *arg_2_ptr
     arg_3_ptr := unsafe{&i64(voidptr(args[3]))}
@@ -2478,15 +2506,19 @@ fn isignalarea3dareashapeexited_ptrcall[T](method_userdata voidptr, inst GDExten
 fn isignalarea3dareaentered_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalArea3DAreaEntered(*t)
-    arg_0_ptr := unsafe{&Area3D(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := Area3D{
+        ptr: *arg_0_ptr
+    }
     i.signal_area_entered(arg_0)
 }
 fn isignalarea3dareaexited_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalArea3DAreaExited(*t)
-    arg_0_ptr := unsafe{&Area3D(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := Area3D{
+        ptr: *arg_0_ptr
+    }
     i.signal_area_exited(arg_0)
 }
 fn isignalaudioserverbuslayoutchanged_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
@@ -2555,8 +2587,10 @@ fn isignalbonemapprofileupdated_ptrcall[T](method_userdata voidptr, inst GDExten
 fn isignalbuttongrouppressed_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalButtonGroupPressed(*t)
-    arg_0_ptr := unsafe{&BaseButton(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := BaseButton{
+        ptr: *arg_0_ptr
+    }
     i.signal_pressed(arg_0)
 }
 fn isignalcpuparticles2dfinished_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
@@ -2641,10 +2675,14 @@ fn isignalcodeeditsymbolvalidate_ptrcall[T](method_userdata voidptr, inst GDExte
 fn isignalcollisionobject2dinputevent_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalCollisionObject2DInputEvent(*t)
-    arg_0_ptr := unsafe{&Node(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
-    arg_1_ptr := unsafe{&InputEvent(voidptr(args[1]))}
-    arg_1 := *arg_1_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := Node{
+        ptr: *arg_0_ptr
+    }
+    arg_1_ptr := &voidptr(args[1])
+    arg_1 := InputEvent{
+        ptr: *arg_1_ptr
+    }
     arg_2_ptr := unsafe{&i64(voidptr(args[2]))}
     arg_2 := *arg_2_ptr
     i.signal_input_event(arg_0, arg_1, arg_2)
@@ -2676,10 +2714,14 @@ fn isignalcollisionobject2dmouseshapeexited_ptrcall[T](method_userdata voidptr, 
 fn isignalcollisionobject3dinputevent_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalCollisionObject3DInputEvent(*t)
-    arg_0_ptr := unsafe{&Node(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
-    arg_1_ptr := unsafe{&InputEvent(voidptr(args[1]))}
-    arg_1 := *arg_1_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := Node{
+        ptr: *arg_0_ptr
+    }
+    arg_1_ptr := &voidptr(args[1])
+    arg_1 := InputEvent{
+        ptr: *arg_1_ptr
+    }
     arg_2_ptr := unsafe{&Vector3(voidptr(args[2]))}
     arg_2 := *arg_2_ptr
     arg_3_ptr := unsafe{&Vector3(voidptr(args[3]))}
@@ -2754,8 +2796,10 @@ fn isignalcontrolresized_ptrcall[T](method_userdata voidptr, inst GDExtensionCla
 fn isignalcontrolguiinput_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalControlGuiInput(*t)
-    arg_0_ptr := unsafe{&InputEvent(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := InputEvent{
+        ptr: *arg_0_ptr
+    }
     i.signal_gui_input(arg_0)
 }
 fn isignalcontrolmouseentered_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
@@ -2900,8 +2944,10 @@ fn isignaleditorinspectorpropertydeleted_ptrcall[T](method_userdata voidptr, ins
 fn isignaleditorinspectorresourceselected_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalEditorInspectorResourceSelected(*t)
-    arg_0_ptr := unsafe{&Resource(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := Resource{
+        ptr: *arg_0_ptr
+    }
     arg_1_ptr := unsafe{&String(voidptr(args[1]))}
     arg_1 := *arg_1_ptr
     i.signal_resource_selected(arg_0, arg_1)
@@ -2942,8 +2988,10 @@ fn isignaleditorinspectorrestartrequested_ptrcall[T](method_userdata voidptr, in
 fn isignaleditorpluginscenechanged_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalEditorPluginSceneChanged(*t)
-    arg_0_ptr := unsafe{&Node(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := Node{
+        ptr: *arg_0_ptr
+    }
     i.signal_scene_changed(arg_0)
 }
 fn isignaleditorpluginsceneclosed_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
@@ -2963,8 +3011,10 @@ fn isignaleditorpluginmainscreenchanged_ptrcall[T](method_userdata voidptr, inst
 fn isignaleditorpluginresourcesaved_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalEditorPluginResourceSaved(*t)
-    arg_0_ptr := unsafe{&Resource(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := Resource{
+        ptr: *arg_0_ptr
+    }
     i.signal_resource_saved(arg_0)
 }
 fn isignaleditorpluginprojectsettingschanged_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
@@ -3049,8 +3099,10 @@ fn isignaleditorpropertyresourceselected_ptrcall[T](method_userdata voidptr, ins
     mut i := ISignalEditorPropertyResourceSelected(*t)
     arg_0_ptr := unsafe{&String(voidptr(args[0]))}
     arg_0 := *arg_0_ptr
-    arg_1_ptr := unsafe{&Resource(voidptr(args[1]))}
-    arg_1 := *arg_1_ptr
+    arg_1_ptr := &voidptr(args[1])
+    arg_1 := Resource{
+        ptr: *arg_1_ptr
+    }
     i.signal_resource_selected(arg_0, arg_1)
 }
 fn isignaleditorpropertyobjectidselected_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
@@ -3074,8 +3126,10 @@ fn isignaleditorpropertyselected_ptrcall[T](method_userdata voidptr, inst GDExte
 fn isignaleditorresourcepickerresourceselected_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalEditorResourcePickerResourceSelected(*t)
-    arg_0_ptr := unsafe{&Resource(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := Resource{
+        ptr: *arg_0_ptr
+    }
     arg_1_ptr := unsafe{&bool(voidptr(args[1]))}
     arg_1 := *arg_1_ptr
     i.signal_resource_selected(arg_0, arg_1)
@@ -3083,8 +3137,10 @@ fn isignaleditorresourcepickerresourceselected_ptrcall[T](method_userdata voidpt
 fn isignaleditorresourcepickerresourcechanged_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalEditorResourcePickerResourceChanged(*t)
-    arg_0_ptr := unsafe{&Resource(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := Resource{
+        ptr: *arg_0_ptr
+    }
     i.signal_resource_changed(arg_0)
 }
 fn isignaleditorresourcepreviewpreviewinvalidated_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
@@ -3172,8 +3228,10 @@ fn isignalfilesystemdockinstantiate_ptrcall[T](method_userdata voidptr, inst GDE
 fn isignalfilesystemdockresourceremoved_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalFileSystemDockResourceRemoved(*t)
-    arg_0_ptr := unsafe{&Resource(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := Resource{
+        ptr: *arg_0_ptr
+    }
     i.signal_resource_removed(arg_0)
 }
 fn isignalfilesystemdockfileremoved_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
@@ -3317,15 +3375,19 @@ fn isignalgrapheditdeletenodesrequest_ptrcall[T](method_userdata voidptr, inst G
 fn isignalgrapheditnodeselected_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalGraphEditNodeSelected(*t)
-    arg_0_ptr := unsafe{&Node(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := Node{
+        ptr: *arg_0_ptr
+    }
     i.signal_node_selected(arg_0)
 }
 fn isignalgrapheditnodedeselected_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalGraphEditNodeDeselected(*t)
-    arg_0_ptr := unsafe{&Node(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := Node{
+        ptr: *arg_0_ptr
+    }
     i.signal_node_deselected(arg_0)
 }
 fn isignalgrapheditpopuprequest_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
@@ -3573,15 +3635,19 @@ fn isignalmultiplayerpeerpeerdisconnected_ptrcall[T](method_userdata voidptr, in
 fn isignalmultiplayerspawnerdespawned_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalMultiplayerSpawnerDespawned(*t)
-    arg_0_ptr := unsafe{&Node(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := Node{
+        ptr: *arg_0_ptr
+    }
     i.signal_despawned(arg_0)
 }
 fn isignalmultiplayerspawnerspawned_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalMultiplayerSpawnerSpawned(*t)
-    arg_0_ptr := unsafe{&Node(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := Node{
+        ptr: *arg_0_ptr
+    }
     i.signal_spawned(arg_0)
 }
 fn isignalmultiplayersynchronizersynchronized_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
@@ -3755,15 +3821,19 @@ fn isignalnodetreeexited_ptrcall[T](method_userdata voidptr, inst GDExtensionCla
 fn isignalnodechildenteredtree_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalNodeChildEnteredTree(*t)
-    arg_0_ptr := unsafe{&Node(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := Node{
+        ptr: *arg_0_ptr
+    }
     i.signal_child_entered_tree(arg_0)
 }
 fn isignalnodechildexitingtree_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalNodeChildExitingTree(*t)
-    arg_0_ptr := unsafe{&Node(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := Node{
+        ptr: *arg_0_ptr
+    }
     i.signal_child_exiting_tree(arg_0)
 }
 fn isignalnodechildorderchanged_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
@@ -3774,8 +3844,10 @@ fn isignalnodechildorderchanged_ptrcall[T](method_userdata voidptr, inst GDExten
 fn isignalnodereplacingby_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalNodeReplacingBy(*t)
-    arg_0_ptr := unsafe{&Node(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := Node{
+        ptr: *arg_0_ptr
+    }
     i.signal_replacing_by(arg_0)
 }
 fn isignalnode3dvisibilitychanged_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
@@ -3936,8 +4008,10 @@ fn isignalrigidbody2dbodyshapeentered_ptrcall[T](method_userdata voidptr, inst G
     mut i := ISignalRigidBody2DBodyShapeEntered(*t)
     arg_0_ptr := unsafe{&RID(voidptr(args[0]))}
     arg_0 := *arg_0_ptr
-    arg_1_ptr := unsafe{&Node(voidptr(args[1]))}
-    arg_1 := *arg_1_ptr
+    arg_1_ptr := &voidptr(args[1])
+    arg_1 := Node{
+        ptr: *arg_1_ptr
+    }
     arg_2_ptr := unsafe{&i64(voidptr(args[2]))}
     arg_2 := *arg_2_ptr
     arg_3_ptr := unsafe{&i64(voidptr(args[3]))}
@@ -3949,8 +4023,10 @@ fn isignalrigidbody2dbodyshapeexited_ptrcall[T](method_userdata voidptr, inst GD
     mut i := ISignalRigidBody2DBodyShapeExited(*t)
     arg_0_ptr := unsafe{&RID(voidptr(args[0]))}
     arg_0 := *arg_0_ptr
-    arg_1_ptr := unsafe{&Node(voidptr(args[1]))}
-    arg_1 := *arg_1_ptr
+    arg_1_ptr := &voidptr(args[1])
+    arg_1 := Node{
+        ptr: *arg_1_ptr
+    }
     arg_2_ptr := unsafe{&i64(voidptr(args[2]))}
     arg_2 := *arg_2_ptr
     arg_3_ptr := unsafe{&i64(voidptr(args[3]))}
@@ -3960,15 +4036,19 @@ fn isignalrigidbody2dbodyshapeexited_ptrcall[T](method_userdata voidptr, inst GD
 fn isignalrigidbody2dbodyentered_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalRigidBody2DBodyEntered(*t)
-    arg_0_ptr := unsafe{&Node(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := Node{
+        ptr: *arg_0_ptr
+    }
     i.signal_body_entered(arg_0)
 }
 fn isignalrigidbody2dbodyexited_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalRigidBody2DBodyExited(*t)
-    arg_0_ptr := unsafe{&Node(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := Node{
+        ptr: *arg_0_ptr
+    }
     i.signal_body_exited(arg_0)
 }
 fn isignalrigidbody2dsleepingstatechanged_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
@@ -3981,8 +4061,10 @@ fn isignalrigidbody3dbodyshapeentered_ptrcall[T](method_userdata voidptr, inst G
     mut i := ISignalRigidBody3DBodyShapeEntered(*t)
     arg_0_ptr := unsafe{&RID(voidptr(args[0]))}
     arg_0 := *arg_0_ptr
-    arg_1_ptr := unsafe{&Node(voidptr(args[1]))}
-    arg_1 := *arg_1_ptr
+    arg_1_ptr := &voidptr(args[1])
+    arg_1 := Node{
+        ptr: *arg_1_ptr
+    }
     arg_2_ptr := unsafe{&i64(voidptr(args[2]))}
     arg_2 := *arg_2_ptr
     arg_3_ptr := unsafe{&i64(voidptr(args[3]))}
@@ -3994,8 +4076,10 @@ fn isignalrigidbody3dbodyshapeexited_ptrcall[T](method_userdata voidptr, inst GD
     mut i := ISignalRigidBody3DBodyShapeExited(*t)
     arg_0_ptr := unsafe{&RID(voidptr(args[0]))}
     arg_0 := *arg_0_ptr
-    arg_1_ptr := unsafe{&Node(voidptr(args[1]))}
-    arg_1 := *arg_1_ptr
+    arg_1_ptr := &voidptr(args[1])
+    arg_1 := Node{
+        ptr: *arg_1_ptr
+    }
     arg_2_ptr := unsafe{&i64(voidptr(args[2]))}
     arg_2 := *arg_2_ptr
     arg_3_ptr := unsafe{&i64(voidptr(args[3]))}
@@ -4005,15 +4089,19 @@ fn isignalrigidbody3dbodyshapeexited_ptrcall[T](method_userdata voidptr, inst GD
 fn isignalrigidbody3dbodyentered_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalRigidBody3DBodyEntered(*t)
-    arg_0_ptr := unsafe{&Node(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := Node{
+        ptr: *arg_0_ptr
+    }
     i.signal_body_entered(arg_0)
 }
 fn isignalrigidbody3dbodyexited_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalRigidBody3DBodyExited(*t)
-    arg_0_ptr := unsafe{&Node(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := Node{
+        ptr: *arg_0_ptr
+    }
     i.signal_body_exited(arg_0)
 }
 fn isignalrigidbody3dsleepingstatechanged_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
@@ -4057,29 +4145,37 @@ fn isignalscenetreetreeprocessmodechanged_ptrcall[T](method_userdata voidptr, in
 fn isignalscenetreenodeadded_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalSceneTreeNodeAdded(*t)
-    arg_0_ptr := unsafe{&Node(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := Node{
+        ptr: *arg_0_ptr
+    }
     i.signal_node_added(arg_0)
 }
 fn isignalscenetreenoderemoved_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalSceneTreeNodeRemoved(*t)
-    arg_0_ptr := unsafe{&Node(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := Node{
+        ptr: *arg_0_ptr
+    }
     i.signal_node_removed(arg_0)
 }
 fn isignalscenetreenoderenamed_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalSceneTreeNodeRenamed(*t)
-    arg_0_ptr := unsafe{&Node(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := Node{
+        ptr: *arg_0_ptr
+    }
     i.signal_node_renamed(arg_0)
 }
 fn isignalscenetreenodeconfigurationwarningchanged_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalSceneTreeNodeConfigurationWarningChanged(*t)
-    arg_0_ptr := unsafe{&Node(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := Node{
+        ptr: *arg_0_ptr
+    }
     i.signal_node_configuration_warning_changed(arg_0)
 }
 fn isignalscenetreeprocessframe_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
@@ -4100,22 +4196,28 @@ fn isignalscenetreetimertimeout_ptrcall[T](method_userdata voidptr, inst GDExten
 fn isignalscriptcreatedialogscriptcreated_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalScriptCreateDialogScriptCreated(*t)
-    arg_0_ptr := unsafe{&Script(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := Script{
+        ptr: *arg_0_ptr
+    }
     i.signal_script_created(arg_0)
 }
 fn isignalscripteditoreditorscriptchanged_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalScriptEditorEditorScriptChanged(*t)
-    arg_0_ptr := unsafe{&Script(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := Script{
+        ptr: *arg_0_ptr
+    }
     i.signal_editor_script_changed(arg_0)
 }
 fn isignalscripteditorscriptclose_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalScriptEditorScriptClose(*t)
-    arg_0_ptr := unsafe{&Script(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := Script{
+        ptr: *arg_0_ptr
+    }
     i.signal_script_close(arg_0)
 }
 fn isignalscripteditorbasenamechanged_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
@@ -4138,8 +4240,10 @@ fn isignalscripteditorbaserequesthelp_ptrcall[T](method_userdata voidptr, inst G
 fn isignalscripteditorbaserequestopenscriptatline_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalScriptEditorBaseRequestOpenScriptAtLine(*t)
-    arg_0_ptr := unsafe{&Object(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := Object{
+        ptr: *arg_0_ptr
+    }
     arg_1_ptr := unsafe{&i64(voidptr(args[1]))}
     arg_1 := *arg_1_ptr
     i.signal_request_open_script_at_line(arg_0, arg_1)
@@ -4173,8 +4277,10 @@ fn isignalscripteditorbasereplaceinfilesrequested_ptrcall[T](method_userdata voi
 fn isignalscripteditorbasegotomethod_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalScriptEditorBaseGoToMethod(*t)
-    arg_0_ptr := unsafe{&Object(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := Object{
+        ptr: *arg_0_ptr
+    }
     arg_1_ptr := unsafe{&String(voidptr(args[1]))}
     arg_1 := *arg_1_ptr
     i.signal_go_to_method(arg_0, arg_1)
@@ -4470,8 +4576,10 @@ fn isignaltreecellselected_ptrcall[T](method_userdata voidptr, inst GDExtensionC
 fn isignaltreemultiselected_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalTreeMultiSelected(*t)
-    arg_0_ptr := unsafe{&TreeItem(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := TreeItem{
+        ptr: *arg_0_ptr
+    }
     arg_1_ptr := unsafe{&i64(voidptr(args[1]))}
     arg_1 := *arg_1_ptr
     arg_2_ptr := unsafe{&bool(voidptr(args[2]))}
@@ -4516,15 +4624,19 @@ fn isignaltreeitemicondoubleclicked_ptrcall[T](method_userdata voidptr, inst GDE
 fn isignaltreeitemcollapsed_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalTreeItemCollapsed(*t)
-    arg_0_ptr := unsafe{&TreeItem(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := TreeItem{
+        ptr: *arg_0_ptr
+    }
     i.signal_item_collapsed(arg_0)
 }
 fn isignaltreecheckpropagatedtoitem_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalTreeCheckPropagatedToItem(*t)
-    arg_0_ptr := unsafe{&TreeItem(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := TreeItem{
+        ptr: *arg_0_ptr
+    }
     arg_1_ptr := unsafe{&i64(voidptr(args[1]))}
     arg_1 := *arg_1_ptr
     i.signal_check_propagated_to_item(arg_0, arg_1)
@@ -4532,8 +4644,10 @@ fn isignaltreecheckpropagatedtoitem_ptrcall[T](method_userdata voidptr, inst GDE
 fn isignaltreebuttonclicked_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalTreeButtonClicked(*t)
-    arg_0_ptr := unsafe{&TreeItem(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := TreeItem{
+        ptr: *arg_0_ptr
+    }
     arg_1_ptr := unsafe{&i64(voidptr(args[1]))}
     arg_1 := *arg_1_ptr
     arg_2_ptr := unsafe{&i64(voidptr(args[2]))}
@@ -4610,8 +4724,10 @@ fn isignalviewportsizechanged_ptrcall[T](method_userdata voidptr, inst GDExtensi
 fn isignalviewportguifocuschanged_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalViewportGuiFocusChanged(*t)
-    arg_0_ptr := unsafe{&Control(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := Control{
+        ptr: *arg_0_ptr
+    }
     i.signal_gui_focus_changed(arg_0)
 }
 fn isignalvisibleonscreennotifier2dscreenentered_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
@@ -4662,8 +4778,10 @@ fn isignalwebrtcpeerconnectionicecandidatecreated_ptrcall[T](method_userdata voi
 fn isignalwebrtcpeerconnectiondatachannelreceived_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalWebRTCPeerConnectionDataChannelReceived(*t)
-    arg_0_ptr := unsafe{&WebRTCDataChannel(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := WebRTCDataChannel{
+        ptr: *arg_0_ptr
+    }
     i.signal_data_channel_received(arg_0)
 }
 fn isignalwebxrinterfacesessionsupported_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
@@ -4752,8 +4870,10 @@ fn isignalwebxrinterfacedisplayrefreshratechanged_ptrcall[T](method_userdata voi
 fn isignalwindowwindowinput_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalWindowWindowInput(*t)
-    arg_0_ptr := unsafe{&InputEvent(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := InputEvent{
+        ptr: *arg_0_ptr
+    }
     i.signal_window_input(arg_0)
 }
 fn isignalwindowfilesdropped_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
@@ -4867,15 +4987,19 @@ fn isignalxrnode3dtrackingchanged_ptrcall[T](method_userdata voidptr, inst GDExt
 fn isignalxrpositionaltrackerposechanged_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalXRPositionalTrackerPoseChanged(*t)
-    arg_0_ptr := unsafe{&XRPose(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := XRPose{
+        ptr: *arg_0_ptr
+    }
     i.signal_pose_changed(arg_0)
 }
 fn isignalxrpositionaltrackerposelosttracking_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
     t := unsafe{&T(voidptr(inst))}
     mut i := ISignalXRPositionalTrackerPoseLostTracking(*t)
-    arg_0_ptr := unsafe{&XRPose(voidptr(args[0]))}
-    arg_0 := *arg_0_ptr
+    arg_0_ptr := &voidptr(args[0])
+    arg_0 := XRPose{
+        ptr: *arg_0_ptr
+    }
     i.signal_pose_lost_tracking(arg_0)
 }
 fn isignalxrpositionaltrackerbuttonpressed_ptrcall[T](method_userdata voidptr, inst GDExtensionClassInstancePtr, args &GDExtensionConstTypePtr, ret GDExtensionTypePtr) {
@@ -4964,7 +5088,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalacceptdialogconfirmed_ptrcall[T])
             ptrcall_func: isignalacceptdialogconfirmed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -4976,16 +5100,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalAcceptDialogConfirmed for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalAcceptDialogCanceled {{
         method_name := StringName.new("signal_canceled")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalacceptdialogcanceled_ptrcall[T])
             ptrcall_func: isignalacceptdialogcanceled_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -4997,20 +5119,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalAcceptDialogCanceled for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalAcceptDialogCustomAction {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("action")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_stringname
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -5018,7 +5139,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalacceptdialogcustomaction_ptrcall[T])
             ptrcall_func: isignalacceptdialogcustomaction_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5030,16 +5151,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalAcceptDialogCustomAction for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalAnimatedSprite2DSpriteFramesChanged {{
         method_name := StringName.new("signal_sprite_frames_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalanimatedsprite2dspriteframeschanged_ptrcall[T])
             ptrcall_func: isignalanimatedsprite2dspriteframeschanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5051,16 +5170,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalAnimatedSprite2DSpriteFramesChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalAnimatedSprite2DAnimationChanged {{
         method_name := StringName.new("signal_animation_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalanimatedsprite2danimationchanged_ptrcall[T])
             ptrcall_func: isignalanimatedsprite2danimationchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5072,16 +5189,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalAnimatedSprite2DAnimationChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalAnimatedSprite2DFrameChanged {{
         method_name := StringName.new("signal_frame_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalanimatedsprite2dframechanged_ptrcall[T])
             ptrcall_func: isignalanimatedsprite2dframechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5093,16 +5208,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalAnimatedSprite2DFrameChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalAnimatedSprite2DAnimationLooped {{
         method_name := StringName.new("signal_animation_looped")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalanimatedsprite2danimationlooped_ptrcall[T])
             ptrcall_func: isignalanimatedsprite2danimationlooped_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5114,16 +5227,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalAnimatedSprite2DAnimationLooped for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalAnimatedSprite2DAnimationFinished {{
         method_name := StringName.new("signal_animation_finished")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalanimatedsprite2danimationfinished_ptrcall[T])
             ptrcall_func: isignalanimatedsprite2danimationfinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5135,16 +5246,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalAnimatedSprite2DAnimationFinished for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalAnimatedSprite3DSpriteFramesChanged {{
         method_name := StringName.new("signal_sprite_frames_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalanimatedsprite3dspriteframeschanged_ptrcall[T])
             ptrcall_func: isignalanimatedsprite3dspriteframeschanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5156,16 +5265,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalAnimatedSprite3DSpriteFramesChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalAnimatedSprite3DAnimationChanged {{
         method_name := StringName.new("signal_animation_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalanimatedsprite3danimationchanged_ptrcall[T])
             ptrcall_func: isignalanimatedsprite3danimationchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5177,16 +5284,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalAnimatedSprite3DAnimationChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalAnimatedSprite3DFrameChanged {{
         method_name := StringName.new("signal_frame_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalanimatedsprite3dframechanged_ptrcall[T])
             ptrcall_func: isignalanimatedsprite3dframechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5198,16 +5303,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalAnimatedSprite3DFrameChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalAnimatedSprite3DAnimationLooped {{
         method_name := StringName.new("signal_animation_looped")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalanimatedsprite3danimationlooped_ptrcall[T])
             ptrcall_func: isignalanimatedsprite3danimationlooped_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5219,16 +5322,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalAnimatedSprite3DAnimationLooped for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalAnimatedSprite3DAnimationFinished {{
         method_name := StringName.new("signal_animation_finished")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalanimatedsprite3danimationfinished_ptrcall[T])
             ptrcall_func: isignalanimatedsprite3danimationfinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5240,20 +5341,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalAnimatedSprite3DAnimationFinished for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalAnimationLibraryAnimationAdded {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("name")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_stringname
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -5261,7 +5361,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalanimationlibraryanimationadded_ptrcall[T])
             ptrcall_func: isignalanimationlibraryanimationadded_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5273,20 +5373,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalAnimationLibraryAnimationAdded for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalAnimationLibraryAnimationRemoved {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("name")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_stringname
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -5294,7 +5393,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalanimationlibraryanimationremoved_ptrcall[T])
             ptrcall_func: isignalanimationlibraryanimationremoved_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5306,30 +5405,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalAnimationLibraryAnimationRemoved for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalAnimationLibraryAnimationRenamed {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("name")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_stringname
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("to_name")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_stringname
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
@@ -5337,7 +5436,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalanimationlibraryanimationrenamed_ptrcall[T])
             ptrcall_func: isignalanimationlibraryanimationrenamed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5349,20 +5448,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalAnimationLibraryAnimationRenamed for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalAnimationLibraryAnimationChanged {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("name")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_stringname
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -5370,7 +5468,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalanimationlibraryanimationchanged_ptrcall[T])
             ptrcall_func: isignalanimationlibraryanimationchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5382,16 +5480,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalAnimationLibraryAnimationChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalAnimationMixerMixerUpdated {{
         method_name := StringName.new("signal_mixer_updated")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalanimationmixermixerupdated_ptrcall[T])
             ptrcall_func: isignalanimationmixermixerupdated_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5403,16 +5499,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalAnimationMixerMixerUpdated for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalAnimationMixerAnimationListChanged {{
         method_name := StringName.new("signal_animation_list_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalanimationmixeranimationlistchanged_ptrcall[T])
             ptrcall_func: isignalanimationmixeranimationlistchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5424,16 +5518,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalAnimationMixerAnimationListChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalAnimationMixerAnimationLibrariesUpdated {{
         method_name := StringName.new("signal_animation_libraries_updated")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalanimationmixeranimationlibrariesupdated_ptrcall[T])
             ptrcall_func: isignalanimationmixeranimationlibrariesupdated_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5445,20 +5537,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalAnimationMixerAnimationLibrariesUpdated for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalAnimationMixerAnimationFinished {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("anim_name")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_stringname
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -5466,7 +5557,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalanimationmixeranimationfinished_ptrcall[T])
             ptrcall_func: isignalanimationmixeranimationfinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5478,20 +5569,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalAnimationMixerAnimationFinished for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalAnimationMixerAnimationStarted {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("anim_name")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_stringname
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -5499,7 +5589,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalanimationmixeranimationstarted_ptrcall[T])
             ptrcall_func: isignalanimationmixeranimationstarted_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5511,16 +5601,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalAnimationMixerAnimationStarted for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalAnimationMixerCachesCleared {{
         method_name := StringName.new("signal_caches_cleared")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalanimationmixercachescleared_ptrcall[T])
             ptrcall_func: isignalanimationmixercachescleared_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5532,16 +5620,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalAnimationMixerCachesCleared for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalAnimationNodeTreeChanged {{
         method_name := StringName.new("signal_tree_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalanimationnodetreechanged_ptrcall[T])
             ptrcall_func: isignalanimationnodetreechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5553,40 +5639,41 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalAnimationNodeTreeChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalAnimationNodeAnimationNodeRenamed {{
         mut argument_props := [3]GDExtensionPropertyInfo{}
         mut argument_metadata := [3]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("object_id")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
         mut arg_name_1 := StringName.new("old_name")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
         mut arg_name_2 := StringName.new("new_name")
+        mut arg_hint_2 := String.new("")
         argument_props[2] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_2
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_2
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[2] = .gdextension_method_argument_metadata_none
@@ -5594,7 +5681,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalanimationnodeanimationnoderenamed_ptrcall[T])
             ptrcall_func: isignalanimationnodeanimationnoderenamed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5606,30 +5693,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalAnimationNodeAnimationNodeRenamed for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalAnimationNodeAnimationNodeRemoved {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("object_id")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
         mut arg_name_1 := StringName.new("name")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
@@ -5637,7 +5724,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalanimationnodeanimationnoderemoved_ptrcall[T])
             ptrcall_func: isignalanimationnodeanimationnoderemoved_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5649,16 +5736,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalAnimationNodeAnimationNodeRemoved for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalAnimationNodeBlendSpace2DTrianglesUpdated {{
         method_name := StringName.new("signal_triangles_updated")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalanimationnodeblendspace2dtrianglesupdated_ptrcall[T])
             ptrcall_func: isignalanimationnodeblendspace2dtrianglesupdated_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5670,20 +5755,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalAnimationNodeBlendSpace2DTrianglesUpdated for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalAnimationNodeBlendTreeNodeChanged {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("node_name")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_stringname
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -5691,7 +5775,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalanimationnodeblendtreenodechanged_ptrcall[T])
             ptrcall_func: isignalanimationnodeblendtreenodechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5703,16 +5787,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalAnimationNodeBlendTreeNodeChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalAnimationNodeStateMachineTransitionAdvanceConditionChanged {{
         method_name := StringName.new("signal_advance_condition_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalanimationnodestatemachinetransitionadvanceconditionchanged_ptrcall[T])
             ptrcall_func: isignalanimationnodestatemachinetransitionadvanceconditionchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5724,20 +5806,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalAnimationNodeStateMachineTransitionAdvanceConditionChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalAnimationPlayerCurrentAnimationChanged {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("name")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -5745,7 +5826,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalanimationplayercurrentanimationchanged_ptrcall[T])
             ptrcall_func: isignalanimationplayercurrentanimationchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5757,30 +5838,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalAnimationPlayerCurrentAnimationChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalAnimationPlayerAnimationChanged {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("old_name")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_stringname
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("new_name")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_stringname
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
@@ -5788,7 +5869,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalanimationplayeranimationchanged_ptrcall[T])
             ptrcall_func: isignalanimationplayeranimationchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5800,16 +5881,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalAnimationPlayerAnimationChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalAnimationTreeAnimationPlayerChanged {{
         method_name := StringName.new("signal_animation_player_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalanimationtreeanimationplayerchanged_ptrcall[T])
             ptrcall_func: isignalanimationtreeanimationplayerchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5821,50 +5900,52 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalAnimationTreeAnimationPlayerChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalArea2DBodyShapeEntered {{
         mut argument_props := [4]GDExtensionPropertyInfo{}
         mut argument_metadata := [4]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("body_rid")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_rid
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("body")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
         mut arg_name_2 := StringName.new("body_shape_index")
+        mut arg_hint_2 := String.new("")
         argument_props[2] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_2
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_2
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[2] = .gdextension_method_argument_metadata_int_is_int64
         mut arg_name_3 := StringName.new("local_shape_index")
+        mut arg_hint_3 := String.new("")
         argument_props[3] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_3
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_3
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[3] = .gdextension_method_argument_metadata_int_is_int64
@@ -5872,7 +5953,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalarea2dbodyshapeentered_ptrcall[T])
             ptrcall_func: isignalarea2dbodyshapeentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5884,50 +5965,52 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalArea2DBodyShapeEntered for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalArea2DBodyShapeExited {{
         mut argument_props := [4]GDExtensionPropertyInfo{}
         mut argument_metadata := [4]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("body_rid")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_rid
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("body")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
         mut arg_name_2 := StringName.new("body_shape_index")
+        mut arg_hint_2 := String.new("")
         argument_props[2] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_2
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_2
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[2] = .gdextension_method_argument_metadata_int_is_int64
         mut arg_name_3 := StringName.new("local_shape_index")
+        mut arg_hint_3 := String.new("")
         argument_props[3] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_3
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_3
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[3] = .gdextension_method_argument_metadata_int_is_int64
@@ -5935,7 +6018,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalarea2dbodyshapeexited_ptrcall[T])
             ptrcall_func: isignalarea2dbodyshapeexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5947,20 +6030,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalArea2DBodyShapeExited for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalArea2DBodyEntered {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("body")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -5968,7 +6050,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalarea2dbodyentered_ptrcall[T])
             ptrcall_func: isignalarea2dbodyentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -5980,20 +6062,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalArea2DBodyEntered for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalArea2DBodyExited {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("body")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -6001,7 +6082,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalarea2dbodyexited_ptrcall[T])
             ptrcall_func: isignalarea2dbodyexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6013,50 +6094,52 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalArea2DBodyExited for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalArea2DAreaShapeEntered {{
         mut argument_props := [4]GDExtensionPropertyInfo{}
         mut argument_metadata := [4]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("area_rid")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_rid
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("area")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
         mut arg_name_2 := StringName.new("area_shape_index")
+        mut arg_hint_2 := String.new("")
         argument_props[2] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_2
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_2
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[2] = .gdextension_method_argument_metadata_int_is_int64
         mut arg_name_3 := StringName.new("local_shape_index")
+        mut arg_hint_3 := String.new("")
         argument_props[3] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_3
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_3
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[3] = .gdextension_method_argument_metadata_int_is_int64
@@ -6064,7 +6147,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalarea2dareashapeentered_ptrcall[T])
             ptrcall_func: isignalarea2dareashapeentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6076,50 +6159,52 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalArea2DAreaShapeEntered for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalArea2DAreaShapeExited {{
         mut argument_props := [4]GDExtensionPropertyInfo{}
         mut argument_metadata := [4]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("area_rid")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_rid
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("area")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
         mut arg_name_2 := StringName.new("area_shape_index")
+        mut arg_hint_2 := String.new("")
         argument_props[2] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_2
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_2
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[2] = .gdextension_method_argument_metadata_int_is_int64
         mut arg_name_3 := StringName.new("local_shape_index")
+        mut arg_hint_3 := String.new("")
         argument_props[3] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_3
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_3
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[3] = .gdextension_method_argument_metadata_int_is_int64
@@ -6127,7 +6212,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalarea2dareashapeexited_ptrcall[T])
             ptrcall_func: isignalarea2dareashapeexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6139,20 +6224,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalArea2DAreaShapeExited for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalArea2DAreaEntered {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("area")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -6160,7 +6244,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalarea2dareaentered_ptrcall[T])
             ptrcall_func: isignalarea2dareaentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6172,20 +6256,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalArea2DAreaEntered for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalArea2DAreaExited {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("area")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -6193,7 +6276,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalarea2dareaexited_ptrcall[T])
             ptrcall_func: isignalarea2dareaexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6205,50 +6288,52 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalArea2DAreaExited for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalArea3DBodyShapeEntered {{
         mut argument_props := [4]GDExtensionPropertyInfo{}
         mut argument_metadata := [4]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("body_rid")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_rid
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("body")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
         mut arg_name_2 := StringName.new("body_shape_index")
+        mut arg_hint_2 := String.new("")
         argument_props[2] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_2
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_2
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[2] = .gdextension_method_argument_metadata_int_is_int64
         mut arg_name_3 := StringName.new("local_shape_index")
+        mut arg_hint_3 := String.new("")
         argument_props[3] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_3
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_3
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[3] = .gdextension_method_argument_metadata_int_is_int64
@@ -6256,7 +6341,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalarea3dbodyshapeentered_ptrcall[T])
             ptrcall_func: isignalarea3dbodyshapeentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6268,50 +6353,52 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalArea3DBodyShapeEntered for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalArea3DBodyShapeExited {{
         mut argument_props := [4]GDExtensionPropertyInfo{}
         mut argument_metadata := [4]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("body_rid")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_rid
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("body")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
         mut arg_name_2 := StringName.new("body_shape_index")
+        mut arg_hint_2 := String.new("")
         argument_props[2] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_2
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_2
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[2] = .gdextension_method_argument_metadata_int_is_int64
         mut arg_name_3 := StringName.new("local_shape_index")
+        mut arg_hint_3 := String.new("")
         argument_props[3] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_3
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_3
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[3] = .gdextension_method_argument_metadata_int_is_int64
@@ -6319,7 +6406,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalarea3dbodyshapeexited_ptrcall[T])
             ptrcall_func: isignalarea3dbodyshapeexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6331,20 +6418,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalArea3DBodyShapeExited for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalArea3DBodyEntered {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("body")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -6352,7 +6438,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalarea3dbodyentered_ptrcall[T])
             ptrcall_func: isignalarea3dbodyentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6364,20 +6450,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalArea3DBodyEntered for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalArea3DBodyExited {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("body")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -6385,7 +6470,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalarea3dbodyexited_ptrcall[T])
             ptrcall_func: isignalarea3dbodyexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6397,50 +6482,52 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalArea3DBodyExited for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalArea3DAreaShapeEntered {{
         mut argument_props := [4]GDExtensionPropertyInfo{}
         mut argument_metadata := [4]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("area_rid")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_rid
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("area")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
         mut arg_name_2 := StringName.new("area_shape_index")
+        mut arg_hint_2 := String.new("")
         argument_props[2] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_2
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_2
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[2] = .gdextension_method_argument_metadata_int_is_int64
         mut arg_name_3 := StringName.new("local_shape_index")
+        mut arg_hint_3 := String.new("")
         argument_props[3] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_3
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_3
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[3] = .gdextension_method_argument_metadata_int_is_int64
@@ -6448,7 +6535,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalarea3dareashapeentered_ptrcall[T])
             ptrcall_func: isignalarea3dareashapeentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6460,50 +6547,52 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalArea3DAreaShapeEntered for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalArea3DAreaShapeExited {{
         mut argument_props := [4]GDExtensionPropertyInfo{}
         mut argument_metadata := [4]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("area_rid")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_rid
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("area")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
         mut arg_name_2 := StringName.new("area_shape_index")
+        mut arg_hint_2 := String.new("")
         argument_props[2] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_2
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_2
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[2] = .gdextension_method_argument_metadata_int_is_int64
         mut arg_name_3 := StringName.new("local_shape_index")
+        mut arg_hint_3 := String.new("")
         argument_props[3] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_3
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_3
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[3] = .gdextension_method_argument_metadata_int_is_int64
@@ -6511,7 +6600,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalarea3dareashapeexited_ptrcall[T])
             ptrcall_func: isignalarea3dareashapeexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6523,20 +6612,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalArea3DAreaShapeExited for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalArea3DAreaEntered {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("area")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -6544,7 +6632,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalarea3dareaentered_ptrcall[T])
             ptrcall_func: isignalarea3dareaentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6556,20 +6644,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalArea3DAreaEntered for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalArea3DAreaExited {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("area")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -6577,7 +6664,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalarea3dareaexited_ptrcall[T])
             ptrcall_func: isignalarea3dareaexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6589,16 +6676,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalArea3DAreaExited for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalAudioServerBusLayoutChanged {{
         method_name := StringName.new("signal_bus_layout_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalaudioserverbuslayoutchanged_ptrcall[T])
             ptrcall_func: isignalaudioserverbuslayoutchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6610,40 +6695,41 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalAudioServerBusLayoutChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalAudioServerBusRenamed {{
         mut argument_props := [3]GDExtensionPropertyInfo{}
         mut argument_metadata := [3]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("bus_index")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
         mut arg_name_1 := StringName.new("old_name")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_stringname
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
         mut arg_name_2 := StringName.new("new_name")
+        mut arg_hint_2 := String.new("")
         argument_props[2] = GDExtensionPropertyInfo {
             type_: .type_stringname
             name: &arg_name_2
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_2
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[2] = .gdextension_method_argument_metadata_none
@@ -6651,7 +6737,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalaudioserverbusrenamed_ptrcall[T])
             ptrcall_func: isignalaudioserverbusrenamed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6663,16 +6749,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalAudioServerBusRenamed for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalAudioStreamPlayerFinished {{
         method_name := StringName.new("signal_finished")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalaudiostreamplayerfinished_ptrcall[T])
             ptrcall_func: isignalaudiostreamplayerfinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6684,16 +6768,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalAudioStreamPlayerFinished for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalAudioStreamPlayer2DFinished {{
         method_name := StringName.new("signal_finished")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalaudiostreamplayer2dfinished_ptrcall[T])
             ptrcall_func: isignalaudiostreamplayer2dfinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6705,16 +6787,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalAudioStreamPlayer2DFinished for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalAudioStreamPlayer3DFinished {{
         method_name := StringName.new("signal_finished")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalaudiostreamplayer3dfinished_ptrcall[T])
             ptrcall_func: isignalaudiostreamplayer3dfinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6726,16 +6806,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalAudioStreamPlayer3DFinished for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalBaseButtonPressed {{
         method_name := StringName.new("signal_pressed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalbasebuttonpressed_ptrcall[T])
             ptrcall_func: isignalbasebuttonpressed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6747,16 +6825,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalBaseButtonPressed for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalBaseButtonButtonUp {{
         method_name := StringName.new("signal_button_up")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalbasebuttonbuttonup_ptrcall[T])
             ptrcall_func: isignalbasebuttonbuttonup_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6768,16 +6844,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalBaseButtonButtonUp for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalBaseButtonButtonDown {{
         method_name := StringName.new("signal_button_down")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalbasebuttonbuttondown_ptrcall[T])
             ptrcall_func: isignalbasebuttonbuttondown_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6789,20 +6863,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalBaseButtonButtonDown for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalBaseButtonToggled {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("toggled_on")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_bool
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -6810,7 +6883,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalbasebuttontoggled_ptrcall[T])
             ptrcall_func: isignalbasebuttontoggled_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6822,16 +6895,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalBaseButtonToggled for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalBoneMapBoneMapUpdated {{
         method_name := StringName.new("signal_bone_map_updated")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalbonemapbonemapupdated_ptrcall[T])
             ptrcall_func: isignalbonemapbonemapupdated_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6843,16 +6914,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalBoneMapBoneMapUpdated for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalBoneMapProfileUpdated {{
         method_name := StringName.new("signal_profile_updated")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalbonemapprofileupdated_ptrcall[T])
             ptrcall_func: isignalbonemapprofileupdated_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6864,20 +6933,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalBoneMapProfileUpdated for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalButtonGroupPressed {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("button")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -6885,7 +6953,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalbuttongrouppressed_ptrcall[T])
             ptrcall_func: isignalbuttongrouppressed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6897,16 +6965,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalButtonGroupPressed for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalCPUParticles2DFinished {{
         method_name := StringName.new("signal_finished")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcpuparticles2dfinished_ptrcall[T])
             ptrcall_func: isignalcpuparticles2dfinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6918,16 +6984,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalCPUParticles2DFinished for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalCPUParticles3DFinished {{
         method_name := StringName.new("signal_finished")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcpuparticles3dfinished_ptrcall[T])
             ptrcall_func: isignalcpuparticles3dfinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6939,20 +7003,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalCPUParticles3DFinished for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalCameraServerCameraFeedAdded {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("id")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -6960,7 +7023,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcameraservercamerafeedadded_ptrcall[T])
             ptrcall_func: isignalcameraservercamerafeedadded_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -6972,20 +7035,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalCameraServerCameraFeedAdded for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalCameraServerCameraFeedRemoved {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("id")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -6993,7 +7055,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcameraservercamerafeedremoved_ptrcall[T])
             ptrcall_func: isignalcameraservercamerafeedremoved_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7005,16 +7067,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalCameraServerCameraFeedRemoved for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalCanvasItemDraw {{
         method_name := StringName.new("signal_draw")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcanvasitemdraw_ptrcall[T])
             ptrcall_func: isignalcanvasitemdraw_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7026,16 +7086,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalCanvasItemDraw for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalCanvasItemVisibilityChanged {{
         method_name := StringName.new("signal_visibility_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcanvasitemvisibilitychanged_ptrcall[T])
             ptrcall_func: isignalcanvasitemvisibilitychanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7047,16 +7105,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalCanvasItemVisibilityChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalCanvasItemHidden {{
         method_name := StringName.new("signal_hidden")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcanvasitemhidden_ptrcall[T])
             ptrcall_func: isignalcanvasitemhidden_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7068,16 +7124,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalCanvasItemHidden for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalCanvasItemItemRectChanged {{
         method_name := StringName.new("signal_item_rect_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcanvasitemitemrectchanged_ptrcall[T])
             ptrcall_func: isignalcanvasitemitemrectchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7089,16 +7143,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalCanvasItemItemRectChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalCanvasLayerVisibilityChanged {{
         method_name := StringName.new("signal_visibility_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcanvaslayervisibilitychanged_ptrcall[T])
             ptrcall_func: isignalcanvaslayervisibilitychanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7110,20 +7162,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalCanvasLayerVisibilityChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalCodeEditBreakpointToggled {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("line")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -7131,7 +7182,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcodeeditbreakpointtoggled_ptrcall[T])
             ptrcall_func: isignalcodeeditbreakpointtoggled_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7143,16 +7194,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalCodeEditBreakpointToggled for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalCodeEditCodeCompletionRequested {{
         method_name := StringName.new("signal_code_completion_requested")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcodeeditcodecompletionrequested_ptrcall[T])
             ptrcall_func: isignalcodeeditcodecompletionrequested_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7164,40 +7213,41 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalCodeEditCodeCompletionRequested for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalCodeEditSymbolLookup {{
         mut argument_props := [3]GDExtensionPropertyInfo{}
         mut argument_metadata := [3]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("symbol")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("line")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_int_is_int64
         mut arg_name_2 := StringName.new("column")
+        mut arg_hint_2 := String.new("")
         argument_props[2] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_2
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_2
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[2] = .gdextension_method_argument_metadata_int_is_int64
@@ -7205,7 +7255,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcodeeditsymbollookup_ptrcall[T])
             ptrcall_func: isignalcodeeditsymbollookup_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7217,20 +7267,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalCodeEditSymbolLookup for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalCodeEditSymbolValidate {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("symbol")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -7238,7 +7287,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcodeeditsymbolvalidate_ptrcall[T])
             ptrcall_func: isignalcodeeditsymbolvalidate_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7250,40 +7299,41 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalCodeEditSymbolValidate for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalCollisionObject2DInputEvent {{
         mut argument_props := [3]GDExtensionPropertyInfo{}
         mut argument_metadata := [3]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("viewport")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("event")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
         mut arg_name_2 := StringName.new("shape_idx")
+        mut arg_hint_2 := String.new("")
         argument_props[2] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_2
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_2
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[2] = .gdextension_method_argument_metadata_int_is_int64
@@ -7291,7 +7341,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcollisionobject2dinputevent_ptrcall[T])
             ptrcall_func: isignalcollisionobject2dinputevent_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7303,16 +7353,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalCollisionObject2DInputEvent for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalCollisionObject2DMouseEntered {{
         method_name := StringName.new("signal_mouse_entered")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcollisionobject2dmouseentered_ptrcall[T])
             ptrcall_func: isignalcollisionobject2dmouseentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7324,16 +7372,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalCollisionObject2DMouseEntered for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalCollisionObject2DMouseExited {{
         method_name := StringName.new("signal_mouse_exited")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcollisionobject2dmouseexited_ptrcall[T])
             ptrcall_func: isignalcollisionobject2dmouseexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7345,20 +7391,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalCollisionObject2DMouseExited for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalCollisionObject2DMouseShapeEntered {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("shape_idx")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -7366,7 +7411,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcollisionobject2dmouseshapeentered_ptrcall[T])
             ptrcall_func: isignalcollisionobject2dmouseshapeentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7378,20 +7423,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalCollisionObject2DMouseShapeEntered for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalCollisionObject2DMouseShapeExited {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("shape_idx")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -7399,7 +7443,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcollisionobject2dmouseshapeexited_ptrcall[T])
             ptrcall_func: isignalcollisionobject2dmouseshapeexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7411,60 +7455,63 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalCollisionObject2DMouseShapeExited for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalCollisionObject3DInputEvent {{
         mut argument_props := [5]GDExtensionPropertyInfo{}
         mut argument_metadata := [5]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("camera")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("event")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
         mut arg_name_2 := StringName.new("position")
+        mut arg_hint_2 := String.new("")
         argument_props[2] = GDExtensionPropertyInfo {
             type_: .type_vector3
             name: &arg_name_2
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_2
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[2] = .gdextension_method_argument_metadata_none
         mut arg_name_3 := StringName.new("normal")
+        mut arg_hint_3 := String.new("")
         argument_props[3] = GDExtensionPropertyInfo {
             type_: .type_vector3
             name: &arg_name_3
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_3
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[3] = .gdextension_method_argument_metadata_none
         mut arg_name_4 := StringName.new("shape_idx")
+        mut arg_hint_4 := String.new("")
         argument_props[4] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_4
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_4
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[4] = .gdextension_method_argument_metadata_int_is_int64
@@ -7472,7 +7519,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcollisionobject3dinputevent_ptrcall[T])
             ptrcall_func: isignalcollisionobject3dinputevent_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7484,16 +7531,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalCollisionObject3DInputEvent for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalCollisionObject3DMouseEntered {{
         method_name := StringName.new("signal_mouse_entered")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcollisionobject3dmouseentered_ptrcall[T])
             ptrcall_func: isignalcollisionobject3dmouseentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7505,16 +7550,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalCollisionObject3DMouseEntered for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalCollisionObject3DMouseExited {{
         method_name := StringName.new("signal_mouse_exited")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcollisionobject3dmouseexited_ptrcall[T])
             ptrcall_func: isignalcollisionobject3dmouseexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7526,20 +7569,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalCollisionObject3DMouseExited for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalColorPickerColorChanged {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("color")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_color
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -7547,7 +7589,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcolorpickercolorchanged_ptrcall[T])
             ptrcall_func: isignalcolorpickercolorchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7559,20 +7601,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalColorPickerColorChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalColorPickerPresetAdded {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("color")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_color
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -7580,7 +7621,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcolorpickerpresetadded_ptrcall[T])
             ptrcall_func: isignalcolorpickerpresetadded_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7592,20 +7633,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalColorPickerPresetAdded for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalColorPickerPresetRemoved {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("color")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_color
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -7613,7 +7653,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcolorpickerpresetremoved_ptrcall[T])
             ptrcall_func: isignalcolorpickerpresetremoved_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7625,20 +7665,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalColorPickerPresetRemoved for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalColorPickerButtonColorChanged {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("color")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_color
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -7646,7 +7685,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcolorpickerbuttoncolorchanged_ptrcall[T])
             ptrcall_func: isignalcolorpickerbuttoncolorchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7658,16 +7697,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalColorPickerButtonColorChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalColorPickerButtonPopupClosed {{
         method_name := StringName.new("signal_popup_closed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcolorpickerbuttonpopupclosed_ptrcall[T])
             ptrcall_func: isignalcolorpickerbuttonpopupclosed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7679,16 +7716,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalColorPickerButtonPopupClosed for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalColorPickerButtonPickerCreated {{
         method_name := StringName.new("signal_picker_created")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcolorpickerbuttonpickercreated_ptrcall[T])
             ptrcall_func: isignalcolorpickerbuttonpickercreated_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7700,16 +7735,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalColorPickerButtonPickerCreated for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalContainerPreSortChildren {{
         method_name := StringName.new("signal_pre_sort_children")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcontainerpresortchildren_ptrcall[T])
             ptrcall_func: isignalcontainerpresortchildren_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7721,16 +7754,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalContainerPreSortChildren for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalContainerSortChildren {{
         method_name := StringName.new("signal_sort_children")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcontainersortchildren_ptrcall[T])
             ptrcall_func: isignalcontainersortchildren_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7742,16 +7773,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalContainerSortChildren for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalControlResized {{
         method_name := StringName.new("signal_resized")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcontrolresized_ptrcall[T])
             ptrcall_func: isignalcontrolresized_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7763,20 +7792,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalControlResized for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalControlGuiInput {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("event")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -7784,7 +7812,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcontrolguiinput_ptrcall[T])
             ptrcall_func: isignalcontrolguiinput_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7796,16 +7824,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalControlGuiInput for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalControlMouseEntered {{
         method_name := StringName.new("signal_mouse_entered")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcontrolmouseentered_ptrcall[T])
             ptrcall_func: isignalcontrolmouseentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7817,16 +7843,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalControlMouseEntered for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalControlMouseExited {{
         method_name := StringName.new("signal_mouse_exited")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcontrolmouseexited_ptrcall[T])
             ptrcall_func: isignalcontrolmouseexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7838,16 +7862,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalControlMouseExited for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalControlFocusEntered {{
         method_name := StringName.new("signal_focus_entered")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcontrolfocusentered_ptrcall[T])
             ptrcall_func: isignalcontrolfocusentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7859,16 +7881,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalControlFocusEntered for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalControlFocusExited {{
         method_name := StringName.new("signal_focus_exited")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcontrolfocusexited_ptrcall[T])
             ptrcall_func: isignalcontrolfocusexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7880,16 +7900,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalControlFocusExited for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalControlSizeFlagsChanged {{
         method_name := StringName.new("signal_size_flags_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcontrolsizeflagschanged_ptrcall[T])
             ptrcall_func: isignalcontrolsizeflagschanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7901,16 +7919,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalControlSizeFlagsChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalControlMinimumSizeChanged {{
         method_name := StringName.new("signal_minimum_size_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcontrolminimumsizechanged_ptrcall[T])
             ptrcall_func: isignalcontrolminimumsizechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7922,16 +7938,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalControlMinimumSizeChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalControlThemeChanged {{
         method_name := StringName.new("signal_theme_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcontrolthemechanged_ptrcall[T])
             ptrcall_func: isignalcontrolthemechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7943,16 +7957,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalControlThemeChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalCurveRangeChanged {{
         method_name := StringName.new("signal_range_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalcurverangechanged_ptrcall[T])
             ptrcall_func: isignalcurverangechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7964,16 +7976,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalCurveRangeChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorDebuggerSessionStarted {{
         method_name := StringName.new("signal_started")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditordebuggersessionstarted_ptrcall[T])
             ptrcall_func: isignaleditordebuggersessionstarted_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -7985,16 +7995,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorDebuggerSessionStarted for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorDebuggerSessionStopped {{
         method_name := StringName.new("signal_stopped")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditordebuggersessionstopped_ptrcall[T])
             ptrcall_func: isignaleditordebuggersessionstopped_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8006,20 +8014,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorDebuggerSessionStopped for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorDebuggerSessionBreaked {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("can_debug")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_bool
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -8027,7 +8034,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditordebuggersessionbreaked_ptrcall[T])
             ptrcall_func: isignaleditordebuggersessionbreaked_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8039,16 +8046,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorDebuggerSessionBreaked for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorDebuggerSessionContinued {{
         method_name := StringName.new("signal_continued")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditordebuggersessioncontinued_ptrcall[T])
             ptrcall_func: isignaleditordebuggersessioncontinued_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8060,20 +8065,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorDebuggerSessionContinued for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorFileDialogFileSelected {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("path")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -8081,7 +8085,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorfiledialogfileselected_ptrcall[T])
             ptrcall_func: isignaleditorfiledialogfileselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8093,20 +8097,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorFileDialogFileSelected for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorFileDialogFilesSelected {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("paths")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_packedstringarray
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -8114,7 +8117,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorfiledialogfilesselected_ptrcall[T])
             ptrcall_func: isignaleditorfiledialogfilesselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8126,20 +8129,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorFileDialogFilesSelected for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorFileDialogDirSelected {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("dir")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -8147,7 +8149,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorfiledialogdirselected_ptrcall[T])
             ptrcall_func: isignaleditorfiledialogdirselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8159,16 +8161,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorFileDialogDirSelected for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorFileSystemFilesystemChanged {{
         method_name := StringName.new("signal_filesystem_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorfilesystemfilesystemchanged_ptrcall[T])
             ptrcall_func: isignaleditorfilesystemfilesystemchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8180,16 +8180,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorFileSystemFilesystemChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorFileSystemScriptClassesUpdated {{
         method_name := StringName.new("signal_script_classes_updated")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorfilesystemscriptclassesupdated_ptrcall[T])
             ptrcall_func: isignaleditorfilesystemscriptclassesupdated_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8201,20 +8199,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorFileSystemScriptClassesUpdated for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorFileSystemSourcesChanged {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("exist")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_bool
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -8222,7 +8219,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorfilesystemsourceschanged_ptrcall[T])
             ptrcall_func: isignaleditorfilesystemsourceschanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8234,20 +8231,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorFileSystemSourcesChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorFileSystemResourcesReimported {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("resources")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_packedstringarray
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -8255,7 +8251,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorfilesystemresourcesreimported_ptrcall[T])
             ptrcall_func: isignaleditorfilesystemresourcesreimported_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8267,20 +8263,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorFileSystemResourcesReimported for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorFileSystemResourcesReload {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("resources")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_packedstringarray
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -8288,7 +8283,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorfilesystemresourcesreload_ptrcall[T])
             ptrcall_func: isignaleditorfilesystemresourcesreload_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8300,20 +8295,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorFileSystemResourcesReload for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorInspectorPropertySelected {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("property")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -8321,7 +8315,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorinspectorpropertyselected_ptrcall[T])
             ptrcall_func: isignaleditorinspectorpropertyselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8333,40 +8327,41 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorInspectorPropertySelected for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorInspectorPropertyKeyed {{
         mut argument_props := [3]GDExtensionPropertyInfo{}
         mut argument_metadata := [3]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("property")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("value")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_nil
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
         mut arg_name_2 := StringName.new("advance")
+        mut arg_hint_2 := String.new("")
         argument_props[2] = GDExtensionPropertyInfo {
             type_: .type_bool
             name: &arg_name_2
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_2
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[2] = .gdextension_method_argument_metadata_none
@@ -8374,7 +8369,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorinspectorpropertykeyed_ptrcall[T])
             ptrcall_func: isignaleditorinspectorpropertykeyed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8386,20 +8381,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorInspectorPropertyKeyed for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorInspectorPropertyDeleted {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("property")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -8407,7 +8401,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorinspectorpropertydeleted_ptrcall[T])
             ptrcall_func: isignaleditorinspectorpropertydeleted_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8419,30 +8413,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorInspectorPropertyDeleted for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorInspectorResourceSelected {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("resource")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("path")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
@@ -8450,7 +8444,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorinspectorresourceselected_ptrcall[T])
             ptrcall_func: isignaleditorinspectorresourceselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8462,20 +8456,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorInspectorResourceSelected for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorInspectorObjectIdSelected {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("id")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -8483,7 +8476,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorinspectorobjectidselected_ptrcall[T])
             ptrcall_func: isignaleditorinspectorobjectidselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8495,20 +8488,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorInspectorObjectIdSelected for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorInspectorPropertyEdited {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("property")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -8516,7 +8508,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorinspectorpropertyedited_ptrcall[T])
             ptrcall_func: isignaleditorinspectorpropertyedited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8528,30 +8520,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorInspectorPropertyEdited for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorInspectorPropertyToggled {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("property")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("checked")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_bool
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
@@ -8559,7 +8551,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorinspectorpropertytoggled_ptrcall[T])
             ptrcall_func: isignaleditorinspectorpropertytoggled_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8571,16 +8563,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorInspectorPropertyToggled for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorInspectorEditedObjectChanged {{
         method_name := StringName.new("signal_edited_object_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorinspectoreditedobjectchanged_ptrcall[T])
             ptrcall_func: isignaleditorinspectoreditedobjectchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8592,16 +8582,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorInspectorEditedObjectChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorInspectorRestartRequested {{
         method_name := StringName.new("signal_restart_requested")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorinspectorrestartrequested_ptrcall[T])
             ptrcall_func: isignaleditorinspectorrestartrequested_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8613,20 +8601,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorInspectorRestartRequested for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorPluginSceneChanged {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("scene_root")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -8634,7 +8621,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorpluginscenechanged_ptrcall[T])
             ptrcall_func: isignaleditorpluginscenechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8646,20 +8633,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorPluginSceneChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorPluginSceneClosed {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("filepath")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -8667,7 +8653,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorpluginsceneclosed_ptrcall[T])
             ptrcall_func: isignaleditorpluginsceneclosed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8679,20 +8665,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorPluginSceneClosed for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorPluginMainScreenChanged {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("screen_name")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -8700,7 +8685,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorpluginmainscreenchanged_ptrcall[T])
             ptrcall_func: isignaleditorpluginmainscreenchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8712,20 +8697,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorPluginMainScreenChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorPluginResourceSaved {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("resource")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -8733,7 +8717,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorpluginresourcesaved_ptrcall[T])
             ptrcall_func: isignaleditorpluginresourcesaved_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8745,16 +8729,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorPluginResourceSaved for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorPluginProjectSettingsChanged {{
         method_name := StringName.new("signal_project_settings_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorpluginprojectsettingschanged_ptrcall[T])
             ptrcall_func: isignaleditorpluginprojectsettingschanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8766,50 +8748,52 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorPluginProjectSettingsChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorPropertyPropertyChanged {{
         mut argument_props := [4]GDExtensionPropertyInfo{}
         mut argument_metadata := [4]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("property")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_stringname
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("value")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_nil
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
         mut arg_name_2 := StringName.new("field")
+        mut arg_hint_2 := String.new("")
         argument_props[2] = GDExtensionPropertyInfo {
             type_: .type_stringname
             name: &arg_name_2
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_2
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[2] = .gdextension_method_argument_metadata_none
         mut arg_name_3 := StringName.new("changing")
+        mut arg_hint_3 := String.new("")
         argument_props[3] = GDExtensionPropertyInfo {
             type_: .type_bool
             name: &arg_name_3
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_3
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[3] = .gdextension_method_argument_metadata_none
@@ -8817,7 +8801,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorpropertypropertychanged_ptrcall[T])
             ptrcall_func: isignaleditorpropertypropertychanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8829,30 +8813,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorPropertyPropertyChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorPropertyMultiplePropertiesChanged {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("properties")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_packedstringarray
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("value")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_array
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
@@ -8860,7 +8844,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorpropertymultiplepropertieschanged_ptrcall[T])
             ptrcall_func: isignaleditorpropertymultiplepropertieschanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8872,20 +8856,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorPropertyMultiplePropertiesChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorPropertyPropertyKeyed {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("property")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_stringname
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -8893,7 +8876,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorpropertypropertykeyed_ptrcall[T])
             ptrcall_func: isignaleditorpropertypropertykeyed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8905,20 +8888,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorPropertyPropertyKeyed for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorPropertyPropertyDeleted {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("property")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_stringname
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -8926,7 +8908,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorpropertypropertydeleted_ptrcall[T])
             ptrcall_func: isignaleditorpropertypropertydeleted_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8938,30 +8920,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorPropertyPropertyDeleted for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorPropertyPropertyKeyedWithValue {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("property")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_stringname
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("value")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_nil
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
@@ -8969,7 +8951,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorpropertypropertykeyedwithvalue_ptrcall[T])
             ptrcall_func: isignaleditorpropertypropertykeyedwithvalue_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -8981,30 +8963,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorPropertyPropertyKeyedWithValue for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorPropertyPropertyChecked {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("property")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_stringname
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("checked")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_bool
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
@@ -9012,7 +8994,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorpropertypropertychecked_ptrcall[T])
             ptrcall_func: isignaleditorpropertypropertychecked_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9024,30 +9006,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorPropertyPropertyChecked for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorPropertyPropertyPinned {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("property")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_stringname
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("pinned")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_bool
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
@@ -9055,7 +9037,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorpropertypropertypinned_ptrcall[T])
             ptrcall_func: isignaleditorpropertypropertypinned_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9067,30 +9049,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorPropertyPropertyPinned for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorPropertyPropertyCanRevertChanged {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("property")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_stringname
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("can_revert")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_bool
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
@@ -9098,7 +9080,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorpropertypropertycanrevertchanged_ptrcall[T])
             ptrcall_func: isignaleditorpropertypropertycanrevertchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9110,30 +9092,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorPropertyPropertyCanRevertChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorPropertyResourceSelected {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("path")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("resource")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
@@ -9141,7 +9123,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorpropertyresourceselected_ptrcall[T])
             ptrcall_func: isignaleditorpropertyresourceselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9153,30 +9135,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorPropertyResourceSelected for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorPropertyObjectIdSelected {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("property")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_stringname
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("id")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_int_is_int64
@@ -9184,7 +9166,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorpropertyobjectidselected_ptrcall[T])
             ptrcall_func: isignaleditorpropertyobjectidselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9196,30 +9178,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorPropertyObjectIdSelected for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorPropertySelected {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("path")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("focusable_idx")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_int_is_int64
@@ -9227,7 +9209,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorpropertyselected_ptrcall[T])
             ptrcall_func: isignaleditorpropertyselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9239,30 +9221,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorPropertySelected for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorResourcePickerResourceSelected {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("resource")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("inspect")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_bool
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
@@ -9270,7 +9252,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorresourcepickerresourceselected_ptrcall[T])
             ptrcall_func: isignaleditorresourcepickerresourceselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9282,20 +9264,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorResourcePickerResourceSelected for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorResourcePickerResourceChanged {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("resource")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -9303,7 +9284,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorresourcepickerresourcechanged_ptrcall[T])
             ptrcall_func: isignaleditorresourcepickerresourcechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9315,20 +9296,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorResourcePickerResourceChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorResourcePreviewPreviewInvalidated {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("path")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -9336,7 +9316,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorresourcepreviewpreviewinvalidated_ptrcall[T])
             ptrcall_func: isignaleditorresourcepreviewpreviewinvalidated_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9348,16 +9328,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorResourcePreviewPreviewInvalidated for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorSelectionSelectionChanged {{
         method_name := StringName.new("signal_selection_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorselectionselectionchanged_ptrcall[T])
             ptrcall_func: isignaleditorselectionselectionchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9369,16 +9347,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorSelectionSelectionChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorSettingsSettingsChanged {{
         method_name := StringName.new("signal_settings_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorsettingssettingschanged_ptrcall[T])
             ptrcall_func: isignaleditorsettingssettingschanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9390,16 +9366,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorSettingsSettingsChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorSpinSliderGrabbed {{
         method_name := StringName.new("signal_grabbed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorspinslidergrabbed_ptrcall[T])
             ptrcall_func: isignaleditorspinslidergrabbed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9411,16 +9385,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorSpinSliderGrabbed for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorSpinSliderUngrabbed {{
         method_name := StringName.new("signal_ungrabbed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorspinsliderungrabbed_ptrcall[T])
             ptrcall_func: isignaleditorspinsliderungrabbed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9432,16 +9404,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorSpinSliderUngrabbed for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorSpinSliderValueFocusEntered {{
         method_name := StringName.new("signal_value_focus_entered")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorspinslidervaluefocusentered_ptrcall[T])
             ptrcall_func: isignaleditorspinslidervaluefocusentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9453,16 +9423,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorSpinSliderValueFocusEntered for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorSpinSliderValueFocusExited {{
         method_name := StringName.new("signal_value_focus_exited")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorspinslidervaluefocusexited_ptrcall[T])
             ptrcall_func: isignaleditorspinslidervaluefocusexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9474,16 +9442,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorSpinSliderValueFocusExited for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorUndoRedoManagerHistoryChanged {{
         method_name := StringName.new("signal_history_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorundoredomanagerhistorychanged_ptrcall[T])
             ptrcall_func: isignaleditorundoredomanagerhistorychanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9495,16 +9461,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorUndoRedoManagerHistoryChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalEditorUndoRedoManagerVersionChanged {{
         method_name := StringName.new("signal_version_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaleditorundoredomanagerversionchanged_ptrcall[T])
             ptrcall_func: isignaleditorundoredomanagerversionchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9516,20 +9480,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalEditorUndoRedoManagerVersionChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalFileDialogFileSelected {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("path")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -9537,7 +9500,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalfiledialogfileselected_ptrcall[T])
             ptrcall_func: isignalfiledialogfileselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9549,20 +9512,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalFileDialogFileSelected for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalFileDialogFilesSelected {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("paths")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_packedstringarray
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -9570,7 +9532,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalfiledialogfilesselected_ptrcall[T])
             ptrcall_func: isignalfiledialogfilesselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9582,20 +9544,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalFileDialogFilesSelected for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalFileDialogDirSelected {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("dir")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -9603,7 +9564,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalfiledialogdirselected_ptrcall[T])
             ptrcall_func: isignalfiledialogdirselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9615,20 +9576,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalFileDialogDirSelected for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalFileSystemDockInherit {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("file")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -9636,7 +9596,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalfilesystemdockinherit_ptrcall[T])
             ptrcall_func: isignalfilesystemdockinherit_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9648,20 +9608,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalFileSystemDockInherit for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalFileSystemDockInstantiate {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("files")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_packedstringarray
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -9669,7 +9628,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalfilesystemdockinstantiate_ptrcall[T])
             ptrcall_func: isignalfilesystemdockinstantiate_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9681,20 +9640,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalFileSystemDockInstantiate for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalFileSystemDockResourceRemoved {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("resource")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -9702,7 +9660,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalfilesystemdockresourceremoved_ptrcall[T])
             ptrcall_func: isignalfilesystemdockresourceremoved_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9714,20 +9672,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalFileSystemDockResourceRemoved for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalFileSystemDockFileRemoved {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("file")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -9735,7 +9692,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalfilesystemdockfileremoved_ptrcall[T])
             ptrcall_func: isignalfilesystemdockfileremoved_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9747,20 +9704,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalFileSystemDockFileRemoved for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalFileSystemDockFolderRemoved {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("folder")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -9768,7 +9724,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalfilesystemdockfolderremoved_ptrcall[T])
             ptrcall_func: isignalfilesystemdockfolderremoved_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9780,30 +9736,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalFileSystemDockFolderRemoved for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalFileSystemDockFilesMoved {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("old_file")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("new_file")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
@@ -9811,7 +9767,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalfilesystemdockfilesmoved_ptrcall[T])
             ptrcall_func: isignalfilesystemdockfilesmoved_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9823,30 +9779,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalFileSystemDockFilesMoved for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalFileSystemDockFolderMoved {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("old_folder")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("new_folder")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
@@ -9854,7 +9810,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalfilesystemdockfoldermoved_ptrcall[T])
             ptrcall_func: isignalfilesystemdockfoldermoved_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9866,16 +9822,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalFileSystemDockFolderMoved for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalFileSystemDockDisplayModeChanged {{
         method_name := StringName.new("signal_display_mode_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalfilesystemdockdisplaymodechanged_ptrcall[T])
             ptrcall_func: isignalfilesystemdockdisplaymodechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9887,16 +9841,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalFileSystemDockDisplayModeChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalGDExtensionManagerExtensionsReloaded {{
         method_name := StringName.new("signal_extensions_reloaded")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalgdextensionmanagerextensionsreloaded_ptrcall[T])
             ptrcall_func: isignalgdextensionmanagerextensionsreloaded_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9908,16 +9860,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalGDExtensionManagerExtensionsReloaded for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalGPUParticles2DFinished {{
         method_name := StringName.new("signal_finished")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalgpuparticles2dfinished_ptrcall[T])
             ptrcall_func: isignalgpuparticles2dfinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9929,16 +9879,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalGPUParticles2DFinished for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalGPUParticles3DFinished {{
         method_name := StringName.new("signal_finished")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalgpuparticles3dfinished_ptrcall[T])
             ptrcall_func: isignalgpuparticles3dfinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -9950,50 +9898,52 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalGPUParticles3DFinished for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalGraphEditConnectionRequest {{
         mut argument_props := [4]GDExtensionPropertyInfo{}
         mut argument_metadata := [4]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("from_node")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_stringname
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("from_port")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_int_is_int64
         mut arg_name_2 := StringName.new("to_node")
+        mut arg_hint_2 := String.new("")
         argument_props[2] = GDExtensionPropertyInfo {
             type_: .type_stringname
             name: &arg_name_2
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_2
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[2] = .gdextension_method_argument_metadata_none
         mut arg_name_3 := StringName.new("to_port")
+        mut arg_hint_3 := String.new("")
         argument_props[3] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_3
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_3
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[3] = .gdextension_method_argument_metadata_int_is_int64
@@ -10001,7 +9951,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalgrapheditconnectionrequest_ptrcall[T])
             ptrcall_func: isignalgrapheditconnectionrequest_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10013,50 +9963,52 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalGraphEditConnectionRequest for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalGraphEditDisconnectionRequest {{
         mut argument_props := [4]GDExtensionPropertyInfo{}
         mut argument_metadata := [4]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("from_node")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_stringname
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("from_port")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_int_is_int64
         mut arg_name_2 := StringName.new("to_node")
+        mut arg_hint_2 := String.new("")
         argument_props[2] = GDExtensionPropertyInfo {
             type_: .type_stringname
             name: &arg_name_2
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_2
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[2] = .gdextension_method_argument_metadata_none
         mut arg_name_3 := StringName.new("to_port")
+        mut arg_hint_3 := String.new("")
         argument_props[3] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_3
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_3
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[3] = .gdextension_method_argument_metadata_int_is_int64
@@ -10064,7 +10016,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalgrapheditdisconnectionrequest_ptrcall[T])
             ptrcall_func: isignalgrapheditdisconnectionrequest_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10076,40 +10028,41 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalGraphEditDisconnectionRequest for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalGraphEditConnectionToEmpty {{
         mut argument_props := [3]GDExtensionPropertyInfo{}
         mut argument_metadata := [3]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("from_node")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_stringname
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("from_port")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_int_is_int64
         mut arg_name_2 := StringName.new("release_position")
+        mut arg_hint_2 := String.new("")
         argument_props[2] = GDExtensionPropertyInfo {
             type_: .type_vector2
             name: &arg_name_2
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_2
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[2] = .gdextension_method_argument_metadata_none
@@ -10117,7 +10070,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalgrapheditconnectiontoempty_ptrcall[T])
             ptrcall_func: isignalgrapheditconnectiontoempty_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10129,40 +10082,41 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalGraphEditConnectionToEmpty for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalGraphEditConnectionFromEmpty {{
         mut argument_props := [3]GDExtensionPropertyInfo{}
         mut argument_metadata := [3]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("to_node")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_stringname
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("to_port")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_int_is_int64
         mut arg_name_2 := StringName.new("release_position")
+        mut arg_hint_2 := String.new("")
         argument_props[2] = GDExtensionPropertyInfo {
             type_: .type_vector2
             name: &arg_name_2
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_2
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[2] = .gdextension_method_argument_metadata_none
@@ -10170,7 +10124,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalgrapheditconnectionfromempty_ptrcall[T])
             ptrcall_func: isignalgrapheditconnectionfromempty_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10182,40 +10136,41 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalGraphEditConnectionFromEmpty for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalGraphEditConnectionDragStarted {{
         mut argument_props := [3]GDExtensionPropertyInfo{}
         mut argument_metadata := [3]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("from_node")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_stringname
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("from_port")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_int_is_int64
         mut arg_name_2 := StringName.new("is_output")
+        mut arg_hint_2 := String.new("")
         argument_props[2] = GDExtensionPropertyInfo {
             type_: .type_bool
             name: &arg_name_2
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_2
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[2] = .gdextension_method_argument_metadata_none
@@ -10223,7 +10178,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalgrapheditconnectiondragstarted_ptrcall[T])
             ptrcall_func: isignalgrapheditconnectiondragstarted_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10235,16 +10190,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalGraphEditConnectionDragStarted for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalGraphEditConnectionDragEnded {{
         method_name := StringName.new("signal_connection_drag_ended")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalgrapheditconnectiondragended_ptrcall[T])
             ptrcall_func: isignalgrapheditconnectiondragended_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10256,16 +10209,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalGraphEditConnectionDragEnded for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalGraphEditCopyNodesRequest {{
         method_name := StringName.new("signal_copy_nodes_request")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalgrapheditcopynodesrequest_ptrcall[T])
             ptrcall_func: isignalgrapheditcopynodesrequest_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10277,16 +10228,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalGraphEditCopyNodesRequest for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalGraphEditPasteNodesRequest {{
         method_name := StringName.new("signal_paste_nodes_request")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalgrapheditpastenodesrequest_ptrcall[T])
             ptrcall_func: isignalgrapheditpastenodesrequest_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10298,16 +10247,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalGraphEditPasteNodesRequest for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalGraphEditDuplicateNodesRequest {{
         method_name := StringName.new("signal_duplicate_nodes_request")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalgrapheditduplicatenodesrequest_ptrcall[T])
             ptrcall_func: isignalgrapheditduplicatenodesrequest_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10319,20 +10266,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalGraphEditDuplicateNodesRequest for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalGraphEditDeleteNodesRequest {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("nodes")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_array
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -10340,7 +10286,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalgrapheditdeletenodesrequest_ptrcall[T])
             ptrcall_func: isignalgrapheditdeletenodesrequest_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10352,20 +10298,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalGraphEditDeleteNodesRequest for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalGraphEditNodeSelected {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("node")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -10373,7 +10318,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalgrapheditnodeselected_ptrcall[T])
             ptrcall_func: isignalgrapheditnodeselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10385,20 +10330,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalGraphEditNodeSelected for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalGraphEditNodeDeselected {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("node")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -10406,7 +10350,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalgrapheditnodedeselected_ptrcall[T])
             ptrcall_func: isignalgrapheditnodedeselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10418,20 +10362,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalGraphEditNodeDeselected for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalGraphEditPopupRequest {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("position")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_vector2
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -10439,7 +10382,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalgrapheditpopuprequest_ptrcall[T])
             ptrcall_func: isignalgrapheditpopuprequest_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10451,16 +10394,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalGraphEditPopupRequest for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalGraphEditBeginNodeMove {{
         method_name := StringName.new("signal_begin_node_move")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalgrapheditbeginnodemove_ptrcall[T])
             ptrcall_func: isignalgrapheditbeginnodemove_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10472,16 +10413,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalGraphEditBeginNodeMove for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalGraphEditEndNodeMove {{
         method_name := StringName.new("signal_end_node_move")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalgrapheditendnodemove_ptrcall[T])
             ptrcall_func: isignalgrapheditendnodemove_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10493,20 +10432,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalGraphEditEndNodeMove for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalGraphEditScrollOffsetChanged {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("offset")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_vector2
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -10514,7 +10452,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalgrapheditscrolloffsetchanged_ptrcall[T])
             ptrcall_func: isignalgrapheditscrolloffsetchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10526,16 +10464,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalGraphEditScrollOffsetChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalGraphElementNodeSelected {{
         method_name := StringName.new("signal_node_selected")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalgraphelementnodeselected_ptrcall[T])
             ptrcall_func: isignalgraphelementnodeselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10547,16 +10483,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalGraphElementNodeSelected for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalGraphElementNodeDeselected {{
         method_name := StringName.new("signal_node_deselected")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalgraphelementnodedeselected_ptrcall[T])
             ptrcall_func: isignalgraphelementnodedeselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10568,16 +10502,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalGraphElementNodeDeselected for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalGraphElementRaiseRequest {{
         method_name := StringName.new("signal_raise_request")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalgraphelementraiserequest_ptrcall[T])
             ptrcall_func: isignalgraphelementraiserequest_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10589,16 +10521,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalGraphElementRaiseRequest for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalGraphElementDeleteRequest {{
         method_name := StringName.new("signal_delete_request")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalgraphelementdeleterequest_ptrcall[T])
             ptrcall_func: isignalgraphelementdeleterequest_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10610,20 +10540,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalGraphElementDeleteRequest for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalGraphElementResizeRequest {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("new_minsize")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_vector2
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -10631,7 +10560,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalgraphelementresizerequest_ptrcall[T])
             ptrcall_func: isignalgraphelementresizerequest_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10643,30 +10572,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalGraphElementResizeRequest for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalGraphElementDragged {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("from")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_vector2
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("to")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_vector2
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
@@ -10674,7 +10603,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalgraphelementdragged_ptrcall[T])
             ptrcall_func: isignalgraphelementdragged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10686,16 +10615,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalGraphElementDragged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalGraphElementPositionOffsetChanged {{
         method_name := StringName.new("signal_position_offset_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalgraphelementpositionoffsetchanged_ptrcall[T])
             ptrcall_func: isignalgraphelementpositionoffsetchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10707,20 +10634,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalGraphElementPositionOffsetChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalGraphNodeSlotUpdated {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("slot_index")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -10728,7 +10654,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalgraphnodeslotupdated_ptrcall[T])
             ptrcall_func: isignalgraphnodeslotupdated_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10740,20 +10666,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalGraphNodeSlotUpdated for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalGridMapCellSizeChanged {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("cell_size")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_vector3
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -10761,7 +10686,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalgridmapcellsizechanged_ptrcall[T])
             ptrcall_func: isignalgridmapcellsizechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10773,16 +10698,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalGridMapCellSizeChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalGridMapChanged {{
         method_name := StringName.new("signal_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalgridmapchanged_ptrcall[T])
             ptrcall_func: isignalgridmapchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10794,50 +10717,52 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalGridMapChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalHTTPRequestRequestCompleted {{
         mut argument_props := [4]GDExtensionPropertyInfo{}
         mut argument_metadata := [4]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("result")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
         mut arg_name_1 := StringName.new("response_code")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_int_is_int64
         mut arg_name_2 := StringName.new("headers")
+        mut arg_hint_2 := String.new("")
         argument_props[2] = GDExtensionPropertyInfo {
             type_: .type_packedstringarray
             name: &arg_name_2
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_2
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[2] = .gdextension_method_argument_metadata_none
         mut arg_name_3 := StringName.new("body")
+        mut arg_hint_3 := String.new("")
         argument_props[3] = GDExtensionPropertyInfo {
             type_: .type_packedbytearray
             name: &arg_name_3
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_3
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[3] = .gdextension_method_argument_metadata_none
@@ -10845,7 +10770,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalhttprequestrequestcompleted_ptrcall[T])
             ptrcall_func: isignalhttprequestrequestcompleted_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10857,30 +10782,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalHTTPRequestRequestCompleted for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalInputJoyConnectionChanged {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("device")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
         mut arg_name_1 := StringName.new("connected")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_bool
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
@@ -10888,7 +10813,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalinputjoyconnectionchanged_ptrcall[T])
             ptrcall_func: isignalinputjoyconnectionchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10900,20 +10825,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalInputJoyConnectionChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalItemListItemSelected {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("index")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -10921,7 +10845,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalitemlistitemselected_ptrcall[T])
             ptrcall_func: isignalitemlistitemselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10933,30 +10857,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalItemListItemSelected for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalItemListEmptyClicked {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("at_position")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_vector2
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("mouse_button_index")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_int_is_int64
@@ -10964,7 +10888,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalitemlistemptyclicked_ptrcall[T])
             ptrcall_func: isignalitemlistemptyclicked_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -10976,40 +10900,41 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalItemListEmptyClicked for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalItemListItemClicked {{
         mut argument_props := [3]GDExtensionPropertyInfo{}
         mut argument_metadata := [3]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("index")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
         mut arg_name_1 := StringName.new("at_position")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_vector2
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
         mut arg_name_2 := StringName.new("mouse_button_index")
+        mut arg_hint_2 := String.new("")
         argument_props[2] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_2
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_2
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[2] = .gdextension_method_argument_metadata_int_is_int64
@@ -11017,7 +10942,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalitemlistitemclicked_ptrcall[T])
             ptrcall_func: isignalitemlistitemclicked_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11029,30 +10954,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalItemListItemClicked for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalItemListMultiSelected {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("index")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
         mut arg_name_1 := StringName.new("selected")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_bool
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
@@ -11060,7 +10985,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalitemlistmultiselected_ptrcall[T])
             ptrcall_func: isignalitemlistmultiselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11072,20 +10997,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalItemListMultiSelected for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalItemListItemActivated {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("index")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -11093,7 +11017,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalitemlistitemactivated_ptrcall[T])
             ptrcall_func: isignalitemlistitemactivated_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11105,16 +11029,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalItemListItemActivated for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalJavaScriptBridgePwaUpdateAvailable {{
         method_name := StringName.new("signal_pwa_update_available")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaljavascriptbridgepwaupdateavailable_ptrcall[T])
             ptrcall_func: isignaljavascriptbridgepwaupdateavailable_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11126,20 +11048,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalJavaScriptBridgePwaUpdateAvailable for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalLineEditTextChanged {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("new_text")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -11147,7 +11068,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignallineedittextchanged_ptrcall[T])
             ptrcall_func: isignallineedittextchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11159,20 +11080,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalLineEditTextChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalLineEditTextChangeRejected {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("rejected_substring")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -11180,7 +11100,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignallineedittextchangerejected_ptrcall[T])
             ptrcall_func: isignallineedittextchangerejected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11192,20 +11112,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalLineEditTextChangeRejected for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalLineEditTextSubmitted {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("new_text")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -11213,7 +11132,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignallineedittextsubmitted_ptrcall[T])
             ptrcall_func: isignallineedittextsubmitted_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11225,30 +11144,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalLineEditTextSubmitted for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalMainLoopOnRequestPermissionsResult {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("permission")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("granted")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_bool
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
@@ -11256,7 +11175,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalmainlooponrequestpermissionsresult_ptrcall[T])
             ptrcall_func: isignalmainlooponrequestpermissionsresult_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11268,16 +11187,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalMainLoopOnRequestPermissionsResult for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalMenuButtonAboutToPopup {{
         method_name := StringName.new("signal_about_to_popup")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalmenubuttonabouttopopup_ptrcall[T])
             ptrcall_func: isignalmenubuttonabouttopopup_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11289,16 +11206,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalMenuButtonAboutToPopup for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalMeshInstance2DTextureChanged {{
         method_name := StringName.new("signal_texture_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalmeshinstance2dtexturechanged_ptrcall[T])
             ptrcall_func: isignalmeshinstance2dtexturechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11310,16 +11225,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalMeshInstance2DTextureChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalMultiMeshInstance2DTextureChanged {{
         method_name := StringName.new("signal_texture_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalmultimeshinstance2dtexturechanged_ptrcall[T])
             ptrcall_func: isignalmultimeshinstance2dtexturechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11331,20 +11244,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalMultiMeshInstance2DTextureChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalMultiplayerAPIPeerConnected {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("id")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -11352,7 +11264,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalmultiplayerapipeerconnected_ptrcall[T])
             ptrcall_func: isignalmultiplayerapipeerconnected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11364,20 +11276,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalMultiplayerAPIPeerConnected for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalMultiplayerAPIPeerDisconnected {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("id")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -11385,7 +11296,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalmultiplayerapipeerdisconnected_ptrcall[T])
             ptrcall_func: isignalmultiplayerapipeerdisconnected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11397,16 +11308,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalMultiplayerAPIPeerDisconnected for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalMultiplayerAPIConnectedToServer {{
         method_name := StringName.new("signal_connected_to_server")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalmultiplayerapiconnectedtoserver_ptrcall[T])
             ptrcall_func: isignalmultiplayerapiconnectedtoserver_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11418,16 +11327,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalMultiplayerAPIConnectedToServer for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalMultiplayerAPIConnectionFailed {{
         method_name := StringName.new("signal_connection_failed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalmultiplayerapiconnectionfailed_ptrcall[T])
             ptrcall_func: isignalmultiplayerapiconnectionfailed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11439,16 +11346,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalMultiplayerAPIConnectionFailed for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalMultiplayerAPIServerDisconnected {{
         method_name := StringName.new("signal_server_disconnected")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalmultiplayerapiserverdisconnected_ptrcall[T])
             ptrcall_func: isignalmultiplayerapiserverdisconnected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11460,20 +11365,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalMultiplayerAPIServerDisconnected for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalMultiplayerPeerPeerConnected {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("id")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -11481,7 +11385,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalmultiplayerpeerpeerconnected_ptrcall[T])
             ptrcall_func: isignalmultiplayerpeerpeerconnected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11493,20 +11397,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalMultiplayerPeerPeerConnected for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalMultiplayerPeerPeerDisconnected {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("id")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -11514,7 +11417,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalmultiplayerpeerpeerdisconnected_ptrcall[T])
             ptrcall_func: isignalmultiplayerpeerpeerdisconnected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11526,20 +11429,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalMultiplayerPeerPeerDisconnected for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalMultiplayerSpawnerDespawned {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("node")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -11547,7 +11449,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalmultiplayerspawnerdespawned_ptrcall[T])
             ptrcall_func: isignalmultiplayerspawnerdespawned_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11559,20 +11461,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalMultiplayerSpawnerDespawned for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalMultiplayerSpawnerSpawned {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("node")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -11580,7 +11481,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalmultiplayerspawnerspawned_ptrcall[T])
             ptrcall_func: isignalmultiplayerspawnerspawned_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11592,16 +11493,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalMultiplayerSpawnerSpawned for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalMultiplayerSynchronizerSynchronized {{
         method_name := StringName.new("signal_synchronized")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalmultiplayersynchronizersynchronized_ptrcall[T])
             ptrcall_func: isignalmultiplayersynchronizersynchronized_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11613,16 +11512,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalMultiplayerSynchronizerSynchronized for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalMultiplayerSynchronizerDeltaSynchronized {{
         method_name := StringName.new("signal_delta_synchronized")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalmultiplayersynchronizerdeltasynchronized_ptrcall[T])
             ptrcall_func: isignalmultiplayersynchronizerdeltasynchronized_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11634,20 +11531,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalMultiplayerSynchronizerDeltaSynchronized for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalMultiplayerSynchronizerVisibilityChanged {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("for_peer")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -11655,7 +11551,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalmultiplayersynchronizervisibilitychanged_ptrcall[T])
             ptrcall_func: isignalmultiplayersynchronizervisibilitychanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11667,16 +11563,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalMultiplayerSynchronizerVisibilityChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalNavigationAgent2DPathChanged {{
         method_name := StringName.new("signal_path_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalnavigationagent2dpathchanged_ptrcall[T])
             ptrcall_func: isignalnavigationagent2dpathchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11688,16 +11582,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalNavigationAgent2DPathChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalNavigationAgent2DTargetReached {{
         method_name := StringName.new("signal_target_reached")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalnavigationagent2dtargetreached_ptrcall[T])
             ptrcall_func: isignalnavigationagent2dtargetreached_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11709,20 +11601,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalNavigationAgent2DTargetReached for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalNavigationAgent2DWaypointReached {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("details")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_dictionary
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -11730,7 +11621,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalnavigationagent2dwaypointreached_ptrcall[T])
             ptrcall_func: isignalnavigationagent2dwaypointreached_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11742,20 +11633,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalNavigationAgent2DWaypointReached for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalNavigationAgent2DLinkReached {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("details")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_dictionary
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -11763,7 +11653,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalnavigationagent2dlinkreached_ptrcall[T])
             ptrcall_func: isignalnavigationagent2dlinkreached_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11775,16 +11665,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalNavigationAgent2DLinkReached for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalNavigationAgent2DNavigationFinished {{
         method_name := StringName.new("signal_navigation_finished")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalnavigationagent2dnavigationfinished_ptrcall[T])
             ptrcall_func: isignalnavigationagent2dnavigationfinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11796,20 +11684,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalNavigationAgent2DNavigationFinished for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalNavigationAgent2DVelocityComputed {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("safe_velocity")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_vector2
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -11817,7 +11704,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalnavigationagent2dvelocitycomputed_ptrcall[T])
             ptrcall_func: isignalnavigationagent2dvelocitycomputed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11829,16 +11716,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalNavigationAgent2DVelocityComputed for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalNavigationAgent3DPathChanged {{
         method_name := StringName.new("signal_path_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalnavigationagent3dpathchanged_ptrcall[T])
             ptrcall_func: isignalnavigationagent3dpathchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11850,16 +11735,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalNavigationAgent3DPathChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalNavigationAgent3DTargetReached {{
         method_name := StringName.new("signal_target_reached")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalnavigationagent3dtargetreached_ptrcall[T])
             ptrcall_func: isignalnavigationagent3dtargetreached_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11871,20 +11754,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalNavigationAgent3DTargetReached for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalNavigationAgent3DWaypointReached {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("details")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_dictionary
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -11892,7 +11774,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalnavigationagent3dwaypointreached_ptrcall[T])
             ptrcall_func: isignalnavigationagent3dwaypointreached_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11904,20 +11786,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalNavigationAgent3DWaypointReached for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalNavigationAgent3DLinkReached {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("details")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_dictionary
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -11925,7 +11806,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalnavigationagent3dlinkreached_ptrcall[T])
             ptrcall_func: isignalnavigationagent3dlinkreached_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11937,16 +11818,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalNavigationAgent3DLinkReached for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalNavigationAgent3DNavigationFinished {{
         method_name := StringName.new("signal_navigation_finished")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalnavigationagent3dnavigationfinished_ptrcall[T])
             ptrcall_func: isignalnavigationagent3dnavigationfinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11958,20 +11837,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalNavigationAgent3DNavigationFinished for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalNavigationAgent3DVelocityComputed {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("safe_velocity")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_vector3
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -11979,7 +11857,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalnavigationagent3dvelocitycomputed_ptrcall[T])
             ptrcall_func: isignalnavigationagent3dvelocitycomputed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -11991,16 +11869,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalNavigationAgent3DVelocityComputed for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalNavigationRegion2DNavigationPolygonChanged {{
         method_name := StringName.new("signal_navigation_polygon_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalnavigationregion2dnavigationpolygonchanged_ptrcall[T])
             ptrcall_func: isignalnavigationregion2dnavigationpolygonchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12012,16 +11888,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalNavigationRegion2DNavigationPolygonChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalNavigationRegion2DBakeFinished {{
         method_name := StringName.new("signal_bake_finished")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalnavigationregion2dbakefinished_ptrcall[T])
             ptrcall_func: isignalnavigationregion2dbakefinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12033,16 +11907,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalNavigationRegion2DBakeFinished for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalNavigationRegion3DNavigationMeshChanged {{
         method_name := StringName.new("signal_navigation_mesh_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalnavigationregion3dnavigationmeshchanged_ptrcall[T])
             ptrcall_func: isignalnavigationregion3dnavigationmeshchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12054,16 +11926,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalNavigationRegion3DNavigationMeshChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalNavigationRegion3DBakeFinished {{
         method_name := StringName.new("signal_bake_finished")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalnavigationregion3dbakefinished_ptrcall[T])
             ptrcall_func: isignalnavigationregion3dbakefinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12075,20 +11945,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalNavigationRegion3DBakeFinished for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalNavigationServer2DMapChanged {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("mape")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_rid
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -12096,7 +11965,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalnavigationserver2dmapchanged_ptrcall[T])
             ptrcall_func: isignalnavigationserver2dmapchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12108,16 +11977,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalNavigationServer2DMapChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalNavigationServer2DNavigationDebugChanged {{
         method_name := StringName.new("signal_navigation_debug_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalnavigationserver2dnavigationdebugchanged_ptrcall[T])
             ptrcall_func: isignalnavigationserver2dnavigationdebugchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12129,20 +11996,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalNavigationServer2DNavigationDebugChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalNavigationServer3DMapChanged {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("mape")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_rid
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -12150,7 +12016,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalnavigationserver3dmapchanged_ptrcall[T])
             ptrcall_func: isignalnavigationserver3dmapchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12162,16 +12028,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalNavigationServer3DMapChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalNavigationServer3DNavigationDebugChanged {{
         method_name := StringName.new("signal_navigation_debug_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalnavigationserver3dnavigationdebugchanged_ptrcall[T])
             ptrcall_func: isignalnavigationserver3dnavigationdebugchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12183,16 +12047,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalNavigationServer3DNavigationDebugChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalNavigationServer3DAvoidanceDebugChanged {{
         method_name := StringName.new("signal_avoidance_debug_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalnavigationserver3davoidancedebugchanged_ptrcall[T])
             ptrcall_func: isignalnavigationserver3davoidancedebugchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12204,16 +12066,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalNavigationServer3DAvoidanceDebugChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalNinePatchRectTextureChanged {{
         method_name := StringName.new("signal_texture_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalninepatchrecttexturechanged_ptrcall[T])
             ptrcall_func: isignalninepatchrecttexturechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12225,16 +12085,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalNinePatchRectTextureChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalNodeReady {{
         method_name := StringName.new("signal_ready")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalnodeready_ptrcall[T])
             ptrcall_func: isignalnodeready_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12246,16 +12104,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalNodeReady for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalNodeRenamed {{
         method_name := StringName.new("signal_renamed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalnoderenamed_ptrcall[T])
             ptrcall_func: isignalnoderenamed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12267,16 +12123,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalNodeRenamed for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalNodeTreeEntered {{
         method_name := StringName.new("signal_tree_entered")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalnodetreeentered_ptrcall[T])
             ptrcall_func: isignalnodetreeentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12288,16 +12142,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalNodeTreeEntered for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalNodeTreeExiting {{
         method_name := StringName.new("signal_tree_exiting")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalnodetreeexiting_ptrcall[T])
             ptrcall_func: isignalnodetreeexiting_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12309,16 +12161,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalNodeTreeExiting for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalNodeTreeExited {{
         method_name := StringName.new("signal_tree_exited")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalnodetreeexited_ptrcall[T])
             ptrcall_func: isignalnodetreeexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12330,20 +12180,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalNodeTreeExited for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalNodeChildEnteredTree {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("node")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -12351,7 +12200,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalnodechildenteredtree_ptrcall[T])
             ptrcall_func: isignalnodechildenteredtree_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12363,20 +12212,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalNodeChildEnteredTree for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalNodeChildExitingTree {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("node")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -12384,7 +12232,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalnodechildexitingtree_ptrcall[T])
             ptrcall_func: isignalnodechildexitingtree_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12396,16 +12244,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalNodeChildExitingTree for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalNodeChildOrderChanged {{
         method_name := StringName.new("signal_child_order_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalnodechildorderchanged_ptrcall[T])
             ptrcall_func: isignalnodechildorderchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12417,20 +12263,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalNodeChildOrderChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalNodeReplacingBy {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("node")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -12438,7 +12283,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalnodereplacingby_ptrcall[T])
             ptrcall_func: isignalnodereplacingby_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12450,16 +12295,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalNodeReplacingBy for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalNode3DVisibilityChanged {{
         method_name := StringName.new("signal_visibility_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalnode3dvisibilitychanged_ptrcall[T])
             ptrcall_func: isignalnode3dvisibilitychanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12471,16 +12314,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalNode3DVisibilityChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalObjectScriptChanged {{
         method_name := StringName.new("signal_script_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalobjectscriptchanged_ptrcall[T])
             ptrcall_func: isignalobjectscriptchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12492,16 +12333,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalObjectScriptChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalObjectPropertyListChanged {{
         method_name := StringName.new("signal_property_list_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalobjectpropertylistchanged_ptrcall[T])
             ptrcall_func: isignalobjectpropertylistchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12513,16 +12352,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalObjectPropertyListChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalOpenXRInterfaceSessionBegun {{
         method_name := StringName.new("signal_session_begun")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalopenxrinterfacesessionbegun_ptrcall[T])
             ptrcall_func: isignalopenxrinterfacesessionbegun_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12534,16 +12371,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalOpenXRInterfaceSessionBegun for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalOpenXRInterfaceSessionStopping {{
         method_name := StringName.new("signal_session_stopping")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalopenxrinterfacesessionstopping_ptrcall[T])
             ptrcall_func: isignalopenxrinterfacesessionstopping_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12555,16 +12390,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalOpenXRInterfaceSessionStopping for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalOpenXRInterfaceSessionFocussed {{
         method_name := StringName.new("signal_session_focussed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalopenxrinterfacesessionfocussed_ptrcall[T])
             ptrcall_func: isignalopenxrinterfacesessionfocussed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12576,16 +12409,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalOpenXRInterfaceSessionFocussed for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalOpenXRInterfaceSessionVisible {{
         method_name := StringName.new("signal_session_visible")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalopenxrinterfacesessionvisible_ptrcall[T])
             ptrcall_func: isignalopenxrinterfacesessionvisible_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12597,16 +12428,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalOpenXRInterfaceSessionVisible for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalOpenXRInterfacePoseRecentered {{
         method_name := StringName.new("signal_pose_recentered")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalopenxrinterfaceposerecentered_ptrcall[T])
             ptrcall_func: isignalopenxrinterfaceposerecentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12618,20 +12447,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalOpenXRInterfacePoseRecentered for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalOptionButtonItemSelected {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("index")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -12639,7 +12467,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaloptionbuttonitemselected_ptrcall[T])
             ptrcall_func: isignaloptionbuttonitemselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12651,20 +12479,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalOptionButtonItemSelected for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalOptionButtonItemFocused {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("index")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -12672,7 +12499,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaloptionbuttonitemfocused_ptrcall[T])
             ptrcall_func: isignaloptionbuttonitemfocused_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12684,16 +12511,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalOptionButtonItemFocused for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalPath3DCurveChanged {{
         method_name := StringName.new("signal_curve_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalpath3dcurvechanged_ptrcall[T])
             ptrcall_func: isignalpath3dcurvechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12705,16 +12530,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalPath3DCurveChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalPopupPopupHide {{
         method_name := StringName.new("signal_popup_hide")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalpopuppopuphide_ptrcall[T])
             ptrcall_func: isignalpopuppopuphide_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12726,20 +12549,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalPopupPopupHide for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalPopupMenuIdPressed {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("id")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -12747,7 +12569,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalpopupmenuidpressed_ptrcall[T])
             ptrcall_func: isignalpopupmenuidpressed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12759,20 +12581,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalPopupMenuIdPressed for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalPopupMenuIdFocused {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("id")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -12780,7 +12601,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalpopupmenuidfocused_ptrcall[T])
             ptrcall_func: isignalpopupmenuidfocused_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12792,20 +12613,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalPopupMenuIdFocused for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalPopupMenuIndexPressed {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("index")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -12813,7 +12633,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalpopupmenuindexpressed_ptrcall[T])
             ptrcall_func: isignalpopupmenuindexpressed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12825,16 +12645,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalPopupMenuIndexPressed for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalPopupMenuMenuChanged {{
         method_name := StringName.new("signal_menu_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalpopupmenumenuchanged_ptrcall[T])
             ptrcall_func: isignalpopupmenumenuchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12846,16 +12664,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalPopupMenuMenuChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalProjectSettingsSettingsChanged {{
         method_name := StringName.new("signal_settings_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalprojectsettingssettingschanged_ptrcall[T])
             ptrcall_func: isignalprojectsettingssettingschanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12867,20 +12683,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalProjectSettingsSettingsChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalRangeValueChanged {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("value")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_f64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_real_is_double
@@ -12888,7 +12703,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalrangevaluechanged_ptrcall[T])
             ptrcall_func: isignalrangevaluechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12900,16 +12715,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalRangeValueChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalRangeChanged {{
         method_name := StringName.new("signal_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalrangechanged_ptrcall[T])
             ptrcall_func: isignalrangechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12921,16 +12734,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalRangeChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalRenderingServerFramePreDraw {{
         method_name := StringName.new("signal_frame_pre_draw")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalrenderingserverframepredraw_ptrcall[T])
             ptrcall_func: isignalrenderingserverframepredraw_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12942,16 +12753,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalRenderingServerFramePreDraw for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalRenderingServerFramePostDraw {{
         method_name := StringName.new("signal_frame_post_draw")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalrenderingserverframepostdraw_ptrcall[T])
             ptrcall_func: isignalrenderingserverframepostdraw_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12963,16 +12772,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalRenderingServerFramePostDraw for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalResourceChanged {{
         method_name := StringName.new("signal_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalresourcechanged_ptrcall[T])
             ptrcall_func: isignalresourcechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -12984,16 +12791,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalResourceChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalResourceSetupLocalToSceneRequested {{
         method_name := StringName.new("signal_setup_local_to_scene_requested")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalresourcesetuplocaltoscenerequested_ptrcall[T])
             ptrcall_func: isignalresourcesetuplocaltoscenerequested_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13005,20 +12810,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalResourceSetupLocalToSceneRequested for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalRichTextLabelMetaClicked {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("meta")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_nil
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -13026,7 +12830,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalrichtextlabelmetaclicked_ptrcall[T])
             ptrcall_func: isignalrichtextlabelmetaclicked_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13038,20 +12842,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalRichTextLabelMetaClicked for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalRichTextLabelMetaHoverStarted {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("meta")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_nil
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -13059,7 +12862,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalrichtextlabelmetahoverstarted_ptrcall[T])
             ptrcall_func: isignalrichtextlabelmetahoverstarted_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13071,20 +12874,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalRichTextLabelMetaHoverStarted for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalRichTextLabelMetaHoverEnded {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("meta")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_nil
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -13092,7 +12894,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalrichtextlabelmetahoverended_ptrcall[T])
             ptrcall_func: isignalrichtextlabelmetahoverended_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13104,16 +12906,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalRichTextLabelMetaHoverEnded for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalRichTextLabelFinished {{
         method_name := StringName.new("signal_finished")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalrichtextlabelfinished_ptrcall[T])
             ptrcall_func: isignalrichtextlabelfinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13125,50 +12925,52 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalRichTextLabelFinished for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalRigidBody2DBodyShapeEntered {{
         mut argument_props := [4]GDExtensionPropertyInfo{}
         mut argument_metadata := [4]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("body_rid")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_rid
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("body")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
         mut arg_name_2 := StringName.new("body_shape_index")
+        mut arg_hint_2 := String.new("")
         argument_props[2] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_2
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_2
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[2] = .gdextension_method_argument_metadata_int_is_int64
         mut arg_name_3 := StringName.new("local_shape_index")
+        mut arg_hint_3 := String.new("")
         argument_props[3] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_3
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_3
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[3] = .gdextension_method_argument_metadata_int_is_int64
@@ -13176,7 +12978,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalrigidbody2dbodyshapeentered_ptrcall[T])
             ptrcall_func: isignalrigidbody2dbodyshapeentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13188,50 +12990,52 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalRigidBody2DBodyShapeEntered for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalRigidBody2DBodyShapeExited {{
         mut argument_props := [4]GDExtensionPropertyInfo{}
         mut argument_metadata := [4]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("body_rid")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_rid
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("body")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
         mut arg_name_2 := StringName.new("body_shape_index")
+        mut arg_hint_2 := String.new("")
         argument_props[2] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_2
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_2
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[2] = .gdextension_method_argument_metadata_int_is_int64
         mut arg_name_3 := StringName.new("local_shape_index")
+        mut arg_hint_3 := String.new("")
         argument_props[3] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_3
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_3
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[3] = .gdextension_method_argument_metadata_int_is_int64
@@ -13239,7 +13043,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalrigidbody2dbodyshapeexited_ptrcall[T])
             ptrcall_func: isignalrigidbody2dbodyshapeexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13251,20 +13055,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalRigidBody2DBodyShapeExited for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalRigidBody2DBodyEntered {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("body")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -13272,7 +13075,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalrigidbody2dbodyentered_ptrcall[T])
             ptrcall_func: isignalrigidbody2dbodyentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13284,20 +13087,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalRigidBody2DBodyEntered for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalRigidBody2DBodyExited {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("body")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -13305,7 +13107,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalrigidbody2dbodyexited_ptrcall[T])
             ptrcall_func: isignalrigidbody2dbodyexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13317,16 +13119,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalRigidBody2DBodyExited for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalRigidBody2DSleepingStateChanged {{
         method_name := StringName.new("signal_sleeping_state_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalrigidbody2dsleepingstatechanged_ptrcall[T])
             ptrcall_func: isignalrigidbody2dsleepingstatechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13338,50 +13138,52 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalRigidBody2DSleepingStateChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalRigidBody3DBodyShapeEntered {{
         mut argument_props := [4]GDExtensionPropertyInfo{}
         mut argument_metadata := [4]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("body_rid")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_rid
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("body")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
         mut arg_name_2 := StringName.new("body_shape_index")
+        mut arg_hint_2 := String.new("")
         argument_props[2] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_2
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_2
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[2] = .gdextension_method_argument_metadata_int_is_int64
         mut arg_name_3 := StringName.new("local_shape_index")
+        mut arg_hint_3 := String.new("")
         argument_props[3] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_3
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_3
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[3] = .gdextension_method_argument_metadata_int_is_int64
@@ -13389,7 +13191,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalrigidbody3dbodyshapeentered_ptrcall[T])
             ptrcall_func: isignalrigidbody3dbodyshapeentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13401,50 +13203,52 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalRigidBody3DBodyShapeEntered for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalRigidBody3DBodyShapeExited {{
         mut argument_props := [4]GDExtensionPropertyInfo{}
         mut argument_metadata := [4]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("body_rid")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_rid
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("body")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
         mut arg_name_2 := StringName.new("body_shape_index")
+        mut arg_hint_2 := String.new("")
         argument_props[2] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_2
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_2
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[2] = .gdextension_method_argument_metadata_int_is_int64
         mut arg_name_3 := StringName.new("local_shape_index")
+        mut arg_hint_3 := String.new("")
         argument_props[3] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_3
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_3
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[3] = .gdextension_method_argument_metadata_int_is_int64
@@ -13452,7 +13256,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalrigidbody3dbodyshapeexited_ptrcall[T])
             ptrcall_func: isignalrigidbody3dbodyshapeexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13464,20 +13268,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalRigidBody3DBodyShapeExited for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalRigidBody3DBodyEntered {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("body")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -13485,7 +13288,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalrigidbody3dbodyentered_ptrcall[T])
             ptrcall_func: isignalrigidbody3dbodyentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13497,20 +13300,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalRigidBody3DBodyEntered for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalRigidBody3DBodyExited {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("body")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -13518,7 +13320,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalrigidbody3dbodyexited_ptrcall[T])
             ptrcall_func: isignalrigidbody3dbodyexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13530,16 +13332,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalRigidBody3DBodyExited for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalRigidBody3DSleepingStateChanged {{
         method_name := StringName.new("signal_sleeping_state_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalrigidbody3dsleepingstatechanged_ptrcall[T])
             ptrcall_func: isignalrigidbody3dsleepingstatechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13551,20 +13351,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalRigidBody3DSleepingStateChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalSceneMultiplayerPeerAuthenticating {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("id")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -13572,7 +13371,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalscenemultiplayerpeerauthenticating_ptrcall[T])
             ptrcall_func: isignalscenemultiplayerpeerauthenticating_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13584,20 +13383,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalSceneMultiplayerPeerAuthenticating for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalSceneMultiplayerPeerAuthenticationFailed {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("id")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -13605,7 +13403,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalscenemultiplayerpeerauthenticationfailed_ptrcall[T])
             ptrcall_func: isignalscenemultiplayerpeerauthenticationfailed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13617,30 +13415,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalSceneMultiplayerPeerAuthenticationFailed for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalSceneMultiplayerPeerPacket {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("id")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
         mut arg_name_1 := StringName.new("packet")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_packedbytearray
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
@@ -13648,7 +13446,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalscenemultiplayerpeerpacket_ptrcall[T])
             ptrcall_func: isignalscenemultiplayerpeerpacket_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13660,16 +13458,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalSceneMultiplayerPeerPacket for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalSceneTreeTreeChanged {{
         method_name := StringName.new("signal_tree_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalscenetreetreechanged_ptrcall[T])
             ptrcall_func: isignalscenetreetreechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13681,16 +13477,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalSceneTreeTreeChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalSceneTreeTreeProcessModeChanged {{
         method_name := StringName.new("signal_tree_process_mode_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalscenetreetreeprocessmodechanged_ptrcall[T])
             ptrcall_func: isignalscenetreetreeprocessmodechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13702,20 +13496,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalSceneTreeTreeProcessModeChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalSceneTreeNodeAdded {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("node")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -13723,7 +13516,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalscenetreenodeadded_ptrcall[T])
             ptrcall_func: isignalscenetreenodeadded_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13735,20 +13528,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalSceneTreeNodeAdded for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalSceneTreeNodeRemoved {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("node")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -13756,7 +13548,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalscenetreenoderemoved_ptrcall[T])
             ptrcall_func: isignalscenetreenoderemoved_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13768,20 +13560,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalSceneTreeNodeRemoved for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalSceneTreeNodeRenamed {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("node")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -13789,7 +13580,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalscenetreenoderenamed_ptrcall[T])
             ptrcall_func: isignalscenetreenoderenamed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13801,20 +13592,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalSceneTreeNodeRenamed for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalSceneTreeNodeConfigurationWarningChanged {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("node")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -13822,7 +13612,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalscenetreenodeconfigurationwarningchanged_ptrcall[T])
             ptrcall_func: isignalscenetreenodeconfigurationwarningchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13834,16 +13624,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalSceneTreeNodeConfigurationWarningChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalSceneTreeProcessFrame {{
         method_name := StringName.new("signal_process_frame")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalscenetreeprocessframe_ptrcall[T])
             ptrcall_func: isignalscenetreeprocessframe_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13855,16 +13643,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalSceneTreeProcessFrame for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalSceneTreePhysicsFrame {{
         method_name := StringName.new("signal_physics_frame")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalscenetreephysicsframe_ptrcall[T])
             ptrcall_func: isignalscenetreephysicsframe_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13876,16 +13662,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalSceneTreePhysicsFrame for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalSceneTreeTimerTimeout {{
         method_name := StringName.new("signal_timeout")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalscenetreetimertimeout_ptrcall[T])
             ptrcall_func: isignalscenetreetimertimeout_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13897,20 +13681,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalSceneTreeTimerTimeout for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalScriptCreateDialogScriptCreated {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("script")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -13918,7 +13701,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalscriptcreatedialogscriptcreated_ptrcall[T])
             ptrcall_func: isignalscriptcreatedialogscriptcreated_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13930,20 +13713,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalScriptCreateDialogScriptCreated for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalScriptEditorEditorScriptChanged {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("script")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -13951,7 +13733,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalscripteditoreditorscriptchanged_ptrcall[T])
             ptrcall_func: isignalscripteditoreditorscriptchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13963,20 +13745,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalScriptEditorEditorScriptChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalScriptEditorScriptClose {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("script")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -13984,7 +13765,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalscripteditorscriptclose_ptrcall[T])
             ptrcall_func: isignalscripteditorscriptclose_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -13996,16 +13777,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalScriptEditorScriptClose for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalScriptEditorBaseNameChanged {{
         method_name := StringName.new("signal_name_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalscripteditorbasenamechanged_ptrcall[T])
             ptrcall_func: isignalscripteditorbasenamechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14017,16 +13796,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalScriptEditorBaseNameChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalScriptEditorBaseEditedScriptChanged {{
         method_name := StringName.new("signal_edited_script_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalscripteditorbaseeditedscriptchanged_ptrcall[T])
             ptrcall_func: isignalscripteditorbaseeditedscriptchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14038,20 +13815,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalScriptEditorBaseEditedScriptChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalScriptEditorBaseRequestHelp {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("topic")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -14059,7 +13835,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalscripteditorbaserequesthelp_ptrcall[T])
             ptrcall_func: isignalscripteditorbaserequesthelp_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14071,30 +13847,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalScriptEditorBaseRequestHelp for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalScriptEditorBaseRequestOpenScriptAtLine {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("script")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("line")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_int_is_int64
@@ -14102,7 +13878,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalscripteditorbaserequestopenscriptatline_ptrcall[T])
             ptrcall_func: isignalscripteditorbaserequestopenscriptatline_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14114,16 +13890,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalScriptEditorBaseRequestOpenScriptAtLine for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalScriptEditorBaseRequestSaveHistory {{
         method_name := StringName.new("signal_request_save_history")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalscripteditorbaserequestsavehistory_ptrcall[T])
             ptrcall_func: isignalscripteditorbaserequestsavehistory_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14135,20 +13909,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalScriptEditorBaseRequestSaveHistory for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalScriptEditorBaseGoToHelp {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("what")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -14156,7 +13929,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalscripteditorbasegotohelp_ptrcall[T])
             ptrcall_func: isignalscripteditorbasegotohelp_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14168,20 +13941,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalScriptEditorBaseGoToHelp for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalScriptEditorBaseSearchInFilesRequested {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("text")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -14189,7 +13961,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalscripteditorbasesearchinfilesrequested_ptrcall[T])
             ptrcall_func: isignalscripteditorbasesearchinfilesrequested_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14201,20 +13973,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalScriptEditorBaseSearchInFilesRequested for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalScriptEditorBaseReplaceInFilesRequested {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("text")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -14222,7 +13993,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalscripteditorbasereplaceinfilesrequested_ptrcall[T])
             ptrcall_func: isignalscripteditorbasereplaceinfilesrequested_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14234,30 +14005,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalScriptEditorBaseReplaceInFilesRequested for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalScriptEditorBaseGoToMethod {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("script")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("method")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
@@ -14265,7 +14036,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalscripteditorbasegotomethod_ptrcall[T])
             ptrcall_func: isignalscripteditorbasegotomethod_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14277,16 +14048,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalScriptEditorBaseGoToMethod for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalScrollBarScrolling {{
         method_name := StringName.new("signal_scrolling")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalscrollbarscrolling_ptrcall[T])
             ptrcall_func: isignalscrollbarscrolling_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14298,16 +14067,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalScrollBarScrolling for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalScrollContainerScrollStarted {{
         method_name := StringName.new("signal_scroll_started")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalscrollcontainerscrollstarted_ptrcall[T])
             ptrcall_func: isignalscrollcontainerscrollstarted_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14319,16 +14086,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalScrollContainerScrollStarted for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalScrollContainerScrollEnded {{
         method_name := StringName.new("signal_scroll_ended")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalscrollcontainerscrollended_ptrcall[T])
             ptrcall_func: isignalscrollcontainerscrollended_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14340,16 +14105,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalScrollContainerScrollEnded for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalSkeleton2DBoneSetupChanged {{
         method_name := StringName.new("signal_bone_setup_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalskeleton2dbonesetupchanged_ptrcall[T])
             ptrcall_func: isignalskeleton2dbonesetupchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14361,16 +14124,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalSkeleton2DBoneSetupChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalSkeleton3DPoseUpdated {{
         method_name := StringName.new("signal_pose_updated")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalskeleton3dposeupdated_ptrcall[T])
             ptrcall_func: isignalskeleton3dposeupdated_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14382,20 +14143,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalSkeleton3DPoseUpdated for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalSkeleton3DBonePoseChanged {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("bone_idx")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -14403,7 +14163,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalskeleton3dboneposechanged_ptrcall[T])
             ptrcall_func: isignalskeleton3dboneposechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14415,20 +14175,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalSkeleton3DBonePoseChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalSkeleton3DBoneEnabledChanged {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("bone_idx")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -14436,7 +14195,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalskeleton3dboneenabledchanged_ptrcall[T])
             ptrcall_func: isignalskeleton3dboneenabledchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14448,16 +14207,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalSkeleton3DBoneEnabledChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalSkeleton3DShowRestOnlyChanged {{
         method_name := StringName.new("signal_show_rest_only_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalskeleton3dshowrestonlychanged_ptrcall[T])
             ptrcall_func: isignalskeleton3dshowrestonlychanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14469,16 +14226,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalSkeleton3DShowRestOnlyChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalSkeletonProfileProfileUpdated {{
         method_name := StringName.new("signal_profile_updated")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalskeletonprofileprofileupdated_ptrcall[T])
             ptrcall_func: isignalskeletonprofileprofileupdated_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14490,16 +14245,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalSkeletonProfileProfileUpdated for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalSliderDragStarted {{
         method_name := StringName.new("signal_drag_started")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalsliderdragstarted_ptrcall[T])
             ptrcall_func: isignalsliderdragstarted_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14511,20 +14264,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalSliderDragStarted for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalSliderDragEnded {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("value_changed")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_bool
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -14532,7 +14284,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalsliderdragended_ptrcall[T])
             ptrcall_func: isignalsliderdragended_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14544,20 +14296,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalSliderDragEnded for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalSplitContainerDragged {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("offset")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -14565,7 +14316,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalsplitcontainerdragged_ptrcall[T])
             ptrcall_func: isignalsplitcontainerdragged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14577,16 +14328,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalSplitContainerDragged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalSprite2DFrameChanged {{
         method_name := StringName.new("signal_frame_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalsprite2dframechanged_ptrcall[T])
             ptrcall_func: isignalsprite2dframechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14598,16 +14347,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalSprite2DFrameChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalSprite2DTextureChanged {{
         method_name := StringName.new("signal_texture_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalsprite2dtexturechanged_ptrcall[T])
             ptrcall_func: isignalsprite2dtexturechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14619,16 +14366,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalSprite2DTextureChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalSprite3DFrameChanged {{
         method_name := StringName.new("signal_frame_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalsprite3dframechanged_ptrcall[T])
             ptrcall_func: isignalsprite3dframechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14640,16 +14385,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalSprite3DFrameChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalSprite3DTextureChanged {{
         method_name := StringName.new("signal_texture_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalsprite3dtexturechanged_ptrcall[T])
             ptrcall_func: isignalsprite3dtexturechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14661,20 +14404,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalSprite3DTextureChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTabBarTabSelected {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("tab")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -14682,7 +14424,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltabbartabselected_ptrcall[T])
             ptrcall_func: isignaltabbartabselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14694,20 +14436,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTabBarTabSelected for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTabBarTabChanged {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("tab")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -14715,7 +14456,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltabbartabchanged_ptrcall[T])
             ptrcall_func: isignaltabbartabchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14727,20 +14468,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTabBarTabChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTabBarTabClicked {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("tab")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -14748,7 +14488,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltabbartabclicked_ptrcall[T])
             ptrcall_func: isignaltabbartabclicked_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14760,20 +14500,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTabBarTabClicked for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTabBarTabRmbClicked {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("tab")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -14781,7 +14520,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltabbartabrmbclicked_ptrcall[T])
             ptrcall_func: isignaltabbartabrmbclicked_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14793,20 +14532,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTabBarTabRmbClicked for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTabBarTabClosePressed {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("tab")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -14814,7 +14552,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltabbartabclosepressed_ptrcall[T])
             ptrcall_func: isignaltabbartabclosepressed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14826,20 +14564,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTabBarTabClosePressed for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTabBarTabButtonPressed {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("tab")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -14847,7 +14584,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltabbartabbuttonpressed_ptrcall[T])
             ptrcall_func: isignaltabbartabbuttonpressed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14859,20 +14596,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTabBarTabButtonPressed for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTabBarTabHovered {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("tab")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -14880,7 +14616,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltabbartabhovered_ptrcall[T])
             ptrcall_func: isignaltabbartabhovered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14892,20 +14628,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTabBarTabHovered for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTabBarActiveTabRearranged {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("idx_to")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -14913,7 +14648,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltabbaractivetabrearranged_ptrcall[T])
             ptrcall_func: isignaltabbaractivetabrearranged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14925,20 +14660,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTabBarActiveTabRearranged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTabContainerActiveTabRearranged {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("idx_to")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -14946,7 +14680,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltabcontaineractivetabrearranged_ptrcall[T])
             ptrcall_func: isignaltabcontaineractivetabrearranged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14958,20 +14692,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTabContainerActiveTabRearranged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTabContainerTabChanged {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("tab")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -14979,7 +14712,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltabcontainertabchanged_ptrcall[T])
             ptrcall_func: isignaltabcontainertabchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -14991,20 +14724,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTabContainerTabChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTabContainerTabClicked {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("tab")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -15012,7 +14744,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltabcontainertabclicked_ptrcall[T])
             ptrcall_func: isignaltabcontainertabclicked_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15024,20 +14756,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTabContainerTabClicked for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTabContainerTabHovered {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("tab")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -15045,7 +14776,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltabcontainertabhovered_ptrcall[T])
             ptrcall_func: isignaltabcontainertabhovered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15057,20 +14788,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTabContainerTabHovered for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTabContainerTabSelected {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("tab")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -15078,7 +14808,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltabcontainertabselected_ptrcall[T])
             ptrcall_func: isignaltabcontainertabselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15090,20 +14820,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTabContainerTabSelected for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTabContainerTabButtonPressed {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("tab")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -15111,7 +14840,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltabcontainertabbuttonpressed_ptrcall[T])
             ptrcall_func: isignaltabcontainertabbuttonpressed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15123,16 +14852,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTabContainerTabButtonPressed for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTabContainerPrePopupPressed {{
         method_name := StringName.new("signal_pre_popup_pressed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltabcontainerprepopuppressed_ptrcall[T])
             ptrcall_func: isignaltabcontainerprepopuppressed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15144,16 +14871,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTabContainerPrePopupPressed for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTextEditTextSet {{
         method_name := StringName.new("signal_text_set")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltextedittextset_ptrcall[T])
             ptrcall_func: isignaltextedittextset_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15165,16 +14890,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTextEditTextSet for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTextEditTextChanged {{
         method_name := StringName.new("signal_text_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltextedittextchanged_ptrcall[T])
             ptrcall_func: isignaltextedittextchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15186,30 +14909,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTextEditTextChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTextEditLinesEditedFrom {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("from_line")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
         mut arg_name_1 := StringName.new("to_line")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_int_is_int64
@@ -15217,7 +14940,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltexteditlineseditedfrom_ptrcall[T])
             ptrcall_func: isignaltexteditlineseditedfrom_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15229,16 +14952,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTextEditLinesEditedFrom for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTextEditCaretChanged {{
         method_name := StringName.new("signal_caret_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltexteditcaretchanged_ptrcall[T])
             ptrcall_func: isignaltexteditcaretchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15250,30 +14971,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTextEditCaretChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTextEditGutterClicked {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("line")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
         mut arg_name_1 := StringName.new("gutter")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_int_is_int64
@@ -15281,7 +15002,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltexteditgutterclicked_ptrcall[T])
             ptrcall_func: isignaltexteditgutterclicked_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15293,16 +15014,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTextEditGutterClicked for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTextEditGutterAdded {{
         method_name := StringName.new("signal_gutter_added")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltexteditgutteradded_ptrcall[T])
             ptrcall_func: isignaltexteditgutteradded_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15314,16 +15033,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTextEditGutterAdded for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTextEditGutterRemoved {{
         method_name := StringName.new("signal_gutter_removed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltexteditgutterremoved_ptrcall[T])
             ptrcall_func: isignaltexteditgutterremoved_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15335,20 +15052,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTextEditGutterRemoved for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTextServerManagerInterfaceAdded {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("interface_name")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_stringname
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -15356,7 +15072,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltextservermanagerinterfaceadded_ptrcall[T])
             ptrcall_func: isignaltextservermanagerinterfaceadded_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15368,20 +15084,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTextServerManagerInterfaceAdded for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTextServerManagerInterfaceRemoved {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("interface_name")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_stringname
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -15389,7 +15104,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltextservermanagerinterfaceremoved_ptrcall[T])
             ptrcall_func: isignaltextservermanagerinterfaceremoved_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15401,16 +15116,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTextServerManagerInterfaceRemoved for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalThemeDBFallbackChanged {{
         method_name := StringName.new("signal_fallback_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalthemedbfallbackchanged_ptrcall[T])
             ptrcall_func: isignalthemedbfallbackchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15422,16 +15135,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalThemeDBFallbackChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTileDataChanged {{
         method_name := StringName.new("signal_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltiledatachanged_ptrcall[T])
             ptrcall_func: isignaltiledatachanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15443,16 +15154,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTileDataChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTileMapChanged {{
         method_name := StringName.new("signal_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltilemapchanged_ptrcall[T])
             ptrcall_func: isignaltilemapchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15464,16 +15173,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTileMapChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTimerTimeout {{
         method_name := StringName.new("signal_timeout")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltimertimeout_ptrcall[T])
             ptrcall_func: isignaltimertimeout_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15485,16 +15192,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTimerTimeout for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTouchScreenButtonPressed {{
         method_name := StringName.new("signal_pressed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltouchscreenbuttonpressed_ptrcall[T])
             ptrcall_func: isignaltouchscreenbuttonpressed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15506,16 +15211,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTouchScreenButtonPressed for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTouchScreenButtonReleased {{
         method_name := StringName.new("signal_released")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltouchscreenbuttonreleased_ptrcall[T])
             ptrcall_func: isignaltouchscreenbuttonreleased_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15527,16 +15230,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTouchScreenButtonReleased for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTreeItemSelected {{
         method_name := StringName.new("signal_item_selected")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltreeitemselected_ptrcall[T])
             ptrcall_func: isignaltreeitemselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15548,16 +15249,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTreeItemSelected for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTreeCellSelected {{
         method_name := StringName.new("signal_cell_selected")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltreecellselected_ptrcall[T])
             ptrcall_func: isignaltreecellselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15569,40 +15268,41 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTreeCellSelected for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTreeMultiSelected {{
         mut argument_props := [3]GDExtensionPropertyInfo{}
         mut argument_metadata := [3]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("item")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("column")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_int_is_int64
         mut arg_name_2 := StringName.new("selected")
+        mut arg_hint_2 := String.new("")
         argument_props[2] = GDExtensionPropertyInfo {
             type_: .type_bool
             name: &arg_name_2
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_2
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[2] = .gdextension_method_argument_metadata_none
@@ -15610,7 +15310,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltreemultiselected_ptrcall[T])
             ptrcall_func: isignaltreemultiselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15622,30 +15322,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTreeMultiSelected for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTreeItemMouseSelected {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("position")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_vector2
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("mouse_button_index")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_int_is_int64
@@ -15653,7 +15353,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltreeitemmouseselected_ptrcall[T])
             ptrcall_func: isignaltreeitemmouseselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15665,30 +15365,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTreeItemMouseSelected for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTreeEmptyClicked {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("position")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_vector2
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("mouse_button_index")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_int_is_int64
@@ -15696,7 +15396,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltreeemptyclicked_ptrcall[T])
             ptrcall_func: isignaltreeemptyclicked_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15708,16 +15408,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTreeEmptyClicked for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTreeItemEdited {{
         method_name := StringName.new("signal_item_edited")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltreeitemedited_ptrcall[T])
             ptrcall_func: isignaltreeitemedited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15729,20 +15427,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTreeItemEdited for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTreeCustomItemClicked {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("mouse_button_index")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -15750,7 +15447,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltreecustomitemclicked_ptrcall[T])
             ptrcall_func: isignaltreecustomitemclicked_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15762,16 +15459,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTreeCustomItemClicked for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTreeItemIconDoubleClicked {{
         method_name := StringName.new("signal_item_icon_double_clicked")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltreeitemicondoubleclicked_ptrcall[T])
             ptrcall_func: isignaltreeitemicondoubleclicked_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15783,20 +15478,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTreeItemIconDoubleClicked for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTreeItemCollapsed {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("item")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -15804,7 +15498,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltreeitemcollapsed_ptrcall[T])
             ptrcall_func: isignaltreeitemcollapsed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15816,30 +15510,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTreeItemCollapsed for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTreeCheckPropagatedToItem {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("item")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("column")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_int_is_int64
@@ -15847,7 +15541,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltreecheckpropagatedtoitem_ptrcall[T])
             ptrcall_func: isignaltreecheckpropagatedtoitem_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15859,50 +15553,52 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTreeCheckPropagatedToItem for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTreeButtonClicked {{
         mut argument_props := [4]GDExtensionPropertyInfo{}
         mut argument_metadata := [4]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("item")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("column")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_int_is_int64
         mut arg_name_2 := StringName.new("id")
+        mut arg_hint_2 := String.new("")
         argument_props[2] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_2
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_2
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[2] = .gdextension_method_argument_metadata_int_is_int64
         mut arg_name_3 := StringName.new("mouse_button_index")
+        mut arg_hint_3 := String.new("")
         argument_props[3] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_3
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_3
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[3] = .gdextension_method_argument_metadata_int_is_int64
@@ -15910,7 +15606,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltreebuttonclicked_ptrcall[T])
             ptrcall_func: isignaltreebuttonclicked_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15922,20 +15618,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTreeButtonClicked for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTreeCustomPopupEdited {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("arrow_clicked")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_bool
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -15943,7 +15638,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltreecustompopupedited_ptrcall[T])
             ptrcall_func: isignaltreecustompopupedited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15955,16 +15650,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTreeCustomPopupEdited for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTreeItemActivated {{
         method_name := StringName.new("signal_item_activated")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltreeitemactivated_ptrcall[T])
             ptrcall_func: isignaltreeitemactivated_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -15976,30 +15669,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTreeItemActivated for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTreeColumnTitleClicked {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("column")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
         mut arg_name_1 := StringName.new("mouse_button_index")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_int_is_int64
@@ -16007,7 +15700,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltreecolumntitleclicked_ptrcall[T])
             ptrcall_func: isignaltreecolumntitleclicked_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16019,16 +15712,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTreeColumnTitleClicked for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTreeNothingSelected {{
         method_name := StringName.new("signal_nothing_selected")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltreenothingselected_ptrcall[T])
             ptrcall_func: isignaltreenothingselected_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16040,20 +15731,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTreeNothingSelected for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTweenStepFinished {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("idx")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -16061,7 +15751,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltweenstepfinished_ptrcall[T])
             ptrcall_func: isignaltweenstepfinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16073,20 +15763,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTweenStepFinished for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTweenLoopFinished {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("loop_count")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -16094,7 +15783,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltweenloopfinished_ptrcall[T])
             ptrcall_func: isignaltweenloopfinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16106,16 +15795,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTweenLoopFinished for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTweenFinished {{
         method_name := StringName.new("signal_finished")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltweenfinished_ptrcall[T])
             ptrcall_func: isignaltweenfinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16127,16 +15814,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTweenFinished for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalTweenerFinished {{
         method_name := StringName.new("signal_finished")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignaltweenerfinished_ptrcall[T])
             ptrcall_func: isignaltweenerfinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16148,16 +15833,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalTweenerFinished for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalUndoRedoVersionChanged {{
         method_name := StringName.new("signal_version_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalundoredoversionchanged_ptrcall[T])
             ptrcall_func: isignalundoredoversionchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16169,16 +15852,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalUndoRedoVersionChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalVideoStreamPlayerFinished {{
         method_name := StringName.new("signal_finished")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalvideostreamplayerfinished_ptrcall[T])
             ptrcall_func: isignalvideostreamplayerfinished_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16190,16 +15871,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalVideoStreamPlayerFinished for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalViewportSizeChanged {{
         method_name := StringName.new("signal_size_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalviewportsizechanged_ptrcall[T])
             ptrcall_func: isignalviewportsizechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16211,20 +15890,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalViewportSizeChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalViewportGuiFocusChanged {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("node")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -16232,7 +15910,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalviewportguifocuschanged_ptrcall[T])
             ptrcall_func: isignalviewportguifocuschanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16244,16 +15922,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalViewportGuiFocusChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalVisibleOnScreenNotifier2DScreenEntered {{
         method_name := StringName.new("signal_screen_entered")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalvisibleonscreennotifier2dscreenentered_ptrcall[T])
             ptrcall_func: isignalvisibleonscreennotifier2dscreenentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16265,16 +15941,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalVisibleOnScreenNotifier2DScreenEntered for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalVisibleOnScreenNotifier2DScreenExited {{
         method_name := StringName.new("signal_screen_exited")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalvisibleonscreennotifier2dscreenexited_ptrcall[T])
             ptrcall_func: isignalvisibleonscreennotifier2dscreenexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16286,16 +15960,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalVisibleOnScreenNotifier2DScreenExited for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalVisibleOnScreenNotifier3DScreenEntered {{
         method_name := StringName.new("signal_screen_entered")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalvisibleonscreennotifier3dscreenentered_ptrcall[T])
             ptrcall_func: isignalvisibleonscreennotifier3dscreenentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16307,16 +15979,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalVisibleOnScreenNotifier3DScreenEntered for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalVisibleOnScreenNotifier3DScreenExited {{
         method_name := StringName.new("signal_screen_exited")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalvisibleonscreennotifier3dscreenexited_ptrcall[T])
             ptrcall_func: isignalvisibleonscreennotifier3dscreenexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16328,16 +15998,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalVisibleOnScreenNotifier3DScreenExited for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalVisualShaderNodeInputInputTypeChanged {{
         method_name := StringName.new("signal_input_type_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalvisualshadernodeinputinputtypechanged_ptrcall[T])
             ptrcall_func: isignalvisualshadernodeinputinputtypechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16349,30 +16017,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalVisualShaderNodeInputInputTypeChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalWebRTCPeerConnectionSessionDescriptionCreated {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("type_name")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("sdp")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
@@ -16380,7 +16048,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalwebrtcpeerconnectionsessiondescriptioncreated_ptrcall[T])
             ptrcall_func: isignalwebrtcpeerconnectionsessiondescriptioncreated_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16392,40 +16060,41 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalWebRTCPeerConnectionSessionDescriptionCreated for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalWebRTCPeerConnectionIceCandidateCreated {{
         mut argument_props := [3]GDExtensionPropertyInfo{}
         mut argument_metadata := [3]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("media")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("index")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_int_is_int64
         mut arg_name_2 := StringName.new("name")
+        mut arg_hint_2 := String.new("")
         argument_props[2] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_2
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_2
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[2] = .gdextension_method_argument_metadata_none
@@ -16433,7 +16102,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalwebrtcpeerconnectionicecandidatecreated_ptrcall[T])
             ptrcall_func: isignalwebrtcpeerconnectionicecandidatecreated_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16445,20 +16114,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalWebRTCPeerConnectionIceCandidateCreated for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalWebRTCPeerConnectionDataChannelReceived {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("channel")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -16466,7 +16134,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalwebrtcpeerconnectiondatachannelreceived_ptrcall[T])
             ptrcall_func: isignalwebrtcpeerconnectiondatachannelreceived_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16478,30 +16146,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalWebRTCPeerConnectionDataChannelReceived for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalWebXRInterfaceSessionSupported {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("session_mode")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("supported")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_bool
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
@@ -16509,7 +16177,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalwebxrinterfacesessionsupported_ptrcall[T])
             ptrcall_func: isignalwebxrinterfacesessionsupported_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16521,16 +16189,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalWebXRInterfaceSessionSupported for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalWebXRInterfaceSessionStarted {{
         method_name := StringName.new("signal_session_started")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalwebxrinterfacesessionstarted_ptrcall[T])
             ptrcall_func: isignalwebxrinterfacesessionstarted_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16542,16 +16208,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalWebXRInterfaceSessionStarted for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalWebXRInterfaceSessionEnded {{
         method_name := StringName.new("signal_session_ended")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalwebxrinterfacesessionended_ptrcall[T])
             ptrcall_func: isignalwebxrinterfacesessionended_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16563,20 +16227,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalWebXRInterfaceSessionEnded for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalWebXRInterfaceSessionFailed {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("message")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -16584,7 +16247,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalwebxrinterfacesessionfailed_ptrcall[T])
             ptrcall_func: isignalwebxrinterfacesessionfailed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16596,20 +16259,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalWebXRInterfaceSessionFailed for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalWebXRInterfaceSelectstart {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("input_source_id")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -16617,7 +16279,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalwebxrinterfaceselectstart_ptrcall[T])
             ptrcall_func: isignalwebxrinterfaceselectstart_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16629,20 +16291,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalWebXRInterfaceSelectstart for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalWebXRInterfaceSelect {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("input_source_id")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -16650,7 +16311,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalwebxrinterfaceselect_ptrcall[T])
             ptrcall_func: isignalwebxrinterfaceselect_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16662,20 +16323,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalWebXRInterfaceSelect for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalWebXRInterfaceSelectend {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("input_source_id")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -16683,7 +16343,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalwebxrinterfaceselectend_ptrcall[T])
             ptrcall_func: isignalwebxrinterfaceselectend_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16695,20 +16355,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalWebXRInterfaceSelectend for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalWebXRInterfaceSqueezestart {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("input_source_id")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -16716,7 +16375,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalwebxrinterfacesqueezestart_ptrcall[T])
             ptrcall_func: isignalwebxrinterfacesqueezestart_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16728,20 +16387,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalWebXRInterfaceSqueezestart for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalWebXRInterfaceSqueeze {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("input_source_id")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -16749,7 +16407,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalwebxrinterfacesqueeze_ptrcall[T])
             ptrcall_func: isignalwebxrinterfacesqueeze_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16761,20 +16419,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalWebXRInterfaceSqueeze for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalWebXRInterfaceSqueezeend {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("input_source_id")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -16782,7 +16439,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalwebxrinterfacesqueezeend_ptrcall[T])
             ptrcall_func: isignalwebxrinterfacesqueezeend_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16794,16 +16451,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalWebXRInterfaceSqueezeend for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalWebXRInterfaceVisibilityStateChanged {{
         method_name := StringName.new("signal_visibility_state_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalwebxrinterfacevisibilitystatechanged_ptrcall[T])
             ptrcall_func: isignalwebxrinterfacevisibilitystatechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16815,16 +16470,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalWebXRInterfaceVisibilityStateChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalWebXRInterfaceReferenceSpaceReset {{
         method_name := StringName.new("signal_reference_space_reset")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalwebxrinterfacereferencespacereset_ptrcall[T])
             ptrcall_func: isignalwebxrinterfacereferencespacereset_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16836,16 +16489,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalWebXRInterfaceReferenceSpaceReset for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalWebXRInterfaceDisplayRefreshRateChanged {{
         method_name := StringName.new("signal_display_refresh_rate_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalwebxrinterfacedisplayrefreshratechanged_ptrcall[T])
             ptrcall_func: isignalwebxrinterfacedisplayrefreshratechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16857,20 +16508,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalWebXRInterfaceDisplayRefreshRateChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalWindowWindowInput {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("event")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -16878,7 +16528,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalwindowwindowinput_ptrcall[T])
             ptrcall_func: isignalwindowwindowinput_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16890,20 +16540,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalWindowWindowInput for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalWindowFilesDropped {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("files")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_packedstringarray
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -16911,7 +16560,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalwindowfilesdropped_ptrcall[T])
             ptrcall_func: isignalwindowfilesdropped_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16923,16 +16572,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalWindowFilesDropped for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalWindowMouseEntered {{
         method_name := StringName.new("signal_mouse_entered")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalwindowmouseentered_ptrcall[T])
             ptrcall_func: isignalwindowmouseentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16944,16 +16591,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalWindowMouseEntered for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalWindowMouseExited {{
         method_name := StringName.new("signal_mouse_exited")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalwindowmouseexited_ptrcall[T])
             ptrcall_func: isignalwindowmouseexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16965,16 +16610,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalWindowMouseExited for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalWindowFocusEntered {{
         method_name := StringName.new("signal_focus_entered")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalwindowfocusentered_ptrcall[T])
             ptrcall_func: isignalwindowfocusentered_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -16986,16 +16629,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalWindowFocusEntered for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalWindowFocusExited {{
         method_name := StringName.new("signal_focus_exited")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalwindowfocusexited_ptrcall[T])
             ptrcall_func: isignalwindowfocusexited_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17007,16 +16648,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalWindowFocusExited for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalWindowCloseRequested {{
         method_name := StringName.new("signal_close_requested")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalwindowcloserequested_ptrcall[T])
             ptrcall_func: isignalwindowcloserequested_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17028,16 +16667,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalWindowCloseRequested for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalWindowGoBackRequested {{
         method_name := StringName.new("signal_go_back_requested")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalwindowgobackrequested_ptrcall[T])
             ptrcall_func: isignalwindowgobackrequested_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17049,16 +16686,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalWindowGoBackRequested for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalWindowVisibilityChanged {{
         method_name := StringName.new("signal_visibility_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalwindowvisibilitychanged_ptrcall[T])
             ptrcall_func: isignalwindowvisibilitychanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17070,16 +16705,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalWindowVisibilityChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalWindowAboutToPopup {{
         method_name := StringName.new("signal_about_to_popup")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalwindowabouttopopup_ptrcall[T])
             ptrcall_func: isignalwindowabouttopopup_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17091,16 +16724,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalWindowAboutToPopup for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalWindowThemeChanged {{
         method_name := StringName.new("signal_theme_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalwindowthemechanged_ptrcall[T])
             ptrcall_func: isignalwindowthemechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17112,16 +16743,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalWindowThemeChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalWindowDpiChanged {{
         method_name := StringName.new("signal_dpi_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalwindowdpichanged_ptrcall[T])
             ptrcall_func: isignalwindowdpichanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17133,16 +16762,14 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalWindowDpiChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalWindowTitlebarChanged {{
         method_name := StringName.new("signal_titlebar_changed")
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalwindowtitlebarchanged_ptrcall[T])
             ptrcall_func: isignalwindowtitlebarchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17154,20 +16781,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalWindowTitlebarChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalXRController3DButtonPressed {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("name")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -17175,7 +16801,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalxrcontroller3dbuttonpressed_ptrcall[T])
             ptrcall_func: isignalxrcontroller3dbuttonpressed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17187,20 +16813,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalXRController3DButtonPressed for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalXRController3DButtonReleased {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("name")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -17208,7 +16833,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalxrcontroller3dbuttonreleased_ptrcall[T])
             ptrcall_func: isignalxrcontroller3dbuttonreleased_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17220,30 +16845,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalXRController3DButtonReleased for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalXRController3DInputFloatChanged {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("name")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("value")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_f64
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_real_is_double
@@ -17251,7 +16876,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalxrcontroller3dinputfloatchanged_ptrcall[T])
             ptrcall_func: isignalxrcontroller3dinputfloatchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17263,30 +16888,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalXRController3DInputFloatChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalXRController3DInputVector2Changed {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("name")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("value")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_vector2
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
@@ -17294,7 +16919,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalxrcontroller3dinputvector2changed_ptrcall[T])
             ptrcall_func: isignalxrcontroller3dinputvector2changed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17306,20 +16931,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalXRController3DInputVector2Changed for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalXRInterfacePlayAreaChanged {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("mode")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_int_is_int64
@@ -17327,7 +16951,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalxrinterfaceplayareachanged_ptrcall[T])
             ptrcall_func: isignalxrinterfaceplayareachanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17339,20 +16963,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalXRInterfacePlayAreaChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalXRNode3DTrackingChanged {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("tracking")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_bool
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -17360,7 +16983,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalxrnode3dtrackingchanged_ptrcall[T])
             ptrcall_func: isignalxrnode3dtrackingchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17372,20 +16995,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalXRNode3DTrackingChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalXRPositionalTrackerPoseChanged {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("pose")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -17393,7 +17015,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalxrpositionaltrackerposechanged_ptrcall[T])
             ptrcall_func: isignalxrpositionaltrackerposechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17405,20 +17027,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalXRPositionalTrackerPoseChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalXRPositionalTrackerPoseLostTracking {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("pose")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_object
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -17426,7 +17047,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalxrpositionaltrackerposelosttracking_ptrcall[T])
             ptrcall_func: isignalxrpositionaltrackerposelosttracking_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17438,20 +17059,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalXRPositionalTrackerPoseLostTracking for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalXRPositionalTrackerButtonPressed {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("name")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -17459,7 +17079,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalxrpositionaltrackerbuttonpressed_ptrcall[T])
             ptrcall_func: isignalxrpositionaltrackerbuttonpressed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17471,20 +17091,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalXRPositionalTrackerButtonPressed for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalXRPositionalTrackerButtonReleased {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("name")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -17492,7 +17111,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalxrpositionaltrackerbuttonreleased_ptrcall[T])
             ptrcall_func: isignalxrpositionaltrackerbuttonreleased_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17504,30 +17123,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalXRPositionalTrackerButtonReleased for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalXRPositionalTrackerInputFloatChanged {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("name")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("value")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_f64
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_real_is_double
@@ -17535,7 +17154,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalxrpositionaltrackerinputfloatchanged_ptrcall[T])
             ptrcall_func: isignalxrpositionaltrackerinputfloatchanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17547,30 +17166,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalXRPositionalTrackerInputFloatChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalXRPositionalTrackerInputVector2Changed {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("name")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("vector")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_vector2
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_none
@@ -17578,7 +17197,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalxrpositionaltrackerinputvector2changed_ptrcall[T])
             ptrcall_func: isignalxrpositionaltrackerinputvector2changed_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17590,20 +17209,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalXRPositionalTrackerInputVector2Changed for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalXRPositionalTrackerProfileChanged {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("role")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_string
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -17611,7 +17229,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalxrpositionaltrackerprofilechanged_ptrcall[T])
             ptrcall_func: isignalxrpositionaltrackerprofilechanged_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17623,20 +17241,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalXRPositionalTrackerProfileChanged for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalXRServerInterfaceAdded {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("interface_name")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_stringname
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -17644,7 +17261,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalxrserverinterfaceadded_ptrcall[T])
             ptrcall_func: isignalxrserverinterfaceadded_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17656,20 +17273,19 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalXRServerInterfaceAdded for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalXRServerInterfaceRemoved {{
         mut argument_props := [1]GDExtensionPropertyInfo{}
         mut argument_metadata := [1]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("interface_name")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_stringname
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
@@ -17677,7 +17293,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalxrserverinterfaceremoved_ptrcall[T])
             ptrcall_func: isignalxrserverinterfaceremoved_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17689,30 +17305,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalXRServerInterfaceRemoved for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalXRServerTrackerAdded {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("tracker_name")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_stringname
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("type_name")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_int_is_int64
@@ -17720,7 +17336,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalxrservertrackeradded_ptrcall[T])
             ptrcall_func: isignalxrservertrackeradded_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17732,30 +17348,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalXRServerTrackerAdded for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalXRServerTrackerUpdated {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("tracker_name")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_stringname
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("type_name")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_int_is_int64
@@ -17763,7 +17379,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalxrservertrackerupdated_ptrcall[T])
             ptrcall_func: isignalxrservertrackerupdated_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17775,30 +17391,30 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalXRServerTrackerUpdated for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
     $if T is ISignalXRServerTrackerRemoved {{
         mut argument_props := [2]GDExtensionPropertyInfo{}
         mut argument_metadata := [2]GDExtensionClassMethodArgumentMetadata{}
         mut arg_name_0 := StringName.new("tracker_name")
+        mut arg_hint_0 := String.new("")
         argument_props[0] = GDExtensionPropertyInfo {
             type_: .type_stringname
             name: &arg_name_0
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_0
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[0] = .gdextension_method_argument_metadata_none
         mut arg_name_1 := StringName.new("type_name")
+        mut arg_hint_1 := String.new("")
         argument_props[1] = GDExtensionPropertyInfo {
             type_: .type_i64
             name: &arg_name_1
             class_name: &ci.class_name
             hint: u32(PropertyHint.property_hint_none)
-            hint_string: unsafe{nil}
+            hint_string: &arg_hint_1
             usage: u32(PropertyUsageFlags.property_usage_default)
         }
         argument_metadata[1] = .gdextension_method_argument_metadata_int_is_int64
@@ -17806,7 +17422,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
         method_info := GDExtensionClassMethodInfo {
             name: &method_name
             method_userdata: unsafe{nil}
-            call_func: unsafe{nil}
+            call_func: ptrcall_to_call(isignalxrservertrackerremoved_ptrcall[T])
             ptrcall_func: isignalxrservertrackerremoved_ptrcall[T]
             method_flags: 1
             has_return_value: GDExtensionBool(false)
@@ -17818,9 +17434,7 @@ pub fn register_signal_methods[T](mut ci ClassInfo) {
             default_argument_count: 0
             default_arguments: unsafe{nil}
         }
-        println("registering ISignalXRServerTrackerRemoved for ${T.name}")
         gdf.classdb_register_extension_class_method(gdf.clp, ci.class_name, method_info)
-        println("registered")
     }}
 }
 
