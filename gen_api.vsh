@@ -1064,7 +1064,7 @@ fn gen_classes(ea &ExtensionApi) ! {
 		if class.inherits != '' {
 			f.write_string('    ${convert_type(class.inherits, '')}\n')!
 		} else {
-			f.write_string('    mut:\n')!
+			f.write_string('    pub mut:\n')!
 			f.write_string('    ptr voidptr = unsafe{nil}\n')!
 		}
 		f.write_string('}\n\n')!

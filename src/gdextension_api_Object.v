@@ -9,7 +9,7 @@ pub enum ObjectConnectFlags as i64 {
 
 @[noinit]
 pub struct Object {
-    mut:
+    pub mut:
     ptr voidptr = unsafe{nil}
 }
 
