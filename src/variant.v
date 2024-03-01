@@ -72,6 +72,13 @@ pub fn (o &Object) cast_to_v[T](type_name string) ?&T {
 	if t.ptr == unsafe { nil } {
 		return none
 	}
+
+	gdf.object_get_class_name(t.ptr, gdf.clp, GDExtensionUninitializedStringNamePtr(&sn))
+	o_name := sn.to_v()
+	sn.deinit()
+	if o_name != type_name {
+		return none
+	}
 	v_ptr := gdf.object_get_instance_binding(t.ptr, gdf.clp, unsafe { nil })
 	if v_ptr == unsafe { nil } {
 		return none
