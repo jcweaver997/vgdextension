@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccabpc7u0ky5n"]
+
+[ext_resource type="Texture2D" uid="uid://co5j7vqcoyik6" path="res://sprites/icon.svg" id="1_sag0h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dkgiw"]
+size = Vector2(18, 18)
+
+[node name="Enemy" type="Node2D"]
+
+[node name="Enemy" type="Enemy" parent="."]
+speed = 25.0
+collision_layer = 2
+collision_mask = 3
+motion_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+shape = SubResource("RectangleShape2D_dkgiw")
+
+[node name="Smoother2D" type="Smoother2D" parent="."]
+follow_target_path = NodePath("../Enemy")
+move_target_path = NodePath("../Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("1_sag0h")
+flip_v = true

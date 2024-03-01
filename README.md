@@ -1,6 +1,5 @@
 # vgdextension
 gdextension for vlang
-## WIP
 
 ### vgdextension layout
 `./gen_api.vsh` API binding generator<br>
@@ -18,6 +17,7 @@ gdextension for vlang
 
 
 ### Example
+Please check the examples/shooter2d example for a more in depth example<br>
 Note: This example should run, but not much testing has been done yet on other features<br>
 Compile with `v -shared -enable-globals -cc gcc .`
 ```v
@@ -73,12 +73,6 @@ pub fn deinit_gd(v voidptr, l gd.GDExtensionInitializationLevel) {
 @[export: 'hello_extension_entry']
 pub fn hello_extension_entry(gpaddr fn (&i8) gd.GDExtensionInterfaceFunctionPtr, clp gd.GDExtensionClassLibraryPtr, mut gdnit gd.GDExtensionInitialization) gd.GDExtensionBool {
 	gd.setup_lib(gpaddr, clp)
-	ver := gd.GDExtensionGodotVersion{}
-
-	gdf.get_godot_version(&ver)
-
-	// For some reason println formatting doesn't work, so use C.printf for formatting for now
-	C.printf('hello_extension_entry v%d.%d.%d\n'.str, ver.major, ver.minor, ver.patch)
 
 	// setup the `initialize` function
 	gdnit.initialize = init_gd

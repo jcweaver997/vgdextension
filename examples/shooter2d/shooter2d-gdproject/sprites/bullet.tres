@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" load_steps=2 format=3 uid="uid://dq7j1op0qm08r"]
+
+[ext_resource type="Texture2D" uid="uid://77qp7qncpc43" path="res://sprites/bullet.png" id="1_w312v"]
+
+[resource]
+diffuse_texture = ExtResource("1_w312v")
+texture_filter = 1
+texture_repeat = 1

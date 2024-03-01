@@ -1,0 +1,7 @@
+[configuration]
+entry_symbol = "hello_extension_entry"
+compatibility_minimum = 4.1
+
+[libraries]
+windows.x86_64 = "shooter2d.dll"
+linux.x86_64 = "shooter2d.so"

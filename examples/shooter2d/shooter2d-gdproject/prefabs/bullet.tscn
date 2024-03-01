@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://hwrtecfg1cfp"]
+
+[ext_resource type="Texture2D" uid="uid://dq7j1op0qm08r" path="res://sprites/bullet.tres" id="1_pwvdt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qrwaf"]
+size = Vector2(6, 3.5)
+
+[node name="Bullet" type="Node2D"]
+position = Vector2(454, 275)
+
+[node name="Bullet" type="Bullet" parent="."]
+speed = 150.0
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet"]
+position = Vector2(0, -0.25)
+shape = SubResource("RectangleShape2D_qrwaf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_pwvdt")
+
+[node name="Smoother2D" type="Smoother2D" parent="."]
+follow_target_path = NodePath("../Bullet")
+move_target_path = NodePath("../Sprite2D")
