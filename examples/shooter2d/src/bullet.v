@@ -38,6 +38,8 @@ fn (mut c Bullet) virt_physics_process(delta f64) {
 	}
 }
 
+// signals currently need to be exlicitly named `signal_<signalname>`
+// where <signalname> is the name of the signal you are connecting to
 fn (mut c Bullet) signal_body_entered(body gd.Node2D) {
 	// Check if the body was an enemy and delete both the enemy and the bullet
 	if enemy := body.cast_to_v[Enemy]('Enemy') {

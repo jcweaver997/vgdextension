@@ -8,7 +8,9 @@ gdextension for vlang
 `./src/gdextension_api*.v` the generated godot api<br>
 `./src/gdextension_interface.v` interface file, defines the gdextension interface functions and types<br>
 `./src/gdextension.v` binds the gdextension interface functions<br>
-
+`./src/variant.v` variant and other helper functions<br>
+`./src/gdextension_api_virtual_bind.v` interfaces for virtual functions<br>
+`./src/gdextension_api_method_export.v` handles exporting functions to godot, currently only supports signals<br>
 
 ### Generate Your Own Bindings
 1. Run `godot --dump-extension-api` to generate your `extension_api.json`<br>
@@ -18,8 +20,8 @@ gdextension for vlang
 
 ### Example
 Please check the examples/shooter2d example for a more in depth example<br>
-Note: This example should run, but not much testing has been done yet on other features<br>
-Compile with `v -shared -enable-globals -cc gcc .`
+Note: -d no_backtrace is used to allow tcc to work. It's not needed if you use gcc/clang<br>
+Compile with `v -shared -enable-globals -d no_backtrace .`
 ```v
 module main
 
