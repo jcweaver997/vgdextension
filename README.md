@@ -1,6 +1,22 @@
 # vgdextension
 gdextension for vlang
 
+## Status
+
+|Feature|Status|Description|
+|--|--|--|
+|Godot Builtin FFI|&check;|FFI of godot's builtin types and functions like StringName|
+|Godot Class FFI|&check;|FFI of godot's classes like Node3D|
+|Class Registration|&check;|You can register classes with V|
+|Class Virtual Functions|&check;|You can override class virtual functions with V, like ready() and process() by prepending virt_ to it like 'virt_ready()'|
+|Signals|Partial|Right now only GD signals can be listened to, and those functions need specific names, like for the 'area_entered' signal, you must name your function 'signal_area_entered'. This is due to the same issue described in 'Class Function Export'|
+|Class Function Export|&cross;|Right now only functions with arguments known api_gen time like signals and virtual functions can be exported. A generic way to export functions will require more V compile time features|
+|Member Variable Export to Inspector|Partial|Right now only builtin godot types (not godot classes that are derived from an Object), can be exported|
+|Build Support|&check;|Builds and runs on Windows and Linux|
+|Overall Usability|Low|V-analyzer autocomplete doesn't work https://github.com/jcweaver997/vgdextension/issues/4<br>Godot crashes when calling functions on Objects that don't exist anymore rather than providing an error in the log<br>If you create a godot object manually, you must manually free it using deinit() (i.e. StringName)<br>Compile times are longer than I would like them to be
+|
+
+
 ### vgdextension layout
 `./gen_api.vsh` API binding generator<br>
 `./extension_api.json` the godot extension api json the api generator will use<br>
